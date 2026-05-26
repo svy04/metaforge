@@ -1,0 +1,12 @@
+action_id: review-agent-graph-state-machine-kernel-replay-harness
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_replay_harness_v0_1
+
+next_steps:
+  - Review kernel replay outcomes before state machine hardening
+  - Confirm normal path reaches evidence_written
+  - Confirm blocked outcomes terminate at blocked_terminal
+  - Confirm owner-review outcomes terminate at owner_review_required
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_replay_review_v0_1
