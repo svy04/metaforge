@@ -1,0 +1,37 @@
+task_id: avf-capability-owner-filled-primary-source-evidence-review-v0-1
+title: Add AVF owner-filled primary-source evidence review gate v0.1
+goal: Define the repo-local review gate for owner/PRO-filled primary-source evidence records before any source can be accepted for ingestion or capability integration.
+context_paths:
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_packet.yml
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_packet_gate.json
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_pro_prompt.md
+files_likely_to_touch:
+  - scripts/run_avf_capability_owner_filled_primary_source_evidence_review_v0_1.py
+  - scripts/validate_avf_capability_owner_filled_primary_source_evidence_review_v0_1.py
+  - avf/capabilities/generated/capability_owner_filled_primary_source_evidence_review_gate.json
+  - docs/goals/AVF_CAPABILITY_OWNER_FILLED_PRIMARY_SOURCE_EVIDENCE_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - review gate checks whether owner/PRO-filled evidence has all required fields
+  - empty or partial records remain blocked
+  - no capability integration is allowed without accepted source evidence
+  - protected actions remain blocked
+validation_commands:
+  - python scripts\validate_avf_capability_owner_primary_source_evidence_population_packet_v0_1.py
+  - python scripts\validate_avf_capability_owner_filled_primary_source_evidence_review_v0_1.py
+expected_outputs:
+  - owner-filled source evidence review gate
+  - validation report
+next_safe_goal_id: avf_capability_owner_filled_primary_source_evidence_review_v0_1
