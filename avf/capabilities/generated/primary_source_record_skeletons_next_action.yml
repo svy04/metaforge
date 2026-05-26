@@ -1,0 +1,11 @@
+action_id: review-primary-source-record-skeletons
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_record_skeletons_v0_1
+
+next_steps:
+  - Review blank source record skeletons before any source acquisition
+  - Verify every skeleton preserves source target id, source category, and target claim
+  - Keep every skeleton planned_not_acquired until a later approval-gated phase
+  - Do not fetch, scrape, clone, install, or call providers
+
+next_safe_goal_id: avf_primary_source_record_skeletons_review_v0_1
