@@ -1,0 +1,39 @@
+# AVF Kernel Goal Intake Schema
+
+version: 1
+type: object
+required:
+  - goal_id
+  - owner_intent
+  - target_tracks
+  - success_proof
+  - constraints
+properties:
+  goal_id:
+    type: string
+  owner_intent:
+    type: string
+  target_tracks:
+    type: array
+    items:
+      type: string
+  success_proof:
+    type: array
+    items:
+      type: string
+  constraints:
+    type: object
+    required:
+      - repo_local_only
+      - provider_calls_allowed
+      - deploy_allowed
+      - publish_allowed
+    properties:
+      repo_local_only:
+        type: boolean
+      provider_calls_allowed:
+        type: boolean
+      deploy_allowed:
+        type: boolean
+      publish_allowed:
+        type: boolean

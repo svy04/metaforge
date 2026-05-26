@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "sample goal exists",
+    "factory output packet created",
+    "Codex task packet created",
+    "evidence ledger v2 entry created",
+    "protected action flags remain false"
+  ],
+  "claim_boundary": {
+    "deploy_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false
+  },
+  "status": "PASS",
+  "terminal_condition": "AVF_KERNEL_V0_1_DRY_RUN_READY",
+  "validator_id": "validate_avf_kernel_v0_1_dry_run"
+}

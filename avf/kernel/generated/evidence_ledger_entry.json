@@ -1,0 +1,48 @@
+{
+  "actor": {
+    "actor_id": "scripts/run_avf_kernel_v0_1_dry_run.py",
+    "actor_type": "local_runner"
+  },
+  "approval_state": {
+    "approver": "",
+    "required": false,
+    "status": "not_required"
+  },
+  "artifact_hash": "b038b5540b366f26173f81ca5128a79aebb62417ffb6d6942178954f3dbf83a1",
+  "artifact_id": "factory-output-packet-v0-1",
+  "artifact_uri": "avf/kernel/generated/factory_output_packet.json",
+  "claim": "AVF Kernel v0.1 can transform one safe sample goal into local proof artifacts.",
+  "claim_boundary": {
+    "deploy_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "scope": "repo_local_internal_only"
+  },
+  "confidence": {
+    "level": "medium",
+    "reason": "Local deterministic dry-run proof only; no external validation claim."
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "goal_id": "sample-transparent-ai-creator-collective",
+  "id": "evidence-avf-kernel-v0-1-sample-run",
+  "next_action": "avf_kernel_v0_2_semantic_router",
+  "run_id": "avf-kernel-v0-1-sample-run",
+  "source": {
+    "source_hash": "38a1739774e65b5a97c549b3a47e9d91470ed886c63212151f8ef6d22d38a7c0",
+    "source_type": "repo_fixture",
+    "source_uri": "avf/kernel/sample_goal.yml"
+  },
+  "validation_method": {
+    "command": "python scripts\\validate_avf_kernel_v0_1_dry_run.py",
+    "method_type": "local_validator",
+    "validator_uri": "scripts/validate_avf_kernel_v0_1_dry_run.py"
+  },
+  "validation_result": {
+    "observed_at": "2026-05-26T00:00:00Z",
+    "status": "PASS",
+    "summary": "Generated local dry-run artifacts preserve protected-action boundaries."
+  }
+}

@@ -1,0 +1,24 @@
+# AVF Kernel v0.1 Codex Task Packet
+
+task_id: codex-avf-kernel-v0-2-semantic-router
+goal: Add a deterministic semantic router for AVF Kernel v0.2 that maps goal intake records to track classification, risk classification, role plan, and proof artifact plan.
+context: Use the AVF Kernel v0.1 dry-run outputs as the contract. Keep execution repo-local and provider-independent.
+constraints:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No dependency install
+  - No deploy or publish
+  - No public, release, or production readiness claim
+forbidden_changes:
+  - Do not add provider-specific dependencies
+  - Do not implement platform posting
+  - Do not automate personal accounts
+  - Do not implement fake human impersonation
+  - Do not rewrite existing AVF foundation records
+acceptance_criteria: Acceptance criteria include deterministic routing output, local fixture coverage, evidence ledger v2 entry creation, and a validator that proves no protected action occurred.
+validation_commands:
+  - python scripts\validate_avf_kernel_v0_1_dry_run.py
+  - python scripts\validate_avf_architecture_expansion_map.py
+expected_result: A local-only semantic router proof that preserves draft-first and approval-gated boundaries.
+next_pr_recommendation: Add AVF Kernel v0.2 semantic router fixtures and validation.

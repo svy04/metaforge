@@ -1,0 +1,42 @@
+# AVF Kernel Factory Output Packet Schema
+
+version: 1
+type: object
+required:
+  - kernel_version
+  - run_id
+  - goal_id
+  - track_classification
+  - agent_role_plan
+  - proof_artifact_plan
+  - codex_task_packet_uri
+  - evidence_ledger_entry_uri
+  - validation_report_uri
+  - safety_boundary
+  - next_safe_goal_id
+  - terminal_condition
+properties:
+  kernel_version:
+    type: string
+  run_id:
+    type: string
+  goal_id:
+    type: string
+  track_classification:
+    type: array
+  agent_role_plan:
+    type: array
+  proof_artifact_plan:
+    type: array
+  codex_task_packet_uri:
+    type: string
+  evidence_ledger_entry_uri:
+    type: string
+  validation_report_uri:
+    type: string
+  safety_boundary:
+    type: object
+  next_safe_goal_id:
+    type: string
+  terminal_condition:
+    type: string

@@ -1,0 +1,26 @@
+# AVF Kernel Run State Schema
+
+version: 1
+type: object
+required:
+  - run_id
+  - goal_id
+  - state
+  - transitions
+states:
+  - created
+  - classified
+  - planned
+  - validated
+  - terminal
+properties:
+  run_id:
+    type: string
+  goal_id:
+    type: string
+  state:
+    type: string
+  transitions:
+    type: array
+  terminal_condition:
+    type: string

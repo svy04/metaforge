@@ -1,0 +1,34 @@
+# AVF Kernel Router Contract Schema
+
+version: 1
+deterministic_router:
+  input:
+    - goal_id
+    - owner_intent
+    - target_tracks
+    - constraints
+  output:
+    - track_classifier
+    - risk_classifier
+    - agent_role_plan
+track_classifier:
+  allowed_tracks:
+    - Product Track
+    - Infra Product Track
+    - Brand/IP Track
+    - Content System Track
+    - Growth Experiment Track
+    - Safe Influence Factory Track
+    - Codex Lane
+risk_classifier:
+  allowed_levels:
+    - low
+    - medium
+    - high
+    - blocked
+  blocked_when:
+    - provider calls requested
+    - deploy requested
+    - publish requested
+    - fake human impersonation requested
+    - engagement manipulation requested

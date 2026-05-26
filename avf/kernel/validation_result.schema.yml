@@ -1,0 +1,24 @@
+# AVF Kernel Validation Result Schema
+
+version: 1
+type: object
+required:
+  - validator_id
+  - status
+  - checks
+  - claim_boundary
+  - terminal_condition
+properties:
+  validator_id:
+    type: string
+  status:
+    type: string
+    enum:
+      - PASS
+      - FAIL
+  checks:
+    type: array
+  claim_boundary:
+    type: object
+  terminal_condition:
+    type: string

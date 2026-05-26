@@ -1,0 +1,81 @@
+{
+  "agent_role_plan": [
+    {
+      "responsibility": "Coordinate track classification and next safe action.",
+      "role": "Orchestrator"
+    },
+    {
+      "responsibility": "Define proof artifacts and user-facing value boundary.",
+      "role": "Product Strategist"
+    },
+    {
+      "responsibility": "Preserve brand, persona, and visual style memory requirements.",
+      "role": "Brand/IP Architect"
+    },
+    {
+      "responsibility": "Keep content outputs draft-first with approval gates.",
+      "role": "Content Systems Designer"
+    },
+    {
+      "responsibility": "Block deceptive influence, posting automation, and readiness claims.",
+      "role": "Safety Reviewer"
+    },
+    {
+      "responsibility": "Create a PR-sized next task with validation criteria.",
+      "role": "Codex Executor Planner"
+    }
+  ],
+  "codex_task_packet_uri": "avf/kernel/generated/codex_task_packet.yml",
+  "evidence_ledger_entry_uri": "avf/kernel/generated/evidence_ledger_entry.json",
+  "goal_id": "sample-transparent-ai-creator-collective",
+  "kernel_version": "avf_kernel_v0_1",
+  "next_safe_goal_id": "avf_kernel_v0_2_semantic_router",
+  "next_safe_goal_title": "AVF Kernel v0.2 Semantic Router",
+  "owner_intent": "Transform a safe transparent AI creator collective idea into internal proof artifacts and a PR-sized Codex next action.",
+  "proof_artifact_plan": [
+    "factory_output_packet.json",
+    "codex_task_packet.yml",
+    "evidence_ledger_entry.json",
+    "validation_result.json",
+    "validation_report.md"
+  ],
+  "run_id": "avf-kernel-v0-1-sample-run",
+  "safety_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_service_calls_performed": false,
+    "external_validation_claimed": false,
+    "live_model_calls_performed": false,
+    "platform_posting_performed": false,
+    "production_readiness_claimed": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "public_readiness_claimed": false,
+    "publish_performed": false,
+    "release_readiness_claimed": false
+  },
+  "terminal_condition": "AVF_KERNEL_V0_1_DRY_RUN_READY",
+  "track_classification": [
+    {
+      "reason": "The goal needs a productized proof artifact and next execution lane.",
+      "track": "Product Track"
+    },
+    {
+      "reason": "The creator collective needs reusable identity and style memory.",
+      "track": "Brand/IP Track"
+    },
+    {
+      "reason": "The idea depends on draft-first repeatable content outputs.",
+      "track": "Content System Track"
+    },
+    {
+      "reason": "Influence work must remain transparent, approval-gated, and non-deceptive.",
+      "track": "Safe Influence Factory Track"
+    },
+    {
+      "reason": "The next action should be a PR-sized local implementation task.",
+      "track": "Codex Lane"
+    }
+  ],
+  "validation_report_uri": "avf/kernel/generated/validation_report.md"
+}
