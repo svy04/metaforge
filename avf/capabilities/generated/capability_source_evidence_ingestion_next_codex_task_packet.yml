@@ -1,0 +1,37 @@
+task_id: avf-capability-source-evidence-acceptance-gate-v0-1
+title: Add AVF capability source evidence acceptance gate v0.1
+goal: Define the approval-gated acceptance boundary that can only consider fully ingested owner evidence and still does not fetch, scrape, clone, install, integrate, deploy, publish, or claim readiness.
+context_paths:
+  - avf/capabilities/generated/capability_source_evidence_ingestion_rules.json
+  - avf/capabilities/generated/capability_source_evidence_ingestion_dry_run_result.json
+  - avf/capabilities/generated/capability_source_evidence_fixture_template_manifest.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_source_evidence_acceptance_gate_v0_1.py
+  - scripts/validate_avf_capability_source_evidence_acceptance_gate_v0_1.py
+  - avf/capabilities/generated/capability_source_evidence_acceptance_gate.json
+  - docs/goals/AVF_CAPABILITY_SOURCE_EVIDENCE_ACCEPTANCE_GATE_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping automation
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - acceptance gate exists
+  - acceptance remains blocked when ingestion dry run has zero accepted evidence
+  - owner approval and all evidence categories are required before any future integration proposal
+  - integration remains blocked
+validation_commands:
+  - python scripts\validate_avf_capability_source_evidence_ingestion_validator_v0_1.py
+  - python scripts\validate_avf_capability_source_evidence_acceptance_gate_v0_1.py
+expected_outputs:
+  - capability_source_evidence_acceptance_gate.json
+  - source evidence acceptance gate validation report
+next_safe_goal_id: avf_capability_source_evidence_acceptance_gate_v0_1
