@@ -1,0 +1,19 @@
+action_id: draft-primary-source-acquisition-plan
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_acquisition_approval_packet_v0_1
+
+next_steps:
+  - Plan source acquisition without fetching, scraping, cloning, installing, or calling providers
+  - Define source categories, target claims, and evidence-record fields
+  - Keep execution blocked until a later approval-gated phase
+
+allowed_source_categories:
+  - official_docs
+  - original_repository
+  - paper
+  - patent
+  - standard
+  - maintained_implementation
+  - local_repo_evidence
+
+next_safe_goal_id: avf_primary_source_acquisition_plan_v0_1

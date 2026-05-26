@@ -1,0 +1,66 @@
+# Primary-Source Acquisition Approval Packet v0.1
+
+goal_id: avf_primary_source_acquisition_approval_packet_v0_1
+previous_goal_id: avf_owner_supplied_primary_source_evidence_owner_input_packet_review_v0_1
+created_at: 2026-05-27T00:00:00Z
+approval_decision: PRIMARY_SOURCE_ACQUISITION_APPROVAL_PACKET_READY
+approval_status: planning_only_not_approved_for_execution
+
+acquisition_plan_allowed: true
+acquisition_execution_allowed: false
+external_fetch_allowed: false
+scraping_allowed: false
+provider_calls_allowed: false
+clone_or_install_allowed: false
+owner_approval_required_before_execution: true
+
+allowed_source_categories:
+  - official_docs
+  - original_repository
+  - paper
+  - patent
+  - standard
+  - maintained_implementation
+  - local_repo_evidence
+
+denied_actions:
+  - bulk_scraping
+  - credentialed_account_access
+  - private_data_collection
+  - package_install
+  - dependency_install
+  - oss_clone
+  - runtime_integration
+  - provider_call
+  - live_model_call
+  - deploy
+  - publish
+  - production_readiness_claim
+  - release_readiness_claim
+
+planning_rules:
+  - Plan source acquisition without fetching, scraping, cloning, installing, or calling providers.
+  - Prefer official docs, original repositories, papers, patents, standards, maintained implementations, and local repo evidence.
+  - Treat blogs as discovery pointers only, not final evidence.
+  - Require a later approval gate before any external network action or runtime integration.
+  - Preserve source URI, license/rights note, claim supported, and verification notes in every future evidence record.
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_primary_source_acquisition_plan_v0_1
