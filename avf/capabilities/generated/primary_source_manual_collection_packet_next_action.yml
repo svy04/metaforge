@@ -1,0 +1,11 @@
+action_id: create-primary-source-manual-records
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_manual_collection_packet_v0_1
+
+next_steps:
+  - Create manual primary-source records from official docs, original repositories, standards, and papers
+  - Fill source_uri, source_version_or_date, source_owner_or_publisher, license_or_rights_note, evidence_excerpt_summary, and verification_notes
+  - Preserve claim boundaries and cite only primary/original sources
+  - Do not automate scraping, clone repositories, install packages, deploy, publish, or call providers
+
+next_safe_goal_id: avf_primary_source_manual_records_v0_1
