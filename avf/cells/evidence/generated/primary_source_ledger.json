@@ -1,0 +1,109 @@
+{
+  "automation_fetch_performed": false,
+  "created_at": "2026-05-26T00:00:00Z",
+  "ledger_id": "avf-primary-source-ledger-v0-1",
+  "source_selection_boundary": "Operator-reviewed URLs only; the runner performs no network fetch, dependency install, clone, provider call, or live model call.",
+  "sources": [
+    {
+      "source_id": "src-langgraph-docs",
+      "source_kind": "official_docs",
+      "title": "LangGraph overview",
+      "url": "https://docs.langchain.com/oss/python/langgraph",
+      "used_by_cells": [
+        "product-cell",
+        "codex-cell"
+      ],
+      "why_used": "Future runtime adapter planning must preserve durable execution, memory, and human-in-the-loop boundaries."
+    },
+    {
+      "source_id": "src-temporal-docs",
+      "source_kind": "official_docs",
+      "title": "Temporal documentation",
+      "url": "https://docs.temporal.io/",
+      "used_by_cells": [
+        "product-cell",
+        "codex-cell"
+      ],
+      "why_used": "Durable workflow backend planning should inherit crash/retry/resume vocabulary without implementing it in this pass."
+    },
+    {
+      "source_id": "src-github-actions-docs",
+      "source_kind": "official_docs",
+      "title": "GitHub Actions workflows",
+      "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows",
+      "used_by_cells": [
+        "codex-cell",
+        "evidence-cell"
+      ],
+      "why_used": "Codex lane and future CI checks should stay grounded in repository workflow and event-trigger mechanics."
+    },
+    {
+      "source_id": "src-opentelemetry-docs",
+      "source_kind": "official_docs",
+      "title": "OpenTelemetry documentation",
+      "url": "https://opentelemetry.io/docs/",
+      "used_by_cells": [
+        "product-cell",
+        "evidence-cell"
+      ],
+      "why_used": "Future observability/eval plane should treat traces, metrics, and logs as first-class evidence."
+    },
+    {
+      "source_id": "src-mcp-docs",
+      "source_kind": "official_docs",
+      "title": "Model Context Protocol introduction",
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "used_by_cells": [
+        "product-cell",
+        "codex-cell",
+        "safety-cell"
+      ],
+      "why_used": "Future tool registry integration should be adapter-based and approval-gated rather than hardwired to one host."
+    },
+    {
+      "source_id": "src-webarena-paper",
+      "source_kind": "paper",
+      "title": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+      "url": "https://arxiv.org/abs/2307.13854",
+      "used_by_cells": [
+        "safety-cell",
+        "product-cell"
+      ],
+      "why_used": "Autonomous web execution should remain bounded because realistic web tasks are still difficult for agents."
+    },
+    {
+      "source_id": "src-react-paper",
+      "source_kind": "paper",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "used_by_cells": [
+        "product-cell",
+        "codex-cell"
+      ],
+      "why_used": "Reasoning/action loops should be represented as explicit plans, actions, evidence, and exceptions."
+    },
+    {
+      "source_id": "src-ftc-endorsement-guides",
+      "source_kind": "official_guidance",
+      "title": "FTC Endorsement Guides",
+      "url": "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides",
+      "used_by_cells": [
+        "content-cell",
+        "safety-cell"
+      ],
+      "why_used": "Influence/content artifacts must preserve disclosure, truthful endorsement, and claim substantiation boundaries."
+    },
+    {
+      "source_id": "src-ftc-ai-claims",
+      "source_kind": "official_guidance",
+      "title": "FTC: Keep your AI claims in check",
+      "url": "https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check",
+      "used_by_cells": [
+        "content-cell",
+        "safety-cell",
+        "product-cell"
+      ],
+      "why_used": "AVF outputs must avoid unsupported AI capability, readiness, or performance claims."
+    }
+  ]
+}
