@@ -1,0 +1,37 @@
+task_id: avf-capability-source-evidence-fixture-template-v0-1
+title: Add AVF capability source evidence fixture template v0.1
+goal: Create a fillable repo-local template for owner-supplied primary-source evidence snapshots without fetching, scraping, cloning, installing, or trusting evidence by default.
+context_paths:
+  - avf/capabilities/generated/capability_source_evidence_evaluation_packet.json
+  - avf/capabilities/generated/capability_source_evidence_evaluation_preflight_gate.json
+  - avf/capabilities/generated/capability_owner_supplied_source_evidence_packet.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_source_evidence_fixture_template_v0_1.py
+  - scripts/validate_avf_capability_source_evidence_fixture_template_v0_1.py
+  - avf/capabilities/generated/capability_source_evidence_fixture_template.yml
+  - docs/goals/AVF_CAPABILITY_SOURCE_EVIDENCE_FIXTURE_TEMPLATE_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping automation
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - source evidence fixture template exists
+  - template fields cover source URI, source type, quoted excerpt, snapshot hash, license note, security note, maintenance note, architecture fit note, supply-chain note, reviewer, and reviewed_at
+  - template warns evidence remains untrusted until evaluated
+  - integration remains blocked
+validation_commands:
+  - python scripts\validate_avf_capability_source_evidence_evaluation_packet_v0_1.py
+  - python scripts\validate_avf_capability_source_evidence_fixture_template_v0_1.py
+expected_outputs:
+  - capability_source_evidence_fixture_template.yml
+  - source evidence fixture template validation report
+next_safe_goal_id: avf_capability_source_evidence_fixture_template_v0_1

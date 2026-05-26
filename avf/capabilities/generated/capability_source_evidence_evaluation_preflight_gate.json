@@ -1,0 +1,42 @@
+{
+  "blocking_requirements": [
+    "no_accepted_owner_supplied_source_evidence",
+    "authenticity_not_passed",
+    "license_not_passed",
+    "security_not_passed",
+    "maintenance_not_passed",
+    "architecture_fit_not_passed",
+    "supply_chain_risk_not_passed",
+    "integration_not_approved"
+  ],
+  "candidate_ids": [
+    "candidate-opentelemetry",
+    "candidate-litellm-proxy",
+    "candidate-temporal-workflow",
+    "candidate-langgraph-runtime",
+    "candidate-mcp-tool-registry"
+  ],
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "decision_reason": "Owner-supplied evidence placeholders are present, but no evidence record has source URI, excerpt/notes, snapshot hash, reviewer, accepted criteria, or owner approval.",
+  "gate_decision": "BLOCKED_NO_ACCEPTED_SOURCE_EVIDENCE",
+  "gate_id": "avf-capability-source-evidence-evaluation-preflight-gate-v0-1",
+  "next_safe_goal_id": "avf_capability_source_evidence_fixture_template_v0_1",
+  "status": "PASS"
+}
