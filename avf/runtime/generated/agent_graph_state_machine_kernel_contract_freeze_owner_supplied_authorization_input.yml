@@ -1,0 +1,53 @@
+packet_id: avf-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-input-v0-1
+schema_version: 0.1
+created_at: 2026-05-27T00:00:00Z
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_v0_1
+previous_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_completion_guide_v0_1
+input_decision: OWNER_SUPPLIED_AUTHORIZATION_INPUT_PACKET_CREATED_EMPTY_NOT_AUTHORIZED
+owner_input_status: not_supplied
+
+owner_authorization_granted: false
+owner_supplied_fields_count: 0
+missing_required_fields_count: 7
+missing_required_fields:
+  - owner_identity
+  - authorization_scope
+  - accepted_invariant_ids
+  - freeze_execution_allowed
+  - rollback_or_unfreeze_plan
+  - validation_commands_required_after_freeze
+  - explicit_timestamp
+
+owner_identity: null
+authorization_scope: null
+accepted_invariant_ids: []
+freeze_execution_allowed: false
+rollback_or_unfreeze_plan: null
+validation_commands_required_after_freeze: []
+explicit_timestamp: null
+
+contract_freeze_execution_allowed: false
+contract_freeze_executed: false
+runtime_contract_frozen: false
+codex_fabricated_owner_input: false
+codex_must_not_fill_owner_approval: true
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_review_v0_1

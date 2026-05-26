@@ -1,0 +1,16 @@
+action_id: review-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-input
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_v0_1
+
+next_steps:
+  - Review the owner-supplied authorization input packet
+  - Review must keep freeze blocked when owner input is empty
+  - Confirm Codex did not fabricate owner authorization
+  - Do not execute contract freeze from this input packet
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+owner_input_status: not_supplied
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_review_v0_1
