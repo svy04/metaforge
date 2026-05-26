@@ -1,0 +1,11 @@
+action_id: create-agent-graph-failure-mode-matrix
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_replay_validator_v0_1
+
+next_steps:
+  - Create failure-mode matrix for replay and transition errors
+  - Define blocked, retryable, and review_required transition outcomes
+  - Keep all failure-mode handling repo-local and deterministic
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_failure_mode_matrix_v0_1
