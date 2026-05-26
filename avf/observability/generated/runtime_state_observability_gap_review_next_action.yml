@@ -1,0 +1,14 @@
+action_id: add-codex-planner-telemetry-event
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_runtime_state_observability_gap_review_v0_1
+recommended_event_id: evt-avf-codex-planner-task-created
+
+next_steps:
+  - Add a repo-local Codex planner telemetry event to the sample telemetry event fixture
+  - Place it between safety gate and evidence-written events
+  - Preserve the same trace_id and valid parent/child span order
+  - Regenerate envelope, review, evidence binding, runtime state link, and gap outputs as needed
+  - Do not start runtime workers, collectors, exporters, or external services
+  - Do not call providers, live models, scrape, post, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_telemetry_event_codex_planner_event_v0_1
