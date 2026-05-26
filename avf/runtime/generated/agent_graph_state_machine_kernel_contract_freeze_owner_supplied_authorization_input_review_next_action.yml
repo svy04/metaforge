@@ -1,0 +1,16 @@
+action_id: create-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-completion-retry
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_review_v0_1
+
+next_steps:
+  - Prepare a retry packet that lists the missing owner authorization fields
+  - Keep review_status: blocked_owner_input_not_supplied
+  - Do not execute contract freeze from this blocked input review
+  - Do not fabricate owner authorization
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+review_status: blocked_owner_input_not_supplied
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_completion_retry_v0_1
