@@ -1,0 +1,10 @@
+action_id: link-adoption-candidates-to-evidence-gates
+owner_approval_required_before_execution: false
+goal_id: avf_primary_source_product_quality_missing_inputs_triage_v0_1
+
+next_steps:
+  - Create repo-local adoption evidence gate links for build-vs-buy, license, security, supply-chain, and owner approval gates
+  - Keep each adoption candidate blocked until its evidence gate is satisfied
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_primary_source_adoption_evidence_gate_links_v0_1
