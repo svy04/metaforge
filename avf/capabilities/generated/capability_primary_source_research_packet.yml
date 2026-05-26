@@ -1,0 +1,400 @@
+packet_id: avf-capability-primary-source-research-packet-v0-1
+created_at: 2026-05-26T00:00:00Z
+goal_id: avf_capability_primary_source_research_packet_v0_1
+source_collection_mode: manual_owner_or_pro
+acceptance_gate_uri: avf/capabilities/generated/capability_source_evidence_acceptance_gate.json
+fixture_template_uri: avf/capabilities/generated/capability_source_evidence_fixture_template.yml
+fixture_manifest_uri: avf/capabilities/generated/capability_source_evidence_fixture_template_manifest.json
+integration_allowed: false
+automated_fetch_allowed: false
+automated_scraping_allowed: false
+oss_clone_allowed: false
+dependency_install_allowed: false
+runtime_integration_allowed: false
+deploy_allowed: false
+publish_allowed: false
+release_ready: false
+production_ready: false
+
+allowed_source_types:
+  - official_docs
+  - official_repository
+  - license_file
+  - security_advisory
+  - maintenance_signal
+  - architecture_spec
+  - supply_chain_standard
+
+required_fields:
+  - source_uri
+  - source_type
+  - quoted_excerpt
+  - source_snapshot_hash
+  - license_note
+  - security_note
+  - maintenance_note
+  - architecture_fit_note
+  - supply_chain_note
+  - reviewer
+  - reviewed_at
+
+collection_rules:
+  - Use only primary/original sources for each slot.
+  - Prefer official docs, official repositories, license files, security advisories, maintenance signals, architecture specs, and supply-chain standards.
+  - Record a short verbatim excerpt and a sha256 snapshot hash for each collected source.
+  - Keep every record untrusted and unverified until a later ingestion and review gate validates it.
+  - Do not fetch, scrape, clone, install, integrate, deploy, publish, or claim readiness from this packet.
+
+research_targets:
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-official_docs
+    source_type: official_docs
+    target_uri: https://opentelemetry.io/docs/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-official_repository
+    source_type: official_repository
+    target_uri: https://github.com/open-telemetry/opentelemetry-specification
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-license_file
+    source_type: license_file
+    target_uri: https://github.com/open-telemetry/opentelemetry-specification/blob/main/LICENSE
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-security_advisory
+    source_type: security_advisory
+    target_uri: https://github.com/open-telemetry/opentelemetry-specification/security
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-maintenance_signal
+    source_type: maintenance_signal
+    target_uri: https://github.com/open-telemetry/opentelemetry-specification/pulse
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-architecture_spec
+    source_type: architecture_spec
+    target_uri: https://opentelemetry.io/docs/specs/otel/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-opentelemetry
+    candidate_name: OpenTelemetry
+    capability_id: cap-observability
+    source_slot_id: candidate-opentelemetry-supply_chain_standard
+    source_type: supply_chain_standard
+    target_uri: https://slsa.dev/spec/v1.2/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-official_docs
+    source_type: official_docs
+    target_uri: https://docs.litellm.ai/docs/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-official_repository
+    source_type: official_repository
+    target_uri: https://github.com/BerriAI/litellm
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-license_file
+    source_type: license_file
+    target_uri: https://github.com/BerriAI/litellm/blob/main/LICENSE
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-security_advisory
+    source_type: security_advisory
+    target_uri: https://github.com/BerriAI/litellm/security
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-maintenance_signal
+    source_type: maintenance_signal
+    target_uri: https://github.com/BerriAI/litellm/pulse
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-architecture_spec
+    source_type: architecture_spec
+    target_uri: https://docs.litellm.ai/docs/proxy/quick_start
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-litellm-proxy
+    candidate_name: LiteLLM Proxy
+    capability_id: cap-llm-gateway
+    source_slot_id: candidate-litellm-proxy-supply_chain_standard
+    source_type: supply_chain_standard
+    target_uri: https://github.com/ossf/scorecard
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-official_docs
+    source_type: official_docs
+    target_uri: https://docs.temporal.io/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-official_repository
+    source_type: official_repository
+    target_uri: https://github.com/temporalio/temporal
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-license_file
+    source_type: license_file
+    target_uri: https://github.com/temporalio/temporal/blob/main/LICENSE
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-security_advisory
+    source_type: security_advisory
+    target_uri: https://github.com/temporalio/temporal/security
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-maintenance_signal
+    source_type: maintenance_signal
+    target_uri: https://github.com/temporalio/temporal/pulse
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-architecture_spec
+    source_type: architecture_spec
+    target_uri: https://docs.temporal.io/temporal
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-temporal-workflow
+    candidate_name: Temporal
+    capability_id: cap-durable-workflow
+    source_slot_id: candidate-temporal-workflow-supply_chain_standard
+    source_type: supply_chain_standard
+    target_uri: https://slsa.dev/spec/v1.2/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-official_docs
+    source_type: official_docs
+    target_uri: https://docs.langchain.com/oss/python/langgraph
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-official_repository
+    source_type: official_repository
+    target_uri: https://github.com/langchain-ai/langgraph
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-license_file
+    source_type: license_file
+    target_uri: https://github.com/langchain-ai/langgraph/blob/main/LICENSE
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-security_advisory
+    source_type: security_advisory
+    target_uri: https://github.com/langchain-ai/langgraph/security
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-maintenance_signal
+    source_type: maintenance_signal
+    target_uri: https://github.com/langchain-ai/langgraph/pulse
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-architecture_spec
+    source_type: architecture_spec
+    target_uri: https://docs.langchain.com/oss/python/langgraph/overview
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-langgraph-runtime
+    candidate_name: LangGraph
+    capability_id: cap-agent-runtime
+    source_slot_id: candidate-langgraph-runtime-supply_chain_standard
+    source_type: supply_chain_standard
+    target_uri: https://github.com/ossf/scorecard
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-official_docs
+    source_type: official_docs
+    target_uri: https://modelcontextprotocol.io/docs/getting-started/intro
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-official_repository
+    source_type: official_repository
+    target_uri: https://github.com/modelcontextprotocol/modelcontextprotocol
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-license_file
+    source_type: license_file
+    target_uri: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/LICENSE
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-security_advisory
+    source_type: security_advisory
+    target_uri: https://github.com/modelcontextprotocol/modelcontextprotocol/security
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-maintenance_signal
+    source_type: maintenance_signal
+    target_uri: https://github.com/modelcontextprotocol/modelcontextprotocol/pulse
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-architecture_spec
+    source_type: architecture_spec
+    target_uri: https://modelcontextprotocol.io/docs/learn
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+  - candidate_id: candidate-mcp-tool-registry
+    candidate_name: Model Context Protocol
+    capability_id: cap-tool-registry
+    source_slot_id: candidate-mcp-tool-registry-supply_chain_standard
+    source_type: supply_chain_standard
+    target_uri: https://slsa.dev/spec/v1.2/
+    collection_status: owner_or_pro_manual_research_required
+    evidence_trusted_by_default: false
+    evidence_verified_by_default: false
+    integration_allowed_from_this_record: false
+
+next_safe_goal_id: avf_capability_owner_completed_source_evidence_review_v0_1

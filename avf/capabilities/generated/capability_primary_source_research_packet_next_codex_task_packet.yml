@@ -1,0 +1,35 @@
+task_id: avf-capability-owner-completed-source-evidence-review-v0-1
+title: Add AVF owner-completed source evidence review gate v0.1
+goal: Review an owner-completed primary-source evidence fixture without fetching, scraping, cloning, installing, integrating, deploying, publishing, or claiming readiness.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_research_packet.yml
+  - avf/capabilities/generated/capability_primary_source_research_pro_prompt.md
+  - avf/capabilities/generated/capability_source_evidence_fixture_template.yml
+files_likely_to_touch:
+  - scripts/validate_avf_capability_owner_completed_source_evidence_review_v0_1.py
+  - avf/capabilities/generated/capability_owner_completed_source_evidence_review_gate.json
+  - docs/goals/AVF_CAPABILITY_OWNER_COMPLETED_SOURCE_EVIDENCE_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping automation
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - owner-completed source evidence review gate exists
+  - review gate checks required fields before accepting any source record
+  - review gate keeps integration blocked unless every required category and owner approval are present
+  - review gate does not fetch, scrape, clone, install, integrate, deploy, publish, or claim readiness
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_research_packet_v0_1.py
+expected_outputs:
+  - owner-completed source evidence review gate
+  - owner-completed source evidence review validation report
+next_safe_goal_id: avf_capability_owner_completed_source_evidence_review_v0_1
