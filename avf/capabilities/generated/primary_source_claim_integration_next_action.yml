@@ -1,0 +1,11 @@
+action_id: review-primary-source-claim-integration
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_claim_integration_v0_1
+
+next_steps:
+  - Review source-backed doc integration before using it for implementation planning
+  - Confirm every promoted claim stays limited to architecture docs and plans
+  - Keep dependency adoption and runtime integration behind later explicit gates
+  - Do not adopt dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_primary_source_claim_integration_review_v0_1

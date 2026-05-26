@@ -64,3 +64,31 @@ Market -> Strategy -> Factory -> Distribution -> Evidence -> Adaptation
 ## Next Safe Goal
 
 Convert Kernel v0.1 from a simple factory output packet into a Venture Operation Packet local compiler.
+
+<!-- BEGIN AVF PRIMARY SOURCE CLAIM INTEGRATION V0.1 -->
+## Primary-Source Claim Integration
+
+primary_source_claims_integrated=true
+integration_decision=PRIMARY_SOURCE_CLAIMS_INTEGRATED_INTO_DOCS_ONLY
+promotion_scope=architecture_docs_and_plans_only
+source_claims_integrated=7
+runtime_adoption_allowed=false
+dependency_adoption_allowed=false
+
+| Source target | Claim id | Primary source | Scope |
+| --- | --- | --- | --- |
+| `src-langgraph-official-docs` | `claim-agent-runtime-stateful-graph` | https://docs.langchain.com/oss/python/langgraph/overview | `architecture_docs_and_plans_only` |
+| `src-temporal-official-docs` | `claim-durable-workflow-backend` | https://docs.temporal.io/ | `architecture_docs_and_plans_only` |
+| `src-opentelemetry-standard-docs` | `claim-observability-standard` | https://opentelemetry.io/docs/what-is-opentelemetry/ | `architecture_docs_and_plans_only` |
+| `src-mcp-official-docs` | `claim-tool-protocol-boundary` | https://modelcontextprotocol.io/docs/getting-started/intro | `architecture_docs_and_plans_only` |
+| `src-litellm-original-repository` | `claim-provider-independent-llm-gateway` | https://github.com/BerriAI/litellm | `architecture_docs_and_plans_only` |
+| `src-vllm-original-repository` | `claim-open-model-serving-plane` | https://github.com/vllm-project/vllm | `architecture_docs_and_plans_only` |
+| `src-webarena-paper` | `claim-web-agent-autonomy-caution` | https://arxiv.org/abs/2307.13854 | `architecture_docs_and_plans_only` |
+
+Boundary:
+
+- These claims are promoted into architecture docs and planning only.
+- They do not authorize dependency adoption, runtime integration, provider calls, deployment, publishing, release readiness, or production readiness.
+- Use `avf/capabilities/generated/primary_source_manual_records.json` as the detailed evidence record.
+
+<!-- END AVF PRIMARY SOURCE CLAIM INTEGRATION V0.1 -->
