@@ -1,0 +1,631 @@
+{
+  "generatedAt": "2026-05-21T09:48:24.527Z",
+  "mode": "local_no_provider_benchmark_efficiency_metrics",
+  "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
+  "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
+  "sourceLocalBenchmarkResultsSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "Vexp-ai/vexp-swe-bench",
+      "sourceUrl": "https://github.com/Vexp-ai/vexp-swe-bench",
+      "observedPattern": "Coding-agent benchmark results should preserve pass@1, cost per task, duration, token usage, and unique-win comparison fields rather than only final pass/fail status."
+    },
+    {
+      "sourceProject": "SWE-bench/SWE-bench",
+      "sourceUrl": "https://github.com/swe-bench/SWE-bench",
+      "observedPattern": "Issue-resolution benchmarks need per-instance result records that can be evaluated later without collapsing setup and result claims."
+    },
+    {
+      "sourceProject": "OpenHands/benchmarks",
+      "sourceUrl": "https://github.com/OpenHands/benchmarks",
+      "observedPattern": "Agent benchmark evidence should preserve structured task records and explicit runtime boundaries before stronger public comparisons."
+    }
+  ],
+  "metricSchemaFields": [
+    "benchmarkTaskId",
+    "agent",
+    "model",
+    "inputTokens",
+    "outputTokens",
+    "costUsd",
+    "numTurns",
+    "durationMs",
+    "resolved",
+    "sourceEvidenceSha256"
+  ],
+  "metricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
+  "metricsJsonlSha256": "2f24f651c9973d03ecaeff0eaa487ac9cc20a979a52906fcb440238deb7bd6f4",
+  "benchmarkEfficiencyRecords": [
+    {
+      "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
+      "benchmarkFamily": "local_no_provider_product_quality",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+      "sourceEvidenceSha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+      "sourceEvidenceSizeBytes": 5630,
+      "sourceEvidenceLineCount": 155,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.local.prompted_tool_loop_cli",
+      "benchmarkFamily": "local_no_provider_product_quality",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+      "sourceEvidenceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "sourceEvidenceSizeBytes": 5288,
+      "sourceEvidenceLineCount": 8,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-code-editing-trace-local-fixture.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+      "sourceEvidenceSha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
+      "sourceEvidenceSizeBytes": 6613,
+      "sourceEvidenceLineCount": 10,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-fixture-user-executor-no-provider.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
+      "sourceEvidenceSha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
+      "sourceEvidenceSizeBytes": 495,
+      "sourceEvidenceLineCount": 3,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-20260506-163448.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "failed",
+      "sourceEvidencePath": "reports/orchestra-live-20260506-163448.jsonl",
+      "sourceEvidenceSha256": "3cebbd8762d8a60a64aa3f5a2ebd438c78fd88be87b91f7e1607e5d8c0b023e2",
+      "sourceEvidenceSizeBytes": 496,
+      "sourceEvidenceLineCount": 2,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-adaptive-20260506-164441.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "failed",
+      "sourceEvidencePath": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
+      "sourceEvidenceSha256": "7ed6f91522b4c0adf68c3ca28a0a8e2cf888a2ded4ec9fe7610905b3b940aa26",
+      "sourceEvidenceSizeBytes": 496,
+      "sourceEvidenceLineCount": 2,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-sidequery-20260506-172336.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
+      "sourceEvidenceSha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
+      "sourceEvidenceSizeBytes": 276,
+      "sourceEvidenceLineCount": 2,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+      "sourceEvidenceSha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
+      "sourceEvidenceSizeBytes": 8132,
+      "sourceEvidenceLineCount": 10,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-prompted-tool-loop-local-cli.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+      "sourceEvidenceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "sourceEvidenceSizeBytes": 5288,
+      "sourceEvidenceLineCount": 8,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-protected-action-denial-trace-local-fixture.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl",
+      "sourceEvidenceSha256": "ad80fdcc6df11ff3c96da8b5a62309864f8cd59fc243528ac6c9d93c7ef425b5",
+      "sourceEvidenceSizeBytes": 6663,
+      "sourceEvidenceLineCount": 8,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-real-session-capture-local-cli.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-real-session-capture-local-cli.jsonl",
+      "sourceEvidenceSha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "sourceEvidenceSizeBytes": 11236,
+      "sourceEvidenceLineCount": 16,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+      "sourceEvidenceSha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
+      "sourceEvidenceSizeBytes": 7047,
+      "sourceEvidenceLineCount": 9,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+      "sourceEvidenceSha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
+      "sourceEvidenceSizeBytes": 7521,
+      "sourceEvidenceLineCount": 9,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-usage-cli-probe.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "failed",
+      "sourceEvidencePath": "reports/orchestra-usage-cli-probe.jsonl",
+      "sourceEvidenceSha256": "acc8215c75381d056dcdb467f5e9ca1d3190ecebf3629f2e9bedbfe6460a9839",
+      "sourceEvidenceSizeBytes": 496,
+      "sourceEvidenceLineCount": 2,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.trace.reports_orchestra-usage-probe.jsonl",
+      "benchmarkFamily": "local_no_provider_trace_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "failed",
+      "sourceEvidencePath": "reports/orchestra-usage-probe.jsonl",
+      "sourceEvidenceSha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
+      "sourceEvidenceSizeBytes": 366,
+      "sourceEvidenceLineCount": 2,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    },
+    {
+      "benchmarkTaskId": "openclaude.local.agent_replay_eval_summary",
+      "benchmarkFamily": "local_no_provider_replay_eval",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
+      "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
+      "sourceEvidenceSha256": "e1e8666be343b2935b6b3983683c53a301b818c08c1451145348c5f131093cb9",
+      "sourceEvidenceSizeBytes": 23171,
+      "sourceEvidenceLineCount": 702,
+      "comparableMetricFields": {
+        "agent": "openclaude_local_no_provider",
+        "model": null,
+        "inputTokens": null,
+        "outputTokens": null,
+        "costUsd": null,
+        "numTurns": null,
+        "durationMs": null,
+        "resolved": null
+      },
+      "metricAvailability": {
+        "tokenUsageMeasured": false,
+        "costMeasured": false,
+        "durationMeasured": false,
+        "turnCountMeasured": false,
+        "externalResolvedMeasured": false
+      },
+      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
+      "protectedActionExecuted": false,
+      "externalBenchmarkResultClaimed": false
+    }
+  ],
+  "summary": {
+    "sourceTaskCount": 16,
+    "comparableRecordCount": 16,
+    "recordsWithComparableMetricFields": 16,
+    "recordsWithMeasuredTokenCostDuration": 0,
+    "classifiedMetricGapCount": 16
+  },
+  "unresolvedMetricGaps": [
+    {
+      "id": "provider_token_accounting",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "cost_model_or_billing_source",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "wall_clock_duration_measurement",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "agentic_turn_count_measurement",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "external_same_task_resolution_evaluation",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "unique_win_comparison_dataset",
+      "status": "classified_unresolved",
+      "requiredBeforeExternalComparisonClaim": true,
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false
+    }
+  ],
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalBenchmarkExecutionPerformed": false,
+  "externalBenchmarkResultClaimed": false,
+  "externalComparisonClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "efficiencyChecks": [
+    {
+      "label": "local benchmark harness is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_replay_harness"
+    },
+    {
+      "label": "source result hash matches harness report",
+      "ok": true,
+      "detail": "reports/openclaude-local-benchmark-results.jsonl"
+    },
+    {
+      "label": "one efficiency record exists per local benchmark task",
+      "ok": true,
+      "detail": "16/16"
+    },
+    {
+      "label": "all records carry benchmark-comparable metric fields",
+      "ok": true,
+      "detail": "16/16"
+    },
+    {
+      "label": "cost token duration metrics are classified as unmeasured in no-provider mode",
+      "ok": true,
+      "detail": "0 measured"
+    },
+    {
+      "label": "metric gaps are classified for every record",
+      "ok": true,
+      "detail": "16/16"
+    },
+    {
+      "label": "unresolved metric gaps require later authorization",
+      "ok": true,
+      "detail": "6 gaps"
+    },
+    {
+      "label": "metrics JSONL hash is recorded",
+      "ok": true,
+      "detail": "reports/openclaude-benchmark-efficiency-metrics.jsonl"
+    },
+    {
+      "label": "records execute no protected action or external benchmark claim",
+      "ok": true,
+      "detail": "all false"
+    }
+  ],
+  "claimBoundary": "Benchmark efficiency metrics are local no-provider schema/gap evidence only. They do not claim external benchmark performance, cost efficiency, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

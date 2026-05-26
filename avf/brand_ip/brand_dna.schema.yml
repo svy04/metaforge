@@ -1,0 +1,21 @@
+# brand_dna.schema.yml
+
+version: 1
+type: object
+required:
+  - brand_id
+  - voice
+  - values
+  - positioning
+properties:
+  brand_id:
+    type: string
+  voice:
+    type: string
+  values:
+    type: string
+  positioning:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

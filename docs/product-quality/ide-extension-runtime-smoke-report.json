@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-05-21T08:40:27.168Z",
+  "mode": "local_no_provider_ide_extension_runtime_smoke",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "hostRuntime": "local_mock_vscode_extension_host",
+  "vscodeCliVersion": "not_available",
+  "manifestPath": "packages/openclaude-vscode/package.json",
+  "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
+  "activationInvoked": true,
+  "deactivationInvoked": true,
+  "registeredCommandIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.explainSelection",
+    "openclaude.openRuntimeDoctor"
+  ],
+  "executedCommandIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.explainSelection",
+    "openclaude.openRuntimeDoctor"
+  ],
+  "registeredTreeViewIds": [
+    "openclaude.chatView",
+    "openclaude.traceEvidenceView"
+  ],
+  "registeredWebviewViewIds": [
+    "openclaude.controlCenterView"
+  ],
+  "messagesShown": [
+    "OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete.",
+    "OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete.",
+    "OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete.",
+    "OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete."
+  ],
+  "contextSubscriptionCount": 7,
+  "missingManifestCommands": [],
+  "unexpectedRegisteredCommands": [],
+  "installAttempted": false,
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "realExtensionHostLaunched": false,
+  "extensionAvailabilityClaimAllowed": false,
+  "runtimeSmokeChecks": [
+    {
+      "label": "manifest command IDs are present",
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+    },
+    {
+      "label": "activation function is callable",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "label": "deactivation function is callable",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "label": "all manifest commands are registered",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "no unexpected commands are registered",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "all registered manifest commands execute",
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+    },
+    {
+      "label": "all manifest tree views register providers",
+      "ok": true,
+      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+    },
+    {
+      "label": "all manifest webview views register providers",
+      "ok": true,
+      "detail": "openclaude.controlCenterView"
+    },
+    {
+      "label": "subscriptions match command and view provider count",
+      "ok": true,
+      "detail": "7/7"
+    },
+    {
+      "label": "command handlers show bounded local messages",
+      "ok": true,
+      "detail": "OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete. | OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete. | OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete. | OpenClaude VS Code surface is scoped. Use the verified OpenClaude CLI until full extension validation is complete."
+    },
+    {
+      "label": "real Extension Host was not launched",
+      "ok": true,
+      "detail": "local mock host only"
+    },
+    {
+      "label": "protected actions were not attempted",
+      "ok": true,
+      "detail": "install/publish/deploy/launch/provider/live/external all false"
+    }
+  ],
+  "claimBoundary": "Local VS Code runtime smoke evidence uses a mock VS Code extension host only. It does not install, publish, deploy, launch, or claim extension availability."
+}

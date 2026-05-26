@@ -1,0 +1,21 @@
+# prompt_pack.schema.yml
+
+version: 1
+type: object
+required:
+  - prompt_pack_id
+  - positive_prompt
+  - style_refs
+  - usage_context
+properties:
+  prompt_pack_id:
+    type: string
+  positive_prompt:
+    type: string
+  style_refs:
+    type: string
+  usage_context:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

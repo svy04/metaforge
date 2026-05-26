@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-05-21T08:40:16.163Z",
+  "mode": "local_no_provider_permission_regression",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedPermissionSurfaces": [
+    "bypass permission mode activation",
+    "sandbox enablement trusted-source boundary",
+    "model-facing shell sandbox disable input",
+    "Bash path constraints under sandbox auto-allow",
+    "plugin git hook execution",
+    "WebFetch redirect SSRF guard",
+    "swarm permission response path",
+    "permission rule parsing and validation",
+    "auto-mode classifier transcript bounds"
+  ],
+  "targetedTestFiles": [
+    "src/__tests__/security-hardening.test.ts",
+    "src/tools/BashTool/bashPermissions.test.ts",
+    "src/tools/BashTool/shouldUseSandbox.test.ts",
+    "src/utils/settings/allowBypassPermissionsMode.test.ts",
+    "src/utils/permissions/yoloClassifier.test.ts"
+  ],
+  "regressionFixtures": [
+    {
+      "id": "private_vulnerability_reporting",
+      "title": "Private vulnerability reporting is documented",
+      "ok": true,
+      "sources": [
+        "SECURITY.md"
+      ],
+      "invariant": "Security reports should be routed privately instead of public issue disclosure.",
+      "evidence": [
+        "private reporting channel",
+        "public issue warning"
+      ]
+    },
+    {
+      "id": "bypass_mode_requires_explicit_enable",
+      "title": "Bypass mode requires explicit enablement",
+      "ok": true,
+      "sources": [
+        "src/cli/print.ts"
+      ],
+      "invariant": "Runtime permission mode changes to bypassPermissions must remain gated by explicit flag or settings.",
+      "evidence": [
+        "runtime rejection message",
+        "explicit flag text",
+        "settings path text"
+      ]
+    },
+    {
+      "id": "bypass_setting_schema_is_boolean",
+      "title": "Bypass setting schema rejects non-boolean values",
+      "ok": true,
+      "sources": [
+        "src/utils/settings/allowBypassPermissionsMode.test.ts"
+      ],
+      "invariant": "The allowBypassPermissionsMode setting must accept booleans and reject string-like truthy values.",
+      "evidence": [
+        "true accepted",
+        "false accepted",
+        "non-boolean rejected"
+      ]
+    },
+    {
+      "id": "model_cannot_disable_sandbox",
+      "title": "Model-facing shell schemas reject sandbox disable requests",
+      "ok": true,
+      "sources": [
+        "src/tools/BashTool/shouldUseSandbox.test.ts"
+      ],
+      "invariant": "Model-controlled shell input must not disable sandboxing; only trusted internal approval can do so when policy allows.",
+      "evidence": [
+        "Bash schema rejection",
+        "PowerShell schema rejection",
+        "model-controlled bypass rejection",
+        "policy-forbidden trusted rejection"
+      ]
+    },
+    {
+      "id": "sandbox_auto_allow_preserves_path_constraints",
+      "title": "Sandbox auto-allow preserves Bash path constraints",
+      "ok": true,
+      "sources": [
+        "src/tools/BashTool/bashPermissions.test.ts"
+      ],
+      "invariant": "Sandbox auto-allow must still ask when path constraints block sensitive filesystem access.",
+      "evidence": [
+        "path traversal command fixture",
+        "ask decision assertion",
+        "blocked message assertion"
+      ]
+    },
+    {
+      "id": "sandbox_settings_trust_boundary",
+      "title": "Sandbox settings source filtering is covered",
+      "ok": true,
+      "sources": [
+        "src/__tests__/security-hardening.test.ts"
+      ],
+      "invariant": "Sandbox enablement must not trust project settings when the trusted-source test fixture is present.",
+      "evidence": [
+        "trust-boundary regression",
+        "deprecated settings rejection",
+        "project settings rejection"
+      ]
+    },
+    {
+      "id": "plugin_git_hooks_disabled",
+      "title": "Plugin git operations disable hooks",
+      "ok": true,
+      "sources": [
+        "src/__tests__/security-hardening.test.ts",
+        "src/utils/plugins/marketplaceManager.ts"
+      ],
+      "invariant": "Plugin clone, pull, and submodule operations must keep hooks disabled.",
+      "evidence": [
+        "clone hook disable regression",
+        "pull hook disable regression",
+        "submodule hook disable regression"
+      ]
+    },
+    {
+      "id": "webfetch_ssrf_guard",
+      "title": "WebFetch redirect path keeps SSRF guard",
+      "ok": true,
+      "sources": [
+        "src/__tests__/security-hardening.test.ts",
+        "src/tools/WebFetchTool/utils.ts"
+      ],
+      "invariant": "WebFetch permitted redirects must continue using the guarded lookup helper.",
+      "evidence": [
+        "redirect test fixture",
+        "guarded lookup import/use"
+      ]
+    },
+    {
+      "id": "swarm_file_permission_polling_removed",
+      "title": "Swarm file-based permission polling remains removed",
+      "ok": true,
+      "sources": [
+        "src/__tests__/security-hardening.test.ts",
+        "src/hooks/useSwarmPermissionPoller.ts",
+        "src/utils/swarm/permissionSync.ts"
+      ],
+      "invariant": "Unauthenticated file-based swarm permission polling must stay removed or explicitly deprecated.",
+      "evidence": [
+        "poller removal test",
+        "deprecated file-path functions",
+        "mailbox active path"
+      ]
+    },
+    {
+      "id": "permission_rule_validation",
+      "title": "Permission rule validation covers common unsafe rule mistakes",
+      "ok": true,
+      "sources": [
+        "src/utils/settings/permissionValidation.ts"
+      ],
+      "invariant": "Permission rule validation must reject empty rules, mismatched parentheses, MCP pattern misuse, and shell/file-pattern mistakes.",
+      "evidence": [
+        "empty rule rejection",
+        "paren validation",
+        "MCP pattern rejection",
+        "Bash pattern rejection",
+        "file pattern rejection"
+      ]
+    },
+    {
+      "id": "auto_classifier_transcript_bounded",
+      "title": "Auto classifier transcript construction remains bounded",
+      "ok": true,
+      "sources": [
+        "src/utils/permissions/yoloClassifier.test.ts"
+      ],
+      "invariant": "Auto-permission classifier transcript construction must retain recent context and truncate oversized user blocks.",
+      "evidence": [
+        "recent context retained",
+        "old context dropped",
+        "oversized user block bounded"
+      ]
+    }
+  ],
+  "claimBoundary": "Permission regression fixtures are local source and test-surface checks only, not external security validation or release readiness."
+}

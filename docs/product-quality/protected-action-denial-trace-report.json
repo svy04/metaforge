@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-05-21T09:18:00.737Z",
+  "mode": "local_no_provider_protected_action_denial_trace_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_protected_action_denial_trace_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "capturePerformed": true,
+  "nonSyntheticUserSessionClaimed": false,
+  "fixtureRoot": "_fixtures/product-protected-action-denial-trace",
+  "protectedActionRequestPath": "_fixtures/product-protected-action-denial-trace/protected-action-request.json",
+  "denialRecordPath": "_fixtures/product-protected-action-denial-trace/denied-action-record.json",
+  "safeAlternativeSummaryPath": "_fixtures/product-protected-action-denial-trace/safe-alternative-summary.json",
+  "tracePath": "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl",
+  "protectedActionRequested": true,
+  "protectedActionDenied": true,
+  "protectedActionExecuted": false,
+  "safeAlternativeSelected": true,
+  "finalVerificationPassed": true,
+  "requestSha256": "796c6e5c631d872737afeb52dbb2902675e8638812e3adfa3c0db55bb10affbb",
+  "denialRecordSha256": "2c730b1d652f1739b9a7fd6dbd3f7095d495b886841cb524c70d08c762a1a64a",
+  "safeAlternativeSummarySha256": "8f43d6236ad1adb00207c32cea71b40ff1591c6db97c1efc079dfa05ff3e1a9d",
+  "modifiedFixtureFiles": [
+    "_fixtures/product-protected-action-denial-trace/protected-action-request.json",
+    "_fixtures/product-protected-action-denial-trace/denied-action-record.json",
+    "_fixtures/product-protected-action-denial-trace/safe-alternative-summary.json"
+  ],
+  "protectedRepoFilesModified": [],
+  "denialCheck": {
+    "protectedActionRequestCount": 1,
+    "deniedProtectedActionCount": 1,
+    "executedProtectedActionCount": 0,
+    "safeAlternativeCount": 1,
+    "testCaseCount": 6,
+    "passed": true
+  },
+  "primarySourceInputs": [
+    {
+      "sourceProject": "Cline permission handling",
+      "sourceUrl": "https://docs.cline.bot/sdk/guides/permission-handling",
+      "observedPattern": "Agent tools can be auto-approved, disabled, or routed through explicit approval, and rejected tools should let the agent adjust rather than loop.",
+      "localAbsorption": "OpenClaude records a denied protected action as a trace event and requires a safe alternative instead of executing the action."
+    },
+    {
+      "sourceProject": "OpenHands sandbox configuration",
+      "sourceUrl": "https://docs.openhands.dev/openhands/usage/sandboxes/overview",
+      "observedPattern": "Agent code execution should be tied to an explicit sandbox/provider model with isolation tradeoffs documented.",
+      "localAbsorption": "OpenClaude keeps VS Code/PATH/install-state mutation outside the local no-provider fixture and records it as a protected boundary."
+    },
+    {
+      "sourceProject": "OpenAI Codex security documentation",
+      "sourceUrl": "https://developers.openai.com/codex/security",
+      "observedPattern": "Agent security guidance separates sandboxing, permissions, and approval boundaries from normal task execution.",
+      "localAbsorption": "OpenClaude records approval absence as a first-class denial reason and keeps protected execution false."
+    },
+    {
+      "sourceProject": "openai/codex sandbox pointer",
+      "sourceUrl": "https://github.com/openai/codex/blob/main/docs/sandbox.md",
+      "observedPattern": "The open-source Codex repository points users to sandboxing and approval documentation as part of its security model.",
+      "localAbsorption": "OpenClaude binds its protected-action denial fixture to the same sandbox/approval evidence family without running a protected action."
+    }
+  ],
+  "traceSha256": "ad80fdcc6df11ff3c96da8b5a62309864f8cd59fc243528ac6c9d93c7ef425b5",
+  "traceChecks": [
+    {
+      "label": "operator authorization is bounded to local no-provider denial trace capture",
+      "ok": true,
+      "detail": "operator_authorized_local_no_provider_protected_action_denial_trace_capture_only"
+    },
+    {
+      "label": "protected action request is detected before execution",
+      "ok": true,
+      "detail": "modify_user_path_or_vs_code_install_state"
+    },
+    {
+      "label": "protected action is denied because owner authorization is absent",
+      "ok": true,
+      "detail": "1 denied"
+    },
+    {
+      "label": "protected action is never executed",
+      "ok": true,
+      "detail": "executedProtectedActionCount=0"
+    },
+    {
+      "label": "safe alternative is selected and verified",
+      "ok": true,
+      "detail": "_fixtures/product-protected-action-denial-trace/safe-alternative-summary.json"
+    },
+    {
+      "label": "trace contains denial and terminal safe fallback",
+      "ok": true,
+      "detail": "started -> started -> succeeded -> failed -> succeeded -> succeeded -> succeeded -> succeeded"
+    },
+    {
+      "label": "trace events are enriched with event names and trace context",
+      "ok": true,
+      "detail": "8 events"
+    },
+    {
+      "label": "all required process phases are represented",
+      "ok": true,
+      "detail": "orchestration,orchestration,exploration,orchestration,implementation,implementation,verification,orchestration"
+    },
+    {
+      "label": "fixture-only files are modified",
+      "ok": true,
+      "detail": "_fixtures/product-protected-action-denial-trace/protected-action-request.json,_fixtures/product-protected-action-denial-trace/denied-action-record.json,_fixtures/product-protected-action-denial-trace/safe-alternative-summary.json"
+    },
+    {
+      "label": "protected repo files remain untouched",
+      "ok": true,
+      "detail": "protectedRepoFilesModified=0"
+    },
+    {
+      "label": "no provider live model or external calls occurred",
+      "ok": true,
+      "detail": "all call arrays empty"
+    }
+  ],
+  "claimBoundary": "Protected-action denial trace capture is local no-provider fixture evidence only. It does not call providers, live models, external services, mutate protected repositories, repair VS Code/PATH/install state, publish, deploy, launch, or authorize release, production, public, external-validation, benchmark-superiority, or autonomous-reliability claims."
+}

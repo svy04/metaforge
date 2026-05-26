@@ -1,0 +1,21 @@
+# Persona Registry Schema
+
+version: 1
+type: object
+required:
+  - persona_id
+  - domain
+  - voice
+  - disclosure
+  - content_boundaries
+properties:
+  persona_id:
+    type: string
+  domain:
+    type: string
+  voice:
+    type: string
+  disclosure:
+    type: string
+  content_boundaries:
+    type: string

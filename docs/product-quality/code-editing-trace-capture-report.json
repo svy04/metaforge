@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-05-18T11:50:44.206Z",
+  "mode": "local_no_provider_code_editing_trace_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_code_editing_trace_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "capturePerformed": true,
+  "nonSyntheticUserSessionClaimed": false,
+  "fixtureRoot": "_fixtures/product-code-editing-trace",
+  "tracePath": "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+  "traceSha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
+  "sourceBeforeSha256": "8472c4518eac4e211ca8abe729a0997aab883ffea9ccc7c4c3f2d50b875d079d",
+  "sourceAfterSha256": "90b4e0fa0c446f51fc6e9a5c5c3085652d90f6477e2eaec477b71501e432c8ad",
+  "patchApplied": true,
+  "modifiedFixtureFiles": [
+    "_fixtures/product-code-editing-trace/calculator.js"
+  ],
+  "protectedRepoFilesModified": [],
+  "unitCheck": {
+    "passed": true,
+    "testCaseCount": 3,
+    "cases": [
+      {
+        "name": "positive integers",
+        "a": 2,
+        "b": 3,
+        "expected": 5,
+        "actual": 5,
+        "passed": true
+      },
+      {
+        "name": "negative plus positive",
+        "a": -4,
+        "b": 4,
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "name": "zero identity",
+        "a": 0,
+        "b": 7,
+        "expected": 7,
+        "actual": 7,
+        "passed": true
+      }
+    ]
+  },
+  "traceChecks": [
+    {
+      "label": "fixture source starts from failing implementation",
+      "ok": true,
+      "detail": "8472c4518eac4e211ca8abe729a0997aab883ffea9ccc7c4c3f2d50b875d079d"
+    },
+    {
+      "label": "fixture patch changes source hash",
+      "ok": true,
+      "detail": "8472c4518eac4e211ca8abe729a0997aab883ffea9ccc7c4c3f2d50b875d079d/90b4e0fa0c446f51fc6e9a5c5c3085652d90f6477e2eaec477b71501e432c8ad"
+    },
+    {
+      "label": "fixture patch applies intended implementation",
+      "ok": true,
+      "detail": "90b4e0fa0c446f51fc6e9a5c5c3085652d90f6477e2eaec477b71501e432c8ad"
+    },
+    {
+      "label": "fixture unit check passes",
+      "ok": true,
+      "detail": "3/3"
+    },
+    {
+      "label": "trace records implementation command",
+      "ok": true,
+      "detail": "reports/orchestra-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records verification command",
+      "ok": true,
+      "detail": "reports/orchestra-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "only disposable fixture files are modified",
+      "ok": true,
+      "detail": "_fixtures/product-code-editing-trace/calculator.js"
+    },
+    {
+      "label": "no provider/live/external calls are recorded",
+      "ok": true,
+      "detail": "call counts=0"
+    }
+  ],
+  "claimBoundary": "This is local no-provider code-editing fixture evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."
+}

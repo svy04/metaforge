@@ -1,0 +1,230 @@
+{
+  "generatedAt": "2026-05-18T11:18:18.130Z",
+  "mode": "local_no_provider_openssf_security_posture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "securityPolicyPath": "SECURITY.md",
+  "securityPolicySha256": "617f9f41b7aa92d15809e8db798ef602faef36a66f691ac7833bfb83c67e9588",
+  "prWorkflowPath": ".github/workflows/pr-checks.yml",
+  "prWorkflowSha256": "603ae5cdcd2eb4dbf96b235aefd1d02787e2789df6e6da8116a8d9e7d84986c9",
+  "releaseWorkflowPath": ".github/workflows/release.yml",
+  "releaseWorkflowSha256": "eb86d240428d103ac0ab44bcc72e7bc359d788888cf529d6d108b5e393df8015",
+  "codeqlWorkflowPath": ".github/workflows/codeql.yml",
+  "codeqlWorkflowSha256": "f21c6e3a7cf09a01b2afad10c171e35763e192f0c4f587fbd81a7a292734f8a2",
+  "dependabotConfigPath": ".github/dependabot.yml",
+  "dependabotConfigSha256": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "ossf/scorecard",
+      "sourceUrl": "https://github.com/ossf/scorecard",
+      "appliedPattern": "Track Security-Policy, Dependency-Update-Tool, Pinned-Dependencies, Token-Permissions, Dangerous-Workflow, SAST, Signed-Releases, Packaging, and CI posture as explicit evidence."
+    },
+    {
+      "sourceProject": "slsa-framework/slsa",
+      "sourceUrl": "https://github.com/slsa-framework/slsa",
+      "appliedPattern": "Separate local provenance configuration from real provenance existence, authenticity, isolation, and attestation verification."
+    },
+    {
+      "sourceProject": "github/docs",
+      "sourceUrl": "https://github.com/github/docs",
+      "appliedPattern": "Pin actions to full-length commit SHAs, minimize GITHUB_TOKEN permissions, configure Dependabot update ecosystems, configure CodeQL advanced setup, and use artifact/provenance boundaries without claiming hosted execution locally."
+    },
+    {
+      "sourceProject": "npm/documentation",
+      "sourceUrl": "https://github.com/npm/documentation",
+      "appliedPattern": "Treat npm provenance as a verifiable link to source/build instructions, not as proof that the package is safe or release-ready."
+    }
+  ],
+  "securityPolicyPresent": true,
+  "privateReportingGuidancePresent": true,
+  "responseTimelinePresent": true,
+  "allWorkflowActionReferencesPinned": true,
+  "prWorkflowTokenPermissionsReadOnly": true,
+  "releaseWorkflowPermissionsScoped": true,
+  "pullRequestTargetAbsent": true,
+  "dependabotConfigPresent": true,
+  "dependabotCoversNpm": true,
+  "dependabotCoversGitHubActions": true,
+  "dependabotSchedulesPresent": true,
+  "codeqlWorkflowPresent": true,
+  "codeqlActionsPinned": true,
+  "codeqlPermissionsScoped": true,
+  "codeqlAnalyzesJavaScriptTypeScript": true,
+  "codeqlSecurityExtendedQueriesConfigured": true,
+  "codeqlScheduledScanConfigured": true,
+  "codeqlHostedExecutionPerformed": false,
+  "productQualityWorkflowPresent": true,
+  "frozenDependencyInstallPresent": true,
+  "npmProvenanceConfigured": true,
+  "npmTrustedPublishingBoundaryPresent": true,
+  "releaseEnvironmentPresent": true,
+  "dockerPackageWriteScoped": true,
+  "realScorecardRunPerformed": false,
+  "scorecardExternalClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "classifiedUnresolvedGaps": [
+    {
+      "id": "external_openssf_scorecard_run",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "reason": "A real Scorecard run requires external repository/API access or a container/tool invocation, so this local gate records posture evidence only."
+    },
+    {
+      "id": "hosted_ci_scorecard_evidence",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "reason": "Hosted CI evidence requires a real GitHub repository/remote workflow run; this workspace is not currently a Git repository root."
+    },
+    {
+      "id": "hosted_codeql_analysis_evidence",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "reason": "The local CodeQL workflow file is configured, but hosted CodeQL analysis evidence requires a GitHub Actions run on a real GitHub repository boundary."
+    },
+    {
+      "id": "signed_artifact_attestation_verification",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "reason": "Signed attestation verification requires a real release artifact and external registry/provenance boundary."
+    }
+  ],
+  "postureChecks": [
+    {
+      "label": "security policy exists",
+      "ok": true,
+      "detail": "SECURITY.md"
+    },
+    {
+      "label": "private vulnerability reporting guidance exists",
+      "ok": true,
+      "detail": "GitHub Security Advisories / private reporting"
+    },
+    {
+      "label": "response timeline exists",
+      "ok": true,
+      "detail": "initial triage acknowledgment within 7 days"
+    },
+    {
+      "label": "workflow action references are pinned by full SHA",
+      "ok": true,
+      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38, uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0, uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0, uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0, uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0, uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
+    },
+    {
+      "label": "PR workflow token permissions are read-only",
+      "ok": true,
+      "detail": "permissions: contents: read"
+    },
+    {
+      "label": "release workflow permissions are scoped per job",
+      "ok": true,
+      "detail": "release-please/publish-npm/docker job permissions"
+    },
+    {
+      "label": "pull_request_target is absent",
+      "ok": true,
+      "detail": "no pull_request_target trigger"
+    },
+    {
+      "label": "Dependabot configuration exists",
+      "ok": true,
+      "detail": ".github/dependabot.yml"
+    },
+    {
+      "label": "Dependabot covers npm dependencies",
+      "ok": true,
+      "detail": "package-ecosystem: npm at /"
+    },
+    {
+      "label": "Dependabot covers GitHub Actions",
+      "ok": true,
+      "detail": "package-ecosystem: github-actions"
+    },
+    {
+      "label": "Dependabot schedules are present",
+      "ok": true,
+      "detail": "weekly schedules for npm and github-actions"
+    },
+    {
+      "label": "CodeQL workflow exists",
+      "ok": true,
+      "detail": ".github/workflows/codeql.yml"
+    },
+    {
+      "label": "CodeQL workflow actions are pinned by full SHA",
+      "ok": true,
+      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
+    },
+    {
+      "label": "CodeQL workflow permissions are scoped",
+      "ok": true,
+      "detail": "security-events: write plus contents: read"
+    },
+    {
+      "label": "CodeQL workflow analyzes JavaScript/TypeScript",
+      "ok": true,
+      "detail": "javascript-typescript"
+    },
+    {
+      "label": "CodeQL workflow uses extended security query suites",
+      "ok": true,
+      "detail": "security-extended, security-and-quality"
+    },
+    {
+      "label": "CodeQL workflow has scheduled scanning",
+      "ok": true,
+      "detail": "schedule cron"
+    },
+    {
+      "label": "product-quality workflow is present",
+      "ok": true,
+      "detail": "bun run product:quality"
+    },
+    {
+      "label": "dependency install uses frozen lockfile",
+      "ok": true,
+      "detail": "bun install --frozen-lockfile"
+    },
+    {
+      "label": "npm provenance publish flag is configured",
+      "ok": true,
+      "detail": "npm publish --access public --provenance"
+    },
+    {
+      "label": "npm OIDC/trusted publishing boundary is present",
+      "ok": true,
+      "detail": "id-token: write plus NODE_AUTH_TOKEN clearing"
+    },
+    {
+      "label": "release environment gate is present",
+      "ok": true,
+      "detail": "environment: release"
+    },
+    {
+      "label": "Docker package write permission is scoped to release workflow",
+      "ok": true,
+      "detail": "packages: write only in release docker job"
+    },
+    {
+      "label": "external Scorecard run remains blocked",
+      "ok": true,
+      "detail": "realScorecardRunPerformed=false"
+    },
+    {
+      "label": "release/public/production/external/autonomous claims remain blocked",
+      "ok": true,
+      "detail": "all claim booleans false"
+    },
+    {
+      "label": "protected gaps are classified unresolved",
+      "ok": true,
+      "detail": "external_openssf_scorecard_run, hosted_ci_scorecard_evidence, hosted_codeql_analysis_evidence, signed_artifact_attestation_verification"
+    }
+  ],
+  "claimBoundary": "This local OpenSSF/SLSA posture report verifies repository files only; it does not run external Scorecard, hosted CI, registry attestation verification, release, publish, deploy, provider, live-model, or external-service actions."
+}

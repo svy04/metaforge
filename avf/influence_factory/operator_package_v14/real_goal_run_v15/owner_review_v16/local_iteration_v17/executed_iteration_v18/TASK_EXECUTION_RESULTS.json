@@ -1,0 +1,63 @@
+{
+  "autonomous_reliability_claimed": false,
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "external_calls": false,
+  "external_validation_claimed": false,
+  "live_model_calls_performed": false,
+  "local_product_status": "local_iteration_tasks_implemented_locally",
+  "next_safe_goal_count": 1,
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": "owner_reviews_v18_iteration_results_or_continues_local_iteration",
+  "tasks": [
+    {
+      "evidence": [
+        "Owner verdict options are separated into continue local iteration, request protected authorization, and pause for strategy review.",
+        "Each verdict names whether protected action is required and preserves selected_next_goal_executed: false."
+      ],
+      "protected_action_required": false,
+      "status": "implemented_local_only",
+      "task_id": "v17-owner-review-ux",
+      "title": "Owner Verdict Clarity"
+    },
+    {
+      "evidence": [
+        "Style examples preserve character bible, palette, typography, reference image index, rights notes, and forbidden styles.",
+        "Image generation requests must reuse Brand/IP Vault context and negative prompt constraints."
+      ],
+      "protected_action_required": false,
+      "status": "implemented_local_only",
+      "task_id": "v17-style-examples",
+      "title": "Style Example Pack"
+    },
+    {
+      "evidence": [
+        "V15 artifacts are compared against owner review, style continuity, safety boundary, and next-goal checks.",
+        "Missing or protected evidence routes to owner review instead of public operation."
+      ],
+      "protected_action_required": false,
+      "status": "implemented_local_only",
+      "task_id": "v17-evidence-compare",
+      "title": "V15 Evidence Compare"
+    },
+    {
+      "evidence": [
+        "Protected actions remain unauthorized by default.",
+        "fake human impersonation, undisclosed bot networks, spam, engagement manipulation, astroturfing, brigading, harassment, platform bypass, platform posting, deploy, publish, external calls, and readiness claims remain blocked."
+      ],
+      "protected_action_required": false,
+      "status": "implemented_local_only",
+      "task_id": "v17-authorization-checklist",
+      "title": "Protected Authorization Checklist"
+    }
+  ],
+  "terminal_condition": "LOCAL_ITERATION_EXECUTION_V18_READY"
+}

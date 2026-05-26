@@ -1,0 +1,21 @@
+# palette_tokens.schema.yml
+
+version: 1
+type: object
+required:
+  - palette_id
+  - primary
+  - secondary
+  - accent
+properties:
+  palette_id:
+    type: string
+  primary:
+    type: string
+  secondary:
+    type: string
+  accent:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

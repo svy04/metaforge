@@ -1,0 +1,260 @@
+{
+  "generatedAt": "2026-05-21T08:40:16.030Z",
+  "mode": "local_no_provider_provider_surface",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "directProviderFlags": [
+    "anthropic",
+    "openai",
+    "gemini",
+    "mistral",
+    "github",
+    "bedrock",
+    "vertex",
+    "ollama",
+    "nvidia-nim",
+    "minimax"
+  ],
+  "providerPresetDefaults": [
+    {
+      "preset": "anthropic",
+      "provider": "anthropic",
+      "name": "Anthropic",
+      "baseUrl": "https://api.anthropic.com",
+      "model": "claude-sonnet-4-6",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "atomic-chat",
+      "provider": "openai",
+      "name": "Atomic Chat",
+      "baseUrl": "http://127.0.0.1:1337/v1",
+      "model": "local-model",
+      "requiresApiKey": false
+    },
+    {
+      "preset": "azure-openai",
+      "provider": "openai",
+      "name": "Azure OpenAI",
+      "baseUrl": "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1",
+      "model": "YOUR-DEPLOYMENT-NAME",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "custom",
+      "provider": "openai",
+      "name": "Custom OpenAI-compatible",
+      "baseUrl": "http://localhost:11434/v1",
+      "model": "llama3.1:8b",
+      "requiresApiKey": false
+    },
+    {
+      "preset": "dashscope-cn",
+      "provider": "openai",
+      "name": "Alibaba Coding Plan (China)",
+      "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+      "model": "qwen3.6-plus",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "dashscope-intl",
+      "provider": "openai",
+      "name": "Alibaba Coding Plan",
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "model": "qwen3.6-plus",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "deepseek",
+      "provider": "openai",
+      "name": "DeepSeek",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "gemini",
+      "provider": "gemini",
+      "name": "Google Gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "model": "gemini-3-flash-preview",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "groq",
+      "provider": "openai",
+      "name": "Groq",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "model": "llama-3.3-70b-versatile",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "lmstudio",
+      "provider": "openai",
+      "name": "LM Studio",
+      "baseUrl": "http://localhost:1234/v1",
+      "model": "local-model",
+      "requiresApiKey": false
+    },
+    {
+      "preset": "minimax",
+      "provider": "openai",
+      "name": "MiniMax",
+      "baseUrl": "https://api.minimax.io/v1",
+      "model": "MiniMax-M2.5",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "mistral",
+      "provider": "mistral",
+      "name": "Mistral",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "model": "devstral-latest",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "moonshotai",
+      "provider": "openai",
+      "name": "Moonshot AI",
+      "baseUrl": "https://api.moonshot.ai/v1",
+      "model": "kimi-k2.5",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "nvidia-nim",
+      "provider": "openai",
+      "name": "NVIDIA NIM",
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "ollama",
+      "provider": "openai",
+      "name": "Ollama",
+      "baseUrl": "http://localhost:11434/v1",
+      "model": "llama3.1:8b",
+      "requiresApiKey": false
+    },
+    {
+      "preset": "openai",
+      "provider": "openai",
+      "name": "OpenAI",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-5.3-codex",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "openrouter",
+      "provider": "openai",
+      "name": "OpenRouter",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "model": "openai/gpt-5-mini",
+      "requiresApiKey": true
+    },
+    {
+      "preset": "together",
+      "provider": "openai",
+      "name": "Together AI",
+      "baseUrl": "https://api.together.xyz/v1",
+      "model": "Qwen/Qwen3.5-9B",
+      "requiresApiKey": true
+    }
+  ],
+  "productDescriptionProviders": [
+    "openai",
+    "gemini",
+    "deepseek",
+    "ollama"
+  ],
+  "profileOnlyPresets": [],
+  "directOnlyFlags": [
+    "github",
+    "bedrock",
+    "vertex"
+  ],
+  "launchScripts": [
+    "dev:atomic-chat",
+    "dev:code",
+    "dev:codex",
+    "dev:fast",
+    "dev:gemini",
+    "dev:grpc",
+    "dev:grpc:cli",
+    "dev:ollama",
+    "dev:ollama:fast",
+    "dev:openai",
+    "dev:profile",
+    "dev:profile:fast",
+    "profile:auto",
+    "profile:code",
+    "profile:codex",
+    "profile:fast",
+    "profile:init",
+    "profile:recommend"
+  ],
+  "compatibilityChecks": [
+    {
+      "label": "Provider preset union parsed",
+      "ok": true,
+      "detail": "18 presets"
+    },
+    {
+      "label": "Direct provider flags parsed",
+      "ok": true,
+      "detail": "10 flags"
+    },
+    {
+      "label": "OpenAI is directly selectable",
+      "ok": true,
+      "detail": "anthropic, openai, gemini, mistral, github, bedrock, vertex, ollama, nvidia-nim, minimax"
+    },
+    {
+      "label": "Gemini is directly selectable",
+      "ok": true,
+      "detail": "anthropic, openai, gemini, mistral, github, bedrock, vertex, ollama, nvidia-nim, minimax"
+    },
+    {
+      "label": "Ollama is directly selectable",
+      "ok": true,
+      "detail": "anthropic, openai, gemini, mistral, github, bedrock, vertex, ollama, nvidia-nim, minimax"
+    },
+    {
+      "label": "DeepSeek is available as a profile preset",
+      "ok": true,
+      "detail": "anthropic, atomic-chat, azure-openai, custom, dashscope-cn, dashscope-intl, deepseek, gemini, groq, lmstudio, minimax, mistral, moonshotai, nvidia-nim, ollama, openai, openrouter, together"
+    },
+    {
+      "label": "Product description provider claims are covered",
+      "ok": true,
+      "detail": "openai, gemini, deepseek, ollama"
+    },
+    {
+      "label": "Preset defaults have non-empty routing data",
+      "ok": true,
+      "detail": "18 defaults"
+    },
+    {
+      "label": "Local providers do not require API keys",
+      "ok": true,
+      "detail": "ollama, lmstudio, atomic-chat"
+    },
+    {
+      "label": "Remote OpenAI-compatible presets are classified",
+      "ok": true,
+      "detail": "openai-compatible presets"
+    },
+    {
+      "label": "Provider launch/profile scripts exist",
+      "ok": true,
+      "detail": "18 scripts"
+    },
+    {
+      "label": "Provider surface drift is classified",
+      "ok": true,
+      "detail": "profile_only=0, direct_only=3"
+    }
+  ],
+  "claimBoundary": "Provider compatibility fixtures are local configuration-surface checks only, not provider-backed execution or external validation."
+}

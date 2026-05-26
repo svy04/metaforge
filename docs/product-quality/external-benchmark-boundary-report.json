@@ -1,0 +1,286 @@
+{
+  "generatedAt": "2026-05-21T09:48:00.446Z",
+  "mode": "local_no_provider_external_benchmark_boundary",
+  "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
+  "sourceBenchmarkReadinessSha256": "fe04d4cc4c8d122bc6025572b6ac7f26f83a46f8a34f2f6bc0b7891be6d258b6",
+  "sourceBenchmarkTaskCount": 16,
+  "sourceBenchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
+  "sourceBenchmarkManifestSha256": "5e487d6998a3b030700c0e48ab9feb14a03ece1f81bd72c26e231523e2bf5736",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalBenchmarkExecutionAuthorized": false,
+  "externalBenchmarkExecutionPerformed": false,
+  "externalBenchmarkResultClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "authorizationRequestPath": "docs/product-quality/external-benchmark-authorization-request.md",
+  "protectedActionAuthorizations": [
+    {
+      "id": "external_dataset_access",
+      "title": "Fetch or use external benchmark datasets",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "container_runtime_setup",
+      "title": "Start Docker/container or benchmark sandbox runtime",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "provider_call",
+      "title": "Call provider APIs during benchmark execution",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "live_model_call",
+      "title": "Call live models during benchmark execution",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "external_service_call",
+      "title": "Call remote benchmark, telemetry, or hosted evaluation services",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "remote_runtime_access",
+      "title": "Use remote runtime, worker, or hosted benchmark infrastructure",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "hosted_ci_execution",
+      "title": "Run hosted CI or publish benchmark artifacts through a remote repository",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "external_validation_claim",
+      "title": "Claim external validation from benchmark execution",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "public_result_claim",
+      "title": "Publish or publicly cite benchmark results",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "release_readiness_claim",
+      "title": "Claim release readiness from benchmark results",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "production_readiness_claim",
+      "title": "Claim production readiness from benchmark results",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    },
+    {
+      "id": "autonomous_reliability_claim",
+      "title": "Claim autonomous reliability from benchmark results",
+      "authorized": false,
+      "requiredBeforeExecution": true,
+      "currentStatus": "explicit_owner_authorization_missing"
+    }
+  ],
+  "boundaryGaps": [
+    {
+      "id": "external_dataset_access",
+      "category": "external_benchmark_execution",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval to fetch/use benchmark datasets.",
+      "forbiddenShortcut": "Do not treat local readiness manifest as external benchmark execution."
+    },
+    {
+      "id": "container_runtime_setup",
+      "category": "external_benchmark_execution",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval for Docker/container/runtime setup.",
+      "forbiddenShortcut": "Do not install or start benchmark runtimes in this gate."
+    },
+    {
+      "id": "provider_live_model_validation",
+      "category": "provider_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval for provider and live model calls.",
+      "forbiddenShortcut": "Do not convert no-provider traces into provider-backed evidence."
+    },
+    {
+      "id": "remote_runtime_access",
+      "category": "external_service_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval for remote workers or benchmark services.",
+      "forbiddenShortcut": "Do not call remote runtimes or services from the local gate."
+    },
+    {
+      "id": "hosted_ci_execution",
+      "category": "source_control_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval plus a real Git repository/remote boundary.",
+      "forbiddenShortcut": "Do not claim hosted CI from local workflow inspection."
+    },
+    {
+      "id": "public_result_claim",
+      "category": "claim_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner approval after real external benchmark evidence exists.",
+      "forbiddenShortcut": "Do not publish or cite external results from local readiness evidence."
+    },
+    {
+      "id": "release_readiness_claim",
+      "category": "claim_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner release decision after external evidence review.",
+      "forbiddenShortcut": "Do not claim release readiness from this boundary report."
+    },
+    {
+      "id": "production_readiness_claim",
+      "category": "claim_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "requiredAuthorization": "Owner production decision after protected evidence is complete.",
+      "forbiddenShortcut": "Do not claim production readiness from this boundary report."
+    }
+  ],
+  "sourceReadinessUnresolvedGaps": [
+    {
+      "id": "task_instance_schema_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "External SWE-bench execution is not performed in this no-provider gate."
+    },
+    {
+      "id": "trajectory_artifact_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Non-synthetic user IDE/workbench trajectory capture still requires explicit operator capture."
+    },
+    {
+      "id": "replay_grading_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": false,
+      "protectedActionExecuted": false,
+      "detail": "Real Extension Host and workbench replay remain blocked while VS Code update is in progress."
+    },
+    {
+      "id": "reproducible_artifact_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Signed release provenance remains blocked until a real Git/release boundary exists."
+    },
+    {
+      "id": "publishable_summary_redaction",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Raw non-synthetic capture quarantine remains a later operator-authorized workflow."
+    },
+    {
+      "id": "source_controlled_gate_wiring",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Hosted CI run evidence remains blocked because this workspace is not a Git repository."
+    },
+    {
+      "id": "external_benchmark_run_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "External benchmark execution is not authorized in this internal no-provider gate."
+    }
+  ],
+  "boundaryChecks": [
+    {
+      "label": "benchmark readiness report is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_readiness_matrix"
+    },
+    {
+      "label": "benchmark readiness has task manifest evidence",
+      "ok": true,
+      "detail": "16 tasks"
+    },
+    {
+      "label": "benchmark readiness did not run external benchmark",
+      "ok": true,
+      "detail": "externalBenchmarkRunPerformed=false"
+    },
+    {
+      "label": "benchmark readiness performed no calls",
+      "ok": true,
+      "detail": "provider/live/external calls=0"
+    },
+    {
+      "label": "benchmark readiness executed no protected actions",
+      "ok": true,
+      "detail": "protected actions=0"
+    },
+    {
+      "label": "source readiness checks pass",
+      "ok": true,
+      "detail": "11 checks"
+    },
+    {
+      "label": "all protected authorizations default false",
+      "ok": true,
+      "detail": "12 authorizations"
+    },
+    {
+      "label": "required boundary gaps are classified",
+      "ok": true,
+      "detail": "external_dataset_access,container_runtime_setup,provider_live_model_validation,remote_runtime_access,hosted_ci_execution,public_result_claim,release_readiness_claim,production_readiness_claim"
+    },
+    {
+      "label": "boundary gaps remain unexecuted",
+      "ok": true,
+      "detail": "8 gaps"
+    },
+    {
+      "label": "external benchmark execution remains blocked",
+      "ok": true,
+      "detail": "externalBenchmarkExecutionAuthorized=false"
+    }
+  ],
+  "claimBoundary": "External benchmark boundary evidence is internal local no-provider evidence only. It does not execute external benchmarks, providers, live models, external services, containers, hosted CI, deploy, publish, launch, or make release/public/production/external/autonomous reliability claims."
+}

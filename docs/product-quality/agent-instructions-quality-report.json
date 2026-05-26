@@ -1,0 +1,138 @@
+{
+  "generatedAt": "2026-05-21T08:40:14.070Z",
+  "mode": "local_no_provider_agent_instructions_quality",
+  "sourceAgentInstructionsPath": "AGENTS.md",
+  "sourceAgentInstructionsSha256": "306cd037bf72b4c33cc6366ae8cac53f3597c00c86b58fff76614245e29487d8",
+  "sourcePackageJsonPath": "package.json",
+  "sourcePackageJsonSha256": "f2ead9e800dd38f6a5573ae9c3319b21228782d17e09de37d559bd36599e2189",
+  "sourceWorkflowPaths": [
+    ".github/workflows/pr-checks.yml",
+    ".github/workflows/codeql.yml",
+    ".github/dependabot.yml"
+  ],
+  "sourceWorkflowSha256": {
+    ".github/workflows/pr-checks.yml": "603ae5cdcd2eb4dbf96b235aefd1d02787e2789df6e6da8116a8d9e7d84986c9",
+    ".github/workflows/codeql.yml": "f21c6e3a7cf09a01b2afad10c171e35763e192f0c4f587fbd81a7a292734f8a2",
+    ".github/dependabot.yml": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61"
+  },
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenHands Repository Agent guidance",
+      "sourceUrl": "https://docs.openhands.dev/overview/skills/repo",
+      "observedPattern": "Repository-wide agent instructions are stronger when they summarize repository purpose, setup, structure, and CI workflow context.",
+      "localAbsorption": "AGENTS.md now includes a Repository Orientation section, and this report verifies that orientation as product-quality evidence."
+    },
+    {
+      "sourceProject": "OpenHands Skills overview",
+      "sourceUrl": "https://docs.openhands.dev/overview/skills",
+      "observedPattern": "Always-on repository context and on-demand skills should be separated so agents can load durable instructions without wasting context.",
+      "localAbsorption": "AGENTS.md preserves always-on GStack/GSD/Superpowers routing while this gate keeps those boundaries checkable."
+    }
+  ],
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "purposeSectionPresent": true,
+  "setupVerificationCommandsPresent": [
+    "bun run build",
+    "bun run typecheck",
+    "bun run product:quality",
+    "bun run verify:privacy"
+  ],
+  "repositoryStructureSectionsPresent": [
+    "src/",
+    "scripts/",
+    "docs/",
+    "reports/",
+    "packages/openclaude-vscode/",
+    ".github/"
+  ],
+  "workflowEvidencePresent": true,
+  "agentStackBoundariesPresent": [
+    "GStack",
+    "GSD",
+    "Superpowers"
+  ],
+  "primarySourceRulePresent": true,
+  "verificationStandardPresent": true,
+  "protectedBoundaryLanguagePresent": true,
+  "claimBoundary": "Agent instruction quality evidence only; this does not authorize release, production, public, external-validation, or autonomous-reliability claims.",
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "instructionQualityChecks": [
+    {
+      "label": "AGENTS.md imported",
+      "ok": true,
+      "detail": "AGENTS.md"
+    },
+    {
+      "label": "package.json imported",
+      "ok": true,
+      "detail": "package.json"
+    },
+    {
+      "label": "primary-source inputs are official project sources",
+      "ok": true,
+      "detail": "https://docs.openhands.dev/overview/skills/repo,https://docs.openhands.dev/overview/skills"
+    },
+    {
+      "label": "repository purpose is explicit",
+      "ok": true,
+      "detail": "Repository Orientation / Repository Purpose"
+    },
+    {
+      "label": "setup and verification commands are explicit",
+      "ok": true,
+      "detail": "bun run build,bun run typecheck,bun run product:quality,bun run verify:privacy"
+    },
+    {
+      "label": "repository structure is explicit",
+      "ok": true,
+      "detail": "src/,scripts/,docs/,reports/,packages/openclaude-vscode/,.github/"
+    },
+    {
+      "label": "workflow evidence is wired",
+      "ok": true,
+      "detail": ".github/workflows/pr-checks.yml,.github/workflows/codeql.yml,.github/dependabot.yml"
+    },
+    {
+      "label": "agent-stack boundaries remain explicit",
+      "ok": true,
+      "detail": "GStack,GSD,Superpowers"
+    },
+    {
+      "label": "primary-source research rule remains explicit",
+      "ok": true,
+      "detail": "primary sources / blogs only as pointers"
+    },
+    {
+      "label": "verification standard remains explicit",
+      "ok": true,
+      "detail": "verification by command, not file presence"
+    },
+    {
+      "label": "protected boundary language remains explicit",
+      "ok": true,
+      "detail": "protected boundary / readiness claim"
+    },
+    {
+      "label": "provider live external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "readiness and reliability claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ]
+}

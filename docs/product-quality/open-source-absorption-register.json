@@ -1,0 +1,707 @@
+{
+  "snapshot_date": "2026-05-17",
+  "purpose": "Track stronger primary-source OSS patterns and whether OpenClaude has reused, adapted, benchmarked, or deferred them.",
+  "claim_boundary": "Entries are learning and absorption evidence, not superiority claims.",
+  "entries": [
+    {
+      "source_project": "anomalyco/opencode",
+      "source_url": "https://github.com/anomalyco/opencode",
+      "observed_pattern": "open-source coding agent with explicit plan/build agent modes, broad installation channels, TUI focus, and client/server architecture.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Use explicit planning/execution separation as a product-quality axis and keep GStack/GSD/Superpowers boundaries measurable.",
+      "status": "absorbed_as_gate_requirement"
+    },
+    {
+      "source_project": "GitHub Docs stars and repository metadata",
+      "source_url": "https://docs.github.com/articles/stars",
+      "observed_pattern": "GitHub stars and repository metadata are useful ranking inputs, but they are mutable and must be treated as dated evidence rather than permanent public comparison proof.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-baseline-freshness` to validate top-10 baseline structure, star ordering, GitHub source URLs, license assertions, and provenance JSONL while requiring a fresh external GitHub refresh before public comparison or superiority claims.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub REST Search and Repositories API",
+      "source_url": "https://docs.github.com/en/rest/search/search#search-repositories",
+      "observed_pattern": "GitHub repository search and repository metadata can refresh benchmark candidates by stars, license, pushed_at, fork/archive status, topics, and source URL, but the result is still mutable discovery evidence rather than a superiority claim.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-baseline-refresh` to perform an explicit GitHub REST metadata refresh, write `docs/product-quality/oss-top10-baseline-2026-05-21.json`, record newly discovered top-10 candidates such as `ultraworkers/claw-code`, `warpdotdev/warp`, and `ruvnet/ruflo`, preserve excluded higher-star non-product candidates with reasons, and keep public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub REST Contents API and repository source surfaces",
+      "source_url": "https://docs.github.com/en/rest/repos/contents#get-a-repository-readme",
+      "observed_pattern": "GitHub README and repository-content surfaces give stronger primary-source evidence than stars alone, and API rate-limit evidence should be recorded rather than hidden.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-source-review` to inspect the refreshed top-10 baseline through GitHub README/root source evidence, preserve REST rate-limit status, fall back to GitHub raw README and repository-root source surfaces when needed, classify source-supported versus metadata-only candidates, and keep public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenClaude OSS source-review architecture target queue",
+      "source_url": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
+      "observed_pattern": "Source-reviewed benchmark candidates become more useful when they are converted into axis-specific architecture absorption targets with explicit deferred metadata-only status and forbidden shortcuts.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-architecture-targets` to convert the refreshed source-review report into 9 prioritized source-supported architecture targets, 1 deferred metadata-only target, product-quality axis coverage, and `reports/openclaude-oss-architecture-absorption-targets.jsonl` while keeping public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenClaude OSS architecture protected-gap review",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "Competitive architecture absorption should bind each intended learning target to concrete local evidence, explicit protected gaps, and forbidden shortcuts before any stronger product claim is made.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-architecture-gap-review` to map the architecture target queue into local OpenClaude evidence, safe internal next actions, protected boundary gaps, and source-hash-addressed JSONL records without provider/live/external calls or claim expansion.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenClaude OSS high-priority axis architecture review",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "High-priority OSS learning targets should become structured per-axis records with source patterns, local evidence, unresolved gaps, safe backlog items, and protected boundaries before any implementation absorption or public comparison claim.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-axis-architecture-review` to convert `ultraworkers/claw-code`, `warpdotdev/warp`, and `ruvnet/ruflo` into 25 axis-level review records, 47 safe internal backlog items, and `reports/openclaude-oss-axis-architecture-review.jsonl` while keeping public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "high-priority OSS terminal and orchestration projects become more absorbable when source-reviewed backlog items are converted into explicit internal evidence-gate candidates before implementation or claim expansion.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-safe-backlog-plan` to convert the 47 safe internal backlog items from the high-priority OSS axis architecture review into source-bound, axis-bound, protected-boundary-preserving planning records and `reports/openclaude-oss-safe-backlog-plan.jsonl` without provider/live/external calls or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "benchmark and quality-gate learning must stay separated from public benchmark, leaderboard, superiority, readiness, and external-validation claims until protected external execution and owner authorization exist.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-eval-quality-gate-checklist` to convert the `eval_and_quality_gates` backlog into explicit local no-provider claim-rejection checklist items and `reports/openclaude-oss-eval-quality-gate-checklist.jsonl` without provider/live/external calls or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "terminal workflow evidence should bind first-run, failure recovery, doctor handoff, command hashes, and no-provider boundaries before non-synthetic session or external benchmark claims are made.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-terminal-workflow-evidence` to convert the `terminal_workflow` backlog into a source-hash-addressed local evidence matrix and `reports/openclaude-oss-terminal-workflow-evidence.jsonl` without non-synthetic capture, provider/live/external calls, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "onboarding quality should keep README, quick-start, link integrity, support/community profile, and first-run evidence bound to hashes before cross-platform or public readiness claims are made.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-onboarding-docs-evidence` to convert the `onboarding_docs` backlog into a source-hash-addressed local evidence matrix and `reports/openclaude-oss-onboarding-docs-evidence.jsonl` without non-synthetic capture, provider/live/external calls, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "runtime diagnostics should separate observable local blocker evidence from repair, reinstall, dependency install, provider probe, and external diagnostic actions.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-runtime-doctoring-evidence` to convert the `runtime_doctoring` backlog into a source-hash-addressed local evidence matrix and `reports/openclaude-oss-runtime-doctoring-evidence.jsonl` without repair, reinstall, dependency install, provider/live/external calls, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "security and permission evidence should separate local protected-action fixtures and repository posture from hosted Scorecard, hosted CodeQL, branch-protection enforcement, and public security posture claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-security-permissions-evidence` to convert the `security_and_permissions` backlog into a source-hash-addressed local evidence matrix and `reports/openclaude-oss-security-permissions-evidence.jsonl` without hosted Scorecard, hosted CodeQL, branch-protection queries, provider/live/external calls, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "tool-loop reliability evidence should preserve fixture-bounded repair traces, interruption recovery, trace redaction, and portable trace exports before stronger reliability or benchmark claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-tool-loop-reliability-evidence` to convert the `tool_loop_reliability` backlog into a source-hash-addressed local evidence matrix and `reports/openclaude-oss-tool-loop-reliability-evidence.jsonl` without real product repo mutation, provider-backed execution, live model validation, external benchmark execution, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/warpdotdev/warp",
+      "observed_pattern": "release hygiene evidence should keep local artifact reproducibility, SBOM-shaped inventory, license-boundary authorization, signed provenance, publish/deploy, and release-readiness boundaries separate from actual release execution.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-release-hygiene-evidence` to convert the `release_hygiene` backlog into a source-hash-addressed local artifact and release-claim boundary evidence matrix and `reports/openclaude-oss-release-hygiene-evidence.jsonl` without commit, push, publish, deploy, launch, signed provenance, legal/NOTICE/REUSE decisions, provider/live/external calls, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ultraworkers/claw-code + warpdotdev/warp + ruvnet/ruflo",
+      "source_url": "https://github.com/ultraworkers/claw-code",
+      "observed_pattern": "provider breadth evidence should keep local capability/failure-mode rows and provider fallback boundaries separate from live-provider validation and compatibility claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-provider-breadth-evidence` to convert the `provider_breadth` backlog into a source-hash-addressed local capability and live-authorization boundary evidence matrix and `reports/openclaude-oss-provider-breadth-evidence.jsonl` without provider calls, live model calls, external calls, live provider validation, provider compatibility claims, model behavior claims, or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenTelemetry JavaScript + OpenSSF Scorecard + SLSA",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-js",
+      "observed_pattern": "privacy and no-phone-home evidence is stronger when telemetry surfaces are explicit, local build output is scanned deterministically, and public privacy claims stay separate from internal evidence.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-privacy-no-phone-home-evidence` to convert the `privacy_and_no_phone_home` backlog into source-hash-addressed build-output banned-pattern scans, no-telemetry fixture evidence, privacy-settings surface evidence, and public-claim-boundary evidence while keeping provider/live/external calls, public privacy claims, comparison/superiority claims, release/readiness claims, and protected actions blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Visual Studio Code Extension API + Testing Extensions + Workspace Trust",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "IDE and editor surface evidence is stronger when extension manifest, activation, command, view, webview, real-host, and workspace-isolation checks are hash-bound before any availability or public comparison claim.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-ide-or-editor-surface-evidence` to convert the highest-priority `ide_or_editor_surface` comparison axis into source-hash-addressed VS Code extension surface, manifest, mock-host, real-host, workbench, webview, screenshot, interaction, and startup-boundary evidence while keeping VS Code CLI/PATH/install-state repair, extension availability, public comparison, superiority, release/readiness claims, provider/live/external calls, and protected actions blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenClaude provider capability matrix",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "Provider breadth evidence should be represented as explicit capability and failure-mode records so local configuration surfaces are not confused with provider-backed execution.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:provider-capability-matrix` to read provider compatibility, runtime doctor, and OSS axis review evidence, write 21 capability rows plus 5 failure-mode rows to `reports/openclaude-provider-capability-matrix.jsonl`, and keep provider-backed execution, provider compatibility, release, production, external-validation, public, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands Repository Agent guidance",
+      "source_url": "https://docs.openhands.dev/overview/skills/repo",
+      "observed_pattern": "repository-wide agent instructions are stronger when they summarize repository purpose, setup, structure, and CI workflow context, reducing repeated repository rediscovery during agent work.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added a Repository Orientation section to AGENTS.md and `bun run product:agent-instructions-quality` to verify purpose, setup commands, repository structure, workflow evidence, agent-stack boundaries, primary-source rules, verification standards, and protected boundary language.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands Skills overview",
+      "source_url": "https://docs.openhands.dev/overview/skills",
+      "observed_pattern": "agent products should separate always-on repository context from on-demand skill content so durable instructions remain available without wasting context on every specialized workflow.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "`bun run product:agent-instructions-quality` checks that AGENTS.md keeps GStack, GSD, and Superpowers as explicit always-on routing boundaries while preserving primary-source and verification-before-completion rules.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "continuedev/continue",
+      "source_url": "https://github.com/continuedev/continue",
+      "observed_pattern": "source-controlled AI checks and enforceable CI-oriented agent workflows.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Promote local product checks into `bun run product:quality` so competitive product claims require executable evidence.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Aider-AI/aider",
+      "source_url": "https://github.com/Aider-AI/aider",
+      "observed_pattern": "git-native terminal pair programming workflow.",
+      "openclaude_absorption_decision": "benchmark_then_adapt",
+      "local_action": "Added `bun run product:git-release-hygiene` to classify repo-root availability, verify package release metadata, and record that commit, push, publish, deploy, and launch were not attempted.",
+      "status": "implemented_as_blocker_classification"
+    },
+    {
+      "source_project": "openai/codex",
+      "source_url": "https://github.com/openai/codex",
+      "observed_pattern": "lightweight terminal coding agent with strong local execution discipline.",
+      "openclaude_absorption_decision": "benchmark",
+      "local_action": "Keep smoke, privacy, and typecheck-health checks local and no-provider by default.",
+      "status": "absorbed_as_verification_boundary"
+    },
+    {
+      "source_project": "google-gemini/gemini-cli",
+      "source_url": "https://github.com/google-gemini/gemini-cli",
+      "observed_pattern": "provider-native terminal agent positioning with active release surface.",
+      "openclaude_absorption_decision": "benchmark",
+      "local_action": "Keep provider breadth as a required product axis without activating new providers silently.",
+      "status": "absorbed_as_claim_boundary"
+    },
+    {
+      "source_project": "openai/codex",
+      "source_url": "https://github.com/openai/codex",
+      "observed_pattern": "terminal coding agents need deterministic local command proofs for their core CLI surface, not only document-level claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:golden-transcripts` to capture and validate local no-provider `--version` and `--help` transcripts.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "openai/codex",
+      "source_url": "https://github.com/openai/codex",
+      "observed_pattern": "first-run onboarding for terminal coding agents is stronger when platform quick-start docs are paired with executable local CLI smoke evidence and explicit claim boundaries.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:onboarding-smoke` to verify README quick-start links, Windows/macOS/Linux setup docs, install/start/provider/troubleshooting/update/uninstall guidance, and local no-provider `--version`, `--help`, and `doctor --help` commands while blocking unsupported cross-platform runtime and readiness claims.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "github/docs",
+      "source_url": "https://github.com/github/docs",
+      "observed_pattern": "repository READMEs and documentation should use relative links that resolve from the current branch and should keep user-facing navigation aligned with the actual source tree.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:doc-link-integrity` to verify local README/quick-start/product-quality relative links, align the README VS Code extension path with `packages/openclaude-vscode`, and keep external link fetching plus release/readiness claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SLSA Build Provenance / in-toto Attestation / OpenSSF Scorecard",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "primary-source-backed quality claims are stronger when each evidence input is represented as a typed, hash-addressed record and repeatable checks reject secondary or blog-summary sources.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:primary-source-registry` to inventory product-quality `primarySourceInputs`, hash source reports, classify source kinds, reject blog-summary and secondary-source domains, and write `reports/openclaude-primary-source-registry.jsonl` without external URL fetching or claim expansion.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "github/docs",
+      "source_url": "https://github.com/github/docs",
+      "observed_pattern": "issue and pull-request templates should standardize contributor intake so bug reports, feature requests, and PRs carry enough reproducibility, evidence, and review context before maintainers act.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:community-intake-quality` to verify bug report, feature request, issue-template chooser, PR-template, and security-policy surfaces for reproducibility, primary-source prior art, product-quality/privacy verification, secret redaction, protected-action boundaries, and readiness-claim blocking.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub Docs healthy contributions",
+      "source_url": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions",
+      "observed_pattern": "public repositories are healthier when contributor guidelines, support resources, code of conduct, security policy, license, and README navigation are visible community-profile surfaces rather than scattered informal notes.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `SUPPORT.md`, strengthened `CONTRIBUTING.md` and README community links, and added `bun run product:community-profile-quality` to verify CONTRIBUTING, SUPPORT, CODE_OF_CONDUCT, SECURITY, LICENSE, README links, secret redaction, validation expectations, and claim-boundary language without GitHub API, provider, live model, or external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub Docs CODEOWNERS",
+      "source_url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+      "observed_pattern": "source-controlled CODEOWNERS files make repository responsibility and pull-request review routing explicit, with preferred locations, syntax constraints, file-size limits, and a separate branch-protection setting for required code-owner approval.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `.github/CODEOWNERS` and `bun run product:maintainer-ownership-quality` to verify local ownership routing for default, `.github`, source, scripts, VS Code extension, product-quality evidence, reports, package, README, contribution, support, conduct, security, and license surfaces while blocking hosted branch-protection and required-review claims without GitHub API, provider, live model, or external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub Dependency Review / Dependabot / Bun lockfile / OpenSSF Scorecard",
+      "source_url": "https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependency-review",
+      "observed_pattern": "source-controlled dependency governance is stronger when lockfiles, package-manager versions, dependency update tooling, pull-request dependency review, frozen installs, and pinned build dependencies are verified separately from hosted execution or vulnerability-free claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `packageManager`, `.github/workflows/dependency-review.yml`, and `bun run product:dependency-governance-quality` to verify `bun.lock`, direct dependency inventory, dependency-review workflow SHA pinning, Dependabot npm/GitHub Actions coverage, frozen install wiring, and hosted vulnerability/review claim blocking without running installs, audits, GitHub APIs, provider, live model, or external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Bun lockfile / CycloneDX / SPDX / GitHub Dependency Graph SBOM",
+      "source_url": "https://cyclonedx.org/specification/overview/",
+      "observed_pattern": "SBOM-grade supply-chain evidence is stronger when package inventories, direct/transitive dependency relationships, integrity metadata, and hosted-export boundaries are machine-readable instead of inferred from package manifests alone.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:lockfile-sbom-quality` to parse the existing `bun.lock`, write `reports/openclaude-lockfile-sbom-inventory.jsonl`, verify lockfile package/integrity/relationship coverage, and keep install, audit, hosted SBOM export, GitHub API, official SPDX/CycloneDX compliance, vulnerability-free, license-compliance, readiness, provider, live-model, and external-service claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SPDX License List / npm package.json license field / GitHub licensing",
+      "source_url": "https://spdx.org/licenses/",
+      "observed_pattern": "third-party license evidence is stronger when package license fields, license files, notice files, repository metadata, and legal-review boundaries are inventoried separately from dependency existence or SBOM-style component lists.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:third-party-license-quality` to read local lockfile SBOM evidence and installed package metadata, write `reports/openclaude-third-party-license-inventory.jsonl`, verify direct dependency license-field coverage, classify license-file and NOTICE-file gaps, and keep dependency install, npm/GitHub lookup, SPDX expression parsing, legal review, NOTICE generation, license-compliance, third-party NOTICE readiness, release/readiness, provider, live-model, and external-service claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "REUSE Specification / SPDX source-file identifiers / fsfe reuse-tool",
+      "source_url": "https://reuse.software/spec-3.2/",
+      "observed_pattern": "source-file licensing evidence is stronger when every covered file has machine-readable license metadata through SPDX identifiers, adjacent license metadata, or REUSE annotations instead of relying only on a root LICENSE file.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:source-license-metadata-quality` to scan source and product surfaces for file-level SPDX metadata, preserve the current Anthropic-derived-code and OpenClaude-modification license boundary, write `reports/openclaude-source-license-metadata-inventory.jsonl`, classify missing file-level metadata and absent REUSE artifacts, and keep reuse-tool execution, SPDX document generation, legal review, REUSE/source-license compliance, source-metadata readiness, release/readiness, provider, live-model, and external-service claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub licensing / npm license metadata / SPDX / REUSE",
+      "source_url": "https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository/",
+      "observed_pattern": "license and source-metadata inventories are stronger when they are followed by explicit owner/legal authorization requirements instead of being converted directly into release, compliance, or readiness claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:license-boundary-authorization` to read third-party and source-license evidence, write `docs/product-quality/license-boundary-authorization-request.md` plus `reports/openclaude-license-boundary-authorization-items.jsonl`, default every protected authorization to false, and keep legal review, NOTICE generation, REUSE artifact creation, source-file rewrites, dependency installs, external lookups, license-compliance, source-metadata readiness, release/readiness, provider, live-model, and external-service claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "aaif-goose/goose",
+      "source_url": "https://github.com/aaif-goose/goose",
+      "observed_pattern": "extensible agent products need provider/provider-like surface compatibility to be explicit and testable rather than implicit in docs.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:provider-compatibility` to validate direct provider flags, profile preset defaults, local-provider key requirements, and classified provider-surface drift without live provider calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "cline/cline",
+      "source_url": "https://github.com/cline/cline",
+      "observed_pattern": "autonomous coding products need permission and protected-action regressions to be explicit, repeatable, and claim-bounded.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:permission-regression` to validate protected permission surfaces, targeted permission/security test coverage, bypass-mode gating, sandbox boundaries, plugin hook hardening, WebFetch SSRF guarding, swarm permission path hardening, permission-rule validation, and auto-classifier transcript bounds without provider/live/external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "cline/cline + OpenHands/OpenHands + openai/codex",
+      "source_url": "https://github.com/cline/cline",
+      "observed_pattern": "mature coding-agent products treat write/command tools, sandbox providers, and approval boundaries as explicit policy surfaces; a rejected protected action should become auditable evidence and a safe alternative, not a hidden failure or an unauthorized mutation.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:protected-action-denial-trace` to create a disposable local no-provider fixture that records a protected VS Code/PATH/install-state mutation request, denies it because owner authorization is absent, writes a safe alternative summary, verifies protectedActionExecuted=false, feeds the trace into real-trace evals, trace-schema contract checks, benchmark readiness, trajectory process quality, and the product evidence manifest, and keeps provider/live/external calls plus protected repo mutation blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "openai/codex",
+      "source_url": "https://github.com/openai/codex",
+      "observed_pattern": "terminal coding agents need local runtime diagnostics to be repeatable, machine-readable, and claim-bounded instead of only interactive troubleshooting advice.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:runtime-doctor` to validate local runtime doctor JSON/stdout output, `--out` report generation, redacted console environment summaries, runtime/build checks, and provider probe skip behavior without provider/live/external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "cline/cline",
+      "source_url": "https://github.com/cline/cline",
+      "observed_pattern": "IDE assistant products need their editor-extension surface to be backed by manifest/package evidence, not implied by positioning copy.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-surface` to classify VS Code extension manifest availability as `extension_manifest_missing` without packaging, installing, publishing, or claiming extension availability.",
+      "status": "implemented_as_gap_classification"
+    },
+    {
+      "source_project": "continuedev/continue",
+      "source_url": "https://github.com/continuedev/continue",
+      "observed_pattern": "IDE-first AI coding products use a dedicated VS Code extension manifest with extensionKind, activationEvents, main entry point, commands, views, configuration, and official contribution points.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-scope` to turn OpenClaude's `extension_manifest_missing` gap into a bounded future manifest scope at `packages/openclaude-vscode/package.json`, with commands, views, configuration keys, activation events, and validation required before any availability claim.",
+      "status": "implemented_as_scope_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code extension surfaces are declared through package.json manifest fields and should be checked before install, publish, or availability claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `packages/openclaude-vscode/package.json`, `packages/openclaude-vscode/dist/extension.js`, and `bun run product:ide-extension-manifest-smoke` to validate manifest identity, engines.vscode, extensionKind, activationEvents, commands, views, configuration keys, and local `npm pack --dry-run --json --ignore-scripts` output without install, publish, deploy, launch, provider, live model, or external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code extension anatomy requires static command contributions in package.json to be bound at runtime by activate() through commands.registerCommand.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-runtime-smoke` to load the extension entry point with a local mock VS Code extension host, invoke activate/deactivate, verify all manifest commands are registered and executable, and keep real Extension Host launch plus availability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code official extension integration tests run inside an Extension Development Host with `--extensionDevelopmentPath` and `--extensionTestsPath`, and commands can be executed programmatically through the VS Code command API.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-host-smoke` to launch the scoped VS Code extension in a real local Extension Development Host, activate `gitlawb.openclaude-vscode`, execute all four contributed command handlers, and keep install, publish, deploy, product launch, provider/live/external calls, and extension availability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code command-line isolation uses `--user-data-dir` and `--extensions-dir`, Extension Development Host tests use `--extensionDevelopmentPath` and `--extensionTestsPath`, and Workspace Trust can be disabled for the current session with `--disable-workspace-trust`; startup failures should therefore preserve the exact isolated-launch evidence and local update-guard logs before any environment intervention.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:vscode-startup-diagnostics` to read current host/workbench smoke reports, VS Code update-boundary evidence, disposable smoke main logs, update sentinel candidates, and CodeSetup process listings, then classify the current update guard and Workspace Trust isolation without terminating processes, deleting update state, reinstalling VS Code, installing dependencies, or claiming extension availability.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code Tree View surfaces need package view contributions plus TreeDataProvider registration, and the TreeView API can reveal/focus items when a workbench view is exercised.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added TreeDataProviders for `openclaude.chatView` and `openclaude.traceEvidenceView`, plus `bun run product:ide-extension-workbench-smoke` to launch a real local Extension Development Host, reveal first items in both contributed views through the TreeView API, and keep install, publish, deploy, product launch, provider/live/external calls, and extension availability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code Tree View actions are command-backed UI actions, so workbench evidence should prove not only that view items render but also that item commands execute in the real Extension Development Host.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Extended `bun run product:ide-extension-workbench-smoke` to collect TreeItem command IDs, verify they are manifest-declared commands, execute each command in the real local Extension Development Host, record `executedViewCommandIds`, and fail if any command fails while preserving the no install/publish/deploy/provider boundary.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code WebviewView surfaces should be provider-backed, contextually appropriate, themeable, accessible, and populated through `registerWebviewViewProvider`; webview HTML should stay bounded because webviews are powerful and resource-heavy.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `openclaude.controlCenterView` as a bounded WebviewView contribution plus `bun run product:ide-extension-webview-render-smoke` to verify provider registration, strict no-script CSP, VS Code theme tokens, accessible command action markers, no network/script surfaces, and no install/publish/deploy/provider boundary expansion.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code webview UX guidance requires themeable, accessible command actions in contextually appropriate views, so render evidence should include visual artifacts while preserving the no-availability claim boundary.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-rendered-workbench-screenshot` to render the verified Control Center WebviewView contract into local PNG/SVG workbench-panel artifacts, record dimensions, nonblank channel evidence, SHA-256 hashes, command action coverage, and keep install, publish, deploy, product launch, provider/live/external calls, and extension availability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/vscode-docs",
+      "source_url": "https://github.com/microsoft/vscode-docs",
+      "observed_pattern": "VS Code webview guidance treats webviews as powerful UI surfaces that should be accessible, contextually bounded, and capability-limited, so command interaction evidence should verify native controls, keyboard behavior, command binding, and no-script/no-network boundaries before availability claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:ide-extension-webview-interaction-smoke` to verify native Control Center command buttons, list-region semantics, keyboard activation model, manifest-order focus order, registered command alignment, mock-host command execution, bounded local messages, source-report consistency, and no install/publish/deploy/provider boundary expansion.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Aider-AI/aider",
+      "source_url": "https://github.com/Aider-AI/aider",
+      "observed_pattern": "installable terminal agents need narrow package manifests so local cache, logs, screenshots, and test utilities do not leak into release artifacts.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:release-artifact` and narrowed `package.json` files from the whole `bin/` directory to explicit launcher files plus `dist/cli.mjs` and `README.md`; npm pack dry-run now contains 6 expected files and 0 forbidden files.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "openai/codex",
+      "source_url": "https://github.com/openai/codex",
+      "observed_pattern": "coding-agent quality should be replayed as local trace-graded evidence across CLI, permissions, runtime diagnostics, release hygiene, and claim boundaries instead of relying only on static docs.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:agent-replay-evals` to grade six local no-provider replay scenarios from existing product-quality evidence with a minimum passing score of 0.9.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "continuedev/continue",
+      "source_url": "https://github.com/continuedev/continue",
+      "observed_pattern": "source-controlled AI quality checks should keep release evidence machine-readable, including artifact identity and dependency inventory, before any stronger distribution claim is made.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:release-provenance` to compute SHA-256 hashes for the local package files and a package.json SBOM-style component inventory without publishing, deploying, or claiming release readiness.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "continuedev/continue",
+      "source_url": "https://github.com/continuedev/continue",
+      "observed_pattern": "source-controlled agent release evidence should prove repeated local package generation is stable before any stronger distribution or readiness claim.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:release-reproducibility` to run local `npm pack --json --ignore-scripts` twice, compare package file lists plus tarball SHA-256, npm shasum, and npm integrity values, and remove temporary tarballs without publishing, deploying, launching, or claiming release readiness.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "continuedev/continue",
+      "source_url": "https://github.com/continuedev/continue",
+      "observed_pattern": "source-controlled AI checks should be enforced by repository workflow wiring, not only documented as a manual local command.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:source-controlled-checks` and wired `.github/workflows/pr-checks.yml` to run `bun run product:quality` on pull requests and main pushes while keeping release/publish/deploy/launch actions out of the PR workflow.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "ossf/scorecard",
+      "source_url": "https://github.com/ossf/scorecard",
+      "observed_pattern": "OpenSSF Scorecard-style security posture checks make security policy, dependency update tooling, pinned dependencies/actions, token permissions, dangerous workflow patterns, SAST, signed release evidence, packaging, and CI test wiring explicit instead of leaving them as informal release notes.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `.github/dependabot.yml`, `.github/workflows/codeql.yml`, and `bun run product:openssf-security-posture` to inspect `SECURITY.md`, Dependabot coverage for npm/pip/GitHub Actions, PR and release workflow permissions, SHA-pinned workflow actions, absent `pull_request_target`, CodeQL JavaScript/TypeScript SAST workflow configuration with extended query suites, frozen dependency installs, npm provenance wiring, release environment gating, and Docker package permission scope while blocking external Scorecard, hosted CI, hosted CodeQL, and attestation claims.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/OpenHands",
+      "source_url": "https://github.com/OpenHands/OpenHands",
+      "observed_pattern": "agent products need traceable execution artifacts that can be graded for event structure, status transitions, and failure/success coverage before stronger reliability claims are allowed.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:real-trace-evals` to grade existing local `reports/orchestra-*.jsonl` traces for JSONL parseability, required event fields, started-to-terminal transitions, success/failure representation, credential-pattern absence, and raw request-id omission from summaries without provider/live/external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "agent benchmark systems should preserve structured run evidence, terminal outcomes, task-source diversity, and unresolved coverage gaps before stronger capability or reliability claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Extended `bun run product:real-trace-evals` with trace-kind coverage, query-source coverage, started-to-terminal ordering checks, terminal outcome coverage, and explicit unresolved role/model coverage gaps without provider/live/external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/trajectory-visualizer",
+      "source_url": "https://github.com/OpenHands/trajectory-visualizer",
+      "observed_pattern": "agent trajectories should preserve role/action chronology in a portable file format so later review can inspect more than final pass/fail status.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `reports/orchestra-fixture-user-executor-no-provider.jsonl` so `bun run product:real-trace-evals` covers a no-provider user/planner/executor trajectory fixture, closes the prior role/model diversity gap, and keeps the report claim-bounded.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "agent benchmark systems should be able to ingest operator-authorized local run evidence while preserving task source, terminal outcome, artifact hash, and explicit no-provider boundaries.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:real-session-capture` to execute local `dist/cli.mjs --version`, `--help`, `doctor --help`, `auto-mode --help`, `auto-mode defaults`, `agents --help`, and `agents --setting-sources user,project,local`, write a sanitized JSONL trace, record command-output hashes instead of raw stdout, and feed that trace into `bun run product:real-trace-evals` without provider/live/external calls.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "agent benchmark traces should include task prompts, tool-step execution, terminal outcomes, and artifact hashes rather than only command-surface smoke evidence.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:prompted-tool-loop-capture` to record a local operator prompt hash, execute bounded no-provider CLI introspection commands as tool steps, write `reports/orchestra-prompted-tool-loop-local-cli.jsonl`, and feed the prompted tool-loop trace into `bun run product:real-trace-evals` without provider/live/external calls or non-synthetic user-session claims.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "benchmark trace evidence should separate raw execution logs from publishable summaries, preserve artifact identity, and avoid turning local logs into stronger reliability claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:trace-redaction-policy` to scan local `reports/orchestra-*.jsonl` trace files, require summary-only publishable fields, forbid raw credentials/provider payloads, define an explicit operator capture workflow, and record that non-synthetic capture has not been performed by the gate.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-bench/SWE-bench",
+      "source_url": "https://github.com/swe-bench/SWE-bench",
+      "observed_pattern": "issue-resolving benchmark systems need task manifests, reproducible evidence, per-instance results, and a clear boundary between local readiness and real external benchmark execution.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:benchmark-readiness` to write `reports/openclaude-benchmark-task-manifest.jsonl`, hash source evidence, map local traces/replay/reproducibility/redaction/source-controlled checks into benchmark readiness dimensions, and keep external SWE-bench/OpenHands benchmark execution blocked until explicit authorization.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "external benchmark execution needs a separate authorization boundary for datasets, runtimes, providers, remote services, hosted CI, and public/result claims instead of treating local readiness as benchmark completion.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:external-benchmark-boundary` to read the benchmark readiness matrix, classify protected external benchmark gaps, default all protected authorizations to false, and write `docs/product-quality/external-benchmark-authorization-request.md` before any external benchmark execution or claim is allowed.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-bench/SWE-bench",
+      "source_url": "https://github.com/swe-bench/SWE-bench",
+      "observed_pattern": "benchmark systems store per-instance evaluation results separately from setup and claim surfaces, so local task manifests should be replayable into deterministic result records before any external benchmark run.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:local-benchmark-harness` to read `reports/openclaude-benchmark-task-manifest.jsonl`, verify every source-evidence hash, write `reports/openclaude-local-benchmark-results.jsonl`, classify environment-blocked tasks without hiding them, and keep external benchmark result claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Vexp-ai/vexp-swe-bench",
+      "source_url": "https://github.com/Vexp-ai/vexp-swe-bench",
+      "observed_pattern": "agent benchmark comparisons should preserve pass@1 plus cost, duration, input-token, output-token, turn-count, and unique-win dimensions instead of reporting pass/fail only.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:benchmark-efficiency-metrics` to read local no-provider benchmark replay results, write `reports/openclaude-benchmark-efficiency-metrics.jsonl`, preserve comparable efficiency fields, classify cost/token/duration/turn/external-resolution metrics as unmeasured no-provider gaps, and block external comparison or cost-efficiency claims until explicit protected-action authorization exists.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-bench/experiments",
+      "source_url": "https://github.com/swe-bench/experiments",
+      "observed_pattern": "benchmark submission repositories preserve predictions, metadata, README instructions, trajectories, logs, patches, per-instance reports/test outputs, verification instructions, and claim boundaries as inspectable assets instead of treating a benchmark result as a prose-only assertion.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:benchmark-submission-readiness` to read local no-provider benchmark replay, efficiency, and trace-eval evidence, write `reports/openclaude-benchmark-submission-assets.jsonl`, classify 11 SWE-bench-style submission assets into available, partial, and unresolved protected gaps, and block official external submission, leaderboard, release, public, production, external-validation, and autonomous-reliability claims.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-bench/experiments",
+      "source_url": "https://github.com/swe-bench/experiments",
+      "observed_pattern": "benchmark submission policies can change and impose eligibility requirements such as open research publication, research affiliation, open-source methods, and peer-review evidence, so a product-quality gate must separate local readiness from official eligibility or leaderboard claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:benchmark-policy-compliance` to read local submission-readiness and external-boundary evidence, write `reports/openclaude-benchmark-policy-compliance.jsonl`, classify 7 policy/eligibility items, and keep official SWE-bench eligibility, leaderboard, release, public, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "harbor-framework/terminal-bench",
+      "source_url": "https://github.com/harbor-framework/terminal-bench",
+      "observed_pattern": "terminal-agent benchmarks use explicit task instructions, Docker environments, verifier tests, oracle solutions, trajectory/result artifacts, and official run/submission boundaries instead of prose-only capability claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:terminal-bench-readiness` to read local benchmark readiness, local harness, portable trace, and policy evidence, write `reports/openclaude-terminal-bench-task-map.jsonl`, classify 10 Terminal-Bench/Harbor requirements, and keep Harbor install, Docker/container execution, provider/live/external execution, leaderboard, release, public, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "microsoft/AgentRx",
+      "source_url": "https://github.com/microsoft/AgentRx",
+      "observed_pattern": "agent failure diagnosis should normalize raw trajectories, check process invariants, and emit auditable reports instead of relying only on final task outcomes.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:trajectory-process-quality` to classify existing OpenClaude JSONL traces by process phase labels and waste signals, preserve source hashes, and keep stronger reliability or release claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-agent/SWE-agent",
+      "source_url": "https://github.com/SWE-agent/SWE-agent",
+      "observed_pattern": "software-engineering agent trajectories preserve per-step actions and observations, so benchmarkable evidence should include an implementation-bearing trace rather than only CLI introspection.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:code-editing-trace-capture` to repair a disposable local fixture, record exploration/implementation/verification trace events, verify fixture unit cases, and feed the trace into real-trace evals and benchmark readiness without protected repo mutation.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-agent/SWE-agent",
+      "source_url": "https://github.com/SWE-agent/SWE-agent",
+      "observed_pattern": "software-engineering trajectories become more useful when they show coordinated multi-file edits and verification rather than a single isolated source change; the local absorption used the upstream trajectory documentation path `docs/usage/trajectories.md` as the specific source surface.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:multi-file-code-editing-trace-capture` to repair disposable pricing, tax, and checkout fixture modules, record multi-file exploration/implementation/verification trace events, verify four checkout cases, and feed the trace into real-trace evals and benchmark readiness without protected repo mutation.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "Aider-AI/aider",
+      "source_url": "https://github.com/Aider-AI/aider",
+      "observed_pattern": "coding-agent benchmark reports are stronger when they preserve failed attempts and repair cycles instead of only final passing artifacts.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:regression-cycle-code-editing-trace-capture` to repair a disposable slugify fixture through a wrong patch, failed regression check, repaired patch, and passing regression check, then feed that trace into real-trace evals and benchmark readiness without protected repo mutation.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SWE-agent / AgentRx / TRAJEVAL / AgentLens",
+      "source_url": "https://github.com/SWE-agent/SWE-agent",
+      "observed_pattern": "agent trajectory evidence is stronger when interrupted tool observations are treated as explicit invariant violations, recovered through a bounded reread, and then reverified before any final summary is trusted; AgentRx, TRAJEVAL, and AgentLens reinforce trajectory normalization, process-invariant checks, and waste-signal diagnosis.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:tool-interruption-recovery-trace` to create a disposable local no-provider interrupted-tool fixture, record `tool_observation_truncated_json`, apply bounded reread recovery, write a recovered summary, verify final fixture state, feed the trace into real-trace evals, trace-schema contract checks, benchmark readiness, trajectory process quality, and the product evidence manifest, and keep provider/live/external calls plus protected repo mutation blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "open-telemetry/opentelemetry-specification",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-specification",
+      "observed_pattern": "portable log and event records use stable named fields, parseable timestamps, trace context rules, event names, and explicit attributes so later tools can validate structure rather than rely on informal log text.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added and tightened `bun run product:trace-schema-contract`, then added `bun run product:trace-portability-export` to validate all current `reports/orchestra-*.jsonl` events against a local v1 trace schema, preserve hashes from `product:real-trace-evals`, verify the 6 current generated trace producers emit recommended event-name, trace-context, and action-observation fields, write a source-hash-addressed portable JSONL view that fills historical enrichment gaps without rewriting raw traces, classify older historical trace gaps, and keep stronger interoperability or reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "slsa-framework/slsa",
+      "source_url": "https://github.com/slsa-framework/slsa",
+      "observed_pattern": "SLSA provenance and in-toto-style statements make software evidence stronger by binding artifacts to typed predicates, subjects, materials, build definitions, and run details instead of relying on prose-only reports.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:evidence-manifest` to write `reports/openclaude-product-evidence-manifest.jsonl`, hash product-quality evidence files across reports, artifacts, workflow files, package source metadata, OSS safe backlog closure, baseline drift-closure, benchmark comparison matrix evidence, OSS IDE/editor evidence, OSS privacy/no-phone-home evidence, tool-interruption recovery trace evidence, public-claim boundary evidence, the protected-action authorization packet, and the quality gate itself, exclude recursive self-inputs, and keep signed provenance, external attestation, release readiness, and public claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "anomalyco/opencode + warpdotdev/warp + openai/codex",
+      "source_url": "https://github.com/anomalyco/opencode",
+      "observed_pattern": "terminal coding agents are more product-quality measurable when local failures, recovery guidance, doctor/help handoffs, and version verification are captured as auditable command evidence without escalating into provider execution.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:terminal-failure-recovery-transcripts` to capture a bounded local CLI failure, help recovery, doctor handoff, and version recovery as hash-only transcript evidence, then feed that evidence into benchmark readiness and the product evidence manifest without provider/live/external calls or protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenHands/benchmarks",
+      "source_url": "https://github.com/OpenHands/benchmarks",
+      "observed_pattern": "benchmark systems should distinguish known blocked tasks from unexpected failures, so failure summaries stay auditable without weakening the main pass/fail gate.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Updated `bun run product:quality-blocker-taxonomy` to classify either the known VS Code updater-dependent host/workbench/replay failure envelope or the current clear state after real-host, workbench, update-boundary, and replay evidence pass, while keeping unexpected failure groups at zero and preserving process-intervention/readiness-claim boundaries.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub Docs README guidance + OpenSSF Scorecard + SLSA",
+      "source_url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+      "observed_pattern": "public repository surfaces should keep user-facing claims tied to evidence and keep claim-boundary or blocked-context language distinguishable from unauthorized positive release or superiority assertions.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:public-claim-boundary` to scan README, package, community, security, quick-start, and product-quality public surfaces for unauthorized positive launch, publish, release, production, public, external-validation, provider-backed, live-model, autonomous-reliability, and top-10 superiority claims while preserving explicit blocked-context wording.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "SLSA + in-toto + OpenSSF boundary patterns",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "high-confidence product evidence needs explicit subjects, materials, authorization boundaries, and default-deny protected-action decisions instead of prose-only readiness claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:protected-action-authorization-packet` to consolidate VS Code/PATH/install-state repair, real Git commit/push, release execution, signed provenance, legal/NOTICE/REUSE, provider/live model validation, external benchmark execution/submission, and public/release/production/external/autonomous claim boundaries into default-false owner decision items without executing protected actions.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenClaude OSS safe backlog evidence gates",
+      "source_url": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observed_pattern": "internal OSS learning backlogs should be closed by explicit evidence records and source-hash-addressed closure JSONL rather than remaining as stale planning-only candidates.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-safe-backlog-closure` to verify all 9 planned internal evidence-gate candidates from the OSS safe backlog plan are covered by existing local no-provider evidence gates, write `reports/openclaude-oss-safe-backlog-closure.jsonl`, and keep provider/live/external calls, protected actions, superiority, release, production, public, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub REST repository metadata + SLSA evidence-chain discipline",
+      "source_url": "https://docs.github.com/en/rest/repos/repos",
+      "observed_pattern": "mutable top-project discovery evidence should be checked for downstream drift so new benchmark candidates and removed prior top-10 projects cannot leave stale planning artifacts behind.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-baseline-drift-closure` to verify fresh GitHub top-10 additions and removals are propagated through source review, architecture targets, gap review, axis review, safe backlog planning, and safe backlog closure while keeping provider/live/external calls, protected actions, and public/superiority/readiness claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "GitHub REST repository metadata + OpenSSF Scorecard + SLSA",
+      "source_url": "https://docs.github.com/en/rest/repos/repos",
+      "observed_pattern": "benchmarkable product comparisons need a complete candidate-by-axis matrix that separates source-bound local evidence from metadata-only, not-yet-absorbed, and protected-action-required gaps.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-benchmark-comparison-matrix` to bind the current GitHub top-10 baseline to all 10 required product axes, write 100 project-axis records to `reports/openclaude-oss-benchmark-comparison-matrix.jsonl`, and keep provider/live/external calls, protected actions, public comparison, superiority, release, production, public, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    },
+    {
+      "source_project": "OpenSSF Scorecard + SLSA + in-toto",
+      "source_url": "https://github.com/ossf/scorecard",
+      "observed_pattern": "large comparison matrices become more actionable when remediation priorities are explicit, machine-checkable, hash-bound to source evidence, and separated from public or superiority claims.",
+      "openclaude_absorption_decision": "adapt",
+      "local_action": "Added `bun run product:oss-comparison-readiness-index` to convert the 100 project-axis comparison rows into 10 axis priority records and 10 project priority records, write `reports/openclaude-oss-comparison-readiness-index.jsonl`, identify safe internal evidence work, and keep protected actions plus public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked.",
+      "status": "implemented_in_product_quality_gate"
+    }
+  ],
+  "next_absorption_targets": [
+    "operator-authorized non-synthetic real user/session trace capture beyond the local prompted tool-loop harness",
+    "operator-authorized non-synthetic IDE/workbench user-session evidence before any extension availability claim",
+    "non-synthetic operator-authorized code-editing traces before stronger agent reliability claims",
+    "operator-authorized external OpenSSF Scorecard or hosted CI posture evidence after a real GitHub repository boundary is available",
+    "operator-authorized provider/live/external benchmark execution needed to fill cost, token, duration, turn-count, and external resolution metrics before any external comparison or cost-efficiency claim",
+    "operator-authorized official external benchmark submission package needed to fill metadata, per-instance patch/test-output, rollout selection, and verification-instruction gaps before any leaderboard or official submission claim",
+    "owner-provided publication, affiliation, method-disclosure, and peer-review evidence needed before any SWE-bench Verified or Multilingual eligibility claim",
+    "operator-authorized Terminal-Bench/Harbor Docker runtime, official run artifacts, and leaderboard submission evidence before any Terminal-Bench result claim",
+    "signed release provenance after a real Git/release boundary is available",
+    "continued maintenance of the OSS safe backlog closure gate when future safe internal evidence-gate candidates are added"
+  ]
+}

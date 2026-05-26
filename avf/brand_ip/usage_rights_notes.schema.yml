@@ -1,0 +1,21 @@
+# usage_rights_notes.schema.yml
+
+version: 1
+type: object
+required:
+  - rights_id
+  - asset_id
+  - allowed_use
+  - blocked_use
+properties:
+  rights_id:
+    type: string
+  asset_id:
+    type: string
+  allowed_use:
+    type: string
+  blocked_use:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

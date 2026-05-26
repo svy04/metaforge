@@ -1,0 +1,289 @@
+{
+  "generatedAt": "2026-05-21T12:27:12.683Z",
+  "mode": "local_no_provider_oss_baseline_freshness",
+  "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+  "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+  "baselineSnapshotDate": "2026-05-21",
+  "validationDate": "2026-05-21",
+  "baselineAgeDays": 0,
+  "internalPlanningFreshnessMaxDays": 14,
+  "publicComparisonFreshnessMaxDays": 1,
+  "baselineFreshForInternalPlanning": true,
+  "baselineRefreshRequiredBeforePublicComparison": false,
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "externalGitHubRefreshPerformed": false,
+  "githubApiCallPerformed": false,
+  "top10ProjectCount": 10,
+  "requiredProductAxisCount": 10,
+  "ranksAreConsecutive": true,
+  "starsSortedDescending": true,
+  "starsArePositiveIntegers": true,
+  "sourceUrlsAreGithubRepos": true,
+  "fullNamesMatchSourceUrls": true,
+  "licensesArePresent": true,
+  "collectionMethodMentionsGitHubMetadata": true,
+  "provenanceJsonlPath": "reports/openclaude-oss-baseline-provenance.jsonl",
+  "provenanceJsonlSha256": "4f82a3184426d604807ca9eb0ede532ee7b275c46ffda6d60c9af7479bd8d5d0",
+  "provenanceJsonlRecordCount": 10,
+  "provenanceJsonlParseable": true,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Docs stars",
+      "sourceUrl": "https://docs.github.com/articles/stars",
+      "observedPattern": "GitHub explains stars as a repository interest signal and notes that many repository rankings depend on star counts.",
+      "localAbsorption": "OpenClaude treats stars as ranking input evidence only, not as proof of superiority or readiness."
+    },
+    {
+      "sourceProject": "GitHub Docs repository search syntax",
+      "sourceUrl": "https://github.com/github/docs/blob/main/content/search-github/searching-on-github/searching-for-repositories.md",
+      "observedPattern": "GitHub repository search supports star qualifiers and pushed-date qualifiers for reproducible repository discovery.",
+      "localAbsorption": "OpenClaude records that a fresh external GitHub refresh is an input to comparison planning, while public comparison claims still require separate authorization."
+    },
+    {
+      "sourceProject": "GitHub REST repositories metadata",
+      "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
+      "observedPattern": "GitHub repository metadata includes fields such as full_name, stargazers_count, license, pushed_at, visibility, and repository URL surfaces.",
+      "localAbsorption": "OpenClaude validates the refreshed local snapshot structure and writes hash-addressed project provenance without calling the GitHub API in this gate."
+    }
+  ],
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "baselineFreshnessChecks": [
+    {
+      "label": "baseline has exactly 10 projects",
+      "ok": true,
+      "detail": "10"
+    },
+    {
+      "label": "baseline ranks are consecutive",
+      "ok": true,
+      "detail": "1,2,3,4,5,6,7,8,9,10"
+    },
+    {
+      "label": "baseline stars are positive integers",
+      "ok": true,
+      "detail": "ultraworkers/claw-code:192141,anomalyco/opencode:163411,anthropics/claude-code:125428,google-gemini/gemini-cli:104427,openai/codex:84320,OpenHands/OpenHands:74367,openinterpreter/open-interpreter:63602,cline/cline:62137,warpdotdev/warp:59387,ruvnet/ruflo:53756"
+    },
+    {
+      "label": "baseline is sorted by stars descending",
+      "ok": true,
+      "detail": "192141,163411,125428,104427,84320,74367,63602,62137,59387,53756"
+    },
+    {
+      "label": "baseline source URLs are GitHub repositories",
+      "ok": true,
+      "detail": "https://github.com/ultraworkers/claw-code,https://github.com/anomalyco/opencode,https://github.com/anthropics/claude-code,https://github.com/google-gemini/gemini-cli,https://github.com/openai/codex,https://github.com/OpenHands/OpenHands,https://github.com/openinterpreter/open-interpreter,https://github.com/cline/cline,https://github.com/warpdotdev/warp,https://github.com/ruvnet/ruflo"
+    },
+    {
+      "label": "baseline full names match source URLs",
+      "ok": true,
+      "detail": "ultraworkers/claw-code<-ultraworkers/claw-code,anomalyco/opencode<-anomalyco/opencode,anthropics/claude-code<-anthropics/claude-code,google-gemini/gemini-cli<-google-gemini/gemini-cli,openai/codex<-openai/codex,OpenHands/OpenHands<-OpenHands/OpenHands,openinterpreter/open-interpreter<-openinterpreter/open-interpreter,cline/cline<-cline/cline,warpdotdev/warp<-warpdotdev/warp,ruvnet/ruflo<-ruvnet/ruflo"
+    },
+    {
+      "label": "baseline licenses are present or explicitly asserted",
+      "ok": true,
+      "detail": "ultraworkers/claw-code:MIT,anomalyco/opencode:MIT,anthropics/claude-code:NOASSERTION,google-gemini/gemini-cli:Apache-2.0,openai/codex:Apache-2.0,OpenHands/OpenHands:NOASSERTION,openinterpreter/open-interpreter:AGPL-3.0,cline/cline:Apache-2.0,warpdotdev/warp:AGPL-3.0,ruvnet/ruflo:MIT"
+    },
+    {
+      "label": "baseline required product axes are complete",
+      "ok": true,
+      "detail": "10 axes"
+    },
+    {
+      "label": "baseline collection method records GitHub metadata source",
+      "ok": true,
+      "detail": "Fresh GitHub REST Search API and Repository API metadata collected in this run; sorted by stargazers_count among repositories passing bounded coding-agent relevance filters."
+    },
+    {
+      "label": "baseline is fresh enough for internal planning only",
+      "ok": true,
+      "detail": "0 days <= 14"
+    },
+    {
+      "label": "public comparison has fresh baseline input but still requires claim authorization",
+      "ok": true,
+      "detail": "0 days <= 1"
+    },
+    {
+      "label": "provenance JSONL has one record per baseline project",
+      "ok": true,
+      "detail": "10 records"
+    },
+    {
+      "label": "provenance JSONL is parseable and hash-addressed",
+      "ok": true,
+      "detail": "reports/openclaude-oss-baseline-provenance.jsonl"
+    },
+    {
+      "label": "external refresh and claim expansion remain blocked",
+      "ok": true,
+      "detail": "externalGitHubRefreshPerformed=false; publicComparisonClaimAllowed=false"
+    },
+    {
+      "label": "provider live external calls and protected actions remain absent",
+      "ok": true,
+      "detail": "all call/protected arrays empty"
+    }
+  ],
+  "provenanceRecords": [
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 1,
+      "fullName": "ultraworkers/claw-code",
+      "stars": 192141,
+      "license": "MIT",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "sourceUrlSha256": "34a4b761bdf0a331beeb247af120822e9dff6bdafcafd849e02f82896b43ed32",
+      "positioning": "The repo is finally unlocked. enjoy the party! The fastest repo in history to surpass 100K stars ⭐. Join Discord: https://discord.gg/5TUQKqFWd Built in Rust using oh-my-codex.",
+      "recordDigest": "e7672190da2e4867d78f2e31c3a994dd9c2c2a96e400d3b523b4c6faf021ce4f"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 2,
+      "fullName": "anomalyco/opencode",
+      "stars": 163411,
+      "license": "MIT",
+      "sourceUrl": "https://github.com/anomalyco/opencode",
+      "sourceUrlSha256": "ffccace0ba14fd154d902639a2f95b1ae1083081bc9a5e17e891a557c23f7895",
+      "positioning": "The open source coding agent.",
+      "recordDigest": "ad2c3e34536c8f8b40e8f4da3159f08b76b5b0e21169eb440d57673b526f7b08"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 3,
+      "fullName": "anthropics/claude-code",
+      "stars": 125428,
+      "license": "NOASSERTION",
+      "sourceUrl": "https://github.com/anthropics/claude-code",
+      "sourceUrlSha256": "13d96f6971fff698ebc53296b5f40ff14d755c304dc9f7e1b703b58e032f85a9",
+      "positioning": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+      "recordDigest": "ed06f6a103bf2de548b888c0daa39de95ccbf05f34ca856528eb752e26614825"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 4,
+      "fullName": "google-gemini/gemini-cli",
+      "stars": 104427,
+      "license": "Apache-2.0",
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli",
+      "sourceUrlSha256": "24684c1ecca249c03e58e0d0192c9742b89e48498c3a1fac970d4d5c34874232",
+      "positioning": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "recordDigest": "759fc0ceb8c83c97ea8edbb19692e33047b12a1a19f3c3f72d8b1937b3252849"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 5,
+      "fullName": "openai/codex",
+      "stars": 84320,
+      "license": "Apache-2.0",
+      "sourceUrl": "https://github.com/openai/codex",
+      "sourceUrlSha256": "8c3dc2a0187cafccea2a84cdfe601e19b505d4faad42c77c2b39a3214738e26a",
+      "positioning": "Lightweight coding agent that runs in your terminal",
+      "recordDigest": "085d2b79bcf9ee6d7d82f3b66a8e9ae924ad12d3c4ad370a8d0490b854c1d91e"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 6,
+      "fullName": "OpenHands/OpenHands",
+      "stars": 74367,
+      "license": "NOASSERTION",
+      "sourceUrl": "https://github.com/OpenHands/OpenHands",
+      "sourceUrlSha256": "b5a44c85aa7745855c3c27ebaa7594c7fa33936b25ef7640bcba63dec1eb4d07",
+      "positioning": "🙌 OpenHands: AI-Driven Development",
+      "recordDigest": "967ded03f6212b0e9e160ab14c02569132855487ec7604a0180f8175b9f46de3"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 7,
+      "fullName": "openinterpreter/open-interpreter",
+      "stars": 63602,
+      "license": "AGPL-3.0",
+      "sourceUrl": "https://github.com/openinterpreter/open-interpreter",
+      "sourceUrlSha256": "7bf365a6eafbf46f24878f00b162d76c34b9eb5b19fbc6c277d78d54281a11ac",
+      "positioning": "A natural language interface for computers",
+      "recordDigest": "ee6bf7fe0f7e9b4565b709c55c6f49e591a61054a9362fdc8ae253b56dfedee3"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 8,
+      "fullName": "cline/cline",
+      "stars": 62137,
+      "license": "Apache-2.0",
+      "sourceUrl": "https://github.com/cline/cline",
+      "sourceUrlSha256": "533d51d9d3dea76fea8f38c7c4188ed836e7a2c7bf3e5eecbce4faf7a9860e2c",
+      "positioning": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
+      "recordDigest": "02c7bf6bb6e96ad9a901067b398d7b299cc7d0bd8cef61a39900feeda1bc76ca"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 9,
+      "fullName": "warpdotdev/warp",
+      "stars": 59387,
+      "license": "AGPL-3.0",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "sourceUrlSha256": "099e989fc2964fad28578aa9b272c023808f72aef73abd44d437f412d0d9bdd5",
+      "positioning": "Warp is an agentic development environment, born out of the terminal.",
+      "recordDigest": "956c50fb4bb9ce7c350d6bd0f3f281d8c1317038fe6598ace928a7b14de9a242"
+    },
+    {
+      "schemaVersion": "openclaude_oss_baseline_provenance_v1",
+      "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+      "baselineSnapshotDate": "2026-05-21",
+      "validationDate": "2026-05-21",
+      "rank": 10,
+      "fullName": "ruvnet/ruflo",
+      "stars": 53756,
+      "license": "MIT",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "sourceUrlSha256": "c60b77ce50fb8910649941c02ca6d84dc6ad7f81a0a8dcf867e2d6865cc569b0",
+      "positioning": "🌊 The leading agent orchestration platform for Claude. Deploy intelligent multi-agent swarms, coordinate autonomous workflows, and build conversational AI systems. Features    enterprise-grade architecture, self-learning swarm intelligence, RAG integration, and native Claude Code / Codex Integration",
+      "recordDigest": "64b822942b7fc76d395498584c030a66061b8c8b58096cfd28ccee88531a064b"
+    }
+  ],
+  "claimBoundary": "OSS baseline freshness is local no-provider validation of a refreshed GitHub top-10 snapshot for internal planning only. It does not refresh GitHub data, call providers, call live models, call external services, install dependencies, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."
+}

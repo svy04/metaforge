@@ -1,0 +1,169 @@
+{
+  "generatedAt": "2026-05-18T08:58:42.304Z",
+  "mode": "local_no_provider_release_artifact_reproducibility",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "sourceReleaseArtifactReport": "docs/product-quality/release-artifact-file-list-report.json",
+  "sourceReleaseProvenanceReport": "docs/product-quality/release-artifact-provenance-report.json",
+  "temporaryPackDirectory": ".tmp-product-release-reproducibility",
+  "temporaryTarballsRemoved": true,
+  "packRuns": [
+    {
+      "id": "first",
+      "command": [
+        "npm",
+        "pack",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        ".tmp-product-release-reproducibility/first"
+      ],
+      "exitCode": 0,
+      "filename": "gitlawb-openclaude-0.6.0.tgz",
+      "artifactFileCount": 6,
+      "artifactSizeBytes": 4426356,
+      "artifactUnpackedSizeBytes": 21062192,
+      "tarballSha256": "9e14e6a1305dec82095b3ffef6c1c06082c0f53663212877a4943ac948756cd0",
+      "npmShasum": "5d0e5005cabd8dc0ab4b69ae7500153418e21ee5",
+      "npmIntegrity": "sha512-MsSRLipzzfS8Q6DDlZ3VnNQxGx7kNwdlBPgY+BRtDWQretsABaVD00ZL5FU++9GYgm0ALzqmkmuSt+xtxjo6+A==",
+      "fileList": [
+        "bin/openclaude",
+        "bin/openclaude.cmd",
+        "dist/cli.mjs",
+        "LICENSE",
+        "package.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "second",
+      "command": [
+        "npm",
+        "pack",
+        "--json",
+        "--ignore-scripts",
+        "--pack-destination",
+        ".tmp-product-release-reproducibility/second"
+      ],
+      "exitCode": 0,
+      "filename": "gitlawb-openclaude-0.6.0.tgz",
+      "artifactFileCount": 6,
+      "artifactSizeBytes": 4426356,
+      "artifactUnpackedSizeBytes": 21062192,
+      "tarballSha256": "9e14e6a1305dec82095b3ffef6c1c06082c0f53663212877a4943ac948756cd0",
+      "npmShasum": "5d0e5005cabd8dc0ab4b69ae7500153418e21ee5",
+      "npmIntegrity": "sha512-MsSRLipzzfS8Q6DDlZ3VnNQxGx7kNwdlBPgY+BRtDWQretsABaVD00ZL5FU++9GYgm0ALzqmkmuSt+xtxjo6+A==",
+      "fileList": [
+        "bin/openclaude",
+        "bin/openclaude.cmd",
+        "dist/cli.mjs",
+        "LICENSE",
+        "package.json",
+        "README.md"
+      ]
+    }
+  ],
+  "reproducibleTarballSha256": "9e14e6a1305dec82095b3ffef6c1c06082c0f53663212877a4943ac948756cd0",
+  "reproducibilityChecks": [
+    {
+      "label": "source release artifact report is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_release_artifact_file_list"
+    },
+    {
+      "label": "source release artifact checks passed",
+      "ok": true,
+      "detail": "0 failed"
+    },
+    {
+      "label": "source release provenance report is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_release_artifact_hash_sbom_provenance"
+    },
+    {
+      "label": "source release provenance checks passed",
+      "ok": true,
+      "detail": "0 failed"
+    },
+    {
+      "label": "pack runs exited 0",
+      "ok": true,
+      "detail": "first=0,second=0"
+    },
+    {
+      "label": "pack runs generated matching file lists",
+      "ok": true,
+      "detail": "6/6"
+    },
+    {
+      "label": "pack file list matches source dry-run report",
+      "ok": true,
+      "detail": "bin/openclaude,bin/openclaude.cmd,dist/cli.mjs,LICENSE,package.json,README.md"
+    },
+    {
+      "label": "pack runs generated matching tarball hashes",
+      "ok": true,
+      "detail": "9e14e6a1305dec82095b3ffef6c1c06082c0f53663212877a4943ac948756cd0,9e14e6a1305dec82095b3ffef6c1c06082c0f53663212877a4943ac948756cd0"
+    },
+    {
+      "label": "npm shasums match",
+      "ok": true,
+      "detail": "5d0e5005cabd8dc0ab4b69ae7500153418e21ee5,5d0e5005cabd8dc0ab4b69ae7500153418e21ee5"
+    },
+    {
+      "label": "npm integrity values match",
+      "ok": true,
+      "detail": "sha512-MsSRLipzzfS8Q6DDlZ3VnNQxGx7kNwdlBPgY+BRtDWQretsABaVD00ZL5FU++9GYgm0ALzqmkmuSt+xtxjo6+A==,sha512-MsSRLipzzfS8Q6DDlZ3VnNQxGx7kNwdlBPgY+BRtDWQretsABaVD00ZL5FU++9GYgm0ALzqmkmuSt+xtxjo6+A=="
+    },
+    {
+      "label": "source provenance hashes cover package files",
+      "ok": true,
+      "detail": "6 hashes"
+    },
+    {
+      "label": "forbidden package files remain absent",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "temporary tarballs were removed",
+      "ok": true,
+      "detail": ".tmp-product-release-reproducibility"
+    },
+    {
+      "label": "provider calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "live model calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "external calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "publish was not attempted",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "deploy was not attempted",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "launch was not attempted",
+      "ok": true,
+      "detail": "false"
+    }
+  ],
+  "claimBoundary": "Release artifact reproducibility verification is local package hash evidence only. It does not publish, deploy, launch, call providers, or claim release readiness."
+}

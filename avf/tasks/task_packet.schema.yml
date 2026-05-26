@@ -1,0 +1,24 @@
+# Task Packet Schema
+
+version: 1
+type: object
+required:
+  - task_id
+  - goal
+  - context
+  - constraints
+  - acceptance_criteria
+  - forbidden_changes
+properties:
+  task_id:
+    type: string
+  goal:
+    type: string
+  context:
+    type: string
+  constraints:
+    type: string
+  acceptance_criteria:
+    type: string
+  forbidden_changes:
+    type: string

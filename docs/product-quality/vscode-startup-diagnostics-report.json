@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-05-21T03:23:45.441Z",
+  "mode": "local_no_provider_vscode_startup_diagnostics",
+  "sourceHostSmokeReportPath": "docs/product-quality/ide-extension-host-smoke-report.json",
+  "sourceHostSmokeReportSha256": "f3d06a70b3b29fab980b46007c255986ed7c1de0b7ba6a2294510ffe864eee40",
+  "sourceWorkbenchSmokeReportPath": "docs/product-quality/ide-extension-workbench-smoke-report.json",
+  "sourceWorkbenchSmokeReportSha256": "1f1678f1a2a65805b70421c1342445d34ebcf12e62d47ff50ccb8457c3385e61",
+  "sourceVscodeUpdateBoundaryReportPath": "docs/product-quality/vscode-update-boundary-report.json",
+  "sourceVscodeUpdateBoundaryReportSha256": "edd4344b966b3b9fcec12137dbe6d75fcc3436a222d2b3809030d7bcb23aeac4",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "VS Code Workspace Trust",
+      "sourceUrl": "https://code.visualstudio.com/docs/editor/workspace-trust",
+      "observedPattern": "The current VS Code session can disable Workspace Trust with --disable-workspace-trust so automated tests do not block on trust prompts."
+    },
+    {
+      "sourceProject": "VS Code Extension API - Testing Extensions",
+      "sourceUrl": "https://code.visualstudio.com/api/working-with-extensions/testing-extension",
+      "observedPattern": "Extension integration tests are launched through VS Code with extension development and extension tests paths."
+    },
+    {
+      "sourceProject": "VS Code Command Line Interface",
+      "sourceUrl": "https://code.visualstudio.com/docs/editor/command-line",
+      "observedPattern": "CLI options such as user-data-dir and extensions-dir isolate VS Code instances for reproducible local diagnostics."
+    }
+  ],
+  "vscodeCliVersion": "not_available",
+  "parsedVscodeCommit": null,
+  "isolatedExecutionArgumentsObserved": [
+    "--extensionDevelopmentPath",
+    "--extensionTestsPath",
+    "--user-data-dir",
+    "--extensions-dir",
+    "--disable-workspace-trust"
+  ],
+  "sentinelCandidates": [
+    {
+      "path": "C:\\Users\\admin\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\updating",
+      "exists": false,
+      "sha256": null
+    }
+  ],
+  "codeSetupProcessEnumerationExitCode": 0,
+  "currentCodeSetupProcesses": [],
+  "updateLogEvidence": [],
+  "updateGuardLogEvidenceCount": 0,
+  "diagnosisStatus": "vscode_cli_unavailable_or_install_boundary",
+  "protectedActionsRequiredToResolve": [
+    "obtain_explicit_owner_authorization_before_repairing_or_reinstalling_vs_code",
+    "obtain_explicit_owner_authorization_before_modifying_user_path_or_vs_code_install_state"
+  ],
+  "protectedActionsExecuted": [],
+  "processTerminationAttempted": false,
+  "deleteUpdateStateAttempted": false,
+  "dependencyInstallPerformed": false,
+  "reinstallAttempted": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "startupDiagnosticsChecks": [
+    {
+      "label": "host smoke report imported",
+      "ok": true,
+      "detail": "local_no_provider_real_vscode_extension_host_smoke"
+    },
+    {
+      "label": "workbench smoke report imported",
+      "ok": true,
+      "detail": "local_no_provider_real_vscode_workbench_tree_view_smoke"
+    },
+    {
+      "label": "VS Code update boundary report imported",
+      "ok": true,
+      "detail": "local_no_provider_vscode_update_boundary"
+    },
+    {
+      "label": "isolated Extension Development Host arguments are observed",
+      "ok": true,
+      "detail": "--extensionDevelopmentPath,--extensionTestsPath,--user-data-dir,--extensions-dir,--disable-workspace-trust"
+    },
+    {
+      "label": "startup blocker log evidence is collected when source reports are update-blocked",
+      "ok": true,
+      "detail": "0 update guard logs"
+    },
+    {
+      "label": "sentinel candidates are enumerated without mutation",
+      "ok": true,
+      "detail": "1 candidates"
+    },
+    {
+      "label": "current CodeSetup process list is local-only",
+      "ok": true,
+      "detail": "0 processes"
+    },
+    {
+      "label": "diagnosis status is bounded",
+      "ok": true,
+      "detail": "vscode_cli_unavailable_or_install_boundary"
+    },
+    {
+      "label": "protected actions are not executed",
+      "ok": true,
+      "detail": "process/delete/install/reinstall all false"
+    },
+    {
+      "label": "provider live external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "readiness and reliability claims remain blocked",
+      "ok": true,
+      "detail": "all claim flags false"
+    }
+  ],
+  "claimBoundary": "VS Code startup diagnostics are local no-provider blocker evidence only. They do not terminate processes, delete update state, install or reinstall VS Code, call providers, call live models, call external services, or make extension availability, release, production, public, external-validation, or autonomous-reliability claims."
+}

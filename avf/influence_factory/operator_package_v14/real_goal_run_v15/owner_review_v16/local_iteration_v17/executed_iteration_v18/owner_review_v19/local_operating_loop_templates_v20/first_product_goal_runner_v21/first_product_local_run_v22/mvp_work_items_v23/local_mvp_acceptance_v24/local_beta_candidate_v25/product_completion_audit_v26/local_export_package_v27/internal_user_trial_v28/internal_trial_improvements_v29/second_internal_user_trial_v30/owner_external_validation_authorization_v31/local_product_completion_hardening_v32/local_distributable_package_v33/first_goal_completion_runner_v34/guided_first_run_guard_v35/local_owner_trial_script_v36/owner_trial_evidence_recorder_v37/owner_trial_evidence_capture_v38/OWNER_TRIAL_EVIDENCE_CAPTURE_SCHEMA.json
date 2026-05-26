@@ -1,0 +1,76 @@
+{
+  "capture_fields": [
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Owner goal tested locally.",
+      "field_id": "owner_goal_used",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Whether the local manual trial completed.",
+      "field_id": "trial_completed_locally",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Missing inputs found by the guided guard.",
+      "field_id": "missing_inputs_found",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Quality of recovery prompts.",
+      "field_id": "recovery_prompt_quality",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Clarity of owner-ready package.",
+      "field_id": "owner_ready_package_clarity",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Clarity of brand/IP style memory.",
+      "field_id": "brand_ip_style_memory_clarity",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Clarity of image reference packet.",
+      "field_id": "image_reference_packet_clarity",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Clarity of draft content packet.",
+      "field_id": "content_packet_clarity",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Clarity of Codex implementation packet.",
+      "field_id": "codex_packet_clarity",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Confidence that blocked actions are visible.",
+      "field_id": "safety_boundary_confidence",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Friction notes from owner use.",
+      "field_id": "friction_notes",
+      "required": true
+    },
+    {
+      "capture_scope": "owner_local_manual_trial_only",
+      "description": "Exactly one local-safe next improvement.",
+      "field_id": "selected_next_local_improvement",
+      "required": true
+    }
+  ]
+}

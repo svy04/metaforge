@@ -1,0 +1,24 @@
+# visual_style_guide.schema.yml
+
+version: 1
+type: object
+required:
+  - style_id
+  - composition
+  - lighting
+  - texture
+  - do_not_use
+properties:
+  style_id:
+    type: string
+  composition:
+    type: string
+  lighting:
+    type: string
+  texture:
+    type: string
+  do_not_use:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

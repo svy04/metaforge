@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Influence Factory Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Repo-local product workbench v3</p>
+      <h1>Influence Factory Workbench</h1>
+      <p class="subtitle">Idea Intake, Persona Studio, Style Memory, Content Generator, Review Board, Feedback Loop, Task Board, Editorial Calendar, Safety Scanner, and Export Workspace JSON.</p>
+    </div>
+    <div class="status-panel">
+      <span>No deploy</span><span>No publish</span><span>No platform posting</span><span>No account automation</span>
+    </div>
+  </header>
+  <main class="layout">
+    <nav class="sidebar">
+      <button data-section="intake" class="active">Idea Intake</button>
+      <button data-section="personas">Persona Studio</button>
+      <button data-section="style">Style Memory</button>
+      <button data-section="generator">Content Generator</button>
+      <button data-section="review">Review Board</button>
+      <button data-section="feedback">Feedback Loop</button>
+      <button data-section="tasks">Task Board</button>
+      <button data-section="calendar">Editorial Calendar</button>
+      <button data-section="safety">Safety Scanner</button>
+      <button data-section="export">Import Workspace JSON / Export Workspace JSON</button>
+      <button data-section="selftest">Self Test</button>
+    </nav>
+    <section class="workspace">
+      <section id="intake" class="panel active-panel">
+        <h2>Idea Intake</h2>
+        <div class="form-grid">
+          <label>Idea summary<textarea id="ideaSummary"></textarea></label>
+          <label>Target audience<textarea id="targetAudience"></textarea></label>
+          <label>Desired proof<textarea id="desiredProof"></textarea></label>
+          <label>Blocked behaviors<textarea id="blockedBehaviors"></textarea></label>
+        </div>
+        <button id="saveIdeaButton">Create Idea Brief</button>
+        <pre id="ideaBriefPreview">{
+  "summary": "Self-test creator system",
+  "audience": "Owner and product operator",
+  "proof": "Local generated draft and next task",
+  "blocked": "fake identity, spam, mass posting, engagement manipulation, platform bypass"
+}</pre>
+      </section>
+      <section id="personas" class="panel">
+        <h2>Persona Studio <span class="compat">Persona Network</span></h2>
+        <div class="inline-form"><input id="personaName" placeholder="Persona name"><input id="personaRole" placeholder="Role / domain"><button id="addPersonaButton">Add Persona</button></div>
+        <div id="personaList" class="grid"><article class="card"><h3>Builder Analyst</h3><p>Explains tools and proof-by-result experiments.</p><div class="badge-row"><span class="badge">transparent AI persona</span><span class="badge">owned channel</span></div></article><article class="card"><h3>Brand/IP Director</h3><p>Protects visual identity, language, tone, and character consistency.</p><div class="badge-row"><span class="badge">transparent AI persona</span><span class="badge">owned channel</span></div></article><article class="card"><h3>DevRel Operator</h3><p>Turns technical pain into tutorials, demos, and field notes.</p><div class="badge-row"><span class="badge">transparent AI persona</span><span class="badge">owned channel</span></div></article><article class="card"><h3>Self Test Persona</h3><p>Validates local loop</p><div class="badge-row"><span class="badge">transparent AI persona</span><span class="badge">owned channel</span></div></article></div>
+      </section>
+      <section id="style" class="panel">
+        <h2>Style Memory <span class="compat">Brand/IP Style Memory</span></h2>
+        <div class="form-grid">
+          <label>Brand DNA<textarea id="brandDna"></textarea></label>
+          <label>Character bible<textarea id="characterBible"></textarea></label>
+          <label>Visual style guide<textarea id="visualGuide"></textarea></label>
+          <label>Negative prompt<textarea id="negativePrompt"></textarea></label>
+        </div>
+        <button id="saveStyleButton">Save Style Memory</button>
+        <div id="styleMemoryView" class="stack"><article class="card"><h3>Brand DNA</h3><p>Transparent, evidence-led, builder-native, safety-bounded.</p><div class="badge-row"><span class="badge">style memory</span></div></article><article class="card"><h3>Character bible</h3><p>Personas must disclose AI assistance and keep domain boundaries.</p><div class="badge-row"><span class="badge">style memory</span></div></article><article class="card"><h3>Visual style guide</h3><p>Clean editorial product interface, precise typography, no fake social proof.</p><div class="badge-row"><span class="badge">style memory</span></div></article><article class="card"><h3>Negative prompt</h3><p>No bot armies, no fake crowds, no spam visuals, no manipulation motifs.</p><div class="badge-row"><span class="badge">safety</span></div></article></div>
+      </section>
+      <section id="generator" class="panel">
+        <h2>Content Generator <span class="compat">Content Batch</span></h2>
+        <p class="note">Template-based local generation only. No model call is made.</p>
+        <div class="inline-form"><select id="channelSelect"><option>SNS</option><option>Blog</option><option>Community</option><option>Newsletter</option><option>Short-form</option><option>Long-form</option><option>Media prompt</option></select><button id="generateButton">Generate Draft</button></div>
+        <div id="generatedDrafts" class="stack"><article class="card"><h3>Memory first</h3><p>An AI factory should start with goals, style memory, evidence, and approval gates.</p><div class="badge-row"><span class="badge">SNS</span><span class="badge">draft-only</span></div></article><article class="card"><h3>Transparent creator systems</h3><p>From AI content spam to transparent AI creator systems.</p><div class="badge-row"><span class="badge">Blog</span><span class="badge">draft-only</span></div></article><article class="card"><h3>SNS draft from Builder Analyst</h3><p>Self-test creator system: a SNS draft for Owner and product operator. Proof target: Local generated draft and next task. Boundary: transparent AI, draft-only, owner approval required.</p><div class="badge-row"><span class="badge">SNS</span><span class="badge">draft-only</span></div></article></div>
+      </section>
+      <section id="review" class="panel">
+        <div class="panel-head"><h2>Review Board <span class="compat">Review Queue</span></h2><button id="exportButton">Export Review JSON</button></div>
+        <div id="reviewQueue" class="grid"><article class="card"><h3>Memory first</h3><p>An AI factory should start with goals, style memory, evidence, and approval gates.</p><div class="badge-row"><span class="badge">SNS</span><span class="badge">draft-only</span><span class="badge">owner approval required</span></div></article><article class="card"><h3>Transparent creator systems</h3><p>From AI content spam to transparent AI creator systems.</p><div class="badge-row"><span class="badge">Blog</span><span class="badge">draft-only</span><span class="badge">owner approval required</span></div></article><article class="card"><h3>SNS draft from Builder Analyst</h3><p>Self-test creator system: a SNS draft for Owner and product operator. Proof target: Local generated draft and next task. Boundary: transparent AI, draft-only, owner approval required.</p><div class="badge-row"><span class="badge">SNS</span><span class="badge">draft-only</span><span class="badge">owner approval required</span></div></article></div>
+        <h3>Owner Decision</h3>
+        <textarea id="ownerNotes" rows="5" placeholder="Approval, revision, or rejection notes."></textarea>
+        <div class="decision-row"><button data-decision="approve">Approve</button><button data-decision="revise">Revise</button><button data-decision="reject">Reject</button></div>
+        <pre id="decisionSummary">{
+  "decision": "revise",
+  "notes": "Revise the draft with clearer proof.",
+  "reviewedAt": "2026-05-25T11:41:09.325Z",
+  "protectedActionExecuted": false,
+  "published": false,
+  "posted": false
+}</pre>
+      </section>
+      <section id="feedback" class="panel">
+        <h2>Feedback Loop</h2>
+        <textarea id="feedbackInput" rows="7" placeholder="Paste owner/user feedback here."></textarea>
+        <button id="importFeedbackButton">Import Feedback</button>
+        <div id="feedbackList" class="stack"><article class="card"><h3>style</h3><p>Style should stay consistent</p><div class="badge-row"><span class="badge">imported-local</span></div></article></div>
+      </section>
+      <section id="tasks" class="panel">
+        <h2>Task Board <span class="compat">Next Task Synthesizer</span></h2>
+        <button id="synthesizeTasksButton">Synthesize Next Tasks</button>
+        <div id="nextTasks" class="stack"><article class="card"><h3>Revise selected draft batch using owner notes.</h3><p>repo-local, draft-only, approval-gated</p><div class="badge-row"><span class="badge">task-1</span></div></article><article class="card"><h3>Create improvement task from imported feedback.</h3><p>repo-local, draft-only, approval-gated</p><div class="badge-row"><span class="badge">task-2</span></div></article><article class="card"><h3>Remove blocked influence markers before any owner approval.</h3><p>repo-local, draft-only, approval-gated</p><div class="badge-row"><span class="badge">task-3</span></div></article><article class="card"><h3>Prepare next draft-only content batch with current style memory.</h3><p>repo-local, draft-only, approval-gated</p><div class="badge-row"><span class="badge">task-4</span></div></article></div>
+      </section>
+      <section id="calendar" class="panel">
+        <h2>Editorial Calendar</h2>
+        <button id="buildCalendarButton">Build Editorial Calendar</button>
+        <div id="calendarView" class="stack"><article class="card"><h3>Day 1: Memory first</h3><p>Channel: SNS</p><div class="badge-row"><span class="badge">draft-only</span></div></article><article class="card"><h3>Day 2: Transparent creator systems</h3><p>Channel: Blog</p><div class="badge-row"><span class="badge">draft-only</span></div></article><article class="card"><h3>Day 3: SNS draft from Builder Analyst</h3><p>Channel: SNS</p><div class="badge-row"><span class="badge">draft-only</span></div></article></div>
+      </section>
+      <section id="safety" class="panel">
+        <h2>Safety Scanner</h2>
+        <p class="note">Checks local drafts for blocked influence markers. It does not publish or call services.</p>
+        <button id="runSafetyButton">Run Safety Scan</button>
+        <div id="safetyScanView" class="stack"><article class="card"><h3>Memory first</h3><p>Risk: clear. Markers: none</p><div class="badge-row"><span class="badge">seed-sns</span><span class="badge">clear</span></div></article><article class="card"><h3>Transparent creator systems</h3><p>Risk: blocked. Markers: spam</p><div class="badge-row"><span class="badge">seed-blog</span><span class="badge">blocked</span></div></article><article class="card"><h3>SNS draft from Builder Analyst</h3><p>Risk: clear. Markers: none</p><div class="badge-row"><span class="badge">draft-1779709269324</span><span class="badge">clear</span></div></article></div>
+      </section>
+      <section id="export" class="panel">
+        <h2>Import Workspace JSON / Export Workspace JSON</h2>
+        <textarea id="importJsonInput" rows="8" placeholder="Paste exported workspace JSON here to restore local state."></textarea>
+        <div class="decision-row"><button id="importWorkspaceButton">Import Workspace JSON</button><button id="exportWorkspaceButton">Export Workspace JSON</button></div>
+        <h3>Evidence Ledger</h3><div id="evidenceLedger" class="stack"><article class="card"><h3>Evidence 1</h3><p>Local product workbench loaded.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 2</h3><p>No protected action executed.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 3</h3><p>All content remains draft-only until owner action outside this app.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 4</h3><p>Idea brief updated locally.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 5</h3><p>Persona added: Self Test Persona.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 6</h3><p>Generated local template draft for SNS.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 7</h3><p>Feedback imported locally.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 8</h3><p>Owner decision recorded locally: revise.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 9</h3><p>Safety Scanner completed locally.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 10</h3><p>Editorial Calendar built locally.</p><div class="badge-row"><span class="badge">repo-local</span></div></article><article class="card"><h3>Evidence 11</h3><p>Next tasks synthesized locally.</p><div class="badge-row"><span class="badge">repo-local</span></div></article></div>
+      </section>
+      <section id="selftest" class="panel">
+        <h2>Self Test</h2>
+        <button id="runSelfTestButton">Run Self Test</button>
+        <pre id="selfTestResult">SELF_TEST_PASS Generated local template draft Owner decision recorded locally Next tasks synthesized locally</pre>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+
+
+</body></html>

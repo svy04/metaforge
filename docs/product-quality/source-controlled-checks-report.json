@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-05-21T07:01:15.308Z",
+  "mode": "local_no_provider_source_controlled_product_checks",
+  "workflowPath": ".github/workflows/pr-checks.yml",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "productQualityCommandPresent": true,
+  "pullRequestTriggerPresent": true,
+  "pushMainTriggerPresent": true,
+  "releaseActionsAbsent": true,
+  "actionReferencesPinned": true,
+  "sourceControlledChecks": [
+    {
+      "label": "workflow exists in source control path",
+      "ok": true,
+      "detail": ".github/workflows/pr-checks.yml"
+    },
+    {
+      "label": "product-quality gate command is present",
+      "ok": true,
+      "detail": "bun run product:quality"
+    },
+    {
+      "label": "pull request trigger is present",
+      "ok": true,
+      "detail": "pull_request"
+    },
+    {
+      "label": "main push trigger is present",
+      "ok": true,
+      "detail": "push branches main"
+    },
+    {
+      "label": "release actions are absent from PR checks",
+      "ok": true,
+      "detail": "no publish/deploy/launch/release action in pr-checks workflow"
+    },
+    {
+      "label": "GitHub action references are pinned by SHA",
+      "ok": true,
+      "detail": "uses: entries must pin 40-character SHAs"
+    }
+  ],
+  "claimBoundary": "Source-controlled product checks prove local workflow wiring only. They do not prove GitHub-hosted execution, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

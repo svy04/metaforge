@@ -1,0 +1,1645 @@
+{
+  "generatedAt": "2026-05-21T14:09:51.397Z",
+  "mode": "local_no_provider_oss_architecture_gap_review",
+  "sourceTargetsReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
+  "sourceTargetsReportSha256": "cf9a0b5ee68ee4aa331393d150c1a7cf7f43a8788c62c814e7f952c6a5b46c99",
+  "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
+  "baselineSnapshotDate": "2026-05-21",
+  "targetRecordCount": 10,
+  "prioritizedTargetCount": 9,
+  "deferredTargetCount": 1,
+  "gapRecordCount": 10,
+  "axesReviewed": [
+    "eval_and_quality_gates",
+    "ide_or_editor_surface",
+    "onboarding_docs",
+    "privacy_and_no_phone_home",
+    "provider_breadth",
+    "release_hygiene",
+    "runtime_doctoring",
+    "security_and_permissions",
+    "terminal_workflow",
+    "tool_loop_reliability"
+  ],
+  "safeInternalActionCount": 29,
+  "protectedBoundaryGapCount": 85,
+  "provenanceJsonlPath": "reports/openclaude-oss-architecture-gap-review.jsonl",
+  "provenanceJsonlSha256": "c5e810561d73e49d266075fcd618eedda159a53747a4cc9c2259a83a407e039e",
+  "provenanceJsonlRecordCount": 10,
+  "provenanceJsonlParseable": true,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub REST repository contents endpoint",
+      "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
+      "observedPattern": "Source-level repository evidence should be separated from metadata-only candidates before implementation-pattern absorption.",
+      "localAbsorption": "OpenClaude maps every source-supported target to local evidence and protected gaps before implementation."
+    },
+    {
+      "sourceProject": "SLSA Build Provenance",
+      "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observedPattern": "Evidence packages should bind claims to concrete subjects and materials instead of relying on prose.",
+      "localAbsorption": "OpenClaude records each OSS gap review record as a hash-addressed JSONL material."
+    }
+  ],
+  "gapChecks": [
+    {
+      "label": "architecture targets report is current and passed",
+      "ok": true,
+      "detail": "local_no_provider_oss_architecture_absorption_targets/2026-05-21"
+    },
+    {
+      "label": "gap records cover every architecture target",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "gap review preserves prioritized and deferred counts",
+      "ok": true,
+      "detail": "9/1"
+    },
+    {
+      "label": "gap review covers required product-quality axes",
+      "ok": true,
+      "detail": "eval_and_quality_gates,ide_or_editor_surface,onboarding_docs,privacy_and_no_phone_home,provider_breadth,release_hygiene,runtime_doctoring,security_and_permissions,terminal_workflow,tool_loop_reliability"
+    },
+    {
+      "label": "every gap record has safe internal next actions",
+      "ok": true,
+      "detail": "29 actions"
+    },
+    {
+      "label": "protected boundary gaps remain explicit",
+      "ok": true,
+      "detail": "85 protected gaps"
+    },
+    {
+      "label": "every gap record blocks claims and shortcuts",
+      "ok": true,
+      "detail": "claimAllowed=false for every record"
+    },
+    {
+      "label": "gap review writes parseable provenance JSONL",
+      "ok": true,
+      "detail": "reports/openclaude-oss-architecture-gap-review.jsonl"
+    },
+    {
+      "label": "no provider live external or protected actions occurred",
+      "ok": true,
+      "detail": "all call arrays empty"
+    }
+  ],
+  "gapRecords": [
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "high",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use ultraworkers/claw-code as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "19088442e549a5399ef8d49ec9a87039158fd9c68bd9b84493f712e62d63b81f"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "anomalyco/opencode",
+      "sourceUrl": "https://github.com/anomalyco/opencode",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "release_hygiene",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "terminal-cli"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use anomalyco/opencode as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "398d9f03d6d2cdae0eb4dd139131c18ec43d36a43a9031aa2d49c030714e5478"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "anthropics/claude-code",
+      "sourceUrl": "https://github.com/anthropics/claude-code",
+      "targetStatus": "deferred_metadata_only_target",
+      "priority": "deferred",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "ide_or_editor_surface",
+        "onboarding_docs",
+        "provider_breadth",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "ide-extension",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Keep anthropics/claude-code deferred until source-level evidence becomes sufficient.",
+        "Do not absorb implementation patterns from deferred metadata-only candidates."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+        "deeper external source inspection remains a separate explicit source-review action and cannot be converted into a claim."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "81a4cf84ea66bf7e3f8159a9e6308490f64c80dbf50dfaf12ce83c44e4971399"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "google-gemini/gemini-cli",
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "ide_or_editor_surface",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "ide-extension",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use google-gemini/gemini-cli as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "9472d9c93578951bfbd0b62b727472070eeb8d2df4d95ed3c806443117e85d9e"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "openai/codex",
+      "sourceUrl": "https://github.com/openai/codex",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "ide_or_editor_surface",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "ide-extension",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use openai/codex as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "9c531331e5c7b80847c3703bec8c749ec7969e03d97b0d0ada0b347f3eaa5305"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "OpenHands/OpenHands",
+      "sourceUrl": "https://github.com/OpenHands/OpenHands",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "ide_or_editor_surface",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "terminal_workflow"
+      ],
+      "sourceSignals": [
+        "ide-extension",
+        "provider-model",
+        "terminal-cli"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use OpenHands/OpenHands as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "5b53610961069b08b4beb95ebb9135cc796446582dfc2af2c9a292b5d5de69e9"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "openinterpreter/open-interpreter",
+      "sourceUrl": "https://github.com/openinterpreter/open-interpreter",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use openinterpreter/open-interpreter as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "f88103e9990ca703facd820cb1e064337d7548aae04589e7f84417390455a40a"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "cline/cline",
+      "sourceUrl": "https://github.com/cline/cline",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "ide_or_editor_surface",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "ide-extension",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use cline/cline as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "ca6e3931d37b2aa94f251e2b0e4806a99a920c7d9f8eeaf2b54a55163773f508"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "high",
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "eval_and_quality_gates",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
+          ],
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use warpdotdev/warp as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "ef2580723ffa2e1199707eb178af9a4ff184f164e8cf9ab81eb756fe55b01316"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
+      "fullName": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "high",
+      "absorptionAxes": [
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "sourceSignals": [
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "openClaudeEvidence": [
+        {
+          "axis": "onboarding_docs",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/doc-link-integrity-report.json",
+            "docs/product-quality/community-profile-quality-report.json"
+          ],
+          "unresolvedGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+          "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization."
+        },
+        {
+          "axis": "privacy_and_no_phone_home",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+            "docs/product-quality/public-claim-boundary-report.json",
+            "scripts/verify-no-phone-home.ts"
+          ],
+          "unresolvedGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+          "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization."
+        },
+        {
+          "axis": "provider_breadth",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-provider-breadth-evidence-report.json",
+            "docs/product-quality/provider-capability-matrix-report.json",
+            "docs/product-quality/provider-compatibility-fixtures.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json"
+          ],
+          "unresolvedGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+          "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim."
+        },
+        {
+          "axis": "release_hygiene",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-release-hygiene-evidence-report.json",
+            "docs/product-quality/release-artifact-file-list-report.json",
+            "docs/product-quality/release-artifact-provenance-report.json",
+            "docs/product-quality/release-artifact-reproducibility-report.json",
+            "docs/product-quality/git-release-hygiene-report.json",
+            "docs/product-quality/license-boundary-authorization-report.json"
+          ],
+          "unresolvedGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+          "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked."
+        },
+        {
+          "axis": "runtime_doctoring",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+            "docs/product-quality/runtime-doctor-regression-fixtures.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json"
+          ],
+          "unresolvedGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+          "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
+        },
+        {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
+          "axis": "terminal_workflow",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+            "docs/product-quality/golden-path-terminal-transcripts.json",
+            "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+            "docs/product-quality/onboarding-smoke-report.json",
+            "docs/product-quality/real-session-capture-report.json"
+          ],
+          "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+          "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+        }
+      ],
+      "safeInternalNextActions": [
+        "Use ruvnet/ruflo as an input to the next axis-specific no-provider review.",
+        "Compare its observed axes against current local evidence before any implementation change.",
+        "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
+      ],
+      "protectedActionsStillRequired": [
+        "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+        "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+        "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+        "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+        "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
+      ],
+      "forbiddenShortcuts": [
+        "do not treat GitHub stars as superiority evidence",
+        "do not treat local no-provider evidence as external validation",
+        "do not modify production OpenClaude, MFH, or real product repositories in this gate",
+        "do not call providers, live models, or external services",
+        "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
+      ],
+      "claimAllowed": false,
+      "recordDigest": "81de1c1844f7975354bded645e252968d798d8b06c98e38cc0d7282f1b01afaa"
+    }
+  ],
+  "claimBoundary": "OSS architecture gap review is local no-provider planning evidence only. It does not fetch external sources, clone repositories, install dependencies, call providers, call live models, mutate production OpenClaude, publish, deploy, launch, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."
+}

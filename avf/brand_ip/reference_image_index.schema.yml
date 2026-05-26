@@ -1,0 +1,21 @@
+# reference_image_index.schema.yml
+
+version: 1
+type: object
+required:
+  - image_id
+  - path
+  - rights_note
+  - style_note
+properties:
+  image_id:
+    type: string
+  path:
+    type: string
+  rights_note:
+    type: string
+  style_note:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

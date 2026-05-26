@@ -1,0 +1,21 @@
+# generated_asset_provenance.schema.yml
+
+version: 1
+type: object
+required:
+  - asset_id
+  - prompt_pack_id
+  - source_refs
+  - review_status
+properties:
+  asset_id:
+    type: string
+  prompt_pack_id:
+    type: string
+  source_refs:
+    type: string
+  review_status:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

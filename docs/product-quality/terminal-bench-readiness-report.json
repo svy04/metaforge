@@ -1,0 +1,257 @@
+{
+  "generatedAt": "2026-05-21T09:48:47.997Z",
+  "mode": "local_no_provider_terminal_bench_readiness",
+  "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
+  "sourceBenchmarkTaskManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
+  "sourceBenchmarkTaskManifestSha256": "5e487d6998a3b030700c0e48ab9feb14a03ece1f81bd72c26e231523e2bf5736",
+  "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
+  "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
+  "sourceLocalBenchmarkResultsSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+  "sourceTracePortabilityExportPath": "docs/product-quality/trace-portability-export-report.json",
+  "sourcePortableTraceJsonlPath": "reports/openclaude-portable-trace-events.jsonl",
+  "sourcePortableTraceJsonlSha256": "ab91f9c984f8abc344e88c898931814a8771f7c98b69e1c08cafe9d8ab6735b4",
+  "sourceBenchmarkPolicyCompliancePath": "docs/product-quality/benchmark-policy-compliance-report.json",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "harbor-framework/terminal-bench",
+      "sourceUrl": "https://github.com/harbor-framework/terminal-bench",
+      "observedPattern": "Terminal-agent benchmarks use task instructions, Docker environments, tests, oracle solutions, and inspectable benchmark artifacts rather than prose-only quality claims."
+    },
+    {
+      "sourceProject": "Terminal-Bench task documentation",
+      "sourceUrl": "https://www.tbench.ai/docs/task-overview",
+      "observedPattern": "A task directory contains Docker environment files, task.yaml, solution.yaml or solution.sh, run-tests.sh, tests, and supporting dependencies."
+    },
+    {
+      "sourceProject": "Harbor Terminal-Bench runner documentation",
+      "sourceUrl": "https://www.harborframework.com/docs/tutorials/running-terminal-bench",
+      "observedPattern": "Official Terminal-Bench 2.0 execution goes through Harbor and requires Docker/runtime setup before any leaderboard submission path is used."
+    },
+    {
+      "sourceProject": "Harbor eval artifacts documentation",
+      "sourceUrl": "https://harborframework.com/docs/run-jobs/run-evals",
+      "observedPattern": "Benchmark jobs produce config, result, recording, trajectory, verifier reward, stdout, stderr, and CTRF artifacts for later inspection."
+    }
+  ],
+  "taskMapJsonlPath": "reports/openclaude-terminal-bench-task-map.jsonl",
+  "taskMapJsonlSha256": "f3770ba9d26a79adb1b1fa6735b74886e63fad4c236f5fca8f2c106885bf82d3",
+  "terminalBenchRequirementRecords": [
+    {
+      "requirementId": "instruction_or_task_description",
+      "terminalBenchRequirement": "Terminal-Bench task instruction or task.yaml description",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "docs/product-quality/benchmark-readiness-matrix.json",
+      "localEquivalentSha256": "fe04d4cc4c8d122bc6025572b6ac7f26f83a46f8a34f2f6bc0b7891be6d258b6",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local benchmark readiness maps OpenClaude evidence-backed tasks, but it is not an official Terminal-Bench task.yaml corpus."
+    },
+    {
+      "requirementId": "docker_environment",
+      "terminalBenchRequirement": "Dockerfile and docker-compose environment for each task",
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "officialRunRequired": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Docker/Harbor runtime setup is a protected dependency/runtime boundary and was not installed or executed."
+    },
+    {
+      "requirementId": "tests_or_verifier",
+      "terminalBenchRequirement": "run-tests.sh or Harbor tests/test.sh verifier",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "docs/product-quality/local-benchmark-harness-report.json",
+      "localEquivalentSha256": "8f73e6c14be1dc4db6d8c0c139b54cc971de3606363ed3570e07f9f02505be6d",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local harness verifies source evidence hashes and status records, but it is not an official Terminal-Bench verifier script."
+    },
+    {
+      "requirementId": "oracle_solution",
+      "terminalBenchRequirement": "solution.sh or Harbor solution/solve.sh oracle solution",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "docs/product-quality/local-benchmark-harness-report.json",
+      "localEquivalentSha256": "8f73e6c14be1dc4db6d8c0c139b54cc971de3606363ed3570e07f9f02505be6d",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local no-provider fixture repairs and replay records provide solution-shaped evidence, but no official oracle solution script is generated."
+    },
+    {
+      "requirementId": "task_timeout_and_metadata",
+      "terminalBenchRequirement": "Task metadata including timeout and difficulty fields",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "reports/openclaude-benchmark-task-manifest.jsonl",
+      "localEquivalentSha256": "5e487d6998a3b030700c0e48ab9feb14a03ece1f81bd72c26e231523e2bf5736",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local task manifest preserves task IDs and evidence hashes, but official timeout/difficulty metadata is not claimed."
+    },
+    {
+      "requirementId": "agent_trajectory_artifacts",
+      "terminalBenchRequirement": "Agent trajectory, terminal recording, action/observation, or job artifacts",
+      "readinessStatus": "local_equivalent_available",
+      "localEquivalentPath": "reports/openclaude-portable-trace-events.jsonl",
+      "localEquivalentSha256": "ab91f9c984f8abc344e88c898931814a8771f7c98b69e1c08cafe9d8ab6735b4",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Portable local trace events provide source-hash-addressed trajectory-shaped evidence without external benchmark execution."
+    },
+    {
+      "requirementId": "result_and_reward_artifacts",
+      "terminalBenchRequirement": "Job result.json, trial result, verifier reward, stdout, stderr, or CTRF artifacts",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "reports/openclaude-local-benchmark-results.jsonl",
+      "localEquivalentSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local benchmark replay results exist, but official Harbor job/trial/verifier outputs were not generated."
+    },
+    {
+      "requirementId": "human_review_and_exploit_audit",
+      "terminalBenchRequirement": "Specificity, solvability, integrity, manual review, and adversarial exploit audit evidence",
+      "readinessStatus": "partial_local_equivalent_available",
+      "localEquivalentPath": "docs/product-quality/benchmark-policy-compliance-report.json",
+      "localEquivalentSha256": "5c36b5bf537948857a62c684ea2c304fc74c2e924a66366d03b22529bb947f58",
+      "officialRunRequired": false,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "Local policy evidence preserves claim boundaries, but experienced reviewer and adversarial exploit audits remain unresolved."
+    },
+    {
+      "requirementId": "official_harbor_or_terminal_bench_run",
+      "terminalBenchRequirement": "harbor run or tb run execution against Terminal-Bench",
+      "readinessStatus": "blocked_not_authorized",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "officialRunRequired": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "No Harbor install, Docker run, provider run, live model run, or official Terminal-Bench execution is authorized in this local gate."
+    },
+    {
+      "requirementId": "leaderboard_or_external_submission",
+      "terminalBenchRequirement": "Leaderboard logs, external PR, HuggingFace log submission, or public result claim",
+      "readinessStatus": "blocked_not_authorized",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "officialRunRequired": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "officialResultClaimed": false,
+      "notes": "No external repository interaction, public leaderboard claim, or external validation claim is authorized."
+    }
+  ],
+  "summary": {
+    "requirementCount": 10,
+    "localEquivalentAvailableCount": 1,
+    "partialLocalEquivalentCount": 6,
+    "classifiedUnresolvedProtectedGapCount": 1,
+    "blockedNotAuthorizedCount": 2,
+    "officialTerminalBenchExecutionReady": false
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "dependencyInstallPerformed": false,
+  "dockerContainerRunPerformed": false,
+  "harborInstallPerformed": false,
+  "officialTerminalBenchExecutionPerformed": false,
+  "officialTerminalBenchResultClaimed": false,
+  "officialLeaderboardSubmissionPerformed": false,
+  "officialLeaderboardClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "terminalBenchReadinessChecks": [
+    {
+      "label": "benchmark readiness matrix is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_readiness_matrix"
+    },
+    {
+      "label": "local benchmark harness is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_replay_harness"
+    },
+    {
+      "label": "trace portability export is imported",
+      "ok": true,
+      "detail": "local_no_provider_trace_portability_export"
+    },
+    {
+      "label": "benchmark policy compliance is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_policy_compliance"
+    },
+    {
+      "label": "source manifest hash matches readiness report",
+      "ok": true,
+      "detail": "reports/openclaude-benchmark-task-manifest.jsonl"
+    },
+    {
+      "label": "source local benchmark result hash matches harness report",
+      "ok": true,
+      "detail": "reports/openclaude-local-benchmark-results.jsonl"
+    },
+    {
+      "label": "source portable trace hash matches trace export report",
+      "ok": true,
+      "detail": "reports/openclaude-portable-trace-events.jsonl"
+    },
+    {
+      "label": "Terminal-Bench requirement matrix covers task environment tests solution trajectories results audits run and submission",
+      "ok": true,
+      "detail": "10 requirements"
+    },
+    {
+      "label": "local equivalents are source-hash-addressed when present",
+      "ok": true,
+      "detail": "7 local equivalents"
+    },
+    {
+      "label": "official Terminal-Bench execution remains blocked",
+      "ok": true,
+      "detail": "officialTerminalBenchExecutionReady=false"
+    },
+    {
+      "label": "protected gaps are classified but not executed",
+      "ok": true,
+      "detail": "3 protected/blocked gaps"
+    },
+    {
+      "label": "policy boundary keeps official and leaderboard claims blocked",
+      "ok": true,
+      "detail": "all official policy claims false"
+    },
+    {
+      "label": "task map JSONL hash is recorded",
+      "ok": true,
+      "detail": "reports/openclaude-terminal-bench-task-map.jsonl"
+    },
+    {
+      "label": "no provider live external dependency Docker Harbor or protected actions occurred",
+      "ok": true,
+      "detail": "all call/action arrays empty and dependencyInstallPerformed=false"
+    }
+  ],
+  "claimBoundary": "Terminal-Bench readiness is local no-provider evidence only. It maps OpenClaude local evidence to Terminal-Bench/Harbor task and artifact expectations, but does not install Harbor or Docker, execute official benchmarks, submit leaderboard logs, call providers, call live models, call external services, or make release, production, public, external-validation, leaderboard, cost-efficiency, or autonomous-reliability claims."
+}

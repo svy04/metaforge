@@ -1,0 +1,95 @@
+{
+  "authorization_packet_id": "owner_external_validation_authorization_v31",
+  "autonomous_reliability_claimed": false,
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "evidence_requirements": [
+    {
+      "current_status": "missing_until_owner_authorizes_external_validation",
+      "required_evidence": "Owner-approved target audience, consent, and data-handling plan.",
+      "requirement_id": "external_user_recruiting_plan"
+    },
+    {
+      "current_status": "missing_until_owner_authorizes_external_validation",
+      "required_evidence": "Exact test tasks, questions, scoring rubric, and stop criteria.",
+      "requirement_id": "external_test_script"
+    },
+    {
+      "current_status": "missing_until_owner_authorizes_external_validation",
+      "required_evidence": "No sensitive data exposure, no unlicensed assets, and no unclear rights.",
+      "requirement_id": "privacy_and_rights_review"
+    },
+    {
+      "current_status": "missing_until_owner_authorizes_external_validation",
+      "required_evidence": "Every public-facing claim mapped to evidence and approval status.",
+      "requirement_id": "claim_mapping"
+    },
+    {
+      "current_status": "missing_until_owner_authorizes_external_validation",
+      "required_evidence": "Clear stop condition if feedback reveals safety, quality, or reputation risk.",
+      "requirement_id": "rollback_and_pause_plan"
+    }
+  ],
+  "external_calls": false,
+  "external_validation_authorized": false,
+  "external_validation_claimed": false,
+  "external_validation_executed": false,
+  "live_model_calls_performed": false,
+  "local_product_status": "owner_external_validation_authorization_packet_ready",
+  "next_safe_goal_count": 0,
+  "owner_decision_required": true,
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "required_owner_decisions": [
+    {
+      "decision": "Authorize contacting or observing real external users for validation.",
+      "decision_id": "external_validation",
+      "default_authorized": false,
+      "executed": false,
+      "required_authorization": "Owner must define audience, channel, consent language, data handling, and success criteria."
+    },
+    {
+      "decision": "Authorize provider calls or live model calls for generated outputs.",
+      "decision_id": "provider_or_live_model_validation",
+      "default_authorized": false,
+      "executed": false,
+      "required_authorization": "Owner must define provider, model, data boundaries, budget, and logging rules."
+    },
+    {
+      "decision": "Authorize any public demo, public claim, or externally visible proof.",
+      "decision_id": "public_demo_or_public_claim",
+      "default_authorized": false,
+      "executed": false,
+      "required_authorization": "Owner must approve copy, evidence level, disclosure, and rollback path."
+    },
+    {
+      "decision": "Authorize any release, production, or readiness claim.",
+      "decision_id": "release_or_production_readiness_claim",
+      "default_authorized": false,
+      "executed": false,
+      "required_authorization": "Owner must require production checks, security review, support plan, and observed external evidence first."
+    },
+    {
+      "decision": "Authorize platform posting or account automation, if ever requested.",
+      "decision_id": "platform_posting_or_account_automation",
+      "default_authorized": false,
+      "executed": false,
+      "required_authorization": "Default posture remains blocked; no personal account automation, spam, deceptive influence, or platform bypass."
+    }
+  ],
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": null,
+  "source_gate": "second_internal_user_trial_v30",
+  "terminal_condition": "PROTECTED_ACTION_REQUIRED",
+  "terminal_report": {
+    "reason": "The next meaningful step is real external validation, which is a protected action.",
+    "safe_work_completed": "Internal-only no-provider local product package, internal trial, improvement loop, and owner authorization packet.",
+    "terminal_condition": "PROTECTED_ACTION_REQUIRED"
+  }
+}

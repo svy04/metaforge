@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-05-18T11:50:44.402Z",
+  "mode": "local_no_provider_regression_cycle_code_editing_trace_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_regression_cycle_code_editing_trace_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "capturePerformed": true,
+  "nonSyntheticUserSessionClaimed": false,
+  "fixtureRoot": "_fixtures/product-regression-cycle-code-editing-trace",
+  "tracePath": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+  "traceSha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
+  "sourceBeforeSha256": "4e0abcc1a8c3176e17ca65294405e67cdaa0f7a36dea8dd92e99cd48c14c9334",
+  "wrongPatchSha256": "d06c7367473131454fa0131b1882ebb30cb187b112477e4c95226fe23202f756",
+  "repairedSourceSha256": "2556d2ffc8caf47e1722147a212d50452f172a9168bba61f66e1d4a58f58e0c9",
+  "wrongPatchApplied": true,
+  "regressionFailedBeforeRepair": true,
+  "repairApplied": true,
+  "regressionPassedAfterRepair": true,
+  "modifiedFixtureFiles": [
+    "_fixtures/product-regression-cycle-code-editing-trace/src/slugify.js"
+  ],
+  "protectedRepoFilesModified": [],
+  "unitCheck": {
+    "failedCaseCountBeforeRepair": 3,
+    "passedCaseCountAfterRepair": 4,
+    "testCaseCount": 4,
+    "cases": [
+      {
+        "name": "spaces become single separators",
+        "input": "Hello World",
+        "expected": "hello-world",
+        "wrongActual": "hello-world",
+        "repairedActual": "hello-world",
+        "failedBeforeRepair": false,
+        "passedAfterRepair": true
+      },
+      {
+        "name": "punctuation collapses",
+        "input": "Hello, world!",
+        "expected": "hello-world",
+        "wrongActual": "hello,-world!",
+        "repairedActual": "hello-world",
+        "failedBeforeRepair": true,
+        "passedAfterRepair": true
+      },
+      {
+        "name": "repeated whitespace and punctuation collapse",
+        "input": "  A  B---C  ",
+        "expected": "a-b-c",
+        "wrongActual": "a--b---c",
+        "repairedActual": "a-b-c",
+        "failedBeforeRepair": true,
+        "passedAfterRepair": true
+      },
+      {
+        "name": "outer separators trimmed",
+        "input": "---Ready?---",
+        "expected": "ready",
+        "wrongActual": "---ready?---",
+        "repairedActual": "ready",
+        "failedBeforeRepair": true,
+        "passedAfterRepair": true
+      }
+    ]
+  },
+  "traceChecks": [
+    {
+      "label": "fixture source starts from incomplete implementation",
+      "ok": true,
+      "detail": "4e0abcc1a8c3176e17ca65294405e67cdaa0f7a36dea8dd92e99cd48c14c9334"
+    },
+    {
+      "label": "wrong patch is applied and changes source hash",
+      "ok": true,
+      "detail": "d06c7367473131454fa0131b1882ebb30cb187b112477e4c95226fe23202f756"
+    },
+    {
+      "label": "regression check fails before repair",
+      "ok": true,
+      "detail": "3/4 failed"
+    },
+    {
+      "label": "repair patch is applied and changes source hash",
+      "ok": true,
+      "detail": "2556d2ffc8caf47e1722147a212d50452f172a9168bba61f66e1d4a58f58e0c9"
+    },
+    {
+      "label": "regression check passes after repair",
+      "ok": true,
+      "detail": "4/4 passed"
+    },
+    {
+      "label": "trace records wrong patch command",
+      "ok": true,
+      "detail": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records failed regression command",
+      "ok": true,
+      "detail": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records repair command",
+      "ok": true,
+      "detail": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records passing regression command",
+      "ok": true,
+      "detail": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "only disposable fixture files are modified",
+      "ok": true,
+      "detail": "_fixtures/product-regression-cycle-code-editing-trace/src/slugify.js"
+    },
+    {
+      "label": "no provider/live/external calls are recorded",
+      "ok": true,
+      "detail": "call counts=0"
+    }
+  ],
+  "claimBoundary": "This is local no-provider regression-cycle code-editing fixture evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."
+}

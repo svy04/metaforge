@@ -1,0 +1,220 @@
+{
+  "generatedAt": "2026-05-21T08:40:14.464Z",
+  "mode": "local_no_provider_maintainer_ownership_quality",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Docs CODEOWNERS",
+      "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+      "observedPattern": "CODEOWNERS defines repository file owners, triggers review routing for pull requests, has supported locations and syntax limits, and should protect the CODEOWNERS file or .github directory itself.",
+      "localAbsorption": "OpenClaude now keeps a source-controlled .github/CODEOWNERS map and verifies required ownership patterns without claiming hosted enforcement."
+    },
+    {
+      "sourceProject": "GitHub Docs protected branches",
+      "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "observedPattern": "Required reviews and protected branches are repository settings, so local source evidence must not be treated as hosted enforcement.",
+      "localAbsorption": "OpenClaude records branch-protection/query enforcement as not performed and keeps required code-owner review claims blocked."
+    },
+    {
+      "sourceProject": "OpenSSF Scorecard checks",
+      "sourceUrl": "https://github.com/ossf/scorecard/blob/main/docs/checks.md",
+      "observedPattern": "Open-source security posture improves when review, branch protection, maintained status, packaging, and release practices are auditable instead of implicit.",
+      "localAbsorption": "OpenClaude adds local ownership-routing evidence as another product-quality axis while leaving hosted review enforcement as an unresolved protected gap."
+    }
+  ],
+  "codeownersPath": ".github/CODEOWNERS",
+  "codeownersSha256": "7b73a755cba33465f66693a8af0b1289e4575ce2859e7ded4cd7bbc79fe9ec82",
+  "codeownersSizeBytes": 598,
+  "codeownersPreferredLocation": true,
+  "codeownersUnderGithubLimit": true,
+  "codeownerRules": [
+    {
+      "line": 8,
+      "pattern": "*",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 10,
+      "pattern": "/.github/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 11,
+      "pattern": "/src/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 12,
+      "pattern": "/scripts/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 13,
+      "pattern": "/packages/openclaude-vscode/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 14,
+      "pattern": "/docs/product-quality/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 15,
+      "pattern": "/reports/",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 16,
+      "pattern": "/package.json",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 17,
+      "pattern": "/README.md",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 18,
+      "pattern": "/CONTRIBUTING.md",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 19,
+      "pattern": "/SUPPORT.md",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 20,
+      "pattern": "/CODE_OF_CONDUCT.md",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 21,
+      "pattern": "/SECURITY.md",
+      "owners": [
+        "@Gitlawb"
+      ]
+    },
+    {
+      "line": 22,
+      "pattern": "/LICENSE",
+      "owners": [
+        "@Gitlawb"
+      ]
+    }
+  ],
+  "requiredPatterns": [
+    "*",
+    "/.github/",
+    "/src/",
+    "/scripts/",
+    "/packages/openclaude-vscode/",
+    "/docs/product-quality/",
+    "/reports/",
+    "/package.json",
+    "/README.md",
+    "/CONTRIBUTING.md",
+    "/SUPPORT.md",
+    "/CODE_OF_CONDUCT.md",
+    "/SECURITY.md",
+    "/LICENSE"
+  ],
+  "missingRequiredPatterns": [],
+  "ownerTokens": [
+    "@Gitlawb"
+  ],
+  "invalidSyntaxLines": [],
+  "hostedCodeownerResolutionPerformed": false,
+  "branchProtectionQueryPerformed": false,
+  "codeOwnerReviewRequiredClaimAllowed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "claimBoundary": "Maintainer ownership quality is local source-controlled review-routing evidence only. It does not prove hosted CODEOWNERS resolution, branch protection, required review enforcement, release readiness, public readiness, production readiness, external validation, or autonomous reliability.",
+  "ownershipChecks": [
+    {
+      "label": "CODEOWNERS exists in preferred .github location",
+      "ok": true,
+      "detail": ".github/CODEOWNERS"
+    },
+    {
+      "label": "CODEOWNERS is below GitHub size limit",
+      "ok": true,
+      "detail": "598/3145728 bytes"
+    },
+    {
+      "label": "CODEOWNERS has parseable ownership rules",
+      "ok": true,
+      "detail": "14 rules; 0 invalid lines"
+    },
+    {
+      "label": "required ownership patterns are covered",
+      "ok": true,
+      "detail": "all present"
+    },
+    {
+      "label": "default owner and protected surfaces are explicit",
+      "ok": true,
+      "detail": "@Gitlawb"
+    },
+    {
+      "label": "owner tokens use GitHub user or team syntax",
+      "ok": true,
+      "detail": "@Gitlawb"
+    },
+    {
+      "label": "primary-source inputs are official or maintained source references",
+      "ok": true,
+      "detail": "GitHub Docs CODEOWNERS,GitHub Docs protected branches,OpenSSF Scorecard checks"
+    },
+    {
+      "label": "hosted CODEOWNERS and branch protection enforcement remain unclaimed",
+      "ok": true,
+      "detail": "local source evidence only"
+    },
+    {
+      "label": "provider live external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "readiness and reliability claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ]
+}

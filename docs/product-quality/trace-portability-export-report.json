@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-05-21T09:21:24.891Z",
+  "mode": "local_no_provider_trace_portability_export",
+  "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
+  "sourceRealTraceEvalReportSha256": "27b158e14e7d3f4957106929dd71cf286738535b62cdfeb541dcb4aab55a1a18",
+  "sourceTraceSchemaContractReportPath": "docs/product-quality/trace-schema-contract-report.json",
+  "sourceTraceSchemaContractReportSha256": "ef2534fde8ce97725d2006386c4869df5ee48e32e7256382ded41249afbec6a7",
+  "portableTraceExportPath": "reports/openclaude-portable-trace-events.jsonl",
+  "portableTraceExportSha256": "ab91f9c984f8abc344e88c898931814a8771f7c98b69e1c08cafe9d8ab6735b4",
+  "sourceTraceCount": 13,
+  "sourceEventCount": 83,
+  "portableEventCount": 83,
+  "sourceHistoricalMissingEventNameCount": 13,
+  "sourceHistoricalMissingTraceContextCount": 13,
+  "sourceHistoricalMissingActionObservationCount": 0,
+  "portableMissingEventNameCount": 0,
+  "portableMissingTraceContextCount": 0,
+  "portableMissingActionObservationCount": 0,
+  "sourceEventsAlreadyEnrichedCount": 70,
+  "portableEventsSynthesizedFromHistoricalGapsCount": 13,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "sourceTraceHashes": [
+    {
+      "path": "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+      "sha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
+      "eventCount": 10
+    },
+    {
+      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
+      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
+      "eventCount": 3
+    },
+    {
+      "path": "reports/orchestra-live-20260506-163448.jsonl",
+      "sha256": "3cebbd8762d8a60a64aa3f5a2ebd438c78fd88be87b91f7e1607e5d8c0b023e2",
+      "eventCount": 2
+    },
+    {
+      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
+      "sha256": "7ed6f91522b4c0adf68c3ca28a0a8e2cf888a2ded4ec9fe7610905b3b940aa26",
+      "eventCount": 2
+    },
+    {
+      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
+      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
+      "eventCount": 2
+    },
+    {
+      "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+      "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
+      "eventCount": 10
+    },
+    {
+      "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+      "sha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "eventCount": 8
+    },
+    {
+      "path": "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl",
+      "sha256": "ad80fdcc6df11ff3c96da8b5a62309864f8cd59fc243528ac6c9d93c7ef425b5",
+      "eventCount": 8
+    },
+    {
+      "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
+      "sha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "eventCount": 16
+    },
+    {
+      "path": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+      "sha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
+      "eventCount": 9
+    },
+    {
+      "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+      "sha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
+      "eventCount": 9
+    },
+    {
+      "path": "reports/orchestra-usage-cli-probe.jsonl",
+      "sha256": "acc8215c75381d056dcdb467f5e9ca1d3190ecebf3629f2e9bedbfe6460a9839",
+      "eventCount": 2
+    },
+    {
+      "path": "reports/orchestra-usage-probe.jsonl",
+      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
+      "eventCount": 2
+    }
+  ],
+  "portabilityChecks": [
+    {
+      "label": "real trace eval report is local no-provider source",
+      "ok": true,
+      "detail": "local_no_provider_real_session_jsonl_trace_grading"
+    },
+    {
+      "label": "trace schema contract report is local no-provider source",
+      "ok": true,
+      "detail": "local_no_provider_trace_schema_contract"
+    },
+    {
+      "label": "source reports performed no provider calls",
+      "ok": true,
+      "detail": "provider calls are zero"
+    },
+    {
+      "label": "source reports performed no live model calls",
+      "ok": true,
+      "detail": "live model calls are zero"
+    },
+    {
+      "label": "source reports performed no external calls",
+      "ok": true,
+      "detail": "external calls are zero"
+    },
+    {
+      "label": "source schema contract executed no protected actions",
+      "ok": true,
+      "detail": "protected actions are zero"
+    },
+    {
+      "label": "trace count matches schema contract",
+      "ok": true,
+      "detail": "13/13"
+    },
+    {
+      "label": "portable export has one event per source event",
+      "ok": true,
+      "detail": "83/83"
+    },
+    {
+      "label": "portable export preserves source trace hashes",
+      "ok": true,
+      "detail": "13 traces"
+    },
+    {
+      "label": "portable export has event names for every event",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "portable export has trace context for every event",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "portable export has action-observation fields for action events",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "portable export normalizes historical gaps without raw mutation",
+      "ok": true,
+      "detail": "13 synthesized"
+    },
+    {
+      "label": "portable export contains no credential patterns",
+      "ok": true,
+      "detail": "known key/token/private-key patterns absent"
+    },
+    {
+      "label": "portable export writes hash-addressed JSONL",
+      "ok": true,
+      "detail": "reports/openclaude-portable-trace-events.jsonl"
+    }
+  ],
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "claimBoundary": "Portable trace export evidence only; no provider/live/external calls, protected actions, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim is authorized."
+}

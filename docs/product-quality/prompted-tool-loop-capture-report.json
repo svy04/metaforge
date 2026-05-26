@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-05-18T11:51:00.367Z",
+  "mode": "local_no_provider_prompted_tool_loop_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_prompted_tool_loop_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "promptCaptured": true,
+  "promptSha256": "55aa34b1c176d3d5b297e96a75b7b2c6fe0001adc179080a15eb885f0d542d4d",
+  "promptByteLength": 173,
+  "nonSyntheticUserSessionClaimed": false,
+  "tracePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+  "traceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+  "toolCommandCaptures": [
+    {
+      "name": "inspect_auto_mode_defaults",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "auto-mode",
+        "defaults"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "5676853b71347990f1b4208e888442796cd53bb5f1cb957a939aa6ea2415f3db",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutByteLength": 58,
+      "stderrByteLength": 0,
+      "requiredSubstrings": [
+        "\"allow\"",
+        "\"soft_deny\"",
+        "\"environment\""
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    },
+    {
+      "name": "inspect_scoped_agents",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "agents",
+        "--setting-sources",
+        "user,project,local"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "7c047ceb5218722da87a74f94a772f26ec16459a992e4fe39dbd8e08edab4546",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutByteLength": 1457,
+      "stderrByteLength": 0,
+      "requiredSubstrings": [
+        "active agents",
+        "Built-in agents"
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    }
+  ],
+  "toolLoopChecks": [
+    {
+      "label": "operator authorization is bounded to local no-provider prompted tool-loop capture",
+      "ok": true,
+      "detail": "standing operator scope is capture only"
+    },
+    {
+      "label": "built CLI exists",
+      "ok": true,
+      "detail": "dist/cli.mjs"
+    },
+    {
+      "label": "operator prompt is captured only by hash",
+      "ok": true,
+      "detail": "173 bytes"
+    },
+    {
+      "label": "tool loop executed at least two local CLI tool steps",
+      "ok": true,
+      "detail": "2 commands"
+    },
+    {
+      "label": "all local tool commands passed",
+      "ok": true,
+      "detail": "inspect_auto_mode_defaults=0,inspect_scoped_agents=0"
+    },
+    {
+      "label": "tool command output is summarized by hashes",
+      "ok": true,
+      "detail": "2 commands"
+    },
+    {
+      "label": "trace artifact was written",
+      "ok": true,
+      "detail": "reports/orchestra-prompted-tool-loop-local-cli.jsonl"
+    },
+    {
+      "label": "trace artifact hash is recorded",
+      "ok": true,
+      "detail": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9"
+    },
+    {
+      "label": "non-synthetic user-session capture is not claimed",
+      "ok": true,
+      "detail": "local harness evidence only"
+    },
+    {
+      "label": "no provider calls performed",
+      "ok": true,
+      "detail": "local CLI tool loop only"
+    },
+    {
+      "label": "no live model calls performed",
+      "ok": true,
+      "detail": "local CLI tool loop only"
+    },
+    {
+      "label": "no external calls performed",
+      "ok": true,
+      "detail": "local CLI tool loop only"
+    }
+  ],
+  "claimBoundary": "Prompted tool-loop capture is internal local no-provider harness evidence only. It does not claim non-synthetic user-session capture, release readiness, production readiness, external validation, public readiness, provider-backed execution, live model validation, or autonomous reliability."
+}

@@ -1,0 +1,79 @@
+{
+  "acceptance_matrix": [
+    {
+      "evidence": "First product goal intake creates a reviewable local run packet.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "goal_intake",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Strategy proof defines audience, promise, proof target, and kill criteria.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "strategy_proof",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Brand/IP memory keeps character, visual, palette, prompt, and rights notes attached.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "brand_ip_style",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Draft-first content calendar exists without platform posting.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "content_calendar",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Codex task packets are PR-sized with forbidden changes and acceptance criteria.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "codex_pr_sequence",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Owner acceptance decision is recorded as local packet review only.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "owner_acceptance",
+      "status": "pass_local"
+    },
+    {
+      "evidence": "Protected actions remain blocked and require separate owner authorization.",
+      "owner_review_required_before_public_use": true,
+      "protected_action_executed": false,
+      "stage_id": "protected_boundary",
+      "status": "pass_local"
+    }
+  ],
+  "acceptance_packet_id": "local_mvp_e2e_acceptance_v24",
+  "autonomous_reliability_claimed": false,
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "external_calls": false,
+  "external_validation_claimed": false,
+  "live_model_calls_performed": false,
+  "local_product_status": "local_mvp_e2e_acceptance_packet_ready",
+  "next_safe_goal_count": 1,
+  "owner_acceptance_decision": {
+    "decision": "accept_local_mvp_for_beta_candidate_packaging_only",
+    "protected_action_authorized": false,
+    "scope": "repo_local_no_provider_no_publish_no_platform_posting"
+  },
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": "prepare_local_product_beta_candidate_v25_without_protected_actions",
+  "source_gate": "mvp_work_items_v23",
+  "terminal_condition": "LOCAL_MVP_E2E_ACCEPTANCE_V24_READY"
+}

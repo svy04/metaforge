@@ -1,0 +1,434 @@
+{
+  "generatedAt": "2026-05-21T14:11:29.729Z",
+  "mode": "local_no_provider_oss_privacy_no_phone_home_evidence",
+  "selectedAxis": "privacy_and_no_phone_home",
+  "sourceReadinessIndexReportPath": "docs/product-quality/oss-comparison-readiness-index-report.json",
+  "sourceReadinessIndexReportSha256": "b02489b61bed89a57156798148df8f63739572374484ebd18e11c7f823237f39",
+  "sourceComparisonMatrixReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
+  "sourceComparisonMatrixReportSha256": "8e6358fe98021bd80a5a4410cb18ea106ef6c86a0d304ce056adfb174066b5d4",
+  "sourcePublicClaimBoundaryReportPath": "docs/product-quality/public-claim-boundary-report.json",
+  "sourcePublicClaimBoundaryReportSha256": "469f3c5a4776808c35c85ddf7e9fe1dbed17205c5c7e02f229553ec9d2d3c8c4",
+  "sourceReportBindings": [
+    {
+      "path": "docs/product-quality/oss-comparison-readiness-index-report.json",
+      "exists": true,
+      "sha256": "b02489b61bed89a57156798148df8f63739572374484ebd18e11c7f823237f39",
+      "sizeBytes": 48480
+    },
+    {
+      "path": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
+      "exists": true,
+      "sha256": "8e6358fe98021bd80a5a4410cb18ea106ef6c86a0d304ce056adfb174066b5d4",
+      "sizeBytes": 220381
+    },
+    {
+      "path": "docs/product-quality/public-claim-boundary-report.json",
+      "exists": true,
+      "sha256": "469f3c5a4776808c35c85ddf7e9fe1dbed17205c5c7e02f229553ec9d2d3c8c4",
+      "sizeBytes": 12077
+    }
+  ],
+  "sourcePrivacyPriorityTier": "source_review_priority",
+  "sourcePrivacyLocalEvidenceBackedCellCount": 9,
+  "sourcePrivacyAxisNotYetAbsorbedCellCount": 0,
+  "sourcePrivacyMetadataOnlyCellCount": 1,
+  "sourcePrivacyMatrixRowCount": 10,
+  "localEvidenceBindings": [
+    {
+      "path": "scripts/verify-no-phone-home.ts",
+      "exists": true,
+      "sha256": "31888496c462f03b267d4b12cfbb4633cf8f418edc6c7b5bec5fd93ee8be20be",
+      "sizeBytes": 1150
+    },
+    {
+      "path": "dist/cli.mjs",
+      "exists": true,
+      "sha256": "ffaac11bbf9065d5e079e451e0ade7f51e9f09dbf004dbc3fef1e79ec62837eb",
+      "sizeBytes": 21037658
+    },
+    {
+      "path": "scripts/no-telemetry-plugin.ts",
+      "exists": true,
+      "sha256": "12cc874226406af10239f6820aa5582cb4afaceda035b784f935cf78c1e687ec",
+      "sizeBytes": 23881
+    },
+    {
+      "path": "scripts/no-telemetry-growthbook-stub.test.ts",
+      "exists": true,
+      "sha256": "ad187b8814ae52f7dcd6986aa679da6246047ac7b30682740d163fefc5e5f17d",
+      "sizeBytes": 7419
+    },
+    {
+      "path": "src/commands/privacy-settings/index.ts",
+      "exists": true,
+      "sha256": "ded9c5123d4383f64e55dc986674f66217665d86d53651b91861e360cf15622d",
+      "sizeBytes": 399
+    },
+    {
+      "path": "src/commands/privacy-settings/privacy-settings.tsx",
+      "exists": true,
+      "sha256": "e6b75d1a429e73aa08f8908274a2ddc3ddaac253b57dafeb0cd3ea0dc2dc9952",
+      "sizeBytes": 2667
+    },
+    {
+      "path": "src/utils/privacyLevel.ts",
+      "exists": true,
+      "sha256": "45f438503d7a0319da6186cb95dcc0185e7d9b1a1493b4f5d435f8befbdb90ce",
+      "sizeBytes": 1886
+    },
+    {
+      "path": "package.json",
+      "exists": true,
+      "sha256": "ed5566c443919514874ea27c2f7e44602c272d24c4c7d055e97edc616a1b3458",
+      "sizeBytes": 18344
+    }
+  ],
+  "bannedPatterns": [
+    "datadoghq.com",
+    "api/event_logging/batch",
+    "api/claude_code/metrics",
+    "getKubernetesNamespace",
+    "/var/run/secrets/kubernetes",
+    "/proc/self/mountinfo",
+    "tengu_internal_record_permission_context",
+    "anthropic-serve",
+    "infra.ant.dev",
+    "claude-code-feedback",
+    "C07VBSHV7EV"
+  ],
+  "bannedPatternFindingCount": 0,
+  "noTelemetryPluginPresent": true,
+  "privacySettingsSurfacePresent": true,
+  "verifyPrivacyScriptPresent": true,
+  "packageVerifyPrivacyScriptPresent": true,
+  "buildVerifiedIncludesPrivacy": true,
+  "privacyEvidenceJsonlPath": "reports/openclaude-oss-privacy-no-phone-home-evidence.jsonl",
+  "privacyEvidenceJsonlSha256": "11964dd236ff95a8296193e64cff88723cf3d8aecac5d5ea7ff8adba8f09a645",
+  "privacyEvidenceJsonlRecordCount": 10,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "dependencyInstallPerformed": false,
+  "publishDeployLaunchPerformed": false,
+  "protectedActionRequiredForNextVerifiableBoundary": true,
+  "protectedActionExecuted": false,
+  "releaseClaimAllowed": false,
+  "publicPrivacyClaimAllowed": false,
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "mthResolutionStatus": "unresolved",
+  "canonicalMemoryWriteAllowed": false,
+  "allowedClaimLevel": "internal_no_provider_product_quality_evidence_only",
+  "terminalCondition": "PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenTelemetry JavaScript",
+      "sourceUrl": "https://github.com/open-telemetry/opentelemetry-js",
+      "observedPattern": "Telemetry should be explicit and auditable through named SDK/exporter surfaces.",
+      "localAbsorption": "OpenClaude binds privacy evidence to a deterministic banned-pattern scan over local build output rather than implicit runtime assumptions."
+    },
+    {
+      "sourceProject": "OpenSSF Scorecard",
+      "sourceUrl": "https://github.com/ossf/scorecard",
+      "observedPattern": "Security and maintenance quality improve when checks are repeatable and evidence-backed.",
+      "localAbsorption": "OpenClaude turns the privacy axis into a repeatable local evidence gate with machine-readable JSONL records."
+    },
+    {
+      "sourceProject": "SLSA provenance materials model",
+      "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observedPattern": "Derived evidence should bind its input materials before claims rely on it.",
+      "localAbsorption": "The privacy evidence report hash-binds the readiness index, comparison matrix, public-claim boundary, local privacy scripts, and build output."
+    }
+  ],
+  "selfImprovementActions": [
+    "Convert the previously weakest OSS comparison axis into a deterministic local no-provider privacy evidence gate.",
+    "Bind no-phone-home claims to build-output scanning, privacy-settings surfaces, and no-telemetry test fixtures.",
+    "Keep all privacy, public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked."
+  ],
+  "reconciliationRecords": [
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 1,
+      "fullName": "ultraworkers/claw-code",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 2,
+      "fullName": "anomalyco/opencode",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 3,
+      "fullName": "anthropics/claude-code",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "metadata_only_needs_source_review",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 4,
+      "fullName": "google-gemini/gemini-cli",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 5,
+      "fullName": "openai/codex",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 6,
+      "fullName": "OpenHands/OpenHands",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 7,
+      "fullName": "openinterpreter/open-interpreter",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 8,
+      "fullName": "cline/cline",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 9,
+      "fullName": "warpdotdev/warp",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
+      "rank": 10,
+      "fullName": "ruvnet/ruflo",
+      "axis": "privacy_and_no_phone_home",
+      "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
+      "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
+      "bannedPatternFindingCount": 0,
+      "protectedBoundary": "External telemetry comparison, provider/live validation, production mutation, public privacy claims, public comparison, and release/public/production readiness claims require explicit later authorization.",
+      "protectedActionRequiredForNextStep": true,
+      "protectedActionExecuted": false,
+      "publicPrivacyClaimAllowed": false,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "publicReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    }
+  ],
+  "evidenceChecks": [
+    {
+      "label": "source reports are present and hash-bound",
+      "ok": true,
+      "detail": "3/3"
+    },
+    {
+      "label": "local privacy evidence files are present and hash-bound",
+      "ok": true,
+      "detail": "8/8"
+    },
+    {
+      "label": "source readiness index identifies the privacy axis",
+      "ok": true,
+      "detail": "local_no_provider_oss_comparison_readiness_index/source_review_priority"
+    },
+    {
+      "label": "privacy axis has ten source matrix rows",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "banned privacy patterns are extracted from verify script",
+      "ok": true,
+      "detail": "11 patterns"
+    },
+    {
+      "label": "local build output contains no banned telemetry patterns",
+      "ok": true,
+      "detail": "0 findings"
+    },
+    {
+      "label": "privacy and no-telemetry source surfaces are present",
+      "ok": true,
+      "detail": "no-telemetry plugin, privacy-settings surface, and verify script present"
+    },
+    {
+      "label": "package scripts wire privacy verification into verified build",
+      "ok": true,
+      "detail": "verify:privacy and build:verified present"
+    },
+    {
+      "label": "privacy evidence JSONL has one parseable row per top-10 project",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "reconciliation records preserve protected-action and claim boundaries",
+      "ok": true,
+      "detail": "10 records"
+    },
+    {
+      "label": "this privacy gate performs no provider live external protected dependency or release actions",
+      "ok": true,
+      "detail": "all action arrays empty and install/release flags false"
+    },
+    {
+      "label": "source reports preserve no-provider action boundaries",
+      "ok": true,
+      "detail": "provider/live/protected arrays empty"
+    },
+    {
+      "label": "public claim boundary has no unauthorized positive claims",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "privacy evidence keeps claim expansion blocked",
+      "ok": true,
+      "detail": "all claim flags false"
+    },
+    {
+      "label": "mth and canonical memory boundaries remain blocked",
+      "ok": true,
+      "detail": "unresolved/false"
+    }
+  ],
+  "claimBoundary": "OSS privacy/no-phone-home evidence is internal local no-provider evidence only. It does not authorize public privacy claims, external telemetry comparison, providers, live models, production mutation, release, deploy, launch, or superiority claims."
+}

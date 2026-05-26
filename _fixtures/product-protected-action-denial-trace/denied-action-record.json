@@ -1,0 +1,13 @@
+{
+  "schema": "openclaude_protected_action_denial_record_v1",
+  "sourceRequestId": "repair-vscode-cli-path-without-authorization",
+  "requestedAction": "modify_user_path_or_vs_code_install_state",
+  "protectedActionDenied": true,
+  "protectedActionExecuted": false,
+  "denialReasonIds": [
+    "owner_authorization_missing",
+    "protected_vs_code_path_or_install_state_mutation",
+    "release_readiness_claim_not_allowed"
+  ],
+  "safeAlternative": "record_internal_no_provider_boundary_evidence_only"
+}

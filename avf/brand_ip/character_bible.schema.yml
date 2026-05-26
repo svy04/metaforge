@@ -1,0 +1,21 @@
+# character_bible.schema.yml
+
+version: 1
+type: object
+required:
+  - character_id
+  - identity
+  - personality
+  - visual_rules
+properties:
+  character_id:
+    type: string
+  identity:
+    type: string
+  personality:
+    type: string
+  visual_rules:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

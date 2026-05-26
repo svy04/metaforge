@@ -1,0 +1,64 @@
+{
+  "autonomous_reliability_claimed": false,
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "export_items": [
+    {
+      "item_id": "product_app",
+      "path": "avf/influence_factory/product_app/index.html",
+      "purpose": "Static local workbench entry point.",
+      "status": "included_local_only"
+    },
+    {
+      "item_id": "goal_artifacts",
+      "path": "avf/influence_factory/operator_package_v14",
+      "purpose": "Goal and run artifacts from v14 through v27.",
+      "status": "included_local_only"
+    },
+    {
+      "item_id": "validation_reports",
+      "path": "docs/goals",
+      "purpose": "Validation reports and next-goal records.",
+      "status": "included_local_only"
+    },
+    {
+      "item_id": "owner_handoff",
+      "path": "OWNER_HANDOFF_README.md",
+      "purpose": "Owner-facing local operation instructions.",
+      "status": "included_local_only"
+    },
+    {
+      "item_id": "safety_boundaries",
+      "path": "LOCAL_EXPORT_PACKAGE.md",
+      "purpose": "Safety and protected-action boundaries.",
+      "status": "included_local_only"
+    },
+    {
+      "item_id": "next_authorization_request",
+      "path": "COPY_READY_OWNER_BRIEF.md",
+      "purpose": "Copy-ready owner request for any external/public step.",
+      "status": "included_local_only"
+    }
+  ],
+  "export_package_id": "local_export_package_v27",
+  "external_calls": false,
+  "external_validation_claimed": false,
+  "live_model_calls_performed": false,
+  "local_completion_packet_created": true,
+  "local_product_status": "local_export_package_ready",
+  "next_blocked_action": "owner_authorization_for_public_beta_or_external_user_validation",
+  "next_safe_goal_count": 0,
+  "owner_handoff_summary": "Use this local export package to inspect the app, reports, safety boundaries, and next authorization request.",
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_or_release_completion_claimed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "selected_next_goal_executed": false,
+  "source_gate": "product_completion_audit_v26",
+  "terminal_condition": "LOCAL_EXPORT_PACKAGE_V27_READY"
+}

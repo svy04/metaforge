@@ -1,0 +1,21 @@
+# Context Pack Schema
+
+version: 1
+type: object
+required:
+  - context_pack_id
+  - source_paths
+  - decision_summary
+  - style_memory_refs
+  - validation_commands
+properties:
+  context_pack_id:
+    type: string
+  source_paths:
+    type: string
+  decision_summary:
+    type: string
+  style_memory_refs:
+    type: string
+  validation_commands:
+    type: string

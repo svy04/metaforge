@@ -1,0 +1,274 @@
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+
+type PackageJson = {
+  description: string
+  scripts: Record<string, string>
+}
+
+type ProviderPresetDefaultFixture = {
+  preset: string
+  provider: string
+  name: string
+  baseUrl: string
+  model: string
+  requiresApiKey: boolean
+}
+
+type CompatibilityCheck = {
+  label: string
+  ok: boolean
+  detail: string
+}
+
+type ProviderCompatibilityReport = {
+  generatedAt: string
+  mode: 'local_no_provider_provider_surface'
+  providerCallsPerformed: []
+  liveModelCallsPerformed: []
+  externalCallsPerformed: []
+  directProviderFlags: string[]
+  providerPresetDefaults: ProviderPresetDefaultFixture[]
+  productDescriptionProviders: string[]
+  profileOnlyPresets: string[]
+  directOnlyFlags: string[]
+  launchScripts: string[]
+  compatibilityChecks: CompatibilityCheck[]
+  claimBoundary: string
+}
+
+const root = process.cwd()
+const docsDir = resolve(root, 'docs/product-quality')
+const providerProfilesSourcePath = resolve(root, 'src/utils/providerProfiles.ts')
+const providerFlagSourcePath = resolve(root, 'src/utils/providerFlag.ts')
+
+function readText(path: string): string {
+  return readFileSync(resolve(root, path), 'utf8')
+}
+
+function readJson<T>(path: string): T {
+  return JSON.parse(readText(path)) as T
+}
+
+function unique(values: string[]): string[] {
+  return [...new Set(values)].sort((left, right) => left.localeCompare(right))
+}
+
+function parseProviderPresetNames(source: string): string[] {
+  const match = source.match(/export type ProviderPreset =([\s\S]*?)\n\nexport type ProviderProfileInput/)
+  if (!match) {
+    return []
+  }
+  const names = [...match[1].matchAll(/\|\s*'([^']+)'/g)].map((item) => item[1])
+  return unique(names)
+}
+
+function parseStringArrayConst(source: string, constName: string): string[] {
+  const match = source.match(new RegExp(`export const ${constName} = \\[([\\s\\S]*?)\\] as const`))
+  if (!match) {
+    return []
+  }
+  return [...match[1].matchAll(/'([^']+)'/g)].map((item) => item[1])
+}
+
+function parseStringConst(source: string, constName: string): string | undefined {
+  const match = source.match(new RegExp(`const ${constName} = '([^']+)'`))
+  return match?.[1]
+}
+
+function normalizeSurfaceName(value: string): string {
+  if (value === 'azure-openai') return 'openai'
+  if (value === 'dashscope-cn' || value === 'dashscope-intl') return 'openai'
+  if (value === 'lmstudio' || value === 'atomic-chat') return 'openai'
+  if (value === 'moonshotai' || value === 'deepseek' || value === 'together' || value === 'groq') return 'openai'
+  if (value === 'openrouter' || value === 'nvidia-nim' || value === 'minimax') return 'openai'
+  if (value === 'custom') return 'openai'
+  return value
+}
+
+function check(label: string, ok: boolean, detail: string): CompatibilityCheck {
+  return { label, ok, detail }
+}
+
+function extractReturnBlock(source: string, preset: string): string {
+  const match = source.match(new RegExp(`case '${preset}':[\\s\\S]*?return\\s*{([\\s\\S]*?)\\n\\s*}`))
+  return match?.[1] ?? ''
+}
+
+function extractStringField(block: string, field: string, constants: Record<string, string>): string {
+  const fieldMatch = block.match(new RegExp(`${field}:\\s*([\\s\\S]*?)(?:,\\n|\\n\\s*})`))
+  const expression = fieldMatch?.[1] ?? ''
+  const stringMatch = expression.match(/'([^']+)'/)
+  if (stringMatch) {
+    return stringMatch[1]
+  }
+  for (const [name, value] of Object.entries(constants)) {
+    if (expression.includes(name)) {
+      return value
+    }
+  }
+  return ''
+}
+
+function extractBooleanField(block: string, field: string): boolean | null {
+  const match = block.match(new RegExp(`${field}:\\s*(true|false)`))
+  if (!match) {
+    return null
+  }
+  return match[1] === 'true'
+}
+
+function buildProviderPresetFixtures(source: string, presetNames: string[]): ProviderPresetDefaultFixture[] {
+  const constants = {
+    DEFAULT_OLLAMA_BASE_URL: parseStringConst(source, 'DEFAULT_OLLAMA_BASE_URL') ?? '',
+    DEFAULT_OLLAMA_MODEL: parseStringConst(source, 'DEFAULT_OLLAMA_MODEL') ?? '',
+  }
+
+  return presetNames.map((preset) => {
+    const block = extractReturnBlock(source, preset)
+    const provider = extractStringField(block, 'provider', constants)
+    const name = extractStringField(block, 'name', constants)
+    const baseUrl = extractStringField(block, 'baseUrl', constants)
+    const model = extractStringField(block, 'model', constants)
+    const requiresKey = extractBooleanField(block, 'requiresApiKey')
+    return {
+      preset,
+      provider,
+      name,
+      baseUrl,
+      model,
+      requiresApiKey: requiresKey ?? false,
+    }
+  })
+}
+
+function writeReports(report: ProviderCompatibilityReport): void {
+  mkdirSync(docsDir, { recursive: true })
+  writeFileSync(
+    resolve(docsDir, 'provider-compatibility-fixtures.json'),
+    `${JSON.stringify(report, null, 2)}\n`,
+  )
+
+  const lines = [
+    '# Provider Compatibility Fixtures',
+    '',
+    'Generated by: `bun run product:provider-compatibility`',
+    '',
+    '## Claim Boundary',
+    '',
+    '- These fixtures verify local provider configuration surfaces only.',
+    '- They do not call providers, live models, or external services.',
+    '- They do not record API keys or credentials.',
+    '- They do not claim provider-backed execution, external validation, release readiness, production readiness, public readiness, or autonomous reliability.',
+    '',
+    '## Summary',
+    '',
+    `- direct_provider_flags: \`${report.directProviderFlags.length}\``,
+    `- provider_preset_defaults: \`${report.providerPresetDefaults.length}\``,
+    `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
+    `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
+    `- external_calls_performed: \`${report.externalCallsPerformed.length}\``,
+    '',
+    '## Direct Provider Flags',
+    '',
+    ...report.directProviderFlags.map((provider) => `- \`${provider}\``),
+    '',
+    '## Provider Preset Defaults',
+    '',
+    '| Preset | Transport | Base URL | Model | Requires API Key |',
+    '| --- | --- | --- | --- | --- |',
+    ...report.providerPresetDefaults.map((fixture) => (
+      `| \`${fixture.preset}\` | \`${fixture.provider}\` | \`${fixture.baseUrl}\` | \`${fixture.model}\` | \`${fixture.requiresApiKey}\` |`
+    )),
+    '',
+    '## Classified Surface Drift',
+    '',
+    `- profile_only_presets: ${report.profileOnlyPresets.map((item) => `\`${item}\``).join(', ') || '`none`'}`,
+    `- direct_only_flags: ${report.directOnlyFlags.map((item) => `\`${item}\``).join(', ') || '`none`'}`,
+    '',
+    '## Checks',
+    '',
+    '| Check | Result | Detail |',
+    '| --- | --- | --- |',
+    ...report.compatibilityChecks.map((item) => (
+      `| ${item.label} | \`${item.ok}\` | ${item.detail} |`
+    )),
+    '',
+  ]
+
+  writeFileSync(resolve(docsDir, 'provider-compatibility-fixtures.md'), `${lines.join('\n')}\n`)
+}
+
+function main(): void {
+  const pkg = readJson<PackageJson>('package.json')
+  const providerProfilesSource = readFileSync(providerProfilesSourcePath, 'utf8')
+  const providerFlagSource = readFileSync(providerFlagSourcePath, 'utf8')
+  const presetNames = parseProviderPresetNames(providerProfilesSource)
+  const directProviderFlags = parseStringArrayConst(providerFlagSource, 'VALID_PROVIDERS')
+  const providerPresetDefaults = buildProviderPresetFixtures(providerProfilesSource, presetNames)
+  const directSurfaceNames = new Set(directProviderFlags.map(normalizeSurfaceName))
+  const presetSurfaceNames = new Set(presetNames.map(normalizeSurfaceName))
+  const profileOnlyPresets = presetNames.filter((preset) => !directSurfaceNames.has(normalizeSurfaceName(preset)))
+  const directOnlyFlags = directProviderFlags.filter((flag) => !presetSurfaceNames.has(normalizeSurfaceName(flag)))
+  const productDescriptionProviders = ['openai', 'gemini', 'deepseek', 'ollama']
+  const launchScripts = Object.entries(pkg.scripts)
+    .filter(([name]) => name.startsWith('dev:') || name.startsWith('profile:'))
+    .map(([name]) => name)
+    .sort((left, right) => left.localeCompare(right))
+
+  const presetNamesSet = new Set(presetNames)
+  const directFlagsSet = new Set(directProviderFlags)
+  const compatibilityChecks = [
+    check('Provider preset union parsed', presetNames.length >= 10, `${presetNames.length} presets`),
+    check('Direct provider flags parsed', directProviderFlags.length >= 6, `${directProviderFlags.length} flags`),
+    check('OpenAI is directly selectable', directFlagsSet.has('openai'), directProviderFlags.join(', ')),
+    check('Gemini is directly selectable', directFlagsSet.has('gemini'), directProviderFlags.join(', ')),
+    check('Ollama is directly selectable', directFlagsSet.has('ollama'), directProviderFlags.join(', ')),
+    check('DeepSeek is available as a profile preset', presetNamesSet.has('deepseek'), presetNames.join(', ')),
+    check('Product description provider claims are covered', productDescriptionProviders.every((provider) => directFlagsSet.has(provider) || presetNamesSet.has(provider)), productDescriptionProviders.join(', ')),
+    check('Preset defaults have non-empty routing data', providerPresetDefaults.every((fixture) => fixture.provider && fixture.name && fixture.baseUrl && fixture.model), `${providerPresetDefaults.length} defaults`),
+    check('Local providers do not require API keys', providerPresetDefaults.filter((fixture) => ['ollama', 'lmstudio', 'atomic-chat'].includes(fixture.preset)).every((fixture) => fixture.requiresApiKey === false), 'ollama, lmstudio, atomic-chat'),
+    check('Remote OpenAI-compatible presets are classified', providerPresetDefaults.filter((fixture) => fixture.provider === 'openai').length >= 8, 'openai-compatible presets'),
+    check('Provider launch/profile scripts exist', launchScripts.length >= 8, `${launchScripts.length} scripts`),
+    check('Provider surface drift is classified', profileOnlyPresets.length > 0 || directOnlyFlags.length > 0, `profile_only=${profileOnlyPresets.length}, direct_only=${directOnlyFlags.length}`),
+  ]
+
+  const report: ProviderCompatibilityReport = {
+    generatedAt: new Date().toISOString(),
+    mode: 'local_no_provider_provider_surface',
+    providerCallsPerformed: [],
+    liveModelCallsPerformed: [],
+    externalCallsPerformed: [],
+    directProviderFlags,
+    providerPresetDefaults,
+    productDescriptionProviders,
+    profileOnlyPresets,
+    directOnlyFlags,
+    launchScripts,
+    compatibilityChecks,
+    claimBoundary: 'Provider compatibility fixtures are local configuration-surface checks only, not provider-backed execution or external validation.',
+  }
+
+  writeReports(report)
+
+  for (const item of compatibilityChecks) {
+    console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
+  }
+
+  console.log('')
+  if (!compatibilityChecks.every((item) => item.ok)) {
+    console.error('RESULT: FAIL')
+    process.exit(1)
+  }
+
+  console.log('RESULT: PASS')
+  console.log(`direct_provider_flags=${directProviderFlags.length}`)
+  console.log(`provider_preset_defaults=${providerPresetDefaults.length}`)
+  console.log(`profile_only_presets=${profileOnlyPresets.length}`)
+  console.log(`direct_only_flags=${directOnlyFlags.length}`)
+  console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)
+  console.log(`live_model_calls_performed=${report.liveModelCallsPerformed.length}`)
+  console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)
+}
+
+main()

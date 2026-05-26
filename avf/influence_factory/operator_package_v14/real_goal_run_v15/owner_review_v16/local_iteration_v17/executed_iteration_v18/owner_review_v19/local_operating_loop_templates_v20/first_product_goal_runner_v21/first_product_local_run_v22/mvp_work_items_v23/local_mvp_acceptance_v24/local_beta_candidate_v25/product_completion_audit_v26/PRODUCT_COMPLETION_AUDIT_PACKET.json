@@ -1,0 +1,77 @@
+{
+  "audit_packet_id": "product_completion_audit_v26",
+  "autonomous_reliability_claimed": false,
+  "completion_decision": "not_complete_yet_continue_safe_local_export_packaging",
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "external_calls": false,
+  "external_validation_claimed": false,
+  "live_model_calls_performed": false,
+  "local_product_status": "completion_audit_ready_local_only",
+  "next_safe_goal_count": 1,
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "product_completion_claimed": false,
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "requirement_coverage_matrix": [
+    {
+      "evidence": "North Star intake and strategy/proof path exist in app and local artifacts.",
+      "requirement_id": "idea_to_strategy",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "Brand DNA, character bible, visual guide, prompt pack, references, provenance, and rights notes are present.",
+      "requirement_id": "brand_ip_style_memory",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "Owned-channel drafts, content calendar, approval board, and safety scanner stay local.",
+      "requirement_id": "draft_first_content_system",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "Codex packets include PR-sized rules, forbidden changes, and acceptance criteria.",
+      "requirement_id": "codex_task_packets",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "Evidence ledger, feedback import, growth experiments, run archive, and validation reports exist.",
+      "requirement_id": "evidence_and_feedback_loop",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "Approval gate and owner decision records block protected actions.",
+      "requirement_id": "owner_approval_gate",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "v25 packages the local beta candidate for owner review.",
+      "requirement_id": "local_beta_candidate",
+      "status": "covered_local"
+    },
+    {
+      "evidence": "A consolidated export bundle for the owner should be generated locally next.",
+      "requirement_id": "local_export_package",
+      "status": "gap_local_safe"
+    },
+    {
+      "evidence": "External users require explicit owner authorization and evidence boundaries.",
+      "requirement_id": "external_user_validation",
+      "status": "blocked_protected_action"
+    },
+    {
+      "evidence": "Deploy, publish, platform posting, and readiness claims require explicit authorization.",
+      "requirement_id": "public_release_authorization",
+      "status": "blocked_protected_action"
+    }
+  ],
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": "build_local_export_package_v27_without_protected_actions",
+  "source_gate": "local_beta_candidate_v25",
+  "terminal_condition": "PRODUCT_COMPLETION_AUDIT_V26_READY"
+}

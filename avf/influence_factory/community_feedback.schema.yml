@@ -1,0 +1,21 @@
+# Community Feedback Schema
+
+version: 1
+type: object
+required:
+  - feedback_id
+  - source
+  - sentiment
+  - category
+  - suggested_next_task
+properties:
+  feedback_id:
+    type: string
+  source:
+    type: string
+  sentiment:
+    type: string
+  category:
+    type: string
+  suggested_next_task:
+    type: string

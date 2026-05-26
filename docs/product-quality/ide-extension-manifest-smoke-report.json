@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-05-21T08:40:27.037Z",
+  "mode": "local_no_provider_ide_extension_manifest_smoke",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "manifestPath": "packages/openclaude-vscode/package.json",
+  "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
+  "packageDryRunExitCode": 0,
+  "installAttempted": false,
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "extensionAvailabilityClaimAllowed": false,
+  "manifestSummary": {
+    "name": "openclaude-vscode",
+    "displayName": "OpenClaude",
+    "publisher": "gitlawb",
+    "enginesVscode": "^1.92.0",
+    "extensionKind": [
+      "ui",
+      "workspace"
+    ],
+    "main": "./dist/extension.js",
+    "activationEvents": [
+      "onCommand:openclaude.openChat",
+      "onCommand:openclaude.runSelection",
+      "onView:openclaude.chatView",
+      "onView:openclaude.controlCenterView"
+    ],
+    "commandIds": [
+      "openclaude.openChat",
+      "openclaude.runSelection",
+      "openclaude.explainSelection",
+      "openclaude.openRuntimeDoctor"
+    ],
+    "viewIds": [
+      "openclaude.chatView",
+      "openclaude.traceEvidenceView",
+      "openclaude.controlCenterView"
+    ],
+    "treeViewIds": [
+      "openclaude.chatView",
+      "openclaude.traceEvidenceView"
+    ],
+    "webviewViewIds": [
+      "openclaude.controlCenterView"
+    ],
+    "configurationKeys": [
+      "openclaude.providerProfile",
+      "openclaude.permissionMode",
+      "openclaude.telemetryAllowed",
+      "openclaude.traceCaptureEnabled"
+    ]
+  },
+  "packageDryRunFiles": [
+    "README.md",
+    "dist/extension.js",
+    "package.json"
+  ],
+  "manifestSmokeChecks": [
+    {
+      "label": "manifest exists at scoped path",
+      "ok": true,
+      "detail": "packages/openclaude-vscode/package.json"
+    },
+    {
+      "label": "entry point exists at scoped path",
+      "ok": true,
+      "detail": "packages/openclaude-vscode/dist/extension.js"
+    },
+    {
+      "label": "manifest identity fields are present",
+      "ok": true,
+      "detail": "openclaude-vscode/OpenClaude/gitlawb"
+    },
+    {
+      "label": "manifest declares VS Code engine and entry point",
+      "ok": true,
+      "detail": "^1.92.0/./dist/extension.js"
+    },
+    {
+      "label": "manifest declares UI and workspace extension kinds",
+      "ok": true,
+      "detail": "ui, workspace"
+    },
+    {
+      "label": "manifest includes scoped commands",
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+    },
+    {
+      "label": "manifest includes scoped views",
+      "ok": true,
+      "detail": "openclaude.chatView, openclaude.traceEvidenceView, openclaude.controlCenterView"
+    },
+    {
+      "label": "manifest includes scoped configuration keys",
+      "ok": true,
+      "detail": "openclaude.providerProfile, openclaude.permissionMode, openclaude.telemetryAllowed, openclaude.traceCaptureEnabled"
+    },
+    {
+      "label": "manifest includes scoped activation events",
+      "ok": true,
+      "detail": "onCommand:openclaude.openChat, onCommand:openclaude.runSelection, onView:openclaude.chatView, onView:openclaude.controlCenterView"
+    },
+    {
+      "label": "manifest includes bounded webview render surface",
+      "ok": true,
+      "detail": "openclaude.controlCenterView / onCommand:openclaude.openChat, onCommand:openclaude.runSelection, onView:openclaude.chatView, onView:openclaude.controlCenterView"
+    },
+    {
+      "label": "package dry-run exits successfully",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "package dry-run output is parseable",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "label": "package dry-run file list is bounded",
+      "ok": true,
+      "detail": "README.md, dist/extension.js, package.json"
+    },
+    {
+      "label": "protected actions were not attempted",
+      "ok": true,
+      "detail": "install/publish/deploy/launch/provider/live/external all false"
+    }
+  ],
+  "claimBoundary": "Local VS Code manifest smoke evidence is internal and no-provider. It does not install, publish, deploy, launch, or claim extension availability."
+}

@@ -1,0 +1,147 @@
+{
+  "generatedAt": "2026-05-18T11:50:44.331Z",
+  "mode": "local_no_provider_multi_file_code_editing_trace_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_multi_file_code_editing_trace_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "capturePerformed": true,
+  "nonSyntheticUserSessionClaimed": false,
+  "fixtureRoot": "_fixtures/product-multi-file-code-editing-trace",
+  "tracePath": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+  "traceSha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
+  "sourceBeforeTreeSha256": "09f610517f4eb10e927e694c690d25766d8e702609380fc850453cd256e390d2",
+  "sourceAfterTreeSha256": "03e28f3069c0c33a3523ab8b8143f10777a93d0f596b123ed147b9531f45927f",
+  "patchApplied": true,
+  "modifiedFixtureFiles": [
+    "_fixtures/product-multi-file-code-editing-trace/src/pricing.js",
+    "_fixtures/product-multi-file-code-editing-trace/src/tax.js",
+    "_fixtures/product-multi-file-code-editing-trace/src/checkout.js"
+  ],
+  "protectedRepoFilesModified": [],
+  "unitCheck": {
+    "passed": true,
+    "testCaseCount": 4,
+    "cases": [
+      {
+        "name": "mixed quantities with tax",
+        "lines": [
+          {
+            "price": 10,
+            "quantity": 2
+          },
+          {
+            "price": 5,
+            "quantity": 1
+          }
+        ],
+        "expectedSubtotal": 25,
+        "expectedTax": 2.5,
+        "expectedTotal": 27.5,
+        "actualSubtotal": 25,
+        "actualTax": 2.5,
+        "actualTotal": 27.5,
+        "passed": true
+      },
+      {
+        "name": "single high quantity line",
+        "lines": [
+          {
+            "price": 3,
+            "quantity": 4
+          }
+        ],
+        "expectedSubtotal": 12,
+        "expectedTax": 1.2,
+        "expectedTotal": 13.2,
+        "actualSubtotal": 12,
+        "actualTax": 1.2,
+        "actualTotal": 13.2,
+        "passed": true
+      },
+      {
+        "name": "zero quantity line",
+        "lines": [
+          {
+            "price": 50,
+            "quantity": 0
+          },
+          {
+            "price": 2,
+            "quantity": 3
+          }
+        ],
+        "expectedSubtotal": 6,
+        "expectedTax": 0.6,
+        "expectedTotal": 6.6,
+        "actualSubtotal": 6,
+        "actualTax": 0.6,
+        "actualTotal": 6.6,
+        "passed": true
+      },
+      {
+        "name": "empty cart",
+        "lines": [],
+        "expectedSubtotal": 0,
+        "expectedTax": 0,
+        "expectedTotal": 0,
+        "actualSubtotal": 0,
+        "actualTax": 0,
+        "actualTotal": 0,
+        "passed": true
+      }
+    ]
+  },
+  "traceChecks": [
+    {
+      "label": "fixture source tree starts from failing multi-file implementation",
+      "ok": true,
+      "detail": "09f610517f4eb10e927e694c690d25766d8e702609380fc850453cd256e390d2"
+    },
+    {
+      "label": "fixture patch changes source tree hash",
+      "ok": true,
+      "detail": "09f610517f4eb10e927e694c690d25766d8e702609380fc850453cd256e390d2/03e28f3069c0c33a3523ab8b8143f10777a93d0f596b123ed147b9531f45927f"
+    },
+    {
+      "label": "fixture patch modifies pricing, tax, and checkout modules",
+      "ok": true,
+      "detail": "_fixtures/product-multi-file-code-editing-trace/src/pricing.js,_fixtures/product-multi-file-code-editing-trace/src/tax.js,_fixtures/product-multi-file-code-editing-trace/src/checkout.js"
+    },
+    {
+      "label": "fixture unit check passes",
+      "ok": true,
+      "detail": "4/4"
+    },
+    {
+      "label": "trace records multi-file exploration command",
+      "ok": true,
+      "detail": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records multi-file implementation command",
+      "ok": true,
+      "detail": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "trace records multi-file verification command",
+      "ok": true,
+      "detail": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl"
+    },
+    {
+      "label": "only disposable fixture files are modified",
+      "ok": true,
+      "detail": "_fixtures/product-multi-file-code-editing-trace/src/pricing.js,_fixtures/product-multi-file-code-editing-trace/src/tax.js,_fixtures/product-multi-file-code-editing-trace/src/checkout.js"
+    },
+    {
+      "label": "no provider/live/external calls are recorded",
+      "ok": true,
+      "detail": "call counts=0"
+    }
+  ],
+  "claimBoundary": "This is local no-provider multi-file code-editing fixture evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."
+}

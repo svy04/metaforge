@@ -1,0 +1,245 @@
+{
+  "generatedAt": "2026-05-21T09:21:25.004Z",
+  "mode": "local_no_provider_trace_capture_redaction_policy",
+  "sourceTraceReportPath": "docs/product-quality/real-session-trace-evals-report.json",
+  "sourceTraceReportSha256": "27b158e14e7d3f4957106929dd71cf286738535b62cdfeb541dcb4aab55a1a18",
+  "rawTraceDirectory": "reports",
+  "rawTraceFileCount": 13,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "nonSyntheticRealSessionCapture": {
+    "performed": false,
+    "requiredBeforeStrongerReliabilityClaims": true,
+    "currentStatus": "policy_ready_capture_not_performed",
+    "detail": "This gate defines and verifies the redaction workflow. It does not claim that a new non-synthetic user session was captured in this run."
+  },
+  "publishableSummaryFields": [
+    "path",
+    "sha256",
+    "traceKind",
+    "lineCount",
+    "eventCount",
+    "statusSequence",
+    "roles",
+    "models",
+    "querySources",
+    "firstStatus",
+    "lastStatus",
+    "coverageSummary"
+  ],
+  "forbiddenRawFields": [
+    "api_key",
+    "authorization",
+    "cookie",
+    "set-cookie",
+    "rawPrompt",
+    "rawCompletion",
+    "rawProviderPayload",
+    "providerRequestId",
+    "environment",
+    "homeDirectory",
+    "profilePath"
+  ],
+  "redactionRules": [
+    {
+      "id": "credentials_and_tokens",
+      "action": "omit",
+      "appliesTo": "API keys, OAuth tokens, cookies, private keys, authorization headers",
+      "reason": "Trace reports must never become credential stores."
+    },
+    {
+      "id": "provider_request_identifiers",
+      "action": "omit",
+      "appliesTo": "Provider request IDs, message IDs, run IDs, and raw error correlation IDs",
+      "reason": "Provider correlation identifiers are unnecessary for product-quality summaries."
+    },
+    {
+      "id": "raw_prompt_and_completion_payloads",
+      "action": "count_only",
+      "appliesTo": "Raw prompt text, raw completion text, raw tool observations, and raw provider errors",
+      "reason": "Quality gates need counts, roles, status transitions, and hashes rather than sensitive payload bodies."
+    },
+    {
+      "id": "local_path_and_environment_details",
+      "action": "bounded_label_only",
+      "appliesTo": "Home directories, profile paths, environment variables, and machine-specific runtime details",
+      "reason": "Reports should preserve reproducibility without leaking local operator context."
+    },
+    {
+      "id": "raw_trace_identity",
+      "action": "hash",
+      "appliesTo": "Raw local trace files",
+      "reason": "SHA-256 preserves artifact identity while avoiding raw-line publication."
+    }
+  ],
+  "captureWorkflow": [
+    "Capture non-synthetic user/session traces only after an explicit operator action selects the session and local file path.",
+    "Store raw JSONL only under the local reports/orchestra-*.jsonl pattern; do not copy credentials, provider configs, profiles, caches, databases, cookies, or environment files.",
+    "Run bun run product:real-trace-evals to produce structured summaries with hashes, counts, roles, models, query sources, and status transitions.",
+    "Run bun run product:trace-redaction-policy to scan raw traces for credential and provider-request-id patterns before any report is treated as publishable evidence.",
+    "Publish only docs/product-quality summary reports; keep raw provider payloads, raw prompt/completion text, authorization data, and local environment details out of reports.",
+    "If any credential pattern is detected, stop the product-quality gate and quarantine the trace outside publishable evidence until the operator resolves it."
+  ],
+  "scannedRawTraceFiles": [
+    {
+      "path": "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+      "sha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
+      "lineCount": 10,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
+      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
+      "lineCount": 3,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-live-20260506-163448.jsonl",
+      "sha256": "3cebbd8762d8a60a64aa3f5a2ebd438c78fd88be87b91f7e1607e5d8c0b023e2",
+      "lineCount": 2,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
+      "sha256": "7ed6f91522b4c0adf68c3ca28a0a8e2cf888a2ded4ec9fe7610905b3b940aa26",
+      "lineCount": 2,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
+      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
+      "lineCount": 2,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+      "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
+      "lineCount": 10,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+      "sha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "lineCount": 8,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl",
+      "sha256": "ad80fdcc6df11ff3c96da8b5a62309864f8cd59fc243528ac6c9d93c7ef425b5",
+      "lineCount": 8,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
+      "sha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "lineCount": 16,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+      "sha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
+      "lineCount": 9,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+      "sha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
+      "lineCount": 9,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    },
+    {
+      "path": "reports/orchestra-usage-cli-probe.jsonl",
+      "sha256": "acc8215c75381d056dcdb467f5e9ca1d3190ecebf3629f2e9bedbfe6460a9839",
+      "lineCount": 2,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": true
+    },
+    {
+      "path": "reports/orchestra-usage-probe.jsonl",
+      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
+      "lineCount": 2,
+      "credentialPatternFound": false,
+      "providerRequestIdPatternFound": false
+    }
+  ],
+  "policyChecks": [
+    {
+      "label": "source real trace report is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_real_session_jsonl_trace_grading"
+    },
+    {
+      "label": "source real trace report performed no provider calls",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "source real trace report performed no live model calls",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "source real trace report performed no external calls",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "raw trace files match source report count",
+      "ok": true,
+      "detail": "13/13"
+    },
+    {
+      "label": "raw trace hashes match source report",
+      "ok": true,
+      "detail": "13 summarized traces"
+    },
+    {
+      "label": "raw trace credential patterns absent",
+      "ok": true,
+      "detail": "0 matches"
+    },
+    {
+      "label": "publishable fields are summary-only",
+      "ok": true,
+      "detail": "path, sha256, traceKind, lineCount, eventCount, statusSequence, roles, models, querySources, firstStatus, lastStatus, coverageSummary"
+    },
+    {
+      "label": "forbidden raw fields cover credentials and provider payloads",
+      "ok": true,
+      "detail": "api_key, authorization, cookie, set-cookie, rawPrompt, rawCompletion, rawProviderPayload, providerRequestId, environment, homeDirectory, profilePath"
+    },
+    {
+      "label": "redaction rules cover credential, provider id, raw payload, path, and trace identity",
+      "ok": true,
+      "detail": "5 rules"
+    },
+    {
+      "label": "capture workflow has explicit operator and quarantine steps",
+      "ok": true,
+      "detail": "6 steps"
+    },
+    {
+      "label": "non-synthetic capture is not falsely claimed",
+      "ok": true,
+      "detail": "policy ready; capture not performed by this script"
+    },
+    {
+      "label": "coverage summary keeps role and model evidence",
+      "ok": true,
+      "detail": "4 roles, 17 models"
+    }
+  ],
+  "claimBoundary": "Trace capture redaction policy evidence is local, no-provider, and summary-only. It does not capture a new non-synthetic session, call providers, publish raw traces, or claim release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

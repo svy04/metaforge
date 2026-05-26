@@ -1,0 +1,21 @@
+# typography_tokens.schema.yml
+
+version: 1
+type: object
+required:
+  - type_id
+  - headline
+  - body
+  - caption
+properties:
+  type_id:
+    type: string
+  headline:
+    type: string
+  body:
+    type: string
+  caption:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.
