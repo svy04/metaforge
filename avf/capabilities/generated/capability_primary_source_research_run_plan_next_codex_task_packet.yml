@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-capture-workspace-v0-1
+title: Add AVF primary-source evidence capture workspace v0.1
+goal: Create a repo-local workspace for owner/PRO captured primary-source evidence records without executing external research, automated scraping, OSS clone, install, runtime integration, deploy, publish, or readiness claims.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_research_run_plan.yml
+  - avf/capabilities/generated/capability_primary_source_research_run_plan_gate.json
+  - avf/capabilities/generated/capability_source_evidence_fixture_template.yml
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_capture_workspace.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_capture_workspace_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_CAPTURE_WORKSPACE_V0_1_REPORT.md
+forbidden_changes:
+  - No external research execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - evidence capture workspace exists
+  - workspace includes required evidence fields for all source families
+  - records remain empty and untrusted by default
+  - protected actions remain blocked
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_research_run_plan_v0_1.py
+expected_outputs:
+  - primary-source evidence capture workspace
+  - workspace gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_capture_workspace_v0_1

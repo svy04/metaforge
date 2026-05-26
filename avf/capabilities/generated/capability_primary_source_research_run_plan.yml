@@ -1,0 +1,98 @@
+packet_id: avf-capability-primary-source-research-run-plan-v0-1
+schema_version: 0.1
+created_at: 2026-05-26T00:00:00Z
+goal_id: avf_capability_primary_source_research_run_plan_v0_1
+previous_goal_id: avf_capability_external_primary_source_research_authorization_packet_v0_1
+source_collection_mode: planned_owner_or_pro_manual_only
+owner_authorization_required: true
+owner_authorization_granted: false
+research_execution_allowed: false
+external_primary_source_research_executed: false
+target_source_slots_planned: 35
+run_plan_decision: PLAN_READY_EXECUTION_BLOCKED_PENDING_OWNER_AUTHORIZATION
+
+source_families:
+  - official_docs
+  - official_repository
+  - license_file
+  - security_advisory
+  - maintenance_signal
+  - architecture_spec
+  - supply_chain_standard
+  - paper
+  - patent
+  - standard
+
+candidate_prioritization:
+  - candidate_id: candidate-opentelemetry
+    collection_status: planned_not_executed
+    evidence_capture_required: true
+    integration_allowed_from_plan: false
+  - candidate_id: candidate-litellm-proxy
+    collection_status: planned_not_executed
+    evidence_capture_required: true
+    integration_allowed_from_plan: false
+  - candidate_id: candidate-temporal-workflow
+    collection_status: planned_not_executed
+    evidence_capture_required: true
+    integration_allowed_from_plan: false
+  - candidate_id: candidate-langgraph-runtime
+    collection_status: planned_not_executed
+    evidence_capture_required: true
+    integration_allowed_from_plan: false
+  - candidate_id: candidate-mcp-tool-registry
+    collection_status: planned_not_executed
+    evidence_capture_required: true
+    integration_allowed_from_plan: false
+
+manual_evidence_capture_steps:
+  - step_id: record_source_uri
+    result_required: source URI copied into the evidence workspace by owner or PRO after explicit authorization.
+  - step_id: record_source_type
+    result_required: source type selected from bounded primary/original source families.
+  - step_id: record_short_verbatim_excerpt
+    result_required: short excerpt captured for review without copying full documents.
+  - step_id: compute_sha256_snapshot_hash
+    result_required: sha256 snapshot hash recorded for the reviewed source material.
+  - step_id: record_license_note
+    result_required: license compatibility note captured before any build/buy/adopt decision.
+  - step_id: record_security_note
+    result_required: security advisory or security posture note captured before any integration proposal.
+  - step_id: record_maintenance_note
+    result_required: maintenance signal note captured before any integration proposal.
+  - step_id: record_architecture_fit_note
+    result_required: architecture fit note captured against AVF control-plane, runtime, data, model/tool, observability, and studio planes.
+  - step_id: record_supply_chain_note
+    result_required: supply-chain note captured before any dependency or runtime decision.
+  - step_id: mark_untrusted_until_ingestion_gate
+    result_required: every source remains untrusted until the ingestion and acceptance gates pass.
+
+blocked_execution_rules:
+  - no_fetch_no_scrape_no_clone_no_install_no_integration
+  - no_provider_calls
+  - no_live_model_calls
+  - no_external_service_calls
+  - no_deploy
+  - no_publish
+  - no_release_readiness_claim
+  - no_production_readiness_claim
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_capability_primary_source_evidence_capture_workspace_v0_1
