@@ -1,0 +1,98 @@
+{
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "closed_gap_id": "gap-content-safety-policy-sources-missing-manual-records",
+  "content_safety_manual_record_count": 2,
+  "content_safety_policy_source_record_gap_closed": true,
+  "created_at": "2026-05-27T00:00:00Z",
+  "gaps_closed_count": 2,
+  "goal_id": "avf_primary_source_content_safety_manual_records_v0_1",
+  "next_safe_goal_id": "avf_primary_source_product_quality_missing_inputs_plan_v0_1",
+  "previous_goal_id": "avf_primary_source_evidence_registry_namespace_map_v0_1",
+  "record_decision": "CONTENT_SAFETY_PRIMARY_SOURCE_MANUAL_RECORDS_CREATED_FROM_LEDGER",
+  "record_status": "manual_records_created_content_summary_review_required",
+  "remaining_gap_count": 2,
+  "slice_closed_gap_count": 1,
+  "source_content_summary_required_count": 2,
+  "source_contents_acquired": false,
+  "source_records": [
+    {
+      "automated_collection_allowed": false,
+      "promotion_scope": "policy_boundary_planning_only",
+      "record_status": "ledger_derived_manual_record_shell",
+      "source_content_summary_required_for_promotion": true,
+      "source_contents_acquired": false,
+      "source_record": {
+        "claim_supported": "Influence/content artifacts must preserve disclosure, truthful endorsement, and claim substantiation boundaries.",
+        "evidence_excerpt_summary": "Not acquired in this pass. This record is a repo-local ledger-derived shell; source content review is required before claim promotion.",
+        "ledger_reason_for_use": "Influence/content artifacts must preserve disclosure, truthful endorsement, and claim substantiation boundaries.",
+        "source_id": "src-ftc-endorsement-guides",
+        "source_kind": "official_guidance",
+        "source_uri": "https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides",
+        "title": "FTC Endorsement Guides",
+        "used_by_cells": [
+          "content-cell",
+          "safety-cell"
+        ]
+      },
+      "source_target_id": "src-ftc-endorsement-guides",
+      "target_claim_id": "claim-src-ftc-endorsement-guides"
+    },
+    {
+      "automated_collection_allowed": false,
+      "promotion_scope": "policy_boundary_planning_only",
+      "record_status": "ledger_derived_manual_record_shell",
+      "source_content_summary_required_for_promotion": true,
+      "source_contents_acquired": false,
+      "source_record": {
+        "claim_supported": "AVF outputs must avoid unsupported AI capability, readiness, or performance claims.",
+        "evidence_excerpt_summary": "Not acquired in this pass. This record is a repo-local ledger-derived shell; source content review is required before claim promotion.",
+        "ledger_reason_for_use": "AVF outputs must avoid unsupported AI capability, readiness, or performance claims.",
+        "source_id": "src-ftc-ai-claims",
+        "source_kind": "official_guidance",
+        "source_uri": "https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check",
+        "title": "FTC: Keep your AI claims in check",
+        "used_by_cells": [
+          "content-cell",
+          "safety-cell",
+          "product-cell"
+        ]
+      },
+      "source_target_id": "src-ftc-ai-claims",
+      "target_claim_id": "claim-src-ftc-ai-claims"
+    }
+  ],
+  "source_target_ids": [
+    "src-ftc-endorsement-guides",
+    "src-ftc-ai-claims"
+  ],
+  "status": "PASS",
+  "validated_artifacts": [
+    "avf/capabilities/generated/primary_source_content_safety_manual_records.json",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_gate.json",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_report.md",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_next_action.yml",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_v0_1.validation_result.json",
+    "docs/goals/AVF_PRIMARY_SOURCE_CONTENT_SAFETY_MANUAL_RECORDS_V0_1_REPORT.md"
+  ],
+  "validator_id": "validate_avf_primary_source_content_safety_manual_records_v0_1"
+}
