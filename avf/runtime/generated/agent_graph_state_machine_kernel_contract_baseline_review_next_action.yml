@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-contract-freeze-authorization-packet
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_baseline_review_v0_1
+
+next_steps:
+  - Prepare owner approval packet before any contract freeze execution
+  - Include the ten reviewed baseline entries and the freeze boundary
+  - Keep actual contract freeze blocked until explicit owner authorization is recorded
+  - Do not execute contract freeze or runtime enforcement
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_authorization_packet_v0_1
