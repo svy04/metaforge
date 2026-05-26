@@ -1,0 +1,27 @@
+# AVF Kernel v0.2 Sample Market Signals Fixture
+
+signals:
+  - signal_id: developer-pain-local-proof-loop
+    source_type: owner_provided
+    source_uri: conversation://owner-market-to-factory-vision
+    collection_mode: manual_fixture
+    freshness: owner supplied during current planning session
+    rights_boundary: internal planning note only
+    signal_summary: Technical founders need AI systems that turn vague goals into verified local artifacts, not chat-only strategy.
+    confidence: medium
+  - signal_id: competitor-product-assumption-runtime-gap
+    source_type: repo_local
+    source_uri: docs/avf/CRITICAL_ARCHITECTURE_REVIEW.md
+    collection_mode: repo_local
+    freshness: current repo artifact
+    rights_boundary: repo-local evidence
+    signal_summary: Current AVF is a control-plane foundation and lacks runtime, evidence, governance, eval, and studio planes.
+    confidence: high
+  - signal_id: content-audience-transparent-ai-infrastructure
+    source_type: repo_local
+    source_uri: docs/avf/TRANSPARENT_INFLUENCE_ENGINE.md
+    collection_mode: repo_local
+    freshness: current repo artifact
+    rights_boundary: repo-local evidence
+    signal_summary: Growth should use transparent owned-channel draft workflows instead of fake persona networks or posting automation.
+    confidence: high

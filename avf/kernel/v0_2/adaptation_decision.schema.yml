@@ -1,0 +1,21 @@
+# AVF Kernel v0.2 Adaptation Decision Schema
+
+version: 1
+type: object
+required:
+  - hypothesis_id
+  - decision
+  - evidence_summary
+  - confidence
+  - decision_threshold
+  - next_safe_goal
+  - kill_or_continue_reason
+properties:
+  hypothesis_id: {type: string}
+  decision:
+    enum: [insufficient_evidence, keep, refine, pivot, kill]
+  evidence_summary: {type: string}
+  confidence: {type: string}
+  decision_threshold: {type: string}
+  next_safe_goal: {type: string}
+  kill_or_continue_reason: {type: string}

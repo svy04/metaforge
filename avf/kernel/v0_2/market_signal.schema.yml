@@ -1,0 +1,24 @@
+# AVF Kernel v0.2 Market Signal Schema
+
+version: 1
+type: object
+required:
+  - signal_id
+  - source_type
+  - source_uri
+  - collection_mode
+  - freshness
+  - rights_boundary
+  - signal_summary
+  - confidence
+properties:
+  signal_id: {type: string}
+  source_type:
+    enum: [owner_provided, repo_local]
+  source_uri: {type: string}
+  collection_mode:
+    enum: [manual_fixture, repo_local]
+  freshness: {type: string}
+  rights_boundary: {type: string}
+  signal_summary: {type: string}
+  confidence: {type: string}

@@ -1,0 +1,29 @@
+# AVF Kernel v0.2 Capability Gap Schema
+
+version: 1
+type: object
+required:
+  - gap_id
+  - capability_name
+  - why_needed
+  - current_status
+  - build_buy_adopt_recommendation
+  - candidate_search_required
+  - license_review_required
+  - security_review_required
+  - integration_status
+  - dependency_install_allowed
+  - external_fetch_performed
+properties:
+  gap_id: {type: string}
+  capability_name: {type: string}
+  why_needed: {type: string}
+  current_status: {type: string}
+  build_buy_adopt_recommendation: {type: string}
+  candidate_search_required: {type: boolean}
+  license_review_required: {type: boolean}
+  security_review_required: {type: boolean}
+  integration_status:
+    enum: [proposed_only, blocked, approved_future]
+  dependency_install_allowed: {type: boolean}
+  external_fetch_performed: {type: boolean}

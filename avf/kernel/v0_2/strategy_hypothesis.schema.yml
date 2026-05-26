@@ -1,0 +1,38 @@
+# AVF Kernel v0.2 Strategy Hypothesis Schema
+
+version: 1
+type: object
+required:
+  - hypothesis_id
+  - thesis
+  - wedge
+  - target_audience
+  - user_pain
+  - product_angle
+  - content_angle
+  - brand_angle
+  - distribution_angle
+  - monetization_angle
+  - key_assumptions
+  - counterarguments
+  - success_criteria
+  - failure_criteria
+  - decision_threshold
+  - confidence
+properties:
+  hypothesis_id: {type: string}
+  thesis: {type: string}
+  wedge: {type: string}
+  target_audience: {type: string}
+  user_pain: {type: string}
+  product_angle: {type: string}
+  content_angle: {type: string}
+  brand_angle: {type: string}
+  distribution_angle: {type: string}
+  monetization_angle: {type: string}
+  key_assumptions: {type: array}
+  counterarguments: {type: array}
+  success_criteria: {type: array}
+  failure_criteria: {type: array}
+  decision_threshold: {type: string}
+  confidence: {type: string}

@@ -1,0 +1,53 @@
+{
+  "actor": {
+    "actor_id": "scripts/run_avf_kernel_v0_2_venture_operation_packet.py",
+    "actor_type": "local_runner"
+  },
+  "approval_state": {
+    "approver": "",
+    "required": false,
+    "status": "not_required"
+  },
+  "artifact_hash": "e6c19bb502b3837a22e9638947ba64f46d1d22cbb31c5dee2f86db2bf6c369a4",
+  "artifact_id": "venture-operation-packet-v0-2",
+  "artifact_uri": "avf/kernel/v0_2/generated/venture_operation_packet.json",
+  "claim": "AVF Kernel v0.2 can compile repo-local fixtures into a Venture Operation Packet.",
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "scraping_performed": false
+  },
+  "confidence": {
+    "level": "medium",
+    "reason": "Repo-local fixture proof without external validation."
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "goal_id": "sample-avf-market-to-factory-infra-product",
+  "id": "evidence-avf-kernel-v0-2-vop",
+  "next_action": "avf_vop_semantic_consistency_validator",
+  "run_id": "avf-kernel-v0-2-vop-sample-run",
+  "source": {
+    "source_hash": "b4f0fafda027e2d11b7ff5a1b211feb5746d0182d119f77f7e2f854d421ec01b",
+    "source_type": "repo_fixture",
+    "source_uri": "avf/kernel/v0_2/fixtures"
+  },
+  "validation_method": {
+    "command": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py",
+    "method_type": "local_validator",
+    "validator_uri": "scripts/validate_avf_kernel_v0_2_venture_operation_packet.py"
+  },
+  "validation_result": {
+    "observed_at": "2026-05-26T00:00:00Z",
+    "status": "PASS",
+    "summary": "Local deterministic compiler proof only."
+  }
+}

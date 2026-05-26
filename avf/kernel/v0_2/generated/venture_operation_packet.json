@@ -1,0 +1,504 @@
+{
+  "capability_acquisition_packet": {
+    "capability_gaps": [
+      {
+        "build_buy_adopt_recommendation": "build in AVF",
+        "candidate_search_required": false,
+        "capability_name": "VOP semantic consistency validator",
+        "current_status": "missing",
+        "dependency_install_allowed": false,
+        "external_fetch_performed": false,
+        "gap_id": "gap-vop-semantic-consistency",
+        "integration_status": "proposed_only",
+        "license_review_required": false,
+        "security_review_required": false,
+        "why_needed": "Prove market signals, strategy, cells, artifacts, Codex tasks, and evidence decisions are connected."
+      },
+      {
+        "build_buy_adopt_recommendation": "build in AVF",
+        "candidate_search_required": false,
+        "capability_name": "Factory cell production pack",
+        "current_status": "missing",
+        "dependency_install_allowed": false,
+        "external_fetch_performed": false,
+        "gap_id": "gap-factory-cell-production",
+        "integration_status": "proposed_only",
+        "license_review_required": false,
+        "security_review_required": false,
+        "why_needed": "Move from packet compilation to repo-local product/content/Codex cell artifacts."
+      }
+    ],
+    "dependency_install_allowed": false,
+    "external_fetch_performed": false
+  },
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "scraping_performed": false
+  },
+  "codex_execution_packet": {
+    "pr_sized_tasks": [
+      {
+        "acceptance_criteria": [
+          "semantic consistency report created",
+          "validator exits 0",
+          "protected-action flags remain false"
+        ],
+        "context_paths": [
+          "avf/kernel/v0_2/generated/venture_operation_packet.json",
+          "docs/avf/VENTURE_OPERATION_PACKET_SPEC.md"
+        ],
+        "expected_outputs": [
+          "semantic_consistency_report.json",
+          "validation report"
+        ],
+        "files_likely_to_touch": [
+          "scripts/validate_avf_vop_semantic_consistency.py",
+          "docs/goals/AVF_VOP_SEMANTIC_CONSISTENCY_VALIDATION_REPORT.md"
+        ],
+        "forbidden_changes": [
+          "No deploy",
+          "No publish",
+          "No posting automation",
+          "No readiness claims"
+        ],
+        "next_pr_recommendation": "Factory Cell Production Pack v0.1",
+        "non_goals": [
+          "No provider calls",
+          "No dependency install",
+          "No runtime integration"
+        ],
+        "rollback_notes": "Remove new semantic validator artifacts if validation scope proves too broad.",
+        "scope": "Validate cross-packet consistency between signals, strategy, cells, artifacts, Codex tasks, evidence, and adaptation decisions.",
+        "task_id": "codex-avf-vop-semantic-consistency-validator",
+        "title": "Add VOP semantic consistency validator",
+        "validation_commands": [
+          "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+        ]
+      }
+    ]
+  },
+  "compiler_mode": "deterministic_repo_local",
+  "created_at": "2026-05-26T00:00:00Z",
+  "evidence_learning_packet": {
+    "adaptation_decision_candidate": {
+      "confidence": "medium",
+      "decision": "insufficient_evidence",
+      "decision_threshold": "semantic consistency validator should pass before cell production expansion",
+      "kill_or_continue_reason": "Continue locally because compiler proof is prerequisite infrastructure.",
+      "next_safe_goal": "avf_vop_semantic_consistency_validator",
+      "reason": "Local compiler proof exists but no external market evidence exists."
+    },
+    "artifact_hashes": {},
+    "decision_options": [
+      "insufficient_evidence",
+      "keep",
+      "refine",
+      "pivot",
+      "kill"
+    ],
+    "evidence_entries": [
+      "avf/kernel/v0_2/generated/evidence_ledger.v2.entry.json"
+    ],
+    "evidence_plan": [
+      "hash VOP artifact",
+      "validate subpacket presence",
+      "record evidence ledger entry"
+    ],
+    "failure_criteria": [
+      "missing subpacket",
+      "protected flag true",
+      "external action evidence appears"
+    ],
+    "success_criteria": [
+      "validator exits 0",
+      "all subpackets present",
+      "claim boundary remains false"
+    ],
+    "validator_uris": [
+      "scripts/validate_avf_kernel_v0_2_venture_operation_packet.py"
+    ]
+  },
+  "factory_formation_packet": {
+    "bottlenecks": [
+      "No external market validation yet."
+    ],
+    "cell_sequence": [
+      "product-cell",
+      "content-cell",
+      "code-cell",
+      "evidence-cell",
+      "safety-cell"
+    ],
+    "required_cells": [
+      {
+        "activation_reason": "Define product proof and value boundary.",
+        "cell_id": "product-cell",
+        "cell_type": "Product Cell",
+        "dependencies": [],
+        "expected_outputs": [
+          "mini product brief"
+        ],
+        "owner_gate_required": false
+      },
+      {
+        "activation_reason": "Prepare draft-first owned-channel outputs.",
+        "cell_id": "content-cell",
+        "cell_type": "Content Cell",
+        "dependencies": [
+          "strategy_hypothesis_packet"
+        ],
+        "expected_outputs": [
+          "draft content pack"
+        ],
+        "owner_gate_required": true
+      },
+      {
+        "activation_reason": "Create PR-sized Codex next task.",
+        "cell_id": "code-cell",
+        "cell_type": "Code Cell",
+        "dependencies": [
+          "production_plan_packet"
+        ],
+        "expected_outputs": [
+          "codex task packet"
+        ],
+        "owner_gate_required": false
+      },
+      {
+        "activation_reason": "Record artifact hashes and validation results.",
+        "cell_id": "evidence-cell",
+        "cell_type": "Evidence Cell",
+        "dependencies": [],
+        "expected_outputs": [
+          "evidence ledger entry"
+        ],
+        "owner_gate_required": false
+      },
+      {
+        "activation_reason": "Keep distribution and automation bounded.",
+        "cell_id": "safety-cell",
+        "cell_type": "Safety Cell",
+        "dependencies": [],
+        "expected_outputs": [
+          "safety governance packet"
+        ],
+        "owner_gate_required": false
+      }
+    ],
+    "skipped_cells": [
+      {
+        "cell_id": "runtime-cell",
+        "skip_reason": "Runtime integration is a future protected expansion."
+      },
+      {
+        "cell_id": "posting-cell",
+        "skip_reason": "Posting automation is blocked."
+      }
+    ]
+  },
+  "goal_context": {
+    "assumptions": [
+      "Owner-provided signals are sufficient for a local compiler proof."
+    ],
+    "business_objective": "prove a repeatable market-to-factory decision packet can be generated locally",
+    "non_goals": "no runtime automation; no external validation claim; no production readiness claim; no open-source clone",
+    "owner_intent": "Turn the AI venture infrastructure vision into a deterministic local compiler before adding live runtime or provider integrations.",
+    "resource_constraints": "repo-local only; no providers; no live models; no scraping; no posting; no deploy; no publish",
+    "target_user": "solo founder and technical operator building AI-native venture systems",
+    "time_horizon": "7 days for local proof loop",
+    "unknowns": [
+      "No external market validation has been performed."
+    ]
+  },
+  "goal_essence": "Compile a safe infra-product venture goal into a complete repo-local Venture Operation Packet.",
+  "goal_id": "sample-avf-market-to-factory-infra-product",
+  "influence_distribution_packet": {
+    "channel_strategy": [
+      {
+        "approval_required": true,
+        "channel": "project blog",
+        "channel_type": "blog",
+        "draft_artifacts": [
+          "draft_first_content_pack.md"
+        ],
+        "owned_or_external": "owned",
+        "posting_performed": false
+      },
+      {
+        "approval_required": true,
+        "channel": "newsletter",
+        "channel_type": "newsletter",
+        "draft_artifacts": [
+          "newsletter_outline.md"
+        ],
+        "owned_or_external": "owned",
+        "posting_performed": false
+      }
+    ],
+    "disclosure_policy": "Represent AI-generated content transparently where published in a future approved phase.",
+    "measurement_plan": "Future approved publishing should measure views, replies, saves, clicks, and qualitative pain signals.",
+    "prohibited_actions": [
+      "fake human impersonation",
+      "bot networks",
+      "mass posting",
+      "engagement manipulation",
+      "platform bypass"
+    ],
+    "red_actions_blocked": true
+  },
+  "kernel_version": "avf_kernel_v0_2",
+  "market_intelligence_packet": {
+    "audience_segments": [
+      "solo founder",
+      "technical operator",
+      "AI-native venture builder"
+    ],
+    "competitor_assumptions": [
+      "Existing agent stacks may emphasize runtime before evidence contracts."
+    ],
+    "confidence": "medium",
+    "market_timing": "early internal proof stage",
+    "observed_signals": [
+      "Technical founders need AI systems that turn vague goals into verified local artifacts, not chat-only strategy.",
+      "Current AVF is a control-plane foundation and lacks runtime, evidence, governance, eval, and studio planes.",
+      "Growth should use transparent owned-channel draft workflows instead of fake persona networks or posting automation."
+    ],
+    "pain_points": [
+      "Technical operators need proof-producing AI systems instead of chat-only plans."
+    ],
+    "signal_quality": "repo-local and owner-provided only",
+    "signal_sources": [
+      {
+        "collection_mode": "manual_fixture",
+        "confidence": "medium",
+        "freshness": "owner supplied during current planning session",
+        "rights_boundary": "internal planning note only",
+        "signal_id": "developer-pain-local-proof-loop",
+        "signal_summary": "Technical founders need AI systems that turn vague goals into verified local artifacts, not chat-only strategy.",
+        "source_type": "owner_provided",
+        "source_uri": "conversation://owner-market-to-factory-vision"
+      },
+      {
+        "collection_mode": "repo_local",
+        "confidence": "high",
+        "freshness": "current repo artifact",
+        "rights_boundary": "repo-local evidence",
+        "signal_id": "competitor-product-assumption-runtime-gap",
+        "signal_summary": "Current AVF is a control-plane foundation and lacks runtime, evidence, governance, eval, and studio planes.",
+        "source_type": "repo_local",
+        "source_uri": "docs/avf/CRITICAL_ARCHITECTURE_REVIEW.md"
+      },
+      {
+        "collection_mode": "repo_local",
+        "confidence": "high",
+        "freshness": "current repo artifact",
+        "rights_boundary": "repo-local evidence",
+        "signal_id": "content-audience-transparent-ai-infrastructure",
+        "signal_summary": "Growth should use transparent owned-channel draft workflows instead of fake persona networks or posting automation.",
+        "source_type": "repo_local",
+        "source_uri": "docs/avf/TRANSPARENT_INFLUENCE_ENGINE.md"
+      }
+    ],
+    "unknowns": [
+      "Live market size and willingness to pay remain unvalidated."
+    ]
+  },
+  "packet_id": "vop-avf-kernel-v0-2-sample",
+  "production_plan_packet": {
+    "artifacts": [
+      {
+        "artifact_id": "artifact-vop",
+        "artifact_type": "venture_operation_packet",
+        "artifact_uri": "avf/kernel/v0_2/generated/venture_operation_packet.json",
+        "claim_boundary": {
+          "dependency_install_performed": false,
+          "deploy_performed": false,
+          "external_fetch_performed": false,
+          "external_service_calls_performed": false,
+          "live_model_calls_performed": false,
+          "posting_automation_performed": false,
+          "production_ready": false,
+          "protected_action_executed": false,
+          "provider_calls_performed": false,
+          "publish_performed": false,
+          "release_ready": false,
+          "scraping_performed": false
+        },
+        "owner_approval_required": false,
+        "producing_cell": "evidence-cell",
+        "status": "generated",
+        "validation_method": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+      },
+      {
+        "artifact_id": "artifact-manifest",
+        "artifact_type": "artifact_manifest",
+        "artifact_uri": "avf/kernel/v0_2/generated/artifact_manifest.json",
+        "claim_boundary": {
+          "dependency_install_performed": false,
+          "deploy_performed": false,
+          "external_fetch_performed": false,
+          "external_service_calls_performed": false,
+          "live_model_calls_performed": false,
+          "posting_automation_performed": false,
+          "production_ready": false,
+          "protected_action_executed": false,
+          "provider_calls_performed": false,
+          "publish_performed": false,
+          "release_ready": false,
+          "scraping_performed": false
+        },
+        "owner_approval_required": false,
+        "producing_cell": "evidence-cell",
+        "status": "generated",
+        "validation_method": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+      },
+      {
+        "artifact_id": "artifact-codex-task",
+        "artifact_type": "codex_task_packet",
+        "artifact_uri": "avf/kernel/v0_2/generated/codex_task_packet.yml",
+        "claim_boundary": {
+          "dependency_install_performed": false,
+          "deploy_performed": false,
+          "external_fetch_performed": false,
+          "external_service_calls_performed": false,
+          "live_model_calls_performed": false,
+          "posting_automation_performed": false,
+          "production_ready": false,
+          "protected_action_executed": false,
+          "provider_calls_performed": false,
+          "publish_performed": false,
+          "release_ready": false,
+          "scraping_performed": false
+        },
+        "owner_approval_required": false,
+        "producing_cell": "code-cell",
+        "status": "generated",
+        "validation_method": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+      },
+      {
+        "artifact_id": "artifact-evidence-entry",
+        "artifact_type": "evidence_ledger_v2_entry",
+        "artifact_uri": "avf/kernel/v0_2/generated/evidence_ledger.v2.entry.json",
+        "claim_boundary": {
+          "dependency_install_performed": false,
+          "deploy_performed": false,
+          "external_fetch_performed": false,
+          "external_service_calls_performed": false,
+          "live_model_calls_performed": false,
+          "posting_automation_performed": false,
+          "production_ready": false,
+          "protected_action_executed": false,
+          "provider_calls_performed": false,
+          "publish_performed": false,
+          "release_ready": false,
+          "scraping_performed": false
+        },
+        "owner_approval_required": false,
+        "producing_cell": "evidence-cell",
+        "status": "generated",
+        "validation_method": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+      },
+      {
+        "artifact_id": "artifact-validation-report",
+        "artifact_type": "validation_report",
+        "artifact_uri": "avf/kernel/v0_2/generated/validation_report.md",
+        "claim_boundary": {
+          "dependency_install_performed": false,
+          "deploy_performed": false,
+          "external_fetch_performed": false,
+          "external_service_calls_performed": false,
+          "live_model_calls_performed": false,
+          "posting_automation_performed": false,
+          "production_ready": false,
+          "protected_action_executed": false,
+          "provider_calls_performed": false,
+          "publish_performed": false,
+          "release_ready": false,
+          "scraping_performed": false
+        },
+        "owner_approval_required": false,
+        "producing_cell": "evidence-cell",
+        "status": "generated",
+        "validation_method": "python scripts\\validate_avf_kernel_v0_2_venture_operation_packet.py"
+      }
+    ]
+  },
+  "raw_goal": "Build a repo-local proof that AVF can compile market signals into a venture operation packet for an infra-product idea.",
+  "run_id": "avf-kernel-v0-2-vop-sample-run",
+  "safety_governance_packet": {
+    "creation_level_allowed": "Creation Level 2",
+    "creation_level_requested": "Creation Level 2",
+    "human_gates": [
+      "publish approval required for future distribution"
+    ],
+    "policy_decisions": [
+      "repo-local compiler allowed",
+      "posting automation blocked",
+      "runtime integration blocked"
+    ],
+    "prohibited_actions": [
+      "scraping",
+      "provider calls",
+      "posting automation",
+      "deploy",
+      "publish"
+    ],
+    "protected_action_flags": {
+      "dependency_install_performed": false,
+      "deploy_performed": false,
+      "external_fetch_performed": false,
+      "external_service_calls_performed": false,
+      "live_model_calls_performed": false,
+      "posting_automation_performed": false,
+      "production_ready": false,
+      "protected_action_executed": false,
+      "provider_calls_performed": false,
+      "publish_performed": false,
+      "release_ready": false,
+      "scraping_performed": false
+    },
+    "risk_tier": "medium"
+  },
+  "schema_version": "venture_operation_packet.v0_2",
+  "strategy_hypothesis_packet": {
+    "brand_angle": "Transparent AI venture operating system, not a bot network.",
+    "confidence": "medium",
+    "content_angle": "Build-in-public notes about evidence-led AI venture infrastructure.",
+    "counterarguments": [
+      "The packet may become too complex before runtime proves utility."
+    ],
+    "decision_threshold": "PASS local validator and preserve all false protected-action flags",
+    "distribution_angle": "Owned-channel draft artifacts only until approval.",
+    "failure_criteria": [
+      "Subpackets are disconnected",
+      "Protected action boundary expands"
+    ],
+    "hypothesis_id": "hypothesis-avf-vop-compiler",
+    "key_assumptions": [
+      "Users value proof artifacts over chat advice.",
+      "Repo-local validators create trust."
+    ],
+    "monetization_angle": "Future paid studio or infrastructure product after evidence and user validation.",
+    "product_angle": "Decision compiler for market-to-factory venture packets.",
+    "success_criteria": [
+      "VOP generated locally",
+      "All subpackets present",
+      "Validator exits 0"
+    ],
+    "target_audience": "solo founder and technical operator building AI-native venture systems",
+    "thesis": "A repo-local Venture Operation Packet compiler is the smallest proof that AVF can organize market-to-factory decisions.",
+    "unfair_advantage_or_edge": "Tight integration of strategy, Codex tasks, evidence, and safety boundaries.",
+    "user_pain": "AI strategy outputs disappear into chat unless they become files, validators, tasks, and evidence.",
+    "wedge": "Start with evidence-bound local decision compilation before runtime automation."
+  }
+}

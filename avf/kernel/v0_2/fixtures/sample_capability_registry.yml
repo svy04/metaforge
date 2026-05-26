@@ -1,0 +1,43 @@
+# AVF Kernel v0.2 Sample Capability Registry Fixture
+
+existing_capabilities:
+  - capability_id: avf-foundation-control-plane
+    status: present
+  - capability_id: evidence-ledger-v2-schema
+    status: present
+  - capability_id: kernel-v0-1-dry-run
+    status: present
+  - capability_id: market-to-factory-design
+    status: present
+
+missing_capabilities:
+  - capability_id: vop-semantic-consistency-validator
+    status: missing
+  - capability_id: factory-cell-production-pack
+    status: missing
+  - capability_id: approved-runtime-adapter
+    status: future_protected_boundary
+
+proposed_capability_gaps:
+  - gap_id: gap-vop-semantic-consistency
+    capability_name: VOP semantic consistency validator
+    why_needed: Prove market signals, strategy, cells, artifacts, Codex tasks, and evidence decisions are connected.
+    current_status: missing
+    build_buy_adopt_recommendation: build in AVF
+    candidate_search_required: false
+    license_review_required: false
+    security_review_required: false
+    integration_status: proposed_only
+    dependency_install_allowed: false
+    external_fetch_performed: false
+  - gap_id: gap-factory-cell-production
+    capability_name: Factory cell production pack
+    why_needed: Move from packet compilation to repo-local product/content/Codex cell artifacts.
+    current_status: missing
+    build_buy_adopt_recommendation: build in AVF
+    candidate_search_required: false
+    license_review_required: false
+    security_review_required: false
+    integration_status: proposed_only
+    dependency_install_allowed: false
+    external_fetch_performed: false

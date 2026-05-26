@@ -1,0 +1,25 @@
+# AVF Kernel v0.2 Codex Task Packet
+
+task_id: codex-avf-vop-semantic-consistency-validator
+title: Add VOP semantic consistency validator
+goal: Validate that market signals, strategy hypotheses, factory cells, production artifacts, Codex tasks, evidence entries, and adaptation decisions are connected.
+context_paths:
+  - avf/kernel/v0_2/generated/venture_operation_packet.json
+  - docs/avf/VENTURE_OPERATION_PACKET_SPEC.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping
+  - No posting automation
+  - No dependency install
+  - No deploy or publish
+acceptance_criteria:
+  - semantic consistency report exists
+  - every required cell has production artifacts
+  - strategy hypothesis cites market pain
+  - capability gaps map to next Codex task
+  - protected-action flags remain false
+validation_commands:
+  - python scripts\validate_avf_kernel_v0_2_venture_operation_packet.py
+next_pr_recommendation: Factory Cell Production Pack v0.1

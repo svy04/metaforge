@@ -1,0 +1,23 @@
+# AVF Kernel v0.2 Production Artifact Schema
+
+version: 1
+type: object
+required:
+  - artifact_id
+  - artifact_type
+  - artifact_uri
+  - producing_cell
+  - status
+  - claim_boundary
+  - validation_method
+  - owner_approval_required
+properties:
+  artifact_id: {type: string}
+  artifact_type: {type: string}
+  artifact_uri: {type: string}
+  producing_cell: {type: string}
+  status:
+    enum: [planned, generated, validated]
+  claim_boundary: {type: object}
+  validation_method: {type: string}
+  owner_approval_required: {type: boolean}

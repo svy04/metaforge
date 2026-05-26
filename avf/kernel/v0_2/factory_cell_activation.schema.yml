@@ -1,0 +1,18 @@
+# AVF Kernel v0.2 Factory Cell Activation Schema
+
+version: 1
+type: object
+required:
+  - cell_id
+  - cell_type
+  - activation_reason
+  - expected_outputs
+  - dependencies
+  - owner_gate_required
+properties:
+  cell_id: {type: string}
+  cell_type: {type: string}
+  activation_reason: {type: string}
+  expected_outputs: {type: array}
+  dependencies: {type: array}
+  owner_gate_required: {type: boolean}
