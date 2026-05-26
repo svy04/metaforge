@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-authorized-collection-run-plan-v0-1
+title: Add AVF authorized primary-source evidence collection run plan v0.1
+goal: Define the repo-local run plan for explicit owner-authorized primary-source evidence collection without executing external collection from this packet.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_population_retry_packet.yml
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_AUTHORIZED_COLLECTION_RUN_PLAN_V0_1_REPORT.md
+forbidden_changes:
+  - No external collection execution until explicit authorization fields are filled and reviewed
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - run plan references the authorized collection packet and gate
+  - run plan keeps source records blocked until explicit authorization is present
+  - run plan defines manual owner/PRO/Codex-assisted modes separately
+  - no source is trusted, ingested, or integrated by default
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_authorized_collection_packet_v0_1.py
+expected_outputs:
+  - authorized collection run plan
+  - run plan gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_authorized_collection_run_plan_v0_1
