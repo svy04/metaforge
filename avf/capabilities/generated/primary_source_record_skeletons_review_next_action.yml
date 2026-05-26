@@ -1,0 +1,11 @@
+action_id: prepare-primary-source-manual-collection-packet
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_record_skeletons_review_v0_1
+
+next_steps:
+  - Prepare a manual primary-source collection packet
+  - Use the reviewed skeletons as blank target records
+  - Keep automated collection, scraping, cloning, package install, and provider calls blocked
+  - Do not fetch, scrape, clone, install, or call providers
+
+next_safe_goal_id: avf_primary_source_manual_collection_packet_v0_1
