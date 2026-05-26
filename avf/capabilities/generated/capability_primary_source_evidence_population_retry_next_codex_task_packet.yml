@@ -1,0 +1,36 @@
+task_id: avf-capability-primary-source-evidence-retry-review-v0-1
+title: Add AVF primary-source evidence retry review gate v0.1
+goal: Review any owner/PRO-filled retry evidence records before accepting them for ingestion or capability integration.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_population_retry_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_population_retry_gate.json
+  - avf/capabilities/generated/capability_owner_filled_primary_source_evidence_review_gate.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_primary_source_evidence_retry_review_v0_1.py
+  - scripts/validate_avf_capability_primary_source_evidence_retry_review_v0_1.py
+  - avf/capabilities/generated/capability_primary_source_evidence_retry_review_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_RETRY_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - retry review checks every required evidence field
+  - empty or partial retry records remain blocked
+  - completed records are still not integrated without later acceptance and owner approval gates
+  - protected actions remain blocked
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_population_retry_v0_1.py
+expected_outputs:
+  - primary-source evidence retry review gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_retry_review_v0_1
