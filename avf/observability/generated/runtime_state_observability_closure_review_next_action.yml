@@ -1,0 +1,12 @@
+action_id: create-observability-runtime-seed-acceptance-gate
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_runtime_state_observability_closure_review_v0_1
+
+next_steps:
+  - Create a repo-local acceptance gate for the observability runtime seed
+  - Keep acceptance scoped to the local seed only
+  - Do not broaden this into production/runtime readiness
+  - Do not install dependencies, start workers, run collectors, or export telemetry
+  - Do not call providers, live models, scrape, post, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_observability_runtime_seed_acceptance_gate_v0_1
