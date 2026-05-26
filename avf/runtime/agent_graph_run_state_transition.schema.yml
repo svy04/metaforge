@@ -1,0 +1,28 @@
+schema_id: avf.agent_graph_run_state_transition.v0_1
+schema_status: repo_local_contract_only
+
+required_fields:
+  - run_id
+  - goal_id
+  - node_id
+  - sequence_index
+  - from_state
+  - to_state
+  - status
+  - input_artifact_uri
+  - output_artifact_uri
+  - claim_boundary
+  - evidence_event_uri
+
+allowed_states:
+  - initialized
+  - orchestrated
+  - routed
+  - safety_reviewed
+  - codex_planned
+  - evidence_written
+  - blocked
+
+protected_actions_must_remain_false: true
+dependency_adoption_allowed: false
+runtime_integration_allowed: false

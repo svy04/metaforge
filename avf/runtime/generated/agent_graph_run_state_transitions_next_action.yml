@@ -1,0 +1,11 @@
+action_id: create-agent-graph-replay-validator
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_run_state_transitions_v0_1
+
+next_steps:
+  - Create deterministic replay validator for run-state transitions
+  - Verify every transition can be replayed from initialized to evidence_written
+  - Keep replay local and evidence-backed
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_replay_validator_v0_1
