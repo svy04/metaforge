@@ -1,0 +1,47 @@
+task_id: avf-capability-primary-source-evidence-owner-filled-authorization-packet-completion-retry-v0-1
+title: Add AVF owner-filled authorization packet completion retry v0.1
+goal: Provide a repo-local retry packet for the owner to fill missing authorization fields without enabling source collection or external execution.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_template.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_review_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_FILLED_AUTHORIZATION_PACKET_COMPLETION_RETRY_V0_1_REPORT.md
+missing_authorization_fields:
+  - owner_authorization_statement
+  - authorized_by
+  - authorized_at
+  - authorization_expires_at
+  - authorized_collection_modes
+  - authorized_source_families
+  - authorized_candidate_ids
+  - authorized_source_slot_ids
+  - max_records_to_collect
+  - collection_boundaries
+  - revocation_note
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - retry packet lists every missing authorization field
+  - retry packet keeps collection execution blocked by default
+  - retry packet does not perform source collection, provider calls, scraping, clone, install, runtime integration, deploy, publish, or readiness claims
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_filled_authorization_packet_review_v0_1.py
+expected_outputs:
+  - owner-filled authorization packet completion retry packet
+  - blocked retry gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry_v0_1

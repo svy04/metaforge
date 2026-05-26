@@ -1,0 +1,41 @@
+{
+  "authorization_fields_present": 0,
+  "authorization_fields_reviewed": 11,
+  "authorization_review_passed": false,
+  "authorization_template_completed": false,
+  "checks": [
+    "owner-filled authorization packet template reviewed",
+    "authorization remains incomplete",
+    "no collection modes are authorized",
+    "collection execution remains blocked",
+    "protected-action flags remain false"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "collection_execution_allowed": false,
+  "collection_modes_authorized": 0,
+  "missing_authorization_fields": 11,
+  "next_safe_goal_id": "avf_capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry_v0_1",
+  "owner_authorization_granted": false,
+  "review_decision": "BLOCKED_OWNER_AUTHORIZATION_PACKET_UNFILLED",
+  "source_records_executable": 0,
+  "source_records_reviewed": 35,
+  "status": "PASS",
+  "validator_id": "validate_avf_capability_primary_source_evidence_owner_filled_authorization_packet_review_v0_1"
+}
