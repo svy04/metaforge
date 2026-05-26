@@ -1,0 +1,12 @@
+action_id: link-telemetry-events-to-runtime-state
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_telemetry_event_evidence_binding_v0_1
+
+next_steps:
+  - Use evidence-bound telemetry records as local runtime state review inputs
+  - Map event identity, trace identity, and evidence record identity to a repo-local runtime-state link contract
+  - Keep the next step deterministic, local, and validation-only
+  - Do not start collectors, exporters, runtime workers, or external services
+  - Do not call providers, live models, scrape, post, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_telemetry_event_runtime_state_link_v0_1
