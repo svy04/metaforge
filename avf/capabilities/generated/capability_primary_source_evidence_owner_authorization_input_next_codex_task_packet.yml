@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-owner-authorization-input-review-v0-1
+title: Add AVF owner authorization input review gate v0.1
+goal: Review the repo-local owner authorization input packet and keep all primary-source collection blocked unless explicit authorization fields are filled and narrowly scoped.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_collection_authorization_review_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_review_next_codex_task_packet.yml
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_AUTHORIZATION_INPUT_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - review gate checks every authorization field
+  - missing or empty fields keep all collection modes blocked
+  - owner approval remains distinct from PRO assistance and Codex-assisted link opening
+  - no source record becomes executable without a later explicit owner-filled packet
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_authorization_input_packet_v0_1.py
+expected_outputs:
+  - owner authorization input review gate
+  - next safe task packet
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_authorization_input_review_v0_1
