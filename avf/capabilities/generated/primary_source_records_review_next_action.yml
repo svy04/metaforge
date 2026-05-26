@@ -1,0 +1,11 @@
+action_id: integrate-primary-source-claims-into-avf-docs
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_records_review_v0_1
+
+next_steps:
+  - Integrate reviewed source-backed claims into architecture docs and plans only
+  - Preserve source uri and evidence summary links back to primary-source records
+  - Keep runtime and dependency adoption behind later build-vs-buy, license, security, and implementation gates
+  - Do not adopt dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_primary_source_claim_integration_v0_1
