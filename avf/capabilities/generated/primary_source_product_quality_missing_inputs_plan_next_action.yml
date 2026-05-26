@@ -1,0 +1,10 @@
+action_id: triage-product-quality-primary-source-missing-inputs
+owner_approval_required_before_execution: false
+goal_id: avf_primary_source_product_quality_missing_inputs_plan_v0_1
+
+next_steps:
+  - Triage 35 product-quality reports into attach-existing-evidence or claim-boundary-exemption lanes
+  - Preserve report path, chosen lane, rationale, and claim boundary for every target
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_primary_source_product_quality_missing_inputs_triage_v0_1

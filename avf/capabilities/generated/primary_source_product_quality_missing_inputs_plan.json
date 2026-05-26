@@ -1,0 +1,341 @@
+{
+  "bucket_counts": {
+    "bucket-benchmark-and-eval-evidence": 11,
+    "bucket-ide-extension-evidence": 7,
+    "bucket-oss-and-source-control-evidence": 5,
+    "bucket-release-and-provenance-evidence": 6,
+    "bucket-safety-and-policy-evidence": 6
+  },
+  "bucket_ids": [
+    "bucket-benchmark-and-eval-evidence",
+    "bucket-ide-extension-evidence",
+    "bucket-release-and-provenance-evidence",
+    "bucket-safety-and-policy-evidence",
+    "bucket-oss-and-source-control-evidence"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "claim_boundary_exemption_candidate_count": 35,
+  "classification_bucket_count": 5,
+  "closure_target_count": 35,
+  "closure_targets": [
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/agent-replay-evals-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/code-editing-trace-capture-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/external-benchmark-boundary-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/git-release-hygiene-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/golden-path-terminal-transcripts.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-host-smoke-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-surface-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/local-benchmark-harness-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-oss-and-source-control-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/open-source-absorption-register.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-oss-and-source-control-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/oss-safe-backlog-closure-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-oss-and-source-control-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/oss-top10-baseline-2026-05-17.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-oss-and-source-control-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/permission-regression-fixtures.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/prompted-tool-loop-capture-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/protected-action-authorization-packet.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/provider-compatibility-fixtures.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/quality-blocker-taxonomy-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/real-session-capture-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/real-session-trace-evals-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/release-artifact-file-list-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/release-artifact-provenance-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/release-artifact-reproducibility-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-oss-and-source-control-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/source-controlled-checks-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-safety-and-policy-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/trace-capture-redaction-policy-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-benchmark-and-eval-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/trace-portability-export-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/typecheck-health-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-release-and-provenance-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/verification-report-consistency-report.json",
+      "source_attachment_performed": false
+    },
+    {
+      "bucket_id": "bucket-ide-extension-evidence",
+      "candidate_lane": "claim_boundary_exemption_candidate",
+      "claim_boundary_exemption_required": true,
+      "closure_status": "triage_required",
+      "report_path": "docs/product-quality/vscode-update-boundary-report.json",
+      "source_attachment_performed": false
+    }
+  ],
+  "created_at": "2026-05-27T00:00:00Z",
+  "gaps_closed_count": 2,
+  "goal_id": "avf_primary_source_product_quality_missing_inputs_plan_v0_1",
+  "next_safe_goal_id": "avf_primary_source_product_quality_missing_inputs_triage_v0_1",
+  "plan_decision": "PRODUCT_QUALITY_MISSING_PRIMARY_SOURCE_INPUTS_PLAN_CREATED_REPO_LOCAL",
+  "plan_id": "avf-primary-source-product-quality-missing-inputs-plan-v0-1",
+  "plan_scope": "repo-local classification only; no source attachments performed",
+  "plan_status": "missing_input_targets_classified_no_sources_attached",
+  "previous_goal_id": "avf_primary_source_content_safety_manual_records_v0_1",
+  "remaining_gap_count": 2,
+  "reports_missing_primary_source_inputs_count": 35,
+  "slice_closed_gap_count": 0,
+  "source_attachment_candidate_count": 0,
+  "source_inputs": [
+    "avf/capabilities/generated/primary_source_content_safety_manual_records.json",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_gate.json",
+    "avf/capabilities/generated/primary_source_content_safety_manual_records_next_action.yml",
+    "docs/product-quality/primary-source-registry-report.json"
+  ]
+}

@@ -1,0 +1,118 @@
+goal_id: avf_primary_source_product_quality_missing_inputs_plan_v0_1
+plan_decision: PRODUCT_QUALITY_MISSING_PRIMARY_SOURCE_INPUTS_PLAN_CREATED_REPO_LOCAL
+plan_status: missing_input_targets_classified_no_sources_attached
+closure_target_count: 35
+
+buckets:
+  - bucket_id: bucket-benchmark-and-eval-evidence
+    - report_path: docs/product-quality/agent-replay-evals-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/code-editing-trace-capture-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/external-benchmark-boundary-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/golden-path-terminal-transcripts.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/local-benchmark-harness-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/multi-file-code-editing-trace-capture-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/prompted-tool-loop-capture-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/real-session-capture-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/real-session-trace-evals-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/regression-cycle-code-editing-trace-capture-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/trace-portability-export-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+  - bucket_id: bucket-ide-extension-evidence
+    - report_path: docs/product-quality/ide-extension-host-smoke-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/ide-extension-manifest-smoke-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/ide-extension-runtime-smoke-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/ide-extension-surface-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/ide-extension-webview-render-smoke-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/ide-extension-workbench-smoke-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/vscode-update-boundary-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+  - bucket_id: bucket-release-and-provenance-evidence
+    - report_path: docs/product-quality/git-release-hygiene-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/release-artifact-file-list-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/release-artifact-provenance-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/release-artifact-reproducibility-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/typecheck-health-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/verification-report-consistency-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+  - bucket_id: bucket-safety-and-policy-evidence
+    - report_path: docs/product-quality/permission-regression-fixtures.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/protected-action-authorization-packet.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/provider-compatibility-fixtures.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/quality-blocker-taxonomy-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/runtime-doctor-regression-fixtures.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/trace-capture-redaction-policy-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+  - bucket_id: bucket-oss-and-source-control-evidence
+    - report_path: docs/product-quality/open-source-absorption-register.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/oss-safe-backlog-closure-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/oss-top10-baseline-2026-05-17.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/oss-top10-baseline-2026-05-21.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+    - report_path: docs/product-quality/source-controlled-checks-report.json
+      closure_status: triage_required
+      candidate_lane: claim_boundary_exemption_candidate
+
+next_safe_goal_id: avf_primary_source_product_quality_missing_inputs_triage_v0_1
