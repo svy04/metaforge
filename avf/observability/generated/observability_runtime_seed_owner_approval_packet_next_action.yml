@@ -1,0 +1,11 @@
+action_id: review-observability-runtime-seed-owner-approval-packet
+owner_approval_record_present: false
+goal_id: avf_observability_runtime_seed_owner_approval_packet_v0_1
+
+next_steps:
+  - Review the repo-local owner approval packet for completeness
+  - Do not treat this packet as approval
+  - Keep collector startup, telemetry export, runtime integration, dependency adoption, deploy, publish, release readiness, and production readiness blocked
+  - If owner approval is later supplied, record it as a separate reviewed artifact before any future integration proposal
+
+next_safe_goal_id: avf_observability_runtime_seed_owner_approval_packet_review_v0_1
