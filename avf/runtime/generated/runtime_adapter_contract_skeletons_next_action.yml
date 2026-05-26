@@ -1,0 +1,11 @@
+action_id: review-runtime-adapter-contract-skeletons
+owner_approval_required_before_execution: true
+goal_id: avf_runtime_adapter_contract_skeletons_v0_1
+
+next_steps:
+  - Review the generated contract skeletons
+  - Check cross-contract consistency against the decision matrix
+  - Decide which contract should become the first implementation-ready adapter stub
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_runtime_adapter_contract_review_v0_1
