@@ -1,0 +1,15 @@
+action_id: review-agent-graph-state-machine-kernel-contract-freeze-owner-approval-record
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_record_v0_1
+
+next_steps:
+  - Review the owner approval record template
+  - Confirm owner_authorization_granted is false when required owner fields are empty
+  - Review must reject or keep blocked if approval fields remain empty
+  - Do not execute contract freeze during record review
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_record_review_v0_1
