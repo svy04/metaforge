@@ -1,0 +1,35 @@
+task_id: avf-capability-external-primary-source-research-authorization-packet-v0-1
+title: Add AVF external primary-source research authorization packet v0.1
+goal: Define the explicit owner authorization contract required before this branch performs external primary-source research, while keeping scraping, clone, install, integration, deploy, publish, and readiness claims blocked.
+context_paths:
+  - avf/capabilities/generated/capability_owner_completed_source_evidence_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_research_packet.yml
+  - avf/capabilities/generated/capability_primary_source_research_pro_prompt.md
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_external_primary_source_research_authorization_packet.yml
+  - avf/capabilities/generated/capability_external_primary_source_research_authorization_gate.json
+  - docs/goals/AVF_CAPABILITY_EXTERNAL_PRIMARY_SOURCE_RESEARCH_AUTHORIZATION_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls without explicit owner authorization
+  - No live model calls without explicit owner authorization
+  - No external service calls without explicit owner authorization
+  - No automated scraping
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - authorization packet exists
+  - external primary-source research remains blocked until owner explicitly authorizes it
+  - allowed future sources are limited to primary/original sources
+  - scraping, clone, install, integration, deploy, publish, and readiness claims remain blocked
+validation_commands:
+  - python scripts\validate_avf_capability_owner_completed_source_evidence_review_v0_1.py
+expected_outputs:
+  - external primary-source research authorization packet
+  - external primary-source research authorization validation report
+next_safe_goal_id: avf_capability_external_primary_source_research_authorization_packet_v0_1
