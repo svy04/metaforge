@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-owner-authorization-input-packet-v0-1
+title: Add AVF owner authorization input packet for primary-source evidence collection v0.1
+goal: Create the repo-local owner authorization input packet needed before any primary-source evidence collection task can become executable.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_collection_authorization_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_AUTHORIZATION_INPUT_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No collection execution from this packet
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - owner authorization input packet lists every required authorization field
+  - default authorization values are empty or false
+  - packet distinguishes owner approval from PRO research assistance
+  - no source collection task becomes executable
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_collection_authorization_review_v0_1.py
+expected_outputs:
+  - owner authorization input packet
+  - input gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_authorization_input_packet_v0_1
