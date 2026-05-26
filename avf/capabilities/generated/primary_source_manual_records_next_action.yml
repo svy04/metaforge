@@ -1,0 +1,11 @@
+action_id: review-primary-source-manual-records
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_manual_records_v0_1
+
+next_steps:
+  - Review manually recorded primary-source evidence before integrating claims
+  - Check source_uri, source_reference_lines, license_or_rights_note, evidence_excerpt_summary, and verification_notes
+  - Decide which claims may be promoted into architecture docs and which require more evidence
+  - Do not install, clone, deploy, publish, or call providers
+
+next_safe_goal_id: avf_primary_source_records_review_v0_1
