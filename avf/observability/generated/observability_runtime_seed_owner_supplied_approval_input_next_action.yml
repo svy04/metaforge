@@ -1,0 +1,16 @@
+action_id: review-observability-runtime-seed-owner-supplied-approval-input
+owner_input_status: not_supplied
+goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_v0_1
+
+next_steps:
+  - Review the owner-supplied approval input packet
+  - Review must keep runtime actions blocked when owner input is empty
+  - Confirm Codex did not fabricate owner approval
+  - Do not start collectors, export telemetry, integrate runtime backends, install dependencies, deploy, publish, or claim readiness
+
+owner_approval_record_present: false
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+next_safe_goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_1
