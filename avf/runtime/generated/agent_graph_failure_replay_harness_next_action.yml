@@ -1,0 +1,11 @@
+action_id: create-agent-graph-guarded-transition-policy
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_failure_replay_harness_v0_1
+
+next_steps:
+  - Create policy table that maps replay outcomes to guarded transition decisions
+  - Convert blocked and review_required outcomes into explicit policy decisions
+  - Keep all policy evaluation repo-local and deterministic
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_guarded_transition_policy_v0_1
