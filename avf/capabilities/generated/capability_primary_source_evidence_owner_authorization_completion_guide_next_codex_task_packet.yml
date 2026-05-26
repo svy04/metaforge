@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-owner-filled-authorization-packet-template-v0-1
+title: Add AVF owner-filled authorization packet template v0.1
+goal: Create a repo-local template for a future owner-filled authorization packet without granting authorization, collecting sources, scraping, provider calls, clone, install, integration, deploy, publish, or readiness claims.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_completion_guide.md
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_completion_guide_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_packet.yml
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_template.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_template_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_FILLED_AUTHORIZATION_PACKET_TEMPLATE_V0_1_REPORT.md
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - filled authorization template includes every required field
+  - template keeps authorization unset by default
+  - template distinguishes manual owner collection, PRO-assisted review, Codex link opening, and automated collection
+  - no collection task becomes executable
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_authorization_completion_guide_v0_1.py
+expected_outputs:
+  - owner-filled authorization packet template
+  - template gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_filled_authorization_packet_template_v0_1
