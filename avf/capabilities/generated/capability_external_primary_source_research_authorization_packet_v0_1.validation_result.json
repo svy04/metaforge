@@ -1,0 +1,34 @@
+{
+  "authorization_decision": "BLOCKED_PENDING_OWNER_AUTHORIZATION",
+  "checks": [
+    "authorization packet exists",
+    "previous owner-completed evidence review remains blocked",
+    "external primary-source research remains blocked pending owner authorization",
+    "future allowed source families are primary/original sources only",
+    "scraping, clone, install, integration, deploy, publish, and readiness claims remain blocked"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "external_primary_source_research_allowed": false,
+  "next_safe_goal_id": "avf_capability_primary_source_research_run_plan_v0_1",
+  "owner_authorization_granted": false,
+  "owner_authorization_required": true,
+  "status": "PASS",
+  "validator_id": "validate_avf_capability_external_primary_source_research_authorization_packet_v0_1"
+}

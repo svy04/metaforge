@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-research-run-plan-v0-1
+title: Add AVF primary-source research run plan v0.1
+goal: Define the repo-local run plan for owner-authorized manual primary-source research without performing external research, scraping, clone, install, runtime integration, deploy, publish, or readiness claims.
+context_paths:
+  - avf/capabilities/generated/capability_external_primary_source_research_authorization_packet.yml
+  - avf/capabilities/generated/capability_external_primary_source_research_authorization_gate.json
+  - avf/capabilities/generated/capability_primary_source_research_packet.yml
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_research_run_plan.yml
+  - avf/capabilities/generated/capability_primary_source_research_run_plan_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_RESEARCH_RUN_PLAN_V0_1_REPORT.md
+forbidden_changes:
+  - No external research execution without explicit owner authorization
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - run plan exists
+  - primary/original source families remain bounded
+  - manual evidence capture steps are explicit
+  - all protected actions remain blocked unless a later owner authorization artifact allows a narrower mode
+validation_commands:
+  - python scripts\validate_avf_capability_external_primary_source_research_authorization_packet_v0_1.py
+expected_outputs:
+  - primary-source research run plan
+  - run plan gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_research_run_plan_v0_1
