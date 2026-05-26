@@ -1,0 +1,74 @@
+{
+  "available_decisions": [
+    "keep",
+    "refine",
+    "pivot",
+    "kill",
+    "insufficient_evidence"
+  ],
+  "cell_output_evidence_hash": "e0abbd1d49d29f350730114c1f8f0dc5e8d968494a737773ff00c27074c730ce",
+  "cell_output_evidence_uri": "avf/cells/evidence/generated/cell_output_evidence_entry.json",
+  "cell_output_manifest_hash": "8d6eddfe7fbb16171c43a625ca1667967ba5bc089607d75f34f1ee6ee83e45ff",
+  "cell_output_manifest_uri": "avf/cells/evidence/generated/cell_output_manifest.json",
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "decision": "refine",
+  "decision_reason": "Local cell outputs exist and are evidence-bound, but there is still no external validation, runtime automation, or capability acquisition record.",
+  "decision_threshold": "Refine when repo-local artifacts pass validation but evidence remains internal-only and protected-action flags remain false.",
+  "evidence_basis": [
+    {
+      "artifact_hash": "8d6eddfe7fbb16171c43a625ca1667967ba5bc089607d75f34f1ee6ee83e45ff",
+      "artifact_uri": "avf/cells/evidence/generated/cell_output_manifest.json",
+      "evidence_type": "cell_output_manifest",
+      "summary": "Product, Content, Safety, Codex, and Evidence cell outputs were generated with claim boundaries."
+    },
+    {
+      "artifact_hash": "e0abbd1d49d29f350730114c1f8f0dc5e8d968494a737773ff00c27074c730ce",
+      "artifact_uri": "avf/cells/evidence/generated/cell_output_evidence_entry.json",
+      "evidence_type": "cell_output_evidence_entry",
+      "summary": "AVF generated repo-local Product, Content, Safety, Codex, and Evidence cell artifacts from the v0.2 Venture Operation Packet."
+    },
+    {
+      "artifact_hash": "b35a5b9ab44205b8cbda533325269df4c9f66cbe43b629d9faf6c2bdca3be9ec",
+      "artifact_uri": "avf/cells/evidence/generated/primary_source_ledger.json",
+      "evidence_type": "primary_source_ledger",
+      "summary": "Primary-source, official-guidance, and paper references are captured in a repo-local ledger."
+    }
+  ],
+  "goal_id": "sample-avf-market-to-factory-infra-product",
+  "next_safe_goal_id": "avf_capability_acquisition_loop_v0_1",
+  "packet_id": "avf-strategy-adaptation-decision-v0-1",
+  "refinement_actions": [
+    "Add a capability acquisition loop that proposes OSS/tool candidates without installing or fetching them.",
+    "Map missing runtime, observability, and tool-registry capabilities to build/buy/adopt records.",
+    "Preserve approval gates before provider calls, dependency installs, scraping, posting, deploy, or publish."
+  ],
+  "run_id": "avf-kernel-v0-2-vop-sample-run",
+  "source_ledger_hash": "4421d6fd0586ec0df0eb1539e7e071034a9a14c76b1af16223ed5ed17eaad0de",
+  "source_ledger_uri": "avf/strategy/generated/strategy_source_ledger.json",
+  "source_refs": [
+    "src-reflexion-paper",
+    "src-self-refine-paper",
+    "src-voyager-paper",
+    "src-react-paper",
+    "src-webarena-paper",
+    "src-ftc-ai-claims"
+  ],
+  "status": "PASS",
+  "why_not_keep": "Evidence is still internal-only; keep would overstate market or runtime validation.",
+  "why_not_kill": "Local validators and cell outputs are passing; no safety failure or contradiction was found.",
+  "why_not_pivot": "The local proof path is working and does not contradict the Market-to-Factory thesis."
+}

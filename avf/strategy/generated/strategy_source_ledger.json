@@ -1,0 +1,44 @@
+{
+  "automation_fetch_performed": false,
+  "created_at": "2026-05-26T00:00:00Z",
+  "inherited_source_count": 9,
+  "ledger_id": "avf-strategy-adaptation-source-ledger-v0-1",
+  "parent_source_ledger_hash": "b35a5b9ab44205b8cbda533325269df4c9f66cbe43b629d9faf6c2bdca3be9ec",
+  "parent_source_ledger_uri": "avf/cells/evidence/generated/primary_source_ledger.json",
+  "source_selection_boundary": "Operator-reviewed URLs only; runners perform no network fetch, dependency install, clone, provider call, live model call, scraping, posting, deploy, or publish action.",
+  "sources": [
+    {
+      "source_id": "src-reflexion-paper",
+      "source_kind": "paper",
+      "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2303.11366",
+      "used_by_cells": [
+        "strategy-cell",
+        "evidence-cell"
+      ],
+      "why_used": "Strategy adaptation should convert feedback and scalar/local validation signals into reusable decision memory."
+    },
+    {
+      "source_id": "src-self-refine-paper",
+      "source_kind": "paper",
+      "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+      "url": "https://arxiv.org/abs/2303.17651",
+      "used_by_cells": [
+        "strategy-cell",
+        "codex-cell"
+      ],
+      "why_used": "The loop should produce explicit feedback and refinement actions instead of ungrounded improvement claims."
+    },
+    {
+      "source_id": "src-voyager-paper",
+      "source_kind": "paper",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "url": "https://arxiv.org/abs/2305.16291",
+      "used_by_cells": [
+        "strategy-cell",
+        "capability-cell"
+      ],
+      "why_used": "Capability acquisition should eventually turn successful loops into reusable skills while remaining gated in this pass."
+    }
+  ]
+}
