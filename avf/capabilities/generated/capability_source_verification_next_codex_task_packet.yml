@@ -1,0 +1,38 @@
+task_id: avf-capability-owner-approval-packet-v0-1
+title: Add AVF capability owner approval packet v0.1
+goal: Create an owner approval packet that explicitly keeps capability candidates blocked until source verification and review decisions are completed.
+context_paths:
+  - avf/capabilities/generated/capability_source_verification_matrix.json
+  - avf/capabilities/generated/capability_source_verification_preflight_gate.json
+  - avf/capabilities/generated/capability_review_dossier.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_owner_approval_packet_v0_1.py
+  - scripts/validate_avf_capability_owner_approval_packet_v0_1.py
+  - avf/capabilities/generated/capability_owner_approval_packet.json
+  - docs/goals/AVF_CAPABILITY_OWNER_APPROVAL_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No external fetch
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - owner approval packet exists
+  - every candidate remains blocked by default
+  - approval fields are explicit and unset
+  - protected-action flags remain false
+validation_commands:
+  - python scripts\validate_avf_capability_source_verification_matrix_v0_1.py
+  - python scripts\validate_avf_capability_owner_approval_packet_v0_1.py
+expected_outputs:
+  - capability_owner_approval_packet.json
+  - owner approval validation report
+next_safe_goal_id: avf_capability_owner_approval_packet_v0_1
