@@ -1,0 +1,12 @@
+action_id: review-agent-graph-state-machine-kernel-invariant-validation
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_invariant_validator_v0_1
+
+next_steps:
+  - Review repo-local invariant validation before any runtime adapter hardening
+  - Confirm all ten hardening invariants pass
+  - Confirm dependency and runtime integration remain blocked
+  - Convert accepted invariants into the next state machine review packet
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_invariant_review_v0_1
