@@ -1,0 +1,36 @@
+{
+  "accepted_source_records": 0,
+  "checks": [
+    "owner/PRO population packet reviewed",
+    "source_type alone is not treated as completed evidence",
+    "empty records remain blocked",
+    "no source evidence accepted for ingestion or integration",
+    "protected-action flags false"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "complete_source_records": 0,
+  "empty_source_records": 35,
+  "next_safe_goal_id": "avf_capability_primary_source_evidence_population_retry_v0_1",
+  "partial_source_records": 0,
+  "review_decision": "BLOCKED_OWNER_OR_PRO_EVIDENCE_NOT_FILLED",
+  "source_slots_reviewed": 35,
+  "status": "PASS",
+  "validator_id": "validate_avf_capability_owner_filled_primary_source_evidence_review_v0_1"
+}

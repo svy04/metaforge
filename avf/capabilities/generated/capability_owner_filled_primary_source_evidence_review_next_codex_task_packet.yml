@@ -1,0 +1,34 @@
+task_id: avf-capability-primary-source-evidence-population-retry-v0-1
+title: Prepare AVF primary-source evidence population retry packet v0.1
+goal: Provide the next owner/PRO action packet for filling missing primary-source evidence records after the review gate blocks empty records.
+context_paths:
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_packet.yml
+  - avf/capabilities/generated/capability_owner_filled_primary_source_evidence_review_gate.json
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_pro_prompt.md
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_population_retry_packet.yml
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_POPULATION_RETRY_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - retry packet lists blocked empty source records
+  - retry packet preserves required evidence fields
+  - no record is accepted by default
+  - protected actions remain blocked
+validation_commands:
+  - python scripts\validate_avf_capability_owner_filled_primary_source_evidence_review_v0_1.py
+expected_outputs:
+  - primary-source evidence population retry packet
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_population_retry_v0_1
