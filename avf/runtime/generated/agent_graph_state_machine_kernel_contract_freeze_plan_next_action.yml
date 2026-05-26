@@ -1,0 +1,12 @@
+action_id: review-agent-graph-state-machine-kernel-contract-freeze-plan
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_plan_v0_1
+
+next_steps:
+  - Review repo-local contract freeze plan before freezing any runtime contract
+  - Confirm ten candidate invariants remain valid contract boundaries
+  - Keep actual contract freeze blocked until review passes
+  - Keep dependency adoption and runtime integration blocked
+  - Do not freeze contracts, install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_review_v0_1
