@@ -1,0 +1,37 @@
+task_id: avf-capability-manual-source-review-packet-v0-1
+title: Add AVF capability manual source review packet v0.1
+goal: Create a repo-local manual source review packet that records how owner-approved source verification should be captured before any integration action.
+context_paths:
+  - avf/capabilities/generated/capability_owner_approval_packet.json
+  - avf/capabilities/generated/capability_owner_approval_preflight_gate.json
+  - avf/capabilities/generated/capability_source_verification_matrix.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_manual_source_review_packet_v0_1.py
+  - scripts/validate_avf_capability_manual_source_review_packet_v0_1.py
+  - avf/capabilities/generated/capability_manual_source_review_packet.json
+  - docs/goals/AVF_CAPABILITY_MANUAL_SOURCE_REVIEW_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping automation
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - manual source review packet exists
+  - each candidate has source evidence capture fields
+  - no source is marked verified by default
+  - integration remains blocked
+validation_commands:
+  - python scripts\validate_avf_capability_owner_approval_packet_v0_1.py
+  - python scripts\validate_avf_capability_manual_source_review_packet_v0_1.py
+expected_outputs:
+  - capability_manual_source_review_packet.json
+  - manual source review validation report
+next_safe_goal_id: avf_capability_manual_source_review_packet_v0_1
