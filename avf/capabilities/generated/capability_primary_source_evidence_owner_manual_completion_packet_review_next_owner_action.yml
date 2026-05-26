@@ -1,0 +1,41 @@
+action_id: owner-fill-avf-primary-source-evidence-manual-completion-packet
+terminal_condition: PROTECTED_ACTION_REQUIRED
+owner_input_required: true
+review_decision: PROTECTED_ACTION_REQUIRED_OWNER_PACKET_STILL_UNFILLED
+packet_template_to_fill: avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_template.yml
+
+owner_steps:
+  - Fill all 11 authorization fields
+  - Select at least one collection mode
+  - Choose explicit source families, candidate ids, and source slot ids
+  - Set a narrow max_records_to_collect value
+  - Add collection boundaries and a revocation note
+  - Do not ask Codex to collect sources until review passes
+
+authorization_fields:
+  - owner_authorization_statement
+  - authorized_by
+  - authorized_at
+  - authorization_expires_at
+  - authorized_collection_modes
+  - authorized_source_families
+  - authorized_candidate_ids
+  - authorized_source_slot_ids
+  - max_records_to_collect
+  - collection_boundaries
+  - revocation_note
+
+blocked_until_owner_completion:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
