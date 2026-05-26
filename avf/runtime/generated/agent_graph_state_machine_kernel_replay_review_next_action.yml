@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-hardening-plan
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_replay_review_v0_1
+
+next_steps:
+  - Create repo-local hardening plan for the deterministic state machine kernel
+  - Preserve the normal path from initialized to evidence_written
+  - Preserve blocked terminal outcomes and owner-review outcomes
+  - Add invariant checklist before any runtime adapter work
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_hardening_plan_v0_1
