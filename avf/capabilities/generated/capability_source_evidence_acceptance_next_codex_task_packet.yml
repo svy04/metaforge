@@ -1,0 +1,35 @@
+task_id: avf-capability-primary-source-research-packet-v0-1
+title: Add AVF capability primary-source research packet v0.1
+goal: Create a repo-local PRO/owner research packet for manually collecting primary-source evidence before any future capability integration proposal.
+context_paths:
+  - avf/capabilities/generated/capability_source_evidence_acceptance_gate.json
+  - avf/capabilities/generated/capability_source_evidence_fixture_template.yml
+  - avf/capabilities/generated/capability_source_evidence_fixture_template_manifest.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_research_packet.yml
+  - avf/capabilities/generated/capability_primary_source_research_packet.validation_result.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_RESEARCH_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping automation
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - primary-source research packet exists
+  - packet instructs PRO/owner to collect only official docs, repositories, license files, security advisories, maintenance signals, architecture specs, and supply-chain standards
+  - packet requires source URI, source type, verbatim excerpt, sha256 snapshot hash, license/security/maintenance/architecture/supply-chain notes, reviewer, and reviewed_at
+  - packet does not fetch, scrape, clone, install, integrate, deploy, publish, or claim readiness
+validation_commands:
+  - python scripts\validate_avf_capability_source_evidence_acceptance_gate_v0_1.py
+expected_outputs:
+  - capability_primary_source_research_packet.yml
+  - primary-source research packet validation report
+next_safe_goal_id: avf_capability_primary_source_research_packet_v0_1
