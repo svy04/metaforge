@@ -1,0 +1,433 @@
+{
+  "candidate_dossiers": [
+    {
+      "architecture_fit_review": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Verify adapter boundary, data flow, failure modes, local/offline behavior, rollback path, and coupling to AVF control-plane contracts.",
+        "status": "required_not_performed"
+      },
+      "blocked_reason": "License, security, maintenance, and owner approval reviews are required before any install, clone, fetch, or integration.",
+      "candidate_id": "candidate-opentelemetry",
+      "candidate_name": "OpenTelemetry",
+      "capability_id": "cap-observability",
+      "capability_name": "Observability and trace evidence",
+      "claim_boundary": {
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false
+      },
+      "fit_score": 90,
+      "integration_recommendation": "do_not_integrate_yet",
+      "license_review": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Confirm license identifier, compatibility, attribution, NOTICE obligations, and copyleft constraints from authoritative source files before any dependency action.",
+        "status": "required_not_performed"
+      },
+      "maintenance_review": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Review release cadence, issue response, maintainers, bus factor indicators, backwards compatibility, and project governance.",
+        "status": "required_not_performed"
+      },
+      "owner_approval": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Owner must approve the review dossier before dependency install, clone, fetch, provider call, or runtime integration.",
+        "status": "required_not_performed"
+      },
+      "priority_rank": 1,
+      "review_reason": "Best low-risk observability standard fit for trace, metric, log, and evidence correlation.",
+      "risk_score": 24,
+      "rollback_plan": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Define removal plan, config rollback, data migration rollback, and artifact cleanup before any integration branch.",
+        "status": "required_not_performed"
+      },
+      "sandbox_plan": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Define sandbox, permissions, filesystem/network boundary, test fixtures, and no-provider dry-run behavior before execution.",
+        "status": "required_not_performed"
+      },
+      "security_review": {
+        "candidate_id": "candidate-opentelemetry",
+        "owner_action_required": true,
+        "review_prompt": "Review OpenSSF/SLSA posture, release provenance, dependency tree, known advisories, install hooks, and secret/network behavior before any integration.",
+        "status": "required_not_performed"
+      },
+      "source_refs": [
+        "src-github-dependency-review",
+        "src-openssf-scorecard",
+        "src-openssf-scorecard-paper",
+        "src-opentelemetry-docs",
+        "src-slsa-spec",
+        "src-spdx-spec"
+      ]
+    },
+    {
+      "architecture_fit_review": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Verify adapter boundary, data flow, failure modes, local/offline behavior, rollback path, and coupling to AVF control-plane contracts.",
+        "status": "required_not_performed"
+      },
+      "blocked_reason": "License, security, maintenance, and owner approval reviews are required before any install, clone, fetch, or integration.",
+      "candidate_id": "candidate-litellm-proxy",
+      "candidate_name": "LiteLLM Proxy",
+      "capability_id": "cap-llm-gateway",
+      "capability_name": "Provider-independent LLM gateway",
+      "claim_boundary": {
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false
+      },
+      "fit_score": 88,
+      "integration_recommendation": "do_not_integrate_yet",
+      "license_review": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Confirm license identifier, compatibility, attribution, NOTICE obligations, and copyleft constraints from authoritative source files before any dependency action.",
+        "status": "required_not_performed"
+      },
+      "maintenance_review": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Review release cadence, issue response, maintainers, bus factor indicators, backwards compatibility, and project governance.",
+        "status": "required_not_performed"
+      },
+      "owner_approval": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Owner must approve the review dossier before dependency install, clone, fetch, provider call, or runtime integration.",
+        "status": "required_not_performed"
+      },
+      "priority_rank": 2,
+      "review_reason": "High strategic fit for provider independence, but gateway security and spend-governance review are still required.",
+      "risk_score": 42,
+      "rollback_plan": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Define removal plan, config rollback, data migration rollback, and artifact cleanup before any integration branch.",
+        "status": "required_not_performed"
+      },
+      "sandbox_plan": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Define sandbox, permissions, filesystem/network boundary, test fixtures, and no-provider dry-run behavior before execution.",
+        "status": "required_not_performed"
+      },
+      "security_review": {
+        "candidate_id": "candidate-litellm-proxy",
+        "owner_action_required": true,
+        "review_prompt": "Review OpenSSF/SLSA posture, release provenance, dependency tree, known advisories, install hooks, and secret/network behavior before any integration.",
+        "status": "required_not_performed"
+      },
+      "source_refs": [
+        "src-github-dependency-review",
+        "src-litellm-docs",
+        "src-openssf-scorecard",
+        "src-openssf-scorecard-paper",
+        "src-slsa-spec",
+        "src-spdx-spec"
+      ]
+    },
+    {
+      "architecture_fit_review": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Verify adapter boundary, data flow, failure modes, local/offline behavior, rollback path, and coupling to AVF control-plane contracts.",
+        "status": "required_not_performed"
+      },
+      "blocked_reason": "License, security, maintenance, and owner approval reviews are required before any install, clone, fetch, or integration.",
+      "candidate_id": "candidate-temporal-workflow",
+      "candidate_name": "Temporal",
+      "capability_id": "cap-durable-workflow",
+      "capability_name": "Durable workflow backend",
+      "claim_boundary": {
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false
+      },
+      "fit_score": 86,
+      "integration_recommendation": "do_not_integrate_yet",
+      "license_review": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Confirm license identifier, compatibility, attribution, NOTICE obligations, and copyleft constraints from authoritative source files before any dependency action.",
+        "status": "required_not_performed"
+      },
+      "maintenance_review": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Review release cadence, issue response, maintainers, bus factor indicators, backwards compatibility, and project governance.",
+        "status": "required_not_performed"
+      },
+      "owner_approval": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Owner must approve the review dossier before dependency install, clone, fetch, provider call, or runtime integration.",
+        "status": "required_not_performed"
+      },
+      "priority_rank": 3,
+      "review_reason": "Strong durable-workflow fit once replay/idempotency contracts are explicit.",
+      "risk_score": 34,
+      "rollback_plan": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Define removal plan, config rollback, data migration rollback, and artifact cleanup before any integration branch.",
+        "status": "required_not_performed"
+      },
+      "sandbox_plan": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Define sandbox, permissions, filesystem/network boundary, test fixtures, and no-provider dry-run behavior before execution.",
+        "status": "required_not_performed"
+      },
+      "security_review": {
+        "candidate_id": "candidate-temporal-workflow",
+        "owner_action_required": true,
+        "review_prompt": "Review OpenSSF/SLSA posture, release provenance, dependency tree, known advisories, install hooks, and secret/network behavior before any integration.",
+        "status": "required_not_performed"
+      },
+      "source_refs": [
+        "src-github-dependency-review",
+        "src-openssf-scorecard",
+        "src-openssf-scorecard-paper",
+        "src-slsa-spec",
+        "src-spdx-spec",
+        "src-temporal-docs"
+      ]
+    },
+    {
+      "architecture_fit_review": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Verify adapter boundary, data flow, failure modes, local/offline behavior, rollback path, and coupling to AVF control-plane contracts.",
+        "status": "required_not_performed"
+      },
+      "blocked_reason": "License, security, maintenance, and owner approval reviews are required before any install, clone, fetch, or integration.",
+      "candidate_id": "candidate-langgraph-runtime",
+      "candidate_name": "LangGraph",
+      "capability_id": "cap-agent-runtime",
+      "capability_name": "Stateful agent runtime",
+      "claim_boundary": {
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false
+      },
+      "fit_score": 84,
+      "integration_recommendation": "do_not_integrate_yet",
+      "license_review": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Confirm license identifier, compatibility, attribution, NOTICE obligations, and copyleft constraints from authoritative source files before any dependency action.",
+        "status": "required_not_performed"
+      },
+      "maintenance_review": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Review release cadence, issue response, maintainers, bus factor indicators, backwards compatibility, and project governance.",
+        "status": "required_not_performed"
+      },
+      "owner_approval": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Owner must approve the review dossier before dependency install, clone, fetch, provider call, or runtime integration.",
+        "status": "required_not_performed"
+      },
+      "priority_rank": 4,
+      "review_reason": "Strong stateful-agent fit after the local runtime contract is sharper.",
+      "risk_score": 40,
+      "rollback_plan": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Define removal plan, config rollback, data migration rollback, and artifact cleanup before any integration branch.",
+        "status": "required_not_performed"
+      },
+      "sandbox_plan": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Define sandbox, permissions, filesystem/network boundary, test fixtures, and no-provider dry-run behavior before execution.",
+        "status": "required_not_performed"
+      },
+      "security_review": {
+        "candidate_id": "candidate-langgraph-runtime",
+        "owner_action_required": true,
+        "review_prompt": "Review OpenSSF/SLSA posture, release provenance, dependency tree, known advisories, install hooks, and secret/network behavior before any integration.",
+        "status": "required_not_performed"
+      },
+      "source_refs": [
+        "src-github-dependency-review",
+        "src-langgraph-docs",
+        "src-openssf-scorecard",
+        "src-openssf-scorecard-paper",
+        "src-slsa-spec",
+        "src-spdx-spec"
+      ]
+    },
+    {
+      "architecture_fit_review": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Verify adapter boundary, data flow, failure modes, local/offline behavior, rollback path, and coupling to AVF control-plane contracts.",
+        "status": "required_not_performed"
+      },
+      "blocked_reason": "License, security, maintenance, and owner approval reviews are required before any install, clone, fetch, or integration.",
+      "candidate_id": "candidate-mcp-tool-registry",
+      "candidate_name": "Model Context Protocol",
+      "capability_id": "cap-tool-registry",
+      "capability_name": "Tool and connector registry",
+      "claim_boundary": {
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false
+      },
+      "fit_score": 82,
+      "integration_recommendation": "do_not_integrate_yet",
+      "license_review": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Confirm license identifier, compatibility, attribution, NOTICE obligations, and copyleft constraints from authoritative source files before any dependency action.",
+        "status": "required_not_performed"
+      },
+      "maintenance_review": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Review release cadence, issue response, maintainers, bus factor indicators, backwards compatibility, and project governance.",
+        "status": "required_not_performed"
+      },
+      "owner_approval": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Owner must approve the review dossier before dependency install, clone, fetch, provider call, or runtime integration.",
+        "status": "required_not_performed"
+      },
+      "priority_rank": 5,
+      "review_reason": "Strong tool-registry fit, with elevated tool-permission and connector security risk.",
+      "risk_score": 55,
+      "rollback_plan": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Define removal plan, config rollback, data migration rollback, and artifact cleanup before any integration branch.",
+        "status": "required_not_performed"
+      },
+      "sandbox_plan": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Define sandbox, permissions, filesystem/network boundary, test fixtures, and no-provider dry-run behavior before execution.",
+        "status": "required_not_performed"
+      },
+      "security_review": {
+        "candidate_id": "candidate-mcp-tool-registry",
+        "owner_action_required": true,
+        "review_prompt": "Review OpenSSF/SLSA posture, release provenance, dependency tree, known advisories, install hooks, and secret/network behavior before any integration.",
+        "status": "required_not_performed"
+      },
+      "source_refs": [
+        "src-github-dependency-review",
+        "src-mcp-docs",
+        "src-openssf-scorecard",
+        "src-openssf-scorecard-paper",
+        "src-slsa-spec",
+        "src-spdx-spec"
+      ]
+    }
+  ],
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "decision": "owner_review_required_before_integration",
+  "dossier_id": "avf-capability-review-dossier-v0-1",
+  "goal_id": "avf_capability_review_dossier_v0_1",
+  "next_safe_goal_id": "avf_capability_source_verification_matrix_v0_1",
+  "review_fields": [
+    "license_review",
+    "security_review",
+    "maintenance_review",
+    "architecture_fit_review",
+    "sandbox_plan",
+    "rollback_plan",
+    "owner_approval"
+  ],
+  "source_gate_decision_uri": "avf/capabilities/generated/capability_fit_scoring_gate_decision.json",
+  "source_scorecard_uri": "avf/capabilities/generated/capability_fit_scorecard.json",
+  "status": "PASS"
+}

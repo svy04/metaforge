@@ -1,0 +1,38 @@
+task_id: avf-capability-source-verification-matrix-v0-1
+title: Add AVF capability source verification matrix v0.1
+goal: Create a repo-local source verification matrix for top capability candidates before owner approval or integration.
+context_paths:
+  - avf/capabilities/generated/capability_review_dossier.json
+  - avf/capabilities/generated/capability_owner_review_checklist.md
+  - avf/capabilities/generated/capability_integration_preflight_gate.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_source_verification_matrix_v0_1.py
+  - scripts/validate_avf_capability_source_verification_matrix_v0_1.py
+  - avf/capabilities/generated/capability_source_verification_matrix.json
+  - docs/goals/AVF_CAPABILITY_SOURCE_VERIFICATION_MATRIX_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No external fetch
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - source verification matrix exists
+  - each top candidate has official docs, repository/license, security, maintenance, and architecture evidence slots
+  - all evidence slots remain required_not_performed until actual owner-approved review happens
+  - integration gate remains blocked
+validation_commands:
+  - python scripts\validate_avf_capability_review_dossier_v0_1.py
+  - python scripts\validate_avf_capability_source_verification_matrix_v0_1.py
+expected_outputs:
+  - capability_source_verification_matrix.json
+  - source verification matrix report
+next_safe_goal_id: avf_capability_source_verification_matrix_v0_1
