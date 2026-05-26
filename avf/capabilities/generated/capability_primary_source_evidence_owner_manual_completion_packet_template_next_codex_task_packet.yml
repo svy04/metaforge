@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-owner-manual-completion-packet-review-v0-1
+title: Review AVF owner manual completion packet v0.1
+goal: Review an owner-filled packet only after the owner fills every field. If it remains unfilled, keep execution blocked and return PROTECTED_ACTION_REQUIRED.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_template.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_template_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_review_next_codex_task_packet.yml
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_MANUAL_COMPLETION_PACKET_REVIEW_V0_1_REPORT.md
+review_type: manual completion packet review
+review_subject: owner-filled packet
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - review requires all 11 authorization fields to be non-empty
+  - review requires at least one selected collection mode
+  - review keeps source collection blocked when owner input is absent
+  - review returns PROTECTED_ACTION_REQUIRED when source collection would be needed
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_manual_completion_packet_template_v0_1.py
+expected_outputs:
+  - owner completion packet review gate
+  - protected-action-required boundary when packet is still unfilled
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_manual_completion_packet_review_v0_1
