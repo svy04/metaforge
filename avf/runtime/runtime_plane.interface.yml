@@ -1,0 +1,126 @@
+# Runtime Plane Interface
+
+version: 1
+description: Provider-independent AVF runtime contract for future local/durable workflow adapters.
+status:
+  OpenClaude-independent: true
+  runtime dependencies installed: false
+  external runtime automation implemented: false
+  release_ready: false
+  production_ready: false
+runtime_plane:
+  run_id:
+    type: string
+    required: true
+  goal_id:
+    type: string
+    required: true
+  state:
+    type: string
+    enum:
+      - created
+      - classified
+      - planned
+      - awaiting_human_gate
+      - validated
+      - blocked
+      - terminal
+  nodes:
+    type: array
+    items:
+      required:
+        - node_id
+        - role
+        - input_contract
+        - output_contract
+      properties:
+        node_id:
+          type: string
+        role:
+          type: string
+        input_contract:
+          type: string
+        output_contract:
+          type: string
+  transitions:
+    type: array
+    items:
+      required:
+        - from
+        - to
+        - condition
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        condition:
+          type: string
+  retry_policy:
+    type: object
+    properties:
+      max_attempts:
+        type: integer
+      retryable_states:
+        type: array
+      non_retryable_states:
+        type: array
+  timeout_policy:
+    type: object
+    properties:
+      run_timeout_seconds:
+        type: integer
+      node_timeout_seconds:
+        type: integer
+  human_gate_required:
+    type: boolean
+  evidence_events:
+    type: array
+    items:
+      required:
+        - event_id
+        - artifact_uri
+        - claim_boundary
+      properties:
+        event_id:
+          type: string
+        artifact_uri:
+          type: string
+        claim_boundary:
+          type: string
+  forbidden_actions:
+    - deploy
+    - publish
+    - provider_calls
+    - live_model_calls
+    - external_service_calls
+    - platform_posting
+    - personal_account_automation
+    - release_readiness_claim
+    - production_readiness_claim
+    - public_readiness_claim
+protected_action_boundary:
+  deploy: blocked
+  publish: blocked
+  provider calls: blocked
+  live model calls: blocked
+  external service calls: blocked
+  production readiness claim: blocked
+  release readiness claim: blocked
+  public readiness claim: blocked
+  external validation claim: blocked
+  protected_action_executed: false
+  provider_calls_performed: false
+  deploy_performed: false
+  publish_performed: false
+adapter_candidates:
+  langgraph:
+    status: candidate_only
+  temporal:
+    status: candidate_only
+  argo_workflows:
+    status: candidate_only
+execution:
+  implemented: false
+  external_calls_allowed: false
+  dependency_install_allowed: false

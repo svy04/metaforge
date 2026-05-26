@@ -1,0 +1,166 @@
+# Evidence Ledger v2 Schema
+
+version: 2
+type: object
+description: Repo-local evidence ledger entry for AVF proof artifacts and claim boundaries.
+required:
+  - id
+  - run_id
+  - goal_id
+  - artifact_id
+  - artifact_uri
+  - artifact_hash
+  - actor
+  - source
+  - claim
+  - claim_boundary
+  - validation_method
+  - validation_result
+  - confidence
+  - approval_state
+  - created_at
+  - next_action
+properties:
+  id:
+    type: string
+  run_id:
+    type: string
+  goal_id:
+    type: string
+  artifact_id:
+    type: string
+  artifact_uri:
+    type: string
+  artifact_hash:
+    type: string
+    description: Deterministic hash of the artifact content when available.
+  actor:
+    type: object
+    required:
+      - actor_type
+      - actor_id
+    properties:
+      actor_type:
+        type: string
+        enum:
+          - human
+          - codex
+          - validator
+          - local_runner
+      actor_id:
+        type: string
+  source:
+    type: object
+    required:
+      - source_type
+      - source_uri
+    properties:
+      source_type:
+        type: string
+      source_uri:
+        type: string
+      source_hash:
+        type: string
+  claim:
+    type: string
+  claim_boundary:
+    type: object
+    required:
+      - scope
+      - protected_action_executed
+      - provider_calls_performed
+      - deploy_performed
+      - publish_performed
+      - release_ready
+      - production_ready
+    properties:
+      scope:
+        type: string
+        enum:
+          - repo_local_internal_only
+          - owner_review_candidate
+          - external_validation_required
+      protected_action_executed:
+        type: boolean
+      provider_calls_performed:
+        type: boolean
+      deploy_performed:
+        type: boolean
+      publish_performed:
+        type: boolean
+      release_ready:
+        type: boolean
+      production_ready:
+        type: boolean
+  validation_method:
+    type: object
+    required:
+      - method_type
+      - command
+    properties:
+      method_type:
+        type: string
+      command:
+        type: string
+      validator_uri:
+        type: string
+  validation_result:
+    type: object
+    required:
+      - status
+      - observed_at
+    properties:
+      status:
+        type: string
+        enum:
+          - PASS
+          - FAIL
+          - BLOCKED
+      observed_at:
+        type: string
+      summary:
+        type: string
+  confidence:
+    type: object
+    required:
+      - level
+      - reason
+    properties:
+      level:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
+      reason:
+        type: string
+  approval_state:
+    type: object
+    required:
+      - required
+      - status
+    properties:
+      required:
+        type: boolean
+      status:
+        type: string
+        enum:
+          - not_required
+          - pending
+          - approved
+          - rejected
+      approver:
+        type: string
+  created_at:
+    type: string
+  next_action:
+    type: string
+blocked_defaults:
+  protected_action_executed: false
+  provider_calls_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+  runtime dependencies installed: false
+  external runtime automation implemented: false
