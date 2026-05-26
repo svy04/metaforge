@@ -1,0 +1,251 @@
+{
+  "generatedAt": "2026-05-21T09:48:34.077Z",
+  "mode": "local_no_provider_benchmark_submission_readiness",
+  "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
+  "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
+  "sourceLocalBenchmarkResultsSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+  "sourceBenchmarkEfficiencyMetricsPath": "docs/product-quality/benchmark-efficiency-metrics-report.json",
+  "sourceBenchmarkEfficiencyMetricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
+  "sourceBenchmarkEfficiencyMetricsJsonlSha256": "2f24f651c9973d03ecaeff0eaa487ac9cc20a979a52906fcb440238deb7bd6f4",
+  "sourceRealTraceEvalsPath": "docs/product-quality/real-session-trace-evals-report.json",
+  "sourceRealTraceCount": 13,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "SWE-bench/experiments",
+      "sourceUrl": "https://github.com/swe-bench/experiments",
+      "observedPattern": "Benchmark submissions preserve predictions, metadata, README, trajectories, logs, patch diffs, reports, test output, and verification instructions as inspectable assets."
+    },
+    {
+      "sourceProject": "SWE-bench/SWE-bench",
+      "sourceUrl": "https://github.com/swe-bench/SWE-bench",
+      "observedPattern": "External benchmark execution and per-instance evaluation artifacts must remain separate from local readiness evidence."
+    },
+    {
+      "sourceProject": "OpenHands/benchmarks",
+      "sourceUrl": "https://github.com/OpenHands/benchmarks",
+      "observedPattern": "Evaluation harnesses should keep runtime, logs, metrics, and remote/container boundaries explicit before large-scale benchmark claims."
+    }
+  ],
+  "submissionAssetsJsonlPath": "reports/openclaude-benchmark-submission-assets.jsonl",
+  "submissionAssetsJsonlSha256": "353df25d181b6a4fc9104f27d53a397260ddd2a6b54084357e2af269920afbbe",
+  "requiredSubmissionAssets": [
+    "all_preds.jsonl or preds.json",
+    "metadata.yaml",
+    "README.md",
+    "trajs/",
+    "logs/",
+    "logs/<instance_id>/patch.diff",
+    "logs/<instance_id>/report.json",
+    "logs/<instance_id>/test_output.txt",
+    "best@k or multiple-rollout selection trace when applicable",
+    "cost, duration, token, turn, and resolved fields for comparison",
+    "instructions for external result verification"
+  ],
+  "submissionAssetRecords": [
+    {
+      "assetId": "all_predictions_equivalent",
+      "sweBenchRequiredAsset": "all_preds.jsonl or preds.json",
+      "localEquivalentPath": "reports/openclaude-local-benchmark-results.jsonl",
+      "localEquivalentSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+      "readinessStatus": "local_equivalent_available",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Local benchmark replay results are prediction/result-shaped evidence only; they are not an official SWE-bench prediction submission."
+    },
+    {
+      "assetId": "metadata_yaml",
+      "sweBenchRequiredAsset": "metadata.yaml",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Official benchmark metadata is not generated because external submission and model/provider run authorization are absent."
+    },
+    {
+      "assetId": "submission_readme",
+      "sweBenchRequiredAsset": "README.md",
+      "localEquivalentPath": "docs/product-quality/benchmark-readiness-matrix.md",
+      "localEquivalentSha256": "88adc7b1e9423e5348438aa17e35a1048722efaae441dc62f42fadf39b39cb5f",
+      "readinessStatus": "partial_local_equivalent_available",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Local benchmark readiness documentation exists, but it is not an official external benchmark submission README."
+    },
+    {
+      "assetId": "reasoning_traces",
+      "sweBenchRequiredAsset": "trajs/",
+      "localEquivalentPath": "docs/product-quality/real-session-trace-evals-report.json",
+      "localEquivalentSha256": "27b158e14e7d3f4957106929dd71cf286738535b62cdfeb541dcb4aab55a1a18",
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Local trace corpus exists, but there is not yet one official reasoning trace per external SWE-bench task instance."
+    },
+    {
+      "assetId": "evaluation_logs",
+      "sweBenchRequiredAsset": "logs/",
+      "localEquivalentPath": "docs/product-quality/local-benchmark-harness-report.json",
+      "localEquivalentSha256": "8f73e6c14be1dc4db6d8c0c139b54cc971de3606363ed3570e07f9f02505be6d",
+      "readinessStatus": "partial_local_equivalent_available",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Local harness logs and result records exist, but no official SWE-bench evaluation logs were generated."
+    },
+    {
+      "assetId": "patch_diff_per_instance",
+      "sweBenchRequiredAsset": "logs/<instance_id>/patch.diff",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "No official per-instance model-generated benchmark patch exists in no-provider mode."
+    },
+    {
+      "assetId": "report_json_per_instance",
+      "sweBenchRequiredAsset": "logs/<instance_id>/report.json",
+      "localEquivalentPath": "reports/openclaude-local-benchmark-results.jsonl",
+      "localEquivalentSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+      "readinessStatus": "partial_local_equivalent_available",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Local per-task replay records exist, but they are not official SWE-bench per-instance report.json artifacts."
+    },
+    {
+      "assetId": "test_output_per_instance",
+      "sweBenchRequiredAsset": "logs/<instance_id>/test_output.txt",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "No official eval.sh test output exists because external benchmark execution is not authorized."
+    },
+    {
+      "assetId": "rollout_selection_trace",
+      "sweBenchRequiredAsset": "best@k or multiple-rollout selection trace when applicable",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "No provider/live multi-rollout benchmark run was executed, so rollout selection evidence remains unresolved."
+    },
+    {
+      "assetId": "efficiency_metrics",
+      "sweBenchRequiredAsset": "cost, duration, token, turn, and resolved fields for comparison",
+      "localEquivalentPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
+      "localEquivalentSha256": "2f24f651c9973d03ecaeff0eaa487ac9cc20a979a52906fcb440238deb7bd6f4",
+      "readinessStatus": "partial_local_equivalent_available",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": false,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "Comparable metric fields are present, but token/cost/duration/turn/resolution values remain classified no-provider gaps."
+    },
+    {
+      "assetId": "verified_submission_instructions",
+      "sweBenchRequiredAsset": "instructions for external result verification",
+      "localEquivalentPath": null,
+      "localEquivalentSha256": null,
+      "readinessStatus": "classified_unresolved_protected_action_required",
+      "requiredForExternalSubmission": true,
+      "protectedActionRequiredToComplete": true,
+      "protectedActionExecuted": false,
+      "externalSubmissionClaimed": false,
+      "notes": "No external verification issue, hosted run, or public leaderboard submission was created."
+    }
+  ],
+  "summary": {
+    "requiredAssetCount": 11,
+    "localEquivalentAvailableCount": 1,
+    "partialLocalEquivalentCount": 4,
+    "classifiedUnresolvedProtectedGapCount": 6,
+    "officialExternalSubmissionReady": false
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalBenchmarkExecutionPerformed": false,
+  "externalBenchmarkSubmissionPerformed": false,
+  "externalBenchmarkResultClaimed": false,
+  "externalLeaderboardClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "submissionReadinessChecks": [
+    {
+      "label": "local benchmark harness is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_replay_harness"
+    },
+    {
+      "label": "benchmark efficiency metrics are imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_efficiency_metrics"
+    },
+    {
+      "label": "real trace eval report is imported",
+      "ok": true,
+      "detail": "13 traces"
+    },
+    {
+      "label": "source result hash matches harness report",
+      "ok": true,
+      "detail": "reports/openclaude-local-benchmark-results.jsonl"
+    },
+    {
+      "label": "source efficiency JSONL hash matches metrics report",
+      "ok": true,
+      "detail": "reports/openclaude-benchmark-efficiency-metrics.jsonl"
+    },
+    {
+      "label": "SWE-bench submission asset matrix covers required assets",
+      "ok": true,
+      "detail": "11 assets"
+    },
+    {
+      "label": "local equivalents are source-hash-addressed when present",
+      "ok": true,
+      "detail": "6 local equivalents"
+    },
+    {
+      "label": "official external submission remains blocked",
+      "ok": true,
+      "detail": "officialExternalSubmissionReady=false"
+    },
+    {
+      "label": "protected gaps are classified but not executed",
+      "ok": true,
+      "detail": "6 protected gaps"
+    },
+    {
+      "label": "submission JSONL hash is recorded",
+      "ok": true,
+      "detail": "reports/openclaude-benchmark-submission-assets.jsonl"
+    }
+  ],
+  "claimBoundary": "Benchmark submission readiness is local no-provider evidence only. It does not create official SWE-bench submissions, execute external benchmarks, call providers, call live models, call external services, or make leaderboard, release, production, public, external-validation, cost-efficiency, or autonomous-reliability claims."
+}

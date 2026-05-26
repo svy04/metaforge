@@ -1,0 +1,21 @@
+# asset_registry.schema.yml
+
+version: 1
+type: object
+required:
+  - asset_id
+  - path
+  - purpose
+  - status
+properties:
+  asset_id:
+    type: string
+  path:
+    type: string
+  purpose:
+    type: string
+  status:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

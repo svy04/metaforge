@@ -1,0 +1,394 @@
+{
+  "generatedAt": "2026-05-21T09:21:24.763Z",
+  "mode": "local_no_provider_trace_schema_contract",
+  "schemaContractVersion": "openclaude_trace_schema_contract_v1",
+  "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
+  "sourceRealTraceEvalReportSha256": "27b158e14e7d3f4957106929dd71cf286738535b62cdfeb541dcb4aab55a1a18",
+  "sourceTraceDirectory": "reports",
+  "sourceTraceFileCount": 13,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenTelemetry Logs Data Model",
+      "sourceUrl": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+      "observedPattern": "portable event records use named fields for timestamps, trace context, severity, body, attributes, and event names where semantics are stable."
+    },
+    {
+      "sourceProject": "SWE-agent trajectories",
+      "sourceUrl": "https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md",
+      "observedPattern": "software-engineering agent trajectories preserve per-step thought/action/observation style structure plus state and query context."
+    },
+    {
+      "sourceProject": "AgentLens",
+      "sourceUrl": "https://arxiv.org/abs/2605.12925",
+      "observedPattern": "process-level assessment needs structured trajectories rather than binary outcome-only pass/fail evidence."
+    }
+  ],
+  "requiredEventFields": [
+    "timestamp",
+    "role",
+    "model",
+    "querySource",
+    "status",
+    "turnCount"
+  ],
+  "optionalRecommendedFields": [
+    "eventName",
+    "traceId",
+    "spanId",
+    "commandName",
+    "phaseLabel",
+    "actionName",
+    "observationSummary"
+  ],
+  "allowedStatuses": [
+    "started",
+    "succeeded",
+    "failed",
+    "cancelled"
+  ],
+  "traceSchemaSummaries": [
+    {
+      "path": "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+      "sha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 10,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
+      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 3,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 3,
+      "missingRecommendedTraceContextCount": 3,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-live-20260506-163448.jsonl",
+      "sha256": "3cebbd8762d8a60a64aa3f5a2ebd438c78fd88be87b91f7e1607e5d8c0b023e2",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 2,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 2,
+      "missingRecommendedTraceContextCount": 2,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
+      "sha256": "7ed6f91522b4c0adf68c3ca28a0a8e2cf888a2ded4ec9fe7610905b3b940aa26",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 2,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 2,
+      "missingRecommendedTraceContextCount": 2,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
+      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 2,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 2,
+      "missingRecommendedTraceContextCount": 2,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+      "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 10,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+      "sha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 8,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl",
+      "sha256": "ad80fdcc6df11ff3c96da8b5a62309864f8cd59fc243528ac6c9d93c7ef425b5",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 8,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
+      "sha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 16,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
+      "sha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 9,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+      "sha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
+      "currentGeneratedTraceProducer": true,
+      "eventCount": 9,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 0,
+      "missingRecommendedTraceContextCount": 0,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-usage-cli-probe.jsonl",
+      "sha256": "acc8215c75381d056dcdb467f5e9ca1d3190ecebf3629f2e9bedbfe6460a9839",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 2,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 2,
+      "missingRecommendedTraceContextCount": 2,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    },
+    {
+      "path": "reports/orchestra-usage-probe.jsonl",
+      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
+      "currentGeneratedTraceProducer": false,
+      "eventCount": 2,
+      "parseErrorCount": 0,
+      "requiredFieldViolationCount": 0,
+      "invalidTimestampCount": 0,
+      "invalidStatusCount": 0,
+      "invalidTraceContextCount": 0,
+      "missingRecommendedEventNameCount": 2,
+      "missingRecommendedTraceContextCount": 2,
+      "missingRecommendedActionObservationCount": 0,
+      "missingSweAgentTripletFieldCount": 0,
+      "credentialPatternFound": false,
+      "schemaContractPassed": true
+    }
+  ],
+  "aggregate": {
+    "traceCount": 13,
+    "eventCount": 83,
+    "schemaPassedTraceCount": 13,
+    "schemaFailedTraceCount": 0,
+    "missingRecommendedEventNameCount": 13,
+    "missingRecommendedTraceContextCount": 13,
+    "missingRecommendedActionObservationCount": 0,
+    "missingSweAgentTripletFieldCount": 0,
+    "currentGeneratedTraceProducerTraceCount": 7,
+    "currentGeneratedTraceProducerEventCount": 70,
+    "currentGeneratedTraceProducerMissingEventNameCount": 0,
+    "currentGeneratedTraceProducerMissingTraceContextCount": 0,
+    "currentGeneratedTraceProducerMissingActionObservationCount": 0
+  },
+  "recommendedAlignmentGaps": [
+    {
+      "id": "otel_event_name_not_universal",
+      "status": "classified_unresolved",
+      "protectedActionRequired": false,
+      "detail": "13 current trace events lack optional OTel-style eventName; this blocks stronger schema portability claims but not the local v1 contract."
+    },
+    {
+      "id": "otel_trace_context_not_universal",
+      "status": "classified_unresolved",
+      "protectedActionRequired": false,
+      "detail": "13 current trace events lack complete traceId/spanId context; this blocks stronger observability interoperability claims."
+    },
+    {
+      "id": "swe_agent_action_observation_triplet_not_universal",
+      "status": "not_present",
+      "protectedActionRequired": false,
+      "detail": "Action-like events include actionName and observationSummary."
+    }
+  ],
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "schemaContractChecks": [
+    {
+      "label": "real trace eval report imported",
+      "ok": true,
+      "detail": "docs/product-quality/real-session-trace-evals-report.json"
+    },
+    {
+      "label": "trace files discovered",
+      "ok": true,
+      "detail": "13/13"
+    },
+    {
+      "label": "trace hashes match real-trace eval source",
+      "ok": true,
+      "detail": "docs/product-quality/real-session-trace-evals-report.json"
+    },
+    {
+      "label": "all trace lines parse as JSON",
+      "ok": true,
+      "detail": "0 parse errors"
+    },
+    {
+      "label": "all trace events satisfy required v1 fields",
+      "ok": true,
+      "detail": "timestamp,role,model,querySource,status,turnCount"
+    },
+    {
+      "label": "all timestamps are parseable",
+      "ok": true,
+      "detail": "ISO-compatible timestamp strings"
+    },
+    {
+      "label": "all statuses are in contract enum",
+      "ok": true,
+      "detail": "started,succeeded,failed,cancelled"
+    },
+    {
+      "label": "trace context is valid when present",
+      "ok": true,
+      "detail": "spanId requires valid traceId"
+    },
+    {
+      "label": "credential patterns absent from traces",
+      "ok": true,
+      "detail": "known key/token/private-key patterns absent"
+    },
+    {
+      "label": "recommended gaps are classified without protected action",
+      "ok": true,
+      "detail": "3 gaps"
+    },
+    {
+      "label": "current generated trace producer paths are assessed",
+      "ok": true,
+      "detail": "7/7"
+    },
+    {
+      "label": "current generated trace producers include recommended event names",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "current generated trace producers include recommended trace context",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "current generated trace producers include action-observation fields on action events",
+      "ok": true,
+      "detail": "0 missing"
+    },
+    {
+      "label": "all traces pass the local v1 schema contract",
+      "ok": true,
+      "detail": "13/13"
+    }
+  ],
+  "claimBoundary": "Local trace schema contract evidence only; no provider/live/external calls, protected actions, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim is authorized."
+}

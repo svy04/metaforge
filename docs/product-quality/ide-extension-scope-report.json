@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-05-21T08:40:26.364Z",
+  "mode": "local_no_provider_ide_extension_scope",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "sourceSurfaceStatus": "extension_manifest_found",
+  "scopeDecision": "manifest_surface_detected_availability_claim_blocked_until_smoke",
+  "proposedManifestPath": "packages/openclaude-vscode/package.json",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "continuedev/continue",
+      "sourceUrl": "https://github.com/continuedev/continue/blob/main/extensions/vscode/package.json",
+      "observedPattern": "Dedicated VS Code extension manifest with engines.vscode, extensionKind, activationEvents, main entry point, commands, configuration, and view contributions."
+    },
+    {
+      "sourceProject": "cline/cline",
+      "sourceUrl": "https://github.com/cline/cline/blob/main/package.json",
+      "observedPattern": "AI coding assistant is distributed through a VS Code extension manifest with activation events, extension entry point, and contributed workbench surfaces."
+    },
+    {
+      "sourceProject": "microsoft/vscode-docs",
+      "sourceUrl": "https://code.visualstudio.com/api/references/extension-manifest",
+      "observedPattern": "VS Code treats package.json extension manifest fields such as engines.vscode, main, contributes, and activationEvents as the authoritative extension surface."
+    },
+    {
+      "sourceProject": "microsoft/vscode-docs",
+      "sourceUrl": "https://code.visualstudio.com/api/references/contribution-points",
+      "observedPattern": "Contribution points are JSON declarations in package.json contributes, covering commands, configuration, views, menus, keybindings, languages, and related workbench integration."
+    }
+  ],
+  "minimumManifestRequirements": [
+    "name",
+    "displayName",
+    "publisher",
+    "version",
+    "engines.vscode",
+    "extensionKind",
+    "main",
+    "activationEvents",
+    "contributes"
+  ],
+  "contributionPlan": {
+    "commands": [
+      "openclaude.openChat",
+      "openclaude.runSelection",
+      "openclaude.explainSelection",
+      "openclaude.openRuntimeDoctor"
+    ],
+    "views": [
+      "openclaude.chatView",
+      "openclaude.traceEvidenceView"
+    ],
+    "configurationKeys": [
+      "openclaude.providerProfile",
+      "openclaude.permissionMode",
+      "openclaude.telemetryAllowed",
+      "openclaude.traceCaptureEnabled"
+    ],
+    "activationEvents": [
+      "onCommand:openclaude.openChat",
+      "onCommand:openclaude.runSelection",
+      "onView:openclaude.chatView"
+    ]
+  },
+  "validationRequiredBeforeAvailabilityClaim": [
+    "Create the proposed manifest and extension entry point under packages/openclaude-vscode.",
+    "Run a local manifest schema check for engines.vscode, activationEvents, contributes.commands, contributes.views, contributes.configuration, and extensionKind.",
+    "Run a local extension package dry-run without publishing or marketplace upload.",
+    "Run a no-phone-home check over the extension bundle and generated package.",
+    "Run local command-contribution smoke tests for open chat, run selection, explain selection, and runtime doctor commands.",
+    "Record provider/live/external call boundaries before any demo, marketplace, or public availability claim."
+  ],
+  "protectedActions": {
+    "packagingAttempted": false,
+    "installAttempted": false,
+    "publishAttempted": false,
+    "providerCallsAllowed": false,
+    "externalCallsAllowed": false
+  },
+  "scopeChecks": [
+    {
+      "label": "source surface report exists and is bounded",
+      "ok": true,
+      "detail": "extension_manifest_found"
+    },
+    {
+      "label": "primary source inputs cover competitor and official manifest evidence",
+      "ok": true,
+      "detail": "4 sources"
+    },
+    {
+      "label": "manifest requirements include VS Code authority fields",
+      "ok": true,
+      "detail": "name, displayName, publisher, version, engines.vscode, extensionKind, main, activationEvents, contributes"
+    },
+    {
+      "label": "contribution plan covers commands, views, configuration, and activation",
+      "ok": true,
+      "detail": "commands/views/configuration/activation covered"
+    },
+    {
+      "label": "availability claim remains blocked until validation evidence exists",
+      "ok": true,
+      "detail": "6 validation items"
+    },
+    {
+      "label": "protected actions were not attempted or authorized",
+      "ok": true,
+      "detail": "all protected action flags false"
+    }
+  ],
+  "claimBoundary": "IDE extension scope evidence is internal and no-provider. It scopes a future VS Code extension surface but does not create, package, install, publish, launch, or claim extension availability."
+}

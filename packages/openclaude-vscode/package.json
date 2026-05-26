@@ -1,0 +1,107 @@
+{
+  "name": "openclaude-vscode",
+  "displayName": "OpenClaude",
+  "description": "Local OpenClaude VS Code surface manifest for verified no-provider product-quality gating.",
+  "version": "0.0.0",
+  "publisher": "gitlawb",
+  "license": "SEE LICENSE FILE",
+  "private": true,
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:openclaude.openChat",
+    "onCommand:openclaude.runSelection",
+    "onView:openclaude.chatView",
+    "onView:openclaude.controlCenterView"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "openclaude.openChat",
+        "title": "OpenClaude: Open Chat",
+        "category": "OpenClaude"
+      },
+      {
+        "command": "openclaude.runSelection",
+        "title": "OpenClaude: Run Selection",
+        "category": "OpenClaude"
+      },
+      {
+        "command": "openclaude.explainSelection",
+        "title": "OpenClaude: Explain Selection",
+        "category": "OpenClaude"
+      },
+      {
+        "command": "openclaude.openRuntimeDoctor",
+        "title": "OpenClaude: Open Runtime Doctor",
+        "category": "OpenClaude"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "openclaude.chatView",
+          "name": "OpenClaude Chat"
+        },
+        {
+          "id": "openclaude.traceEvidenceView",
+          "name": "OpenClaude Trace Evidence"
+        },
+        {
+          "id": "openclaude.controlCenterView",
+          "name": "OpenClaude Control Center",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "OpenClaude",
+      "properties": {
+        "openclaude.providerProfile": {
+          "type": "string",
+          "default": "local",
+          "description": "OpenClaude provider profile label."
+        },
+        "openclaude.permissionMode": {
+          "type": "string",
+          "enum": [
+            "default",
+            "acceptEdits",
+            "plan",
+            "bypassPermissions"
+          ],
+          "default": "default",
+          "description": "OpenClaude permission mode label."
+        },
+        "openclaude.telemetryAllowed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether extension telemetry is explicitly allowed."
+        },
+        "openclaude.traceCaptureEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether local trace capture is explicitly enabled."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package:dry-run": "npm pack --dry-run --json --ignore-scripts"
+  },
+  "files": [
+    "README.md",
+    "dist/extension.js",
+    "package.json"
+  ]
+}

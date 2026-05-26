@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-05-17T19:23:50.889Z",
+  "mode": "local_no_provider_ide_extension_rendered_workbench_screenshot",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "sourceReportPath": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+  "hostRuntime": "local_sharp_rendered_workbench_panel_from_webview_contract",
+  "manifestPath": "packages/openclaude-vscode/package.json",
+  "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
+  "screenshotPngPath": "docs/product-quality/assets/ide-extension-control-center-render.png",
+  "screenshotSvgPath": "docs/product-quality/assets/ide-extension-control-center-render.svg",
+  "sourceRenderedHtmlByteLength": 4572,
+  "renderedWidth": 960,
+  "renderedHeight": 720,
+  "pngByteLength": 73404,
+  "pngSha256": "30862ed6ca8b53776d89b10a0ef2fee937b573bd151e0214d51342ef4e35f6ea",
+  "svgSha256": "5a5560f60588aca07f45d84cfc9afc2f85b9fbe5937479f28a69893987a6f542",
+  "nonBlankChannelCount": 3,
+  "commandActionIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.explainSelection",
+    "openclaude.openRuntimeDoctor"
+  ],
+  "renderMarkers": [
+    "data-openclaude-render-contract=control-center",
+    "vscode-themeable-panel",
+    "command-action-rail"
+  ],
+  "installAttempted": false,
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "realExtensionHostLaunched": false,
+  "extensionAvailabilityClaimAllowed": false,
+  "screenshotChecks": [
+    {
+      "label": "source webview render smoke report passed",
+      "ok": true,
+      "detail": "local_no_provider_ide_extension_webview_render_smoke/14 checks"
+    },
+    {
+      "label": "source webview report performed no provider/live/external calls",
+      "ok": true,
+      "detail": "0/0/0"
+    },
+    {
+      "label": "source webview report keeps availability claim blocked",
+      "ok": true,
+      "detail": "false/false"
+    },
+    {
+      "label": "manifest still declares bounded webview view",
+      "ok": true,
+      "detail": "openclaude.controlCenterView"
+    },
+    {
+      "label": "rendered source HTML still has strict no-script boundary",
+      "ok": true,
+      "detail": "CSP plus no script tag"
+    },
+    {
+      "label": "rendered source HTML still uses VS Code theme tokens",
+      "ok": true,
+      "detail": "theme token present"
+    },
+    {
+      "label": "rendered source HTML still exposes render contract marker",
+      "ok": true,
+      "detail": "control-center marker required"
+    },
+    {
+      "label": "rendered screenshot covers all manifest commands",
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+    },
+    {
+      "label": "rendered screenshot dimensions are stable",
+      "ok": true,
+      "detail": "960x720"
+    },
+    {
+      "label": "rendered PNG is non-empty and nonblank",
+      "ok": true,
+      "detail": "73404 bytes / 3 varying channels"
+    },
+    {
+      "label": "rendered artifact hashes are recorded",
+      "ok": true,
+      "detail": "30862ed6ca8b.../5a5560f60588..."
+    },
+    {
+      "label": "protected actions were not attempted",
+      "ok": true,
+      "detail": "install/publish/deploy/launch/provider/live/external all false"
+    },
+    {
+      "label": "extension availability claim remains blocked",
+      "ok": true,
+      "detail": "extension availability claim allowed=false"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "source": "VS Code Webview API",
+      "url": "https://code.visualstudio.com/api/extension-guides/webview",
+      "appliedPattern": "Complete HTML, minimum capabilities, and restrictive CSP remain checked before rendering a local screenshot artifact."
+    },
+    {
+      "source": "VS Code Webview UX Guidelines",
+      "url": "https://code.visualstudio.com/api/ux-guidelines/webviews",
+      "appliedPattern": "The rendered Control Center keeps themeable styling and command actions visible in the workbench-style panel."
+    }
+  ],
+  "claimBoundary": "Local no-provider rendered workbench-style screenshot evidence only. This does not install, publish, deploy, launch, call providers, call live models, call external services, or claim extension availability, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

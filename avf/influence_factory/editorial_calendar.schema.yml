@@ -1,0 +1,21 @@
+# Editorial Calendar Schema
+
+version: 1
+type: object
+required:
+  - calendar_id
+  - channel
+  - draft_topic
+  - approval_status
+  - publish_window
+properties:
+  calendar_id:
+    type: string
+  channel:
+    type: string
+  draft_topic:
+    type: string
+  approval_status:
+    type: string
+  publish_window:
+    type: string

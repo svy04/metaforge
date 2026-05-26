@@ -1,0 +1,305 @@
+import { spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { basename, resolve } from 'node:path'
+
+type PackFile = {
+  path: string
+  size: number
+  mode: number
+}
+
+type PackArtifact = {
+  name: string
+  version: string
+  filename: string
+  files: PackFile[]
+  entryCount: number
+  size: number
+  unpackedSize: number
+  shasum?: string
+  integrity?: string
+}
+
+type ReleaseArtifactFileListReport = {
+  mode: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  packDryRunExitCode: number | null
+  publishAttempted: boolean
+  deployAttempted: boolean
+  launchAttempted: boolean
+  actualPackageFiles: string[]
+  forbiddenPackageFiles: string[]
+  releaseArtifactChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
+type ReleaseArtifactProvenanceReport = {
+  mode: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  publishAttempted: boolean
+  deployAttempted: boolean
+  launchAttempted: boolean
+  packageFileHashes: Array<{
+    path: string
+    exists: boolean
+    sha256: string | null
+  }>
+  provenanceChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
+type PackRun = {
+  id: string
+  command: string[]
+  exitCode: number | null
+  filename: string | null
+  artifactFileCount: number
+  artifactSizeBytes: number
+  artifactUnpackedSizeBytes: number
+  tarballSha256: string | null
+  npmShasum: string | null
+  npmIntegrity: string | null
+  fileList: string[]
+}
+
+type ReproducibilityCheck = {
+  label: string
+  ok: boolean
+  detail: string
+}
+
+type ReleaseArtifactReproducibilityReport = {
+  generatedAt: string
+  mode: 'local_no_provider_release_artifact_reproducibility'
+  providerCallsPerformed: []
+  liveModelCallsPerformed: []
+  externalCallsPerformed: []
+  publishAttempted: false
+  deployAttempted: false
+  launchAttempted: false
+  sourceReleaseArtifactReport: string
+  sourceReleaseProvenanceReport: string
+  temporaryPackDirectory: string
+  temporaryTarballsRemoved: boolean
+  packRuns: PackRun[]
+  reproducibleTarballSha256: string | null
+  reproducibilityChecks: ReproducibilityCheck[]
+  claimBoundary: string
+}
+
+const root = process.cwd()
+const docsDir = resolve(root, 'docs/product-quality')
+const tempDir = resolve(root, '.tmp-product-release-reproducibility')
+const releaseArtifactReportPath = 'docs/product-quality/release-artifact-file-list-report.json'
+const releaseProvenanceReportPath = 'docs/product-quality/release-artifact-provenance-report.json'
+
+function readJson<T>(path: string): T {
+  return JSON.parse(readFileSync(resolve(root, path), 'utf8')) as T
+}
+
+function sha256File(path: string): string {
+  return createHash('sha256').update(readFileSync(path)).digest('hex')
+}
+
+function parsePackJson(stdout: string): PackArtifact | null {
+  const start = stdout.indexOf('[')
+  const end = stdout.lastIndexOf(']')
+  if (start < 0 || end < start) {
+    return null
+  }
+  try {
+    const payload = JSON.parse(stdout.slice(start, end + 1)) as PackArtifact[]
+    return payload[0] ?? null
+  } catch {
+    return null
+  }
+}
+
+function check(label: string, ok: boolean, detail: string): ReproducibilityCheck {
+  return { label, ok, detail }
+}
+
+function runPack(id: string): PackRun {
+  const packDir = resolve(tempDir, id)
+  mkdirSync(packDir, { recursive: true })
+  const command = ['npm', 'pack', '--json', '--ignore-scripts', '--pack-destination', `.tmp-product-release-reproducibility/${id}`]
+  const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+  const result = spawnSync(npmCommand, ['pack', '--json', '--ignore-scripts', '--pack-destination', packDir], {
+    cwd: root,
+    encoding: 'utf8',
+  })
+  const artifact = parsePackJson(String(result.stdout ?? ''))
+  const tarballPath = artifact ? resolve(packDir, basename(artifact.filename)) : null
+  const tarballSha256 = tarballPath && existsSync(tarballPath) ? sha256File(tarballPath) : null
+  const fileList = artifact?.files.map((file) => file.path).sort((left, right) => left.localeCompare(right)) ?? []
+
+  return {
+    id,
+    command,
+    exitCode: result.status,
+    filename: artifact?.filename ?? null,
+    artifactFileCount: fileList.length,
+    artifactSizeBytes: artifact?.size ?? 0,
+    artifactUnpackedSizeBytes: artifact?.unpackedSize ?? 0,
+    tarballSha256,
+    npmShasum: artifact?.shasum ?? null,
+    npmIntegrity: artifact?.integrity ?? null,
+    fileList,
+  }
+}
+
+function writeReports(report: ReleaseArtifactReproducibilityReport): void {
+  mkdirSync(docsDir, { recursive: true })
+  writeFileSync(
+    resolve(docsDir, 'release-artifact-reproducibility-report.json'),
+    `${JSON.stringify(report, null, 2)}\n`,
+  )
+
+  const lines = [
+    '# Release Artifact Reproducibility Report',
+    '',
+    'Generated by: `bun run product:release-reproducibility`',
+    '',
+    '## Claim Boundary',
+    '',
+    '- This report runs local `npm pack --ignore-scripts` twice in a temporary directory and compares package file lists plus tarball hashes.',
+    '- Temporary tarballs are removed after hashing.',
+    '- It does not publish, deploy, launch, commit, push, call providers, call live models, or call external services.',
+    '- It does not claim release readiness, production readiness, public readiness, external validation, or autonomous reliability.',
+    '',
+    '## Summary',
+    '',
+    `- source_release_artifact_report: \`${report.sourceReleaseArtifactReport}\``,
+    `- source_release_provenance_report: \`${report.sourceReleaseProvenanceReport}\``,
+    `- temporary_pack_directory: \`${report.temporaryPackDirectory}\``,
+    `- temporary_tarballs_removed: \`${report.temporaryTarballsRemoved}\``,
+    `- reproducible_tarball_sha256: \`${report.reproducibleTarballSha256 ?? 'null'}\``,
+    `- publish_attempted: \`${report.publishAttempted}\``,
+    `- deploy_attempted: \`${report.deployAttempted}\``,
+    `- launch_attempted: \`${report.launchAttempted}\``,
+    `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
+    `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
+    `- external_calls_performed: \`${report.externalCallsPerformed.length}\``,
+    '',
+    '## Pack Runs',
+    '',
+    '| Run | Exit | Files | Size Bytes | SHA-256 | npm shasum | npm integrity present |',
+    '| --- | ---: | ---: | ---: | --- | --- | --- |',
+    ...report.packRuns.map((run) => (
+      `| \`${run.id}\` | \`${run.exitCode}\` | ${run.artifactFileCount} | ${run.artifactSizeBytes} | \`${run.tarballSha256 ?? 'missing'}\` | \`${run.npmShasum ?? 'missing'}\` | \`${run.npmIntegrity !== null}\` |`
+    )),
+    '',
+    '## Checks',
+    '',
+    '| Check | Result | Detail |',
+    '| --- | --- | --- |',
+    ...report.reproducibilityChecks.map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`),
+    '',
+  ]
+
+  writeFileSync(resolve(docsDir, 'release-artifact-reproducibility-report.md'), `${lines.join('\n')}\n`)
+}
+
+function main(): void {
+  const artifactReport = readJson<ReleaseArtifactFileListReport>(releaseArtifactReportPath)
+  const provenanceReport = readJson<ReleaseArtifactProvenanceReport>(releaseProvenanceReportPath)
+
+  if (existsSync(tempDir)) {
+    rmSync(tempDir, { recursive: true, force: true })
+  }
+  mkdirSync(tempDir, { recursive: true })
+
+  let packRuns: PackRun[] = []
+  let temporaryTarballsRemoved = false
+  try {
+    packRuns = [runPack('first'), runPack('second')]
+  } finally {
+    if (existsSync(tempDir)) {
+      rmSync(tempDir, { recursive: true, force: true })
+    }
+    temporaryTarballsRemoved = !existsSync(tempDir)
+  }
+
+  const [first, second] = packRuns
+  const fileListsMatch = JSON.stringify(first?.fileList ?? []) === JSON.stringify(second?.fileList ?? [])
+  const tarballHashesMatch = Boolean(first?.tarballSha256 && first.tarballSha256 === second?.tarballSha256)
+  const sourceFileListMatches = JSON.stringify(first?.fileList ?? []) === JSON.stringify(artifactReport.actualPackageFiles)
+  const sourceHashesCoverFiles = artifactReport.actualPackageFiles.every((path) =>
+    provenanceReport.packageFileHashes.some((file) => file.path === path && file.exists && typeof file.sha256 === 'string' && file.sha256.length === 64),
+  )
+
+  const reproducibilityChecks = [
+    check('source release artifact report is local no-provider', artifactReport.mode === 'local_no_provider_release_artifact_file_list', artifactReport.mode),
+    check('source release artifact checks passed', artifactReport.releaseArtifactChecks.every((item) => item.ok), `${artifactReport.releaseArtifactChecks.filter((item) => !item.ok).length} failed`),
+    check('source release provenance report is local no-provider', provenanceReport.mode === 'local_no_provider_release_artifact_hash_sbom_provenance', provenanceReport.mode),
+    check('source release provenance checks passed', provenanceReport.provenanceChecks.every((item) => item.ok), `${provenanceReport.provenanceChecks.filter((item) => !item.ok).length} failed`),
+    check('pack runs exited 0', packRuns.length === 2 && packRuns.every((run) => run.exitCode === 0), packRuns.map((run) => `${run.id}=${run.exitCode}`).join(',')),
+    check('pack runs generated matching file lists', fileListsMatch, `${first?.artifactFileCount ?? 0}/${second?.artifactFileCount ?? 0}`),
+    check('pack file list matches source dry-run report', sourceFileListMatches, (first?.fileList ?? []).join(',')),
+    check('pack runs generated matching tarball hashes', tarballHashesMatch, packRuns.map((run) => run.tarballSha256 ?? 'missing').join(',')),
+    check('npm shasums match', Boolean(first?.npmShasum && first.npmShasum === second?.npmShasum), packRuns.map((run) => run.npmShasum ?? 'missing').join(',')),
+    check('npm integrity values match', Boolean(first?.npmIntegrity && first.npmIntegrity === second?.npmIntegrity), packRuns.map((run) => run.npmIntegrity ?? 'missing').join(',')),
+    check('source provenance hashes cover package files', sourceHashesCoverFiles, `${provenanceReport.packageFileHashes.length} hashes`),
+    check('forbidden package files remain absent', artifactReport.forbiddenPackageFiles.length === 0, String(artifactReport.forbiddenPackageFiles.length)),
+    check('temporary tarballs were removed', temporaryTarballsRemoved, '.tmp-product-release-reproducibility'),
+    check('provider calls were not performed', artifactReport.providerCallsPerformed.length === 0 && provenanceReport.providerCallsPerformed.length === 0, '0'),
+    check('live model calls were not performed', artifactReport.liveModelCallsPerformed.length === 0 && provenanceReport.liveModelCallsPerformed.length === 0, '0'),
+    check('external calls were not performed', artifactReport.externalCallsPerformed.length === 0 && provenanceReport.externalCallsPerformed.length === 0, '0'),
+    check('publish was not attempted', artifactReport.publishAttempted === false && provenanceReport.publishAttempted === false, 'false'),
+    check('deploy was not attempted', artifactReport.deployAttempted === false && provenanceReport.deployAttempted === false, 'false'),
+    check('launch was not attempted', artifactReport.launchAttempted === false && provenanceReport.launchAttempted === false, 'false'),
+  ]
+
+  const report: ReleaseArtifactReproducibilityReport = {
+    generatedAt: new Date().toISOString(),
+    mode: 'local_no_provider_release_artifact_reproducibility',
+    providerCallsPerformed: [],
+    liveModelCallsPerformed: [],
+    externalCallsPerformed: [],
+    publishAttempted: false,
+    deployAttempted: false,
+    launchAttempted: false,
+    sourceReleaseArtifactReport: releaseArtifactReportPath,
+    sourceReleaseProvenanceReport: releaseProvenanceReportPath,
+    temporaryPackDirectory: '.tmp-product-release-reproducibility',
+    temporaryTarballsRemoved,
+    packRuns,
+    reproducibleTarballSha256: tarballHashesMatch ? first?.tarballSha256 ?? null : null,
+    reproducibilityChecks,
+    claimBoundary: 'Release artifact reproducibility verification is local package hash evidence only. It does not publish, deploy, launch, call providers, or claim release readiness.',
+  }
+
+  writeReports(report)
+
+  for (const item of reproducibilityChecks) {
+    console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
+  }
+
+  console.log('')
+  if (!reproducibilityChecks.every((item) => item.ok)) {
+    console.error('RESULT: FAIL')
+    process.exit(1)
+  }
+
+  console.log('RESULT: PASS')
+  console.log(`pack_run_count=${report.packRuns.length}`)
+  console.log(`reproducible_tarball_sha256=${report.reproducibleTarballSha256}`)
+  console.log(`temporary_tarballs_removed=${report.temporaryTarballsRemoved}`)
+  console.log(`publish_attempted=${report.publishAttempted}`)
+  console.log(`deploy_attempted=${report.deployAttempted}`)
+  console.log(`launch_attempted=${report.launchAttempted}`)
+  console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)
+  console.log(`live_model_calls_performed=${report.liveModelCallsPerformed.length}`)
+  console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)
+}
+
+main()

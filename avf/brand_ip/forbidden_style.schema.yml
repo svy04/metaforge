@@ -1,0 +1,21 @@
+# forbidden_style.schema.yml
+
+version: 1
+type: object
+required:
+  - forbidden_id
+  - blocked_style
+  - reason
+  - replacement
+properties:
+  forbidden_id:
+    type: string
+  blocked_style:
+    type: string
+  reason:
+    type: string
+  replacement:
+    type: string
+
+notes: |
+  Load this memory before image or asset generation.

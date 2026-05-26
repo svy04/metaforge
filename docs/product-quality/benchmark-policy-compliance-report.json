@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-05-21T09:48:41.186Z",
+  "mode": "local_no_provider_benchmark_policy_compliance",
+  "sourceBenchmarkSubmissionReadinessPath": "docs/product-quality/benchmark-submission-readiness-report.json",
+  "sourceBenchmarkSubmissionReadinessSha256": "44d6016901d9577b600ec8f49386f82d6f2ee1218d84d0ae042aac85ebe789b0",
+  "sourceExternalBenchmarkBoundaryPath": "docs/product-quality/external-benchmark-boundary-report.json",
+  "sourceExternalBenchmarkBoundarySha256": "5e371ea8f2ef97e19ec25c803449db2784d88787eadfb16376566c7c24d7c38d",
+  "sourceSubmissionAssetsJsonlPath": "reports/openclaude-benchmark-submission-assets.jsonl",
+  "sourceSubmissionAssetsJsonlSha256": "353df25d181b6a4fc9104f27d53a397260ddd2a6b54084357e2af269920afbbe",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "SWE-bench/experiments",
+      "sourceUrl": "https://github.com/swe-bench/experiments",
+      "observedPolicy": "SWE-bench Verified and Multilingual submissions are now constrained by open research publication, research affiliation, open-source methods, and peer-review expectations; leaderboard artifacts must remain reproducible and transparent."
+    },
+    {
+      "sourceProject": "SWE-bench/SWE-bench",
+      "sourceUrl": "https://github.com/swe-bench/SWE-bench",
+      "observedPolicy": "Benchmark execution and submission claims must remain separate from local readiness evidence until the external evaluation path is explicitly authorized."
+    }
+  ],
+  "policyComplianceJsonlPath": "reports/openclaude-benchmark-policy-compliance.jsonl",
+  "policyComplianceJsonlSha256": "79893d0140078916c7f5ae5bfb22276d188857ded96c4c450c849ac3e55a1bd4",
+  "policyItems": [
+    {
+      "policyItemId": "open_research_publication_or_technical_report",
+      "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
+      "status": "classified_unresolved_protected_or_owner_claim_required",
+      "currentLocalEvidence": "No arXiv preprint, technical report, or peer-reviewed publication artifact is present in local no-provider product-quality evidence.",
+      "requiredBeforeOfficialClaim": "Owner-provided publication evidence and explicit permission to cite it before any official SWE-bench Verified or Multilingual submission eligibility claim.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "academic_or_research_institution_affiliation",
+      "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
+      "status": "classified_unresolved_protected_or_owner_claim_required",
+      "currentLocalEvidence": "No academic institution or established research-lab affiliation evidence is present in local product-quality artifacts.",
+      "requiredBeforeOfficialClaim": "Explicit owner-provided affiliation evidence before any official SWE-bench Verified or Multilingual eligibility claim.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "open_source_methods",
+      "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
+      "status": "partial_local_evidence_only",
+      "currentLocalEvidence": "Local repo files, product-quality scripts, and evidence reports are present, but no official benchmark submission method disclosure package exists.",
+      "requiredBeforeOfficialClaim": "A complete owner-approved method disclosure package bound to an official benchmark submission, without adding release or public-readiness claims.",
+      "protectedActionRequiredToResolve": false,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "peer_reviewed_publication",
+      "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
+      "status": "classified_unresolved_protected_or_owner_claim_required",
+      "currentLocalEvidence": "No peer-reviewed publication evidence is present in this local no-provider gate.",
+      "requiredBeforeOfficialClaim": "Owner-provided peer-review or accepted publication evidence before any official eligibility claim that depends on it.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "official_submission_assets_complete",
+      "sourcePolicyScope": "SWE-bench experiments required submission assets",
+      "status": "classified_unresolved_protected_or_owner_claim_required",
+      "currentLocalEvidence": "11 submission assets are mapped locally, with 6 unresolved protected gaps.",
+      "requiredBeforeOfficialClaim": "Official external submission assets such as metadata, per-instance patch/test output, and verification instructions must be produced only after explicit authorization.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "official_leaderboard_pr_or_submission",
+      "sourcePolicyScope": "SWE-bench experiments leaderboard participation flow",
+      "status": "blocked_not_authorized",
+      "currentLocalEvidence": "No fork, official submission folder, external benchmark PR, or leaderboard request was created by this local gate.",
+      "requiredBeforeOfficialClaim": "Explicit owner authorization for external repository interaction and public result claims.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    },
+    {
+      "policyItemId": "multimodal_scope_not_inferred",
+      "sourcePolicyScope": "SWE-bench experiments policy note distinguishes Multimodal from Verified and Multilingual restrictions",
+      "status": "blocked_not_authorized",
+      "currentLocalEvidence": "This gate does not infer eligibility for any SWE-bench split, including Multimodal, from local readiness evidence.",
+      "requiredBeforeOfficialClaim": "Explicit owner decision on benchmark split, external dataset/runtime authorization, and claim boundary before any split-specific submission claim.",
+      "protectedActionRequiredToResolve": true,
+      "protectedActionExecuted": false,
+      "officialClaimAllowed": false
+    }
+  ],
+  "summary": {
+    "policyItemCount": 7,
+    "partialLocalEvidenceOnlyCount": 1,
+    "unresolvedProtectedOrOwnerClaimRequiredCount": 4,
+    "blockedNotAuthorizedCount": 2,
+    "officialSWEbenchVerifiedSubmissionEligible": false,
+    "officialSWEbenchVerifiedSubmissionClaimAllowed": false,
+    "officialLeaderboardClaimAllowed": false
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "dependencyInstallPerformed": false,
+  "officialBenchmarkSubmissionPerformed": false,
+  "externalBenchmarkExecutionPerformed": false,
+  "externalLeaderboardClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "policyComplianceChecks": [
+    {
+      "label": "benchmark submission readiness is imported",
+      "ok": true,
+      "detail": "local_no_provider_benchmark_submission_readiness"
+    },
+    {
+      "label": "external benchmark boundary is imported",
+      "ok": true,
+      "detail": "local_no_provider_external_benchmark_boundary"
+    },
+    {
+      "label": "submission readiness remains unofficial",
+      "ok": true,
+      "detail": "officialExternalSubmissionReady=false"
+    },
+    {
+      "label": "external benchmark execution remains unauthorized",
+      "ok": true,
+      "detail": "externalBenchmarkExecutionAuthorized=false"
+    },
+    {
+      "label": "policy items cover publication affiliation methods peer review assets and PR boundary",
+      "ok": true,
+      "detail": "7 policy items"
+    },
+    {
+      "label": "policy source date is preserved",
+      "ok": true,
+      "detail": "2025-11-18"
+    },
+    {
+      "label": "official eligibility and leaderboard claims remain blocked",
+      "ok": true,
+      "detail": "all official claims false"
+    },
+    {
+      "label": "protected policy gaps are not executed",
+      "ok": true,
+      "detail": "4 unresolved policy gaps"
+    },
+    {
+      "label": "policy JSONL hash is recorded",
+      "ok": true,
+      "detail": "reports/openclaude-benchmark-policy-compliance.jsonl"
+    },
+    {
+      "label": "no provider live external or protected actions occurred",
+      "ok": true,
+      "detail": "all call/action arrays empty"
+    }
+  ],
+  "claimBoundary": "Benchmark policy compliance is local no-provider claim-boundary evidence only. It does not create or claim official SWE-bench eligibility, external benchmark submission, leaderboard standing, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

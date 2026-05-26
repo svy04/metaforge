@@ -1,0 +1,251 @@
+{
+  "generatedAt": "2026-05-21T09:43:41.742Z",
+  "mode": "local_no_provider_benchmark_readiness_matrix",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalBenchmarkRunPerformed": false,
+  "externalBenchmarkResultClaimed": false,
+  "benchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
+  "benchmarkManifestSha256": "5e487d6998a3b030700c0e48ab9feb14a03ece1f81bd72c26e231523e2bf5736",
+  "benchmarkTaskCount": 16,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "SWE-bench/SWE-bench",
+      "sourceUrl": "https://github.com/swe-bench/SWE-bench",
+      "observedPattern": "GitHub issue resolving tasks are evaluated by reproducible harness runs and stored evaluation results."
+    },
+    {
+      "sourceProject": "OpenHands/benchmarks",
+      "sourceUrl": "https://github.com/OpenHands/benchmarks",
+      "observedPattern": "Benchmark runs preserve pinned SDK/workspace context, per-instance logs, tool-call summaries, and runtime boundaries."
+    },
+    {
+      "sourceProject": "OpenHands/trajectory-visualizer",
+      "sourceUrl": "https://github.com/OpenHands/trajectory-visualizer",
+      "observedPattern": "Trajectory artifacts should be portable and inspectable as action/observation timelines."
+    }
+  ],
+  "sourceEvidence": [
+    {
+      "path": "docs/product-quality/real-session-trace-evals-report.json",
+      "sha256": "27b158e14e7d3f4957106929dd71cf286738535b62cdfeb541dcb4aab55a1a18"
+    },
+    {
+      "path": "docs/product-quality/agent-replay-evals-report.json",
+      "sha256": "e1e8666be343b2935b6b3983683c53a301b818c08c1451145348c5f131093cb9"
+    },
+    {
+      "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
+      "sha256": "07e26f1bb500a98eed9f5476cb5858fc50eb9e1c2052e39726bf5bd3131eeb16"
+    },
+    {
+      "path": "docs/product-quality/release-artifact-reproducibility-report.json",
+      "sha256": "5759d098744fb078ecefa678016297b79509b1c69bc2221c648bbbc757f47fe5"
+    },
+    {
+      "path": "docs/product-quality/source-controlled-checks-report.json",
+      "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28"
+    },
+    {
+      "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
+      "sha256": "2887cfb1499e5440b11655e83dec4dad6c4342da40a0cc5d602cd5254662c993"
+    },
+    {
+      "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+      "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8"
+    }
+  ],
+  "readinessDimensions": [
+    {
+      "id": "task_instance_schema_alignment",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "SWE-bench task instances pair repository issue context with reproducible evaluation records.",
+      "localEvidence": [
+        "reports/openclaude-benchmark-task-manifest.jsonl",
+        "docs/product-quality/real-session-trace-evals-report.json"
+      ],
+      "remainingGap": "External SWE-bench execution is not performed in this no-provider gate.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "trajectory_artifact_alignment",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "OpenHands trajectory tooling preserves actions, observations, timestamps, and metadata for later review.",
+      "localEvidence": [
+        "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
+        "docs/product-quality/real-session-trace-evals-report.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json"
+      ],
+      "remainingGap": "Non-synthetic user IDE/workbench trajectory capture still requires explicit operator capture.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "replay_grading_alignment",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "Benchmark harnesses keep per-instance pass/fail summaries and logs distinct from final claims.",
+      "localEvidence": [
+        "docs/product-quality/agent-replay-evals-report.json"
+      ],
+      "remainingGap": "Real Extension Host and workbench replay remain blocked while VS Code update is in progress.",
+      "protectedActionRequiredForGap": false,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "reproducible_artifact_alignment",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "SWE-bench and OpenHands benchmarks emphasize reproducible environments and pinned artifacts.",
+      "localEvidence": [
+        "docs/product-quality/release-artifact-reproducibility-report.json"
+      ],
+      "remainingGap": "Signed release provenance remains blocked until a real Git/release boundary exists.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "publishable_summary_redaction",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "Trajectory review needs portable summaries without leaking raw credentials or provider payloads.",
+      "localEvidence": [
+        "docs/product-quality/trace-capture-redaction-policy-report.json"
+      ],
+      "remainingGap": "Raw non-synthetic capture quarantine remains a later operator-authorized workflow.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "source_controlled_gate_wiring",
+      "status": "ready_local_no_provider",
+      "primarySourcePattern": "Benchmark and CI workflows should be source-controlled and repeatable.",
+      "localEvidence": [
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "remainingGap": "Hosted CI run evidence remains blocked because this workspace is not a Git repository.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    },
+    {
+      "id": "external_benchmark_run_boundary",
+      "status": "classified_gap",
+      "primarySourcePattern": "SWE-bench and OpenHands benchmark runs require external datasets, containers, model/runtime configuration, or remote runtime access.",
+      "localEvidence": [
+        "docs/product-quality/benchmark-readiness-matrix.json"
+      ],
+      "remainingGap": "External benchmark execution is not authorized in this internal no-provider gate.",
+      "protectedActionRequiredForGap": true,
+      "protectedActionExecuted": false
+    }
+  ],
+  "unresolvedGaps": [
+    {
+      "id": "task_instance_schema_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "External SWE-bench execution is not performed in this no-provider gate."
+    },
+    {
+      "id": "trajectory_artifact_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Non-synthetic user IDE/workbench trajectory capture still requires explicit operator capture."
+    },
+    {
+      "id": "replay_grading_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": false,
+      "protectedActionExecuted": false,
+      "detail": "Real Extension Host and workbench replay remain blocked while VS Code update is in progress."
+    },
+    {
+      "id": "reproducible_artifact_alignment",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Signed release provenance remains blocked until a real Git/release boundary exists."
+    },
+    {
+      "id": "publishable_summary_redaction",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Raw non-synthetic capture quarantine remains a later operator-authorized workflow."
+    },
+    {
+      "id": "source_controlled_gate_wiring",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "Hosted CI run evidence remains blocked because this workspace is not a Git repository."
+    },
+    {
+      "id": "external_benchmark_run_boundary",
+      "status": "classified_unresolved",
+      "protectedActionRequired": true,
+      "protectedActionExecuted": false,
+      "detail": "External benchmark execution is not authorized in this internal no-provider gate."
+    }
+  ],
+  "benchmarkReadinessChecks": [
+    {
+      "label": "primary sources are GitHub repositories",
+      "ok": true,
+      "detail": "https://github.com/swe-bench/SWE-bench,https://github.com/OpenHands/benchmarks,https://github.com/OpenHands/trajectory-visualizer"
+    },
+    {
+      "label": "source evidence files are hashed",
+      "ok": true,
+      "detail": "7 files"
+    },
+    {
+      "label": "benchmark manifest was written",
+      "ok": true,
+      "detail": "16 tasks"
+    },
+    {
+      "label": "benchmark tasks do not claim external benchmark results",
+      "ok": true,
+      "detail": "externalBenchmarkResultClaimed=false"
+    },
+    {
+      "label": "benchmark tasks do not execute protected actions",
+      "ok": true,
+      "detail": "protectedActionExecuted=false"
+    },
+    {
+      "label": "source reports performed no provider/live/external calls",
+      "ok": true,
+      "detail": "all source reports call counts are zero"
+    },
+    {
+      "label": "prompted tool-loop trace is included",
+      "ok": true,
+      "detail": "reports/orchestra-prompted-tool-loop-local-cli.jsonl"
+    },
+    {
+      "label": "terminal failure recovery transcripts are included",
+      "ok": true,
+      "detail": "docs/product-quality/terminal-failure-recovery-transcripts-report.json"
+    },
+    {
+      "label": "readiness dimensions cover benchmark contract",
+      "ok": true,
+      "detail": "task_instance_schema_alignment,trajectory_artifact_alignment,replay_grading_alignment,reproducible_artifact_alignment,publishable_summary_redaction,source_controlled_gate_wiring,external_benchmark_run_boundary"
+    },
+    {
+      "label": "unresolved gaps are classified without execution",
+      "ok": true,
+      "detail": "7 gaps"
+    },
+    {
+      "label": "external benchmark run remains blocked",
+      "ok": true,
+      "detail": "externalBenchmarkRunPerformed=false"
+    }
+  ],
+  "claimBoundary": "Benchmark readiness is internal local no-provider evidence only. It does not run or claim SWE-bench/OpenHands benchmark results, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

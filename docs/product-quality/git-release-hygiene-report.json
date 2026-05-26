@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-05-21T08:40:26.108Z",
+  "mode": "local_no_provider_git_release_hygiene",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "workspaceGitStatus": "blocked_by_no_git_repo",
+  "repoRoot": null,
+  "commitPushAttempted": false,
+  "releaseActionPerformed": false,
+  "protectedActionsPerformed": [],
+  "gitCommands": [
+    {
+      "name": "repo_root",
+      "command": [
+        "git",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "exitCode": 128,
+      "stdoutPreview": [],
+      "stderrPreview": [
+        "fatal: not a git repository (or any of the parent directories): .git"
+      ]
+    },
+    {
+      "name": "status_short",
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exitCode": 128,
+      "stdoutPreview": [],
+      "stderrPreview": [
+        "fatal: not a git repository (or any of the parent directories): .git"
+      ]
+    },
+    {
+      "name": "remote_verbose",
+      "command": [
+        "git",
+        "remote",
+        "-v"
+      ],
+      "exitCode": 128,
+      "stdoutPreview": [],
+      "stderrPreview": [
+        "fatal: not a git repository (or any of the parent directories): .git"
+      ]
+    }
+  ],
+  "releaseHygieneChecks": [
+    {
+      "label": "git root command was classified",
+      "ok": true,
+      "detail": "blocked_by_no_git_repo"
+    },
+    {
+      "label": "no commit or push was attempted",
+      "ok": true,
+      "detail": "script only runs rev-parse, status, and remote inspection"
+    },
+    {
+      "label": "no release action was performed",
+      "ok": true,
+      "detail": "script does not run npm publish, deploy, launch, commit, or push commands"
+    },
+    {
+      "label": "package repository metadata exists",
+      "ok": true,
+      "detail": "https://github.com/Gitlawb/openclaude.git"
+    },
+    {
+      "label": "package bin exposes openclaude",
+      "ok": true,
+      "detail": "./bin/openclaude"
+    },
+    {
+      "label": "package file list includes built CLI",
+      "ok": true,
+      "detail": "bin/openclaude, bin/openclaude.cmd, dist/cli.mjs, README.md"
+    },
+    {
+      "label": "package file list includes Unix launcher",
+      "ok": true,
+      "detail": "bin/openclaude, bin/openclaude.cmd, dist/cli.mjs, README.md"
+    },
+    {
+      "label": "package file list includes Windows launcher",
+      "ok": true,
+      "detail": "bin/openclaude, bin/openclaude.cmd, dist/cli.mjs, README.md"
+    },
+    {
+      "label": "package file list includes README",
+      "ok": true,
+      "detail": "bin/openclaude, bin/openclaude.cmd, dist/cli.mjs, README.md"
+    },
+    {
+      "label": "prepack rebuilds package artifact",
+      "ok": true,
+      "detail": "npm run build"
+    },
+    {
+      "label": "publish config is explicit",
+      "ok": true,
+      "detail": "public"
+    },
+    {
+      "label": "non-repo workspace is recorded as blocked instead of ignored",
+      "ok": true,
+      "detail": "blocked_by_no_git_repo"
+    }
+  ],
+  "claimBoundary": "Git release hygiene verifies local repo/package release surfaces only. It does not commit, push, publish, deploy, launch, or claim release readiness."
+}

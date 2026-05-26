@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-05-21T08:54:54.181Z",
+  "mode": "local_no_provider_tool_interruption_recovery_trace_capture",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "operatorAuthorization": {
+    "authorized": true,
+    "scope": "operator_authorized_local_no_provider_tool_interruption_recovery_trace_capture_only",
+    "protectedActionsAuthorized": false
+  },
+  "capturePerformed": true,
+  "nonSyntheticUserSessionClaimed": false,
+  "fixtureRoot": "_fixtures/product-tool-interruption-recovery-trace",
+  "tracePath": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
+  "sourceBeforeSha256": "518baac46ab5512e547c4ff66955ca9497b114c887afb99b5d6f2100f127d4c3",
+  "interruptedObservationSha256": "ed1bf3c83b6d0ab3458c6781d6e9b06b250f3215789a7803c2120fa3b5345dc8",
+  "recoveredSourceSha256": "518baac46ab5512e547c4ff66955ca9497b114c887afb99b5d6f2100f127d4c3",
+  "outputSha256": "8ce2a0e4a9f82e374673ce0a222c0817437c724a612b95735000bee74bfaf01f",
+  "interruptionDetected": true,
+  "recoveryApplied": true,
+  "finalVerificationPassed": true,
+  "modifiedFixtureFiles": [
+    "_fixtures/product-tool-interruption-recovery-trace/task-manifest.json",
+    "_fixtures/product-tool-interruption-recovery-trace/interrupted-observation.txt",
+    "_fixtures/product-tool-interruption-recovery-trace/recovered-summary.json"
+  ],
+  "protectedRepoFilesModified": [],
+  "interruptionRecoveryCheck": {
+    "interruptedToolStepCount": 1,
+    "recoveredToolStepCount": 1,
+    "invariantViolationCount": 1,
+    "testCaseCount": 5,
+    "passed": true
+  },
+  "primarySourceInputs": [
+    {
+      "sourceProject": "SWE-agent trajectory documentation",
+      "sourceUrl": "https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md",
+      "observedPattern": "Software-engineering agent trajectories preserve thought, action, observation, state, and query records for every step.",
+      "localAbsorption": "OpenClaude records the interrupted observation, recovery action, and final verification as parseable local JSONL trace events."
+    },
+    {
+      "sourceProject": "microsoft/AgentRx",
+      "sourceUrl": "https://github.com/microsoft/AgentRx",
+      "observedPattern": "Agent failure diagnosis normalizes raw logs, checks invariants, and emits auditable violation evidence before root-cause classification.",
+      "localAbsorption": "OpenClaude records a tool_observation_truncated_json invariant violation and bounded reread recovery before trusting the tool result."
+    },
+    {
+      "sourceProject": "TRAJEVAL",
+      "sourceUrl": "https://arxiv.org/abs/2603.24631",
+      "observedPattern": "Outcome-only benchmark results hide where an agent failed; trajectory diagnosis should expose mechanism-level stages.",
+      "localAbsorption": "OpenClaude labels exploration, orchestration, implementation, and verification phases in the interruption-recovery trace."
+    },
+    {
+      "sourceProject": "AgentLens",
+      "sourceUrl": "https://arxiv.org/abs/2605.12925",
+      "observedPattern": "Passing outcomes can hide low-quality processes such as blind retries, missing verification, and disordered execution.",
+      "localAbsorption": "OpenClaude makes recovery explicit and requires final verification so the passing trace is inspectable as process evidence."
+    }
+  ],
+  "traceSha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
+  "traceChecks": [
+    {
+      "label": "operator authorization is bounded to local no-provider trace capture",
+      "ok": true,
+      "detail": "operator_authorized_local_no_provider_tool_interruption_recovery_trace_capture_only"
+    },
+    {
+      "label": "interrupted tool output was detected before trust",
+      "ok": true,
+      "detail": "interrupted=true"
+    },
+    {
+      "label": "one invariant violation is recorded for the interrupted observation",
+      "ok": true,
+      "detail": "1 violations"
+    },
+    {
+      "label": "recovery rereads the bounded fixture and writes fixture-only summary",
+      "ok": true,
+      "detail": "_fixtures/product-tool-interruption-recovery-trace/task-manifest.json,_fixtures/product-tool-interruption-recovery-trace/interrupted-observation.txt,_fixtures/product-tool-interruption-recovery-trace/recovered-summary.json"
+    },
+    {
+      "label": "trace contains failed interruption and succeeded terminal recovery",
+      "ok": true,
+      "detail": "started -> started -> succeeded -> failed -> succeeded -> succeeded -> succeeded -> succeeded -> succeeded"
+    },
+    {
+      "label": "trace events are enriched with event names and trace context",
+      "ok": true,
+      "detail": "9 events"
+    },
+    {
+      "label": "all required process phases are represented",
+      "ok": true,
+      "detail": "orchestration,orchestration,exploration,exploration,orchestration,exploration,implementation,verification,orchestration"
+    },
+    {
+      "label": "protected repo files remain untouched",
+      "ok": true,
+      "detail": "protectedRepoFilesModified=0"
+    },
+    {
+      "label": "no provider live model or external calls occurred",
+      "ok": true,
+      "detail": "all call arrays empty"
+    }
+  ],
+  "claimBoundary": "Tool-interruption recovery trace capture is local no-provider fixture evidence only. It does not call providers, live models, external services, mutate protected repositories, publish, deploy, launch, or authorize release, production, public, external-validation, benchmark-superiority, or autonomous-reliability claims."
+}

@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-05-21T08:40:14.331Z",
+  "mode": "local_no_provider_community_profile_quality",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Docs healthy contributions",
+      "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions",
+      "observedPattern": "Healthy open-source contribution surfaces include community profile files such as code of conduct, contributor guidelines, license, and support resources.",
+      "localAbsorption": "OpenClaude now verifies community profile files as local no-provider product-quality evidence."
+    },
+    {
+      "sourceProject": "GitHub Docs contributor guidelines",
+      "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors",
+      "observedPattern": "Contributor guidelines help contributors open useful issues and well-formed pull requests.",
+      "localAbsorption": "CONTRIBUTING.md now includes support routing, code of conduct links, privacy, validation, product-quality, primary-source, and protected-claim expectations."
+    },
+    {
+      "sourceProject": "GitHub Docs support resources",
+      "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project",
+      "observedPattern": "A SUPPORT file gives people a clear path for getting help and can be linked from the README.",
+      "localAbsorption": "SUPPORT.md now routes discussions, issues, security reports, contribution guidance, and privacy/safety boundaries."
+    },
+    {
+      "sourceProject": "GitHub Docs code of conduct",
+      "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project",
+      "observedPattern": "A code of conduct communicates community standards and enforcement expectations.",
+      "localAbsorption": "OpenClaude verifies the existing Contributor Covenant code of conduct is present and linked into contributor/support flows."
+    },
+    {
+      "sourceProject": "GitHub Docs licensing",
+      "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "observedPattern": "Public repositories should make license status clear so reuse and contribution boundaries are not implicit.",
+      "localAbsorption": "OpenClaude verifies LICENSE exists and preserves the derivative-code notice boundary in local community-profile evidence."
+    }
+  ],
+  "sourceProfilePaths": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "SUPPORT.md",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "sourceProfileSha256": {
+    "README.md": "202d888ddfdb82836fe28613392fa66e058ec3d1e599e5c356063c0f4004428e",
+    "CONTRIBUTING.md": "66d54bdfa23260ede4c56ec48ac3efa949225299d7753a2be0e991a4bfb2f148",
+    "SUPPORT.md": "f558771ab75a69dd61b5c1ea0c0b7ee7834be3cf4e8d93aff3f45e72ddcc8977",
+    "CODE_OF_CONDUCT.md": "f55d62440ba30f3f1311efa702a42e30bef1f6f6a334744f342ed5c254d0ce9e",
+    "SECURITY.md": "617f9f41b7aa92d15809e8db798ef602faef36a66f691ac7833bfb83c67e9588",
+    "LICENSE": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061"
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalCommunityProfileCheckPerformed": false,
+  "readmeLinksCommunityFiles": true,
+  "contributing": {
+    "path": "CONTRIBUTING.md",
+    "sha256": "66d54bdfa23260ede4c56ec48ac3efa949225299d7753a2be0e991a4bfb2f148",
+    "requiredTermsPresent": [
+      "SUPPORT.md",
+      "CODE_OF_CONDUCT.md",
+      "bun run verify:privacy",
+      "bun run product:quality",
+      "primary sources",
+      "claim boundaries",
+      "provider-backed execution",
+      "protected repo mutation"
+    ]
+  },
+  "support": {
+    "path": "SUPPORT.md",
+    "sha256": "f558771ab75a69dd61b5c1ea0c0b7ee7834be3cf4e8d93aff3f45e72ddcc8977",
+    "requiredTermsPresent": [
+      "GitHub Discussions",
+      "GitHub Issues",
+      "SECURITY.md",
+      "CONTRIBUTING.md",
+      "CODE_OF_CONDUCT.md",
+      "redacted",
+      "raw user/session payloads",
+      "release readiness",
+      "provider-backed execution claims"
+    ]
+  },
+  "codeOfConduct": {
+    "path": "CODE_OF_CONDUCT.md",
+    "sha256": "f55d62440ba30f3f1311efa702a42e30bef1f6f6a334744f342ed5c254d0ce9e",
+    "requiredTermsPresent": [
+      "Contributor Covenant",
+      "Our Pledge",
+      "Our Standards",
+      "Enforcement",
+      "Scope",
+      "privacy and security"
+    ]
+  },
+  "security": {
+    "path": "SECURITY.md",
+    "sha256": "617f9f41b7aa92d15809e8db798ef602faef36a66f691ac7833bfb83c67e9588",
+    "requiredTermsPresent": [
+      "Supported Versions",
+      "Reporting a Vulnerability",
+      "GitHub Security Advisories",
+      "Response Process",
+      "Disclosure and CVEs",
+      "Scope"
+    ]
+  },
+  "license": {
+    "path": "LICENSE",
+    "sha256": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061",
+    "requiredTermsPresent": [
+      "NOTICE",
+      "MIT License",
+      "Anthropic",
+      "modifications only",
+      "underlying derived code remains subject"
+    ]
+  },
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "claimBoundary": "Community profile quality evidence only; this does not authorize release, production, public, external-validation, provider-backed, live-model, or autonomous-reliability claims.",
+  "communityProfileChecks": [
+    {
+      "label": "all community profile files exist",
+      "ok": true,
+      "detail": "README.md,CONTRIBUTING.md,SUPPORT.md,CODE_OF_CONDUCT.md,SECURITY.md,LICENSE"
+    },
+    {
+      "label": "README links community profile files",
+      "ok": true,
+      "detail": "CONTRIBUTING.md,SUPPORT.md,CODE_OF_CONDUCT.md,SECURITY.md,LICENSE"
+    },
+    {
+      "label": "contributing guidelines cover validation evidence and claim boundaries",
+      "ok": true,
+      "detail": "8/8 terms"
+    },
+    {
+      "label": "support resources route help security contribution and privacy boundaries",
+      "ok": true,
+      "detail": "9/9 terms"
+    },
+    {
+      "label": "code of conduct includes standards scope enforcement and privacy",
+      "ok": true,
+      "detail": "6/6 terms"
+    },
+    {
+      "label": "security policy covers version reporting response disclosure and scope",
+      "ok": true,
+      "detail": "6/6 terms"
+    },
+    {
+      "label": "license notice preserves modification and derivative-code boundary",
+      "ok": true,
+      "detail": "5/5 terms"
+    },
+    {
+      "label": "primary-source inputs are official GitHub documentation",
+      "ok": true,
+      "detail": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions,https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors,https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project,https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project,https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository"
+    },
+    {
+      "label": "external community profile check remains blocked",
+      "ok": true,
+      "detail": "local file validation only"
+    },
+    {
+      "label": "provider live external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "readiness and reliability claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ]
+}

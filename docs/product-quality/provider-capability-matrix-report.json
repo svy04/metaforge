@@ -1,0 +1,973 @@
+{
+  "generatedAt": "2026-05-21T08:46:39.995Z",
+  "mode": "local_no_provider_provider_capability_matrix",
+  "sourceProviderCompatibilityReportPath": "docs/product-quality/provider-compatibility-fixtures.json",
+  "sourceProviderCompatibilityReportSha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
+  "sourceRuntimeDoctorReportPath": "docs/product-quality/runtime-doctor-regression-fixtures.json",
+  "sourceRuntimeDoctorReportSha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
+  "sourceOssAxisArchitectureReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
+  "sourceOssAxisArchitectureReportSha256": "c62b580ec4ce9072fa117eb607e14d27dfc5af9af08b64e01fe953367000e2cf",
+  "directProviderFlagCount": 10,
+  "providerPresetDefaultCount": 18,
+  "productDescriptionProviders": [
+    "openai",
+    "gemini",
+    "deepseek",
+    "ollama"
+  ],
+  "capabilityRowCount": 21,
+  "localNoKeyProviderCount": 4,
+  "openAiCompatibleSurfaceCount": 15,
+  "failureModeCount": 5,
+  "failureModeIds": [
+    "provider_key_missing",
+    "local_runtime_unavailable",
+    "provider_reachability_skipped",
+    "profile_direct_surface_drift",
+    "live_model_authorization_missing"
+  ],
+  "provenanceJsonlPath": "reports/openclaude-provider-capability-matrix.jsonl",
+  "provenanceJsonlSha256": "b525ae40ef4acbecfddcb174441fbccd9ebd29da43e791fd57361a977a02a840",
+  "provenanceJsonlRecordCount": 26,
+  "provenanceJsonlParseable": true,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "providerBackedExecutionClaimAllowed": false,
+  "providerCompatibilityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenAI API Reference",
+      "sourceUrl": "https://platform.openai.com/docs/api-reference",
+      "observedPattern": "Provider-compatible products should keep base URL, model, and credential requirements explicit rather than treating configuration as successful execution.",
+      "localAbsorption": "OpenClaude records provider preset capabilities separately from provider-backed execution and keeps live validation blocked until explicit authorization exists."
+    },
+    {
+      "sourceProject": "OpenTelemetry Logs Data Model",
+      "sourceUrl": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
+      "observedPattern": "Operational evidence is stronger when capability and failure-mode events are represented as structured, queryable records.",
+      "localAbsorption": "OpenClaude writes provider capability and failure-mode records as parseable JSONL with stable digests."
+    },
+    {
+      "sourceProject": "SLSA Build Provenance",
+      "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observedPattern": "Evidence packages should identify source materials and keep derived claims bound to those materials.",
+      "localAbsorption": "OpenClaude records hashes for provider compatibility, runtime doctor, and OSS axis review source reports."
+    }
+  ],
+  "capabilityRows": [
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:anthropic",
+      "sourceSurface": "profile_preset",
+      "provider": "anthropic",
+      "preset": "anthropic",
+      "name": "Anthropic",
+      "baseUrl": "https://api.anthropic.com",
+      "baseUrlCategory": "remote_https",
+      "model": "claude-sonnet-4-6",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "51e2b42742ea0fedc2fbadda6dea779a3cea19d23e4860b30cbe3116d702026d"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:atomic-chat",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "atomic-chat",
+      "name": "Atomic Chat",
+      "baseUrl": "http://127.0.0.1:1337/v1",
+      "baseUrlCategory": "local_loopback",
+      "model": "local-model",
+      "requiresApiKey": false,
+      "noApiKeyLocalCandidate": true,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": true,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "local_no_key_configured_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "f4f66f447df2dfddd8298fc633605b58d5e72e7d0fd9ed27b194c57796eac215"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:azure-openai",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "azure-openai",
+      "name": "Azure OpenAI",
+      "baseUrl": "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1",
+      "baseUrlCategory": "placeholder_remote",
+      "model": "YOUR-DEPLOYMENT-NAME",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "placeholder_configuration_requires_owner_setup",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "6429570f56da7f09a19bde889544814839326d15f9fc2ab56854c64b74829b69"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:custom",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "custom",
+      "name": "Custom OpenAI-compatible",
+      "baseUrl": "http://localhost:11434/v1",
+      "baseUrlCategory": "local_loopback",
+      "model": "llama3.1:8b",
+      "requiresApiKey": false,
+      "noApiKeyLocalCandidate": true,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "local_no_key_configured_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "b56818f2e5732b04cc02b2f37db812fd83d23fe3ca8bf12172da202117121efa"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:dashscope-cn",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "dashscope-cn",
+      "name": "Alibaba Coding Plan (China)",
+      "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "qwen3.6-plus",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "1f94f6312e55c648ab27e4e8a07f86ee5ea42ed72c4413b8819640d48686b7f9"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:dashscope-intl",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "dashscope-intl",
+      "name": "Alibaba Coding Plan",
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "qwen3.6-plus",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "a2a80103700961beb655732dde8badbf12eb2f8899dcc1457d7037414c79b3dc"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:deepseek",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "deepseek",
+      "name": "DeepSeek",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "deepseek-chat",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "cc7f76c957750387cf78392ce13d5d51531e053fa940c83052a213c4652c68bb"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:gemini",
+      "sourceSurface": "profile_preset",
+      "provider": "gemini",
+      "preset": "gemini",
+      "name": "Google Gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "baseUrlCategory": "remote_https",
+      "model": "gemini-3-flash-preview",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": true,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "4536c79f1a27498f36273a9cb03ba03e3d5825721a29d94c40bd23e45543dd14"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:groq",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "groq",
+      "name": "Groq",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "llama-3.3-70b-versatile",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "b4bfd6c4522b6a9c7399fe08bb003144d5b0f0ee655dc376fb7d478718d801aa"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:lmstudio",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "lmstudio",
+      "name": "LM Studio",
+      "baseUrl": "http://localhost:1234/v1",
+      "baseUrlCategory": "local_loopback",
+      "model": "local-model",
+      "requiresApiKey": false,
+      "noApiKeyLocalCandidate": true,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "local_no_key_configured_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "14febdacb45a80dedd7594cd57c6c0e0da021b98e96d7f6dec58078f32bde16c"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:minimax",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "minimax",
+      "name": "MiniMax",
+      "baseUrl": "https://api.minimax.io/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "MiniMax-M2.5",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "0fd50e01752a9ea6d2207477b9054bdb4ac3c1228f7533f01a612dffb3d23a9e"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:mistral",
+      "sourceSurface": "profile_preset",
+      "provider": "mistral",
+      "preset": "mistral",
+      "name": "Mistral",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "devstral-latest",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "da3dc62a297ac597155bef62e69d9917ec627d20cb00ba2547922cce672e30ad"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:moonshotai",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "moonshotai",
+      "name": "Moonshot AI",
+      "baseUrl": "https://api.moonshot.ai/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "kimi-k2.5",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "03ea3c570ef4dca4a07cf7437a9cc6186e9e9fc2c22efdf0636a4477d1776e0c"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:nvidia-nim",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "nvidia-nim",
+      "name": "NVIDIA NIM",
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "a7b513f90cadd28f6b458d9221bac56b85e0a0709f71e57891b48a4d0742a5a6"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:ollama",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "ollama",
+      "name": "Ollama",
+      "baseUrl": "http://localhost:11434/v1",
+      "baseUrlCategory": "local_loopback",
+      "model": "llama3.1:8b",
+      "requiresApiKey": false,
+      "noApiKeyLocalCandidate": true,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": true,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "local_no_key_configured_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "a704fa9f5f1dc4ecf8f17f410c53036de272e1e56a6a7b0cbca9271872eca90d"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:openai",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "openai",
+      "name": "OpenAI",
+      "baseUrl": "https://api.openai.com/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "gpt-5.3-codex",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": true,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "54c1b9e3cf88a337bcd6a3987cec90a9c57b571c2c757eff849273690634c566"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:openrouter",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "openrouter",
+      "name": "OpenRouter",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "openai/gpt-5-mini",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "1098a35a4106b16a1443de2c0e251ba3ba8f63014fe0fd696499a70dcc0a60dc"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "preset:together",
+      "sourceSurface": "profile_preset",
+      "provider": "openai",
+      "preset": "together",
+      "name": "Together AI",
+      "baseUrl": "https://api.together.xyz/v1",
+      "baseUrlCategory": "remote_https",
+      "model": "Qwen/Qwen3.5-9B",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": true,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": true,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "remote_key_required_unvalidated",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "10fb0f94014fea73d42f174bf917ddf13354ed0dda749751b1aec0973392e635"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "direct:github",
+      "sourceSurface": "direct_only_flag",
+      "provider": "github",
+      "preset": null,
+      "name": "github",
+      "baseUrl": "not_configured_in_profile_preset",
+      "baseUrlCategory": "not_configured",
+      "model": "not_configured_in_profile_preset",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": false,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "direct_flag_without_profile_preset",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "6a89f8d031740a1bf887d89f2cf3b26dc174aeb5a8e16cb3e282e837245bba27"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "direct:bedrock",
+      "sourceSurface": "direct_only_flag",
+      "provider": "bedrock",
+      "preset": null,
+      "name": "bedrock",
+      "baseUrl": "not_configured_in_profile_preset",
+      "baseUrlCategory": "not_configured",
+      "model": "not_configured_in_profile_preset",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": false,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "direct_flag_without_profile_preset",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "455b6613804c28e5b11a715a442dbdb3ab42e28284ce45ac5a27731c9295ce8a"
+    },
+    {
+      "schemaVersion": "openclaude_provider_capability_matrix_v1",
+      "surfaceId": "direct:vertex",
+      "sourceSurface": "direct_only_flag",
+      "provider": "vertex",
+      "preset": null,
+      "name": "vertex",
+      "baseUrl": "not_configured_in_profile_preset",
+      "baseUrlCategory": "not_configured",
+      "model": "not_configured_in_profile_preset",
+      "requiresApiKey": true,
+      "noApiKeyLocalCandidate": false,
+      "openAiCompatibleTransport": false,
+      "directFlagAvailable": true,
+      "profilePresetAvailable": false,
+      "launchScriptAvailable": false,
+      "localEvidencePaths": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "runtimeDoctorEvidence": [
+        "provider mode summary",
+        "provider reachability skip when provider mode is disabled",
+        "provider generation readiness skip when provider mode is disabled",
+        "Ollama processor mode skip when OpenAI-compatible mode is disabled"
+      ],
+      "capabilityStatus": "direct_flag_without_profile_preset",
+      "liveValidationStatus": "not_executed_requires_explicit_authorization",
+      "providerBackedExecutionClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "claimAllowed": false,
+      "recordDigest": "a4eff57dbec9b05300747a03038d39dc186cd85590fc41cef0b30e0e26dce3a8"
+    }
+  ],
+  "failureModeRows": [
+    {
+      "schemaVersion": "openclaude_provider_failure_mode_matrix_v1",
+      "failureModeId": "provider_key_missing",
+      "blockedStatus": "blocked_until_explicit_authorization_or_local_runtime_available",
+      "affectedSurfaceIds": [
+        "preset:anthropic",
+        "preset:azure-openai",
+        "preset:dashscope-cn",
+        "preset:dashscope-intl",
+        "preset:deepseek",
+        "preset:gemini",
+        "preset:groq",
+        "preset:minimax",
+        "preset:mistral",
+        "preset:moonshotai",
+        "preset:nvidia-nim",
+        "preset:openai",
+        "preset:openrouter",
+        "preset:together",
+        "direct:github",
+        "direct:bedrock",
+        "direct:vertex"
+      ],
+      "currentEvidence": [
+        "docs/product-quality/provider-compatibility-fixtures.json"
+      ],
+      "requiredAuthorization": "explicit operator authorization to configure credentials and perform provider-backed validation",
+      "forbiddenShortcut": "do not infer provider compatibility from a preset that requires an API key",
+      "validationMethod": "rerun provider compatibility plus an explicit live-provider gate after authorization",
+      "claimAllowed": false,
+      "recordDigest": "de6ea1f1b0711eaeb1001fb0288d8c8ff07ccce96bfd92e049c65bc47a733671"
+    },
+    {
+      "schemaVersion": "openclaude_provider_failure_mode_matrix_v1",
+      "failureModeId": "local_runtime_unavailable",
+      "blockedStatus": "blocked_until_explicit_authorization_or_local_runtime_available",
+      "affectedSurfaceIds": [
+        "preset:atomic-chat",
+        "preset:custom",
+        "preset:lmstudio",
+        "preset:ollama"
+      ],
+      "currentEvidence": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "requiredAuthorization": "operator-provided local runtime evidence for Ollama, LM Studio, Atomic Chat, or custom loopback providers",
+      "forbiddenShortcut": "do not treat a loopback base URL as proof that the local runtime is running",
+      "validationMethod": "add an explicit no-network local runtime availability gate before live generation claims",
+      "claimAllowed": false,
+      "recordDigest": "54fc3e761b23080bb0057c12003a73ef470769a76f90b7bdd9d4f28cbb50402e"
+    },
+    {
+      "schemaVersion": "openclaude_provider_failure_mode_matrix_v1",
+      "failureModeId": "provider_reachability_skipped",
+      "blockedStatus": "blocked_until_explicit_authorization_or_local_runtime_available",
+      "affectedSurfaceIds": [
+        "preset:anthropic",
+        "preset:atomic-chat",
+        "preset:azure-openai",
+        "preset:custom",
+        "preset:dashscope-cn",
+        "preset:dashscope-intl",
+        "preset:deepseek",
+        "preset:gemini",
+        "preset:groq",
+        "preset:lmstudio",
+        "preset:minimax",
+        "preset:mistral",
+        "preset:moonshotai",
+        "preset:nvidia-nim",
+        "preset:ollama",
+        "preset:openai",
+        "preset:openrouter",
+        "preset:together",
+        "direct:github",
+        "direct:bedrock",
+        "direct:vertex"
+      ],
+      "currentEvidence": [
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "requiredAuthorization": "explicit provider or local-runtime reachability authorization",
+      "forbiddenShortcut": "do not convert runtime doctor skipped reachability into successful provider reachability",
+      "validationMethod": "verify runtime doctor reports provider reachability executed and passed under an authorized provider mode",
+      "claimAllowed": false,
+      "recordDigest": "0280979e6b7508139ac6a87a77f88cd7db3fd8edafa5579534c6d5ee99f9b00b"
+    },
+    {
+      "schemaVersion": "openclaude_provider_failure_mode_matrix_v1",
+      "failureModeId": "profile_direct_surface_drift",
+      "blockedStatus": "blocked_until_explicit_authorization_or_local_runtime_available",
+      "affectedSurfaceIds": [
+        "direct:github",
+        "direct:bedrock",
+        "direct:vertex"
+      ],
+      "currentEvidence": [
+        "docs/product-quality/provider-compatibility-fixtures.json"
+      ],
+      "requiredAuthorization": "bounded product decision on whether direct-only flags require profile presets or explicit documentation",
+      "forbiddenShortcut": "do not hide direct-only provider flags behind the general provider-breadth claim",
+      "validationMethod": "verify profileOnlyPresets=0 and directOnlyFlags=3 remain classified",
+      "claimAllowed": false,
+      "recordDigest": "2f42d075f894e81c9bb1a0d9e4b8d927329b12bc9e2b21d6f9fa948660d54dd0"
+    },
+    {
+      "schemaVersion": "openclaude_provider_failure_mode_matrix_v1",
+      "failureModeId": "live_model_authorization_missing",
+      "blockedStatus": "blocked_until_explicit_authorization_or_local_runtime_available",
+      "affectedSurfaceIds": [
+        "preset:anthropic",
+        "preset:atomic-chat",
+        "preset:azure-openai",
+        "preset:custom",
+        "preset:dashscope-cn",
+        "preset:dashscope-intl",
+        "preset:deepseek",
+        "preset:gemini",
+        "preset:groq",
+        "preset:lmstudio",
+        "preset:minimax",
+        "preset:mistral",
+        "preset:moonshotai",
+        "preset:nvidia-nim",
+        "preset:ollama",
+        "preset:openai",
+        "preset:openrouter",
+        "preset:together",
+        "direct:github",
+        "direct:bedrock",
+        "direct:vertex"
+      ],
+      "currentEvidence": [
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/oss-axis-architecture-review-report.json"
+      ],
+      "requiredAuthorization": "explicit live-model authorization before provider-backed execution or external validation",
+      "forbiddenShortcut": "do not claim provider-backed execution, external validation, release readiness, production readiness, or autonomous reliability from local fixtures",
+      "validationMethod": "run a separate authorized live-model validation gate with sanitized outputs and claim boundaries",
+      "claimAllowed": false,
+      "recordDigest": "4385c2e1de7b55d23e2aec552b036cb77f3b343d4647767b510ebfbb05c10854"
+    }
+  ],
+  "capabilityChecks": [
+    {
+      "label": "provider compatibility source is local no-provider and passed",
+      "ok": true,
+      "detail": "docs/product-quality/provider-compatibility-fixtures.json"
+    },
+    {
+      "label": "runtime doctor source is local no-provider and passed",
+      "ok": true,
+      "detail": "docs/product-quality/runtime-doctor-regression-fixtures.json"
+    },
+    {
+      "label": "OSS axis review requested provider capability backlog",
+      "ok": true,
+      "detail": "6 provider backlog items"
+    },
+    {
+      "label": "direct provider flags and preset defaults are fully represented",
+      "ok": true,
+      "detail": "10 direct flags/18 presets/21 rows"
+    },
+    {
+      "label": "product description providers are covered by capability rows",
+      "ok": true,
+      "detail": "openai,gemini,deepseek,ollama"
+    },
+    {
+      "label": "local no-key providers remain explicit and unvalidated",
+      "ok": true,
+      "detail": "preset:atomic-chat,preset:custom,preset:lmstudio,preset:ollama"
+    },
+    {
+      "label": "OpenAI-compatible profile surfaces are classified",
+      "ok": true,
+      "detail": "15 openai-compatible rows"
+    },
+    {
+      "label": "runtime doctor keeps provider reachability and generation skipped",
+      "ok": true,
+      "detail": "OpenAI-compatible mode disabled"
+    },
+    {
+      "label": "required failure modes are present exactly once",
+      "ok": true,
+      "detail": "provider_key_missing,local_runtime_unavailable,provider_reachability_skipped,profile_direct_surface_drift,live_model_authorization_missing"
+    },
+    {
+      "label": "failure modes block shortcuts and claims",
+      "ok": true,
+      "detail": "5 failure modes"
+    },
+    {
+      "label": "capability rows block provider-backed and external claims",
+      "ok": true,
+      "detail": "21 rows"
+    },
+    {
+      "label": "provenance JSONL is parseable and hash-addressed",
+      "ok": true,
+      "detail": "reports/openclaude-provider-capability-matrix.jsonl"
+    },
+    {
+      "label": "no provider live external or protected actions occurred",
+      "ok": true,
+      "detail": "all call arrays empty"
+    }
+  ],
+  "claimBoundary": "Provider capability matrix is local no-provider capability and failure-mode evidence only. It does not call providers, call live models, call external services, install dependencies, publish, deploy, launch, or authorize provider-backed execution, public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."
+}

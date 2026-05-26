@@ -1,0 +1,741 @@
+{
+  "generatedAt": "2026-05-21T08:40:14.607Z",
+  "mode": "local_no_provider_dependency_governance_quality",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Docs dependency review",
+      "sourceUrl": "https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependency-review",
+      "observedPattern": "Dependency review exposes dependency changes and vulnerability impact in pull requests, and the action can enforce review checks in GitHub Actions.",
+      "localAbsorption": "OpenClaude adds a source-controlled dependency-review workflow while recording hosted execution and required-status evidence as unperformed locally."
+    },
+    {
+      "sourceProject": "actions/dependency-review-action",
+      "sourceUrl": "https://github.com/actions/dependency-review-action",
+      "observedPattern": "The action scans pull requests for dependency changes and can fail on introduced vulnerabilities or invalid licenses.",
+      "localAbsorption": "OpenClaude pins the dependency-review action by full commit SHA and keeps the workflow PR-only with read-only contents permission."
+    },
+    {
+      "sourceProject": "Bun lockfile documentation",
+      "sourceUrl": "https://bun.com/docs/install/lockfile",
+      "observedPattern": "Bun creates a text lockfile called bun.lock and documents that it should be committed to source control.",
+      "localAbsorption": "OpenClaude verifies bun.lock exists, is parseable, and covers every package.json direct dependency without running install."
+    },
+    {
+      "sourceProject": "GitHub Docs Dependabot options",
+      "sourceUrl": "https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference",
+      "observedPattern": "Dependabot update entries define package ecosystems, directories, and schedules for dependency maintenance.",
+      "localAbsorption": "OpenClaude verifies source-controlled npm and GitHub Actions Dependabot coverage and weekly schedules."
+    },
+    {
+      "sourceProject": "OpenSSF Scorecard Pinned-Dependencies",
+      "sourceUrl": "https://github.com/ossf/scorecard/blob/main/docs/checks.md",
+      "observedPattern": "Build and release dependencies should be pinned to reduce compromised dependency risk, while external Scorecard execution remains a separate evidence boundary.",
+      "localAbsorption": "OpenClaude keeps workflow actions SHA-pinned and records dependency-review/source-control evidence without claiming an external Scorecard result."
+    }
+  ],
+  "packageJsonPath": "package.json",
+  "packageJsonSha256": "f2ead9e800dd38f6a5573ae9c3319b21228782d17e09de37d559bd36599e2189",
+  "packageManagerField": "bun@1.3.11",
+  "packageManagerFieldPresent": true,
+  "workflowBunVersions": [
+    "1.3.11"
+  ],
+  "packageManagerMatchesWorkflowBunVersion": true,
+  "bunLockPath": "bun.lock",
+  "bunLockSha256": "9f5085faa3c248187812b43eb90aef603f5a4062dbe89797912c74c1f1988012",
+  "bunLockSizeBytes": 200323,
+  "bunLockTextStructureRecognized": true,
+  "bunLockfileVersion": 1,
+  "bunLockRootWorkspacePresent": true,
+  "bunLockCoversPackageManifestDependencies": true,
+  "missingManifestDependenciesInLockfile": [],
+  "dependencyEntries": [
+    {
+      "name": "@alcalzone/ansi-tokenize",
+      "version": "0.3.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@anthropic-ai/bedrock-sdk",
+      "version": "0.26.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@anthropic-ai/claude-agent-sdk",
+      "version": "^0.3.143",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@anthropic-ai/foundry-sdk",
+      "version": "0.2.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@anthropic-ai/mcpb",
+      "version": "^2.1.2",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@anthropic-ai/sandbox-runtime",
+      "version": "0.0.46",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@anthropic-ai/sdk",
+      "version": "0.81.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@anthropic-ai/vertex-sdk",
+      "version": "0.14.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@aws-sdk/client-bedrock",
+      "version": "3.1020.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@aws-sdk/client-sts",
+      "version": "3.1020.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@commander-js/extra-typings",
+      "version": "12.1.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@growthbook/growthbook",
+      "version": "1.6.5",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@grpc/grpc-js",
+      "version": "^1.14.3",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@grpc/proto-loader",
+      "version": "^0.8.0",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@mendable/firecrawl-js",
+      "version": "4.18.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "version": "1.29.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/api",
+      "version": "1.9.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/api-logs",
+      "version": "0.214.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/core",
+      "version": "2.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/exporter-logs-otlp-http",
+      "version": "0.214.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/exporter-trace-otlp-grpc",
+      "version": "0.57.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/resources",
+      "version": "2.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/sdk-logs",
+      "version": "0.214.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/sdk-metrics",
+      "version": "2.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/sdk-trace-base",
+      "version": "2.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/sdk-trace-node",
+      "version": "2.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@opentelemetry/semantic-conventions",
+      "version": "1.40.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@types/bun",
+      "version": "1.3.11",
+      "scope": "development",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@types/cross-spawn",
+      "version": "^6.0.6",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/node",
+      "version": "25.5.0",
+      "scope": "development",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@types/picomatch",
+      "version": "^4.0.3",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/proper-lockfile",
+      "version": "^4.1.4",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/qrcode",
+      "version": "^1.5.6",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/react",
+      "version": "19.2.14",
+      "scope": "development",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "@types/react-reconciler",
+      "version": "^0.33.0",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/semver",
+      "version": "^7.7.1",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/shell-quote",
+      "version": "^1.7.5",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/turndown",
+      "version": "^5.0.6",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "@types/ws",
+      "version": "^8.18.1",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "ajv",
+      "version": "8.18.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "auto-bind",
+      "version": "5.0.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "axios",
+      "version": "1.15.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "bidi-js",
+      "version": "1.0.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "chalk",
+      "version": "5.6.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "chokidar",
+      "version": "4.0.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "cli-boxes",
+      "version": "3.0.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "cli-highlight",
+      "version": "2.1.11",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "code-excerpt",
+      "version": "4.0.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "commander",
+      "version": "12.1.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "diff",
+      "version": "8.0.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "duck-duck-scrape",
+      "version": "^2.2.7",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "emoji-regex",
+      "version": "10.6.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "env-paths",
+      "version": "3.0.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "execa",
+      "version": "9.6.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "fflate",
+      "version": "0.8.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "figures",
+      "version": "6.1.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "fuse.js",
+      "version": "7.1.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "get-east-asian-width",
+      "version": "1.5.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "google-auth-library",
+      "version": "9.15.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "https-proxy-agent",
+      "version": "7.0.6",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "ignore",
+      "version": "7.0.5",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "indent-string",
+      "version": "5.0.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "jsonc-parser",
+      "version": "3.3.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "lodash-es",
+      "version": "4.18.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "lru-cache",
+      "version": "11.2.7",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "marked",
+      "version": "15.0.12",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "p-map",
+      "version": "7.0.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "picomatch",
+      "version": "4.0.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "proper-lockfile",
+      "version": "4.1.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "qrcode",
+      "version": "1.5.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "react",
+      "version": "19.2.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "react-compiler-runtime",
+      "version": "1.0.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "react-reconciler",
+      "version": "0.33.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "semver",
+      "version": "7.7.4",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "sharp",
+      "version": "^0.34.5",
+      "scope": "runtime",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "shell-quote",
+      "version": "1.8.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "signal-exit",
+      "version": "4.1.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "stack-utils",
+      "version": "2.0.6",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "supports-hyperlinks",
+      "version": "3.2.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "tree-kill",
+      "version": "1.2.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "tsx",
+      "version": "^4.21.0",
+      "scope": "development",
+      "rangeKind": "semver_range"
+    },
+    {
+      "name": "turndown",
+      "version": "7.2.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "type-fest",
+      "version": "4.41.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "typescript",
+      "version": "5.9.3",
+      "scope": "development",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "undici",
+      "version": "7.24.6",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "usehooks-ts",
+      "version": "3.1.1",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "vscode-languageserver-protocol",
+      "version": "3.17.5",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "9.0.2",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "ws",
+      "version": "8.20.0",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "xss",
+      "version": "1.0.15",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "yaml",
+      "version": "2.8.3",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    },
+    {
+      "name": "zod",
+      "version": "3.25.76",
+      "scope": "runtime",
+      "rangeKind": "exact"
+    }
+  ],
+  "runtimeDependencyCount": 80,
+  "developmentDependencyCount": 14,
+  "exactVersionCount": 78,
+  "semverRangeCount": 16,
+  "otherVersionSpecifierCount": 0,
+  "overridesPresent": true,
+  "overrideNames": [
+    "lodash-es"
+  ],
+  "dependabotConfigPath": ".github/dependabot.yml",
+  "dependabotConfigSha256": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61",
+  "dependabotCoversNpm": true,
+  "dependabotCoversGitHubActions": true,
+  "dependabotSchedulesPresent": true,
+  "dependencyReviewWorkflowPath": ".github/workflows/dependency-review.yml",
+  "dependencyReviewWorkflowSha256": "8a4356035f06abf9e8dbcc70d7d88db40ca2ae568870cf6fa1f8821ea373ce27",
+  "dependencyReviewWorkflowPresent": true,
+  "dependencyReviewActionConfigured": true,
+  "dependencyReviewActionPinned": true,
+  "dependencyReviewWorkflowPullRequestOnly": true,
+  "dependencyReviewWorkflowPermissionsReadOnly": true,
+  "dependencyReviewHostedRunPerformed": false,
+  "dependencyReviewRequiredStatusClaimAllowed": false,
+  "prWorkflowPath": ".github/workflows/pr-checks.yml",
+  "releaseWorkflowPath": ".github/workflows/release.yml",
+  "frozenDependencyInstallPresent": true,
+  "externalVulnerabilityScanPerformed": false,
+  "npmAuditPerformed": false,
+  "githubApiCallsPerformed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "vulnerabilityFreeClaimAllowed": false,
+  "dependencyReviewPassClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "claimBoundary": "Dependency governance quality is local source-controlled evidence only. It does not prove hosted dependency-review execution, vulnerability-free status, external Scorecard posture, release readiness, production readiness, public readiness, external validation, or autonomous reliability.",
+  "governanceChecks": [
+    {
+      "label": "packageManager field is explicit and aligned with workflow Bun version",
+      "ok": true,
+      "detail": "bun@1.3.11 vs 1.3.11"
+    },
+    {
+      "label": "bun.lock exists and has recognized text structure",
+      "ok": true,
+      "detail": "bun.lock/200323 bytes"
+    },
+    {
+      "label": "bun.lock root workspace is present",
+      "ok": true,
+      "detail": "workspaces[\"\"]"
+    },
+    {
+      "label": "bun.lock covers every direct package manifest dependency",
+      "ok": true,
+      "detail": "all present"
+    },
+    {
+      "label": "dependency range inventory is explicit",
+      "ok": true,
+      "detail": "94 direct entries"
+    },
+    {
+      "label": "runtime and development dependencies are both inventoried",
+      "ok": true,
+      "detail": "80/14"
+    },
+    {
+      "label": "override policy is present for constrained dependency drift",
+      "ok": true,
+      "detail": "lodash-es"
+    },
+    {
+      "label": "Dependabot covers npm and GitHub Actions with schedules",
+      "ok": true,
+      "detail": ".github/dependabot.yml"
+    },
+    {
+      "label": "dependency-review workflow is source-controlled and PR-only",
+      "ok": true,
+      "detail": ".github/workflows/dependency-review.yml"
+    },
+    {
+      "label": "dependency-review action references are pinned by full SHA",
+      "ok": true,
+      "detail": ".github/workflows/dependency-review.yml"
+    },
+    {
+      "label": "dependency-review workflow permissions are read-only",
+      "ok": true,
+      "detail": "contents: read"
+    },
+    {
+      "label": "frozen dependency install is wired into PR and release workflows",
+      "ok": true,
+      "detail": ".github/workflows/pr-checks.yml, .github/workflows/release.yml"
+    },
+    {
+      "label": "hosted dependency review and vulnerability scans remain unclaimed locally",
+      "ok": true,
+      "detail": "all hosted/external flags false"
+    },
+    {
+      "label": "provider live external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "vulnerability and readiness claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ]
+}

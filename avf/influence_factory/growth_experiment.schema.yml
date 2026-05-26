@@ -1,0 +1,21 @@
+# Growth Experiment Schema
+
+version: 1
+type: object
+required:
+  - experiment_id
+  - hypothesis
+  - channel
+  - metric
+  - stop_condition
+properties:
+  experiment_id:
+    type: string
+  hypothesis:
+    type: string
+  channel:
+    type: string
+  metric:
+    type: string
+  stop_condition:
+    type: string

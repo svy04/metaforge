@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-05-21T14:11:52.205Z",
+  "mode": "local_no_provider_oss_baseline_drift_closure",
+  "sourceRefreshReportPath": "docs/product-quality/oss-baseline-refresh-report.json",
+  "sourceRefreshReportSha256": "8e6a6de7c24bdadabb90b137008ab2377e2f6b2dbc0cc3f43275171a57bb6458",
+  "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+  "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+  "baselineSnapshotDate": "2026-05-21",
+  "top10ProjectCount": 10,
+  "newlyDiscoveredTop10Projects": [
+    "ultraworkers/claw-code",
+    "warpdotdev/warp",
+    "ruvnet/ruflo"
+  ],
+  "removedPreviousTop10Projects": [
+    "aaif-goose/goose",
+    "Aider-AI/aider",
+    "continuedev/continue"
+  ],
+  "propagatedNewDiscoveryCount": 3,
+  "removedPreviousTop10Count": 3,
+  "driftRecordCount": 6,
+  "driftJsonlPath": "reports/openclaude-oss-baseline-drift-closure.jsonl",
+  "driftJsonlSha256": "cae93cf29960c6931894ed920700cb6c00e8d8e29dd42c992ffd0b163d90b6ee",
+  "driftJsonlRecordCount": 6,
+  "sourceReportBindings": [
+    {
+      "path": "docs/product-quality/oss-baseline-refresh-report.json",
+      "exists": true,
+      "sha256": "8e6a6de7c24bdadabb90b137008ab2377e2f6b2dbc0cc3f43275171a57bb6458"
+    },
+    {
+      "path": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+      "exists": true,
+      "sha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0"
+    },
+    {
+      "path": "docs/product-quality/oss-source-review-report.json",
+      "exists": true,
+      "sha256": "14c9abc47c0cc8f398270efbea2169861b60b3518983ed8c946b6b2d75b2339d"
+    },
+    {
+      "path": "docs/product-quality/oss-architecture-absorption-targets-report.json",
+      "exists": true,
+      "sha256": "cf9a0b5ee68ee4aa331393d150c1a7cf7f43a8788c62c814e7f952c6a5b46c99"
+    },
+    {
+      "path": "docs/product-quality/oss-architecture-gap-review-report.json",
+      "exists": true,
+      "sha256": "87c04e48587996843f9b21c96f062d8afed17b75ab2b2c2a6753323852a8504c"
+    },
+    {
+      "path": "docs/product-quality/oss-axis-architecture-review-report.json",
+      "exists": true,
+      "sha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad"
+    },
+    {
+      "path": "docs/product-quality/oss-safe-backlog-plan-report.json",
+      "exists": true,
+      "sha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1"
+    },
+    {
+      "path": "docs/product-quality/oss-safe-backlog-closure-report.json",
+      "exists": true,
+      "sha256": "bb8ea2459fbade1faaa6556780065e15fccd5a9d98bee489035bcc04e6eac063"
+    }
+  ],
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "sourceExternalGitHubRefreshPerformed": true,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub REST repository metadata",
+      "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
+      "observedPattern": "Mutable repository metadata must be treated as dated evidence and synchronized through downstream review reports.",
+      "localAbsorption": "OpenClaude verifies that new and removed top-10 baseline projects are reflected in source review, architecture targeting, and safe backlog closure evidence."
+    },
+    {
+      "sourceProject": "SLSA provenance materials model",
+      "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
+      "observedPattern": "Evidence chains are stronger when downstream materials remain hash-bound to refreshed upstream inputs.",
+      "localAbsorption": "OpenClaude records report bindings and a drift JSONL record so stale benchmark inputs cannot masquerade as current evidence."
+    }
+  ],
+  "selfImprovementActions": [
+    "Add a drift-closure gate so newly discovered high-star OSS candidates must propagate through local evidence reports before benchmark planning is considered current.",
+    "Record removed prior top-10 projects as no longer current top-10 inputs instead of silently leaving them in benchmark target reports.",
+    "Keep public comparison, superiority, release, production, external-validation, and autonomous-reliability claims blocked after baseline drift is closed."
+  ],
+  "driftRecords": [
+    {
+      "project": "ultraworkers/claw-code",
+      "driftKind": "newly_discovered_top10",
+      "presentInCurrentBaseline": true,
+      "presentInSourceReview": true,
+      "presentInArchitectureTargets": true,
+      "presentInGapReview": true,
+      "presentInAxisHighPriorityReview": true,
+      "status": "propagated_to_current_internal_evidence"
+    },
+    {
+      "project": "warpdotdev/warp",
+      "driftKind": "newly_discovered_top10",
+      "presentInCurrentBaseline": true,
+      "presentInSourceReview": true,
+      "presentInArchitectureTargets": true,
+      "presentInGapReview": true,
+      "presentInAxisHighPriorityReview": true,
+      "status": "propagated_to_current_internal_evidence"
+    },
+    {
+      "project": "ruvnet/ruflo",
+      "driftKind": "newly_discovered_top10",
+      "presentInCurrentBaseline": true,
+      "presentInSourceReview": true,
+      "presentInArchitectureTargets": true,
+      "presentInGapReview": true,
+      "presentInAxisHighPriorityReview": true,
+      "status": "propagated_to_current_internal_evidence"
+    },
+    {
+      "project": "aaif-goose/goose",
+      "driftKind": "removed_previous_top10",
+      "presentInCurrentBaseline": false,
+      "presentInSourceReview": false,
+      "presentInArchitectureTargets": false,
+      "presentInGapReview": false,
+      "presentInAxisHighPriorityReview": false,
+      "status": "removed_from_current_top10_only"
+    },
+    {
+      "project": "Aider-AI/aider",
+      "driftKind": "removed_previous_top10",
+      "presentInCurrentBaseline": false,
+      "presentInSourceReview": false,
+      "presentInArchitectureTargets": false,
+      "presentInGapReview": false,
+      "presentInAxisHighPriorityReview": false,
+      "status": "removed_from_current_top10_only"
+    },
+    {
+      "project": "continuedev/continue",
+      "driftKind": "removed_previous_top10",
+      "presentInCurrentBaseline": false,
+      "presentInSourceReview": false,
+      "presentInArchitectureTargets": false,
+      "presentInGapReview": false,
+      "presentInAxisHighPriorityReview": false,
+      "status": "removed_from_current_top10_only"
+    }
+  ],
+  "driftChecks": [
+    {
+      "label": "all source reports are present and hash-bound",
+      "ok": true,
+      "detail": "8/8"
+    },
+    {
+      "label": "fresh refresh report still has 10 top projects",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "newly discovered top-10 projects propagated to downstream evidence",
+      "ok": true,
+      "detail": "3/3"
+    },
+    {
+      "label": "removed prior top-10 projects are absent from current downstream target reports",
+      "ok": true,
+      "detail": "3/3"
+    },
+    {
+      "label": "source review covers every current baseline project",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "architecture targets cover every current baseline project",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "gap review covers every current baseline project",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "axis high-priority review covers the newly discovered projects",
+      "ok": true,
+      "detail": "ultraworkers/claw-code,warpdotdev/warp,ruvnet/ruflo"
+    },
+    {
+      "label": "safe backlog plan and closure remain synchronized",
+      "ok": true,
+      "detail": "9/9"
+    },
+    {
+      "label": "drift JSONL has one record per changed baseline project",
+      "ok": true,
+      "detail": "6/6"
+    },
+    {
+      "label": "this drift closure gate performs no provider live external or protected calls",
+      "ok": true,
+      "detail": "all arrays empty"
+    },
+    {
+      "label": "downstream no-provider reports preserve call boundaries",
+      "ok": true,
+      "detail": "all downstream local reports empty call arrays"
+    },
+    {
+      "label": "claim expansion remains blocked across drift closure sources",
+      "ok": true,
+      "detail": "all claim flags false"
+    }
+  ],
+  "claimBoundary": "OSS baseline drift closure is internal benchmark-discovery evidence only and does not authorize public comparison, superiority claims, release actions, provider calls, live model calls, or protected mutations."
+}

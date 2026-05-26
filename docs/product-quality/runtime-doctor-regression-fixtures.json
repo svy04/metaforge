@@ -1,0 +1,242 @@
+{
+  "generatedAt": "2026-05-21T08:40:25.683Z",
+  "mode": "local_no_provider_runtime_doctor_regression",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "doctorCommands": [
+    {
+      "name": "json_stdout",
+      "command": [
+        "C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\bun\\bin\\bun.exe",
+        "run",
+        "scripts/system-check.ts",
+        "--json"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "stdoutPreview": [
+        "{",
+        "  \"timestamp\": \"2026-05-21T08:40:21.012Z\",",
+        "  \"cwd\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\",",
+        "  \"summary\": {",
+        "    \"total\": 7,",
+        "    \"passed\": 7,",
+        "    \"failed\": 0",
+        "  },",
+        "  \"env\": \"[redacted in console JSON output; use --out-file for the full report]\",",
+        "  \"results\": [",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Node.js version\",",
+        "      \"detail\": \"24.3.0\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Bun runtime\",",
+        "      \"detail\": \"1.3.13\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Build artifacts\",",
+        "      \"detail\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\\\\dist\\\\cli.mjs\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider mode\",",
+        "      \"detail\": \"Anthropic login flow enabled (CLAUDE_CODE_USE_OPENAI is off).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider reachability\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider generation readiness\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Ollama processor mode\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    }",
+        "  ]",
+        "}"
+      ],
+      "stderrPreview": [],
+      "parsedSummary": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0
+      }
+    },
+    {
+      "name": "json_stdout_and_out_file",
+      "command": [
+        "C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\bun\\bin\\bun.exe",
+        "run",
+        "scripts/system-check.ts",
+        "--json",
+        "--out",
+        "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "stdoutPreview": [
+        "{",
+        "  \"timestamp\": \"2026-05-21T08:40:25.655Z\",",
+        "  \"cwd\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\",",
+        "  \"summary\": {",
+        "    \"total\": 7,",
+        "    \"passed\": 7,",
+        "    \"failed\": 0",
+        "  },",
+        "  \"env\": \"[redacted in console JSON output; use --out-file for the full report]\",",
+        "  \"results\": [",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Node.js version\",",
+        "      \"detail\": \"24.3.0\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Bun runtime\",",
+        "      \"detail\": \"1.3.13\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Build artifacts\",",
+        "      \"detail\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\\\\dist\\\\cli.mjs\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider mode\",",
+        "      \"detail\": \"Anthropic login flow enabled (CLAUDE_CODE_USE_OPENAI is off).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider reachability\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Provider generation readiness\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    },",
+        "    {",
+        "      \"ok\": true,",
+        "      \"label\": \"Ollama processor mode\",",
+        "      \"detail\": \"Skipped (OpenAI-compatible mode disabled).\"",
+        "    }",
+        "  ]",
+        "}"
+      ],
+      "stderrPreview": [],
+      "parsedSummary": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0
+      }
+    }
+  ],
+  "doctorChecks": [
+    {
+      "label": "package exposes doctor:runtime",
+      "ok": true,
+      "detail": "bun run scripts/system-check.ts"
+    },
+    {
+      "label": "package exposes doctor:runtime:json",
+      "ok": true,
+      "detail": "bun run scripts/system-check.ts --json"
+    },
+    {
+      "label": "package exposes doctor:report",
+      "ok": true,
+      "detail": "bun run scripts/system-check.ts --out reports/doctor-runtime.json"
+    },
+    {
+      "label": "system-check parses --json",
+      "ok": true,
+      "detail": "parseOptions recognizes --json"
+    },
+    {
+      "label": "system-check parses --out",
+      "ok": true,
+      "detail": "parseOptions recognizes --out"
+    },
+    {
+      "label": "json stdout command passed",
+      "ok": true,
+      "detail": "exit=0"
+    },
+    {
+      "label": "json out command passed",
+      "ok": true,
+      "detail": "exit=0"
+    },
+    {
+      "label": "out report was written",
+      "ok": true,
+      "detail": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
+    },
+    {
+      "label": "out report summary has no failures",
+      "ok": true,
+      "detail": "{\"total\":7,\"passed\":7,\"failed\":0}"
+    },
+    {
+      "label": "json stdout labels are complete",
+      "ok": true,
+      "detail": "Node.js version, Bun runtime, Build artifacts, Provider mode, Provider reachability, Provider generation readiness, Ollama processor mode"
+    },
+    {
+      "label": "out stdout labels are complete",
+      "ok": true,
+      "detail": "Node.js version, Bun runtime, Build artifacts, Provider mode, Provider reachability, Provider generation readiness, Ollama processor mode"
+    },
+    {
+      "label": "provider reachability stayed skipped",
+      "ok": true,
+      "detail": "Skipped (OpenAI-compatible mode disabled)."
+    },
+    {
+      "label": "provider generation readiness stayed skipped",
+      "ok": true,
+      "detail": "Skipped (OpenAI-compatible mode disabled)."
+    },
+    {
+      "label": "console JSON redacts environment summary",
+      "ok": true,
+      "detail": "[redacted in console JSON output; use --out-file for the full report]"
+    },
+    {
+      "label": "safe runtime surface count is high enough",
+      "ok": true,
+      "detail": "9"
+    }
+  ],
+  "runtimeDoctorSurfaces": [
+    "Node.js version check",
+    "Bun runtime check",
+    "build artifact presence check",
+    "provider mode summary",
+    "provider reachability skip when provider mode is disabled",
+    "provider generation readiness skip when provider mode is disabled",
+    "Ollama processor mode skip when OpenAI-compatible mode is disabled",
+    "console JSON output with redacted environment summary",
+    "JSON report write through --out"
+  ],
+  "safeRuntimeEnvironment": {
+    "CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST": "1",
+    "CLAUDE_CODE_USE_OPENAI": "0",
+    "CLAUDE_CODE_USE_GEMINI": "0",
+    "CLAUDE_CODE_USE_GITHUB": "0",
+    "CLAUDE_CODE_USE_MISTRAL": "0",
+    "OPENAI_MODEL": "product-runtime-doctor-local-no-provider",
+    "OPENAI_BASE_URL": "http://127.0.0.1:9/v1"
+  },
+  "temporaryOutReportWritten": true,
+  "claimBoundary": "Runtime doctor regression fixtures are local no-provider runtime diagnostics only, not provider-backed execution, external validation, release readiness, production readiness, public readiness, or autonomous reliability."
+}

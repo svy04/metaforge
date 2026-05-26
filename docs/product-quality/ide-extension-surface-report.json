@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-05-21T08:40:26.236Z",
+  "mode": "local_no_provider_ide_extension_surface",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "workspaceIdeExtensionStatus": "extension_manifest_found",
+  "packagingAttempted": false,
+  "installAttempted": false,
+  "candidateManifests": [
+    {
+      "path": "package.json",
+      "exists": true,
+      "hasVsCodeExtensionFields": false
+    },
+    {
+      "path": ".vscode/package.json",
+      "exists": false,
+      "hasVsCodeExtensionFields": false
+    },
+    {
+      "path": ".vscode/extensions/package.json",
+      "exists": false,
+      "hasVsCodeExtensionFields": false
+    },
+    {
+      "path": "extensions/openclaude/package.json",
+      "exists": false,
+      "hasVsCodeExtensionFields": false
+    },
+    {
+      "path": "packages/vscode-extension/package.json",
+      "exists": false,
+      "hasVsCodeExtensionFields": false
+    },
+    {
+      "path": "packages/openclaude-vscode/package.json",
+      "exists": true,
+      "hasVsCodeExtensionFields": true
+    }
+  ],
+  "packageLevelVsCodeExtensionFields": [],
+  "ideExtensionChecks": [
+    {
+      "label": "candidate manifest scan is bounded",
+      "ok": true,
+      "detail": "6 candidates"
+    },
+    {
+      "label": "workspace IDE extension status is classified",
+      "ok": true,
+      "detail": "extension_manifest_found"
+    },
+    {
+      "label": "missing extension is treated as product gap, not as availability claim",
+      "ok": true,
+      "detail": "extension_manifest_found"
+    },
+    {
+      "label": "root package does not silently claim VS Code extension fields",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "no extension packaging was attempted",
+      "ok": true,
+      "detail": "script only reads package manifests"
+    },
+    {
+      "label": "no extension install was attempted",
+      "ok": true,
+      "detail": "script only reads package manifests"
+    }
+  ],
+  "claimBoundary": "IDE extension surface verification classifies local manifest availability only. It does not package, install, publish, launch, or claim VS Code extension availability."
+}

@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-05-17T19:23:50.656Z",
+  "mode": "local_no_provider_ide_extension_webview_render_smoke",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "hostRuntime": "local_mock_vscode_webview_view_host",
+  "manifestPath": "packages/openclaude-vscode/package.json",
+  "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
+  "activationInvoked": true,
+  "deactivationInvoked": true,
+  "manifestWebviewViewIds": [
+    "openclaude.controlCenterView"
+  ],
+  "registeredWebviewViewIds": [
+    "openclaude.controlCenterView"
+  ],
+  "resolvedWebviewViewIds": [
+    "openclaude.controlCenterView"
+  ],
+  "renderedHtmlByteLength": 4572,
+  "commandActionIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.explainSelection",
+    "openclaude.openRuntimeDoctor"
+  ],
+  "installAttempted": false,
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "realExtensionHostLaunched": false,
+  "extensionAvailabilityClaimAllowed": false,
+  "webviewRenderChecks": [
+    {
+      "label": "manifest declares a webview view contribution",
+      "ok": true,
+      "detail": "openclaude.controlCenterView"
+    },
+    {
+      "label": "manifest activates on the webview view",
+      "ok": true,
+      "detail": "onCommand:openclaude.openChat, onCommand:openclaude.runSelection, onView:openclaude.chatView, onView:openclaude.controlCenterView"
+    },
+    {
+      "label": "activation function is callable",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "label": "deactivation function is callable",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "label": "webview provider is registered",
+      "ok": true,
+      "detail": "openclaude.controlCenterView"
+    },
+    {
+      "label": "webview render smoke API resolves provider HTML",
+      "ok": true,
+      "detail": "openclaude.controlCenterView / 4572"
+    },
+    {
+      "label": "webview scripts are disabled",
+      "ok": true,
+      "detail": "[{\"enableScripts\":false}]"
+    },
+    {
+      "label": "webview HTML has strict CSP",
+      "ok": true,
+      "detail": "default-src none and script-src none required"
+    },
+    {
+      "label": "webview HTML uses VS Code theme tokens",
+      "ok": true,
+      "detail": "theme token present"
+    },
+    {
+      "label": "webview HTML exposes render contract marker",
+      "ok": true,
+      "detail": "control-center marker required"
+    },
+    {
+      "label": "webview HTML exposes accessible command actions",
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+    },
+    {
+      "label": "webview HTML contains no network URLs or scripts",
+      "ok": true,
+      "detail": "no network URL, script tag, or acquireVsCodeApi"
+    },
+    {
+      "label": "protected actions were not attempted",
+      "ok": true,
+      "detail": "install/publish/deploy/launch/provider/live/external all false"
+    },
+    {
+      "label": "extension availability claim remains blocked",
+      "ok": true,
+      "detail": "extension availability claim allowed=false"
+    }
+  ],
+  "claimBoundary": "Local VS Code webview render-contract smoke evidence only. This does not install, publish, deploy, launch, or claim extension availability, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+}

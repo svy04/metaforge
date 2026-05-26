@@ -1,0 +1,121 @@
+- generic [ref=e3]:
+  - link "skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: /404#main_content
+    - text: Skip to main content
+  - generic [ref=e5]:
+    - navigation "Main" [ref=e6]:
+      - link "Search" [ref=e7] [cursor=pointer]:
+        - /url: /search.html
+        - generic [ref=e8]: search
+      - link "Home" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: material_design
+        - generic [ref=e11]: Home
+      - link "Get started" [ref=e12] [cursor=pointer]:
+        - /url: /get-started
+        - generic [ref=e13]: apps
+        - generic [ref=e14]: Get started
+      - button "Develop" [ref=e15] [cursor=pointer]:
+        - generic [ref=e16]: code
+        - generic [ref=e17]: Develop
+      - button "Foundations" [ref=e18] [cursor=pointer]:
+        - generic [ref=e19]: book
+        - generic [ref=e20]: Foundations
+      - button "Styles" [ref=e21] [cursor=pointer]:
+        - generic [ref=e22]: palette
+        - generic [ref=e23]: Styles
+      - button "Components" [ref=e24] [cursor=pointer]:
+        - generic [ref=e25]: add_circle
+        - generic [ref=e26]: Components
+      - link "Blog" [ref=e27] [cursor=pointer]:
+        - /url: /blog
+        - generic [ref=e28]: pages
+        - generic [ref=e29]: Blog
+    - generic [ref=e32]:
+      - switch "Pause animations" [checked] [ref=e33] [cursor=pointer]:
+        - generic [ref=e34]:
+          - generic [ref=e36]: play_arrow
+          - generic [ref=e38]: pause
+      - switch "Switch to dark mode" [ref=e39] [cursor=pointer]:
+        - generic [ref=e40]:
+          - generic [ref=e42]: dark_mode
+          - generic [ref=e44]: light_mode
+  - generic [ref=e51]:
+    - main "Main Content" [ref=e52]:
+      - generic [ref=e53]:
+        - generic "Not found page image" [ref=e54]
+        - heading "This page cannot be found" [level=1] [ref=e55]
+        - paragraph [ref=e56]:
+          - text: Try a different destination or head back to the
+          - link "homepage" [ref=e57] [cursor=pointer]:
+            - /url: /
+          - text: .
+    - generic [ref=e58]:
+      - img [ref=e60]
+      - contentinfo [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - link "Material Design" [ref=e65] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e66]: material_design
+            - paragraph [ref=e67]: Material Design is an adaptable system of guidelines, components, and tools that support the best practices of user interface design. Backed by open-source code, Material Design streamlines collaboration between designers and developers, and helps teams quickly build beautiful products.
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - heading "Social" [level=3] [ref=e70]
+            - listitem [ref=e71]:
+              - link "Find us on Github" [ref=e72] [cursor=pointer]:
+                - /url: https://www.github.com/material-components
+                - text: GitHub
+            - listitem [ref=e73]:
+              - link "Find us on X" [ref=e74] [cursor=pointer]:
+                - /url: https://x.com/googledesign
+                - text: X
+            - listitem [ref=e75]:
+              - link "Find us on Youtube" [ref=e76] [cursor=pointer]:
+                - /url: https://www.youtube.com/@googledesign
+                - text: YouTube
+            - listitem [ref=e77]:
+              - link "Blog RSS" [ref=e78] [cursor=pointer]:
+                - /url: https://material.io/feed.xml
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - heading "Libraries" [level=3] [ref=e81]
+            - listitem [ref=e82]:
+              - link "Android" [ref=e83] [cursor=pointer]:
+                - /url: /develop/android/mdc-android
+            - listitem [ref=e84]:
+              - link "Compose" [ref=e85] [cursor=pointer]:
+                - /url: /develop/android/jetpack-compose
+            - listitem [ref=e86]:
+              - link "Flutter" [ref=e87] [cursor=pointer]:
+                - /url: /develop/flutter
+            - listitem [ref=e88]:
+              - link "web" [ref=e89] [cursor=pointer]:
+                - /url: /develop/web
+                - text: Web
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - heading "Archived versions" [level=3] [ref=e92]
+            - listitem [ref=e93]:
+              - link "Material Design 1" [ref=e94] [cursor=pointer]:
+                - /url: https://m1.material.io
+            - listitem [ref=e95]:
+              - link "Material Design 2" [ref=e96] [cursor=pointer]:
+                - /url: https://m2.material.io
+        - generic [ref=e97]:
+          - link "Google" [ref=e99] [cursor=pointer]:
+            - /url: https://www.google.com
+            - img [ref=e100]
+          - list [ref=e102]:
+            - listitem [ref=e103]:
+              - link "Privacy Policy" [ref=e104] [cursor=pointer]:
+                - /url: https://policies.google.com/privacy
+            - listitem [ref=e105]:
+              - link "Terms of Service" [ref=e106] [cursor=pointer]:
+                - /url: https://policies.google.com/terms
+            - listitem [ref=e107]:
+              - link "Join research studies" [ref=e108] [cursor=pointer]:
+                - /url: https://google.qualtrics.com/jfe/form/SV_3NMIMtX0F2zkakR?utm_source=Website&Q_Language=en&utm_campaign=Q2&campaignDate=June2022&referral_code=UXRgbtM2422655&productTag=b2d
+            - listitem [ref=e109]:
+              - link "Feedback" [ref=e110] [cursor=pointer]:
+                - /url: javascript:void(0)

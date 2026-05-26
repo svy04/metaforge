@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "local-only behavior is preserved",
+    "owner review queue remains visible",
+    "style/IP memory remains attached to image prompt packets",
+    "protected_action_executed remains false"
+  ],
+  "context": [
+    "avf/influence_factory/product_app/index.html",
+    "avf/influence_factory/product_app/app.js",
+    "avf/influence_factory/product_app/styles.css"
+  ],
+  "forbidden_changes": [
+    "deploy",
+    "publish",
+    "platform posting",
+    "personal account automation",
+    "provider calls",
+    "live model calls",
+    "external service calls",
+    "readiness claims"
+  ],
+  "goal": "Implement the next local-only workbench improvement after owner review.",
+  "task_id": "first-product-local-run-001",
+  "validation": [
+    "python scripts/validate_avf_influence_factory_first_product_goal_runner_v21.py",
+    "credential pattern scan",
+    "browser self-test"
+  ]
+}

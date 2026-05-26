@@ -1,0 +1,70 @@
+{
+  "acceptance_criteria": [
+    "Owner evidence is captured as a local ledger entry with a visible next improvement.",
+    "Brand DNA, character bible, visual guide, reference index, and rights notes remain attached.",
+    "Codex packet blocks deploy, publish, platform posting, provider calls, and deceptive influence."
+  ],
+  "autonomous_reliability_claimed": false,
+  "codex_context_packet": {
+    "acceptance_criteria": [
+      "Owner evidence is captured as a local ledger entry with a visible next improvement.",
+      "Brand DNA, character bible, visual guide, reference index, and rights notes remain attached.",
+      "Codex packet blocks deploy, publish, platform posting, provider calls, and deceptive influence."
+    ],
+    "forbidden_changes": [
+      "Do not deploy",
+      "Do not publish",
+      "Do not call providers or live models",
+      "Do not add external services",
+      "Do not support deceptive influence or platform posting"
+    ],
+    "relevant_files": [
+      "avf/influence_factory/product_app/index.html",
+      "avf/influence_factory/product_app/app.js",
+      "avf/influence_factory/product_app/styles.css"
+    ],
+    "task_id": "owner-evidence-local-iteration-v39",
+    "title": "Apply one local improvement from owner trial evidence"
+  },
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "external_calls": false,
+  "external_validation_authorized": false,
+  "external_validation_claimed": false,
+  "external_validation_executed": false,
+  "first_goal_flow": "captured_owner_evidence_to_pr_sized_local_iteration",
+  "iteration_packet_id": "local_iteration_from_owner_evidence_v39",
+  "live_model_calls_performed": false,
+  "local_product_status": "local_iteration_from_owner_evidence_ready",
+  "next_safe_goal_count": 1,
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "product_completion_claim_scope": "repo_local_internal_only",
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "release_readiness_claimed": false,
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": "apply_local_iteration_work_item_v40_without_protected_actions",
+  "source_gate": "owner_trial_evidence_capture_v38",
+  "terminal_condition": "LOCAL_ITERATION_FROM_OWNER_EVIDENCE_V39_READY",
+  "work_item_queue": [
+    {
+      "acceptance": "Owner evidence is captured as a local ledger entry with a visible next improvement.",
+      "title": "Tighten owner trial capture flow",
+      "work_item_id": "tighten_owner_trial_capture_flow"
+    },
+    {
+      "acceptance": "Brand DNA, character bible, visual guide, reference index, and rights notes remain attached.",
+      "title": "Attach style memory to next iteration",
+      "work_item_id": "attach_style_memory_to_next_iteration"
+    },
+    {
+      "acceptance": "Codex packet blocks deploy, publish, platform posting, provider calls, and deceptive influence.",
+      "title": "Preserve safety boundary in Codex packet",
+      "work_item_id": "preserve_safety_boundary_in_codex_packet"
+    }
+  ]
+}

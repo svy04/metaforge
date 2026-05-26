@@ -1,0 +1,24 @@
+# Result Memory Schema
+
+version: 1
+type: object
+required:
+  - id
+  - source
+  - summary
+  - status
+  - claim_boundary
+  - next_action
+properties:
+  id:
+    type: string
+  source:
+    type: string
+  summary:
+    type: string
+  status:
+    type: string
+  claim_boundary:
+    type: string
+  next_action:
+    type: string

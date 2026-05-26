@@ -1,0 +1,517 @@
+{
+  "generatedAt": "2026-05-21T14:11:07.463Z",
+  "mode": "local_no_provider_oss_security_permissions_evidence",
+  "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
+  "sourceSafeBacklogPlanReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+  "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
+  "selectedAxis": "security_and_permissions",
+  "sourcePlanItemCount": 6,
+  "evidenceItemCount": 6,
+  "sourceProjects": [
+    "ruvnet/ruflo",
+    "ultraworkers/claw-code",
+    "warpdotdev/warp"
+  ],
+  "provenanceJsonlPath": "reports/openclaude-oss-security-permissions-evidence.jsonl",
+  "provenanceJsonlSha256": "6df9bbbd24d893dd7ac0d0c04364cc593ba256267ab03bc535745342d5e50e1b",
+  "provenanceJsonlRecordCount": 6,
+  "provenanceJsonlParseable": true,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "hostedScorecardRunAllowed": false,
+  "hostedCodeqlRunAllowed": false,
+  "hostedBranchProtectionClaimAllowed": false,
+  "publicSecurityPostureClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "observedPattern": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
+      "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix."
+    },
+    {
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "observedPattern": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
+      "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix."
+    },
+    {
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "observedPattern": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
+      "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix."
+    }
+  ],
+  "evidenceItems": [
+    {
+      "evidenceItemId": "oss_security_permissions_ultraworkers_claw_code_cbde7c916a",
+      "sourcePlanItemId": "oss_backlog_ultraworkers_claw_code_security_and_permissions_1_4cca586692",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "securityPermissionsCoverageClass": "permission_protected_action_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "evidenceItemId": "oss_security_permissions_ultraworkers_claw_code_bfad902147",
+      "sourcePlanItemId": "oss_backlog_ultraworkers_claw_code_security_and_permissions_2_3e120d300f",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "securityPermissionsCoverageClass": "hosted_security_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "evidenceItemId": "oss_security_permissions_warpdotdev_warp_37c94c34e0",
+      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_1_0d14c9ebf6",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "securityPermissionsCoverageClass": "permission_protected_action_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "evidenceItemId": "oss_security_permissions_warpdotdev_warp_43bab18994",
+      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_2_13bc6fb88b",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "securityPermissionsCoverageClass": "hosted_security_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "evidenceItemId": "oss_security_permissions_ruvnet_ruflo_e8e4efb30c",
+      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_1_7c7eb24881",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "securityPermissionsCoverageClass": "permission_protected_action_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "evidenceItemId": "oss_security_permissions_ruvnet_ruflo_5a5bb7cd21",
+      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_2_b36fc89a51",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "securityPermissionsCoverageClass": "hosted_security_claim_boundary",
+      "currentLocalEvidence": [
+        {
+          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
+          "exists": true,
+          "sha256": "37a9bcb8d76f38a91e25da78e2827364830b0b2ffa3823117dd8e51b2bb7640d",
+          "sizeBytes": 24533
+        },
+        {
+          "path": "docs/product-quality/permission-regression-fixtures.json",
+          "exists": true,
+          "sha256": "7d156da3def99252ba00a1869817f97eb0e7625053d999c643856e1bc8e92eba",
+          "sizeBytes": 6551
+        },
+        {
+          "path": "docs/product-quality/openssf-security-posture-report.json",
+          "exists": true,
+          "sha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+          "sizeBytes": 10544
+        },
+        {
+          "path": "docs/product-quality/dependency-governance-quality-report.json",
+          "exists": true,
+          "sha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+          "sizeBytes": 19473
+        },
+        {
+          "path": "docs/product-quality/source-controlled-checks-report.json",
+          "exists": true,
+          "sha256": "de5be27fcc0127d067b2fda2a6ec0e31d67d34952a84b0aaca951eb1126f1e28",
+          "sizeBytes": 1530
+        }
+      ],
+      "requiredEvidenceBeforeSecurityClaim": [
+        "permission regression fixture evidence with protected-action blockers",
+        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
+        "dependency governance evidence for frozen installs and pinned workflow posture",
+        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
+      "protectedActionRequiredForEvidenceMatrix": false,
+      "protectedActionExecuted": false,
+      "hostedScorecardRunAllowed": false,
+      "hostedCodeqlRunAllowed": false,
+      "hostedBranchProtectionClaimAllowed": false,
+      "publicSecurityPostureClaimAllowed": false,
+      "providerCallAllowed": false,
+      "liveModelCallAllowed": false,
+      "externalServiceCallAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    }
+  ],
+  "evidenceChecks": [
+    {
+      "label": "source safe backlog plan is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_oss_safe_backlog_plan"
+    },
+    {
+      "label": "source safe backlog plan performed no provider/live/external/protected calls",
+      "ok": true,
+      "detail": "all source call/action arrays empty"
+    },
+    {
+      "label": "selected security and permissions axis has source items",
+      "ok": true,
+      "detail": "6/6"
+    },
+    {
+      "label": "source next gate candidate exists",
+      "ok": true,
+      "detail": "openclaude_internal_security_and_permissions_evidence_gate"
+    },
+    {
+      "label": "every evidence item has hash-bound local evidence",
+      "ok": true,
+      "detail": "30 bindings"
+    },
+    {
+      "label": "coverage includes permission and hosted security claim boundaries",
+      "ok": true,
+      "detail": "permission_protected_action_claim_boundary,hosted_security_claim_boundary"
+    },
+    {
+      "label": "every evidence item rejects hosted security and claim expansion",
+      "ok": true,
+      "detail": "6 items"
+    },
+    {
+      "label": "provenance JSONL is parseable",
+      "ok": true,
+      "detail": "6/6"
+    }
+  ],
+  "claimBoundary": "Internal no-provider security and permissions evidence only; not hosted Scorecard, hosted CodeQL, hosted CI, branch-protection enforcement, public security posture, release readiness, production readiness, external validation, or autonomous reliability evidence."
+}

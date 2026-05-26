@@ -1,0 +1,261 @@
+{
+  "generatedAt": "2026-05-21T14:10:40.243Z",
+  "mode": "local_no_provider_oss_eval_quality_gate_checklist",
+  "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
+  "sourceSafeBacklogPlanReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+  "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
+  "selectedAxis": "eval_and_quality_gates",
+  "sourcePlanItemCount": 4,
+  "checklistItemCount": 4,
+  "sourceProjects": [
+    "ultraworkers/claw-code",
+    "warpdotdev/warp"
+  ],
+  "provenanceJsonlPath": "reports/openclaude-oss-eval-quality-gate-checklist.jsonl",
+  "provenanceJsonlSha256": "7806170a221018c26c9546538c509e590511f48a3c3c493671dc3666d7ba29b5",
+  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlParseable": true,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "publicBenchmarkClaimAllowed": false,
+  "leaderboardClaimAllowed": false,
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "observedPattern": "OSS benchmark and quality-gate evidence must separate internal planning evidence from public benchmark, leaderboard, superiority, and readiness claims.",
+      "localAbsorption": "Convert eval_and_quality_gates backlog items into checklist rejection rules enforced by the local product-quality gate."
+    },
+    {
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "observedPattern": "OSS benchmark and quality-gate evidence must separate internal planning evidence from public benchmark, leaderboard, superiority, and readiness claims.",
+      "localAbsorption": "Convert eval_and_quality_gates backlog items into checklist rejection rules enforced by the local product-quality gate."
+    }
+  ],
+  "checklistItems": [
+    {
+      "checklistItemId": "oss_eval_quality_gate_ultraworkers_claw_code_8dec381c1f",
+      "sourcePlanItemId": "oss_backlog_ultraworkers_claw_code_eval_and_quality_gates_1_04dc7171ce",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
+      "requiredGateRule": "Reject leaderboard, superiority, or public comparison claims unless protected external benchmark authorization and result evidence are present.",
+      "rejectionCondition": "Fail if local planning evidence is converted into a leaderboard or public benchmark result claim.",
+      "requiredEvidenceBeforeClaim": [
+        "accepted local product-quality gate evidence",
+        "source-hash-addressed benchmark or quality evidence",
+        "explicit protected-action authorization for any external benchmark/provider/live-model step",
+        "explicit owner authorization before public comparison, leaderboard, superiority, release, production, external-validation, or autonomous-reliability claims"
+      ],
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "implementationStatus": "checklist_created_internal_no_provider",
+      "protectedActionRequiredForChecklist": false,
+      "protectedActionExecuted": false,
+      "publicBenchmarkClaimAllowed": false,
+      "leaderboardClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "checklistItemId": "oss_eval_quality_gate_ultraworkers_claw_code_39daba0593",
+      "sourcePlanItemId": "oss_backlog_ultraworkers_claw_code_eval_and_quality_gates_2_99d6378ac3",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "map every local benchmark task to missing external execution evidence",
+      "requiredGateRule": "Reject public benchmark claims unless external benchmark execution, submission, and claim authorization are separately approved.",
+      "rejectionCondition": "Fail if benchmark readiness is claimed from local artifacts without external execution authorization.",
+      "requiredEvidenceBeforeClaim": [
+        "accepted local product-quality gate evidence",
+        "source-hash-addressed benchmark or quality evidence",
+        "explicit protected-action authorization for any external benchmark/provider/live-model step",
+        "explicit owner authorization before public comparison, leaderboard, superiority, release, production, external-validation, or autonomous-reliability claims"
+      ],
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "implementationStatus": "checklist_created_internal_no_provider",
+      "protectedActionRequiredForChecklist": false,
+      "protectedActionExecuted": false,
+      "publicBenchmarkClaimAllowed": false,
+      "leaderboardClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "checklistItemId": "oss_eval_quality_gate_warpdotdev_warp_c9fb26fc9a",
+      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_1_7bdf45afa4",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
+      "requiredGateRule": "Reject leaderboard, superiority, or public comparison claims unless protected external benchmark authorization and result evidence are present.",
+      "rejectionCondition": "Fail if local planning evidence is converted into a leaderboard or public benchmark result claim.",
+      "requiredEvidenceBeforeClaim": [
+        "accepted local product-quality gate evidence",
+        "source-hash-addressed benchmark or quality evidence",
+        "explicit protected-action authorization for any external benchmark/provider/live-model step",
+        "explicit owner authorization before public comparison, leaderboard, superiority, release, production, external-validation, or autonomous-reliability claims"
+      ],
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "implementationStatus": "checklist_created_internal_no_provider",
+      "protectedActionRequiredForChecklist": false,
+      "protectedActionExecuted": false,
+      "publicBenchmarkClaimAllowed": false,
+      "leaderboardClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    },
+    {
+      "checklistItemId": "oss_eval_quality_gate_warpdotdev_warp_47c357617e",
+      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_2_dbdaee401a",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "map every local benchmark task to missing external execution evidence",
+      "requiredGateRule": "Reject public benchmark claims unless external benchmark execution, submission, and claim authorization are separately approved.",
+      "rejectionCondition": "Fail if benchmark readiness is claimed from local artifacts without external execution authorization.",
+      "requiredEvidenceBeforeClaim": [
+        "accepted local product-quality gate evidence",
+        "source-hash-addressed benchmark or quality evidence",
+        "explicit protected-action authorization for any external benchmark/provider/live-model step",
+        "explicit owner authorization before public comparison, leaderboard, superiority, release, production, external-validation, or autonomous-reliability claims"
+      ],
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "implementationStatus": "checklist_created_internal_no_provider",
+      "protectedActionRequiredForChecklist": false,
+      "protectedActionExecuted": false,
+      "publicBenchmarkClaimAllowed": false,
+      "leaderboardClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false
+    }
+  ],
+  "checklistChecks": [
+    {
+      "label": "source safe backlog plan is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_oss_safe_backlog_plan"
+    },
+    {
+      "label": "source safe backlog plan performed no provider/live/external/protected calls",
+      "ok": true,
+      "detail": "all source call/action arrays empty"
+    },
+    {
+      "label": "selected eval quality axis has source items",
+      "ok": true,
+      "detail": "4/4"
+    },
+    {
+      "label": "source next gate candidate exists",
+      "ok": true,
+      "detail": "openclaude_internal_eval_and_quality_gates_evidence_gate"
+    },
+    {
+      "label": "every checklist item rejects claim expansion",
+      "ok": true,
+      "detail": "4 items"
+    },
+    {
+      "label": "every checklist item preserves current local evidence and protected boundary",
+      "ok": true,
+      "detail": "4 items"
+    },
+    {
+      "label": "provenance JSONL is parseable",
+      "ok": true,
+      "detail": "4/4"
+    }
+  ],
+  "claimBoundary": "Internal no-provider checklist evidence only; not an external benchmark run, leaderboard submission, superiority claim, release readiness claim, production readiness claim, external validation claim, public readiness claim, or autonomous reliability claim."
+}

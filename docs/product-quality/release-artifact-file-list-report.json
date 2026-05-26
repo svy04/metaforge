@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-05-18T08:58:29.927Z",
+  "mode": "local_no_provider_release_artifact_file_list",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "packCommand": [
+    "npm",
+    "pack",
+    "--dry-run",
+    "--json",
+    "--ignore-scripts"
+  ],
+  "packDryRunExitCode": 0,
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "packageFilesField": [
+    "bin/openclaude",
+    "bin/openclaude.cmd",
+    "dist/cli.mjs",
+    "README.md"
+  ],
+  "expectedPackageFiles": [
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "bin/openclaude",
+    "bin/openclaude.cmd",
+    "dist/cli.mjs"
+  ],
+  "actualPackageFiles": [
+    "bin/openclaude",
+    "bin/openclaude.cmd",
+    "dist/cli.mjs",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "forbiddenPackageFilePatterns": [
+    "bin/.openclaude/",
+    "bin/.playwright-mcp/",
+    "bin/*.png",
+    "bin/*.test.*",
+    "bin/import-specifier.mjs",
+    "bin/nodeHeapBootstrap.mjs",
+    "*.map",
+    ".env",
+    "docs/product-quality/"
+  ],
+  "forbiddenPackageFiles": [],
+  "artifactSizeBytes": 4426356,
+  "artifactUnpackedSizeBytes": 21062192,
+  "releaseArtifactChecks": [
+    {
+      "label": "npm pack dry-run succeeded",
+      "ok": true,
+      "detail": "exit=0"
+    },
+    {
+      "label": "package name matches manifest",
+      "ok": true,
+      "detail": "@gitlawb/openclaude"
+    },
+    {
+      "label": "package version matches manifest",
+      "ok": true,
+      "detail": "0.6.0"
+    },
+    {
+      "label": "package files field is explicit",
+      "ok": true,
+      "detail": "bin/openclaude, bin/openclaude.cmd, dist/cli.mjs, README.md"
+    },
+    {
+      "label": "expected files are present",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "forbidden package files are absent",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "product-quality docs are not packed",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "artifact file count is bounded",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "label": "artifact unpacked size is bounded",
+      "ok": true,
+      "detail": "21062192"
+    },
+    {
+      "label": "publish was not attempted",
+      "ok": true,
+      "detail": "dry-run file list only"
+    },
+    {
+      "label": "deploy was not attempted",
+      "ok": true,
+      "detail": "dry-run file list only"
+    },
+    {
+      "label": "launch was not attempted",
+      "ok": true,
+      "detail": "dry-run file list only"
+    }
+  ],
+  "claimBoundary": "Release artifact file-list verification uses local npm pack dry-run only. It does not publish, deploy, launch, commit, push, call providers, or claim release readiness."
+}

@@ -1,0 +1,702 @@
+{
+  "generatedAt": "2026-05-21T03:03:39.613Z",
+  "mode": "local_no_provider_trace_graded_agent_replay_evals",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "replayScenarioCount": 12,
+  "minimumPassingScore": 0.9,
+  "replayScenarios": [
+    {
+      "id": "cli_surface_golden_transcript_replay",
+      "title": "CLI surface transcript stays local and reproducible",
+      "sourcePattern": "openai/codex style terminal surface proof",
+      "evidencePaths": [
+        "docs/product-quality/golden-path-terminal-transcripts.json"
+      ],
+      "replayedTrace": [
+        "run --version",
+        "run --help",
+        "grade expected substrings and exits"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "golden transcript report call arrays are empty"
+        },
+        {
+          "label": "version transcript passed",
+          "ok": true,
+          "detail": "version transcript exit and substring check"
+        },
+        {
+          "label": "help transcript passed",
+          "ok": true,
+          "detail": "help transcript exit and substring check"
+        },
+        {
+          "label": "minimum transcript count met",
+          "ok": true,
+          "detail": "2 transcripts"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "permission_boundary_replay",
+      "title": "Protected permission boundaries stay explicit",
+      "sourcePattern": "cline/cline style permission and protected-action regression surface",
+      "evidencePaths": [
+        "docs/product-quality/permission-regression-fixtures.json"
+      ],
+      "replayedTrace": [
+        "load permission fixtures",
+        "grade all protected surfaces",
+        "block external security claims"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "permission report call arrays are empty"
+        },
+        {
+          "label": "all permission fixtures passed",
+          "ok": true,
+          "detail": "11 fixtures"
+        },
+        {
+          "label": "protected boundary fixture coverage is broad",
+          "ok": true,
+          "detail": "11 fixtures"
+        },
+        {
+          "label": "auto classifier transcript fixture exists",
+          "ok": true,
+          "detail": "auto classifier transcript bounds checked"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "runtime_doctor_no_provider_replay",
+      "title": "Runtime doctor preserves no-provider local diagnostics",
+      "sourcePattern": "openai/codex style local runtime command proof",
+      "evidencePaths": [
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "replayedTrace": [
+        "run system-check --json",
+        "run system-check --json --out",
+        "grade provider probe skip behavior"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "runtime doctor report call arrays are empty"
+        },
+        {
+          "label": "doctor commands passed",
+          "ok": true,
+          "detail": "2 commands"
+        },
+        {
+          "label": "doctor checks passed",
+          "ok": true,
+          "detail": "15 checks"
+        },
+        {
+          "label": "minimum command evidence met",
+          "ok": true,
+          "detail": "2 commands"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "git_release_boundary_replay",
+      "title": "Git/release boundary is classified without protected action",
+      "sourcePattern": "Aider-style git-native workflow guarded by repo-root proof",
+      "evidencePaths": [
+        "docs/product-quality/git-release-hygiene-report.json"
+      ],
+      "replayedTrace": [
+        "inspect git root",
+        "inspect status/remote",
+        "grade commit-push boundary"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "git release hygiene report call arrays are empty"
+        },
+        {
+          "label": "workspace git status classified",
+          "ok": true,
+          "detail": "blocked_by_no_git_repo"
+        },
+        {
+          "label": "commit push not attempted",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "release action not performed",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "protected actions not performed",
+          "ok": true,
+          "detail": "0"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_gap_replay",
+      "title": "IDE extension surface remains evidence-bound",
+      "sourcePattern": "Cline-style IDE positioning requires manifest evidence",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-surface-report.json"
+      ],
+      "replayedTrace": [
+        "scan candidate manifests",
+        "classify extension surface",
+        "block unsupported availability claim"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "IDE surface report call arrays are empty"
+        },
+        {
+          "label": "IDE extension status classified",
+          "ok": true,
+          "detail": "extension_manifest_found"
+        },
+        {
+          "label": "packaging not attempted",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "install not attempted",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "IDE checks passed",
+          "ok": true,
+          "detail": "6 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_runtime_smoke_replay",
+      "title": "IDE extension activation and command handlers are runtime-smoked locally",
+      "sourcePattern": "VS Code extension anatomy requires manifest commands to be bound by activate/registerCommand",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-runtime-smoke-report.json",
+        "packages/openclaude-vscode/package.json",
+        "packages/openclaude-vscode/dist/extension.js"
+      ],
+      "replayedTrace": [
+        "load extension entry point with local mock VS Code host",
+        "activate extension",
+        "execute manifest command handlers",
+        "grade no availability claim"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "IDE runtime smoke report call arrays are empty"
+        },
+        {
+          "label": "local mock host was used",
+          "ok": true,
+          "detail": "local_mock_vscode_extension_host"
+        },
+        {
+          "label": "activation and deactivation are callable",
+          "ok": true,
+          "detail": "true/true"
+        },
+        {
+          "label": "all manifest commands registered",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "all manifest commands executed",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "no unexpected commands registered",
+          "ok": true,
+          "detail": "none"
+        },
+        {
+          "label": "subscriptions cover commands and workbench tree providers",
+          "ok": true,
+          "detail": "7/4"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "availability/install/publish/deploy/launch all false"
+        },
+        {
+          "label": "runtime smoke checks passed",
+          "ok": true,
+          "detail": "12 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_host_smoke_replay",
+      "title": "IDE extension loads and executes commands in the real VS Code Extension Development Host",
+      "sourcePattern": "VS Code official extension integration tests run inside Extension Development Host",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-host-smoke-report.json",
+        "packages/openclaude-vscode/package.json",
+        "packages/openclaude-vscode/dist/extension.js"
+      ],
+      "replayedTrace": [
+        "launch code with --extensionDevelopmentPath and --extensionTestsPath",
+        "activate extension",
+        "execute manifest command handlers",
+        "grade no availability/release claim"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "IDE host smoke report call arrays are empty"
+        },
+        {
+          "label": "real Extension Development Host was launched",
+          "ok": true,
+          "detail": "real_vscode_extension_development_host; blockers="
+        },
+        {
+          "label": "VS Code startup was not environment-blocked",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "label": "VS Code extension test process exited successfully",
+          "ok": true,
+          "detail": "0/false"
+        },
+        {
+          "label": "extension activated in real host",
+          "ok": true,
+          "detail": "true"
+        },
+        {
+          "label": "manifest commands registered in real host",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "manifest commands executed in real host",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "install publish deploy product launch not attempted",
+          "ok": true,
+          "detail": "integration smoke only"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "host smoke checks passed",
+          "ok": true,
+          "detail": "11 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_workbench_smoke_replay",
+      "title": "IDE extension registers and reveals workbench tree views in real VS Code",
+      "sourcePattern": "VS Code Tree View API requires contributed views to have registered TreeDataProviders",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-workbench-smoke-report.json",
+        "packages/openclaude-vscode/package.json",
+        "packages/openclaude-vscode/dist/extension.js"
+      ],
+      "replayedTrace": [
+        "launch code with Extension Development Host",
+        "activate extension",
+        "create tree views",
+        "reveal first item in each contributed view",
+        "grade no availability/release claim"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "IDE workbench smoke report call arrays are empty"
+        },
+        {
+          "label": "real Extension Development Host was launched",
+          "ok": true,
+          "detail": "real_vscode_extension_development_host; blockers="
+        },
+        {
+          "label": "VS Code startup was not environment-blocked",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "label": "VS Code workbench smoke process exited successfully",
+          "ok": true,
+          "detail": "0/false"
+        },
+        {
+          "label": "extension activated in real host",
+          "ok": true,
+          "detail": "true"
+        },
+        {
+          "label": "contributed views have registered tree views",
+          "ok": true,
+          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+        },
+        {
+          "label": "contributed views have tree data providers",
+          "ok": true,
+          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+        },
+        {
+          "label": "contributed views were revealed/focused",
+          "ok": true,
+          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+        },
+        {
+          "label": "contributed views expose non-empty items",
+          "ok": true,
+          "detail": "{\"openclaude.chatView\":2,\"openclaude.traceEvidenceView\":2}"
+        },
+        {
+          "label": "tree item commands executed in real host",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection / failed="
+        },
+        {
+          "label": "install publish deploy product launch not attempted",
+          "ok": true,
+          "detail": "workbench smoke only"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "workbench smoke checks passed",
+          "ok": true,
+          "detail": "15 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_webview_render_smoke_replay",
+      "title": "IDE extension renders a bounded webview view contract locally",
+      "sourcePattern": "VS Code WebviewView guidance requires provider-backed, themeable, accessible HTML in view containers",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+        "packages/openclaude-vscode/package.json",
+        "packages/openclaude-vscode/dist/extension.js"
+      ],
+      "replayedTrace": [
+        "load extension entry point with local mock webview host",
+        "activate extension",
+        "resolve registered WebviewViewProvider",
+        "grade CSP/theme/command/no-network boundary"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "IDE webview render smoke report call arrays are empty"
+        },
+        {
+          "label": "local mock webview host was used",
+          "ok": true,
+          "detail": "local_mock_vscode_webview_view_host"
+        },
+        {
+          "label": "activation and deactivation are callable",
+          "ok": true,
+          "detail": "true/true"
+        },
+        {
+          "label": "webview view contribution is manifest-declared and registered",
+          "ok": true,
+          "detail": "openclaude.controlCenterView / openclaude.controlCenterView"
+        },
+        {
+          "label": "webview HTML is resolved and non-empty",
+          "ok": true,
+          "detail": "openclaude.controlCenterView / 4572"
+        },
+        {
+          "label": "webview exposes command actions",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "install publish deploy launch not attempted",
+          "ok": true,
+          "detail": "render smoke only"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "webview render checks passed",
+          "ok": true,
+          "detail": "14 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_rendered_workbench_screenshot_replay",
+      "title": "IDE extension produces a bounded rendered workbench screenshot artifact locally",
+      "sourcePattern": "VS Code webview UX guidance requires themeable, accessible command actions, and rendered evidence should remain claim-bounded before availability claims",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+        "docs/product-quality/assets/ide-extension-control-center-render.png",
+        "docs/product-quality/assets/ide-extension-control-center-render.svg"
+      ],
+      "replayedTrace": [
+        "load webview render smoke report",
+        "resolve current Control Center HTML",
+        "render local workbench-style screenshot artifact",
+        "grade PNG dimensions/hash/nonblank and protected-action boundary"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "rendered screenshot report call arrays are empty"
+        },
+        {
+          "label": "local screenshot renderer was used",
+          "ok": true,
+          "detail": "local_sharp_rendered_workbench_panel_from_webview_contract"
+        },
+        {
+          "label": "PNG dimensions are stable",
+          "ok": true,
+          "detail": "960x720"
+        },
+        {
+          "label": "PNG hash and nonblank evidence exists",
+          "ok": true,
+          "detail": "73404 bytes"
+        },
+        {
+          "label": "screenshot exposes command actions",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "install publish deploy launch not attempted",
+          "ok": true,
+          "detail": "render artifact only"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "rendered screenshot checks passed",
+          "ok": true,
+          "detail": "13 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "ide_extension_webview_interaction_smoke_replay",
+      "title": "IDE extension webview command actions preserve accessible local interaction semantics",
+      "sourcePattern": "VS Code webview guidance expects accessible, contextually bounded webview UI; command actions should remain native controls before any availability claim",
+      "evidencePaths": [
+        "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
+        "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+        "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json"
+      ],
+      "replayedTrace": [
+        "load webview render and screenshot reports",
+        "parse Control Center command buttons",
+        "grade focus order, native button semantics, registered commands, and mock-host command execution"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "webview interaction report call arrays are empty"
+        },
+        {
+          "label": "local interaction host was used",
+          "ok": true,
+          "detail": "local_mock_vscode_webview_interaction_host"
+        },
+        {
+          "label": "source reports are linked",
+          "ok": true,
+          "detail": "docs/product-quality/ide-extension-webview-render-smoke-report.json / docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json"
+        },
+        {
+          "label": "activation and deactivation are callable",
+          "ok": true,
+          "detail": "true/true"
+        },
+        {
+          "label": "command buttons match manifest commands",
+          "ok": true,
+          "detail": "4/4"
+        },
+        {
+          "label": "interaction actions match render and screenshot evidence",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+        },
+        {
+          "label": "all interaction commands are registered and executed",
+          "ok": true,
+          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor / failed=none"
+        },
+        {
+          "label": "command region and keyboard model are accessible",
+          "ok": true,
+          "detail": "list/native_button_enter_space_command_mapping"
+        },
+        {
+          "label": "bounded local messages preserve availability boundary",
+          "ok": true,
+          "detail": "4 messages"
+        },
+        {
+          "label": "install publish deploy launch not attempted",
+          "ok": true,
+          "detail": "interaction smoke only"
+        },
+        {
+          "label": "extension availability claim stays blocked",
+          "ok": true,
+          "detail": "false"
+        },
+        {
+          "label": "webview interaction checks passed",
+          "ok": true,
+          "detail": "15 checks"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    },
+    {
+      "id": "release_artifact_sanitization_replay",
+      "title": "Release artifact file list excludes local detritus",
+      "sourcePattern": "installable terminal agents need narrow package artifacts",
+      "evidencePaths": [
+        "docs/product-quality/release-artifact-file-list-report.json",
+        "package.json"
+      ],
+      "replayedTrace": [
+        "run npm pack dry-run",
+        "grade expected files",
+        "grade forbidden files absent"
+      ],
+      "grades": [
+        {
+          "label": "no provider/live/external calls",
+          "ok": true,
+          "detail": "release artifact report call arrays are empty"
+        },
+        {
+          "label": "pack dry-run succeeded",
+          "ok": true,
+          "detail": "0"
+        },
+        {
+          "label": "forbidden files absent",
+          "ok": true,
+          "detail": "0 forbidden files"
+        },
+        {
+          "label": "artifact file count bounded",
+          "ok": true,
+          "detail": "6 files"
+        },
+        {
+          "label": "publish deploy launch not attempted",
+          "ok": true,
+          "detail": "dry-run only"
+        }
+      ],
+      "score": 1,
+      "passed": true
+    }
+  ],
+  "replayEvalChecks": [
+    {
+      "label": "scenario count covers major product axes",
+      "ok": true,
+      "detail": "12 scenarios"
+    },
+    {
+      "label": "all replay scenarios passed threshold",
+      "ok": true,
+      "detail": "12/12"
+    },
+    {
+      "label": "minimum score is strict enough",
+      "ok": true,
+      "detail": "0.9"
+    },
+    {
+      "label": "all scenarios have evidence paths",
+      "ok": true,
+      "detail": "evidence paths present"
+    },
+    {
+      "label": "all scenarios preserve local no-provider boundary",
+      "ok": true,
+      "detail": "call-boundary grades present"
+    }
+  ],
+  "claimBoundary": "Agent replay evals are local trace-grading fixtures over existing evidence only. They do not call providers, live models, or external services, and do not claim release readiness or autonomous reliability."
+}

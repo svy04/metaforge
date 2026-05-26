@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-05-21T09:42:45.590Z",
+  "mode": "local_no_provider_terminal_failure_recovery_transcripts",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "capturePerformed": true,
+  "rawOutputStored": false,
+  "transcriptCount": 4,
+  "failureStepDetected": true,
+  "recoveryGuidanceProvided": true,
+  "recoveryVerificationPassed": true,
+  "commandTimeoutMs": 15000,
+  "transcripts": [
+    {
+      "name": "unknown_flag_local_failure",
+      "kind": "local_failure",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "--unknown-openclaude-flag"
+      ],
+      "expectedExitCode": 1,
+      "exitCode": 1,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "28b794eca7df91543b5a0c0eb507f10cbe1fe202544c4b71f6f09cfb62dd38c1",
+      "stdoutByteLength": 0,
+      "stderrByteLength": 50,
+      "requiredSubstrings": [
+        "unknown option"
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    },
+    {
+      "name": "help_recovery_guidance",
+      "kind": "recovery_guidance",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "--help"
+      ],
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdoutSha256": "8c8f9ef447c16f671af4660e5fb329c76966f972e741467cca0187eacfd0d7a0",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutByteLength": 8800,
+      "stderrByteLength": 0,
+      "requiredSubstrings": [
+        "Usage: claude",
+        "--provider <provider>",
+        "--permission-mode <mode>",
+        "doctor"
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    },
+    {
+      "name": "doctor_help_recovery_guidance",
+      "kind": "recovery_guidance",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "doctor",
+        "--help"
+      ],
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdoutSha256": "b4c4cac439d6ddfafbf7500af443dc7d930534e5859f71cfc117c2cfe55bcc6e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutByteLength": 288,
+      "stderrByteLength": 0,
+      "requiredSubstrings": [
+        "Usage: claude doctor",
+        "Display help for command"
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    },
+    {
+      "name": "version_recovery_verification",
+      "kind": "recovery_verification",
+      "command": [
+        "node",
+        "dist/cli.mjs",
+        "--version"
+      ],
+      "expectedExitCode": 0,
+      "exitCode": 0,
+      "stdoutSha256": "85fdb502a0f8b204187d7421eae60106925dfbe5eebc57dd0b80ad392af08866",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutByteLength": 20,
+      "stderrByteLength": 0,
+      "requiredSubstrings": [
+        "0.6.0 (Open Claude)"
+      ],
+      "missingSubstrings": [],
+      "passed": true
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "anomalyco/opencode",
+      "sourceUrl": "https://github.com/anomalyco/opencode",
+      "observedPattern": "OpenCode separates read-only planning from full-access build behavior and asks before risky command execution.",
+      "localAbsorption": "OpenClaude records local failure and recovery transcript evidence without escalating into provider prompts or protected actions."
+    },
+    {
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "observedPattern": "Warp positions the terminal as an agentic development surface with auditable command workflows.",
+      "localAbsorption": "OpenClaude keeps terminal failure and recovery flows hash-addressed and auditable in product-quality evidence."
+    },
+    {
+      "sourceProject": "openai/codex",
+      "sourceUrl": "https://github.com/openai/codex",
+      "observedPattern": "Codex CLI emphasizes local terminal operation, quickstart commands, approval boundaries, and inspectable command logs.",
+      "localAbsorption": "OpenClaude verifies a local failed command, help recovery, doctor handoff, and version recovery without external validation claims."
+    }
+  ],
+  "transcriptChecks": [
+    {
+      "label": "expected local failure is captured",
+      "ok": true,
+      "detail": "unknown_flag_local_failure:1,help_recovery_guidance:0,doctor_help_recovery_guidance:0,version_recovery_verification:0"
+    },
+    {
+      "label": "help and doctor recovery commands pass",
+      "ok": true,
+      "detail": "help_recovery_guidance,doctor_help_recovery_guidance"
+    },
+    {
+      "label": "version recovery verification passes",
+      "ok": true,
+      "detail": "version_recovery_verification"
+    },
+    {
+      "label": "raw output is hash-only in report",
+      "ok": true,
+      "detail": "stdout/stderr stored as SHA-256 and byte counts only"
+    },
+    {
+      "label": "all transcript commands avoid provider prompt path",
+      "ok": true,
+      "detail": "node dist/cli.mjs --unknown-openclaude-flag | node dist/cli.mjs --help | node dist/cli.mjs doctor --help | node dist/cli.mjs --version"
+    },
+    {
+      "label": "provider live external and protected action counts are zero",
+      "ok": true,
+      "detail": "no provider/live/external/protected actions are performed by this script"
+    }
+  ],
+  "claimBoundary": "Terminal failure recovery transcripts are local no-provider product-quality evidence only. They do not prove release readiness, public readiness, production readiness, external validation, benchmark superiority, or autonomous reliability."
+}

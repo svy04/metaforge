@@ -1,0 +1,570 @@
+{
+  "generatedAt": "2026-05-21T12:27:19.679Z",
+  "mode": "external_github_api_oss_source_review",
+  "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
+  "sourceBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+  "baselineSnapshotDate": "2026-05-21",
+  "reviewedProjectCount": 10,
+  "sourceSupportedCandidateCount": 9,
+  "metadataOnlyNeedsReviewCount": 1,
+  "absorptionCandidateCount": 9,
+  "newTop10SourceReviewed": [
+    "ultraworkers/claw-code",
+    "warpdotdev/warp",
+    "ruvnet/ruflo"
+  ],
+  "provenanceJsonlPath": "reports/openclaude-oss-source-review-provenance.jsonl",
+  "provenanceJsonlSha256": "57bd8410c57777cdd7199f0be7bfcc1c3e072bdd4b82079d9f5d3a95882b7200",
+  "provenanceJsonlRecordCount": 10,
+  "provenanceJsonlParseable": true,
+  "externalGitHubSourceReviewPerformed": true,
+  "githubApiCallPerformed": true,
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalCallsPerformed": [
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/ultraworkers/claw-code/readme",
+      "status": 200,
+      "rateLimitRemaining": "48",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/ultraworkers/claw-code/contents",
+      "status": 200,
+      "rateLimitRemaining": "47",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/anomalyco/opencode/readme",
+      "status": 200,
+      "rateLimitRemaining": "46",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/anomalyco/opencode/contents",
+      "status": 200,
+      "rateLimitRemaining": "45",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/anthropics/claude-code/readme",
+      "status": 200,
+      "rateLimitRemaining": "44",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/anthropics/claude-code/contents",
+      "status": 200,
+      "rateLimitRemaining": "43",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/google-gemini/gemini-cli/readme",
+      "status": 200,
+      "rateLimitRemaining": "42",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/google-gemini/gemini-cli/contents",
+      "status": 200,
+      "rateLimitRemaining": "41",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/openai/codex/readme",
+      "status": 200,
+      "rateLimitRemaining": "40",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/openai/codex/contents",
+      "status": 200,
+      "rateLimitRemaining": "39",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/OpenHands/OpenHands/readme",
+      "status": 200,
+      "rateLimitRemaining": "38",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/OpenHands/OpenHands/contents",
+      "status": 200,
+      "rateLimitRemaining": "37",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/openinterpreter/open-interpreter/readme",
+      "status": 200,
+      "rateLimitRemaining": "36",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/openinterpreter/open-interpreter/contents",
+      "status": 200,
+      "rateLimitRemaining": "35",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/cline/cline/readme",
+      "status": 200,
+      "rateLimitRemaining": "34",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/cline/cline/contents",
+      "status": 200,
+      "rateLimitRemaining": "33",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/warpdotdev/warp/readme",
+      "status": 200,
+      "rateLimitRemaining": "32",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/warpdotdev/warp/contents",
+      "status": 200,
+      "rateLimitRemaining": "31",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_readme",
+      "url": "https://api.github.com/repos/ruvnet/ruflo/readme",
+      "status": 200,
+      "rateLimitRemaining": "30",
+      "rateLimitReset": "1779370006"
+    },
+    {
+      "kind": "github_rest_contents",
+      "url": "https://api.github.com/repos/ruvnet/ruflo/contents",
+      "status": 200,
+      "rateLimitRemaining": "29",
+      "rateLimitReset": "1779370006"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub REST repository README endpoint",
+      "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-a-repository-readme",
+      "observedPattern": "Repository README content is a primary project source for product positioning, installation, and usage evidence.",
+      "localAbsorption": "OpenClaude reviews README content before treating high-star candidates as implementation-pattern inputs."
+    },
+    {
+      "sourceProject": "GitHub REST repository contents endpoint",
+      "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
+      "observedPattern": "Repository contents expose root manifests and source directories that distinguish executable products from metadata-only candidates.",
+      "localAbsorption": "OpenClaude records root manifest/source markers before absorbing benchmark implementation patterns."
+    }
+  ],
+  "selfImprovementActions": [
+    "Require README and root source marker review after every fresh GitHub top-10 metadata refresh.",
+    "Treat metadata-only high-star projects as planning inputs only until deeper source review is complete.",
+    "Prioritize source-supported newly discovered candidates for architecture-specific absorption reviews.",
+    "Keep source review separate from public comparison or superiority claims."
+  ],
+  "sourceReviewChecks": [
+    {
+      "label": "source review imports refreshed baseline",
+      "ok": true,
+      "detail": "2026-05-21/10"
+    },
+    {
+      "label": "source review covers every baseline project",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "source review fetched README and root contents for most candidates",
+      "ok": true,
+      "detail": "10/10"
+    },
+    {
+      "label": "source review records source-supported or metadata-only classification for every candidate",
+      "ok": true,
+      "detail": "all classified"
+    },
+    {
+      "label": "source review preserves newly discovered top-10 candidates",
+      "ok": true,
+      "detail": "ultraworkers/claw-code,warpdotdev/warp,ruvnet/ruflo"
+    },
+    {
+      "label": "source review keeps metadata-only candidates bounded when evidence is insufficient",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "label": "source review finds source-supported benchmark candidates",
+      "ok": true,
+      "detail": "9"
+    },
+    {
+      "label": "source review writes parseable provenance JSONL",
+      "ok": true,
+      "detail": "reports/openclaude-oss-source-review-provenance.jsonl"
+    },
+    {
+      "label": "source review performed GitHub source calls only",
+      "ok": true,
+      "detail": "20 GitHub calls"
+    }
+  ],
+  "reviewRecords": [
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 1,
+      "fullName": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "stars": 192141,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "9b6fe5d0164163780c67fc52dafe285f30537e96",
+      "readmeHtmlUrl": "https://github.com/ultraworkers/claw-code/blob/main/README.md",
+      "readmeSizeBytes": 10723,
+      "readmeDigest": "55b3b3b53f2c89d9a1eb99361a096937c47c969392877c3fce4165abe8ed8d04",
+      "rootManifestMarkers": [],
+      "rootSourceMarkers": [
+        "src"
+      ],
+      "readmeProductSignals": [
+        "terminal-cli",
+        "tool-use",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Review ultraworkers/claw-code architecture/docs next because it newly entered the top-10 baseline and has source-level product signals: terminal-cli, tool-use, provider-model.",
+      "recordDigest": "fd8fee4b8a6ce50fb84e3a688d138c81e0baec0318dab2f86bd469af2a902799"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 2,
+      "fullName": "anomalyco/opencode",
+      "sourceUrl": "https://github.com/anomalyco/opencode",
+      "stars": 163411,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "b5a4c8ddd9794e8c20bd287603bfa0c336522796",
+      "readmeHtmlUrl": "https://github.com/anomalyco/opencode/blob/dev/README.md",
+      "readmeSizeBytes": 5317,
+      "readmeDigest": "400890a3082e225c440561825270a911cd7df90a9f64f85166aed330201e50ba",
+      "rootManifestMarkers": [
+        "bun.lock",
+        "package.json"
+      ],
+      "rootSourceMarkers": [
+        "packages"
+      ],
+      "readmeProductSignals": [
+        "coding-agent",
+        "terminal-cli",
+        "codebase-workflow"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use anomalyco/opencode as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "14f5c27fcf3973705c6c568d5b33338b0620281c5e5dd960413d5162e8b38355"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 3,
+      "fullName": "anthropics/claude-code",
+      "sourceUrl": "https://github.com/anthropics/claude-code",
+      "stars": 125428,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "80aa75edf74a5f9e1269811b4e8b5852be91e66e",
+      "readmeHtmlUrl": "https://github.com/anthropics/claude-code/blob/main/README.md",
+      "readmeSizeBytes": 2873,
+      "readmeDigest": "aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d",
+      "rootManifestMarkers": [],
+      "rootSourceMarkers": [],
+      "readmeProductSignals": [
+        "coding-agent",
+        "terminal-cli",
+        "ide-extension",
+        "tool-use",
+        "codebase-workflow",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "metadata_only_needs_deeper_review",
+      "reviewRationale": "GitHub metadata is not enough; README or root source markers were insufficient for implementation-pattern absorption.",
+      "absorptionCandidate": false,
+      "immediateAbsorptionAction": "Keep anthropics/claude-code in metadata baseline only; require deeper source review before implementation-pattern absorption.",
+      "recordDigest": "329ce234f283eec8774f3cfa9b0a7426851bf59ad43ef9ad898af777ed03090d"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 4,
+      "fullName": "google-gemini/gemini-cli",
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli",
+      "stars": 104427,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "20813de3eb3e5db49a6345e969f08c32b57e76c9",
+      "readmeHtmlUrl": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
+      "readmeSizeBytes": 13447,
+      "readmeDigest": "bacf354f3f674d57679ebf7b42dd69311bb9ef14200e18ca703d82aba48bf833",
+      "rootManifestMarkers": [
+        "package-lock.json",
+        "package.json"
+      ],
+      "rootSourceMarkers": [
+        "packages"
+      ],
+      "readmeProductSignals": [
+        "terminal-cli",
+        "ide-extension",
+        "tool-use",
+        "codebase-workflow",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use google-gemini/gemini-cli as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "376217197c7c01a93bc0f6ba1210c24300fd2f99d423877c29268b41f5df4bb7"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 5,
+      "fullName": "openai/codex",
+      "sourceUrl": "https://github.com/openai/codex",
+      "stars": 84320,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "5cc7fd4953cbfb479c94be4036dc6f696d83a3b5",
+      "readmeHtmlUrl": "https://github.com/openai/codex/blob/main/README.md",
+      "readmeSizeBytes": 2627,
+      "readmeDigest": "da27a49c887c9d52a202b34a79cbe4db88740fbf5f62d1f47091696c962bcb97",
+      "rootManifestMarkers": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "rootSourceMarkers": [],
+      "readmeProductSignals": [
+        "coding-agent",
+        "terminal-cli",
+        "ide-extension",
+        "tool-use",
+        "codebase-workflow",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use openai/codex as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "72011057dd75f30784a1221e1f0a46510d054dd425cca15b484707a8ecf34327"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 6,
+      "fullName": "OpenHands/OpenHands",
+      "sourceUrl": "https://github.com/OpenHands/OpenHands",
+      "stars": 74367,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "7e32cfd971890042c162d03f72906fe119123ea6",
+      "readmeHtmlUrl": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
+      "readmeSizeBytes": 8359,
+      "readmeDigest": "520aa2b10c568f2bf3ea95438d7039f993efe89f2aca1a8d9a0e598153885b8f",
+      "rootManifestMarkers": [
+        "pyproject.toml"
+      ],
+      "rootSourceMarkers": [],
+      "readmeProductSignals": [
+        "terminal-cli",
+        "ide-extension",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use OpenHands/OpenHands as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "5bc56610bc24fe661872f5eeeb320abb2b4aee20c3002e91e83174eb3dab5e3a"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 7,
+      "fullName": "openinterpreter/open-interpreter",
+      "sourceUrl": "https://github.com/openinterpreter/open-interpreter",
+      "stars": 63602,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "8752c1b8c7e7a0252ea811f366a5c3dc9bf7fa14",
+      "readmeHtmlUrl": "https://github.com/openinterpreter/open-interpreter/blob/main/README.md",
+      "readmeSizeBytes": 14311,
+      "readmeDigest": "24fd0124d8a064d85d7186710971ca4d452b391cad4eb7503ab536d78a035378",
+      "rootManifestMarkers": [
+        "pyproject.toml"
+      ],
+      "rootSourceMarkers": [],
+      "readmeProductSignals": [
+        "terminal-cli",
+        "tool-use",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use openinterpreter/open-interpreter as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "1f1c5bc9ef4a039bac372e3d2575e3529b7e816dd6e09576742f91f97ada7d68"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 8,
+      "fullName": "cline/cline",
+      "sourceUrl": "https://github.com/cline/cline",
+      "stars": 62137,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "29d22c10b1b4175b0c04a7dcf1b032ec4ae67468",
+      "readmeHtmlUrl": "https://github.com/cline/cline/blob/main/README.md",
+      "readmeSizeBytes": 8947,
+      "readmeDigest": "8afcacabc01c63aba126e01b85e60e0bbe9e6d541fdbfc40b20b63a32d796755",
+      "rootManifestMarkers": [
+        "package-lock.json",
+        "package.json"
+      ],
+      "rootSourceMarkers": [
+        "src"
+      ],
+      "readmeProductSignals": [
+        "coding-agent",
+        "terminal-cli",
+        "ide-extension",
+        "tool-use",
+        "codebase-workflow",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Use cline/cline as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
+      "recordDigest": "81a66aa2274a601fa9f9a747001c1d6c0b1805953a379e262faffa03f76cda50"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 9,
+      "fullName": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "stars": 59387,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "45cb7e09b5e232db530337609e9b22fe3a32eaac",
+      "readmeHtmlUrl": "https://github.com/warpdotdev/warp/blob/master/README.md",
+      "readmeSizeBytes": 6112,
+      "readmeDigest": "be8f4c849d99de76973f5eb4e4a04979f02a2e195d544c11d672e7a57d233867",
+      "rootManifestMarkers": [
+        "Cargo.toml"
+      ],
+      "rootSourceMarkers": [
+        "app",
+        "crates"
+      ],
+      "readmeProductSignals": [
+        "coding-agent",
+        "terminal-cli",
+        "tool-use",
+        "codebase-workflow",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Review warpdotdev/warp architecture/docs next because it newly entered the top-10 baseline and has source-level product signals: coding-agent, terminal-cli, tool-use, codebase-workflow, provider-model.",
+      "recordDigest": "4a2e191ebe68b03a8dd97cc60a1dca41ab8bf6b9b5370b2a63e7525da4188bbf"
+    },
+    {
+      "schemaVersion": "openclaude_oss_source_review_v1",
+      "baselineSnapshotDate": "2026-05-21",
+      "rank": 10,
+      "fullName": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "stars": 53756,
+      "readmeFetched": true,
+      "rootContentsFetched": true,
+      "readmeSourceKind": "github_rest_readme",
+      "rootContentsSourceKind": "github_rest_contents",
+      "readmeSha": "d9c25a84ea5be09c25156b6096aab34c9ea7d0de",
+      "readmeHtmlUrl": "https://github.com/ruvnet/ruflo/blob/main/README.md",
+      "readmeSizeBytes": 27260,
+      "readmeDigest": "7315aabb784da313911a212fcec171c3fcbe74187c93703e42ada8d107089c1f",
+      "rootManifestMarkers": [
+        "package-lock.json",
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "rootSourceMarkers": [],
+      "readmeProductSignals": [
+        "terminal-cli",
+        "tool-use",
+        "provider-model"
+      ],
+      "sourceReviewStatus": "source_supported_candidate",
+      "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
+      "absorptionCandidate": true,
+      "immediateAbsorptionAction": "Review ruvnet/ruflo architecture/docs next because it newly entered the top-10 baseline and has source-level product signals: terminal-cli, tool-use, provider-model.",
+      "recordDigest": "07b7052a7fa4a69ca8958649de8feecb86c07bca58f9d1f27234e9256dc3e819"
+    }
+  ],
+  "claimBoundary": "OSS source review is external GitHub README and contents metadata review for internal benchmark planning only. It does not clone repositories, install dependencies, call providers, call live models, mutate production OpenClaude, mutate external repositories, publish, deploy, launch, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."
+}

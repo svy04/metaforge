@@ -1,0 +1,132 @@
+{
+  "autonomous_reliability_claimed": false,
+  "dependency_install_performed": false,
+  "deploy_performed": false,
+  "external_calls": false,
+  "external_validation_authorized": false,
+  "external_validation_claimed": false,
+  "external_validation_executed": false,
+  "first_goal_flow": "guided_input_to_owner_ready_package_without_external_execution",
+  "guard_packet_id": "guided_first_run_guard_v35",
+  "input_requirements": [
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "idea_summary",
+      "question": "What are we building?",
+      "recovery_prompt": "Fill `idea_summary` before building the owner-ready package: What are we building?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "target_audience",
+      "question": "Who is this for?",
+      "recovery_prompt": "Fill `target_audience` before building the owner-ready package: Who is this for?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "proof_target",
+      "question": "What local result proves progress?",
+      "recovery_prompt": "Fill `proof_target` before building the owner-ready package: What local result proves progress?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "first_result",
+      "question": "What should the first owner-ready package contain?",
+      "recovery_prompt": "Fill `first_result` before building the owner-ready package: What should the first owner-ready package contain?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "brand_dna",
+      "question": "What should the brand feel like?",
+      "recovery_prompt": "Fill `brand_dna` before building the owner-ready package: What should the brand feel like?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "visual_style_guide",
+      "question": "What must visual outputs preserve?",
+      "recovery_prompt": "Fill `visual_style_guide` before building the owner-ready package: What must visual outputs preserve?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "reference_image_index",
+      "question": "Which owner-approved references may be used?",
+      "recovery_prompt": "Fill `reference_image_index` before building the owner-ready package: Which owner-approved references may be used?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "blocked_behaviors",
+      "question": "Which unsafe behaviors must remain blocked?",
+      "recovery_prompt": "Fill `blocked_behaviors` before building the owner-ready package: Which unsafe behaviors must remain blocked?"
+    },
+    {
+      "guard_status": "required_before_owner_ready_package",
+      "input_id": "codex_acceptance_criteria",
+      "question": "What must Codex change and verify?",
+      "recovery_prompt": "Fill `codex_acceptance_criteria` before building the owner-ready package: What must Codex change and verify?"
+    }
+  ],
+  "live_model_calls_performed": false,
+  "local_product_status": "guided_first_run_guard_ready",
+  "next_safe_goal_count": 1,
+  "owner_ready_blocker_matrix": [
+    {
+      "blocker_id": "idea_summary",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "target_audience",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "proof_target",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "first_result",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "brand_dna",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "visual_style_guide",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "reference_image_index",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "blocked_behaviors",
+      "status": "blocks_owner_ready_package_when_missing"
+    },
+    {
+      "blocker_id": "codex_acceptance_criteria",
+      "status": "blocks_owner_ready_package_when_missing"
+    }
+  ],
+  "personal_account_automation_performed": false,
+  "platform_posting_performed": false,
+  "product_completion_claim_scope": "repo_local_internal_only",
+  "production_readiness_claimed": false,
+  "protected_action_executed": false,
+  "provider_calls_performed": false,
+  "public_readiness_claimed": false,
+  "publish_performed": false,
+  "recovery_prompts": {
+    "blocked_behaviors": "Fill `blocked_behaviors` before building the owner-ready package: Which unsafe behaviors must remain blocked?",
+    "brand_dna": "Fill `brand_dna` before building the owner-ready package: What should the brand feel like?",
+    "codex_acceptance_criteria": "Fill `codex_acceptance_criteria` before building the owner-ready package: What must Codex change and verify?",
+    "first_result": "Fill `first_result` before building the owner-ready package: What should the first owner-ready package contain?",
+    "idea_summary": "Fill `idea_summary` before building the owner-ready package: What are we building?",
+    "proof_target": "Fill `proof_target` before building the owner-ready package: What local result proves progress?",
+    "reference_image_index": "Fill `reference_image_index` before building the owner-ready package: Which owner-approved references may be used?",
+    "target_audience": "Fill `target_audience` before building the owner-ready package: Who is this for?",
+    "visual_style_guide": "Fill `visual_style_guide` before building the owner-ready package: What must visual outputs preserve?"
+  },
+  "release_readiness_claimed": false,
+  "selected_next_goal_executed": false,
+  "selected_next_safe_goal": "create_local_owner_trial_script_v36_without_external_users",
+  "source_gate": "first_goal_completion_runner_v34",
+  "terminal_condition": "GUIDED_FIRST_RUN_GUARD_V35_READY"
+}

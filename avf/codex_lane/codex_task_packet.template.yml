@@ -1,0 +1,9 @@
+task_id: example
+goal: one PR-sized change
+context_pack: path/to/context_pack.yml
+acceptance_criteria:
+  - local validation command exits 0
+forbidden_changes:
+  - deploy
+  - publish
+  - unrelated rewrites

@@ -1,0 +1,704 @@
+{
+  "generatedAt": "2026-05-18T08:58:28.175Z",
+  "mode": "local_no_provider_release_artifact_hash_sbom_provenance",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "sourceReleaseArtifactReport": "docs/product-quality/release-artifact-file-list-report.json",
+  "packageName": "@gitlawb/openclaude",
+  "packageVersion": "0.6.0",
+  "packageFileHashes": [
+    {
+      "path": "bin/openclaude",
+      "exists": true,
+      "sizeBytes": 951,
+      "sha256": "ae88687e225a5ae0a972fba5d75eaeeb368a95fabadc10aff469fc83c8e90591"
+    },
+    {
+      "path": "bin/openclaude.cmd",
+      "exists": true,
+      "sizeBytes": 178,
+      "sha256": "3d6108915ca906bb85f87ca02ed01b6ec7d9fd27f24aa3f665435c73a2a3f4a0"
+    },
+    {
+      "path": "dist/cli.mjs",
+      "exists": true,
+      "sizeBytes": 21037658,
+      "sha256": "719952a84d22d26f61e1e9fa6a21f24922c27200b9321ac3f3c4f5e76d1d69d6"
+    },
+    {
+      "path": "LICENSE",
+      "exists": true,
+      "sizeBytes": 1228,
+      "sha256": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061"
+    },
+    {
+      "path": "package.json",
+      "exists": true,
+      "sizeBytes": 10152,
+      "sha256": "85812fd2123505182c010e1f3e2577a3427c6ccb22f6bdfe00a92ebde675b26d"
+    },
+    {
+      "path": "README.md",
+      "exists": true,
+      "sizeBytes": 12025,
+      "sha256": "1299c71f4bf40512930608ada76c259eaae9470ad7ac293fe0b0c59362a8d4ca"
+    }
+  ],
+  "sbomFormat": "local_package_json_component_inventory",
+  "sbomComponents": [
+    {
+      "name": "@types/bun",
+      "versionRange": "1.3.11",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/cross-spawn",
+      "versionRange": "^6.0.6",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/node",
+      "versionRange": "25.5.0",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/picomatch",
+      "versionRange": "^4.0.3",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/proper-lockfile",
+      "versionRange": "^4.1.4",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/qrcode",
+      "versionRange": "^1.5.6",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/react",
+      "versionRange": "19.2.14",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/react-reconciler",
+      "versionRange": "^0.33.0",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/semver",
+      "versionRange": "^7.7.1",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/shell-quote",
+      "versionRange": "^1.7.5",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/turndown",
+      "versionRange": "^5.0.6",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@types/ws",
+      "versionRange": "^8.18.1",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "tsx",
+      "versionRange": "^4.21.0",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "typescript",
+      "versionRange": "5.9.3",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "@alcalzone/ansi-tokenize",
+      "versionRange": "0.3.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/bedrock-sdk",
+      "versionRange": "0.26.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/claude-agent-sdk",
+      "versionRange": "^0.3.143",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/foundry-sdk",
+      "versionRange": "0.2.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/mcpb",
+      "versionRange": "^2.1.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/sandbox-runtime",
+      "versionRange": "0.0.46",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/sdk",
+      "versionRange": "0.81.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@anthropic-ai/vertex-sdk",
+      "versionRange": "0.14.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@aws-sdk/client-bedrock",
+      "versionRange": "3.1020.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@aws-sdk/client-sts",
+      "versionRange": "3.1020.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@commander-js/extra-typings",
+      "versionRange": "12.1.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@growthbook/growthbook",
+      "versionRange": "1.6.5",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@grpc/grpc-js",
+      "versionRange": "^1.14.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@grpc/proto-loader",
+      "versionRange": "^0.8.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@mendable/firecrawl-js",
+      "versionRange": "4.18.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "versionRange": "1.29.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/api",
+      "versionRange": "1.9.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/api-logs",
+      "versionRange": "0.214.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/core",
+      "versionRange": "2.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/exporter-logs-otlp-http",
+      "versionRange": "0.214.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/exporter-trace-otlp-grpc",
+      "versionRange": "0.57.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/resources",
+      "versionRange": "2.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/sdk-logs",
+      "versionRange": "0.214.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/sdk-metrics",
+      "versionRange": "2.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/sdk-trace-base",
+      "versionRange": "2.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/sdk-trace-node",
+      "versionRange": "2.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "@opentelemetry/semantic-conventions",
+      "versionRange": "1.40.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "ajv",
+      "versionRange": "8.18.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "auto-bind",
+      "versionRange": "5.0.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "axios",
+      "versionRange": "1.15.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "bidi-js",
+      "versionRange": "1.0.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "chalk",
+      "versionRange": "5.6.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "chokidar",
+      "versionRange": "4.0.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "cli-boxes",
+      "versionRange": "3.0.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "cli-highlight",
+      "versionRange": "2.1.11",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "code-excerpt",
+      "versionRange": "4.0.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "commander",
+      "versionRange": "12.1.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "cross-spawn",
+      "versionRange": "7.0.6",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "diff",
+      "versionRange": "8.0.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "duck-duck-scrape",
+      "versionRange": "^2.2.7",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "emoji-regex",
+      "versionRange": "10.6.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "env-paths",
+      "versionRange": "3.0.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "execa",
+      "versionRange": "9.6.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "fflate",
+      "versionRange": "0.8.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "figures",
+      "versionRange": "6.1.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "fuse.js",
+      "versionRange": "7.1.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "get-east-asian-width",
+      "versionRange": "1.5.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "google-auth-library",
+      "versionRange": "9.15.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "https-proxy-agent",
+      "versionRange": "7.0.6",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "ignore",
+      "versionRange": "7.0.5",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "indent-string",
+      "versionRange": "5.0.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "jsonc-parser",
+      "versionRange": "3.3.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "lodash-es",
+      "versionRange": "4.18.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "lru-cache",
+      "versionRange": "11.2.7",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "marked",
+      "versionRange": "15.0.12",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "p-map",
+      "versionRange": "7.0.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "picomatch",
+      "versionRange": "4.0.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "proper-lockfile",
+      "versionRange": "4.1.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "qrcode",
+      "versionRange": "1.5.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "react",
+      "versionRange": "19.2.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "react-compiler-runtime",
+      "versionRange": "1.0.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "react-reconciler",
+      "versionRange": "0.33.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "semver",
+      "versionRange": "7.7.4",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "sharp",
+      "versionRange": "^0.34.5",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "shell-quote",
+      "versionRange": "1.8.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "signal-exit",
+      "versionRange": "4.1.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "stack-utils",
+      "versionRange": "2.0.6",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "strip-ansi",
+      "versionRange": "7.2.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "supports-hyperlinks",
+      "versionRange": "3.2.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "tree-kill",
+      "versionRange": "1.2.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "turndown",
+      "versionRange": "7.2.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "type-fest",
+      "versionRange": "4.41.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "undici",
+      "versionRange": "7.24.6",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "usehooks-ts",
+      "versionRange": "3.1.1",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "vscode-languageserver-protocol",
+      "versionRange": "3.17.5",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "wrap-ansi",
+      "versionRange": "9.0.2",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "ws",
+      "versionRange": "8.20.0",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "xss",
+      "versionRange": "1.0.15",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "yaml",
+      "versionRange": "2.8.3",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    },
+    {
+      "name": "zod",
+      "versionRange": "3.25.76",
+      "scope": "runtime",
+      "source": "package.json.dependencies"
+    }
+  ],
+  "engineRequirements": {
+    "node": ">=20.0.0"
+  },
+  "provenanceChecks": [
+    {
+      "label": "source release artifact report is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_release_artifact_file_list"
+    },
+    {
+      "label": "source pack dry-run passed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "source release artifact checks passed",
+      "ok": true,
+      "detail": "0 failed"
+    },
+    {
+      "label": "forbidden package files absent",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "package files have local hashes",
+      "ok": true,
+      "detail": "6 files"
+    },
+    {
+      "label": "package file hash set is non-empty and unique",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "label": "manifest hash is included",
+      "ok": true,
+      "detail": "package.json"
+    },
+    {
+      "label": "bundle hash is included",
+      "ok": true,
+      "detail": "dist/cli.mjs"
+    },
+    {
+      "label": "SBOM inventory includes runtime components",
+      "ok": true,
+      "detail": "80"
+    },
+    {
+      "label": "SBOM inventory includes development components",
+      "ok": true,
+      "detail": "14"
+    },
+    {
+      "label": "provider calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "live model calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "external calls were not performed",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "publish was not attempted",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "deploy was not attempted",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "launch was not attempted",
+      "ok": true,
+      "detail": "false"
+    }
+  ],
+  "claimBoundary": "Release artifact provenance is local hash and package.json component inventory evidence only. It does not publish, deploy, launch, call providers, or claim release readiness."
+}

@@ -1,0 +1,1611 @@
+{
+  "generatedAt": "2026-05-21T14:10:33.482Z",
+  "mode": "local_no_provider_oss_safe_backlog_plan",
+  "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
+  "sourceAxisArchitectureReviewReportSha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad",
+  "sourceAxisArchitectureReviewProvenanceJsonlPath": "reports/openclaude-oss-axis-architecture-review.jsonl",
+  "sourceAxisArchitectureReviewProvenanceJsonlSha256": "2ea41a078f47513ef8a6e109c749d3585fdc427879ae69d01c0f1082f64b645e",
+  "sourceSafeInternalBacklogItemCount": 47,
+  "plannedBacklogItemCount": 47,
+  "reviewedHighPriorityProjects": [
+    "ultraworkers/claw-code",
+    "warpdotdev/warp",
+    "ruvnet/ruflo"
+  ],
+  "reviewedAxes": [
+    "eval_and_quality_gates",
+    "onboarding_docs",
+    "privacy_and_no_phone_home",
+    "provider_breadth",
+    "release_hygiene",
+    "runtime_doctoring",
+    "security_and_permissions",
+    "terminal_workflow",
+    "tool_loop_reliability"
+  ],
+  "uniqueAxisCount": 9,
+  "categoryCounts": {
+    "benchmark_claim_boundary": 4,
+    "onboarding_evidence": 6,
+    "provider_surface": 12,
+    "terminal_runtime_surface": 6,
+    "runtime_doctoring": 3,
+    "security_permission_boundary": 6,
+    "tool_loop_traceability": 6,
+    "release_hygiene": 4
+  },
+  "nextSafeInternalGateCandidateCount": 9,
+  "nextSafeInternalGateCandidates": [
+    {
+      "gateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
+      "axis": "eval_and_quality_gates",
+      "sourceBacklogItemCount": 4,
+      "purpose": "Create the next bounded no-provider evidence gate for eval_and_quality_gates backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "axis": "onboarding_docs",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for onboarding_docs backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
+      "axis": "privacy_and_no_phone_home",
+      "sourceBacklogItemCount": 3,
+      "purpose": "Create the next bounded no-provider evidence gate for privacy_and_no_phone_home backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "axis": "provider_breadth",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for provider_breadth backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_release_hygiene_evidence_gate",
+      "axis": "release_hygiene",
+      "sourceBacklogItemCount": 4,
+      "purpose": "Create the next bounded no-provider evidence gate for release_hygiene backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "axis": "runtime_doctoring",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for runtime_doctoring backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "axis": "security_and_permissions",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for security_and_permissions backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "axis": "terminal_workflow",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for terminal_workflow backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    },
+    {
+      "gateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "axis": "tool_loop_reliability",
+      "sourceBacklogItemCount": 6,
+      "purpose": "Create the next bounded no-provider evidence gate for tool_loop_reliability backlog items without executing protected actions or expanding claims.",
+      "protectedActionRequiredForPlanning": false,
+      "selectedNow": false
+    }
+  ],
+  "provenanceJsonlPath": "reports/openclaude-oss-safe-backlog-plan.jsonl",
+  "provenanceJsonlSha256": "5d6c39b41792eb49985404156f7b29094e69d92f81f6a79831c9cb6846970e63",
+  "provenanceJsonlRecordCount": 47,
+  "provenanceJsonlParseable": true,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "publicComparisonClaimAllowed": false,
+  "superiorityClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "autonomousReliabilityClaimAllowed": false,
+  "primarySourceInputs": [
+    {
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "observedPattern": "Claw Code exposes doctor, usage, parity, and Windows-first verification surfaces as first-class product evidence.",
+      "localAbsorption": "OpenClaude preserves high-priority backlog items as bounded evidence-gate candidates before implementation claims."
+    },
+    {
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "observedPattern": "Warp positions terminal workflows as an agentic development surface that needs auditable local evidence.",
+      "localAbsorption": "OpenClaude categorizes terminal and recovery backlog items into local no-provider evidence gates."
+    },
+    {
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "observedPattern": "Ruflo positions agent orchestration as a coordinated workflow surface, requiring explicit boundaries around multi-agent claims.",
+      "localAbsorption": "OpenClaude maps orchestration and reliability backlog items to future internal gates without expanding autonomous reliability claims."
+    }
+  ],
+  "planItems": [
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_eval_and_quality_gates_1_04dc7171ce",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
+      "category": "benchmark_claim_boundary",
+      "sourceRecordDigest": "c17d8d16a9333ca459c6b2f1ee6f9caee7fe4f9ad28aa136a8d8b24fe2172606",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_eval_and_quality_gates_2_99d6378ac3",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "map every local benchmark task to missing external execution evidence",
+      "category": "benchmark_claim_boundary",
+      "sourceRecordDigest": "c17d8d16a9333ca459c6b2f1ee6f9caee7fe4f9ad28aa136a8d8b24fe2172606",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_onboarding_docs_1_4a7ddf4113",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "onboarding_docs",
+      "backlogText": "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "ec2467aaf55d5751c9f150e9ee0104197b39db687baf932704b94ed7e2aea814",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_onboarding_docs_2_7669a10289",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "onboarding_docs",
+      "backlogText": "keep README and quick-start link integrity evidence in the product gate",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "ec2467aaf55d5751c9f150e9ee0104197b39db687baf932704b94ed7e2aea814",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_privacy_and_no_phone_home_1_d7fa68a625",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "privacy_and_no_phone_home",
+      "backlogText": "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption",
+      "category": "provider_surface",
+      "sourceRecordDigest": "aa7bc3f1f0e7fdc77ba6dee717f49e31aabc35ecf1517d14b2b7a60f41271e70",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+        "docs/product-quality/public-claim-boundary-report.json",
+        "scripts/verify-no-phone-home.ts"
+      ],
+      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_provider_breadth_1_864df3ef63",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "provider_breadth",
+      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
+      "category": "provider_surface",
+      "sourceRecordDigest": "cdbd3081fc12641fc95188f805339edf18b033ee0f5991ac702da57691a9abe9",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_provider_breadth_2_c63a4b5b87",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "provider_breadth",
+      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
+      "category": "provider_surface",
+      "sourceRecordDigest": "cdbd3081fc12641fc95188f805339edf18b033ee0f5991ac702da57691a9abe9",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_runtime_doctoring_1_59a741152d",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "runtime_doctoring",
+      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "391af95c5505502fd4126eda20f99ad51cdea2cec635f6049e9538025041499f",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_runtime_doctoring_2_fbe6b2108c",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "runtime_doctoring",
+      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
+      "category": "runtime_doctoring",
+      "sourceRecordDigest": "391af95c5505502fd4126eda20f99ad51cdea2cec635f6049e9538025041499f",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_security_and_permissions_1_4cca586692",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "49d3c93d35979333049d68ceca784a6805f3c996334e1be52fc7d2a03a1fd145",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_security_and_permissions_2_3e120d300f",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "49d3c93d35979333049d68ceca784a6805f3c996334e1be52fc7d2a03a1fd145",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_terminal_workflow_1_9cbf8b3d7a",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "terminal_workflow",
+      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "7dd94071a36e954448807c7a5cb181e239ed9810a33b142047cc7a61be8ff32d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_terminal_workflow_2_b9cb4e2969",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "terminal_workflow",
+      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
+      "category": "provider_surface",
+      "sourceRecordDigest": "7dd94071a36e954448807c7a5cb181e239ed9810a33b142047cc7a61be8ff32d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_tool_loop_reliability_1_78ff4f0fb2",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "tool_loop_reliability",
+      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "367adc8e437bcd23f4a499269608a76b29cce2fa7bf18cec9bfa8643b26e2f18",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ultraworkers_claw_code_tool_loop_reliability_2_6a34a687b6",
+      "sourceProject": "ultraworkers/claw-code",
+      "sourceUrl": "https://github.com/ultraworkers/claw-code",
+      "axis": "tool_loop_reliability",
+      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "367adc8e437bcd23f4a499269608a76b29cce2fa7bf18cec9bfa8643b26e2f18",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_1_7bdf45afa4",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
+      "category": "benchmark_claim_boundary",
+      "sourceRecordDigest": "4f2efe694ed34fa30cdebd83f250f4892e7fad4e36dd8ee79080b682c27f8ed1",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_2_dbdaee401a",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "eval_and_quality_gates",
+      "backlogText": "map every local benchmark task to missing external execution evidence",
+      "category": "benchmark_claim_boundary",
+      "sourceRecordDigest": "4f2efe694ed34fa30cdebd83f250f4892e7fad4e36dd8ee79080b682c27f8ed1",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+        "docs/product-quality/product-quality-gate.md",
+        "docs/product-quality/benchmark-readiness-matrix.json",
+        "docs/product-quality/local-benchmark-harness-report.json",
+        "docs/product-quality/benchmark-submission-readiness-report.json",
+        "docs/product-quality/terminal-bench-readiness-report.json",
+        "docs/product-quality/verification-report-consistency-report.json",
+        "docs/product-quality/quality-blocker-taxonomy-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_onboarding_docs_1_fb4c9bd4f8",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "onboarding_docs",
+      "backlogText": "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "cbfabe4f91b23e200f6da0c3f56999008798f6c34fff9226409fa26aae3dd7a3",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_onboarding_docs_2_ef7c4a4a5f",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "onboarding_docs",
+      "backlogText": "keep README and quick-start link integrity evidence in the product gate",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "cbfabe4f91b23e200f6da0c3f56999008798f6c34fff9226409fa26aae3dd7a3",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_privacy_and_no_phone_home_1_ae234ab0bd",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "privacy_and_no_phone_home",
+      "backlogText": "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption",
+      "category": "provider_surface",
+      "sourceRecordDigest": "162df2c4341a5c24e1c7c63059c7d3609381af1c2ad0d35d3c27dc7b71860ff1",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+        "docs/product-quality/public-claim-boundary-report.json",
+        "scripts/verify-no-phone-home.ts"
+      ],
+      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_provider_breadth_1_76347b2f1f",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "provider_breadth",
+      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
+      "category": "provider_surface",
+      "sourceRecordDigest": "f4807a9b99afa5e3d28d097669cc77b7aea11ff8a6a51324b4f0a32cdab34b58",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_provider_breadth_2_034dca3478",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "provider_breadth",
+      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
+      "category": "provider_surface",
+      "sourceRecordDigest": "f4807a9b99afa5e3d28d097669cc77b7aea11ff8a6a51324b4f0a32cdab34b58",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_release_hygiene_1_33fd871200",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "release_hygiene",
+      "backlogText": "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
+      "category": "release_hygiene",
+      "sourceRecordDigest": "1531d1f009ec93621073a1448f3b140882bafec8af493123b3d693b2ccb0b7f0",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-release-hygiene-evidence-report.json",
+        "docs/product-quality/release-artifact-file-list-report.json",
+        "docs/product-quality/release-artifact-provenance-report.json",
+        "docs/product-quality/release-artifact-reproducibility-report.json",
+        "docs/product-quality/git-release-hygiene-report.json",
+        "docs/product-quality/license-boundary-authorization-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_release_hygiene_2_be7eb1c05d",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "release_hygiene",
+      "backlogText": "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists",
+      "category": "release_hygiene",
+      "sourceRecordDigest": "1531d1f009ec93621073a1448f3b140882bafec8af493123b3d693b2ccb0b7f0",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-release-hygiene-evidence-report.json",
+        "docs/product-quality/release-artifact-file-list-report.json",
+        "docs/product-quality/release-artifact-provenance-report.json",
+        "docs/product-quality/release-artifact-reproducibility-report.json",
+        "docs/product-quality/git-release-hygiene-report.json",
+        "docs/product-quality/license-boundary-authorization-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_1_0414691b52",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "runtime_doctoring",
+      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "16ee6179eaf295e8eb84f1366ad56a00e38aa91c6ce901a4208cc13d8b86872f",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_2_f03d63c8eb",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "runtime_doctoring",
+      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
+      "category": "runtime_doctoring",
+      "sourceRecordDigest": "16ee6179eaf295e8eb84f1366ad56a00e38aa91c6ce901a4208cc13d8b86872f",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_1_0d14c9ebf6",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "4b08e08c6c11436ce797a99c552183bfd2904eb11d47d82c363d2584488f47db",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_2_13bc6fb88b",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "4b08e08c6c11436ce797a99c552183bfd2904eb11d47d82c363d2584488f47db",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_1_8b64a539df",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "terminal_workflow",
+      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "518b663f3116b4f4433317cffbf70eea2ca3923380df05c4ab1de147ab3588db",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_2_4bec9fb3a2",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "terminal_workflow",
+      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
+      "category": "provider_surface",
+      "sourceRecordDigest": "518b663f3116b4f4433317cffbf70eea2ca3923380df05c4ab1de147ab3588db",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_1_03050d3ccb",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "tool_loop_reliability",
+      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "f24fa31e342beb5cd0a9b483f2479e59e4c0aac36e7b57978d622161c6d5d84a",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_2_5a1e7fdef6",
+      "sourceProject": "warpdotdev/warp",
+      "sourceUrl": "https://github.com/warpdotdev/warp",
+      "axis": "tool_loop_reliability",
+      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "f24fa31e342beb5cd0a9b483f2479e59e4c0aac36e7b57978d622161c6d5d84a",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_onboarding_docs_1_34fc1e1f11",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "onboarding_docs",
+      "backlogText": "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "3f309e1980ee7ae7bb413e77570ac1a1cb6db1361030d35f233f76ed25f32790",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_onboarding_docs_2_2aa376b30c",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "onboarding_docs",
+      "backlogText": "keep README and quick-start link integrity evidence in the product gate",
+      "category": "onboarding_evidence",
+      "sourceRecordDigest": "3f309e1980ee7ae7bb413e77570ac1a1cb6db1361030d35f233f76ed25f32790",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/doc-link-integrity-report.json",
+        "docs/product-quality/community-profile-quality-report.json"
+      ],
+      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
+      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_privacy_and_no_phone_home_1_0eb798a8a0",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "privacy_and_no_phone_home",
+      "backlogText": "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption",
+      "category": "provider_surface",
+      "sourceRecordDigest": "6287b47e44a7012fe5def87cbe5c496e207bd3def450f1829d07b36639232a78",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
+        "docs/product-quality/public-claim-boundary-report.json",
+        "scripts/verify-no-phone-home.ts"
+      ],
+      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
+      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_1_5eeb3cb376",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "provider_breadth",
+      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
+      "category": "provider_surface",
+      "sourceRecordDigest": "054202719fd1b59ae151a2d5e349fcff1e65b241124de27019f18f4e186ebe2c",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_2_2cdb318139",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "provider_breadth",
+      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
+      "category": "provider_surface",
+      "sourceRecordDigest": "054202719fd1b59ae151a2d5e349fcff1e65b241124de27019f18f4e186ebe2c",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-provider-breadth-evidence-report.json",
+        "docs/product-quality/provider-capability-matrix-report.json",
+        "docs/product-quality/provider-compatibility-fixtures.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json"
+      ],
+      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
+      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_1_db6e970b30",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "release_hygiene",
+      "backlogText": "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
+      "category": "release_hygiene",
+      "sourceRecordDigest": "d3e9db0bff2ea77af76358facf642356d22a692b498c492d3802b8bbbf1b2830",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-release-hygiene-evidence-report.json",
+        "docs/product-quality/release-artifact-file-list-report.json",
+        "docs/product-quality/release-artifact-provenance-report.json",
+        "docs/product-quality/release-artifact-reproducibility-report.json",
+        "docs/product-quality/git-release-hygiene-report.json",
+        "docs/product-quality/license-boundary-authorization-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_2_c044375242",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "release_hygiene",
+      "backlogText": "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists",
+      "category": "release_hygiene",
+      "sourceRecordDigest": "d3e9db0bff2ea77af76358facf642356d22a692b498c492d3802b8bbbf1b2830",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-release-hygiene-evidence-report.json",
+        "docs/product-quality/release-artifact-file-list-report.json",
+        "docs/product-quality/release-artifact-provenance-report.json",
+        "docs/product-quality/release-artifact-reproducibility-report.json",
+        "docs/product-quality/git-release-hygiene-report.json",
+        "docs/product-quality/license-boundary-authorization-report.json"
+      ],
+      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
+      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_runtime_doctoring_1_81c2f02314",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "runtime_doctoring",
+      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "6d1c5ef6ef6187325bd0f8901d1e4b87e3209fb29693c38972a3f2f52776cd5d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_runtime_doctoring_2_771f4909d7",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "runtime_doctoring",
+      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
+      "category": "runtime_doctoring",
+      "sourceRecordDigest": "6d1c5ef6ef6187325bd0f8901d1e4b87e3209fb29693c38972a3f2f52776cd5d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
+        "docs/product-quality/runtime-doctor-regression-fixtures.json",
+        "docs/product-quality/vscode-startup-diagnostics-report.json"
+      ],
+      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
+      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_1_7c7eb24881",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "security_and_permissions",
+      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "4132344ad4e5cd2a8fc19b222d83698245cdc105264d59f11b78c96df55c291d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_2_b36fc89a51",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "security_and_permissions",
+      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
+      "category": "security_permission_boundary",
+      "sourceRecordDigest": "4132344ad4e5cd2a8fc19b222d83698245cdc105264d59f11b78c96df55c291d",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-security-permissions-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/openssf-security-posture-report.json",
+        "docs/product-quality/dependency-governance-quality-report.json",
+        "docs/product-quality/source-controlled-checks-report.json"
+      ],
+      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_1_cc460e30d2",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "terminal_workflow",
+      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
+      "category": "terminal_runtime_surface",
+      "sourceRecordDigest": "3a22d09880293ed7c2e9a9d24fb3d6bc8d92073204ad5f0b07ccf5982fb407cd",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_2_eb63ebed9a",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "terminal_workflow",
+      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
+      "category": "provider_surface",
+      "sourceRecordDigest": "3a22d09880293ed7c2e9a9d24fb3d6bc8d92073204ad5f0b07ccf5982fb407cd",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
+        "docs/product-quality/golden-path-terminal-transcripts.json",
+        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
+        "docs/product-quality/onboarding-smoke-report.json",
+        "docs/product-quality/real-session-capture-report.json"
+      ],
+      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
+      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_tool_loop_reliability_1_2f84686973",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "tool_loop_reliability",
+      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "72077e8f47142cd4a08df47726d7b0a9e3e4e5c83f3e7084e6fecbb15df7453b",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    },
+    {
+      "planItemId": "oss_backlog_ruvnet_ruflo_tool_loop_reliability_2_a5d95c12b9",
+      "sourceProject": "ruvnet/ruflo",
+      "sourceUrl": "https://github.com/ruvnet/ruflo",
+      "axis": "tool_loop_reliability",
+      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
+      "category": "tool_loop_traceability",
+      "sourceRecordDigest": "72077e8f47142cd4a08df47726d7b0a9e3e4e5c83f3e7084e6fecbb15df7453b",
+      "currentLocalEvidence": [
+        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+        "docs/product-quality/permission-regression-fixtures.json",
+        "docs/product-quality/prompted-tool-loop-capture-report.json",
+        "docs/product-quality/code-editing-trace-capture-report.json",
+        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+        "docs/product-quality/tool-interruption-recovery-trace-report.json",
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
+      "forbiddenShortcuts": [
+        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
+        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
+        "do not call providers, live models, or external services from this local review",
+        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
+        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
+      ],
+      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
+      "implementationStatus": "planned_internal_no_provider",
+      "protectedActionRequiredForPlanning": false,
+      "protectedActionExecuted": false,
+      "claimAllowed": false
+    }
+  ],
+  "planChecks": [
+    {
+      "label": "source axis review is local no-provider",
+      "ok": true,
+      "detail": "local_no_provider_oss_axis_architecture_review"
+    },
+    {
+      "label": "source axis review performed no provider/live/external/protected calls",
+      "ok": true,
+      "detail": "all source call/action arrays empty"
+    },
+    {
+      "label": "planned backlog count matches source count",
+      "ok": true,
+      "detail": "47/47"
+    },
+    {
+      "label": "every plan item preserves source evidence and boundary",
+      "ok": true,
+      "detail": "47 items"
+    },
+    {
+      "label": "every plan item remains internal no-provider planning",
+      "ok": true,
+      "detail": "all false for protected execution and claims"
+    },
+    {
+      "label": "next gate candidates cover reviewed axes",
+      "ok": true,
+      "detail": "9/9"
+    },
+    {
+      "label": "category classification covers multiple product-quality surfaces",
+      "ok": true,
+      "detail": "benchmark_claim_boundary,onboarding_evidence,provider_surface,release_hygiene,runtime_doctoring,security_permission_boundary,terminal_runtime_surface,tool_loop_traceability"
+    },
+    {
+      "label": "claim expansion remains blocked",
+      "ok": true,
+      "detail": "source claim flags false"
+    },
+    {
+      "label": "provenance JSONL is parseable",
+      "ok": true,
+      "detail": "reports/openclaude-oss-safe-backlog-plan.jsonl"
+    }
+  ],
+  "claimBoundary": "OSS safe backlog planning is internal local no-provider planning evidence only. It does not execute backlog items, protected actions, external validation, public comparison, release readiness, production readiness, or autonomous reliability claims."
+}
