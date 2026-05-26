@@ -1,0 +1,11 @@
+action_id: create-runtime-adapter-decision-matrix
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_claim_integration_review_v0_1
+
+next_steps:
+  - Use reviewed primary-source claims to create a decision matrix
+  - Compare candidate runtime and tooling roles without installing or adopting dependencies
+  - Keep actual dependency adoption and runtime integration behind later gates
+  - Do not adopt dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_runtime_adapter_decision_matrix_v0_1
