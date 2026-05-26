@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-collection-authorization-review-v0-1
+title: Add AVF primary-source evidence collection authorization review v0.1
+goal: Review explicit owner authorization fields before enabling any primary-source evidence collection execution.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_packet.yml
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_collection_authorization_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_collection_authorization_review_next_codex_task_packet.yml
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_COLLECTION_AUTHORIZATION_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No collection execution before explicit authorization review passes
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - review gate checks every required authorization field
+  - missing authorization keeps collection execution blocked
+  - no source record becomes executable by default
+  - next task remains repo-local and approval-gated
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_authorized_collection_run_plan_v0_1.py
+expected_outputs:
+  - collection authorization review gate
+  - validation report
+  - next safe Codex task packet
+next_safe_goal_id: avf_capability_primary_source_evidence_collection_authorization_review_v0_1
