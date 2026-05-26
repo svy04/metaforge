@@ -1,0 +1,12 @@
+action_id: review-runtime-state-observability-closure
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_telemetry_event_codex_planner_event_v0_1
+
+next_steps:
+  - Review the augmented 5-event telemetry stream
+  - Confirm all runtime states have evidence-bound telemetry events
+  - Keep the next step deterministic, local, and validation-only
+  - Do not start runtime workers, collectors, exporters, or external services
+  - Do not call providers, live models, scrape, post, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_runtime_state_observability_closure_review_v0_1
