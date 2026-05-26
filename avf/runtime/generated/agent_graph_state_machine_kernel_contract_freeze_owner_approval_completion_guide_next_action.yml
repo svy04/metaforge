@@ -1,0 +1,15 @@
+action_id: collect-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-input
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_completion_guide_v0_1
+
+next_steps:
+  - Wait for owner-supplied authorization input
+  - Codex must not fabricate owner authorization
+  - Keep owner_authorization_granted false until owner input exists and is reviewed
+  - Do not execute contract freeze from this guide
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_v0_1
