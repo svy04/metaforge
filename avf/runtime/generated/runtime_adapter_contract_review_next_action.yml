@@ -1,0 +1,12 @@
+action_id: create-agent-graph-adapter-stub
+owner_approval_required_before_execution: true
+goal_id: avf_runtime_adapter_contract_review_v0_1
+
+next_steps:
+  - Create a repo-local agent graph adapter stub
+  - Use the selected contract only as an internal interface boundary
+  - Keep node execution deterministic and local
+  - Do not install LangGraph or any runtime dependency
+  - Do not call providers, tools, external services, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_adapter_stub_v0_1
