@@ -1,0 +1,24 @@
+action_id: owner-fill-local-primary-source-evidence-record
+owner_input_required: true
+goal_id: avf_local_primary_source_evidence_acceptance_harness_v0_1
+
+owner_steps:
+  - Fill every required source field
+  - Paste only owner-supplied source metadata or excerpts
+  - Do not ask Codex to fetch the URL
+  - Keep each record tied to one claim supported
+  - Use official docs, original repos, papers, patents, standards, maintained implementations, or local repo evidence
+
+required_source_fields:
+  - source_id
+  - source_title
+  - source_kind
+  - source_uri
+  - source_version_or_date
+  - source_owner_or_publisher
+  - license_or_rights_note
+  - claim_supported
+  - evidence_excerpt_summary
+  - verification_notes
+
+next_safe_goal_id: avf_owner_supplied_primary_source_evidence_record_review_v0_1

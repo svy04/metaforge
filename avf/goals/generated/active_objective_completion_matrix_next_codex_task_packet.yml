@@ -1,0 +1,37 @@
+task_id: avf-local-primary-source-evidence-acceptance-harness-v0-1
+title: Add AVF local primary-source evidence acceptance harness v0.1
+goal: Validate owner-supplied primary-source evidence records locally without collecting, fetching, scraping, cloning, installing, or calling providers.
+context_paths:
+  - avf/goals/generated/active_objective_completion_matrix_v0_1.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_manual_completion_packet_review_protected_action_required_boundary.json
+files_likely_to_touch:
+  - avf/capabilities/generated/local_primary_source_evidence_acceptance.schema.yml
+  - avf/capabilities/generated/local_primary_source_evidence_acceptance_sample.yml
+  - avf/capabilities/generated/local_primary_source_evidence_acceptance_gate.json
+  - docs/goals/AVF_LOCAL_PRIMARY_SOURCE_EVIDENCE_ACCEPTANCE_HARNESS_V0_1_REPORT.md
+acceptance_criteria:
+  - accepts owner-supplied source records only
+  - rejects empty source title, source kind, source URI, claim supported, and evidence excerpt summary
+  - never performs source collection or external fetch
+  - keeps source collection lane blocked until owner authorization passes
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+validation_commands:
+  - python scripts\validate_avf_active_objective_completion_matrix_v0_1.py
+expected_outputs:
+  - local source evidence acceptance schema
+  - empty/owner-supplied sample record
+  - blocked acceptance gate
+next_safe_goal_id: avf_local_primary_source_evidence_acceptance_harness_v0_1
