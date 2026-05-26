@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-contract-freeze-plan
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_invariant_review_v0_1
+
+next_steps:
+  - Create repo-local contract freeze plan for the deterministic state machine kernel
+  - Freeze accepted invariants as the state machine contract baseline
+  - Keep runtime adapter hardening blocked until contract freeze review
+  - Keep dependency adoption and runtime integration blocked
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_plan_v0_1
