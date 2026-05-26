@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-invariant-validator
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_hardening_plan_v0_1
+
+next_steps:
+  - Create repo-local invariant validator for the deterministic state machine kernel
+  - Validate normal path terminal state, transition sequence, and transition order
+  - Validate guarded blocked and owner-review outcomes stay non-executing
+  - Validate dependency/runtime adoption remains blocked
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_invariant_validator_v0_1
