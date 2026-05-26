@@ -1,0 +1,35 @@
+task_id: avf-capability-primary-source-evidence-authorized-collection-packet-v0-1
+title: Add AVF authorized primary-source evidence collection packet v0.1
+goal: Define the explicit owner-authorized collection packet required before filling primary/original source evidence records for OSS, paper, patent, and standard review.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_retry_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_population_retry_packet.yml
+  - avf/capabilities/generated/capability_owner_primary_source_evidence_population_pro_prompt.md
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_AUTHORIZED_COLLECTION_PACKET_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls without explicit owner authorization
+  - No live model calls without explicit owner authorization
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - collection packet lists explicit authorization fields
+  - collection packet distinguishes manual owner/PRO research from automated collection
+  - no source is marked trusted, ingested, or integrated by default
+  - protected actions remain blocked until explicit authorization fields are filled
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_retry_review_v0_1.py
+expected_outputs:
+  - authorized collection packet
+  - collection gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_authorized_collection_packet_v0_1

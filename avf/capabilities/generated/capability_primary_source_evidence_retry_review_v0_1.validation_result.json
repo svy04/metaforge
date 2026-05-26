@@ -1,0 +1,36 @@
+{
+  "accepted_retry_records": 0,
+  "checks": [
+    "primary-source evidence retry packet reviewed",
+    "empty retry records remain blocked",
+    "no retry source evidence accepted for ingestion or integration",
+    "next safe goal moves toward authorized primary-source collection",
+    "protected-action flags false"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "complete_retry_records": 0,
+  "empty_retry_records": 35,
+  "next_safe_goal_id": "avf_capability_primary_source_evidence_authorized_collection_packet_v0_1",
+  "partial_retry_records": 0,
+  "retry_records_reviewed": 35,
+  "review_decision": "BLOCKED_RETRY_EVIDENCE_NOT_FILLED",
+  "status": "PASS",
+  "validator_id": "validate_avf_capability_primary_source_evidence_retry_review_v0_1"
+}
