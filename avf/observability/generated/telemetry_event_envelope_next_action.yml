@@ -1,0 +1,12 @@
+action_id: review-telemetry-event-envelope
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_telemetry_event_envelope_v0_1
+
+next_steps:
+  - Review the repo-local telemetry event envelope contract
+  - Keep OpenTelemetry and W3C Trace Context as source-backed design references only
+  - Do not install OpenTelemetry, run collectors, start exporters, or integrate a runtime
+  - Use the envelope for future local validators, evidence events, and adapter review
+  - Keep provider calls, external services, scraping, posting, deploy, publish, and readiness claims blocked
+
+next_safe_goal_id: avf_telemetry_event_envelope_review_v0_1

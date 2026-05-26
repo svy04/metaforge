@@ -1,0 +1,59 @@
+{
+  "goal_id": "avf_telemetry_event_envelope_v0_1",
+  "run_id": "run-avf-telemetry-envelope-v0-1",
+  "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+  "source_evidence": [
+    "src-opentelemetry-standard-docs",
+    "src-w3c-trace-context"
+  ],
+  "events": [
+    {
+      "event_id": "evt-avf-goal-accepted",
+      "event_name": "avf.goal.accepted",
+      "signal_type": "trace",
+      "span_id": "00f067aa0ba902b7",
+      "parent_span_id": null,
+      "attributes": {
+        "avf.cell": "orchestrator",
+        "avf.goal_status": "accepted",
+        "avf.scope": "repo_local_observability_contract_only"
+      }
+    },
+    {
+      "event_id": "evt-avf-router-selected",
+      "event_name": "avf.router.cells_selected",
+      "signal_type": "trace",
+      "span_id": "1af067aa0ba902b8",
+      "parent_span_id": "00f067aa0ba902b7",
+      "attributes": {
+        "avf.cell": "router",
+        "avf.selected_plane": "observability_eval_plane",
+        "avf.source_backed": "true"
+      }
+    },
+    {
+      "event_id": "evt-avf-safety-gate",
+      "event_name": "avf.safety.protected_action_gate",
+      "signal_type": "log",
+      "span_id": "2bf067aa0ba902b9",
+      "parent_span_id": "1af067aa0ba902b8",
+      "attributes": {
+        "avf.cell": "safety",
+        "avf.protected_actions_blocked": "true",
+        "avf.dependency_adoption_allowed": "false"
+      }
+    },
+    {
+      "event_id": "evt-avf-evidence-written",
+      "event_name": "avf.evidence.ledger_entry_planned",
+      "signal_type": "metric",
+      "span_id": "3cf067aa0ba902ba",
+      "parent_span_id": "2bf067aa0ba902b9",
+      "attributes": {
+        "avf.cell": "evidence",
+        "avf.sample_events_created": "4",
+        "avf.validation_expected": "pass"
+      }
+    }
+  ]
+}

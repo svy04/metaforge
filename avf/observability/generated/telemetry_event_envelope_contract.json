@@ -1,0 +1,91 @@
+{
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "contract_decision": "TELEMETRY_EVENT_ENVELOPE_READY_FOR_LOCAL_REVIEW",
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "envelope_scope": "repo_local_observability_contract_only",
+  "fixture_uri": "avf/observability/fixtures/sample_avf_telemetry_events.json",
+  "goal_id": "avf_telemetry_event_envelope_v0_1",
+  "next_safe_goal_id": "avf_telemetry_event_envelope_review_v0_1",
+  "previous_goal_id": "avf_runtime_adapter_contract_review_v0_1",
+  "required_envelope_fields": [
+    "event_id",
+    "run_id",
+    "goal_id",
+    "trace_id",
+    "span_id",
+    "traceparent",
+    "event_name",
+    "signal_type",
+    "event_time",
+    "producer",
+    "attributes",
+    "claim_boundary",
+    "source_evidence"
+  ],
+  "runtime_integration_allowed": false,
+  "sample_events_uri": "avf/observability/generated/telemetry_event_sample_events.jsonl",
+  "schema_uri": "avf/observability/telemetry_event_envelope.schema.yml",
+  "secret_redaction_guard": {
+    "blocked_attribute_key_patterns": [
+      "api_key",
+      "secret",
+      "token",
+      "password",
+      "authorization",
+      "cookie",
+      "credential",
+      "prompt",
+      "raw_payload"
+    ]
+  },
+  "signal_types": [
+    "trace",
+    "metric",
+    "log"
+  ],
+  "source_evidence": [
+    {
+      "evidence_summary": "OpenTelemetry provides a vendor-neutral observability vocabulary for telemetry data such as traces, metrics, and logs.",
+      "reference_lines": "turn1view1 lines 847-853",
+      "source_id": "src-opentelemetry-standard-docs",
+      "source_kind": "standard",
+      "source_title": "What is OpenTelemetry?",
+      "source_uri": "https://opentelemetry.io/docs/what-is-opentelemetry/"
+    },
+    {
+      "evidence_summary": "Trace Context defines interoperable trace identifiers and traceparent propagation boundaries for distributed traces.",
+      "reference_lines": "turn1view5 lines 493-503",
+      "source_id": "src-w3c-trace-context",
+      "source_kind": "standard",
+      "source_title": "W3C Trace Context",
+      "source_uri": "https://www.w3.org/TR/trace-context/"
+    }
+  ],
+  "trace_context_rules": {
+    "flags_allowed": [
+      "00",
+      "01"
+    ],
+    "span_id": "lowercase_hex_16_not_all_zero",
+    "trace_id": "lowercase_hex_32_not_all_zero",
+    "traceparent": "00-{trace_id}-{span_id}-{flags}"
+  }
+}

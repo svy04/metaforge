@@ -1,0 +1,75 @@
+schema_id: telemetry_event_envelope_v0_1
+schema_version: 0.1.0
+contract_status: repo_local_contract_only
+plane: observability_eval_plane
+
+purpose:
+  Define a deterministic AVF telemetry event envelope for local validators, run
+  traces, evidence events, safety gates, and future adapter work before any
+  OpenTelemetry SDK, collector, runtime, provider, or external service is
+  adopted.
+
+primary_sources:
+  - source_id: src-opentelemetry-standard-docs
+    name: OpenTelemetry
+    uri: https://opentelemetry.io/docs/what-is-opentelemetry/
+    role: traces_metrics_logs_observability_vocabulary
+  - source_id: src-w3c-trace-context
+    name: W3C Trace Context
+    uri: https://www.w3.org/TR/trace-context/
+    role: trace_id_span_id_traceparent_interop_boundary
+
+required_fields:
+  - event_id
+  - run_id
+  - goal_id
+  - trace_id
+  - span_id
+  - traceparent
+  - event_name
+  - signal_type
+  - event_time
+  - producer
+  - attributes
+  - claim_boundary
+  - source_evidence
+
+field_rules:
+  trace_id:
+    format: lowercase_hex_32
+    all_zero_value_allowed: false
+  span_id:
+    format: lowercase_hex_16
+    all_zero_value_allowed: false
+  traceparent:
+    format: 00-{trace_id}-{span_id}-{flags}
+    flags_allowed:
+      - "00"
+      - "01"
+  signal_type:
+    allowed:
+      - trace
+      - metric
+      - log
+  attributes:
+    sensitive_keys_blocked:
+      - api_key
+      - secret
+      - token
+      - password
+      - authorization
+      - cookie
+      - credential
+      - prompt
+      - raw_payload
+
+safety_boundary:
+  dependency_adoption_allowed: false
+  runtime_integration_allowed: false
+  provider_calls_performed: false
+  external_service_calls_performed: false
+  protected_action_executed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_telemetry_event_envelope_review_v0_1
