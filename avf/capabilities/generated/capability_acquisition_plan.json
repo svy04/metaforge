@@ -1,0 +1,44 @@
+{
+  "build_buy_adopt_hash": "12afb9431d4cd0baf7a5450867854b4804549a1a4df8fd4db7e1b7d54033f37a",
+  "build_buy_adopt_uri": "avf/capabilities/generated/build_buy_adopt_decision_records.json",
+  "candidate_registry_hash": "38774c3bc1317f055555801c69550b7cd580eb42c2a85c0266e697290ca97819",
+  "candidate_registry_uri": "avf/capabilities/generated/capability_candidate_registry.json",
+  "capability_gap_summary": [
+    "Provider-independent LLM gateway is still only a future plan.",
+    "Stateful and durable runtime planes are still only contracts.",
+    "Tool registry, observability, eval, RAG, and approved executor lanes have no scored acquisition records yet."
+  ],
+  "claim_boundary": {
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-26T00:00:00Z",
+  "goal_id": "avf_capability_acquisition_loop_v0_1",
+  "next_codex_task_hash": "2fb210b225241dd4d4979f6e1d1b126a7c2f2ea216d8e400609c3d16ce99b485",
+  "next_codex_task_uri": "avf/capabilities/generated/next_codex_task_packet.yml",
+  "next_safe_goal_id": "avf_capability_fit_scoring_validator_v0_1",
+  "plan_id": "avf-capability-acquisition-loop-v0-1",
+  "run_id": "avf-kernel-v0-2-vop-sample-run",
+  "source_ledger_hash": "cf3d902fee0da4a794c27c39ba083ed02d0d5cc2774dfa92cbff88eb42a747b0",
+  "source_ledger_uri": "avf/capabilities/generated/capability_source_ledger.json",
+  "status": "PASS",
+  "trigger_decision_hash": "6d145cedaa8fba88fec8080fe578359f0d0daad8a66859041b78351f86c7bc93",
+  "trigger_decision_uri": "avf/strategy/generated/strategy_adaptation_decision_packet.json",
+  "trigger_refinement_actions": [
+    "Add a capability acquisition loop that proposes OSS/tool candidates without installing or fetching them.",
+    "Map missing runtime, observability, and tool-registry capabilities to build/buy/adopt records.",
+    "Preserve approval gates before provider calls, dependency installs, scraping, posting, deploy, or publish."
+  ]
+}

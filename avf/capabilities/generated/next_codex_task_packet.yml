@@ -1,0 +1,39 @@
+task_id: avf-capability-fit-scoring-validator-v0-1
+title: Add AVF capability fit scoring validator v0.1
+goal: Score proposed capability candidates for fit, risk, license-review status, security-review status, and integration readiness without installing or fetching anything.
+context_paths:
+  - avf/capabilities/generated/capability_acquisition_plan.json
+  - avf/capabilities/generated/capability_candidate_registry.json
+  - avf/capabilities/generated/build_buy_adopt_decision_records.json
+  - avf/capabilities/generated/capability_source_ledger.json
+files_likely_to_touch:
+  - scripts/run_avf_capability_fit_scoring_validator_v0_1.py
+  - scripts/validate_avf_capability_fit_scoring_validator_v0_1.py
+  - avf/capabilities/generated/capability_fit_scorecard.json
+  - docs/goals/AVF_CAPABILITY_FIT_SCORING_VALIDATOR_V0_1_REPORT.md
+forbidden_changes:
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No scraping
+  - No package install
+  - No dependency install
+  - No OSS clone
+  - No external fetch
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - scorecard exists
+  - each candidate has fit_score, risk_score, license_review_status, security_review_status, and next gate
+  - candidates remain proposed_only
+  - all protected-action flags remain false
+validation_commands:
+  - python scripts\validate_avf_capability_acquisition_loop_v0_1.py
+  - python scripts\validate_avf_capability_fit_scoring_validator_v0_1.py
+expected_outputs:
+  - capability_fit_scorecard.json
+  - fit scoring validation report
+next_safe_goal_id: avf_capability_fit_scoring_validator_v0_1

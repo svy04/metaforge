@@ -1,0 +1,132 @@
+{
+  "automation_fetch_performed": false,
+  "created_at": "2026-05-26T00:00:00Z",
+  "ledger_id": "avf-capability-source-ledger-v0-1",
+  "source_selection_boundary": "Operator-reviewed primary-source URLs only. This runner performs no network fetch, dependency install, package install, OSS clone, provider call, live model call, scraping, posting, deploy, publish, or readiness claim.",
+  "sources": [
+    {
+      "capability_ids": [
+        "cap-llm-gateway"
+      ],
+      "source_id": "src-litellm-docs",
+      "source_kind": "official_docs",
+      "title": "LiteLLM documentation",
+      "url": "https://docs.litellm.ai/docs/",
+      "why_used": "Candidate for a provider-independent LLM gateway, virtual-key control, and spend tracking plane."
+    },
+    {
+      "capability_ids": [
+        "cap-agent-runtime"
+      ],
+      "source_id": "src-langgraph-docs",
+      "source_kind": "official_docs",
+      "title": "LangGraph overview",
+      "url": "https://docs.langchain.com/oss/python/langgraph",
+      "why_used": "Candidate for stateful agent graph runtime and human-in-loop adapter planning."
+    },
+    {
+      "capability_ids": [
+        "cap-durable-workflow",
+        "cap-agent-runtime"
+      ],
+      "source_id": "src-temporal-docs",
+      "source_kind": "official_docs",
+      "title": "Temporal documentation",
+      "url": "https://docs.temporal.io/",
+      "why_used": "Candidate for durable workflow, retry, resume, timeout, and long-running state boundaries."
+    },
+    {
+      "capability_ids": [
+        "cap-tool-registry"
+      ],
+      "source_id": "src-mcp-docs",
+      "source_kind": "official_docs",
+      "title": "Model Context Protocol documentation",
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "why_used": "Candidate standard for a tool and connector registry after approval-gated integration."
+    },
+    {
+      "capability_ids": [
+        "cap-observability"
+      ],
+      "source_id": "src-opentelemetry-docs",
+      "source_kind": "official_docs",
+      "title": "OpenTelemetry documentation",
+      "url": "https://opentelemetry.io/docs/",
+      "why_used": "Candidate observability standard for traces, metrics, logs, and evidence correlation."
+    },
+    {
+      "capability_ids": [
+        "cap-observability",
+        "cap-evaluation-red-team"
+      ],
+      "source_id": "src-langfuse-docs",
+      "source_kind": "official_docs",
+      "title": "Langfuse documentation",
+      "url": "https://langfuse.com/docs",
+      "why_used": "Candidate for LLM tracing, prompt/version observation, and eval workflow review."
+    },
+    {
+      "capability_ids": [
+        "cap-observability",
+        "cap-evaluation-red-team"
+      ],
+      "source_id": "src-phoenix-docs",
+      "source_kind": "official_docs",
+      "title": "Arize Phoenix documentation",
+      "url": "https://docs.arize.com/phoenix",
+      "why_used": "Candidate for AI observability and evaluation plane review."
+    },
+    {
+      "capability_ids": [
+        "cap-evaluation-red-team"
+      ],
+      "source_id": "src-promptfoo-docs",
+      "source_kind": "official_docs",
+      "title": "promptfoo documentation",
+      "url": "https://www.promptfoo.dev/docs/intro/",
+      "why_used": "Candidate for prompt, model, and red-team evaluation harness planning."
+    },
+    {
+      "capability_ids": [
+        "cap-evaluation-red-team",
+        "cap-rag-document-pipeline"
+      ],
+      "source_id": "src-ragas-docs",
+      "source_kind": "official_docs",
+      "title": "Ragas documentation",
+      "url": "https://docs.ragas.io/en/stable/",
+      "why_used": "Candidate for RAG and agent evaluation metrics when document memory is added."
+    },
+    {
+      "capability_ids": [
+        "cap-rag-document-pipeline"
+      ],
+      "source_id": "src-haystack-docs",
+      "source_kind": "official_docs",
+      "title": "Haystack documentation",
+      "url": "https://docs.haystack.deepset.ai/docs/intro",
+      "why_used": "Candidate for future RAG, document pipeline, agent, tool, and document-store integration."
+    },
+    {
+      "capability_ids": [
+        "cap-approved-coding-executor"
+      ],
+      "source_id": "src-openhands-docs",
+      "source_kind": "official_docs",
+      "title": "OpenHands documentation",
+      "url": "https://docs.all-hands.dev/",
+      "why_used": "Candidate for an optional approval-gated coding executor lane, not enabled in this pass."
+    },
+    {
+      "capability_ids": [
+        "cap-approved-coding-executor"
+      ],
+      "source_id": "src-swe-agent-docs",
+      "source_kind": "official_docs",
+      "title": "SWE-agent documentation",
+      "url": "https://swe-agent.com/latest/",
+      "why_used": "Candidate for issue-to-code task execution research under Codex-lane safety boundaries."
+    }
+  ]
+}
