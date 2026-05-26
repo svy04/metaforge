@@ -1,0 +1,12 @@
+action_id: create-observability-runtime-seed-owner-approval-packet
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_observability_runtime_seed_acceptance_gate_v0_1
+
+next_steps:
+  - Create a repo-local owner approval packet for any future runtime observability integration
+  - Keep the accepted state scoped to repo-local observability seed acceptance only
+  - Require explicit owner approval before collector startup, telemetry export, runtime integration, or dependency adoption
+  - Do not start collectors, export telemetry, install dependencies, or integrate a runtime backend
+  - Do not call providers, live models, scrape, post, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_observability_runtime_seed_owner_approval_packet_v0_1

@@ -1,0 +1,75 @@
+{
+  "acceptance_scope": "repo_local_runtime_observability_seed_only",
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "goal_id": "avf_observability_runtime_seed_acceptance_gate_v0_1",
+  "matrix_id": "avf-observability-runtime-seed-acceptance-matrix-v0-1",
+  "previous_goal_id": "avf_runtime_state_observability_closure_review_v0_1",
+  "runtime_state_acceptance_records": [
+    {
+      "evidence_binding_present": true,
+      "local_seed_acceptance_status": "accepted_repo_local_seed_only",
+      "runtime_export_allowed": false,
+      "runtime_integration_allowed": false,
+      "runtime_state": "orchestrated",
+      "runtime_state_link_present": true,
+      "telemetry_event_id": "evt-avf-goal-accepted"
+    },
+    {
+      "evidence_binding_present": true,
+      "local_seed_acceptance_status": "accepted_repo_local_seed_only",
+      "runtime_export_allowed": false,
+      "runtime_integration_allowed": false,
+      "runtime_state": "routed",
+      "runtime_state_link_present": true,
+      "telemetry_event_id": "evt-avf-router-selected"
+    },
+    {
+      "evidence_binding_present": true,
+      "local_seed_acceptance_status": "accepted_repo_local_seed_only",
+      "runtime_export_allowed": false,
+      "runtime_integration_allowed": false,
+      "runtime_state": "safety_reviewed",
+      "runtime_state_link_present": true,
+      "telemetry_event_id": "evt-avf-safety-gate"
+    },
+    {
+      "evidence_binding_present": true,
+      "local_seed_acceptance_status": "accepted_repo_local_seed_only",
+      "runtime_export_allowed": false,
+      "runtime_integration_allowed": false,
+      "runtime_state": "codex_planned",
+      "runtime_state_link_present": true,
+      "telemetry_event_id": "evt-avf-codex-planner-task-created"
+    },
+    {
+      "evidence_binding_present": true,
+      "local_seed_acceptance_status": "accepted_repo_local_seed_only",
+      "runtime_export_allowed": false,
+      "runtime_integration_allowed": false,
+      "runtime_state": "evidence_written",
+      "runtime_state_link_present": true,
+      "telemetry_event_id": "evt-avf-evidence-written"
+    }
+  ]
+}
