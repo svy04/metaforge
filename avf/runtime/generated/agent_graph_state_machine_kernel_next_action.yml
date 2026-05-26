@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-replay-harness
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_v0_1
+
+next_steps:
+  - Replay deterministic state machine kernel with normal, blocked, and owner-review outcomes
+  - Verify normal transitions reach evidence_written
+  - Verify blocked outcomes stop in blocked_terminal
+  - Verify owner-review outcomes stop in owner_review_required
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_replay_harness_v0_1

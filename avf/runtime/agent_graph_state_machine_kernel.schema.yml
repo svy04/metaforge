@@ -1,0 +1,22 @@
+schema_id: avf.agent_graph_state_machine_kernel.v0_1
+schema_status: repo_local_contract_only
+
+required_sections:
+  - normal_states
+  - normal_transition_edges
+  - guarded_outcome_states
+  - claim_boundary
+
+allowed_terminal_states:
+  - evidence_written
+  - blocked_terminal
+  - owner_review_required
+
+allowed_guarded_state_types:
+  - allowed_replay_path
+  - blocked_terminal
+  - owner_review_required
+
+protected_actions_must_remain_false: true
+dependency_adoption_allowed: false
+runtime_integration_allowed: false
