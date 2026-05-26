@@ -1,0 +1,11 @@
+action_id: review-primary-source-acquisition-plan
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_acquisition_plan_v0_1
+
+next_steps:
+  - Review planned source targets before any acquisition execution
+  - Verify each source target maps to one AVF claim
+  - Keep source targets planned_not_acquired until a later approved acquisition lane
+  - Do not fetch, scrape, clone, install, or call providers during review
+
+next_safe_goal_id: avf_primary_source_acquisition_plan_review_v0_1
