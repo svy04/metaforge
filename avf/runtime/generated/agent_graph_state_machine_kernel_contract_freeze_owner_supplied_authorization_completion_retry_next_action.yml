@@ -1,0 +1,17 @@
+action_id: collect-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-input-v0-2
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_completion_retry_v0_1
+
+next_steps:
+  - Wait for owner-supplied authorization input v0.2
+  - Codex must not fabricate owner authorization
+  - Keep retry_status: awaiting_owner_supplied_authorization
+  - Keep owner_authorization_granted false until owner input exists and is reviewed
+  - Do not execute contract freeze from this retry packet
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+retry_status: awaiting_owner_supplied_authorization
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_v0_2

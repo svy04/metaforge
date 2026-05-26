@@ -1,0 +1,72 @@
+packet_id: avf-agent-graph-state-machine-kernel-contract-freeze-owner-supplied-authorization-completion-retry-v0-1
+schema_version: 0.1
+created_at: 2026-05-27T00:00:00Z
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_completion_retry_v0_1
+previous_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_review_v0_1
+retry_decision: OWNER_AUTHORIZATION_COMPLETION_RETRY_PACKET_CREATED_FREEZE_STILL_BLOCKED
+retry_status: awaiting_owner_supplied_authorization
+
+owner_authorization_granted: false
+owner_supplied_fields_count: 0
+missing_required_fields_count: 7
+contract_freeze_execution_allowed: false
+contract_freeze_executed: false
+runtime_contract_frozen: false
+codex_must_not_fill_owner_approval: true
+owner_must_supply_authorization: true
+
+missing_required_fields:
+  - field: owner_identity
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: authorization_scope
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: accepted_invariant_ids
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: freeze_execution_allowed
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: rollback_or_unfreeze_plan
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: validation_commands_required_after_freeze
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: explicit_timestamp
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+
+retry_rules:
+  - Owner may supply a new v0.2 input packet with the required fields.
+  - Codex must not fabricate owner identity, scope, approval, timestamps, accepted invariants, rollback plans, or validation commands.
+  - Any supplied input must be reviewed in a separate step before freeze execution can be considered.
+  - Freeze execution remains blocked in this retry packet.
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_supplied_authorization_input_v0_2
