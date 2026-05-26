@@ -1,0 +1,12 @@
+action_id: bind-telemetry-event-envelope-to-evidence
+owner_approval_required_before_runtime_integration: true
+goal_id: avf_telemetry_event_envelope_review_v0_1
+
+next_steps:
+  - Create a repo-local evidence binding for telemetry event envelopes
+  - Link telemetry event identity fields to evidence ledger v2 style records
+  - Keep binding deterministic, local, and validation-only
+  - Do not install OpenTelemetry, start collectors, or integrate exporters
+  - Do not call providers, live models, external services, scraping, posting, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_telemetry_event_evidence_binding_v0_1

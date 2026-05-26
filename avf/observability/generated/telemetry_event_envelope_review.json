@@ -1,0 +1,117 @@
+{
+  "blocked_attribute_key_patterns_reviewed": [
+    "api_key",
+    "secret",
+    "token",
+    "password",
+    "authorization",
+    "cookie",
+    "credential",
+    "prompt",
+    "raw_payload"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "contract_decision_reviewed": "TELEMETRY_EVENT_ENVELOPE_READY_FOR_LOCAL_REVIEW",
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "envelope_scope_reviewed": "repo_local_observability_contract_only",
+  "event_chain_summary": {
+    "event_order": [
+      "evt-avf-goal-accepted",
+      "evt-avf-router-selected",
+      "evt-avf-safety-gate",
+      "evt-avf-evidence-written"
+    ],
+    "parent_links": [
+      {
+        "event_id": "evt-avf-goal-accepted",
+        "parent_span_id": null,
+        "span_id": "00f067aa0ba902b7"
+      },
+      {
+        "event_id": "evt-avf-router-selected",
+        "parent_span_id": "00f067aa0ba902b7",
+        "span_id": "1af067aa0ba902b8"
+      },
+      {
+        "event_id": "evt-avf-safety-gate",
+        "parent_span_id": "1af067aa0ba902b8",
+        "span_id": "2bf067aa0ba902b9"
+      },
+      {
+        "event_id": "evt-avf-evidence-written",
+        "parent_span_id": "2bf067aa0ba902b9",
+        "span_id": "3cf067aa0ba902ba"
+      }
+    ],
+    "root_event_id": "evt-avf-goal-accepted",
+    "signal_type_coverage": [
+      "log",
+      "metric",
+      "trace"
+    ],
+    "terminal_event_id": "evt-avf-evidence-written",
+    "trace_context_chain_valid": true,
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  },
+  "evidence_binding_allowed": true,
+  "evidence_binding_contract": {
+    "binding_scope": "future_repo_local_evidence_events_only",
+    "event_identity_fields": [
+      "event_id",
+      "run_id",
+      "goal_id",
+      "trace_id",
+      "span_id"
+    ],
+    "required_claim_boundary": "all_protected_action_flags_false",
+    "runtime_export_allowed": false
+  },
+  "goal_id": "avf_telemetry_event_envelope_review_v0_1",
+  "next_safe_goal_id": "avf_telemetry_event_evidence_binding_v0_1",
+  "previous_goal_id": "avf_telemetry_event_envelope_v0_1",
+  "required_fields_reviewed": [
+    "event_id",
+    "run_id",
+    "goal_id",
+    "trace_id",
+    "span_id",
+    "traceparent",
+    "event_name",
+    "signal_type",
+    "event_time",
+    "producer",
+    "attributes",
+    "claim_boundary",
+    "source_evidence"
+  ],
+  "review_decision": "TELEMETRY_EVENT_ENVELOPE_REVIEWED_READY_FOR_EVIDENCE_BINDING",
+  "review_id": "avf-telemetry-event-envelope-review-v0-1",
+  "review_scope": "repo_local_review_only",
+  "runtime_integration_allowed": false,
+  "sample_events_reviewed": 4,
+  "secret_redaction_guard_reviewed": true,
+  "source_evidence_reviewed": true,
+  "source_evidence_reviewed_ids": [
+    "src-opentelemetry-standard-docs",
+    "src-w3c-trace-context"
+  ],
+  "trace_context_chain_valid": true
+}
