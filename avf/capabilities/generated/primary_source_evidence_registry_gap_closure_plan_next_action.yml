@@ -1,0 +1,10 @@
+action_id: create-primary-source-namespace-map
+owner_approval_required_before_execution: false
+goal_id: avf_primary_source_evidence_registry_gap_closure_plan_v0_1
+
+next_steps:
+  - Create deterministic repo-local mapping between AVF ledger source ids and manual source record target ids
+  - Keep each mapping in planned/applied status with source and target ids
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_primary_source_evidence_registry_namespace_map_v0_1

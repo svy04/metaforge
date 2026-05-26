@@ -1,0 +1,28 @@
+goal_id: avf_primary_source_evidence_registry_gap_closure_plan_v0_1
+closure_decision: PRIMARY_SOURCE_EVIDENCE_REGISTRY_GAP_CLOSURE_PLAN_CREATED_REPO_LOCAL
+closure_status: closure_plan_ready_no_gaps_closed_yet
+gaps_closed_count: 0
+
+closure_steps:
+  - step_id: step-bound-or-attach-product-quality-primary-source-inputs
+    targets_gap_id: gap-product-quality-reports-missing-primary-source-inputs
+    action_type: plan_only
+    execution_status: planned_not_executed
+    output_contract: repo-local list of product-quality reports that need primary-source input attachment or explicit claim-boundary exemption
+  - step_id: step-create-avf-ledger-manual-record-namespace-map
+    targets_gap_id: gap-avf-ledger-to-manual-record-namespace-map
+    action_type: plan_only
+    execution_status: planned_not_executed
+    output_contract: avf/capabilities/generated/primary_source_namespace_mapping_plan.json
+  - step_id: step-add-content-safety-policy-manual-source-records
+    targets_gap_id: gap-content-safety-policy-sources-missing-manual-records
+    action_type: plan_only
+    execution_status: planned_not_executed
+    output_contract: manual source records required for src-ftc-endorsement-guides and src-ftc-ai-claims
+  - step_id: step-link-adoption-candidates-to-evidence-gates
+    targets_gap_id: gap-adoption-evidence-gates-not-yet-linked-to-registry
+    action_type: plan_only
+    execution_status: planned_not_executed
+    output_contract: adoption evidence gates for build-vs-buy, license, security, supply-chain, and owner approval
+
+next_safe_goal_id: avf_primary_source_evidence_registry_namespace_map_v0_1

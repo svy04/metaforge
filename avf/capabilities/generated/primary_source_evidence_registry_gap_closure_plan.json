@@ -1,0 +1,92 @@
+{
+  "adoption_gate_requirement_count": 5,
+  "adoption_gate_requirements": [
+    "build_vs_buy_review",
+    "license_review",
+    "security_review",
+    "supply_chain_review",
+    "owner_approval_gate"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "closure_decision": "PRIMARY_SOURCE_EVIDENCE_REGISTRY_GAP_CLOSURE_PLAN_CREATED_REPO_LOCAL",
+  "closure_status": "closure_plan_ready_no_gaps_closed_yet",
+  "closure_step_count": 4,
+  "closure_step_ids": [
+    "step-bound-or-attach-product-quality-primary-source-inputs",
+    "step-create-avf-ledger-manual-record-namespace-map",
+    "step-add-content-safety-policy-manual-source-records",
+    "step-link-adoption-candidates-to-evidence-gates"
+  ],
+  "closure_steps": [
+    {
+      "action_type": "plan_only",
+      "execution_status": "planned_not_executed",
+      "output_contract": "repo-local list of product-quality reports that need primary-source input attachment or explicit claim-boundary exemption",
+      "step_id": "step-bound-or-attach-product-quality-primary-source-inputs",
+      "targets_gap_id": "gap-product-quality-reports-missing-primary-source-inputs"
+    },
+    {
+      "action_type": "plan_only",
+      "execution_status": "planned_not_executed",
+      "output_contract": "avf/capabilities/generated/primary_source_namespace_mapping_plan.json",
+      "step_id": "step-create-avf-ledger-manual-record-namespace-map",
+      "targets_gap_id": "gap-avf-ledger-to-manual-record-namespace-map"
+    },
+    {
+      "action_type": "plan_only",
+      "execution_status": "planned_not_executed",
+      "output_contract": "manual source records required for src-ftc-endorsement-guides and src-ftc-ai-claims",
+      "step_id": "step-add-content-safety-policy-manual-source-records",
+      "targets_gap_id": "gap-content-safety-policy-sources-missing-manual-records"
+    },
+    {
+      "action_type": "plan_only",
+      "execution_status": "planned_not_executed",
+      "output_contract": "adoption evidence gates for build-vs-buy, license, security, supply-chain, and owner approval",
+      "step_id": "step-link-adoption-candidates-to-evidence-gates",
+      "targets_gap_id": "gap-adoption-evidence-gates-not-yet-linked-to-registry"
+    }
+  ],
+  "content_safety_policy_sources_missing_manual_records_count": 2,
+  "created_at": "2026-05-27T00:00:00Z",
+  "gap_count": 4,
+  "gap_ids": [
+    "gap-product-quality-reports-missing-primary-source-inputs",
+    "gap-avf-ledger-to-manual-record-namespace-map",
+    "gap-content-safety-policy-sources-missing-manual-records",
+    "gap-adoption-evidence-gates-not-yet-linked-to-registry"
+  ],
+  "gaps_closed_count": 0,
+  "goal_id": "avf_primary_source_evidence_registry_gap_closure_plan_v0_1",
+  "namespace_mapping_required_count": 7,
+  "next_safe_goal_id": "avf_primary_source_evidence_registry_namespace_map_v0_1",
+  "plan_id": "avf-primary-source-evidence-registry-gap-closure-plan-v0-1",
+  "plan_scope": "deterministic repo-local closure plan; no gaps closed yet",
+  "previous_goal_id": "avf_primary_source_evidence_registry_gap_review_v0_1",
+  "reports_missing_primary_source_inputs_count": 35,
+  "source_inputs": [
+    "avf/capabilities/generated/primary_source_evidence_registry_gap_review.json",
+    "avf/capabilities/generated/primary_source_evidence_registry_gap_review_gate.json",
+    "avf/capabilities/generated/primary_source_evidence_registry_gap_review_next_action.yml"
+  ]
+}
