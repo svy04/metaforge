@@ -1,0 +1,11 @@
+action_id: review-agent-graph-policy-enforcement-harness
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_policy_enforcement_harness_v0_1
+
+next_steps:
+  - Review repo-local policy enforcement results before a state machine kernel step
+  - Confirm allow_local_transition, block_transition, and require_owner_review mappings
+  - Decide whether to create the agent graph state machine kernel next
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_policy_enforcement_review_v0_1
