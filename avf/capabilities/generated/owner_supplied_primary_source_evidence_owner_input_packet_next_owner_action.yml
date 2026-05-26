@@ -1,0 +1,33 @@
+action_id: owner-paste-primary-source-evidence-record-into-input-packet
+owner_input_required: true
+goal_id: avf_owner_supplied_primary_source_evidence_owner_input_packet_v0_1
+
+owner_steps:
+  - Paste exactly one completed source record into the input packet
+  - Fill all 10 required fields
+  - Choose one allowed source kind
+  - Tie the source to exactly one AVF claim supported
+  - Do not ask Codex to fetch the URL
+
+required_source_fields:
+  - source_id
+  - source_title
+  - source_kind
+  - source_uri
+  - source_version_or_date
+  - source_owner_or_publisher
+  - license_or_rights_note
+  - claim_supported
+  - evidence_excerpt_summary
+  - verification_notes
+
+allowed_source_kinds:
+  - official_docs
+  - original_repository
+  - paper
+  - patent
+  - standard
+  - maintained_implementation
+  - local_repo_evidence
+
+next_safe_goal_id: avf_owner_supplied_primary_source_evidence_owner_input_packet_review_v0_1
