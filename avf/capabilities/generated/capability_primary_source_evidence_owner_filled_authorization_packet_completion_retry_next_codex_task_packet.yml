@@ -1,0 +1,36 @@
+task_id: avf-capability-primary-source-evidence-owner-completion-retry-review-v0-1
+title: Add AVF owner completion retry review v0.1
+goal: Review the owner completion retry packet and keep execution blocked until owner input actually completes every required authorization field.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_review_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_completion_retry_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_completion_retry_review_next_codex_task_packet.yml
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_COMPLETION_RETRY_REVIEW_V0_1_REPORT.md
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - completion retry review checks all required authorization fields
+  - review remains blocked when retry fields are still empty
+  - no source collection task becomes executable
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_filled_authorization_packet_completion_retry_v0_1.py
+expected_outputs:
+  - owner completion retry review gate
+  - blocked review decision for empty retry packet
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_completion_retry_review_v0_1
