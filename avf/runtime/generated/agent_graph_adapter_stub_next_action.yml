@@ -1,0 +1,12 @@
+action_id: review-agent-graph-adapter-stub
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_adapter_stub_v0_1
+
+next_steps:
+  - Review deterministic node trace and stub contract alignment
+  - Confirm Orchestrator, Router, Safety Reviewer, Codex Planner, and Evidence Writer boundaries
+  - Decide whether to extend the stub into a typed run-state adapter
+  - Do not install LangGraph or any runtime dependency
+  - Do not call providers, tools, external services, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_adapter_stub_review_v0_1
