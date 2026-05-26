@@ -1,0 +1,43 @@
+{
+  "automation_fetch_performed": false,
+  "created_at": "2026-05-26T00:00:00Z",
+  "ledger_id": "avf-capability-fit-scoring-source-ledger-v0-1",
+  "source_selection_boundary": "Scoring sources are operator-reviewed primary URLs. This runner does not fetch URLs, query package registries, inspect remote repositories, install dependencies, clone code, or execute any runtime integration.",
+  "sources": [
+    {
+      "source_id": "src-openssf-scorecard",
+      "source_kind": "official_repo",
+      "title": "OpenSSF Scorecard",
+      "url": "https://github.com/ossf/scorecard",
+      "why_used": "Provides the security-health scoring vocabulary for later OSS repository review."
+    },
+    {
+      "source_id": "src-slsa-spec",
+      "source_kind": "official_standard",
+      "title": "SLSA specification",
+      "url": "https://slsa.dev/spec/v1.2/",
+      "why_used": "Provides supply-chain provenance and build-integrity gate vocabulary."
+    },
+    {
+      "source_id": "src-spdx-spec",
+      "source_kind": "official_standard",
+      "title": "SPDX specifications",
+      "url": "https://spdx.dev/use/specifications/",
+      "why_used": "Provides license-expression and SBOM vocabulary for candidate review."
+    },
+    {
+      "source_id": "src-github-dependency-review",
+      "source_kind": "official_docs",
+      "title": "GitHub Dependency Review",
+      "url": "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review",
+      "why_used": "Provides a future pull-request dependency review gate, not enabled in this pass."
+    },
+    {
+      "source_id": "src-openssf-scorecard-paper",
+      "source_kind": "paper",
+      "title": "OpenSSF Scorecard: On the Path Toward Ecosystem-wide Automated Security Metrics",
+      "url": "https://arxiv.org/abs/2208.03412",
+      "why_used": "Primary paper context for using automated security metrics as decision support, not as final proof."
+    }
+  ]
+}
