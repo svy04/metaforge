@@ -1,0 +1,10 @@
+action_id: create-primary-source-record-skeletons
+owner_approval_required_before_execution: true
+goal_id: avf_primary_source_acquisition_plan_review_v0_1
+
+next_steps:
+  - Create blank evidence record skeletons for each planned source target
+  - Keep every skeleton in planned_not_acquired state
+  - Do not fetch, scrape, clone, install, or call providers
+
+next_safe_goal_id: avf_primary_source_record_skeletons_v0_1
