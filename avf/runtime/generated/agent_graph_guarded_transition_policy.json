@@ -1,0 +1,107 @@
+{
+  "allow_local_transition_rules": 1,
+  "block_transition_rules": 5,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "goal_id": "avf_agent_graph_guarded_transition_policy_v0_1",
+  "next_safe_goal_id": "avf_agent_graph_policy_enforcement_harness_v0_1",
+  "policy_decision": "AGENT_GRAPH_GUARDED_TRANSITION_POLICY_READY_FOR_ENFORCEMENT_HARNESS",
+  "policy_enforcement_harness_allowed": true,
+  "policy_rules": [
+    {
+      "condition": "replay_passed=true and all protected-action flags are false",
+      "evidence_requirement": "Persist replay_result and terminal state evidence before continuing.",
+      "owner_review_required": false,
+      "policy_action": "allow_local_transition",
+      "protected_action_allowed": false,
+      "rule_id": "positive_replay_pass_allows_local_transition",
+      "source": "avf/runtime/generated/agent_graph_replay_result.json"
+    },
+    {
+      "condition": "failure_mode_id=transition_from_state_mismatch",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": false,
+      "policy_action": "block_transition",
+      "protected_action_allowed": false,
+      "rule_id": "failure_transition_from_state_mismatch_block_transition",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_from_state_mismatch.json"
+    },
+    {
+      "condition": "failure_mode_id=transition_status_not_pass",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": true,
+      "policy_action": "require_owner_review",
+      "protected_action_allowed": false,
+      "rule_id": "failure_transition_status_not_pass_require_owner_review",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_status_not_pass.json"
+    },
+    {
+      "condition": "failure_mode_id=missing_evidence_event_uri",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": false,
+      "policy_action": "block_transition",
+      "protected_action_allowed": false,
+      "rule_id": "failure_missing_evidence_event_uri_block_transition",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_missing_evidence_event_uri.json"
+    },
+    {
+      "condition": "failure_mode_id=protected_action_flag_true",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": false,
+      "policy_action": "block_transition",
+      "protected_action_allowed": false,
+      "rule_id": "failure_protected_action_flag_true_block_transition",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_protected_action_flag_true.json"
+    },
+    {
+      "condition": "failure_mode_id=terminal_state_mismatch",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": true,
+      "policy_action": "require_owner_review",
+      "protected_action_allowed": false,
+      "rule_id": "failure_terminal_state_mismatch_require_owner_review",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_terminal_state_mismatch.json"
+    },
+    {
+      "condition": "failure_mode_id=dependency_or_runtime_action_requested",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": false,
+      "policy_action": "block_transition",
+      "protected_action_allowed": false,
+      "rule_id": "failure_dependency_or_runtime_action_requested_block_transition",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_dependency_or_runtime_action_requested.json"
+    },
+    {
+      "condition": "failure_mode_id=node_sequence_gap_or_duplicate",
+      "evidence_requirement": "Persist fixture, expected outcome, actual outcome, and policy decision before continuing.",
+      "owner_review_required": false,
+      "policy_action": "block_transition",
+      "protected_action_allowed": false,
+      "rule_id": "failure_node_sequence_gap_or_duplicate_block_transition",
+      "source": "avf/runtime/fixtures/agent_graph_failure_fixture_node_sequence_gap_or_duplicate.json"
+    }
+  ],
+  "policy_rules_created": 8,
+  "policy_scope": "repo_local_policy_table_only",
+  "previous_goal_id": "avf_agent_graph_failure_replay_harness_v0_1",
+  "require_owner_review_rules": 2,
+  "runtime_integration_allowed": false
+}

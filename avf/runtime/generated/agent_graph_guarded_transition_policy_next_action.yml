@@ -1,0 +1,11 @@
+action_id: create-agent-graph-policy-enforcement-harness
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_guarded_transition_policy_v0_1
+
+next_steps:
+  - Create deterministic enforcement harness for guarded transition policy
+  - Verify allow_local_transition, block_transition, and require_owner_review decisions
+  - Keep enforcement repo-local and evidence-backed
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_policy_enforcement_harness_v0_1
