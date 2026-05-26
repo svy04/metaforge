@@ -1,0 +1,11 @@
+action_id: create-runtime-adapter-contract-skeletons
+owner_approval_required_before_execution: true
+goal_id: avf_runtime_adapter_decision_matrix_v0_1
+
+next_steps:
+  - Generate adapter contract skeletons only
+  - Convert the decision matrix into repo-local interface documents
+  - Keep dependency adoption and runtime integration behind later gates
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_runtime_adapter_contract_skeletons_v0_1
