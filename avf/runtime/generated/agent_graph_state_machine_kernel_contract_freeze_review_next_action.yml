@@ -1,0 +1,12 @@
+action_id: create-agent-graph-state-machine-kernel-contract-baseline-draft
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_review_v0_1
+
+next_steps:
+  - Create repo-local contract baseline draft from reviewed freeze-plan entries
+  - Keep the baseline draft separate from any runtime enforcement
+  - Do not treat the baseline draft as a frozen runtime contract
+  - Keep dependency adoption and runtime integration blocked
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_baseline_draft_v0_1
