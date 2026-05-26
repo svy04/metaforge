@@ -1,0 +1,142 @@
+{
+  "authorization_decision": "CONTRACT_FREEZE_AUTHORIZATION_PACKET_READY_OWNER_APPROVAL_REQUIRED",
+  "authorization_packet_uri": "avf/runtime/generated/agent_graph_state_machine_kernel_contract_freeze_authorization_packet.yml",
+  "authorization_status": "required_not_granted",
+  "baseline_entries_included": 10,
+  "blocked_until_explicit_owner_authorization": [
+    "contract_freeze_execution",
+    "runtime_contract_freeze",
+    "runtime_dependency_adoption",
+    "runtime_integration",
+    "provider_calls",
+    "live_model_calls",
+    "external_service_calls",
+    "deploy",
+    "publish",
+    "release_readiness_claim",
+    "production_readiness_claim"
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "contract_freeze_executed": false,
+  "contract_freeze_execution_allowed": false,
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "freeze_candidate_invariants": [
+    {
+      "category": "normal_path",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "normal_path_terminal_state_is_evidence_written",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 1,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "normal_path",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "normal_transition_sequence_is_contiguous",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 2,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "normal_path",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "normal_transition_order_is_preserved",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 3,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "guarded_outcome",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "guarded_allowed_path_requires_pass_status",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 4,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "guarded_outcome",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "blocked_terminal_outcomes_never_reach_evidence_written",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 5,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "guarded_outcome",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "owner_review_outcomes_never_auto_execute",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 6,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "guarded_outcome",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "protected_action_flags_remain_false",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 7,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "safety_boundary",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "dependency_and_runtime_actions_remain_blocked",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 8,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "safety_boundary",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "evidence_event_uri_required_before_terminal_success",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 9,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    },
+    {
+      "category": "safety_boundary",
+      "freeze_candidate_status": "candidate_requires_owner_authorization",
+      "invariant_id": "node_sequence_gap_or_duplicate_blocks_transition",
+      "protected_action_allowed": false,
+      "review_status": "accepted",
+      "sequence_index": 10,
+      "source_review_goal_id": "avf_agent_graph_state_machine_kernel_replay_review_v0_1"
+    }
+  ],
+  "gate_id": "avf-agent-graph-state-machine-kernel-contract-freeze-authorization-gate-v0-1",
+  "goal_id": "avf_agent_graph_state_machine_kernel_contract_freeze_authorization_packet_v0_1",
+  "next_safe_goal_id": "avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_record_v0_1",
+  "owner_authorization_granted": false,
+  "owner_authorization_required": true,
+  "previous_goal_id": "avf_agent_graph_state_machine_kernel_contract_baseline_review_v0_1",
+  "runtime_contract_frozen": false,
+  "runtime_integration_allowed": false,
+  "status": "PASS"
+}

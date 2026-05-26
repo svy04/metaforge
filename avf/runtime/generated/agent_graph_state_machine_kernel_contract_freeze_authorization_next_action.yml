@@ -1,0 +1,14 @@
+action_id: create-agent-graph-state-machine-kernel-contract-freeze-owner-approval-record
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_authorization_packet_v0_1
+
+next_steps:
+  - Prepare an owner approval record template for the reviewed invariant candidates
+  - Keep authorization_status as required_not_granted until owner approval is explicitly recorded
+  - Do not execute the contract freeze until explicit owner authorization is recorded
+  - Do not freeze runtime contract state in this step
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_record_v0_1
