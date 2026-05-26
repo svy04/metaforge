@@ -1,0 +1,22 @@
+action_id: collect-observability-runtime-seed-owner-supplied-approval-input-v0-2
+owner_approval_required_before_execution: true
+goal_id: avf_observability_runtime_seed_owner_supplied_approval_completion_retry_v0_1
+
+next_steps:
+  - Wait for owner-supplied approval input v0.2
+  - Codex must not fabricate owner approval
+  - Keep retry_status: awaiting_owner_supplied_approval
+  - Keep owner_approval_granted false until owner input exists and is reviewed
+  - Do not start collectors from this retry packet
+  - Do not export telemetry from this retry packet
+  - Do not integrate runtime backends from this retry packet
+  - Do not adopt dependencies from this retry packet
+  - Do not deploy, publish, or claim readiness
+
+retry_status: awaiting_owner_supplied_approval
+owner_approval_granted: false
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+next_safe_goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_v0_2

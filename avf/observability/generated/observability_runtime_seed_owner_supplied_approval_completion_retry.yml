@@ -1,0 +1,76 @@
+packet_id: avf-observability-runtime-seed-owner-supplied-approval-completion-retry-v0-1
+schema_version: 0.1
+created_at: 2026-05-27T00:00:00Z
+goal_id: avf_observability_runtime_seed_owner_supplied_approval_completion_retry_v0_1
+previous_goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_1
+retry_decision: OWNER_APPROVAL_COMPLETION_RETRY_PACKET_CREATED_INTEGRATION_STILL_BLOCKED
+retry_status: awaiting_owner_supplied_approval
+
+owner_approval_granted: false
+owner_supplied_fields_count: 0
+missing_required_owner_fields_count: 7
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+codex_must_not_fill_owner_approval: true
+owner_must_supply_approval: true
+
+missing_required_owner_fields:
+  - field: owner_name
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: reviewed_packet_id
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: approval_decision
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: approved_actions
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: approval_valid_after_review
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: approval_notes
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+  - field: reviewed_at
+    status: missing
+    supplied_by: owner_only
+    codex_may_fill: false
+
+retry_rules:
+  - Owner may supply a new v0.2 approval input packet with the required fields.
+  - Codex must not fabricate owner name, reviewed packet id, approval decision, approved actions, approval notes, or timestamps.
+  - Any supplied input must be reviewed in a separate step before collector start, telemetry export, runtime integration, or dependency adoption can be considered.
+  - Collectors, telemetry export, runtime integration, and dependency adoption remain blocked in this retry packet.
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  runtime_export_performed: false
+  collector_started: false
+  telemetry_export_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_v0_2
