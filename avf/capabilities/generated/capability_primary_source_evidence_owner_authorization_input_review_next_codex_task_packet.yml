@@ -1,0 +1,37 @@
+task_id: avf-capability-primary-source-evidence-owner-authorization-completion-guide-v0-1
+title: Add AVF owner authorization completion guide for primary-source collection v0.1
+goal: Create a repo-local completion guide that tells the owner exactly how to fill the authorization fields without executing collection, scraping, provider calls, clone, install, integration, deploy, publish, or readiness claims.
+context_paths:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_packet.yml
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_input_review_gate.json
+  - avf/capabilities/generated/capability_primary_source_evidence_authorized_collection_run_plan_gate.json
+files_likely_to_touch:
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_completion_guide.md
+  - avf/capabilities/generated/capability_primary_source_evidence_owner_authorization_completion_guide_gate.json
+  - docs/goals/AVF_CAPABILITY_PRIMARY_SOURCE_EVIDENCE_OWNER_AUTHORIZATION_COMPLETION_GUIDE_V0_1_REPORT.md
+forbidden_changes:
+  - No source collection execution
+  - No provider calls
+  - No live model calls
+  - No external service calls
+  - No automated scraping
+  - No OSS clone
+  - No package install
+  - No dependency install
+  - No runtime integration
+  - No deploy
+  - No publish
+  - No release readiness claim
+  - No production readiness claim
+acceptance_criteria:
+  - guide lists every required authorization field
+  - guide distinguishes manual owner collection, PRO-assisted review, Codex link opening, and automated collection
+  - guide keeps default authorization false
+  - guide states that a later filled packet and review gate are required before execution
+validation_commands:
+  - python scripts\validate_avf_capability_primary_source_evidence_owner_authorization_input_review_v0_1.py
+expected_outputs:
+  - owner authorization completion guide
+  - guide gate
+  - validation report
+next_safe_goal_id: avf_capability_primary_source_evidence_owner_authorization_completion_guide_v0_1
