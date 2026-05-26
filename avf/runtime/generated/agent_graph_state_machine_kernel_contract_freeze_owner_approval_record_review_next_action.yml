@@ -1,0 +1,16 @@
+action_id: create-agent-graph-state-machine-kernel-contract-freeze-owner-approval-completion-guide
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_record_review_v0_1
+
+next_steps:
+  - Create a completion guide for the owner approval record fields
+  - Keep review_status: blocked_missing_owner_authorization
+  - Do not execute contract freeze from this blocked review
+  - Do not freeze runtime contract state
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+review_status: blocked_missing_owner_authorization
+owner_authorization_granted: false
+contract_freeze_execution_allowed: false
+runtime_contract_frozen: false
+next_safe_goal_id: avf_agent_graph_state_machine_kernel_contract_freeze_owner_approval_completion_guide_v0_1
