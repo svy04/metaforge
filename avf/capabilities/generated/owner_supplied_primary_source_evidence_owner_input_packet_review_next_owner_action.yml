@@ -1,0 +1,11 @@
+action_id: prepare-primary-source-acquisition-approval-packet
+owner_input_required: false
+goal_id: avf_owner_supplied_primary_source_evidence_owner_input_packet_review_v0_1
+
+owner_steps:
+  - Prepare a separate approval packet before any primary-source acquisition
+  - Define allowed source categories and denied actions
+  - Keep acquisition planning repo-local until approval is recorded
+  - Do not fetch, scrape, clone, install, or call providers in this step
+
+next_safe_goal_id: avf_primary_source_acquisition_approval_packet_v0_1
