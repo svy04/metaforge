@@ -1,0 +1,33 @@
+action_id: owner-complete-primary-source-evidence-record-from-template
+owner_input_required: true
+goal_id: avf_owner_supplied_primary_source_evidence_record_template_v0_1
+
+owner_steps:
+  - Fill the template with owner-supplied source metadata
+  - Choose one allowed source kind
+  - Tie the record to one AVF claim supported by the source
+  - Leave the record unaccepted until the filled-record review gate passes
+  - Do not ask Codex to fetch the URL
+
+required_source_fields:
+  - source_id
+  - source_title
+  - source_kind
+  - source_uri
+  - source_version_or_date
+  - source_owner_or_publisher
+  - license_or_rights_note
+  - claim_supported
+  - evidence_excerpt_summary
+  - verification_notes
+
+allowed_source_kinds:
+  - official_docs
+  - original_repository
+  - paper
+  - patent
+  - standard
+  - maintained_implementation
+  - local_repo_evidence
+
+next_safe_goal_id: avf_owner_supplied_primary_source_evidence_filled_record_review_v0_1
