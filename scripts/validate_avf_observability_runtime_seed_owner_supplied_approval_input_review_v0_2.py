@@ -1,0 +1,290 @@
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+OBS_GENERATED = ROOT / "avf" / "observability" / "generated"
+DOC_GOALS = ROOT / "docs" / "goals"
+
+RUNNER = ROOT / "scripts" / "run_avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_2.py"
+OWNER_INPUT_GATE = OBS_GENERATED / "observability_runtime_seed_owner_supplied_approval_input_v0_2_gate.json"
+REVIEW = OBS_GENERATED / "observability_runtime_seed_owner_supplied_approval_input_review_v0_2.json"
+REVIEW_GATE = OBS_GENERATED / "observability_runtime_seed_owner_supplied_approval_input_review_v0_2_gate.json"
+NEXT_ACTION = OBS_GENERATED / "observability_runtime_seed_owner_supplied_approval_input_review_v0_2_next_action.yml"
+VALIDATION_RESULT = OBS_GENERATED / "observability_runtime_seed_owner_supplied_approval_input_review_v0_2.validation_result.json"
+VALIDATION_REPORT = DOC_GOALS / "AVF_OBSERVABILITY_RUNTIME_SEED_OWNER_SUPPLIED_APPROVAL_INPUT_REVIEW_V0_2_REPORT.md"
+
+THIS_GOAL_ID = "avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_2"
+PREVIOUS_GOAL_ID = "avf_observability_runtime_seed_owner_supplied_approval_input_v0_2"
+NEXT_SAFE_GOAL_ID = "avf_observability_runtime_seed_owner_supplied_approval_completion_retry_v0_2"
+REVIEW_DECISION = "OWNER_SUPPLIED_APPROVAL_INPUT_V0_2_REVIEWED_EMPTY_INTEGRATION_BLOCKED"
+REVIEW_STATUS = "blocked_owner_approval_input_not_supplied"
+
+REQUIRED_OWNER_FIELDS = [
+    "owner_name",
+    "reviewed_packet_id",
+    "approval_decision",
+    "approved_actions",
+    "approval_valid_after_review",
+    "approval_notes",
+    "reviewed_at",
+]
+
+FALSE_FLAGS = [
+    "protected_action_executed",
+    "provider_calls_performed",
+    "live_model_calls_performed",
+    "external_service_calls_performed",
+    "automated_scraping_performed",
+    "scraping_performed",
+    "posting_automation_performed",
+    "dependency_install_performed",
+    "external_fetch_performed",
+    "oss_clone_performed",
+    "package_install_performed",
+    "runtime_integration_performed",
+    "runtime_export_performed",
+    "collector_started",
+    "telemetry_export_performed",
+    "deploy_performed",
+    "publish_performed",
+    "release_ready",
+    "production_ready",
+]
+
+REQUIRED_FILES = [
+    RUNNER,
+    OWNER_INPUT_GATE,
+    REVIEW,
+    REVIEW_GATE,
+    NEXT_ACTION,
+    VALIDATION_RESULT,
+    VALIDATION_REPORT,
+]
+
+REVIEW_MARKERS = [
+    f'"goal_id": "{THIS_GOAL_ID}"',
+    f'"previous_goal_id": "{PREVIOUS_GOAL_ID}"',
+    f'"review_decision": "{REVIEW_DECISION}"',
+    f'"review_status": "{REVIEW_STATUS}"',
+    '"owner_input_status": "not_supplied"',
+    '"owner_approval_record_present": false',
+    '"owner_approval_granted": false',
+    '"owner_supplied_fields_count": 0',
+    '"missing_required_owner_fields_count": 7',
+    '"collector_start_allowed": false',
+    '"telemetry_export_allowed": false',
+    '"runtime_integration_allowed": false',
+    '"dependency_adoption_allowed": false',
+    '"codex_fabricated_owner_approval": false',
+    f'"next_safe_goal_id": "{NEXT_SAFE_GOAL_ID}"',
+]
+
+NEXT_ACTION_MARKERS = [
+    "action_id: create-observability-runtime-seed-owner-supplied-approval-completion-retry-v0-2",
+    "owner_approval_required_before_execution: true",
+    f"review_status: {REVIEW_STATUS}",
+    "owner_approval_granted: false",
+    "collector_start_allowed: false",
+    "telemetry_export_allowed: false",
+    "runtime_integration_allowed: false",
+    "dependency_adoption_allowed: false",
+    "Do not start collectors from this blocked v0.2 input review",
+    f"next_safe_goal_id: {NEXT_SAFE_GOAL_ID}",
+]
+
+REPORT_MARKERS = [
+    "RESULT: PASS",
+    "observability_runtime_seed_owner_supplied_approval_input_review_v0_2=true",
+    f"review_decision={REVIEW_DECISION}",
+    f"review_status={REVIEW_STATUS}",
+    "owner_input_status=not_supplied",
+    "owner_approval_record_present=false",
+    "owner_approval_granted=false",
+    "owner_supplied_fields_count=0",
+    "missing_required_owner_fields_count=7",
+    "collector_start_allowed=false",
+    "telemetry_export_allowed=false",
+    "runtime_integration_allowed=false",
+    "dependency_adoption_allowed=false",
+    "codex_fabricated_owner_approval=false",
+    "protected_action_executed=false",
+    "provider_calls_performed=false",
+    "live_model_calls_performed=false",
+    "external_service_calls_performed=false",
+    "automated_scraping_performed=false",
+    "scraping_performed=false",
+    "posting_automation_performed=false",
+    "dependency_install_performed=false",
+    "external_fetch_performed=false",
+    "oss_clone_performed=false",
+    "package_install_performed=false",
+    "runtime_integration_performed=false",
+    "runtime_export_performed=false",
+    "collector_started=false",
+    "telemetry_export_performed=false",
+    "deploy_performed=false",
+    "publish_performed=false",
+    "release_ready=false",
+    "production_ready=false",
+    f"next_safe_goal_id={NEXT_SAFE_GOAL_ID}",
+]
+
+
+def fail(message: str) -> None:
+    print("AVF Observability Runtime Seed Owner-Supplied Approval Input Review v0.2 validation")
+    print("RESULT: FAIL")
+    print(message)
+    sys.exit(1)
+
+
+def read(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+
+def read_json(path: Path) -> dict:
+    return json.loads(read(path))
+
+
+def require_false_flags(record: dict, label: str) -> None:
+    for flag in FALSE_FLAGS:
+        if record.get(flag) is not False:
+            fail(f"{label} {flag} must be false")
+
+
+def require_text_markers(path: Path, markers: list[str]) -> None:
+    text = read(path)
+    missing = [marker for marker in markers if marker not in text]
+    if missing:
+        fail(f"{path.relative_to(ROOT)} missing markers:\n" + "\n".join(missing))
+
+
+def require_owner_input_gate() -> None:
+    gate = read_json(OWNER_INPUT_GATE)
+    if gate.get("goal_id") != PREVIOUS_GOAL_ID:
+        fail("owner input gate goal_id mismatch")
+    if gate.get("next_safe_goal_id") != THIS_GOAL_ID:
+        fail("owner input gate must point to this v0.2 input review goal")
+    if gate.get("owner_input_status") != "not_supplied":
+        fail("owner input status must be not_supplied")
+    if gate.get("owner_approval_record_present") is not False:
+        fail("owner input gate must not contain approval")
+    if gate.get("owner_approval_granted") is not False:
+        fail("owner input gate must not grant approval")
+    if gate.get("owner_supplied_fields_count") != 0:
+        fail("owner supplied fields count must be zero")
+    if gate.get("missing_required_owner_fields") != REQUIRED_OWNER_FIELDS:
+        fail("owner input gate missing fields mismatch")
+    if gate.get("missing_required_owner_fields_count") != len(REQUIRED_OWNER_FIELDS):
+        fail("owner input gate missing field count mismatch")
+    if gate.get("codex_fabricated_owner_approval") is not False:
+        fail("Codex fabricated owner approval must be false")
+    if gate.get("codex_must_not_fill_owner_approval") is not True:
+        fail("Codex must not fill owner approval")
+    if gate.get("owner_must_supply_approval") is not True:
+        fail("owner must supply approval")
+    for key in ["collector_start_allowed", "telemetry_export_allowed", "runtime_integration_allowed", "dependency_adoption_allowed"]:
+        if gate.get(key) is not False:
+            fail(f"owner input gate {key} must be false")
+    require_false_flags(gate.get("claim_boundary", {}), "owner input gate claim boundary")
+
+
+def require_review_record(record: dict, label: str) -> None:
+    expected = {
+        "goal_id": THIS_GOAL_ID,
+        "previous_goal_id": PREVIOUS_GOAL_ID,
+        "review_decision": REVIEW_DECISION,
+        "review_status": REVIEW_STATUS,
+        "owner_input_status": "not_supplied",
+        "owner_approval_record_present": False,
+        "owner_approval_granted": False,
+        "owner_supplied_fields_count": 0,
+        "missing_required_owner_fields_count": len(REQUIRED_OWNER_FIELDS),
+        "collector_start_allowed": False,
+        "telemetry_export_allowed": False,
+        "runtime_integration_allowed": False,
+        "dependency_adoption_allowed": False,
+        "codex_fabricated_owner_approval": False,
+        "next_safe_goal_id": NEXT_SAFE_GOAL_ID,
+    }
+    for key, value in expected.items():
+        if record.get(key) != value:
+            fail(f"{label} {key} mismatch")
+    if record.get("missing_required_owner_fields") != REQUIRED_OWNER_FIELDS:
+        fail(f"{label} missing required owner fields mismatch")
+    require_false_flags(record.get("claim_boundary", {}), f"{label} claim boundary")
+
+
+def require_review_gate() -> None:
+    gate = read_json(REVIEW_GATE)
+    if gate.get("gate_id") != "avf-observability-runtime-seed-owner-supplied-approval-input-review-v0-2-gate":
+        fail("review gate id mismatch")
+    if gate.get("status") != "PASS":
+        fail("review gate must be PASS")
+    require_review_record(gate, "review gate")
+
+
+def require_validation_result() -> None:
+    result = read_json(VALIDATION_RESULT)
+    if result.get("validator_id") != "validate_avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_2":
+        fail("validation result validator id mismatch")
+    if result.get("status") != "PASS":
+        fail("validation result must be PASS")
+    require_review_record(result, "validation result")
+
+
+def main() -> None:
+    missing = [str(path.relative_to(ROOT)) for path in REQUIRED_FILES if not path.is_file()]
+    if missing:
+        fail("Missing required files:\n" + "\n".join(missing))
+
+    require_owner_input_gate()
+    require_text_markers(REVIEW, REVIEW_MARKERS)
+    require_review_record(read_json(REVIEW), "review record")
+    require_review_gate()
+    require_text_markers(NEXT_ACTION, NEXT_ACTION_MARKERS)
+    require_validation_result()
+    require_text_markers(VALIDATION_REPORT, REPORT_MARKERS)
+
+    print("AVF Observability Runtime Seed Owner-Supplied Approval Input Review v0.2 validation")
+    print("RESULT: PASS")
+    print("observability_runtime_seed_owner_supplied_approval_input_review_v0_2=true")
+    print(f"review_decision={REVIEW_DECISION}")
+    print(f"review_status={REVIEW_STATUS}")
+    print("owner_input_status=not_supplied")
+    print("owner_approval_record_present=false")
+    print("owner_approval_granted=false")
+    print("owner_supplied_fields_count=0")
+    print(f"missing_required_owner_fields_count={len(REQUIRED_OWNER_FIELDS)}")
+    print("collector_start_allowed=false")
+    print("telemetry_export_allowed=false")
+    print("runtime_integration_allowed=false")
+    print("dependency_adoption_allowed=false")
+    print("codex_fabricated_owner_approval=false")
+    print("protected_action_executed=false")
+    print("provider_calls_performed=false")
+    print("live_model_calls_performed=false")
+    print("external_service_calls_performed=false")
+    print("automated_scraping_performed=false")
+    print("scraping_performed=false")
+    print("posting_automation_performed=false")
+    print("dependency_install_performed=false")
+    print("external_fetch_performed=false")
+    print("oss_clone_performed=false")
+    print("package_install_performed=false")
+    print("runtime_integration_performed=false")
+    print("runtime_export_performed=false")
+    print("collector_started=false")
+    print("telemetry_export_performed=false")
+    print("deploy_performed=false")
+    print("publish_performed=false")
+    print("release_ready=false")
+    print("production_ready=false")
+    print(f"next_safe_goal_id={NEXT_SAFE_GOAL_ID}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,21 @@
+action_id: create-observability-runtime-seed-owner-supplied-approval-completion-retry-v0-2
+owner_approval_required_before_execution: true
+goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_review_v0_2
+
+next_steps:
+  - Create a v0.2 completion retry guide that lists the missing owner approval fields
+  - Keep review_status: blocked_owner_approval_input_not_supplied
+  - Do not start collectors from this blocked v0.2 input review
+  - Do not export telemetry from this blocked v0.2 input review
+  - Do not integrate runtime backends from this blocked v0.2 input review
+  - Do not adopt dependencies from this blocked v0.2 input review
+  - Do not fabricate owner approval
+  - Do not deploy, publish, or claim readiness
+
+review_status: blocked_owner_approval_input_not_supplied
+owner_approval_granted: false
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+next_safe_goal_id: avf_observability_runtime_seed_owner_supplied_approval_completion_retry_v0_2
