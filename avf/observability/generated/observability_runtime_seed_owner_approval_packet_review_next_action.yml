@@ -1,0 +1,17 @@
+action_id: create-observability-runtime-seed-owner-approval-completion-guide
+owner_approval_record_present: false
+goal_id: avf_observability_runtime_seed_owner_approval_packet_review_v0_1
+
+next_steps:
+  - Create a completion guide for the owner approval record fields
+  - Keep review_status: blocked_missing_owner_approval_record
+  - Do not treat the approval packet or its review as owner approval
+  - Do not start collectors, export telemetry, integrate runtime backends, install dependencies, deploy, publish, or claim readiness
+
+review_status: blocked_missing_owner_approval_record
+owner_approval_record_present: false
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+next_safe_goal_id: avf_observability_runtime_seed_owner_approval_completion_guide_v0_1
