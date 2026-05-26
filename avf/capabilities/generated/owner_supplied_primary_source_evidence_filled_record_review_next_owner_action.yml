@@ -1,0 +1,24 @@
+action_id: owner-supply-primary-source-evidence-record
+owner_input_required: true
+goal_id: avf_owner_supplied_primary_source_evidence_filled_record_review_v0_1
+
+owner_steps:
+  - Paste one completed owner-supplied primary-source evidence record
+  - Fill all 10 required fields before requesting review
+  - Use official docs, original repos, papers, patents, standards, maintained implementations, or local repo evidence
+  - Tie the source to exactly one AVF claim supported
+  - Do not ask Codex to fetch the URL
+
+required_source_fields:
+  - source_id
+  - source_title
+  - source_kind
+  - source_uri
+  - source_version_or_date
+  - source_owner_or_publisher
+  - license_or_rights_note
+  - claim_supported
+  - evidence_excerpt_summary
+  - verification_notes
+
+next_safe_goal_id: avf_owner_supplied_primary_source_evidence_owner_input_packet_v0_1
