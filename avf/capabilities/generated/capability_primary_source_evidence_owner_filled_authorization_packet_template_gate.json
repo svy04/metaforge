@@ -1,0 +1,78 @@
+{
+  "authorization_fields_completed": 0,
+  "authorization_fields_in_template": [
+    "owner_authorization_statement",
+    "authorized_by",
+    "authorized_at",
+    "authorization_expires_at",
+    "authorized_collection_modes",
+    "authorized_source_families",
+    "authorized_candidate_ids",
+    "authorized_source_slot_ids",
+    "max_records_to_collect",
+    "collection_boundaries",
+    "revocation_note"
+  ],
+  "authorization_template_completed": false,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "collection_execution_allowed": false,
+  "collection_mode_defaults": {
+    "automated_collection": false,
+    "codex_assisted_link_opening": false,
+    "manual_owner_collection": false,
+    "pro_manual_collection": false
+  },
+  "collection_modes_in_template": [
+    "manual_owner_collection",
+    "pro_manual_collection",
+    "codex_assisted_link_opening",
+    "automated_collection"
+  ],
+  "created_at": "2026-05-27T00:00:00Z",
+  "gate_id": "avf-capability-primary-source-evidence-owner-filled-authorization-packet-template-gate-v0-1",
+  "goal_id": "avf_capability_primary_source_evidence_owner_filled_authorization_packet_template_v0_1",
+  "integration_decision": "blocked",
+  "missing_authorization_fields": [
+    "owner_authorization_statement",
+    "authorized_by",
+    "authorized_at",
+    "authorization_expires_at",
+    "authorized_collection_modes",
+    "authorized_source_families",
+    "authorized_candidate_ids",
+    "authorized_source_slot_ids",
+    "max_records_to_collect",
+    "collection_boundaries",
+    "revocation_note"
+  ],
+  "next_safe_goal_id": "avf_capability_primary_source_evidence_owner_filled_authorization_packet_review_v0_1",
+  "owner_authorization_granted": false,
+  "previous_goal_id": "avf_capability_primary_source_evidence_owner_authorization_completion_guide_v0_1",
+  "source_entry_counts": {
+    "ingested_source_records": 0,
+    "integrated_source_records": 0,
+    "source_records_executable": 0,
+    "source_records_reviewed": 35,
+    "trusted_source_records": 0
+  },
+  "status": "PASS",
+  "template_decision": "TEMPLATE_READY_UNFILLED_EXECUTION_STILL_BLOCKED",
+  "template_uri": "avf/capabilities/generated/capability_primary_source_evidence_owner_filled_authorization_packet_template.yml"
+}
