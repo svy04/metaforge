@@ -1,0 +1,16 @@
+action_id: collect-observability-runtime-seed-owner-supplied-approval-input
+owner_approval_record_present: false
+goal_id: avf_observability_runtime_seed_owner_approval_completion_guide_v0_1
+
+next_steps:
+  - Wait for owner-supplied approval input
+  - Codex must not fabricate owner approval
+  - Keep all runtime actions blocked until owner input exists and is separately reviewed
+  - Do not start collectors, export telemetry, integrate runtime backends, install dependencies, deploy, publish, or claim readiness
+
+owner_approval_record_present: false
+collector_start_allowed: false
+telemetry_export_allowed: false
+runtime_integration_allowed: false
+dependency_adoption_allowed: false
+next_safe_goal_id: avf_observability_runtime_seed_owner_supplied_approval_input_v0_1
