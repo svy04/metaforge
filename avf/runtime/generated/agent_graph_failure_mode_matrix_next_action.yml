@@ -1,0 +1,11 @@
+action_id: create-agent-graph-failure-replay-harness
+owner_approval_required_before_execution: true
+goal_id: avf_agent_graph_failure_mode_matrix_v0_1
+
+next_steps:
+  - Create negative replay fixtures for each failure mode
+  - Verify blocked and review_required outcomes are enforced by deterministic replay
+  - Keep all failure handling repo-local and evidence-backed
+  - Do not install dependencies, integrate runtimes, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_agent_graph_failure_replay_harness_v0_1
