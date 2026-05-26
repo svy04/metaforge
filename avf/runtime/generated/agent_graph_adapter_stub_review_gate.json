@@ -1,0 +1,126 @@
+{
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "gate_id": "avf-agent-graph-adapter-stub-review-gate-v0-1",
+  "goal_id": "avf_agent_graph_adapter_stub_review_v0_1",
+  "next_safe_goal_id": "avf_agent_graph_run_state_transitions_v0_1",
+  "node_review_records": [
+    {
+      "node_id": "orchestrator",
+      "output_summary": "Goal normalized into a local adapter stub run.",
+      "recommended_state_fields": [
+        "run_id",
+        "goal_id",
+        "node_id",
+        "state",
+        "input_artifact_uri",
+        "output_artifact_uri",
+        "claim_boundary",
+        "evidence_event_uri"
+      ],
+      "review_status": "reviewed",
+      "sequence_index": 1,
+      "state_transition_needed": true
+    },
+    {
+      "node_id": "router",
+      "output_summary": "Runtime, safety, Codex, and evidence cells selected.",
+      "recommended_state_fields": [
+        "run_id",
+        "goal_id",
+        "node_id",
+        "state",
+        "input_artifact_uri",
+        "output_artifact_uri",
+        "claim_boundary",
+        "evidence_event_uri"
+      ],
+      "review_status": "reviewed",
+      "sequence_index": 2,
+      "state_transition_needed": true
+    },
+    {
+      "node_id": "safety_reviewer",
+      "output_summary": "Protected actions blocked and local artifact scope confirmed.",
+      "recommended_state_fields": [
+        "run_id",
+        "goal_id",
+        "node_id",
+        "state",
+        "input_artifact_uri",
+        "output_artifact_uri",
+        "claim_boundary",
+        "evidence_event_uri"
+      ],
+      "review_status": "reviewed",
+      "sequence_index": 3,
+      "state_transition_needed": true
+    },
+    {
+      "node_id": "codex_planner",
+      "output_summary": "PR-sized deterministic stub task emitted.",
+      "recommended_state_fields": [
+        "run_id",
+        "goal_id",
+        "node_id",
+        "state",
+        "input_artifact_uri",
+        "output_artifact_uri",
+        "claim_boundary",
+        "evidence_event_uri"
+      ],
+      "review_status": "reviewed",
+      "sequence_index": 4,
+      "state_transition_needed": true
+    },
+    {
+      "node_id": "evidence_writer",
+      "output_summary": "Trace and validation artifact contract emitted.",
+      "recommended_state_fields": [
+        "run_id",
+        "goal_id",
+        "node_id",
+        "state",
+        "input_artifact_uri",
+        "output_artifact_uri",
+        "claim_boundary",
+        "evidence_event_uri"
+      ],
+      "review_status": "reviewed",
+      "sequence_index": 5,
+      "state_transition_needed": true
+    }
+  ],
+  "nodes_reviewed": 5,
+  "previous_goal_id": "avf_agent_graph_adapter_stub_v0_1",
+  "review_decision": "AGENT_GRAPH_ADAPTER_STUB_REVIEWED_FOR_RUN_STATE_TRANSITIONS",
+  "review_scope": "trace_review_and_next_state_model_selection_only",
+  "reviewed_node_sequence": [
+    "orchestrator",
+    "router",
+    "safety_reviewer",
+    "codex_planner",
+    "evidence_writer"
+  ],
+  "run_state_transition_model_selected": true,
+  "runtime_integration_allowed": false,
+  "status": "PASS"
+}
