@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-no-install-adapter-plan
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_no_install_adapter_plan_v0_1
+
+next_steps:
+  - Review the no-install adapter plan for contract safety
+  - Confirm the plan remains schema/contract-only
+  - Confirm no dependency install, OSS clone, runtime import, provider call, deployment, or readiness claim is allowed
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_no_install_adapter_plan_review_v0_1
