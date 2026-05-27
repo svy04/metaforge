@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-runtime-integration-owner-input-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_owner_input_packet_v0_1
+
+next_steps:
+  - Review the unfilled owner input packet template before any runtime authorization can be accepted
+  - Confirm every authorization item is still unfilled, not_granted, protected_action_required, and action_allowed=false
+  - Keep runtime, dependency, tool import, and external fetch actions blocked until a later owner-filled packet is reviewed
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_owner_input_packet_review_v0_1
