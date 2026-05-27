@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-advisory-priority-matrix
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_evidence_strength_scorecard_review_v0_1
+
+next_steps:
+  - Create an advisory priority matrix from the reviewed scorecard
+  - Combine evidence tier with integration risk placeholders only
+  - Keep the matrix advisory and non-executable
+  - Do not adopt dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_advisory_priority_matrix_v0_1
