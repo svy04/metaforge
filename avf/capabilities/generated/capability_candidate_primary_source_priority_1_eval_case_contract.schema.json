@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "expected_behavior": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    },
+    "success_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "case_id",
+    "input",
+    "expected_behavior",
+    "success_criteria",
+    "claim_boundary"
+  ],
+  "title": "AVF Provider-Neutral Eval Case Contract",
+  "type": "object",
+  "x-avf-contract": {
+    "candidate_tool_import_allowed": false,
+    "dependency_free": true,
+    "provider_neutral": true,
+    "runtime_integration_allowed": false
+  }
+}

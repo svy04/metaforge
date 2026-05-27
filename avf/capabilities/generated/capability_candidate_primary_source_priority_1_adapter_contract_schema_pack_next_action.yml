@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-contract-schema-pack
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_v0_1
+
+next_steps:
+  - Review provider-neutral adapter contract schemas
+  - Confirm schema artifacts remain dependency-free and provider-neutral
+  - Confirm no candidate tool import, dependency install, runtime integration, deployment, publishing, or readiness claim is introduced
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_review_v0_1

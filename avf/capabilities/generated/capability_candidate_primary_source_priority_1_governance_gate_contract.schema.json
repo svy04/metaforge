@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "decision_boundary": {
+      "type": "string"
+    },
+    "gate_id": {
+      "type": "string"
+    },
+    "required_reviews": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "risk_tier": {
+      "enum": [
+        "green",
+        "yellow",
+        "red"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "gate_id",
+    "risk_tier",
+    "required_reviews",
+    "blocked_actions",
+    "decision_boundary"
+  ],
+  "title": "AVF Provider-Neutral Governance Gate Contract",
+  "type": "object",
+  "x-avf-contract": {
+    "candidate_tool_import_allowed": false,
+    "dependency_free": true,
+    "provider_neutral": true,
+    "runtime_integration_allowed": false
+  }
+}

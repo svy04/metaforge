@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "input_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "interpretation_boundary": {
+      "type": "string"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "metric_name": {
+      "type": "string"
+    },
+    "output_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "metric_id",
+    "metric_name",
+    "input_fields",
+    "output_fields",
+    "interpretation_boundary"
+  ],
+  "title": "AVF Provider-Neutral RAG Metric Slot Contract",
+  "type": "object",
+  "x-avf-contract": {
+    "candidate_tool_import_allowed": false,
+    "dependency_free": true,
+    "provider_neutral": true,
+    "runtime_integration_allowed": false
+  }
+}

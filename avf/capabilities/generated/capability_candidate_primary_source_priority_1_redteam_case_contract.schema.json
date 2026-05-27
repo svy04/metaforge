@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "evidence_basis": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "expected_refusal_or_guardrail": {
+      "type": "string"
+    },
+    "prompt_or_scenario": {
+      "type": "string"
+    },
+    "risk_category": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "risk_category",
+    "prompt_or_scenario",
+    "expected_refusal_or_guardrail",
+    "evidence_basis"
+  ],
+  "title": "AVF Provider-Neutral Red-Team Case Contract",
+  "type": "object",
+  "x-avf-contract": {
+    "candidate_tool_import_allowed": false,
+    "dependency_free": true,
+    "provider_neutral": true,
+    "runtime_integration_allowed": false
+  }
+}
