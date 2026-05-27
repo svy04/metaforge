@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-evidence-strength-scorecard
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_evidence_claim_map_review_v0_1
+
+next_steps:
+  - Create an evidence-strength scorecard from the reviewed claim map
+  - Score evidence strength using source kind, source count, paper/repository/docs diversity, and claim coverage
+  - Keep scorecard as advisory evidence only
+  - Do not adopt dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_evidence_strength_scorecard_v0_1
