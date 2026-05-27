@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-pro-filled-output-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_review_v0_1
+
+next_steps:
+  - Create a repo-local packet for pasted GPT Pro primary-source YAML output
+  - Keep filled records unaccepted until a separate filled-evidence review passes
+  - Preserve all 7 capability candidates, 16 source target slots, and 12 required source fields
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_filled_output_packet_v0_1
