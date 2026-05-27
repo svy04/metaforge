@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-pro-prompt
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_prompt_v0_1
+
+next_steps:
+  - Review the GPT Pro prompt before using it to fill primary-source evidence
+  - Confirm all 7 capability candidates, 16 source targets, and 12 required source fields are present
+  - Preserve the no-adoption, no-runtime, no-deploy, no-publish claim boundary
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_prompt_review_v0_1
