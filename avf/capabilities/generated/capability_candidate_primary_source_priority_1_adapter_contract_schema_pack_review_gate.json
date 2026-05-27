@@ -1,0 +1,139 @@
+{
+  "adapter_contract_schema_count": 4,
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_free": true,
+  "dependency_free_schema_count": 4,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_performed": false,
+  "gate_id": "avf-capability-candidate-primary-source-priority-1-adapter-contract-schema-pack-review-gate-v0-1",
+  "gate_scope": "Provider-neutral dependency-free adapter contract schema pack reviewed for validation fixture readiness",
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_review_v0_1",
+  "input_uris": {
+    "adapter_contract_schema_pack_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_gate.json",
+    "capability_candidate_primary_source_priority_1_eval_case_contract_schema": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json",
+    "capability_candidate_primary_source_priority_1_governance_gate_contract_schema": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json",
+    "capability_candidate_primary_source_priority_1_rag_metric_contract_schema": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json",
+    "capability_candidate_primary_source_priority_1_redteam_case_contract_schema": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json"
+  },
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_fixture_pack_v0_1",
+  "oss_clone_performed": false,
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_v0_1",
+  "provider_neutral": true,
+  "provider_neutral_schema_count": 4,
+  "ready_for_adapter_contract_validation_fixture_pack_count": 1,
+  "review_blocker_count": 0,
+  "review_decision": "CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_CONTRACT_SCHEMA_PACK_REVIEWED",
+  "review_status": "adapter_contract_schema_pack_validated_ready_for_validation_fixture_pack",
+  "reviewed_schema_artifact_count": 4,
+  "reviewed_schema_artifacts": [
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "eval-case-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "eval-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "redteam-case-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "redteam-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "rag-metric-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "rag-metric-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "governance-gate-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "governance-gate-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json"
+    }
+  ],
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "schema_backed_component_count": 4,
+  "source_adapter_component_count": 5,
+  "source_adapter_components": [
+    {
+      "component_id": "candidate-evidence-reader",
+      "implementation_boundary": "file_contract_only_no_dependency_import",
+      "purpose": "Read repo-local evidence and recommendation packets only.",
+      "review_status": "reviewed_contract_only_component_validated"
+    },
+    {
+      "component_id": "eval-case-contract",
+      "implementation_boundary": "schema_only_no_tool_execution",
+      "purpose": "Define normalized input/output schema for future eval cases.",
+      "review_status": "reviewed_contract_only_component_validated"
+    },
+    {
+      "component_id": "redteam-case-contract",
+      "implementation_boundary": "schema_only_no_provider_call",
+      "purpose": "Define red-team case categories and expected evidence fields.",
+      "review_status": "reviewed_contract_only_component_validated"
+    },
+    {
+      "component_id": "rag-metric-contract",
+      "implementation_boundary": "schema_only_no_runtime_integration",
+      "purpose": "Define RAG metric slots that can later map to approved evaluators.",
+      "review_status": "reviewed_contract_only_component_validated"
+    },
+    {
+      "component_id": "governance-gate-contract",
+      "implementation_boundary": "policy_contract_only",
+      "purpose": "Keep legal/security/adoption decisions outside evidence collection.",
+      "review_status": "reviewed_contract_only_component_validated"
+    }
+  ],
+  "status": "PASS",
+  "supporting_component_count": 1
+}

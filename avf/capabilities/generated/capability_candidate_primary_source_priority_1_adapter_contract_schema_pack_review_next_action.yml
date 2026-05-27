@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-contract-validation-fixture-pack
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_schema_pack_review_v0_1
+
+next_steps:
+  - Create repo-local adapter contract validation fixtures
+  - Map each reviewed provider-neutral schema to one passing fixture and one failing fixture where useful
+  - Confirm fixture validation remains dependency-free and provider-neutral
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_fixture_pack_v0_1
