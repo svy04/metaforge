@@ -1,0 +1,88 @@
+goal_id: avf_capability_candidate_primary_source_expansion_plan_v0_1
+plan_decision: CAPABILITY_CANDIDATE_PRIMARY_SOURCE_EXPANSION_PLAN_CREATED_REPO_LOCAL
+plan_status: source_expansion_plan_ready_no_external_fetch
+source_required_candidate_count: 7
+planned_primary_source_record_count: 7
+
+source_expansion_backlog:
+  - candidate_id: cap-k8s-workflow-argo
+    candidate_name: Argo Workflows
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-argo-workflows-official-docs
+      - src-argo-workflows-original-repository
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-general-orchestration-kestra-prefect-airflow
+    candidate_name: Kestra / Prefect / Airflow
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-kestra-official-docs
+      - src-prefect-official-docs
+      - src-airflow-official-docs
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-evidence-lineage-dagster
+    candidate_name: Dagster
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-dagster-official-docs
+      - src-dagster-original-repository
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-rag-document-pipeline-haystack
+    candidate_name: Haystack
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-haystack-official-docs
+      - src-haystack-original-repository
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-llm-observability-langfuse-phoenix
+    candidate_name: Langfuse / Phoenix
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-langfuse-official-docs
+      - src-phoenix-official-docs
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-eval-redteam-promptfoo-ragas
+    candidate_name: promptfoo / Ragas
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-promptfoo-official-docs
+      - src-ragas-official-docs
+      - src-ragas-paper-or-benchmark-record
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+  - candidate_id: cap-coding-executor-openhands-sweagent
+    candidate_name: OpenHands / SWE-agent
+    expansion_status: planned_not_fetched
+    source_record_status: planned_not_collected
+    planned_source_targets:
+      - src-openhands-original-repository
+      - src-swe-agent-original-repository
+    manual_review_required: true
+    external_fetch_performed: false
+    dependency_adoption_allowed: false
+    runtime_integration_allowed: false
+
+next_safe_goal_id: avf_capability_candidate_primary_source_manual_records_v0_1

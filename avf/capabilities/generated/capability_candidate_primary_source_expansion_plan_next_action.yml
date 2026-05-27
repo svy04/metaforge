@@ -1,0 +1,10 @@
+action_id: create-capability-candidate-primary-source-manual-records
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_expansion_plan_v0_1
+
+next_steps:
+  - Create repo-local manual source record shells for source-required capability candidates
+  - Preserve planned source target ids, source kind priorities, license/security review placeholders, and adoption gates
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_manual_records_v0_1
