@@ -1,0 +1,431 @@
+{
+  "adapter_module_count": 4,
+  "behavior_requirement_count": 6,
+  "behavior_requirements": [
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Preserve strict eval case rejection when claim_boundary is absent.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-eval-claim-boundary-required",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-eval-case-missing-claim-boundary",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Preserve strict red-team case rejection when evidence_basis is not a list.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-redteam-evidence-basis-list",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-redteam-case-bad-evidence-basis-type",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Preserve strict RAG metric rejection when fixture records include runtime execution hints.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "invalid_fixture",
+      "requirement_id": "reject-rag-runtime-hints",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-rag-metric-unexpected-runtime-hint",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Preserve strict governance gate rejection when risk_tier leaves the approved enum.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-governance-risk_tier-enum",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-governance-gate-bad-risk_tier",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Keep protected-action flags false after valid repo-local normalization.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "boundary",
+      "requirement_id": "preserve-protected-action-boundary-invariants",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "boundary-flags-remain-false-after-valid-normalization",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Behavior remains deterministic and repo-local",
+        "Invalid fixture rejection remains contract-specific",
+        "Protected-action flags remain false",
+        "Candidate tools are not imported and dependencies are not installed"
+      ],
+      "behavior_goal": "Keep evidence mapping from drifting into candidate tool imports, dependency installs, external fetches, or runtime integration.",
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py",
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+        "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+      ],
+      "regression_type": "evidence_mapping",
+      "requirement_id": "preserve-evidence-mapping-no-action-drift",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "evidence-mapping-has-no-action-drift",
+      "validation_commands": [
+        "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+      ]
+    }
+  ],
+  "boundary_behavior_requirement_count": 1,
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "evidence_mapping_behavior_requirement_count": 1,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1",
+  "input_uris": {
+    "adapter_regression_pack_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_regression_pack_review_gate.json"
+  },
+  "invalid_fixture_behavior_requirement_count": 4,
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_review_v0_1",
+  "oss_clone_performed": false,
+  "plan_blocker_count": 0,
+  "plan_decision": "CREATE_REPO_LOCAL_ADAPTER_BEHAVIOR_EXPANSION_PLAN_FROM_REVIEWED_REGRESSION_PACK",
+  "plan_status": "planned_for_repo_local_adapter_behavior_expansion_review_not_runtime_or_dependency_ready",
+  "planned_behavior_task_count": 6,
+  "planned_file_targets": [
+    "avf/capabilities/adapters/priority_1/record_normalizers.py",
+    "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+    "avf/capabilities/adapters/priority_1/evidence_mapping.py",
+    "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+  ],
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_regression_pack_review_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_behavior_expansion_plan_review_count": 1,
+  "reviewed_regression_test_count": 6,
+  "reviewed_regression_tests": [
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "rejects-eval-case-missing-claim-boundary"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "rejects-redteam-case-bad-evidence-basis-type"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "rejects-rag-metric-unexpected-runtime-hint"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "rejects-governance-gate-bad-risk_tier"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "boundary",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "boundary-flags-remain-false-after-valid-normalization"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "evidence_mapping",
+      "review_status": "reviewed_regression_test_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_status": "PASS",
+      "test_id": "evidence-mapping-has-no-action-drift"
+    }
+  ],
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "selection_allowed": false,
+  "status": "PASS",
+  "validated_artifacts": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_regression_pack_review_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_report.md",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_next_action.yml",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.validation_result.json",
+    "docs/goals/AVF_CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_BEHAVIOR_EXPANSION_PLAN_V0_1_REPORT.md"
+  ],
+  "validation_commands": [
+    "python avf\\capabilities\\adapters\\priority_1\\tests\\test_adapter_regression_pack.py",
+    "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py",
+    "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1.py"
+  ],
+  "validator_id": "validate_avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_plan_v0_1"
+}
