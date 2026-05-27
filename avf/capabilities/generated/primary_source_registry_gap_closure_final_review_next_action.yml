@@ -1,0 +1,10 @@
+action_id: create-capability-adoption-decision-matrix
+owner_approval_required_before_execution: false
+goal_id: avf_primary_source_registry_gap_closure_final_review_v0_1
+
+next_steps:
+  - Create a repo-local capability adoption decision matrix using the closed registry gap chain
+  - Keep dependency adoption and runtime integration blocked until gate requirements are satisfied
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_adoption_decision_matrix_v0_1
