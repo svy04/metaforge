@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-evidence-backed-recommendation
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_manual_evidence_quality_review_v0_1
+
+next_steps:
+  - Create a recommendation packet from reviewed evidence without adopting dependencies
+  - Separate tool-fit recommendation from dependency adoption or runtime integration
+  - Preserve legal/security review requirements for any later implementation plan
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_v0_1
