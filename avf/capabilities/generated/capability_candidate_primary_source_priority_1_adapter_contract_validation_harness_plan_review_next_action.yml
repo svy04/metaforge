@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-runner
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_review_v0_1
+
+next_steps:
+  - Create the repo-local no-install adapter contract validation harness runner
+  - Implement deterministic schema/fixture checks using only standard-library repo-local file reads
+  - Keep candidate tool imports, dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_runner_v0_1
