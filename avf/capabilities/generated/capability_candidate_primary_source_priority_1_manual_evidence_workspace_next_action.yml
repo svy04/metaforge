@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-manual-evidence-workspace
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_manual_evidence_workspace_v0_1
+
+next_steps:
+  - Review the repo-local manual evidence workspace
+  - Confirm every evidence record is empty_template_not_collected
+  - Confirm no source evidence was fetched, copied, summarized, or adopted
+  - Do not fetch sources, clone OSS, install dependencies, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_manual_evidence_workspace_review_v0_1
