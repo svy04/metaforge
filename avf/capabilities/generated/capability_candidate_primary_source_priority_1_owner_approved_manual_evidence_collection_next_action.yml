@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-manual-evidence-quality
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_owner_approved_manual_evidence_collection_v0_1
+
+next_steps:
+  - Review captured evidence for locator quality, claim boundaries, and adoption safety
+  - Confirm no evidence record claims selection, dependency adoption, runtime integration, deployment, publishing, or readiness
+  - Decide whether the candidate should stay in review, be rejected, or receive a no-install adapter plan
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_manual_evidence_quality_review_v0_1
