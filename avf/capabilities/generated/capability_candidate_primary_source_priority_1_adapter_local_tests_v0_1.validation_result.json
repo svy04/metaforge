@@ -1,0 +1,102 @@
+{
+  "adapter_module_count": 4,
+  "adapter_module_uris": [
+    "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+    "avf/capabilities/adapters/priority_1/record_normalizers.py",
+    "avf/capabilities/adapters/priority_1/repo_local_validation_harness.py",
+    "avf/capabilities/adapters/priority_1/evidence_mapping.py"
+  ],
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "evidence_entry_count": 4,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_local_tests_v0_1",
+  "input_uris": {
+    "adapter_scaffold_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_scaffold_review_gate.json",
+    "adapter_scaffold_test_file": "avf/capabilities/adapters/priority_1/tests/test_adapter_scaffold.py"
+  },
+  "local_test_count": 4,
+  "local_test_fail_count": 0,
+  "local_test_pass_count": 4,
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_local_tests_review_v0_1",
+  "normalized_record_count": 4,
+  "oss_clone_performed": false,
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_scaffold_review_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_local_tests_review_count": 1,
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "selection_allowed": false,
+  "status": "PASS",
+  "test_blocker_count": 0,
+  "test_decision": "CREATE_EXECUTABLE_REPO_LOCAL_ADAPTER_SCAFFOLD_TESTS",
+  "test_file_uri": "avf/capabilities/adapters/priority_1/tests/test_adapter_scaffold.py",
+  "test_output_excerpt": [
+    "----------------------------------------------------------------------",
+    "Ran 4 tests in 0.002s",
+    "",
+    "OK",
+    "LOCAL_ADAPTER_SCAFFOLD_TESTS_RESULT=PASS",
+    "LOCAL_ADAPTER_SCAFFOLD_TEST_COUNT=4"
+  ],
+  "test_results": [
+    {
+      "status": "PASS",
+      "test_id": "adapter-module-flags-block-protected-actions"
+    },
+    {
+      "status": "PASS",
+      "test_id": "normalizes-four-fixture-types"
+    },
+    {
+      "status": "PASS",
+      "test_id": "evidence-entries-preserve-boundaries"
+    },
+    {
+      "status": "PASS",
+      "test_id": "harness-summary-blocks-external-actions"
+    }
+  ],
+  "test_status": "repo_local_adapter_scaffold_tests_passed_not_runtime_or_dependency_ready",
+  "validated_artifacts": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_scaffold_review_gate.json",
+    "avf/capabilities/adapters/priority_1/tests/test_adapter_scaffold.py",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_local_tests_result.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_local_tests_report.md",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_local_tests_next_action.yml",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_local_tests_v0_1.validation_result.json",
+    "docs/goals/AVF_CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_LOCAL_TESTS_V0_1_REPORT.md"
+  ],
+  "validator_id": "validate_avf_capability_candidate_primary_source_priority_1_adapter_local_tests_v0_1"
+}
