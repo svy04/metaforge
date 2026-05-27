@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-scaffold
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1
+
+next_steps:
+  - Review the repo-local adapter scaffold before expanding it into executable local tests
+  - Confirm scaffold modules do not import Promptfoo, Ragas, providers, or external runtimes
+  - Keep dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_scaffold_review_v0_1
