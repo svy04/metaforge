@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-hardening-plan
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_runner_review_v0_1
+
+next_steps:
+  - Create a repo-local no-install adapter contract validation harness hardening plan
+  - Add negative coverage for type checks, enum checks, missing required fields, additional properties, and malformed fixture records
+  - Keep candidate tool imports, dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_hardening_plan_v0_1
