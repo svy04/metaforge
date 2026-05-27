@@ -1,0 +1,385 @@
+{
+  "blocked_action_count": 10,
+  "blocked_actions": [
+    "dependency_install",
+    "oss_clone",
+    "candidate_tool_import",
+    "runtime_integration",
+    "provider_call",
+    "live_model_call",
+    "external_fetch",
+    "deploy",
+    "publish",
+    "readiness_claim"
+  ],
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_v0_1",
+  "harness_responsibilities": [
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "source_schema_artifacts"
+      ],
+      "output_contracts": [
+        "loaded_schema_contracts"
+      ],
+      "provider_neutral": true,
+      "purpose": "Load reviewed JSON Schema contract files from repo-local paths only.",
+      "responsibility_id": "load-provider-neutral-schema-contracts",
+      "runtime_integration_allowed": false
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "reviewed_validation_fixtures"
+      ],
+      "output_contracts": [
+        "loaded_fixture_instances"
+      ],
+      "provider_neutral": true,
+      "purpose": "Load reviewed valid and invalid fixture files from repo-local paths only.",
+      "responsibility_id": "load-repo-local-validation-fixtures",
+      "runtime_integration_allowed": false
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "loaded_schema_contracts",
+        "loaded_fixture_instances"
+      ],
+      "output_contracts": [
+        "required_field_results"
+      ],
+      "provider_neutral": true,
+      "purpose": "Check required fields for each fixture against its mapped schema contract.",
+      "responsibility_id": "validate-required-fields",
+      "runtime_integration_allowed": false
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "loaded_schema_contracts",
+        "loaded_fixture_instances"
+      ],
+      "output_contracts": [
+        "additional_property_results"
+      ],
+      "provider_neutral": true,
+      "purpose": "Check additionalProperties=false boundaries without executing any candidate tool.",
+      "responsibility_id": "validate-additional-properties",
+      "runtime_integration_allowed": false
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "reviewed_validation_fixtures",
+        "validation_results"
+      ],
+      "output_contracts": [
+        "fixture_outcome_match_results"
+      ],
+      "provider_neutral": true,
+      "purpose": "Compare expected_valid and actual validation outcomes for each reviewed fixture.",
+      "responsibility_id": "compare-expected-vs-actual-fixture-results",
+      "runtime_integration_allowed": false
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "input_contracts": [
+        "fixture_outcome_match_results",
+        "claim_boundary"
+      ],
+      "output_contracts": [
+        "claim_bounded_validation_report"
+      ],
+      "provider_neutral": true,
+      "purpose": "Emit repo-local validation summaries with protected action flags remaining false.",
+      "responsibility_id": "emit-claim-bounded-validation-report",
+      "runtime_integration_allowed": false
+    }
+  ],
+  "harness_responsibility_count": 6,
+  "input_contract_count": 2,
+  "input_contracts": [
+    "source_schema_artifacts",
+    "reviewed_validation_fixtures"
+  ],
+  "input_uris": {
+    "adapter_contract_validation_fixture_pack_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_fixture_pack_review_gate.json"
+  },
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_review_v0_1",
+  "oss_clone_performed": false,
+  "output_contract_count": 2,
+  "output_contracts": [
+    "fixture_outcome_match_results",
+    "claim_bounded_validation_report"
+  ],
+  "plan_decision": "CREATE_REPO_LOCAL_NO_INSTALL_ADAPTER_CONTRACT_VALIDATION_HARNESS_PLAN",
+  "plan_status": "adapter_contract_validation_harness_plan_created_provider_neutral_no_install",
+  "planned_harness_step_count": 6,
+  "planned_harness_steps": [
+    {
+      "execution_boundary": "repo_local_file_read_only",
+      "responsibility_id": "load-provider-neutral-schema-contracts",
+      "step_id": "step-1-load-schema-contracts"
+    },
+    {
+      "execution_boundary": "repo_local_file_read_only",
+      "responsibility_id": "load-repo-local-validation-fixtures",
+      "step_id": "step-2-load-fixtures"
+    },
+    {
+      "execution_boundary": "in_process_no_dependency_install",
+      "responsibility_id": "validate-required-fields",
+      "step_id": "step-3-check-required-fields"
+    },
+    {
+      "execution_boundary": "in_process_no_candidate_tool_import",
+      "responsibility_id": "validate-additional-properties",
+      "step_id": "step-4-check-additional-properties"
+    },
+    {
+      "execution_boundary": "deterministic_repo_local_comparison",
+      "responsibility_id": "compare-expected-vs-actual-fixture-results",
+      "step_id": "step-5-compare-outcomes"
+    },
+    {
+      "execution_boundary": "repo_local_artifact_write_only",
+      "responsibility_id": "emit-claim-bounded-validation-report",
+      "step_id": "step-6-emit-report"
+    }
+  ],
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_fixture_pack_review_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_contract_validation_harness_plan_review_count": 1,
+  "review_blocker_count": 0,
+  "reviewed_validation_fixture_count": 8,
+  "reviewed_validation_fixtures": [
+    {
+      "actual_valid": true,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": true,
+      "fixture_contract_validated": true,
+      "fixture_id": "eval-case-contract-valid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.valid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "eval-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": false,
+      "fixture_contract_validated": true,
+      "fixture_id": "eval-case-contract-invalid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.invalid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "eval-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": true,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": true,
+      "fixture_contract_validated": true,
+      "fixture_id": "redteam-case-contract-valid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.valid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "redteam-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": false,
+      "fixture_contract_validated": true,
+      "fixture_id": "redteam-case-contract-invalid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.invalid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "redteam-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": true,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": true,
+      "fixture_contract_validated": true,
+      "fixture_id": "rag-metric-contract-valid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.valid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "rag-metric-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": false,
+      "fixture_contract_validated": true,
+      "fixture_id": "rag-metric-contract-invalid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.invalid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "rag-metric-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": true,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": true,
+      "fixture_contract_validated": true,
+      "fixture_id": "governance-gate-contract-valid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.valid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "governance-gate-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "candidate_tool_import_allowed": false,
+      "dependency_free": true,
+      "dependency_install_allowed": false,
+      "expected_valid": false,
+      "fixture_contract_validated": true,
+      "fixture_id": "governance-gate-contract-invalid",
+      "fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.invalid.fixture.json",
+      "provider_neutral": true,
+      "review_status": "reviewed_fixture_validation_result_matches_expected",
+      "runtime_integration_allowed": false,
+      "schema_id": "governance-gate-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json",
+      "validation_result_matched_expected": true
+    }
+  ],
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "source_schema_artifact_count": 4,
+  "source_schema_artifacts": [
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "eval-case-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "eval-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "redteam-case-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "redteam-case-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "rag-metric-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "rag-metric-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "component_id": "governance-gate-contract",
+      "dependency_free": true,
+      "provider_neutral": true,
+      "review_status": "reviewed_provider_neutral_dependency_free_contract_schema",
+      "runtime_integration_allowed": false,
+      "schema_contract_validated": true,
+      "schema_id": "governance-gate-contract",
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json"
+    }
+  ],
+  "status": "PASS",
+  "validated_artifacts": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_fixture_pack_review_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_report.md",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_next_action.yml",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_v0_1.validation_result.json",
+    "docs/goals/AVF_CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_CONTRACT_VALIDATION_HARNESS_PLAN_V0_1_REPORT.md"
+  ],
+  "validator_id": "validate_avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_plan_v0_1"
+}
