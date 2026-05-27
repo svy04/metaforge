@@ -1,0 +1,144 @@
+{
+  "blocked_action_count": 10,
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "fixture_mutation_plan_count": 5,
+  "gate_id": "avf-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-fixture-mutation-pack-review-gate-v0-1",
+  "gate_scope": "Repo-local mutation fixture pack reviewed for mutation runner",
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_fixture_mutation_pack_review_v0_1",
+  "hardening_area_count": 5,
+  "input_uris": {
+    "adapter_contract_validation_harness_fixture_mutation_pack_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_fixture_mutation_pack_gate.json"
+  },
+  "mutation_fixture_actual_invalid_count": 5,
+  "mutation_fixture_count": 5,
+  "mutation_fixture_expected_invalid_count": 5,
+  "mutation_fixture_result_matched_expected_count": 5,
+  "mutation_fixture_uris": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_mutation_required_field_removal.fixture.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_mutation_type_mismatch.fixture.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_mutation_enum_boundary.fixture.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_mutation_additional_property.fixture.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_mutation_malformed_fixture_record.fixture.json"
+  ],
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_fixture_mutation_runner_v0_1",
+  "oss_clone_performed": false,
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_fixture_mutation_pack_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_contract_validation_harness_fixture_mutation_runner_count": 1,
+  "review_blocker_count": 0,
+  "review_decision": "CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_CONTRACT_VALIDATION_HARNESS_FIXTURE_MUTATION_PACK_REVIEWED",
+  "review_status": "adapter_contract_validation_harness_fixture_mutation_pack_validated_ready_for_mutation_runner",
+  "reviewed_blocked_action_count": 10,
+  "reviewed_blocked_actions": [
+    "dependency_install",
+    "oss_clone",
+    "candidate_tool_import",
+    "runtime_integration",
+    "provider_call",
+    "live_model_call",
+    "external_fetch",
+    "deploy",
+    "publish",
+    "readiness_claim"
+  ],
+  "reviewed_mutation_fixture_count": 5,
+  "reviewed_mutation_fixture_result_count": 5,
+  "reviewed_mutation_fixture_validation_results": [
+    {
+      "actual_valid": false,
+      "area_id": "missing-required-field-coverage",
+      "expected_valid": false,
+      "failure_reasons": [
+        "missing_required:expected_behavior"
+      ],
+      "mutation_fixture_contract_validated": true,
+      "mutation_fixture_id": "mutation-required-field-removal-eval-case",
+      "review_status": "reviewed_mutation_fixture_invalid_outcome_matches_expected",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "area_id": "type-mismatch-coverage",
+      "expected_valid": false,
+      "failure_reasons": [
+        "type_mismatch:evidence_basis:array"
+      ],
+      "mutation_fixture_contract_validated": true,
+      "mutation_fixture_id": "mutation-type-mismatch-redteam-case",
+      "review_status": "reviewed_mutation_fixture_invalid_outcome_matches_expected",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "area_id": "enum-mismatch-coverage",
+      "expected_valid": false,
+      "failure_reasons": [
+        "enum_mismatch:risk_tier"
+      ],
+      "mutation_fixture_contract_validated": true,
+      "mutation_fixture_id": "mutation-enum-boundary-governance-gate",
+      "review_status": "reviewed_mutation_fixture_invalid_outcome_matches_expected",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "area_id": "additional-property-coverage",
+      "expected_valid": false,
+      "failure_reasons": [
+        "additional_properties:unexpected_runtime_hint"
+      ],
+      "mutation_fixture_contract_validated": true,
+      "mutation_fixture_id": "mutation-additional-property-rag-metric",
+      "review_status": "reviewed_mutation_fixture_invalid_outcome_matches_expected",
+      "validation_result_matched_expected": true
+    },
+    {
+      "actual_valid": false,
+      "area_id": "malformed-fixture-record-coverage",
+      "expected_valid": false,
+      "failure_reasons": [
+        "malformed_fixture_record:mutated_instance"
+      ],
+      "mutation_fixture_contract_validated": true,
+      "mutation_fixture_id": "mutation-malformed-fixture-record-loader-boundary",
+      "review_status": "reviewed_mutation_fixture_invalid_outcome_matches_expected",
+      "validation_result_matched_expected": true
+    }
+  ],
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "source_schema_artifact_count": 4,
+  "status": "PASS"
+}
