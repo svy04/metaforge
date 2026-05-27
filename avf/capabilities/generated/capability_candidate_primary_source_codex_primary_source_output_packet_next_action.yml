@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-codex-primary-source-output-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_codex_primary_source_output_packet_v0_1
+
+next_steps:
+  - Review Codex-collected primary-source records before accepting them as evidence
+  - Keep all source records unaccepted until the review gate verifies every source field
+  - Confirm source kind, rights notes, supported claims, line references, and retrieval method for all 16 records
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_codex_primary_source_output_packet_review_v0_1
