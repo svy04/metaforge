@@ -1,0 +1,228 @@
+{
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "external_fetch_performed_count": 0,
+  "gate_id": "avf-capability-candidate-primary-source-manual-records-review-gate-v0-1",
+  "gate_scope": "manual source record shells reviewed; owner input packet can be created without external collection",
+  "goal_id": "avf_capability_candidate_primary_source_manual_records_review_v0_1",
+  "manual_record_shell_count": 7,
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_owner_input_packet_v0_1",
+  "planned_source_target_count": 16,
+  "previous_goal_id": "avf_capability_candidate_primary_source_manual_records_v0_1",
+  "ready_for_owner_input_packet_count": 7,
+  "review_blocker_count": 0,
+  "review_decision": "CAPABILITY_CANDIDATE_PRIMARY_SOURCE_MANUAL_RECORD_SHELLS_REVIEWED_REPO_LOCAL",
+  "review_findings": [
+    {
+      "candidate_id": "cap-k8s-workflow-argo",
+      "candidate_name": "Argo Workflows",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 2,
+      "source_target_ids": [
+        "src-argo-workflows-official-docs",
+        "src-argo-workflows-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+      "candidate_name": "Kestra / Prefect / Airflow",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 3,
+      "source_target_ids": [
+        "src-kestra-official-docs",
+        "src-prefect-official-docs",
+        "src-airflow-official-docs"
+      ]
+    },
+    {
+      "candidate_id": "cap-evidence-lineage-dagster",
+      "candidate_name": "Dagster",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 2,
+      "source_target_ids": [
+        "src-dagster-official-docs",
+        "src-dagster-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-rag-document-pipeline-haystack",
+      "candidate_name": "Haystack",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 2,
+      "source_target_ids": [
+        "src-haystack-official-docs",
+        "src-haystack-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-llm-observability-langfuse-phoenix",
+      "candidate_name": "Langfuse / Phoenix",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 2,
+      "source_target_ids": [
+        "src-langfuse-official-docs",
+        "src-phoenix-official-docs"
+      ]
+    },
+    {
+      "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+      "candidate_name": "promptfoo / Ragas",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 3,
+      "source_target_ids": [
+        "src-promptfoo-official-docs",
+        "src-ragas-official-docs",
+        "src-ragas-paper-or-benchmark-record"
+      ]
+    },
+    {
+      "candidate_id": "cap-coding-executor-openhands-sweagent",
+      "candidate_name": "OpenHands / SWE-agent",
+      "dependency_adoption_allowed": false,
+      "external_fetch_performed": false,
+      "ready_for_owner_input_packet": true,
+      "review_checks": [
+        "candidate_id_present",
+        "source_target_ids_preserved",
+        "source_priority_types_preserved",
+        "license_review_placeholder_present",
+        "security_review_placeholder_present",
+        "source_contents_not_acquired",
+        "external_fetch_not_performed",
+        "adoption_blocked"
+      ],
+      "review_result": "PASS",
+      "runtime_integration_allowed": false,
+      "source_contents_acquired": false,
+      "source_target_count": 2,
+      "source_target_ids": [
+        "src-openhands-original-repository",
+        "src-swe-agent-original-repository"
+      ]
+    }
+  ],
+  "review_status": "manual_record_shells_review_passed_no_source_contents_acquired",
+  "runtime_integration_allowed": false,
+  "source_contents_acquired_count": 0,
+  "source_required_candidate_ids": [
+    "cap-k8s-workflow-argo",
+    "cap-general-orchestration-kestra-prefect-airflow",
+    "cap-evidence-lineage-dagster",
+    "cap-rag-document-pipeline-haystack",
+    "cap-llm-observability-langfuse-phoenix",
+    "cap-eval-redteam-promptfoo-ragas",
+    "cap-coding-executor-openhands-sweagent"
+  ],
+  "status": "PASS"
+}

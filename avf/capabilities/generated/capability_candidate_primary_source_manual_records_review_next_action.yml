@@ -1,0 +1,10 @@
+action_id: create-capability-candidate-primary-source-owner-input-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_manual_records_review_v0_1
+
+next_steps:
+  - Create a repo-local owner input packet for filling primary-source evidence manually
+  - Include one fillable section per reviewed capability candidate and preserve source target ids
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_owner_input_packet_v0_1
