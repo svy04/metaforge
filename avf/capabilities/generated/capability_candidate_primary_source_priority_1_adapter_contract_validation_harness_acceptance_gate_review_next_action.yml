@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-implementation-plan
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_review_v0_1
+
+next_steps:
+  - Create a repo-local no-install adapter implementation plan from the reviewed acceptance gate
+  - Translate the reviewed harness contract into implementation-plan tasks without importing candidate runtimes
+  - Keep candidate tool imports, dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, import candidate tools, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_implementation_plan_v0_1
