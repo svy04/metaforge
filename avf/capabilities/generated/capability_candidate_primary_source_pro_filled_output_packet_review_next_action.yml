@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-pro-actual-output-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_filled_output_packet_review_v0_1
+
+next_steps:
+  - Create a repo-local packet from actual pasted GPT Pro primary-source YAML
+  - Keep pasted GPT Pro records unaccepted until a separate evidence-review gate passes
+  - Preserve source IDs, source kinds, supported claims, verification notes, rights notes, and retrieval methods
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_actual_output_packet_v0_1
