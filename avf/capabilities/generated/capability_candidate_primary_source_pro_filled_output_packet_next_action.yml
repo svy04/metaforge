@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-pro-filled-output-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_filled_output_packet_v0_1
+
+next_steps:
+  - Review the Pro filled output packet shell before accepting pasted GPT Pro evidence
+  - Do not treat empty source fields as accepted primary-source evidence
+  - Keep all records unreviewed and unaccepted until actual GPT Pro output is pasted and separately reviewed
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_filled_output_packet_review_v0_1
