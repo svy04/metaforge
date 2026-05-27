@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-runner
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_runner_v0_1
+
+next_steps:
+  - Review the repo-local no-install adapter contract validation harness runner
+  - Confirm deterministic fixture validation results match expected outcomes
+  - Confirm no candidate tool import, dependency install, external fetch, runtime integration, deploy, publish, or readiness claim was introduced
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_runner_review_v0_1
