@@ -12,9 +12,50 @@ from .adapter_contracts import (
 )
 
 
+def _require_keys(contract_id: str, record: dict, keys: tuple[str, ...]) -> None:
+    missing = [key for key in keys if key not in record]
+    if missing:
+        raise ValueError(f"{contract_id} missing required fields: {', '.join(missing)}")
+
+
+def _reject_extra_keys(contract_id: str, record: dict, allowed: tuple[str, ...]) -> None:
+    extra = sorted(set(record) - set(allowed))
+    if extra:
+        raise ValueError(f"{contract_id} unexpected fields: {', '.join(extra)}")
+
+
+def validate_repo_local_fixture(contract_id: str, record: dict) -> None:
+    if contract_id == "eval-case-contract":
+        _require_keys(contract_id, record, ("case_id", "input", "expected_behavior", "success_criteria", "claim_boundary"))
+        if not isinstance(record["success_criteria"], list):
+            raise ValueError("eval-case-contract success_criteria must be an array")
+        return
+    if contract_id == "redteam-case-contract":
+        _require_keys(contract_id, record, ("case_id", "prompt_or_scenario", "expected_refusal_or_guardrail", "risk_category", "evidence_basis"))
+        if not isinstance(record["evidence_basis"], list):
+            raise ValueError("redteam-case-contract evidence_basis must be an array")
+        return
+    if contract_id == "rag-metric-contract":
+        allowed = ("metric_id", "metric_name", "input_fields", "output_fields", "interpretation_boundary")
+        _require_keys(contract_id, record, allowed)
+        _reject_extra_keys(contract_id, record, allowed)
+        if not isinstance(record["input_fields"], list) or not isinstance(record["output_fields"], list):
+            raise ValueError("rag-metric-contract input_fields and output_fields must be arrays")
+        return
+    if contract_id == "governance-gate-contract":
+        _require_keys(contract_id, record, ("gate_id", "risk_tier", "blocked_actions", "required_reviews", "decision_boundary"))
+        if record["risk_tier"] not in {"green", "yellow", "red"}:
+            raise ValueError("governance-gate-contract risk_tier must be green, yellow, or red")
+        if not isinstance(record["blocked_actions"], list) or not isinstance(record["required_reviews"], list):
+            raise ValueError("governance-gate-contract blocked_actions and required_reviews must be arrays")
+        return
+    raise ValueError(f"unsupported contract_id: {contract_id}")
+
+
 def normalize_repo_local_fixture(contract_id: str, record: dict) -> dict:
     if contract_id not in CONTRACT_ORDER:
         raise ValueError(f"unsupported contract_id: {contract_id}")
+    validate_repo_local_fixture(contract_id, record)
     record_id_field = RECORD_ID_FIELDS[contract_id]
     if record_id_field not in record:
         raise ValueError(f"missing record id field {record_id_field} for {contract_id}")

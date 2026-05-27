@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-regression-pack
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_regression_pack_v0_1
+
+next_steps:
+  - Review the repo-local regression pack before expanding adapter behavior
+  - Confirm invalid fixtures, protected-action flags, and evidence mapping regressions are covered
+  - Keep dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_regression_pack_review_v0_1
