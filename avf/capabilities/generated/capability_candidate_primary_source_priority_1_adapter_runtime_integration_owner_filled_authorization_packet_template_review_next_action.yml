@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-runtime-integration-owner-supplied-authorization-packet-template
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_owner_filled_authorization_packet_template_review_v0_1
+
+next_steps:
+  - Create a repo-local owner-supplied authorization packet template without granting authorization
+  - Keep it structurally separate from the unfilled template and still blocked by default
+  - Require a later owner-supplied packet review before any protected action can be accepted
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_owner_supplied_authorization_packet_template_v0_1
