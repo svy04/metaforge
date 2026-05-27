@@ -1,0 +1,10 @@
+action_id: create-capability-candidate-primary-source-evidence-claim-map
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_acceptance_decision_review_v0_1
+
+next_steps:
+  - Map accepted evidence-only primary-source records to capability claims
+  - Preserve source URI, source kind, candidate id, supported claim, and evidence-only boundary
+  - Do not adopt dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_evidence_claim_map_v0_1
