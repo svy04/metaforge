@@ -1,0 +1,333 @@
+# Capability Candidate Primary-Source Pro Output Packet Template v0.1
+
+goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_v0_1
+previous_goal_id: avf_capability_candidate_primary_source_pro_prompt_review_v0_1
+created_at: 2026-05-27T00:00:00Z
+template_decision: CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRO_OUTPUT_PACKET_TEMPLATE_CREATED_REPO_LOCAL
+template_status: waiting_for_gpt_pro_yaml_output_not_filled
+filled_record_supplied_count: 0
+accepted_records: 0
+source_collection_execution_allowed: false
+
+instructions:
+  - Paste GPT Pro structured YAML output into records below.
+  - Keep acceptance_status as unreviewed until the review validator accepts it.
+  - Do not use this template to claim adoption readiness, runtime readiness, release readiness, or production readiness.
+
+records:
+  - candidate_id: cap-k8s-workflow-argo
+    candidate_name: Argo Workflows
+    records:
+    - source_target_id: src-argo-workflows-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-argo-workflows-original-repository
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-general-orchestration-kestra-prefect-airflow
+    candidate_name: Kestra / Prefect / Airflow
+    records:
+    - source_target_id: src-kestra-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-prefect-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-airflow-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-evidence-lineage-dagster
+    candidate_name: Dagster
+    records:
+    - source_target_id: src-dagster-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-dagster-original-repository
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-rag-document-pipeline-haystack
+    candidate_name: Haystack
+    records:
+    - source_target_id: src-haystack-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-haystack-original-repository
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-llm-observability-langfuse-phoenix
+    candidate_name: Langfuse / Phoenix
+    records:
+    - source_target_id: src-langfuse-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-phoenix-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-eval-redteam-promptfoo-ragas
+    candidate_name: promptfoo / Ragas
+    records:
+    - source_target_id: src-promptfoo-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-ragas-official-docs
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-ragas-paper-or-benchmark-record
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+  - candidate_id: cap-coding-executor-openhands-sweagent
+    candidate_name: OpenHands / SWE-agent
+    records:
+    - source_target_id: src-openhands-original-repository
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+    - source_target_id: src-swe-agent-original-repository
+      acceptance_status: unreviewed
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_id: ""
+      source_title: ""
+      source_kind: ""
+      source_uri: ""
+      source_version_or_date: ""
+      source_owner_or_publisher: ""
+      license_or_rights_note: ""
+      claim_supported: ""
+      evidence_excerpt_summary: ""
+      verification_notes: ""
+      source_reference_lines: ""
+      retrieval_method: ""
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  runtime_export_performed: false
+  collector_started: false
+  telemetry_export_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_review_v0_1

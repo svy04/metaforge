@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-pro-output-packet-template
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_v0_1
+
+next_steps:
+  - Review the Pro output packet template before accepting filled GPT Pro evidence
+  - Confirm all 7 capability candidates, 16 source target slots, and 12 required source fields are present
+  - Keep filled records unaccepted until a later owner/Pro-filled evidence review passes
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_review_v0_1
