@@ -1,0 +1,325 @@
+{
+  "all_candidates_blocked_until_gates_satisfied": true,
+  "blocked_candidate_count": 13,
+  "candidate_count": 13,
+  "candidate_ids": [
+    "cap-agent-runtime-langgraph",
+    "cap-durable-workflow-temporal",
+    "cap-k8s-workflow-argo",
+    "cap-general-orchestration-kestra-prefect-airflow",
+    "cap-evidence-lineage-dagster",
+    "cap-llm-gateway-litellm",
+    "cap-local-open-model-serving-ollama-vllm",
+    "cap-rag-document-pipeline-haystack",
+    "cap-llm-observability-langfuse-phoenix",
+    "cap-eval-redteam-promptfoo-ragas",
+    "cap-tool-protocol-mcp",
+    "cap-telemetry-standard-opentelemetry",
+    "cap-coding-executor-openhands-sweagent"
+  ],
+  "candidates": [
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-agent-runtime-langgraph",
+      "capability_type": "agent_runtime",
+      "dependency_adoption_allowed": false,
+      "name": "LangGraph",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "prepare_adapter_contract_after_kernel_semantics",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-langgraph-official-docs"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-durable-workflow-temporal",
+      "capability_type": "durable_workflow",
+      "dependency_adoption_allowed": false,
+      "name": "Temporal",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "prepare_adapter_contract_after_run_state_contract",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-temporal-official-docs"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-k8s-workflow-argo",
+      "capability_type": "kubernetes_workflow",
+      "dependency_adoption_allowed": false,
+      "name": "Argo Workflows",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_until_containerized_parallel_jobs_are_required",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+      "capability_type": "general_orchestration",
+      "dependency_adoption_allowed": false,
+      "name": "Kestra / Prefect / Airflow",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "compare_after_local_kernel_and_approval_queue_exist",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-evidence-lineage-dagster",
+      "capability_type": "evidence_lineage",
+      "dependency_adoption_allowed": false,
+      "name": "Dagster",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_until_artifacts_behave_like_data_products",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-llm-gateway-litellm",
+      "capability_type": "llm_gateway",
+      "dependency_adoption_allowed": false,
+      "name": "LiteLLM",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "prepare_gateway_decision_record_without_provider_calls",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-litellm-original-repository"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-local-open-model-serving-ollama-vllm",
+      "capability_type": "local_open_model_serving",
+      "dependency_adoption_allowed": false,
+      "name": "Ollama / vLLM",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_runtime_serving_but_keep_vllm_source_backed",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-vllm-original-repository"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-rag-document-pipeline-haystack",
+      "capability_type": "document_retrieval_pipeline",
+      "dependency_adoption_allowed": false,
+      "name": "Haystack",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_until_memory_contract_needs_retrieval_pipeline",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-llm-observability-langfuse-phoenix",
+      "capability_type": "llm_observability",
+      "dependency_adoption_allowed": false,
+      "name": "Langfuse / Phoenix",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_until_local_trace_schema_and_export_boundary_are_stable",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+      "capability_type": "eval_redteam",
+      "dependency_adoption_allowed": false,
+      "name": "promptfoo / Ragas",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "defer_until_eval_cases_are_versioned",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-tool-protocol-mcp",
+      "capability_type": "tool_protocol",
+      "dependency_adoption_allowed": false,
+      "name": "MCP",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "prepare_tool_boundary_contract_before_tool_execution",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-mcp-official-docs"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-telemetry-standard-opentelemetry",
+      "capability_type": "telemetry_standard",
+      "dependency_adoption_allowed": false,
+      "name": "OpenTelemetry",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "prepare_event_schema_mapping_without_collector_start",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_available",
+      "source_target_ids": [
+        "src-opentelemetry-standard-docs"
+      ]
+    },
+    {
+      "adoption_status": "blocked_until_gates_satisfied",
+      "candidate_id": "cap-coding-executor-openhands-sweagent",
+      "capability_type": "coding_executor",
+      "dependency_adoption_allowed": false,
+      "name": "OpenHands / SWE-agent",
+      "protected_action_required_before_adoption": true,
+      "recommended_action": "evaluate_only_as_approval_gated_optional_codex_lane",
+      "required_gate_ids": [
+        "gate-build-vs-buy-review",
+        "gate-license-review",
+        "gate-security-review",
+        "gate-supply-chain-review",
+        "gate-owner-approval"
+      ],
+      "runtime_integration_allowed": false,
+      "source_record_status": "manual_source_record_required",
+      "source_target_ids": []
+    }
+  ],
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "gate_id": "avf-capability-adoption-decision-matrix-gate-v0-1",
+  "gate_ids": [
+    "gate-build-vs-buy-review",
+    "gate-license-review",
+    "gate-security-review",
+    "gate-supply-chain-review",
+    "gate-owner-approval"
+  ],
+  "gate_requirement_count": 5,
+  "gate_scope": "decision matrix created; all candidates remain blocked",
+  "goal_id": "avf_capability_adoption_decision_matrix_v0_1",
+  "manual_primary_source_record_count": 7,
+  "matrix_decision": "CAPABILITY_ADOPTION_DECISION_MATRIX_CREATED_REPO_LOCAL",
+  "matrix_status": "planning_only_all_adoption_blocked",
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_expansion_plan_v0_1",
+  "previous_goal_id": "avf_primary_source_registry_gap_closure_final_review_v0_1",
+  "ready_for_adoption_count": 0,
+  "runtime_integration_allowed": false,
+  "source_backed_candidate_count": 6,
+  "source_record_required_candidate_count": 7,
+  "status": "PASS"
+}
