@@ -1,0 +1,94 @@
+{
+  "adoption_authorized": false,
+  "adoption_authorized_count": 0,
+  "candidate_fit_signal_count": 4,
+  "candidate_fit_signals": [
+    {
+      "claim_boundary": "fit_signal_only_no_dependency_adoption",
+      "signal": "Promptfoo evidence supports LLM evaluation and red-team workflow fit.",
+      "signal_id": "promptfoo-eval-redteam-fit"
+    },
+    {
+      "claim_boundary": "fit_signal_only_no_dependency_adoption",
+      "signal": "Ragas evidence supports RAG and agent evaluation metric fit.",
+      "signal_id": "ragas-rag-eval-fit"
+    },
+    {
+      "claim_boundary": "governance_signal_only_no_runtime_authorization",
+      "signal": "OWASP evidence supports red-team and excessive-agency governance categories.",
+      "signal_id": "owasp-governance-fit"
+    },
+    {
+      "claim_boundary": "governance_signal_only_no_readiness_claim",
+      "signal": "NIST AI RMF evidence supports documented risk governance and third-party review.",
+      "signal_id": "nist-ai-rmf-governance-fit"
+    }
+  ],
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_v0_1",
+  "input_uris": {
+    "manual_evidence_quality_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_manual_evidence_quality_review_gate.json"
+  },
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_no_install_adapter_plan_v0_1",
+  "oss_clone_performed": false,
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_manual_evidence_quality_review_v0_1",
+  "ready_for_no_install_adapter_plan_count": 1,
+  "recommendation_count": 1,
+  "recommendation_decision": "RECOMMEND_CONDITIONAL_NO_INSTALL_ADAPTER_PLANNING",
+  "recommendation_status": "evidence_backed_candidate_fit_recommended_without_dependency_adoption",
+  "recommended_next_implementation_mode": "no_install_adapter_plan_only",
+  "required_later_review_count": 2,
+  "required_later_reviews": [
+    {
+      "reason": "MIT and Apache-2.0 notes were captured, but legal review is separate from evidence collection.",
+      "review_id": "legal-license-review-before-dependency-adoption",
+      "status": "required_later_not_performed"
+    },
+    {
+      "reason": "Security surfaces were identified, but no dependency, source, or runtime was inspected or executed.",
+      "review_id": "security-supply-chain-review-before-runtime-integration",
+      "status": "required_later_not_performed"
+    }
+  ],
+  "reviewed_evidence_record_count": 7,
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "status": "PASS",
+  "validated_artifacts": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_manual_evidence_quality_review_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_report.md",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_next_action.yml",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_v0_1.validation_result.json",
+    "docs/goals/AVF_CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_EVIDENCE_BACKED_CAPABILITY_RECOMMENDATION_V0_1_REPORT.md"
+  ],
+  "validator_id": "validate_avf_capability_candidate_primary_source_priority_1_evidence_backed_capability_recommendation_v0_1"
+}
