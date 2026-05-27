@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-runtime-integration-preflight
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_review_v0_1
+
+next_steps:
+  - Create a repo-local runtime integration preflight without integrating runtime systems
+  - Check whether any future runtime/tool/dependency step needs explicit owner approval
+  - Keep the next slice provider-neutral, dependency-free, and runtime-free
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_preflight_v0_1

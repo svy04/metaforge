@@ -1,0 +1,166 @@
+{
+  "adapter_module_count": 4,
+  "behavior_requirement_count": 6,
+  "behavior_test_count": 6,
+  "behavior_test_fail_count": 0,
+  "behavior_test_pass_count": 6,
+  "behavior_test_results": {
+    "behavior": {
+      "output_excerpt": [
+        "test_rejects_redteam_case_empty_evidence_basis (__main__.AdapterBehaviorExpansionTests.test_rejects_redteam_case_empty_evidence_basis) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 6 tests in 0.002s",
+        "",
+        "OK",
+        "LOCAL_ADAPTER_BEHAVIOR_EXPANSION_RESULT=PASS",
+        "LOCAL_ADAPTER_BEHAVIOR_EXPANSION_TEST_COUNT=6"
+      ],
+      "status": "PASS",
+      "test_file_uri": "avf/capabilities/adapters/priority_1/tests/test_adapter_behavior_expansion.py"
+    },
+    "regression": {
+      "output_excerpt": [
+        "test_rejects_redteam_case_bad_evidence_basis_type (__main__.AdapterRegressionPackTests.test_rejects_redteam_case_bad_evidence_basis_type) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 6 tests in 0.002s",
+        "",
+        "OK",
+        "LOCAL_ADAPTER_REGRESSION_PACK_RESULT=PASS",
+        "LOCAL_ADAPTER_REGRESSION_TEST_COUNT=6"
+      ],
+      "status": "PASS",
+      "test_file_uri": "avf/capabilities/adapters/priority_1/tests/test_adapter_regression_pack.py"
+    },
+    "scaffold": {
+      "output_excerpt": [
+        "test_normalizes_four_fixture_types (__main__.AdapterScaffoldTests.test_normalizes_four_fixture_types) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 4 tests in 0.001s",
+        "",
+        "OK",
+        "LOCAL_ADAPTER_SCAFFOLD_TESTS_RESULT=PASS",
+        "LOCAL_ADAPTER_SCAFFOLD_TEST_COUNT=4"
+      ],
+      "status": "PASS",
+      "test_file_uri": "avf/capabilities/adapters/priority_1/tests/test_adapter_scaffold.py"
+    }
+  },
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_review_v0_1",
+  "input_uris": {
+    "adapter_behavior_expansion_result": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_behavior_expansion_result.json"
+  },
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_preflight_v0_1",
+  "oss_clone_performed": false,
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_behavior_expansion_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_behavior_expansion_review_count": 1,
+  "ready_for_runtime_integration_preflight_count": 1,
+  "regression_test_count": 6,
+  "review_blocker_count": 0,
+  "review_decision": "CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_BEHAVIOR_EXPANSION_REVIEWED",
+  "review_status": "adapter_behavior_expansion_reviewed_ready_for_runtime_integration_preflight",
+  "reviewed_behavior_requirement_count": 6,
+  "reviewed_behavior_requirements": [
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-eval-claim-boundary-required",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-eval-case-missing-claim-boundary"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-redteam-evidence-basis-list",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-redteam-case-bad-evidence-basis-type"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "requirement_id": "reject-rag-runtime-hints",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-rag-metric-unexpected-runtime-hint"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "invalid_fixture",
+      "requirement_id": "enforce-governance-risk_tier-enum",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "rejects-governance-gate-bad-risk_tier"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "boundary",
+      "requirement_id": "preserve-protected-action-boundary-invariants",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "boundary-flags-remain-false-after-valid-normalization"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "regression_type": "evidence_mapping",
+      "requirement_id": "preserve-evidence-mapping-no-action-drift",
+      "review_status": "reviewed_behavior_requirement_preserves_repo_local_boundary",
+      "runtime_integration_allowed": false,
+      "source_regression_test_id": "evidence-mapping-has-no-action-drift"
+    }
+  ],
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "scaffold_test_count": 4,
+  "selection_allowed": false
+}
