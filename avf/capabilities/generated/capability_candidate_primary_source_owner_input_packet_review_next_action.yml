@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-pro-prompt
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_owner_input_packet_review_v0_1
+
+next_steps:
+  - Create a GPT Pro prompt for manually filling primary-source evidence
+  - Include all 7 capability candidates and 16 source target slots from the reviewed owner input packet
+  - Require official docs, original repositories, papers, standards, patents, maintained implementations, or local repo evidence
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_prompt_v0_1
