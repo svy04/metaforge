@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-acceptance-gate
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_v0_1
+
+next_steps:
+  - Review the repo-local acceptance gate before creating any future adapter implementation plan
+  - Confirm the gate accepts only repo-local no-install harness readiness, not runtime integration or production readiness
+  - Keep candidate tool imports, dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_review_v0_1
