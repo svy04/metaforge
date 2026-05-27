@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-evidence-claim-map
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_evidence_claim_map_v0_1
+
+next_steps:
+  - Review the evidence-only claim map
+  - Confirm every accepted source appears in exactly one candidate claim map
+  - Confirm claim mapping is not dependency adoption, runtime integration, deploy, publish, or readiness approval
+  - Do not adopt dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_evidence_claim_map_review_v0_1

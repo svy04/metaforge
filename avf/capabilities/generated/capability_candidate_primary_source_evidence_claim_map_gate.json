@@ -1,0 +1,359 @@
+{
+  "candidate_claim_maps": [
+    {
+      "candidate_id": "cap-coding-executor-openhands-sweagent",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-coding-executor-openhands-sweagent",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "OpenHands is a candidate approved-executor lane for AI-driven development through SDK, CLI, and local GUI surfaces.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-openhands-original-repository",
+          "source_kind": "original_repository",
+          "source_uri": "https://github.com/OpenHands/OpenHands"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-coding-executor-openhands-sweagent",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "SWE-agent is a candidate approved-executor lane for GitHub-issue-centered code repair using a selected language model.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-swe-agent-original-repository",
+          "source_kind": "original_repository",
+          "source_uri": "https://github.com/SWE-agent/SWE-agent"
+        }
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "src-openhands-original-repository",
+        "src-swe-agent-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "promptfoo is a candidate for LLM evaluation and red-teaming workflows.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-promptfoo-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://www.promptfoo.dev/docs/intro/"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Ragas is a candidate for systematic LLM/RAG evaluation loops and experiment-driven metric workflows.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-ragas-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://docs.ragas.io/en/stable/"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Ragas has a primary research paper describing reference-free evaluation metrics for RAG pipelines.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-ragas-paper-or-benchmark-record",
+          "source_kind": "paper",
+          "source_uri": "https://arxiv.org/abs/2309.15217"
+        }
+      ],
+      "source_count": 3,
+      "source_ids": [
+        "src-promptfoo-official-docs",
+        "src-ragas-official-docs",
+        "src-ragas-paper-or-benchmark-record"
+      ]
+    },
+    {
+      "candidate_id": "cap-evidence-lineage-dagster",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-evidence-lineage-dagster",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Dagster is a candidate for evidence/data lineage, observability, declarative asset modeling, and testability.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-dagster-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://docs.dagster.io/"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-evidence-lineage-dagster",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "The original Dagster repository is the upstream source for the candidate and supports the same lineage/observability/testability positioning.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-dagster-original-repository",
+          "source_kind": "original_repository",
+          "source_uri": "https://github.com/dagster-io/dagster"
+        }
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "src-dagster-official-docs",
+        "src-dagster-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Airflow is a candidate for scheduled batch workflow orchestration with Python-defined workflows and operational UI.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-airflow-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://airflow.apache.org/docs/apache-airflow/stable/index.html"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Kestra is a candidate for declarative orchestration, scheduled/event-driven workflows, and human-in-the-loop approval processes.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-kestra-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://kestra.io/docs"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-general-orchestration-kestra-prefect-airflow",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Prefect is a candidate for Pythonic workflow orchestration, deployments, infrastructure configuration, automations, interactive workflows, and platform engineering.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-prefect-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://docs.prefect.io/v3/get-started"
+        }
+      ],
+      "source_count": 3,
+      "source_ids": [
+        "src-airflow-official-docs",
+        "src-kestra-official-docs",
+        "src-prefect-official-docs"
+      ]
+    },
+    {
+      "candidate_id": "cap-k8s-workflow-argo",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-k8s-workflow-argo",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Argo Workflows is a Kubernetes-native workflow engine suitable for parallel job and workflow orchestration.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-argo-workflows-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://argo-workflows.readthedocs.io/en/latest/"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-k8s-workflow-argo",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "The original repository is the upstream code source for Argo Workflows.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-argo-workflows-original-repository",
+          "source_kind": "original_repository",
+          "source_uri": "https://github.com/argoproj/argo-workflows"
+        }
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "src-argo-workflows-official-docs",
+        "src-argo-workflows-original-repository"
+      ]
+    },
+    {
+      "candidate_id": "cap-llm-observability-langfuse-phoenix",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-llm-observability-langfuse-phoenix",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Langfuse is a candidate for LLM observability, tracing, prompt management, evaluation, and self-hostable engineering workflows.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-langfuse-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://langfuse.com/docs"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-llm-observability-langfuse-phoenix",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Phoenix is a candidate for AI observability/evaluation, tracing, prompt iteration, experiments, OpenTelemetry, and OpenInference-based instrumentation.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-phoenix-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://arize.com/docs/phoenix"
+        }
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "src-langfuse-official-docs",
+        "src-phoenix-official-docs"
+      ]
+    },
+    {
+      "candidate_id": "cap-rag-document-pipeline-haystack",
+      "claim_mapping_scope": "internal_design_evidence_only",
+      "dependency_adoption_allowed": false,
+      "runtime_integration_allowed": false,
+      "source_claims": [
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-rag-document-pipeline-haystack",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "Haystack is a candidate for RAG, agent, multimodal, and document-pipeline construction.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-haystack-official-docs",
+          "source_kind": "official_docs",
+          "source_uri": "https://docs.haystack.deepset.ai/docs/intro"
+        },
+        {
+          "adoption_status": "not_adopted",
+          "candidate_id": "cap-rag-document-pipeline-haystack",
+          "claim_map_review_required": true,
+          "claim_mapping_scope": "internal_design_evidence_only",
+          "claim_supported": "The original Haystack repository is the upstream source for the RAG/document-pipeline candidate.",
+          "dependency_adoption_allowed": false,
+          "evidence_acceptance_status": "accepted_for_internal_design_evidence_only",
+          "runtime_integration_allowed": false,
+          "source_id": "src-haystack-original-repository",
+          "source_kind": "original_repository",
+          "source_uri": "https://github.com/deepset-ai/haystack"
+        }
+      ],
+      "source_count": 2,
+      "source_ids": [
+        "src-haystack-official-docs",
+        "src-haystack-original-repository"
+      ]
+    }
+  ],
+  "candidate_count": 7,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "claim_map_status": "evidence_only_claim_map_created_no_adoption",
+  "claim_mapped_candidate_count": 7,
+  "claim_mapping_scope": "internal_design_evidence_only",
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adopted_claim_count": 0,
+  "dependency_adoption_allowed": false,
+  "evidence_only_claim_count": 16,
+  "gate_id": "avf-capability-candidate-primary-source-evidence-claim-map-gate-v0-1",
+  "gate_scope": "Evidence-only claim map created; scoring, adoption, and integration remain separate future gates",
+  "goal_id": "avf_capability_candidate_primary_source_evidence_claim_map_v0_1",
+  "input_uris": {
+    "acceptance_decision_packet": "avf/capabilities/generated/capability_candidate_primary_source_acceptance_decision_packet.json",
+    "acceptance_decision_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_acceptance_decision_review_gate.json"
+  },
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_evidence_claim_map_review_v0_1",
+  "previous_goal_id": "avf_capability_candidate_primary_source_acceptance_decision_review_v0_1",
+  "ready_for_claim_map_review_count": 1,
+  "records_source": "codex_assistant_primary_source_web_research",
+  "runtime_integrated_claim_count": 0,
+  "runtime_integration_allowed": false,
+  "source_claim_count": 16,
+  "source_record_count": 16,
+  "source_required_candidate_ids": [
+    "cap-k8s-workflow-argo",
+    "cap-general-orchestration-kestra-prefect-airflow",
+    "cap-evidence-lineage-dagster",
+    "cap-rag-document-pipeline-haystack",
+    "cap-llm-observability-langfuse-phoenix",
+    "cap-eval-redteam-promptfoo-ragas",
+    "cap-coding-executor-openhands-sweagent"
+  ],
+  "status": "PASS"
+}
