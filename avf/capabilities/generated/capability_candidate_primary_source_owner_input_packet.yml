@@ -1,0 +1,400 @@
+# Capability Candidate Primary-Source Owner Input Packet v0.1
+
+goal_id: avf_capability_candidate_primary_source_owner_input_packet_v0_1
+previous_goal_id: avf_capability_candidate_primary_source_manual_records_review_v0_1
+created_at: 2026-05-27T00:00:00Z
+packet_decision: CAPABILITY_CANDIDATE_PRIMARY_SOURCE_OWNER_INPUT_PACKET_CREATED_REPO_LOCAL
+packet_status: waiting_for_owner_filled_primary_source_evidence
+owner_input_required: true
+owner_supplied_only: true
+source_collection_execution_allowed: false
+filled_record_supplied_count: 0
+accepted_records: 0
+
+instructions:
+  - Fill all required source fields for each selected source target.
+  - Use official docs, original repositories, papers, standards, patents, maintained implementations, or local repo evidence.
+  - Do not ask Codex to fetch URLs.
+  - Keep one source target tied to one concrete capability claim.
+  - Leave dependency adoption and runtime integration blocked until later gates pass.
+
+allowed_source_kinds:
+  - official_docs
+  - original_repository
+  - paper
+  - benchmark
+  - standard
+  - patent
+  - maintained_implementation
+  - local_repo_evidence
+
+candidate_input_sections:
+  - candidate_id: cap-k8s-workflow-argo
+    candidate_name: Argo Workflows
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-argo-workflows-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-argo-workflows-original-repository
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: original_repository
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-general-orchestration-kestra-prefect-airflow
+    candidate_name: Kestra / Prefect / Airflow
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-kestra-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-prefect-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-airflow-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-evidence-lineage-dagster
+    candidate_name: Dagster
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-dagster-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-dagster-original-repository
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: original_repository
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-rag-document-pipeline-haystack
+    candidate_name: Haystack
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-haystack-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-haystack-original-repository
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: original_repository
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-llm-observability-langfuse-phoenix
+    candidate_name: Langfuse / Phoenix
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-langfuse-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-phoenix-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-eval-redteam-promptfoo-ragas
+    candidate_name: promptfoo / Ragas
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-promptfoo-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-ragas-official-docs
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: official_docs
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-ragas-paper-or-benchmark-record
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: benchmark
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+  - candidate_id: cap-coding-executor-openhands-sweagent
+    candidate_name: OpenHands / SWE-agent
+    filled_record_supplied_count: 0
+    accepted_records: 0
+    source_collection_execution_allowed: false
+    source_input_slots:
+    - source_target_id: src-openhands-original-repository
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: original_repository
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+    - source_target_id: src-swe-agent-original-repository
+      source_input_status: waiting_for_owner_input
+      suggested_source_kind: original_repository
+      filled_record_supplied: false
+      source_contents_acquired: false
+      external_fetch_performed: false
+      source_record:
+        source_id: ""
+        source_title: ""
+        source_kind: ""
+        source_uri: ""
+        source_version_or_date: ""
+        source_owner_or_publisher: ""
+        license_or_rights_note: ""
+        claim_supported: ""
+        evidence_excerpt_summary: ""
+        verification_notes: ""
+        source_reference_lines: ""
+        retrieval_method: ""
+
+claim_boundary:
+  protected_action_executed: false
+  provider_calls_performed: false
+  live_model_calls_performed: false
+  external_service_calls_performed: false
+  automated_scraping_performed: false
+  scraping_performed: false
+  posting_automation_performed: false
+  dependency_install_performed: false
+  external_fetch_performed: false
+  oss_clone_performed: false
+  package_install_performed: false
+  runtime_integration_performed: false
+  runtime_export_performed: false
+  collector_started: false
+  telemetry_export_performed: false
+  deploy_performed: false
+  publish_performed: false
+  release_ready: false
+  production_ready: false
+
+next_safe_goal_id: avf_capability_candidate_primary_source_owner_input_packet_review_v0_1

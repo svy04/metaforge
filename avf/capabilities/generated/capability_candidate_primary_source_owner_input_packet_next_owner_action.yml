@@ -1,0 +1,36 @@
+action_id: owner-fill-capability-candidate-primary-source-input-packet
+owner_input_required: true
+goal_id: avf_capability_candidate_primary_source_owner_input_packet_v0_1
+
+owner_steps:
+  - Fill all required source fields for each selected source target
+  - Use one allowed source kind per source target
+  - Tie each source target to exactly one capability claim
+  - Do not ask Codex to fetch URLs
+  - Keep dependency adoption and runtime integration blocked until later gates pass
+
+required_source_fields:
+  - source_id
+  - source_title
+  - source_kind
+  - source_uri
+  - source_version_or_date
+  - source_owner_or_publisher
+  - license_or_rights_note
+  - claim_supported
+  - evidence_excerpt_summary
+  - verification_notes
+  - source_reference_lines
+  - retrieval_method
+
+allowed_source_kinds:
+  - official_docs
+  - original_repository
+  - paper
+  - benchmark
+  - standard
+  - patent
+  - maintained_implementation
+  - local_repo_evidence
+
+next_safe_goal_id: avf_capability_candidate_primary_source_owner_input_packet_review_v0_1
