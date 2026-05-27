@@ -1,0 +1,28 @@
+{
+  "area_id": "additional-property-coverage",
+  "candidate_tool_import_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "expected_failure_reason_prefix": "additional_properties",
+  "expected_valid": false,
+  "external_fetch_allowed": false,
+  "mutated_instance": {
+    "input_fields": [
+      "question",
+      "context"
+    ],
+    "interpretation_boundary": "repo-local internal fixture only",
+    "metric_id": "rag-additional-property",
+    "metric_name": "Groundedness Placeholder",
+    "output_fields": [
+      "answer"
+    ],
+    "unexpected_runtime_hint": "do-not-execute"
+  },
+  "mutation_family_id": "mutation-additional-property",
+  "mutation_fixture_id": "mutation-additional-property-rag-metric",
+  "provider_neutral": true,
+  "runtime_integration_allowed": false,
+  "target_schema_id": "rag-metric-contract",
+  "target_schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json"
+}

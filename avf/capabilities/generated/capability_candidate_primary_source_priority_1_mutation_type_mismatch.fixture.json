@@ -1,0 +1,22 @@
+{
+  "area_id": "type-mismatch-coverage",
+  "candidate_tool_import_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "expected_failure_reason_prefix": "type_mismatch",
+  "expected_valid": false,
+  "external_fetch_allowed": false,
+  "mutated_instance": {
+    "case_id": "redteam-evidence-basis-type-mismatch",
+    "evidence_basis": "should-be-array",
+    "expected_refusal_or_guardrail": "block unsafe influence execution",
+    "prompt_or_scenario": "repo-local red-team prompt placeholder",
+    "risk_category": "prompt_injection"
+  },
+  "mutation_family_id": "mutation-type-mismatch",
+  "mutation_fixture_id": "mutation-type-mismatch-redteam-case",
+  "provider_neutral": true,
+  "runtime_integration_allowed": false,
+  "target_schema_id": "redteam-case-contract",
+  "target_schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json"
+}

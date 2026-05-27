@@ -1,0 +1,27 @@
+{
+  "area_id": "enum-mismatch-coverage",
+  "candidate_tool_import_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "expected_failure_reason_prefix": "enum_mismatch",
+  "expected_valid": false,
+  "external_fetch_allowed": false,
+  "mutated_instance": {
+    "blocked_actions": [
+      "deploy",
+      "publish"
+    ],
+    "decision_boundary": "repo-local internal fixture only",
+    "gate_id": "governance_risk_tier_enum_mismatch",
+    "required_reviews": [
+      "safety"
+    ],
+    "risk_tier": "purple"
+  },
+  "mutation_family_id": "mutation-enum-boundary",
+  "mutation_fixture_id": "mutation-enum-boundary-governance-gate",
+  "provider_neutral": true,
+  "runtime_integration_allowed": false,
+  "target_schema_id": "governance-gate-contract",
+  "target_schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json"
+}
