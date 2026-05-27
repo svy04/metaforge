@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-runtime-integration-authorization-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_preflight_v0_1
+
+next_steps:
+  - Create an owner authorization packet before any runtime, tool, dependency, or external fetch step
+  - Keep authorization packet repo-local and non-executing
+  - Preserve explicit blocked action flags until owner authorization exists
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_authorization_packet_v0_1
