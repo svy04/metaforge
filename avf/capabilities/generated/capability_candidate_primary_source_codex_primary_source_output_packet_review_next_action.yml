@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-acceptance-decision-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_codex_primary_source_output_packet_review_v0_1
+
+next_steps:
+  - Create an acceptance decision packet for the reviewed Codex primary-source records
+  - Decide per source record whether it is accepted, rejected, or requires stronger primary-source evidence
+  - Keep dependency adoption, OSS cloning, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not adopt dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_acceptance_decision_packet_v0_1
