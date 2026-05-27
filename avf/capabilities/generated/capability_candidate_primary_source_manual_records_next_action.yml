@@ -1,0 +1,10 @@
+action_id: review-capability-candidate-primary-source-manual-records
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_manual_records_v0_1
+
+next_steps:
+  - Review repo-local manual source record shells before any owner-filled source evidence is accepted
+  - Verify candidate ids, planned source target ids, source kind priorities, and license/security placeholders
+  - Do not fetch external sources, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_manual_records_review_v0_1
