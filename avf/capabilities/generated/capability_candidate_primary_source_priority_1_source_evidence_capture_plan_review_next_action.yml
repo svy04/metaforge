@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-manual-evidence-workspace
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_source_evidence_capture_plan_review_v0_1
+
+next_steps:
+  - Create a repo-local manual evidence workspace
+  - Create empty evidence record templates for each source target
+  - Keep all records empty or placeholder-only until a separate owner-approved evidence collection goal exists
+  - Do not fetch sources, clone OSS, install dependencies, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_manual_evidence_workspace_v0_1
