@@ -1,0 +1,13 @@
+{
+  "input_fields": [
+    "answer",
+    "evidence_uri"
+  ],
+  "interpretation_boundary": "slot contract only; no evaluator runtime attached",
+  "metric_id": "rag-metric-contract-valid-001",
+  "metric_name": "claim_grounding_check",
+  "output_fields": [
+    "grounding_status",
+    "claim_boundary"
+  ]
+}

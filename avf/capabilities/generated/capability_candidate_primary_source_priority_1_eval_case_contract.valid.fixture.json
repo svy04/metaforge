@@ -1,0 +1,10 @@
+{
+  "case_id": "eval-case-contract-valid-001",
+  "claim_boundary": "repo_local_contract_fixture_only",
+  "expected_behavior": "Return a claim-bounded summary tied to provided evidence.",
+  "input": "Summarize the repo-local artifact without making external claims.",
+  "success_criteria": [
+    "Uses only repo-local evidence",
+    "Does not call a provider"
+  ]
+}

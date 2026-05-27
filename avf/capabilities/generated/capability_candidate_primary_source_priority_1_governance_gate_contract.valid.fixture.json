@@ -1,0 +1,15 @@
+{
+  "blocked_actions": [
+    "dependency_install",
+    "runtime_integration",
+    "deploy",
+    "publish"
+  ],
+  "decision_boundary": "fixture only; no runtime approval granted",
+  "gate_id": "governance-gate-contract-valid-001",
+  "required_reviews": [
+    "schema_contract_review",
+    "protected_action_boundary_review"
+  ],
+  "risk_tier": "green"
+}

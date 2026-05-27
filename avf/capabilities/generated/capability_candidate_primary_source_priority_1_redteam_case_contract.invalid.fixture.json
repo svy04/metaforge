@@ -1,0 +1,7 @@
+{
+  "case_id": "redteam-case-contract-invalid-001",
+  "evidence_basis": "not-an-array",
+  "expected_refusal_or_guardrail": "Should fail fixture validation.",
+  "prompt_or_scenario": "Invalid because evidence_basis is not an array.",
+  "risk_category": "bad_evidence_basis_type"
+}

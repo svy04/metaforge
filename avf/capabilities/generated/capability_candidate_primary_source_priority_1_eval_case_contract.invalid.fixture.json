@@ -1,0 +1,8 @@
+{
+  "case_id": "eval-case-contract-invalid-001",
+  "expected_behavior": "This fixture should fail the schema contract.",
+  "input": "Missing claim boundary on purpose.",
+  "success_criteria": [
+    "Fails because claim_boundary is required"
+  ]
+}
