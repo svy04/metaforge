@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-pro-output-packet-template
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_pro_prompt_review_v0_1
+
+next_steps:
+  - Create a repo-local template for pasting GPT Pro primary-source YAML output
+  - Preserve all 7 capability candidates, 16 source target slots, and 12 required fields
+  - Keep output unaccepted until a review validator confirms owner/Pro-filled evidence
+  - Do not fetch external sources inside Codex, install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_pro_output_packet_template_v0_1
