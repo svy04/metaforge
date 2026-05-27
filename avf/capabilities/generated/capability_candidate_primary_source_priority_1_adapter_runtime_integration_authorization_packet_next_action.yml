@@ -1,0 +1,11 @@
+action_id: review-capability-candidate-primary-source-priority-1-adapter-runtime-integration-authorization-packet
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_authorization_packet_v0_1
+
+next_steps:
+  - Review the repo-local authorization packet before asking the owner to approve any protected action
+  - Confirm all requested runtime, tool, dependency, and external fetch actions remain not_granted
+  - Keep the review repo-local and non-executing
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_runtime_integration_authorization_packet_review_v0_1
