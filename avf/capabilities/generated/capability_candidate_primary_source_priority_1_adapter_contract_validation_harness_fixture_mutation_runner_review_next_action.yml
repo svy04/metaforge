@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-contract-validation-harness-acceptance-gate
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_fixture_mutation_runner_review_v0_1
+
+next_steps:
+  - Create a repo-local acceptance gate that consolidates schema fixtures, mutation runner results, and protected action boundaries
+  - Decide whether the no-install adapter contract validation harness is ready to feed a future adapter implementation plan
+  - Keep candidate tool imports, dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_v0_1
