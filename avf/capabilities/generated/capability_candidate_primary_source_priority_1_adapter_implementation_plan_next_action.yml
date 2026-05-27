@@ -1,0 +1,11 @@
+action_id: create-capability-candidate-primary-source-priority-1-adapter-scaffold
+owner_approval_required_before_execution: false
+goal_id: avf_capability_candidate_primary_source_priority_1_adapter_implementation_plan_v0_1
+
+next_steps:
+  - Create a repo-local adapter scaffold from the implementation plan without importing candidate tools
+  - Generate only local adapter boundary modules, normalizers, validation harness code, and evidence mapping
+  - Keep dependency installs, external fetches, runtime integration, deploy, publish, and readiness claims blocked
+  - Do not install dependencies, clone OSS, fetch external code, integrate runtime, deploy, publish, or claim readiness
+
+next_safe_goal_id: avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1

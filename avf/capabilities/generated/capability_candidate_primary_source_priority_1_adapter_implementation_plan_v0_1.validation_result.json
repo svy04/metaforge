@@ -1,0 +1,500 @@
+{
+  "all_fixture_result_count": 13,
+  "all_fixture_result_matched_expected_count": 13,
+  "baseline_fixture_result_count": 8,
+  "blocked_action_count": 10,
+  "candidate_id": "cap-eval-redteam-promptfoo-ragas",
+  "candidate_tool_import_allowed": false,
+  "candidate_tool_import_allowed_count": 0,
+  "claim_boundary": {
+    "automated_scraping_performed": false,
+    "collector_started": false,
+    "dependency_install_performed": false,
+    "deploy_performed": false,
+    "external_fetch_performed": false,
+    "external_service_calls_performed": false,
+    "live_model_calls_performed": false,
+    "oss_clone_performed": false,
+    "package_install_performed": false,
+    "posting_automation_performed": false,
+    "production_ready": false,
+    "protected_action_executed": false,
+    "provider_calls_performed": false,
+    "publish_performed": false,
+    "release_ready": false,
+    "runtime_export_performed": false,
+    "runtime_integration_performed": false,
+    "scraping_performed": false,
+    "telemetry_export_performed": false
+  },
+  "created_at": "2026-05-27T00:00:00Z",
+  "dependency_adoption_allowed": false,
+  "dependency_free": true,
+  "dependency_install_allowed": false,
+  "dependency_install_allowed_count": 0,
+  "dependency_install_performed": false,
+  "external_fetch_allowed": false,
+  "external_fetch_allowed_count": 0,
+  "external_fetch_performed": false,
+  "goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_implementation_plan_v0_1",
+  "implementation_task_count": 7,
+  "implementation_tasks": [
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Define repo-local adapter contract dataclasses and protected-action constants",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/adapter_contracts.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "adapter-contract-boundary-module",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan deterministic eval case record normalization without importing Promptfoo or Ragas",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "eval-case-record-normalizer",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan deterministic red-team case record normalization without importing Promptfoo or Ragas",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "redteam-case-record-normalizer",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan deterministic RAG metric record normalization without importing Promptfoo or Ragas",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "rag-metric-record-normalizer",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan deterministic governance gate record normalization without importing Promptfoo or Ragas",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/record_normalizers.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "governance-gate-record-normalizer",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan a local harness entrypoint over generated fixtures only",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/repo_local_validation_harness.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "repo-local-validation-harness-entrypoint",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    },
+    {
+      "acceptance_criteria": [
+        "Task remains repo-local and deterministic",
+        "Task does not import candidate tools or install dependencies",
+        "Task preserves claim boundaries and protected action flags"
+      ],
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": {
+        "automated_scraping_performed": false,
+        "collector_started": false,
+        "dependency_install_performed": false,
+        "deploy_performed": false,
+        "external_fetch_performed": false,
+        "external_service_calls_performed": false,
+        "live_model_calls_performed": false,
+        "oss_clone_performed": false,
+        "package_install_performed": false,
+        "posting_automation_performed": false,
+        "production_ready": false,
+        "protected_action_executed": false,
+        "provider_calls_performed": false,
+        "publish_performed": false,
+        "release_ready": false,
+        "runtime_export_performed": false,
+        "runtime_integration_performed": false,
+        "scraping_performed": false,
+        "telemetry_export_performed": false
+      },
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "goal": "Plan evidence ledger v2 mapping for scaffold output and validation reports",
+      "planned_file_targets": [
+        "avf/capabilities/adapters/priority_1/evidence_mapping.py"
+      ],
+      "runtime_integration_allowed": false,
+      "task_id": "evidence-ledger-v2-mapping",
+      "validation_commands": [
+        "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+        "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+      ]
+    }
+  ],
+  "input_uris": {
+    "adapter_contract_validation_harness_acceptance_gate_review_gate": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_review_gate.json"
+  },
+  "mutation_runner_result_count": 5,
+  "next_safe_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1",
+  "oss_clone_performed": false,
+  "plan_blocker_count": 0,
+  "plan_decision": "CREATE_REPO_LOCAL_NO_INSTALL_ADAPTER_IMPLEMENTATION_PLAN_FROM_REVIEWED_ACCEPTANCE_GATE",
+  "plan_status": "planned_for_repo_local_adapter_scaffold_not_runtime_or_dependency_ready",
+  "planned_file_target_count": 4,
+  "planned_file_targets": [
+    "avf/capabilities/adapters/priority_1/adapter_contracts.py",
+    "avf/capabilities/adapters/priority_1/record_normalizers.py",
+    "avf/capabilities/adapters/priority_1/repo_local_validation_harness.py",
+    "avf/capabilities/adapters/priority_1/evidence_mapping.py"
+  ],
+  "previous_goal_id": "avf_capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_review_v0_1",
+  "provider_neutral": true,
+  "ready_for_adapter_scaffold_count": 1,
+  "reviewed_acceptance_criteria": [
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "baseline-fixtures-match-expected",
+      "dependency_install_allowed": false,
+      "evidence_basis": "baseline_adapter_contract_validation_harness_runner_gate.fixture_validation_result_matched_expected_count=8",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "mutation-fixtures-remain-invalid",
+      "dependency_install_allowed": false,
+      "evidence_basis": "fixture_mutation_runner_review_gate.mutation_fixture_actual_invalid_count=5",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "mutation-runner-results-match-reviewed-outcomes",
+      "dependency_install_allowed": false,
+      "evidence_basis": "fixture_mutation_runner_review_gate.mutation_fixture_result_matched_expected_count=5",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "protected-actions-remain-blocked",
+      "dependency_install_allowed": false,
+      "evidence_basis": "claim_boundary flags remain false across baseline and mutation gates",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "candidate-runtime-remains-unimported",
+      "dependency_install_allowed": false,
+      "evidence_basis": "candidate_tool_import_allowed=false and runtime_integration_allowed=false",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    },
+    {
+      "acceptance_criterion_contract_validated": true,
+      "candidate_tool_import_allowed": false,
+      "claim_boundary": "repo_local_internal_only",
+      "criterion_id": "future-adapter-plan-requires-separate-gate",
+      "dependency_install_allowed": false,
+      "evidence_basis": "acceptance is limited to repo-local harness planning and does not permit dependency adoption",
+      "external_fetch_allowed": false,
+      "review_status": "reviewed_acceptance_criterion_matches_gate_outcome",
+      "runtime_integration_allowed": false,
+      "status": "PASS"
+    }
+  ],
+  "reviewed_acceptance_criteria_count": 6,
+  "reviewed_acceptance_criteria_passed_count": 6,
+  "runtime_integration_allowed": false,
+  "runtime_integration_allowed_count": 0,
+  "runtime_integration_performed": false,
+  "selection_allowed": false,
+  "source_contract_count": 4,
+  "source_contracts": [
+    {
+      "candidate_tool_import_allowed": false,
+      "contract_id": "eval-case-contract",
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "implementation_scope": "Normalize repo-local eval case records into the future adapter boundary",
+      "invalid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.invalid.fixture.json",
+      "runtime_integration_allowed": false,
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.schema.json",
+      "valid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_eval_case_contract.valid.fixture.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "contract_id": "redteam-case-contract",
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "implementation_scope": "Normalize repo-local red-team case records into the future adapter boundary",
+      "invalid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.invalid.fixture.json",
+      "runtime_integration_allowed": false,
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.schema.json",
+      "valid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_redteam_case_contract.valid.fixture.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "contract_id": "rag-metric-contract",
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "implementation_scope": "Normalize repo-local RAG metric records into the future adapter boundary",
+      "invalid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.invalid.fixture.json",
+      "runtime_integration_allowed": false,
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.schema.json",
+      "valid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_rag_metric_contract.valid.fixture.json"
+    },
+    {
+      "candidate_tool_import_allowed": false,
+      "contract_id": "governance-gate-contract",
+      "dependency_install_allowed": false,
+      "external_fetch_allowed": false,
+      "implementation_scope": "Normalize repo-local governance gate records into the future adapter boundary",
+      "invalid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.invalid.fixture.json",
+      "runtime_integration_allowed": false,
+      "schema_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.schema.json",
+      "valid_fixture_uri": "avf/capabilities/generated/capability_candidate_primary_source_priority_1_governance_gate_contract.valid.fixture.json"
+    }
+  ],
+  "source_schema_artifact_count": 4,
+  "status": "PASS",
+  "validated_artifacts": [
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_contract_validation_harness_acceptance_gate_review_gate.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_implementation_plan.json",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_implementation_plan_report.md",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_implementation_plan_next_action.yml",
+    "avf/capabilities/generated/capability_candidate_primary_source_priority_1_adapter_implementation_plan_v0_1.validation_result.json",
+    "docs/goals/AVF_CAPABILITY_CANDIDATE_PRIMARY_SOURCE_PRIORITY_1_ADAPTER_IMPLEMENTATION_PLAN_V0_1_REPORT.md"
+  ],
+  "validation_command_count": 3,
+  "validation_commands": [
+    "python scripts\\run_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+    "python scripts\\validate_avf_capability_candidate_primary_source_priority_1_adapter_scaffold_v0_1.py",
+    "python -m py_compile avf\\capabilities\\adapters\\priority_1\\adapter_contracts.py avf\\capabilities\\adapters\\priority_1\\record_normalizers.py avf\\capabilities\\adapters\\priority_1\\repo_local_validation_harness.py avf\\capabilities\\adapters\\priority_1\\evidence_mapping.py"
+  ],
+  "validator_id": "validate_avf_capability_candidate_primary_source_priority_1_adapter_implementation_plan_v0_1"
+}
