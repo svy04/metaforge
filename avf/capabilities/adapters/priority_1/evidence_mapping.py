@@ -21,6 +21,7 @@ def build_evidence_entries(normalized_records: list[dict]) -> list[dict]:
                 "validation_method": "deterministic_repo_local_normalization",
                 "validation_result": "PASS",
                 "normalized_record_id": record["record_id"],
+                "source_behavior_requirement_ids": record["behavior_requirement_ids"],
                 **blocked_capability_flags(),
             }
         )

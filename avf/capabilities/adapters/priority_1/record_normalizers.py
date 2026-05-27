@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from .adapter_contracts import (
+    BEHAVIOR_REQUIREMENTS_BY_CONTRACT,
     CANDIDATE_TOOL_IMPORT_ALLOWED,
     CONTRACT_ORDER,
     DEPENDENCY_INSTALL_ALLOWED,
     EXTERNAL_FETCH_ALLOWED,
     NORMALIZED_RECORD_TYPES,
     RECORD_ID_FIELDS,
+    REQUIRED_GOVERNANCE_BLOCKED_ACTIONS,
     RUNTIME_INTEGRATION_ALLOWED,
     blocked_capability_flags,
 )
@@ -24,30 +26,42 @@ def _reject_extra_keys(contract_id: str, record: dict, allowed: tuple[str, ...])
         raise ValueError(f"{contract_id} unexpected fields: {', '.join(extra)}")
 
 
+def _require_nonempty_string_list(contract_id: str, record: dict, key: str) -> None:
+    value = record[key]
+    if not isinstance(value, list) or not value or not all(isinstance(item, str) and item for item in value):
+        raise ValueError(f"{contract_id} {key} must be a non-empty string array")
+
+
 def validate_repo_local_fixture(contract_id: str, record: dict) -> None:
     if contract_id == "eval-case-contract":
         _require_keys(contract_id, record, ("case_id", "input", "expected_behavior", "success_criteria", "claim_boundary"))
-        if not isinstance(record["success_criteria"], list):
-            raise ValueError("eval-case-contract success_criteria must be an array")
+        _require_nonempty_string_list(contract_id, record, "success_criteria")
+        if not isinstance(record["claim_boundary"], str) or "repo_local" not in record["claim_boundary"]:
+            raise ValueError("eval-case-contract claim_boundary must remain repo_local")
         return
     if contract_id == "redteam-case-contract":
         _require_keys(contract_id, record, ("case_id", "prompt_or_scenario", "expected_refusal_or_guardrail", "risk_category", "evidence_basis"))
-        if not isinstance(record["evidence_basis"], list):
-            raise ValueError("redteam-case-contract evidence_basis must be an array")
+        _require_nonempty_string_list(contract_id, record, "evidence_basis")
         return
     if contract_id == "rag-metric-contract":
         allowed = ("metric_id", "metric_name", "input_fields", "output_fields", "interpretation_boundary")
         _require_keys(contract_id, record, allowed)
         _reject_extra_keys(contract_id, record, allowed)
-        if not isinstance(record["input_fields"], list) or not isinstance(record["output_fields"], list):
-            raise ValueError("rag-metric-contract input_fields and output_fields must be arrays")
+        _require_nonempty_string_list(contract_id, record, "input_fields")
+        _require_nonempty_string_list(contract_id, record, "output_fields")
+        interpretation_boundary = record["interpretation_boundary"]
+        if not isinstance(interpretation_boundary, str) or "no evaluator runtime" not in interpretation_boundary:
+            raise ValueError("rag-metric-contract interpretation_boundary must keep no evaluator runtime attached")
         return
     if contract_id == "governance-gate-contract":
         _require_keys(contract_id, record, ("gate_id", "risk_tier", "blocked_actions", "required_reviews", "decision_boundary"))
         if record["risk_tier"] not in {"green", "yellow", "red"}:
             raise ValueError("governance-gate-contract risk_tier must be green, yellow, or red")
-        if not isinstance(record["blocked_actions"], list) or not isinstance(record["required_reviews"], list):
-            raise ValueError("governance-gate-contract blocked_actions and required_reviews must be arrays")
+        _require_nonempty_string_list(contract_id, record, "blocked_actions")
+        _require_nonempty_string_list(contract_id, record, "required_reviews")
+        missing_blocked_actions = sorted(set(REQUIRED_GOVERNANCE_BLOCKED_ACTIONS) - set(record["blocked_actions"]))
+        if missing_blocked_actions:
+            raise ValueError(f"governance-gate-contract blocked_actions missing: {', '.join(missing_blocked_actions)}")
         return
     raise ValueError(f"unsupported contract_id: {contract_id}")
 
@@ -64,6 +78,7 @@ def normalize_repo_local_fixture(contract_id: str, record: dict) -> dict:
         "record_id": record[record_id_field],
         "normalized_record_type": NORMALIZED_RECORD_TYPES[contract_id],
         "source_fields": sorted(record.keys()),
+        "behavior_requirement_ids": list(BEHAVIOR_REQUIREMENTS_BY_CONTRACT[contract_id]),
         "repo_local_source_only": True,
         "claim_boundary": "repo_local_adapter_scaffold_only",
         "candidate_tool_import_allowed": CANDIDATE_TOOL_IMPORT_ALLOWED,

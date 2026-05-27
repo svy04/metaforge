@@ -30,6 +30,20 @@ NORMALIZED_RECORD_TYPES = {
     "governance-gate-contract": "governance_gate",
 }
 
+BEHAVIOR_REQUIREMENTS_BY_CONTRACT = {
+    "eval-case-contract": ("enforce-eval-claim-boundary-required",),
+    "redteam-case-contract": ("enforce-redteam-evidence-basis-list",),
+    "rag-metric-contract": ("reject-rag-runtime-hints",),
+    "governance-gate-contract": ("enforce-governance-risk_tier-enum",),
+}
+
+REQUIRED_GOVERNANCE_BLOCKED_ACTIONS = (
+    "dependency_install",
+    "runtime_integration",
+    "deploy",
+    "publish",
+)
+
 RECORD_ID_FIELDS = {
     "eval-case-contract": "case_id",
     "redteam-case-contract": "case_id",
