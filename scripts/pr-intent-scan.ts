@@ -382,11 +382,11 @@ export function getGitDiff(baseRef: string): string {
   const diff = spawnSync(
     'git',
     ['diff', '--unified=0', '--no-ext-diff', `${base}...HEAD`],
-    { encoding: 'utf8' },
+    { encoding: 'utf8', maxBuffer: 128 * 1024 * 1024 },
   )
 
   if (diff.status !== 0) {
-    throw new Error(`git diff failed: ${diff.stderr.trim() || diff.stdout.trim()}`)
+    throw new Error(`git diff failed: ${diff.error?.message ?? (diff.stderr.trim() || diff.stdout.trim().slice(0, 4000))}`)
   }
 
   return diff.stdout

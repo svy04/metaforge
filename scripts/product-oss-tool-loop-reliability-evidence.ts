@@ -122,8 +122,6 @@ const provenanceJsonlPath = 'reports/openclaude-oss-tool-loop-reliability-eviden
 const interruptionAndRepairEvidence = [
   'docs/product-quality/tool-interruption-recovery-trace-report.json',
   'docs/product-quality/protected-action-denial-trace-report.json',
-  'reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl',
-  'reports/orchestra-protected-action-denial-trace-local-fixture.jsonl',
 ]
 
 const redactionAndPortabilityEvidence = [
@@ -131,7 +129,6 @@ const redactionAndPortabilityEvidence = [
   'docs/product-quality/trace-schema-contract-report.json',
   'docs/product-quality/trace-portability-export-report.json',
   'docs/product-quality/trace-capture-redaction-policy-report.json',
-  'reports/openclaude-portable-trace-events.jsonl',
 ]
 
 function sha256(input: string | Buffer): string {
