@@ -215,3 +215,25 @@ Consequence:
 
 - `docs/EVALS.md` records EVAL-008 for source reconciliation.
 - `docs/MFH_META_SYNTHESIS.md` marks the import as evidence-aware rather than a green-completion claim.
+
+## D-012 - Adopt Mimesis Engineering as the Metaforge improvement loop
+
+Date: 2026-06-14
+Status: accepted
+
+Decision:
+
+Metaforge treats Mimesis Engineering as its source-first improvement loop: find proven artifacts, extract their load-bearing structure, adapt only the structure into Meta/MFH/Orchestra work, and keep claims bounded by local verification.
+
+Evidence:
+
+- `docs/RESEARCH_PIPELINE.md` already requires local-first, primary-source research.
+- `docs/avf/OSS_ASSIMILATION_PIPELINE.md` defines governed acquisition instead of copy-paste adoption.
+- `docs/research/mimesis-engineering-source-ledger-2026-06-14.md` records current product, OSS, paper, patent, and standards sources.
+- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-METHOD.md` and `MIMESIS-DEPLOYMENT-MAP.md` contain the freshest local Mimesis method and deployment boundary.
+
+Consequence:
+
+- README can market Mimesis Engineering as Metaforge's improvement engine.
+- Profile README refresh should be based on current public repos and Digital Factory evidence, not older public pages alone.
+- Mimesis claims remain proof-bounded: no production readiness, external validation, compliance, legal clearance, or universal-improvement claim.
