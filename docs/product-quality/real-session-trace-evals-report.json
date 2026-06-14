@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T17:09:22.974Z",
+  "generatedAt": "2026-06-14T17:42:19.303Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
   "traceFileCount": 13,
@@ -617,6 +617,12 @@
         "status": "not_present",
         "detail": "Usage trace kinds represented.",
         "protectedActionRequired": false
+      },
+      {
+        "id": "failed_terminal_outcome_coverage",
+        "status": "not_present",
+        "detail": "Failed terminal outcomes represented.",
+        "protectedActionRequired": false
       }
     ]
   },
@@ -669,7 +675,7 @@
     {
       "label": "coverage gaps are explicitly classified",
       "ok": true,
-      "detail": "4 gaps"
+      "detail": "5 gaps"
     },
     {
       "label": "coverage gaps do not require protected action",

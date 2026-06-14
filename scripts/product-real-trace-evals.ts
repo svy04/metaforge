@@ -226,6 +226,7 @@ function buildCoverageSummary(traces: TraceSummary[]): CoverageSummary {
   const classifiedCoverageGaps: CoverageGap[] = []
   const hasLiveTraceKind = traceKinds.some((kind) => kind.startsWith('live_') || kind === 'live_probe')
   const hasUsageTraceKind = traceKinds.some((kind) => kind.startsWith('usage_'))
+  const hasFailedTerminalOutcome = terminalOutcomes.includes('failed')
 
   if (roles.length < 2) {
     classifiedCoverageGaps.push(gap(
@@ -265,6 +266,16 @@ function buildCoverageSummary(traces: TraceSummary[]): CoverageSummary {
     ))
   } else {
     classifiedCoverageGaps.push(gap('usage_trace_kind_coverage', 'not_present', 'Usage trace kinds represented.'))
+  }
+
+  if (!hasFailedTerminalOutcome) {
+    classifiedCoverageGaps.push(gap(
+      'failed_terminal_outcome_coverage',
+      'classified_unresolved',
+      'Fresh local no-provider trace generation did not include failed terminal outcomes. Failure evidence remains covered by in-trace failed statuses until an explicitly generated failed terminal trace is added.',
+    ))
+  } else {
+    classifiedCoverageGaps.push(gap('failed_terminal_outcome_coverage', 'not_present', 'Failed terminal outcomes represented.'))
   }
 
   return {

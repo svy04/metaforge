@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-14T17:05:10.190Z",
+  "generatedAt": "2026-06-14T17:37:53.244Z",
   "mode": "local_no_provider_oss_architecture_absorption_targets",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
-  "sourceReviewReportSha256": "c03a3b6d356df14f931c129e3fd1ad153e92963133f485c1b9288ffd279a2573",
+  "sourceReviewReportSha256": "c3169e92f524929c6b0acfef6ad998afbace74768cfde275ee5b886f31d8ae9b",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
   "baselineSnapshotDate": "2026-05-21",
   "reviewedProjectCount": 10,
@@ -26,7 +26,7 @@
     "tool_loop_reliability"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-architecture-absorption-targets.jsonl",
-  "provenanceJsonlSha256": "9f34815a9c0f39e0443c344ccff73768db838bfaf95097809799c5f24fe4d1c6",
+  "provenanceJsonlSha256": "7a2d07bc513690c927d06a4a4c8cf7e2e84a390917a738b2b330b2ffb204e831",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -119,7 +119,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193783,
+      "stars": 193785,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "high",
       "sourceSignals": [
@@ -161,14 +161,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "bd83f1bb93f9378d007634fe1019c14c2b6f073499b617b38eae1c639e1a329e"
+      "recordDigest": "4c501321f6ea5d73f7ec5c17c0e55dbe01a7af283b036828e51288562df971b6"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174303,
+      "stars": 174304,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -210,14 +210,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "d0aceeb61c778aa910b1eef1d8343ebfc0866b5aefb80883a3eb100f00135e54"
+      "recordDigest": "d2686d9f5880aa4a6fb911009e45f3be02901006aef2cc7377cfdc9af9a011eb"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132353,
+      "stars": 132354,
       "targetStatus": "deferred_metadata_only_target",
       "priority": "deferred",
       "sourceSignals": [
@@ -259,14 +259,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "7ac5a74961ef30d7d53eb0f521f6b979cf74f4a7d44b8185f7ac9221fdfa7eb0"
+      "recordDigest": "a6d39f6e260b67b347851bd4e8f56b8dab613305b859f968a6bd30dc4381a712"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 4,
       "fullName": "google-gemini/gemini-cli",
       "sourceUrl": "https://github.com/google-gemini/gemini-cli",
-      "stars": 105274,
+      "stars": 105275,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -314,7 +314,7 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "e40103e1292a2e997dfee01839deb01a263226415040c43e9d33ce16102bc6ee"
+      "recordDigest": "82f002d8357f65866f4a7f76761ca1e1559864c7a574031508f2be457d933142"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
@@ -385,9 +385,11 @@
         "terminal-cli"
       ],
       "rootMarkers": [
-        "pyproject.toml"
+        "pyproject.toml",
+        "python"
       ],
       "absorptionAxes": [
+        "eval_and_quality_gates",
         "ide_or_editor_surface",
         "onboarding_docs",
         "privacy_and_no_phone_home",
@@ -417,14 +419,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "9cfbd626411c37759771d5631c5058d4f39acb6d14864a21752899daeb721d4b"
+      "recordDigest": "2387c3a49f70bf0ac9c287fbdef28ac58b5ea1574dcb72eb3b88d7663d4a3cd5"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64700,
+      "stars": 64701,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -474,7 +476,7 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "8159a4db46035367b1dcba853f492bd663ea7fc244b1f6bb98e057e478c695d2"
+      "recordDigest": "e414ed22d5b62bde7945c029c7705c3bec418719a07446456a3d515d87970ac9"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
@@ -533,7 +535,7 @@
       "rank": 9,
       "fullName": "cline/cline",
       "sourceUrl": "https://github.com/cline/cline",
-      "stars": 63270,
+      "stars": 63271,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -547,6 +549,7 @@
       "rootMarkers": [
         "apps",
         "bun.lock",
+        "cli",
         "package.json"
       ],
       "absorptionAxes": [
@@ -582,7 +585,7 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "d28218210628ce36f1c6f4b2a1d50020599d280408895f300c11cbd8682c157d"
+      "recordDigest": "7b5f6ea19dda0a8cb22b88963c0173e379717cc447a7cdc9296026291326c2e8"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
