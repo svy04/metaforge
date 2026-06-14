@@ -2,6 +2,8 @@
 
 # Metaforge
 
+[English](README.md) | [한국어](README.ko.md)
+
 Metaforge is a Meta/MFH/Orchestra operating system for governed-code execution.
 
 It turns owner intent into durable goals, routes work through Claude and Codex OAuth-backed agent paths, preserves operating memory in **Meta**, forces execution claims through **MFH** evidence gates, and uses **Orchestra** to plan, challenge, execute, review, and promote work.
