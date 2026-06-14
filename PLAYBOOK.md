@@ -1,6 +1,6 @@
-# OpenClaude Local Agent Playbook
+# Metaforge Runtime Playbook
 
-This playbook is a practical guide to run OpenClaude with a local model (Ollama), work safely, and get strong day-to-day results.
+This playbook is a practical guide to run the OpenClaude runtime substrate used by Metaforge with a local model (Ollama), work safely, and get strong day-to-day results.
 
 ## 1. What You Have
 
@@ -132,7 +132,7 @@ Cause:
 Fix:
 
 ```powershell
-cd C:\Users\Lucas Pedry\Documents\openclaude\openclaude
+cd <repo>
 bun run dev:profile
 ```
 

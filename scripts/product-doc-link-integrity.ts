@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
-import { dirname, normalize, resolve } from 'node:path'
+import { dirname, isAbsolute, normalize, relative, resolve } from 'node:path'
 
 type SourceInput = {
   sourceProject: string
@@ -91,6 +91,17 @@ function resolveLocalHref(sourcePath: string, href: string): string {
   return normalize(resolve(root, dirname(sourcePath), decoded))
 }
 
+function toReportPath(path: string): string {
+  const relativePath = relative(root, path)
+  if (relativePath === '') {
+    return '<repo>'
+  }
+  if (!relativePath.startsWith('..') && !isAbsolute(relativePath)) {
+    return `<repo>/${relativePath.replace(/\\/g, '/')}`
+  }
+  return '<outside-repo>'
+}
+
 function extractRelativeLinks(sourcePath: string): LinkCheck[] {
   const text = readText(sourcePath)
   const checks: LinkCheck[] = []
@@ -106,7 +117,7 @@ function extractRelativeLinks(sourcePath: string): LinkCheck[] {
       sourcePath,
       linkText,
       href,
-      resolvedPath,
+      resolvedPath: toReportPath(resolvedPath),
       ok: existsSync(resolvedPath),
     })
   }
