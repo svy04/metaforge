@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T18:14:33.715Z",
+  "generatedAt": "2026-06-14T18:48:24.770Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -57,9 +57,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "d88d2599725ba6f4115d6103769fcf27f5f037eed1998473d9f95b8ca0020d07",
-      "sizeBytes": 18859,
-      "lineCount": 270
+      "sha256": "1f6f7b0cd3e3401b734c5e8c88ec50b08a77934b850b63db88b0f5727df82b0f",
+      "sizeBytes": 19007,
+      "lineCount": 271
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -127,9 +127,9 @@
     {
       "path": "docs/product-quality/product-quality-gate.md",
       "exists": true,
-      "sha256": "be6072d4e5eff5e6e0bf2bdbab3701031e68d8c9ca30c06f13a8189b103dcc89",
-      "sizeBytes": 36246,
-      "lineCount": 204
+      "sha256": "c78e17c9dbff87044ef8bfcdca64705fbd72f8261c597c97607b51a799cc4752",
+      "sizeBytes": 36643,
+      "lineCount": 206
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -153,6 +153,13 @@
       "lineCount": 74
     },
     {
+      "path": "docs/product-quality/github-remote-surface-audit-report.md",
+      "exists": true,
+      "sha256": "8375729762880fa727f2aba034cc554577cc0db5f7cac3769d2e9962ca43ca8e",
+      "sizeBytes": 3144,
+      "lineCount": 64
+    },
+    {
       "path": "docs/MIMESIS_ENGINEERING.md",
       "exists": true,
       "sha256": "46a9c6e4d38da07a263d868b412a2b0ab68390cf8d7d560dc518e0efb86582d3",
@@ -162,20 +169,20 @@
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
       "exists": true,
-      "sha256": "35dea91f2a7d0f880d1fc41d4695318dd5f168dcb66b77f959059c9bfb2698ed",
-      "sizeBytes": 11126,
-      "lineCount": 131
+      "sha256": "410be448c3d3bd2ad53696d5b5cf0bb2a0f845bc183f7694b611472f0d09a245",
+      "sizeBytes": 13071,
+      "lineCount": 138
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
       "exists": true,
-      "sha256": "20c58074f9e8b5868554a4f87fb6f64114510cfe671e03fab02e311a9b8fe5fd",
-      "sizeBytes": 5077,
-      "lineCount": 44
+      "sha256": "b57c776b75daad81c1e645849aaa43ba92ac8e45ee3c49f1267bacb669927e89",
+      "sizeBytes": 6583,
+      "lineCount": 50
     }
   ],
-  "publicSurfaceCount": 22,
-  "scannedLineCount": 3605,
+  "publicSurfaceCount": 23,
+  "scannedLineCount": 3685,
   "blockedContextClaimMentionCount": 13,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -197,7 +204,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 203,
+      "line": 205,
       "phrase": "release ready",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -205,7 +212,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 203,
+      "line": 205,
       "phrase": "external validation completed",
       "category": "external_validation",
       "status": "blocked_context",
@@ -213,7 +220,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 203,
+      "line": 205,
       "phrase": "superior to top 10",
       "category": "superiority",
       "status": "blocked_context",
@@ -269,7 +276,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 114,
+      "line": 120,
       "phrase": "production ready",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -277,7 +284,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 115,
+      "line": 121,
       "phrase": "external validation completed",
       "category": "external_validation",
       "status": "blocked_context",
@@ -287,7 +294,7 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "57e0d94e4d7802c105bc8d1c4bd0677bb1d36cd2103bb6d82ce371ce7027dfda",
+  "scanJsonlSha256": "5401e0209d5b0f355a86ef79238eb92a634b8f84de863e8a61d12e785eb8da86",
   "scanJsonlRecordCount": 13,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -314,12 +321,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "22 surfaces"
+      "detail": "23 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "3605 lines"
+      "detail": "3685 lines"
     },
     {
       "label": "unauthorized positive claims are absent",

@@ -15,9 +15,9 @@ No authorization is granted by this file. Every protected authorization below de
 - third_party_direct_dependencies_covered_by_metadata: `true`
 - third_party_direct_license_file_missing_packages: `@growthbook/growthbook,emoji-regex,ignore,react-compiler-runtime,type-fest`
 - third_party_notice_file_present_count: `0`
-- source_scanned_file_count: `2447`
+- source_scanned_file_count: `2450`
 - source_files_with_spdx_license_identifier_count: `1`
-- source_files_missing_file_level_metadata_count: `2446`
+- source_files_missing_file_level_metadata_count: `2449`
 - reuse_toml_present: `false`
 - licenses_directory_present: `false`
 - derived_code_boundary_recognized: `true`

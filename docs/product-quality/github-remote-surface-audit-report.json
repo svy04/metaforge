@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-06-14T18:48:31.042Z",
+  "mode": "github_public_remote_surface_audit",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub REST Pull Requests API",
+      "sourceUrl": "https://docs.github.com/en/rest/pulls/pulls",
+      "observedPattern": "Open pull requests and their head branches are public review surfaces and should be inventoried before claiming a repository is clean."
+    },
+    {
+      "sourceProject": "Git git-ls-remote",
+      "sourceUrl": "https://git-scm.com/docs/git-ls-remote",
+      "observedPattern": "Remote refs should be listed by ref name and object ID as the public branch inventory, not inferred from the local default branch only."
+    },
+    {
+      "sourceProject": "GitHub Secret Scanning",
+      "sourceUrl": "https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning",
+      "observedPattern": "Secret hygiene claims should distinguish current-tree local scans from full-history hosted secret scanning and alert status."
+    },
+    {
+      "sourceProject": "Gitleaks",
+      "sourceUrl": "https://github.com/gitleaks/gitleaks",
+      "observedPattern": "Security findings are strongest when they are rule-addressed and tied to Git refs, files, and lines."
+    },
+    {
+      "sourceProject": "Playwright Trace Viewer",
+      "sourceUrl": "https://playwright.dev/docs/trace-viewer",
+      "observedPattern": "Browser traces, DOM snapshots, network logs, videos, console output, and generated reports are data-bearing artifacts and should be blocked from public refs unless intentionally published."
+    },
+    {
+      "sourceProject": "OWASP Full Path Disclosure",
+      "sourceUrl": "https://owasp.org/www-community/attacks/Full_Path_Disclosure",
+      "observedPattern": "Absolute local paths are disclosure risks and should be scanned as privacy findings on public repository surfaces."
+    }
+  ],
+  "defaultBranch": "main",
+  "remoteHeads": [
+    {
+      "oid": "858a6d34563ef53d9bfc6e814a55813b967f132a",
+      "name": "main"
+    }
+  ],
+  "remoteHeadCount": 1,
+  "openPullRequests": [],
+  "openPullRequestCount": 0,
+  "allowedOpenPrHeadBranches": [],
+  "refScans": [
+    {
+      "refName": "main",
+      "patternFindings": [],
+      "treeFindings": []
+    }
+  ],
+  "blockers": [],
+  "blockerCount": 0,
+  "status": "no_public_github_surface_findings_detected",
+  "discovery": {
+    "gitFetchPerformed": true,
+    "remoteHeadDiscovery": "git_ls_remote",
+    "openPullRequestDiscovery": "gh_cli"
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "externalCallsPerformed": [
+    "git_ls_remote",
+    "gh_cli"
+  ],
+  "evidenceChecks": [
+    {
+      "label": "default branch is present in remote heads",
+      "ok": true,
+      "detail": "main"
+    },
+    {
+      "label": "remote heads were inventoried",
+      "ok": true,
+      "detail": "1 heads"
+    },
+    {
+      "label": "open PR discovery is usable when non-default branches exist",
+      "ok": true,
+      "detail": "gh_cli"
+    },
+    {
+      "label": "unexpected stale remote branches are absent",
+      "ok": true,
+      "detail": "0 findings"
+    },
+    {
+      "label": "private local path and token patterns are absent from scanned public refs",
+      "ok": true,
+      "detail": "0 findings"
+    },
+    {
+      "label": "browser capture artifacts are absent from scanned public refs",
+      "ok": true,
+      "detail": "0 findings"
+    },
+    {
+      "label": "provider and live model calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero protected actions"
+    }
+  ],
+  "claimBoundary": "This public GitHub surface audit inventories remote refs and open PR heads for privacy/security blockers only. It does not claim full GitHub secret-scanning alert status, full-history credential cleanliness, release readiness, production readiness, or external validation."
+}
