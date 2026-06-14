@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-14T18:45:33.448Z",
+  "generatedAt": "2026-06-14T21:59:03.058Z",
   "mode": "local_no_provider_agent_instructions_quality",
   "sourceAgentInstructionsPath": "AGENTS.md",
-  "sourceAgentInstructionsSha256": "b473e1081a6937b8d7aba3737603fef8c6b2a8ce88bf18c8f78420204122f738",
+  "sourceAgentInstructionsSha256": "c5cbdcd814b8ed94fa1f5c21d875bcc959bad872d028824d847ad93c7a42b02e",
   "sourcePackageJsonPath": "package.json",
-  "sourcePackageJsonSha256": "1f6f7b0cd3e3401b734c5e8c88ec50b08a77934b850b63db88b0f5727df82b0f",
+  "sourcePackageJsonSha256": "9b7f122be0fb4edeaa35102ac73f0e96fb4a4dc519c2d6cc64713ec4418f0a6d",
   "sourceWorkflowPaths": [
     ".github/workflows/pr-checks.yml",
     ".github/workflows/codeql.yml",
@@ -57,6 +57,11 @@
   "primarySourceRulePresent": true,
   "verificationStandardPresent": true,
   "protectedBoundaryLanguagePresent": true,
+  "publicInstructionLineCount": 135,
+  "publicInstructionMaxLines": 220,
+  "privateMemoryDumpPresent": false,
+  "stalePublicModelLockPresent": false,
+  "localPathLeakPresent": false,
   "claimBoundary": "Agent instruction quality evidence only; this does not authorize release, production, public, external-validation, or autonomous-reliability claims.",
   "releaseReadinessClaimAllowed": false,
   "productionReadinessClaimAllowed": false,
@@ -118,6 +123,26 @@
       "label": "protected boundary language remains explicit",
       "ok": true,
       "detail": "protected boundary / readiness claim"
+    },
+    {
+      "label": "AGENTS.md stays concise for public readers",
+      "ok": true,
+      "detail": "135/220 lines"
+    },
+    {
+      "label": "AGENTS.md excludes private memory dumps",
+      "ok": true,
+      "detail": "present=false"
+    },
+    {
+      "label": "AGENTS.md excludes stale public model-lock lines",
+      "ok": true,
+      "detail": "present=false"
+    },
+    {
+      "label": "AGENTS.md excludes local user paths",
+      "ok": true,
+      "detail": "present=false"
     },
     {
       "label": "provider live external calls remain absent",

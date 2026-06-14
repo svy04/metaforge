@@ -18,6 +18,7 @@ const targetRoots = [
   'docs',
   'reports',
   'README.md',
+  'README.ko.md',
   'AGENTS.md',
   'PLAYBOOK.md',
   'package.json',
