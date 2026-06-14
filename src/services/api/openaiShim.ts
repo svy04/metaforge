@@ -10,7 +10,7 @@
  *
  * Environment variables:
  *   CLAUDE_CODE_USE_OPENAI=1          — enable this provider
- *   OPENAI_API_KEY=sk-...             — API key (optional for local models)
+ *   OPENAI_API_KEY=<openai-api-key>   — API key (optional for local models)
  *   OPENAI_BASE_URL=http://...        — base URL (default: https://api.openai.com/v1)
  *   OPENAI_MODEL=gpt-4o              — default model override
  *   CODEX_API_KEY / ~/.codex/auth.json — Codex auth for codexplan/codexspark
