@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-14T16:56:44.407Z",
+  "generatedAt": "2026-06-14T17:09:23.543Z",
   "mode": "local_no_provider_trace_portability_export",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceRealTraceEvalReportSha256": "c6e29e426d48fe79ec81e5995942239a75fef0424710e1aa2ab9688e17a257c7",
+  "sourceRealTraceEvalReportSha256": "72b8b458e3c5d716469a491a70512717b9e949a04b2625760e6e69ee44bd55de",
   "sourceTraceSchemaContractReportPath": "docs/product-quality/trace-schema-contract-report.json",
-  "sourceTraceSchemaContractReportSha256": "4476933ea280f61317558cdd6729b9c0ab23918dfdfad8ce98ca8b2b122baa17",
+  "sourceTraceSchemaContractReportSha256": "d722d68404f05d779afcfc97801fabd39a1e3df06f00795c527d79698418449d",
   "portableTraceExportPath": "reports/openclaude-portable-trace-events.jsonl",
   "portableTraceExportSha256": "5d2d689868b31cce963cc4540027b0d1d7471b8c55215c1265fe0bdabd8bad81",
   "sourceTraceCount": 13,
@@ -153,7 +153,7 @@
     {
       "label": "portable export normalizes historical gaps without raw mutation",
       "ok": true,
-      "detail": "13 synthesized"
+      "detail": "13 synthesized for 13 source gap events"
     },
     {
       "label": "portable export contains no credential patterns",

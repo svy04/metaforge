@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-14T16:52:27.815Z",
+  "generatedAt": "2026-06-14T17:05:10.472Z",
   "mode": "local_no_provider_oss_architecture_gap_review",
   "sourceTargetsReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-  "sourceTargetsReportSha256": "59ece2a857757415651c9d90de4cbc0933da9c36284f31ccd1ca7eea89c00181",
+  "sourceTargetsReportSha256": "c6e123fffd3032cbc26d97744355db82983ccc4cefbb680fd93b32e15424ed80",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
   "baselineSnapshotDate": "2026-05-21",
   "targetRecordCount": 10,
@@ -22,9 +22,9 @@
     "tool_loop_reliability"
   ],
   "safeInternalActionCount": 29,
-  "protectedBoundaryGapCount": 89,
+  "protectedBoundaryGapCount": 88,
   "provenanceJsonlPath": "reports/openclaude-oss-architecture-gap-review.jsonl",
-  "provenanceJsonlSha256": "ee45be894efc9dbe60354886c36ee7638c4583c1bb84c98667f4b16860de5d3c",
+  "provenanceJsonlSha256": "6cc357a80f7102b60f8b0e4d5f48be601d1f8aa83cdc725b4f8e7330488f269e",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -81,7 +81,7 @@
     {
       "label": "protected boundary gaps remain explicit",
       "ok": true,
-      "detail": "89 protected gaps"
+      "detail": "88 protected gaps"
     },
     {
       "label": "every gap record blocks claims and shortcuts",
@@ -889,7 +889,6 @@
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "absorptionAxes": [
-        "eval_and_quality_gates",
         "ide_or_editor_surface",
         "onboarding_docs",
         "privacy_and_no_phone_home",
@@ -904,21 +903,6 @@
         "terminal-cli"
       ],
       "openClaudeEvidence": [
-        {
-          "axis": "eval_and_quality_gates",
-          "currentLocalEvidence": [
-            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-            "docs/product-quality/product-quality-gate.md",
-            "docs/product-quality/benchmark-readiness-matrix.json",
-            "docs/product-quality/local-benchmark-harness-report.json",
-            "docs/product-quality/benchmark-submission-readiness-report.json",
-            "docs/product-quality/terminal-bench-readiness-report.json",
-            "docs/product-quality/verification-report-consistency-report.json",
-            "docs/product-quality/quality-blocker-taxonomy-report.json"
-          ],
-          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
-          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
-        },
         {
           "axis": "ide_or_editor_surface",
           "currentLocalEvidence": [
@@ -1011,7 +995,6 @@
         "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
       ],
       "protectedActionsStillRequired": [
-        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
         "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
         "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
         "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
@@ -1028,7 +1011,7 @@
         "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
       ],
       "claimAllowed": false,
-      "recordDigest": "21354704aa3c40d4a7b2b1cc55e2a2bc83c17162da62a82292849abc3ca41f49"
+      "recordDigest": "5b53610961069b08b4beb95ebb9135cc796446582dfc2af2c9a292b5d5de69e9"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_gap_review_v1",

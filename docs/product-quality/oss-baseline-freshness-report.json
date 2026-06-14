@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-14T16:52:13.055Z",
+  "generatedAt": "2026-06-14T17:05:03.721Z",
   "mode": "local_no_provider_oss_baseline_freshness",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-  "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+  "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
   "baselineSnapshotDate": "2026-05-21",
   "validationDate": "2026-05-21",
   "baselineAgeDays": 0,
@@ -24,7 +24,7 @@
   "licensesArePresent": true,
   "collectionMethodMentionsGitHubMetadata": true,
   "provenanceJsonlPath": "reports/openclaude-oss-baseline-provenance.jsonl",
-  "provenanceJsonlSha256": "78bc3364a655e9fec4c58013718e44b87fc51df71cefa3bb1729176025b369c3",
+  "provenanceJsonlSha256": "67390841ee1d4f3a870626d659dfd986a8e0fc7432cbcfc7ebe5519e325015ea",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "primarySourceInputs": [
@@ -70,12 +70,12 @@
     {
       "label": "baseline stars are positive integers",
       "ok": true,
-      "detail": "ultraworkers/claw-code:193781,anomalyco/opencode:174289,anthropics/claude-code:132349,google-gemini/gemini-cli:105272,openai/codex:90990,OpenHands/OpenHands:77025,nexu-io/open-design:64688,openinterpreter/openinterpreter:63950,cline/cline:63267,warpdotdev/warp:61709"
+      "detail": "ultraworkers/claw-code:193783,anomalyco/opencode:174303,anthropics/claude-code:132353,google-gemini/gemini-cli:105274,openai/codex:90992,OpenHands/OpenHands:77029,nexu-io/open-design:64700,openinterpreter/openinterpreter:63950,cline/cline:63270,warpdotdev/warp:61710"
     },
     {
       "label": "baseline is sorted by stars descending",
       "ok": true,
-      "detail": "193781,174289,132349,105272,90990,77025,64688,63950,63267,61709"
+      "detail": "193783,174303,132353,105274,90992,77029,64700,63950,63270,61710"
     },
     {
       "label": "baseline source URLs are GitHub repositories",
@@ -137,112 +137,112 @@
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
-      "stars": 193781,
+      "stars": 193783,
       "license": "MIT",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceUrlSha256": "34a4b761bdf0a331beeb247af120822e9dff6bdafcafd849e02f82896b43ed32",
       "positioning": "An agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex — developed and maintained with no human intervention.",
-      "recordDigest": "7a11fd4092e278b1bdabf28283b78f0116e6003bc68b3de576f3396dcf883861"
+      "recordDigest": "2bbb94005ea39a52eaef465848eaeee0354ed0649398a52ce29e2555acce8759"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 2,
       "fullName": "anomalyco/opencode",
-      "stars": 174289,
+      "stars": 174303,
       "license": "MIT",
       "sourceUrl": "https://github.com/anomalyco/opencode",
       "sourceUrlSha256": "ffccace0ba14fd154d902639a2f95b1ae1083081bc9a5e17e891a557c23f7895",
       "positioning": "The open source coding agent.",
-      "recordDigest": "d7bdd4a7c0dad17c075378a432a63e1619d25ab4959cd498004cd1ecacd4eb72"
+      "recordDigest": "c69bad13ebfc46e0048d26c70bf77697eb29a4e6dfbf5259175fc6b7c709cf8e"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 3,
       "fullName": "anthropics/claude-code",
-      "stars": 132349,
+      "stars": 132353,
       "license": "NOASSERTION",
       "sourceUrl": "https://github.com/anthropics/claude-code",
       "sourceUrlSha256": "13d96f6971fff698ebc53296b5f40ff14d755c304dc9f7e1b703b58e032f85a9",
       "positioning": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
-      "recordDigest": "2c231b5c94d68df194a71d3888a8ff3f1eedcbfacd68835cdeda79898dd6022d"
+      "recordDigest": "ba4902bbcebe20c820e705bd6348b5544f4729904ba6591ab609180de1f7088a"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 4,
       "fullName": "google-gemini/gemini-cli",
-      "stars": 105272,
+      "stars": 105274,
       "license": "Apache-2.0",
       "sourceUrl": "https://github.com/google-gemini/gemini-cli",
       "sourceUrlSha256": "24684c1ecca249c03e58e0d0192c9742b89e48498c3a1fac970d4d5c34874232",
       "positioning": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-      "recordDigest": "63585e24cee0beaa2331884209144eebee83f9265d9f8c199d7dacbc24acf0da"
+      "recordDigest": "29b033fbed06238d86d9cfd78993ab15cb411d8ec9d54219e234e380eb7f65b5"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 5,
       "fullName": "openai/codex",
-      "stars": 90990,
+      "stars": 90992,
       "license": "Apache-2.0",
       "sourceUrl": "https://github.com/openai/codex",
       "sourceUrlSha256": "8c3dc2a0187cafccea2a84cdfe601e19b505d4faad42c77c2b39a3214738e26a",
       "positioning": "Lightweight coding agent that runs in your terminal",
-      "recordDigest": "0135923bc2a811c5c0931657517644c22031e191849827b654369f8750426166"
+      "recordDigest": "ef965accea50e6930e8e47094d27c151ffe9dbff19d7d2b7b4a1390549d12582"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 6,
       "fullName": "OpenHands/OpenHands",
-      "stars": 77025,
+      "stars": 77029,
       "license": "NOASSERTION",
       "sourceUrl": "https://github.com/OpenHands/OpenHands",
       "sourceUrlSha256": "b5a44c85aa7745855c3c27ebaa7594c7fa33936b25ef7640bcba63dec1eb4d07",
       "positioning": "🙌 OpenHands: AI-Driven Development",
-      "recordDigest": "26c3743eb09139ec155d8d3f7025881c24d6fced09778d73d0e7b386280c6ade"
+      "recordDigest": "aa4a19b1f5c15f6674dabe2acd94955d53bba504e7b9ebf90333a2fa29a83514"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 7,
       "fullName": "nexu-io/open-design",
-      "stars": 64688,
+      "stars": 64700,
       "license": "Apache-2.0",
       "sourceUrl": "https://github.com/nexu-io/open-design",
       "sourceUrlSha256": "d8ff876dfb1eadf08a100b53f794ef54a69e7b476b1a3a841ca2e4b21264a13d",
       "positioning": "🎨 Local-first, open-source Claude Design alternative. 🖥️ Native desktop app. ⚡ 259+ Skills · ✨ 142+ Design Systems 🖼️ Web · desktop · mobile prototypes · slides · images · videos · HyperFrames 📦 Sandboxed preview · HTML/PDF/PPTX/MP4 export 🤖 Claude Code / OpenClaw / Codex / Cursor / OpenCode / Qwen / Copilot / Hermes / Kimi & 17+ CLIs.",
-      "recordDigest": "27d3f7175f5aa00a800900dfa956f067421e9d952361de5d77ed98e65caccf6e"
+      "recordDigest": "41173d780c3fbfd3e9b4113baee2a0c5755355c8444369f4746bdfb3f083627a"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 8,
@@ -252,37 +252,37 @@
       "sourceUrl": "https://github.com/openinterpreter/openinterpreter",
       "sourceUrlSha256": "517eac85218e64f63ff749bf39909786c8c1c654289b4c66507163605e77e589",
       "positioning": "A lightweight coding agent for open models like Deepseek, Kimi, and Qwen",
-      "recordDigest": "3c611cb98c065a0c2c67b5bcf3607b277feeb2f315b73bfe17e4b3384270297b"
+      "recordDigest": "c2c72e24bf64a8d57382a35dcd19f3962f26e7aac082c5f894cd04b4fbfa78ae"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 9,
       "fullName": "cline/cline",
-      "stars": 63267,
+      "stars": 63270,
       "license": "Apache-2.0",
       "sourceUrl": "https://github.com/cline/cline",
       "sourceUrlSha256": "533d51d9d3dea76fea8f38c7c4188ed836e7a2c7bf3e5eecbce4faf7a9860e2c",
       "positioning": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant.",
-      "recordDigest": "618fa2d7bc49db9eeaeea443c9a2c6a7c9f7f3d29663fb1399666bef14221302"
+      "recordDigest": "0eb3b196195c0b9b4da026789cd4c8124392ad32f9ef8ed165bbf1d7db838848"
     },
     {
       "schemaVersion": "openclaude_oss_baseline_provenance_v1",
       "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
+      "sourceBaselineSha256": "f66a7ef5d4447dbec75db96c9e38dfc0bcf25458e0108106bf1c5f4074f57842",
       "baselineSnapshotDate": "2026-05-21",
       "validationDate": "2026-05-21",
       "rank": 10,
       "fullName": "warpdotdev/warp",
-      "stars": 61709,
+      "stars": 61710,
       "license": "AGPL-3.0",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceUrlSha256": "099e989fc2964fad28578aa9b272c023808f72aef73abd44d437f412d0d9bdd5",
       "positioning": "Warp is an agentic development environment, born out of the terminal.",
-      "recordDigest": "7d7943e88e465f6cb355c3193fff24f957bfa3b4b606ab82ee5beffb60e092d2"
+      "recordDigest": "71e828ce5304a48b736a611bc1911a98d97966eec4438fda57c0fb9fe503bcc8"
     }
   ],
   "claimBoundary": "OSS baseline freshness is local no-provider validation of a refreshed GitHub top-10 snapshot for internal planning only. It does not refresh GitHub data, call providers, call live models, call external services, install dependencies, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."
