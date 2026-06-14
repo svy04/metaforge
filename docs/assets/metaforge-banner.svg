@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Metaforge README banner</title>
+  <desc id="desc">A dark animated banner for Metaforge showing Meta memory, the MFH evidence gate, and a proof line over the OpenClaude runtime.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05070b"/>
+      <stop offset="46%" stop-color="#0c111b"/>
+      <stop offset="100%" stop-color="#02040a"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="48%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101827"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+    <radialGradient id="heat" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#f97316" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="hardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .title {
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 92px;
+        font-weight: 900;
+        letter-spacing: 0;
+        fill: #f8fafc;
+      }
+
+      .tagline {
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 31px;
+        font-weight: 760;
+        letter-spacing: 0;
+        fill: #cbd5e1;
+      }
+
+      .micro {
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 2.4px;
+        fill: #67e8f9;
+      }
+
+      .label {
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 1.6px;
+        fill: #dbeafe;
+      }
+
+      .small {
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+        fill: #94a3b8;
+      }
+
+      .ledger {
+        stroke: #334155;
+        stroke-width: 1;
+        opacity: 0.18;
+      }
+
+      .flow {
+        stroke: url(#ember);
+        stroke-width: 8;
+        stroke-linecap: round;
+        fill: none;
+        stroke-dasharray: 78 330;
+        animation: flow 3.2s linear infinite;
+      }
+
+      .flowBack {
+        stroke: #1e293b;
+        stroke-width: 3;
+        stroke-linecap: round;
+        fill: none;
+      }
+
+      .nodePulse {
+        animation: pulse 3.2s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .nodePulseDelay {
+        animation: pulse 3.2s ease-in-out infinite;
+        animation-delay: 1.05s;
+        transform-origin: center;
+      }
+
+      .proofPulse {
+        animation: proofPulse 3.2s ease-in-out infinite;
+        animation-delay: 2.1s;
+        transform-origin: center;
+      }
+
+      .gateBars {
+        animation: gate 3.2s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .heat {
+        animation: heat 3.2s ease-in-out infinite;
+      }
+
+      .scan {
+        animation: scan 3.2s linear infinite;
+      }
+
+      @keyframes flow {
+        from { stroke-dashoffset: 390; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.82; }
+        42% { transform: scale(1.06); opacity: 1; }
+      }
+
+      @keyframes proofPulse {
+        0%, 100% { transform: scale(1); opacity: 0.85; }
+        68% { transform: scale(1.1); opacity: 1; }
+      }
+
+      @keyframes gate {
+        0%, 100% { transform: scaleX(0.78); opacity: 0.72; }
+        48%, 62% { transform: scaleX(1.1); opacity: 1; }
+      }
+
+      @keyframes heat {
+        0%, 100% { opacity: 0.32; }
+        45% { opacity: 0.72; }
+      }
+
+      @keyframes scan {
+        from { transform: translateX(-220px); opacity: 0; }
+        20% { opacity: 0.45; }
+        70% { opacity: 0.25; }
+        to { transform: translateX(980px); opacity: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .nodePulse, .nodePulseDelay, .proofPulse, .gateBars, .heat, .scan {
+          animation: none;
+        }
+      }
+    </style>
+  </defs>
+
+  <rect width="1600" height="520" rx="0" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1600" height="520" fill="#020617" opacity="0.18"/>
+
+  <g opacity="0.65">
+    <path class="ledger" d="M72 92 H1518"/>
+    <path class="ledger" d="M72 164 H1518"/>
+    <path class="ledger" d="M72 236 H1518"/>
+    <path class="ledger" d="M72 308 H1518"/>
+    <path class="ledger" d="M72 380 H1518"/>
+    <path class="ledger" d="M72 452 H1518"/>
+    <path class="ledger" d="M160 50 V476"/>
+    <path class="ledger" d="M328 50 V476"/>
+    <path class="ledger" d="M496 50 V476"/>
+    <path class="ledger" d="M664 50 V476"/>
+    <path class="ledger" d="M832 50 V476"/>
+    <path class="ledger" d="M1000 50 V476"/>
+    <path class="ledger" d="M1168 50 V476"/>
+    <path class="ledger" d="M1336 50 V476"/>
+    <path class="ledger" d="M1504 50 V476"/>
+  </g>
+
+  <g filter="url(#hardShadow)">
+    <rect x="58" y="60" width="1484" height="400" rx="46" fill="#08111f" opacity="0.86" stroke="#1e293b" stroke-width="2"/>
+  </g>
+
+  <g class="heat">
+    <circle cx="202" cy="257" r="178" fill="url(#heat)"/>
+    <circle cx="1268" cy="270" r="240" fill="#22d3ee" opacity="0.08"/>
+  </g>
+
+  <g transform="translate(102 143)">
+    <rect x="0" y="0" width="148" height="148" rx="28" fill="#08111f" stroke="#fb923c" stroke-width="3"/>
+    <path d="M74 25 L121 111 H27 Z" fill="none" stroke="#fb923c" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M52 112 H96" stroke="#22d3ee" stroke-width="10" stroke-linecap="round"/>
+    <path d="M74 25 L74 76" stroke="#f59e0b" stroke-width="7" stroke-linecap="round" opacity="0.75"/>
+  </g>
+
+  <g transform="translate(292 0)">
+    <text x="0" y="218" class="title">METAFORGE</text>
+    <text x="4" y="267" class="tagline">Meta remembers. MFH proves.</text>
+    <text x="6" y="312" class="micro">META MEMORY / MFH GATE / OPENCLAUDE RUNTIME</text>
+  </g>
+
+  <g transform="translate(875 122)">
+    <path class="flowBack" d="M0 138 C110 48 205 47 290 138 S474 229 584 138"/>
+    <path class="flow" d="M0 138 C110 48 205 47 290 138 S474 229 584 138"/>
+
+    <g transform="translate(-8 72)" class="nodePulse">
+      <circle cx="64" cy="64" r="54" fill="#0f172a" stroke="#fb923c" stroke-width="3"/>
+      <circle cx="64" cy="64" r="22" fill="#fb923c" filter="url(#softGlow)"/>
+      <text x="29" y="135" class="label">META</text>
+      <text x="20" y="158" class="small">MEMORY</text>
+    </g>
+
+    <g transform="translate(252 72)" class="nodePulseDelay">
+      <rect x="10" y="10" width="108" height="108" rx="22" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+      <g class="gateBars">
+        <path d="M40 35 V93" stroke="#f59e0b" stroke-width="9" stroke-linecap="round"/>
+        <path d="M88 35 V93" stroke="#22d3ee" stroke-width="9" stroke-linecap="round"/>
+      </g>
+      <text x="40" y="135" class="label">MFH</text>
+      <text x="16" y="158" class="small">GATE</text>
+    </g>
+
+    <g transform="translate(520 72)" class="proofPulse">
+      <circle cx="64" cy="64" r="54" fill="#0f172a" stroke="#22d3ee" stroke-width="3"/>
+      <path d="M64 27 L96 64 L64 101 L32 64 Z" fill="#22d3ee" opacity="0.92" filter="url(#softGlow)"/>
+      <text x="21" y="135" class="label">PROOF</text>
+      <text x="8" y="158" class="small">EVIDENCE</text>
+    </g>
+  </g>
+
+  <g transform="translate(914 382)" opacity="0.95">
+    <rect x="0" y="0" width="430" height="42" rx="21" fill="#020617" stroke="#1e293b"/>
+    <path class="scan" d="M36 22 H210" stroke="#67e8f9" stroke-width="3" stroke-linecap="round"/>
+    <text x="28" y="27" class="small">market -> strategy -> factory -> evidence -> adaptation</text>
+  </g>
+
+  <g opacity="0.62">
+    <path d="M120 382 H616" stroke="#334155" stroke-width="2"/>
+    <path d="M120 405 H546" stroke="#334155" stroke-width="2"/>
+    <path d="M120 428 H678" stroke="#334155" stroke-width="2"/>
+    <path d="M120 382 H246" stroke="#fb923c" stroke-width="2"/>
+    <path d="M120 405 H332" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M120 428 H286" stroke="#f59e0b" stroke-width="2"/>
+  </g>
+</svg>
