@@ -2,26 +2,47 @@
 
 # Metaforge
 
-Metaforge is a governed-code operating system built on an OpenClaude runtime layer.
+Metaforge is a Meta/MFH/Orchestra operating system for governed-code execution.
 
-OpenClaude supplies the terminal-first CLI substrate: prompts, tools, agents, MCP, slash commands, streaming output, and provider routing across cloud and local models. The product gravity sits above that runtime: **Meta** preserves operator memory and strategic context, while **MFH** turns execution claims into evidence gates.
+It turns owner intent into durable goals, routes work through Claude and Codex OAuth-backed agent paths, preserves operating memory in **Meta**, forces execution claims through **MFH** evidence gates, and uses **Orchestra** to plan, challenge, execute, review, and promote work.
+
+OpenClaude is the local CLI substrate Metaforge currently rides on. It provides the terminal UX, tools, MCP, slash commands, streaming output, provider routing, and credential surfaces; Metaforge is the operating layer above it.
 
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 [![Release](https://img.shields.io/github/v/tag/svy04/metaforge?label=release&color=0ea5e9)](https://github.com/svy04/metaforge/tags)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-[Quick Start](#quick-start) | [Setup Guides](#setup-guides) | [Providers](#supported-providers) | [Source Build](#source-build-and-local-development) | [VS Code Extension](#vs-code-extension) | [Community](#community)
+[Operating Layers](#operating-layers) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
-## Why OpenClaude
+## Why Metaforge
 
-- Use one CLI across cloud APIs and local model backends
-- Save provider profiles inside the app with `/provider`
-- Run with OpenAI-compatible services, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported providers
-- Keep coding-agent workflows in one place: bash, file tools, grep, glob, agents, tasks, MCP, and web tools
-- Use the bundled VS Code extension for launch integration and theme support
+- Treat the owner as the strategic governor, not the technical bottleneck.
+- Keep durable context, source ledgers, decisions, and operator boundaries in Meta.
+- Run Claude and Codex through OAuth-backed routes when credentials are present.
+- Let Orchestra split work across planner, skeptic, implementer, shadow review, cross-review, evidence arbiter, and human gate roles.
+- Make MFH-style evidence gates the condition for closure: tests, reports, source reconciliation, claim boundaries, and rollback notes.
+- Use OpenClaude as the local terminal runtime instead of making OpenClaude the product center.
+
+## Operating Layers
+
+| Layer | Role |
+| --- | --- |
+| Meta | Operator memory, decisions, raw/wiki source records, approval boundaries |
+| Goal Kernel | Durable goal hierarchy, success criteria, non-goals, validation commands, pause and rollback rules |
+| Orchestra | Claude/Codex agent routing, planning, critique, shadow execution, cross-review, evidence arbitration, promotion |
+| MFH | Governed-code gate for drift, state, evidence, closure, release claims, and false-completion prevention |
+| OpenClaude runtime | Local CLI substrate for tools, MCP, slash commands, provider profiles, streaming, and credential-backed model routes |
+
+## Claude And Codex Routes
+
+Metaforge can use Claude and Codex as execution engines inside Orchestra. Claude routes can support planner, skeptic, and review roles through Claude OAuth when available. Codex routes can support visible execution and implementation roles through Codex OAuth, Codex CLI auth, OpenClaude secure storage, or environment credentials.
+
+These routes are engines, not the product center. The operating contract remains Meta for memory, Orchestra for work routing, and MFH for evidence-gated closure.
 
 ## Quick Start
+
+The current Metaforge runtime ships through the OpenClaude CLI package while the Meta/MFH/Orchestra operating layer continues to harden.
 
 ### Install
 
@@ -37,7 +58,7 @@ If the install later reports `ripgrep not found`, install ripgrep system-wide an
 openclaude
 ```
 
-Inside OpenClaude:
+Inside the runtime:
 
 - run `/provider` for guided provider setup and saved profiles
 - run `/onboard-github` for GitHub Models onboarding
@@ -109,20 +130,21 @@ Advanced and source-build guides:
 - [Advanced Setup](docs/advanced-setup.md)
 - [Android Install](ANDROID_INSTALL.md)
 
-## Supported Providers
+## Runtime Routes
 
-| Provider | Setup Path | Notes |
+| Route | Setup Path | Notes |
 | --- | --- | --- |
+| Claude OAuth | built-in auth flow | Enables Claude-native roles when OAuth credentials are present |
+| Codex OAuth | `/provider` | Opens ChatGPT sign-in in your browser and stores Codex credentials securely |
+| Codex | `/provider` | Uses existing Codex CLI auth, OpenClaude secure storage, or env credentials |
 | OpenAI-compatible | `/provider` or env vars | Works with OpenAI, OpenRouter, DeepSeek, Groq, Mistral, LM Studio, and other compatible `/v1` servers |
 | Gemini | `/provider` or env vars | Supports API key, access token, or local ADC workflow on current `main` |
 | GitHub Models | `/onboard-github` | Interactive onboarding with saved credentials |
-| Codex OAuth | `/provider` | Opens ChatGPT sign-in in your browser and stores Codex credentials securely |
-| Codex | `/provider` | Uses existing Codex CLI auth, OpenClaude secure storage, or env credentials |
 | Ollama | `/provider`, env vars, or `ollama launch` | Local inference with no API key |
 | Atomic Chat | `/provider`, env vars, or `bun run dev:atomic-chat` | Local Model Provider; auto-detects loaded models |
 | Bedrock / Vertex / Foundry | env vars | Additional provider integrations for supported environments |
 
-## What Works
+## Runtime Capabilities
 
 - **Tool-driven coding workflows**: Bash, file read/write/edit, grep, glob, agents, tasks, MCP, and slash commands
 - **Streaming responses**: Real-time token output and tool progress
@@ -131,20 +153,30 @@ Advanced and source-build guides:
 - **Provider profiles**: Guided setup plus saved `.openclaude-profile.json` support
 - **Local and remote model backends**: Cloud APIs, local servers, and Apple Silicon local inference
 
+## Evidence Gates
+
+Metaforge treats closure as a measured state, not an agent self-report. MFH-style gates require a goal to carry success criteria, non-goals, validation commands, evidence artifacts, claim boundaries, and rollback or pause rules before stronger completion claims are made.
+
+- Goal contracts live in [docs/GOAL_SCHEMA.md](docs/GOAL_SCHEMA.md)
+- Meta/MFH import boundaries live in [docs/MFH_META_SYNTHESIS.md](docs/MFH_META_SYNTHESIS.md)
+- Orchestra runtime roles live in [docs/AGENT_REGISTRY.md](docs/AGENT_REGISTRY.md)
+- Public claim boundaries are checked with `bun run product:public-claim-boundary`
+- Runtime privacy boundaries are checked with `bun run verify:privacy`
+
 ## Provider Notes
 
-OpenClaude supports multiple providers, but behavior is not identical across all of them.
+The OpenClaude runtime supports multiple providers, but behavior is not identical across all of them.
 
 - Anthropic-specific features may not exist on other providers
 - Tool quality depends heavily on the selected model
 - Smaller local models can struggle with long multi-step tool flows
-- Some providers impose lower output caps than the CLI defaults, and OpenClaude adapts where possible
+- Some providers impose lower output caps than the CLI defaults, and the runtime adapts where possible
 
 For best results, use models with strong tool/function calling support.
 
 ## Agent Routing
 
-OpenClaude can route different agents to different models through settings-based routing. This is useful for cost optimization or splitting work by model strength.
+Metaforge uses the OpenClaude runtime's settings-based routing to send different agents to different models. This is the practical substrate for Orchestra roles such as planner, skeptic, implementer, reviewer, and fallback worker.
 
 Add to `~/.claude/settings.json`:
 
@@ -180,7 +212,7 @@ By default, `WebSearch` works on non-Anthropic models using DuckDuckGo. This giv
 
 > **Note:** DuckDuckGo fallback works by scraping search results and may be rate-limited, blocked, or subject to DuckDuckGo's Terms of Service. If you want a more reliable supported option, configure Firecrawl.
 
-For Anthropic-native backends and Codex responses, OpenClaude keeps the native provider web search behavior.
+For Anthropic-native backends and Codex responses, the runtime keeps the native provider web search behavior.
 
 `WebFetch` works, but its basic HTTP plus HTML-to-markdown path can still fail on JavaScript-rendered sites or sites that block plain HTTP requests.
 
@@ -201,7 +233,7 @@ Free tier at [firecrawl.dev](https://firecrawl.dev) includes 500 credits. The ke
 
 ## Headless gRPC Server
 
-OpenClaude can be run as a headless gRPC service, allowing you to integrate its agentic capabilities (tools, bash, file editing) into other applications, CI/CD pipelines, or custom user interfaces. The server uses bidirectional streaming to send real-time text chunks, tool calls, and request permissions for sensitive commands.
+The OpenClaude runtime can be run as a headless gRPC service, allowing you to integrate its agentic capabilities (tools, bash, file editing) into other applications, CI/CD pipelines, or custom user interfaces. The server uses bidirectional streaming to send real-time text chunks, tool calls, and request permissions for sensitive commands.
 
 ### 1. Start the gRPC Server
 
@@ -253,7 +285,7 @@ Helpful commands:
 
 ## Testing And Coverage
 
-OpenClaude uses Bun's built-in test runner for unit tests.
+The runtime uses Bun's built-in test runner for unit tests.
 
 Run the full unit suite:
 
