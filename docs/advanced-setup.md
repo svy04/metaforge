@@ -39,7 +39,7 @@ bun run dev
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-...
+export OPENAI_API_KEY=<openai-api-key>
 export OPENAI_MODEL=gpt-4o
 ```
 
@@ -66,7 +66,7 @@ openclaude
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-...
+export OPENAI_API_KEY=<deepseek-api-key>
 export OPENAI_BASE_URL=https://api.deepseek.com/v1
 export OPENAI_MODEL=deepseek-chat
 ```
@@ -75,7 +75,7 @@ export OPENAI_MODEL=deepseek-chat
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-or-...
+export OPENAI_API_KEY=<openrouter-api-key>
 export OPENAI_BASE_URL=https://openrouter.ai/api/v1
 export OPENAI_MODEL=google/gemini-2.0-flash-001
 ```
@@ -132,7 +132,7 @@ export OPENAI_MODEL=your-model-name
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=...
+export OPENAI_API_KEY=<together-api-key>
 export OPENAI_BASE_URL=https://api.together.xyz/v1
 export OPENAI_MODEL=meta-llama/Llama-3.3-70B-Instruct-Turbo
 ```
@@ -141,7 +141,7 @@ export OPENAI_MODEL=meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=gsk_...
+export OPENAI_API_KEY=<groq-api-key>
 export OPENAI_BASE_URL=https://api.groq.com/openai/v1
 export OPENAI_MODEL=llama-3.3-70b-versatile
 ```
@@ -150,7 +150,7 @@ export OPENAI_MODEL=llama-3.3-70b-versatile
 
 ```bash
 export CLAUDE_CODE_USE_MISTRAL=1
-export MISTRAL_API_KEY=...
+export MISTRAL_API_KEY=<mistral-api-key>
 export MISTRAL_MODEL=mistral-large-latest
 ```
 

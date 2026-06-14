@@ -25,11 +25,11 @@ npm install -g @gitlawb/openclaude
 
 ### Option A: OpenAI
 
-Replace `sk-your-key-here` with your real key.
+Replace `<openai-api-key>` with your real key.
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-your-key-here
+export OPENAI_API_KEY=<openai-api-key>
 export OPENAI_MODEL=gpt-4o
 
 openclaude
@@ -39,7 +39,7 @@ openclaude
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=sk-your-key-here
+export OPENAI_API_KEY=<deepseek-api-key>
 export OPENAI_BASE_URL=https://api.deepseek.com/v1
 export OPENAI_MODEL=deepseek-chat
 
