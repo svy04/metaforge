@@ -11,6 +11,8 @@ Status: evidence packet for a profile README rewrite
 - Updated description: `Metaforge · Mimesis Engineering · proof-bounded AI operating systems`
 - README update commit: `9ff27401ca4c38ed1b55ea4c8480c72496b3bd03`
 - Content blob SHA after update: `dcfb6f6026174e9daad25b29bf8170dd09a1546a`
+- Proof-pack link update commit: `7c4672a3a4797729d98a6ae161004fef49f0529b`
+- Content blob SHA after proof-pack link update: `b3e9c8fca04a83a8b17226f1e9028db998f16404`
 
 ## Current Profile README Finding
 
@@ -86,3 +88,5 @@ I work on Mimesis Engineering: importing proven product, paper, patent, OSS, and
 - Done: avoided private repository links in the public profile README.
 - Done: GitHub contents API update returned commit SHA `9ff27401ca4c38ed1b55ea4c8480c72496b3bd03`.
 - Done: GitHub API readback confirmed `# 오영웅 · svy04`, `Building **Metaforge**...`, and `## Current Focus`.
+- Done: second profile update linked the Metaforge public proof pack from `## Start Here`.
+- Done: GitHub contents API update returned commit SHA `7c4672a3a4797729d98a6ae161004fef49f0529b`.
