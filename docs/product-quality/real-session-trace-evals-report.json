@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T16:42:15.843Z",
+  "generatedAt": "2026-06-14T16:56:43.342Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
   "traceFileCount": 13,
@@ -605,6 +605,18 @@
         "status": "not_present",
         "detail": "17 models represented.",
         "protectedActionRequired": false
+      },
+      {
+        "id": "live_trace_kind_coverage",
+        "status": "not_present",
+        "detail": "Live trace kinds represented.",
+        "protectedActionRequired": false
+      },
+      {
+        "id": "usage_trace_kind_coverage",
+        "status": "not_present",
+        "detail": "Usage trace kinds represented.",
+        "protectedActionRequired": false
       }
     ]
   },
@@ -645,7 +657,7 @@
       "detail": "failed,started,succeeded"
     },
     {
-      "label": "live and usage trace kinds are represented",
+      "label": "live and usage trace kind gaps are represented or classified",
       "ok": true,
       "detail": "fixture_user_executor_session,implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,live_adaptive_probe,live_probe,live_sidequery_probe,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture,usage_cli_probe,usage_repl_probe"
     },
@@ -657,7 +669,7 @@
     {
       "label": "coverage gaps are explicitly classified",
       "ok": true,
-      "detail": "2 gaps"
+      "detail": "4 gaps"
     },
     {
       "label": "coverage gaps do not require protected action",
