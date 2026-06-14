@@ -1,20 +1,19 @@
 {
-  "generatedAt": "2026-05-21T14:10:49.139Z",
+  "generatedAt": "2026-06-14T14:07:27.670Z",
   "mode": "local_no_provider_oss_terminal_workflow_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+  "sourceSafeBacklogPlanReportSha256": "21bf74ed442533b60a3ac2df82788a9d7a6cdba845a13494d8f7b9e99c37e92b",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "terminal_workflow",
-  "sourcePlanItemCount": 6,
-  "evidenceItemCount": 6,
+  "sourcePlanItemCount": 4,
+  "evidenceItemCount": 4,
   "sourceProjects": [
-    "ruvnet/ruflo",
     "ultraworkers/claw-code",
     "warpdotdev/warp"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-terminal-workflow-evidence.jsonl",
-  "provenanceJsonlSha256": "1225071bb0a8aa098dedb42edba20e33cd4d9d2ba0133641e2889a4a58f1e83e",
-  "provenanceJsonlRecordCount": 6,
+  "provenanceJsonlSha256": "77deef638dd5b4baccad3be75f93e20fd72182b9e7a90928ccd26608edef2ac7",
+  "provenanceJsonlRecordCount": 4,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -30,12 +29,6 @@
   "externalValidationClaimAllowed": false,
   "autonomousReliabilityClaimAllowed": false,
   "primarySourceInputs": [
-    {
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "observedPattern": "Terminal workflow quality should bind first-run, failure recovery, doctor handoff, command hashes, and no-provider boundaries before stronger claims are made.",
-      "localAbsorption": "Convert terminal_workflow backlog items into a source-hash-addressed terminal workflow evidence matrix."
-    },
     {
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
@@ -62,31 +55,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
+          "sha256": "38bd14eae0f548c56ea1a0f6b6e2e8e339d0bee9075c69761d442f844586387a",
+          "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
+          "sha256": "2ef4042d549280fa811e242d525b86b0f50dc66441e3a2c0424453d46859d4fb",
           "sizeBytes": 10901
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+          "sha256": "a588f2903959cfb8248047e3639d337a6a3f8e4fb51d7a842d83741ff43782ef",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+          "sha256": "d6d52c62ea851376c7ba9b055d5ac251bf11c4ebd724ab3ce9dd02b2e70915ae",
           "sizeBytes": 15705
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
+          "sha256": "6ab11808fc7fdcf91bdab7ca3ca0233c6181cc3591d0525b8da908598c225f5a",
           "sizeBytes": 6797
         }
       ],
@@ -130,31 +123,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
+          "sha256": "38bd14eae0f548c56ea1a0f6b6e2e8e339d0bee9075c69761d442f844586387a",
+          "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
+          "sha256": "2ef4042d549280fa811e242d525b86b0f50dc66441e3a2c0424453d46859d4fb",
           "sizeBytes": 10901
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+          "sha256": "a588f2903959cfb8248047e3639d337a6a3f8e4fb51d7a842d83741ff43782ef",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+          "sha256": "d6d52c62ea851376c7ba9b055d5ac251bf11c4ebd724ab3ce9dd02b2e70915ae",
           "sizeBytes": 15705
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
+          "sha256": "6ab11808fc7fdcf91bdab7ca3ca0233c6181cc3591d0525b8da908598c225f5a",
           "sizeBytes": 6797
         }
       ],
@@ -198,31 +191,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
+          "sha256": "38bd14eae0f548c56ea1a0f6b6e2e8e339d0bee9075c69761d442f844586387a",
+          "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
+          "sha256": "2ef4042d549280fa811e242d525b86b0f50dc66441e3a2c0424453d46859d4fb",
           "sizeBytes": 10901
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+          "sha256": "a588f2903959cfb8248047e3639d337a6a3f8e4fb51d7a842d83741ff43782ef",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+          "sha256": "d6d52c62ea851376c7ba9b055d5ac251bf11c4ebd724ab3ce9dd02b2e70915ae",
           "sizeBytes": 15705
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
+          "sha256": "6ab11808fc7fdcf91bdab7ca3ca0233c6181cc3591d0525b8da908598c225f5a",
           "sizeBytes": 6797
         }
       ],
@@ -266,167 +259,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
+          "sha256": "38bd14eae0f548c56ea1a0f6b6e2e8e339d0bee9075c69761d442f844586387a",
+          "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
+          "sha256": "2ef4042d549280fa811e242d525b86b0f50dc66441e3a2c0424453d46859d4fb",
           "sizeBytes": 10901
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+          "sha256": "a588f2903959cfb8248047e3639d337a6a3f8e4fb51d7a842d83741ff43782ef",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+          "sha256": "d6d52c62ea851376c7ba9b055d5ac251bf11c4ebd724ab3ce9dd02b2e70915ae",
           "sizeBytes": 15705
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
-          "sizeBytes": 6797
-        }
-      ],
-      "requiredCoverageBeforeClaim": [
-        "local first-run transcript evidence with command and output hashes",
-        "local failure-recovery transcript evidence with command and output hashes",
-        "local doctor handoff transcript evidence with command and output hashes",
-        "explicit no-provider and no-external-call boundary fields",
-        "explicit owner authorization before non-synthetic session, external benchmark, public comparison, superiority, release, production, external-validation, or autonomous-reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "terminal_workflow_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "nonSyntheticUserSessionClaimAllowed": false,
-      "externalBenchmarkSessionClaimAllowed": false,
-      "publicComparisonClaimAllowed": false,
-      "superiorityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_terminal_workflow_ruvnet_ruflo_6d2822d3b4",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_1_cc460e30d2",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "terminal_workflow",
-      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
-      "transcriptCoverageClass": "first_run_failure_recovery_doctor_handoff",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-          "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
-        },
-        {
-          "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-          "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
-          "sizeBytes": 10901
-        },
-        {
-          "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-          "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
-          "sizeBytes": 5630
-        },
-        {
-          "path": "docs/product-quality/onboarding-smoke-report.json",
-          "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
-          "sizeBytes": 15705
-        },
-        {
-          "path": "docs/product-quality/real-session-capture-report.json",
-          "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
-          "sizeBytes": 6797
-        }
-      ],
-      "requiredCoverageBeforeClaim": [
-        "local first-run transcript evidence with command and output hashes",
-        "local failure-recovery transcript evidence with command and output hashes",
-        "local doctor handoff transcript evidence with command and output hashes",
-        "explicit no-provider and no-external-call boundary fields",
-        "explicit owner authorization before non-synthetic session, external benchmark, public comparison, superiority, release, production, external-validation, or autonomous-reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "terminal_workflow_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "nonSyntheticUserSessionClaimAllowed": false,
-      "externalBenchmarkSessionClaimAllowed": false,
-      "publicComparisonClaimAllowed": false,
-      "superiorityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_terminal_workflow_ruvnet_ruflo_ea499ffa4f",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_2_eb63ebed9a",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "terminal_workflow",
-      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
-      "transcriptCoverageClass": "command_hash_no_provider_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-          "exists": true,
-          "sha256": "51af0e0d58d65d82acc24e34557d7b8ae3008a1f133285210ef333139814e932",
-          "sizeBytes": 24015
-        },
-        {
-          "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-          "exists": true,
-          "sha256": "77ac5b92ff17c0ef314e9f8449e623b5662c4cd10ab14f5eb5e5eb37ce4ffc93",
-          "sizeBytes": 10901
-        },
-        {
-          "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-          "exists": true,
-          "sha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
-          "sizeBytes": 5630
-        },
-        {
-          "path": "docs/product-quality/onboarding-smoke-report.json",
-          "exists": true,
-          "sha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
-          "sizeBytes": 15705
-        },
-        {
-          "path": "docs/product-quality/real-session-capture-report.json",
-          "exists": true,
-          "sha256": "62ffafad63d48fa3da38459af9633e4c2de76edbf5f1ea406b5698f3e56eadcb",
+          "sha256": "6ab11808fc7fdcf91bdab7ca3ca0233c6181cc3591d0525b8da908598c225f5a",
           "sizeBytes": 6797
         }
       ],
@@ -473,7 +330,7 @@
     {
       "label": "selected terminal workflow axis has source items",
       "ok": true,
-      "detail": "6/6"
+      "detail": "4/4"
     },
     {
       "label": "source next gate candidate exists",
@@ -483,7 +340,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "30 bindings"
+      "detail": "20 bindings"
     },
     {
       "label": "coverage includes transcript and command-hash classes",
@@ -493,12 +350,12 @@
     {
       "label": "every evidence item rejects claim expansion",
       "ok": true,
-      "detail": "6 items"
+      "detail": "4 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "6/6"
+      "detail": "4/4"
     }
   ],
   "claimBoundary": "Internal no-provider terminal workflow evidence only; not a non-synthetic user-session capture, external benchmark run, public comparison, superiority claim, release readiness claim, production readiness claim, external validation claim, public readiness claim, or autonomous reliability claim."

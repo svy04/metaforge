@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T03:03:39.613Z",
+  "generatedAt": "2026-06-14T14:09:58.353Z",
   "mode": "local_no_provider_trace_graded_agent_replay_evals",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -139,7 +139,7 @@
         {
           "label": "workspace git status classified",
           "ok": true,
-          "detail": "blocked_by_no_git_repo"
+          "detail": "git_repo_detected"
         },
         {
           "label": "commit push not attempted",
@@ -290,13 +290,13 @@
         },
         {
           "label": "real Extension Development Host was launched",
-          "ok": true,
-          "detail": "real_vscode_extension_development_host; blockers="
+          "ok": false,
+          "detail": "real_vscode_extension_development_host; blockers=vscode_update_in_progress"
         },
         {
           "label": "VS Code startup was not environment-blocked",
-          "ok": true,
-          "detail": ""
+          "ok": false,
+          "detail": "vscode_update_in_progress"
         },
         {
           "label": "VS Code extension test process exited successfully",
@@ -305,18 +305,18 @@
         },
         {
           "label": "extension activated in real host",
-          "ok": true,
-          "detail": "true"
+          "ok": false,
+          "detail": "false"
         },
         {
           "label": "manifest commands registered in real host",
-          "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+          "ok": false,
+          "detail": ""
         },
         {
           "label": "manifest commands executed in real host",
-          "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+          "ok": false,
+          "detail": ""
         },
         {
           "label": "install publish deploy product launch not attempted",
@@ -330,12 +330,12 @@
         },
         {
           "label": "host smoke checks passed",
-          "ok": true,
+          "ok": false,
           "detail": "11 checks"
         }
       ],
-      "score": 1,
-      "passed": true
+      "score": 0.4,
+      "passed": false
     },
     {
       "id": "ide_extension_workbench_smoke_replay",
@@ -361,13 +361,13 @@
         },
         {
           "label": "real Extension Development Host was launched",
-          "ok": true,
-          "detail": "real_vscode_extension_development_host; blockers="
+          "ok": false,
+          "detail": "real_vscode_extension_development_host; blockers=vscode_update_in_progress"
         },
         {
           "label": "VS Code startup was not environment-blocked",
-          "ok": true,
-          "detail": ""
+          "ok": false,
+          "detail": "vscode_update_in_progress"
         },
         {
           "label": "VS Code workbench smoke process exited successfully",
@@ -376,33 +376,33 @@
         },
         {
           "label": "extension activated in real host",
-          "ok": true,
-          "detail": "true"
+          "ok": false,
+          "detail": "false"
         },
         {
           "label": "contributed views have registered tree views",
-          "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "ok": false,
+          "detail": ""
         },
         {
           "label": "contributed views have tree data providers",
-          "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "ok": false,
+          "detail": ""
         },
         {
           "label": "contributed views were revealed/focused",
-          "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "ok": false,
+          "detail": ""
         },
         {
           "label": "contributed views expose non-empty items",
-          "ok": true,
-          "detail": "{\"openclaude.chatView\":2,\"openclaude.traceEvidenceView\":2}"
+          "ok": false,
+          "detail": "{\"openclaude.chatView\":0,\"openclaude.traceEvidenceView\":0}"
         },
         {
           "label": "tree item commands executed in real host",
-          "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection / failed="
+          "ok": false,
+          "detail": " / failed="
         },
         {
           "label": "install publish deploy product launch not attempted",
@@ -416,12 +416,12 @@
         },
         {
           "label": "workbench smoke checks passed",
-          "ok": true,
+          "ok": false,
           "detail": "15 checks"
         }
       ],
-      "score": 1,
-      "passed": true
+      "score": 0.308,
+      "passed": false
     },
     {
       "id": "ide_extension_webview_render_smoke_replay",
@@ -679,8 +679,8 @@
     },
     {
       "label": "all replay scenarios passed threshold",
-      "ok": true,
-      "detail": "12/12"
+      "ok": false,
+      "detail": "10/12"
     },
     {
       "label": "minimum score is strict enough",

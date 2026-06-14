@@ -1653,7 +1653,16 @@ async function attemptNpmUninstall(
   return { success: false } // Package not found, not an error
 }
 
-export async function cleanupNpmInstallations(): Promise<{
+type CleanupNpmInstallationsOptions = {
+  attemptNpmUninstall?: typeof attemptNpmUninstall
+  removeLocalInstallDir?: (path: string) => Promise<void>
+  configHomeDir?: string
+  homeDir?: string
+}
+
+export async function cleanupNpmInstallations(
+  options: CleanupNpmInstallationsOptions = {},
+): Promise<{
   removed: number
   errors: string[]
   warnings: string[]
@@ -1661,9 +1670,11 @@ export async function cleanupNpmInstallations(): Promise<{
   const errors: string[] = []
   const warnings: string[] = []
   let removed = 0
+  const uninstallPackage = options.attemptNpmUninstall ?? attemptNpmUninstall
+  const removeLocalInstallDir = options.removeLocalInstallDir ?? (path => rm(path, { recursive: true }))
 
   // Always attempt to remove @anthropic-ai/claude-code
-  const codePackageResult = await attemptNpmUninstall(
+  const codePackageResult = await uninstallPackage(
     '@anthropic-ai/claude-code',
   )
   if (codePackageResult.success) {
@@ -1677,7 +1688,7 @@ export async function cleanupNpmInstallations(): Promise<{
 
   // Also attempt to remove MACRO.PACKAGE_URL if it's defined and different
   if (MACRO.PACKAGE_URL && MACRO.PACKAGE_URL !== '@anthropic-ai/claude-code') {
-    const macroPackageResult = await attemptNpmUninstall(MACRO.PACKAGE_URL)
+    const macroPackageResult = await uninstallPackage(MACRO.PACKAGE_URL)
     if (macroPackageResult.success) {
       removed++
       if (macroPackageResult.warning) {
@@ -1690,12 +1701,15 @@ export async function cleanupNpmInstallations(): Promise<{
 
   // Preserve compatibility with pre-migration installs under ~/.claude/local.
   const localInstallDirs = Array.from(
-    new Set([join(getClaudeConfigHomeDir(), 'local'), join(homedir(), '.claude', 'local')]),
+    new Set([
+      join(options.configHomeDir ?? getClaudeConfigHomeDir(), 'local'),
+      join(options.homeDir ?? homedir(), '.claude', 'local'),
+    ]),
   )
 
   for (const localInstallDir of localInstallDirs) {
     try {
-      await rm(localInstallDir, { recursive: true })
+      await removeLocalInstallDir(localInstallDir)
       removed++
       logForDebugging(`Removed local installation at ${localInstallDir}`)
     } catch (error) {

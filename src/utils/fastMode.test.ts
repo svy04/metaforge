@@ -1,6 +1,26 @@
 import { afterEach, describe, expect, mock, test } from 'bun:test'
 
+import * as actualStateModule from '../bootstrap/state.js'
+import * as actualAnalyticsModule from '../services/analytics/index.js'
+import * as actualAuthModule from './auth.js'
+import * as actualBundledModeModule from './bundledMode.js'
+import * as actualConfigModule from './config.js'
+import * as actualDebugModule from './debug.js'
+import * as actualEnvUtilsModule from './envUtils.js'
+import * as actualPrivacyLevelModule from './privacyLevel.js'
+
 const originalEnv = { ...process.env }
+
+function restoreProcessEnv(): void {
+  for (const key of Object.keys(process.env)) {
+    if (!(key in originalEnv)) {
+      delete process.env[key]
+    }
+  }
+  for (const [key, value] of Object.entries(originalEnv)) {
+    process.env[key] = value
+  }
+}
 
 async function importFreshFastModeModule() {
   return import(`./fastMode.ts?ts=${Date.now()}-${Math.random()}`)
@@ -35,16 +55,19 @@ function installCommonMocks(options?: {
   }))
 
   mock.module('../bootstrap/state.js', () => ({
+    ...actualStateModule,
     getIsNonInteractiveSession: () => false,
     getKairosActive: () => false,
     preferThirdPartyAuthentication: () => false,
   }))
 
   mock.module('../services/analytics/index.js', () => ({
+    ...actualAnalyticsModule,
     logEvent: () => {},
   }))
 
   mock.module('./auth.js', () => ({
+    ...actualAuthModule,
     getAnthropicApiKey: () => options?.apiKey ?? null,
     getClaudeAIOAuthTokens: () =>
       options?.oauthToken ? { accessToken: options.oauthToken } : null,
@@ -53,10 +76,12 @@ function installCommonMocks(options?: {
   }))
 
   mock.module('./bundledMode.js', () => ({
+    ...actualBundledModeModule,
     isInBundledMode: () => true,
   }))
 
   mock.module('./config.js', () => ({
+    ...actualConfigModule,
     getGlobalConfig: () => ({
       penguinModeOrgEnabled: options?.cachedEnabled === true,
     }),
@@ -65,46 +90,25 @@ function installCommonMocks(options?: {
   }))
 
   mock.module('./debug.js', () => ({
+    ...actualDebugModule,
     logForDebugging: () => {},
   }))
 
   mock.module('./envUtils.js', () => ({
+    ...actualEnvUtilsModule,
     isEnvTruthy: (value: string | undefined) =>
       !!value && value !== '0' && value.toLowerCase() !== 'false',
   }))
 
-  mock.module('./model/model.js', () => ({
-    getDefaultMainLoopModelSetting: () => 'claude-sonnet-4-6',
-    isOpus1mMergeEnabled: () => false,
-    parseUserSpecifiedModel: (model: string) => model,
-  }))
-
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'firstParty',
-  }))
-
   mock.module('./privacyLevel.js', () => ({
+    ...actualPrivacyLevelModule,
     isEssentialTrafficOnly: () => false,
-  }))
-
-  mock.module('./settings/settings.js', () => ({
-    getInitialSettings: () => ({ fastMode: true }),
-    getSettingsForSource: () => ({}),
-    updateSettingsForSource: () => {},
-  }))
-
-  mock.module('./signal.js', () => ({
-    createSignal: () => {
-      const subscribe = () => () => {}
-      const emit = () => {}
-      return { subscribe, emit }
-    },
   }))
 }
 
 afterEach(() => {
   mock.restore()
-  process.env = { ...originalEnv }
+  restoreProcessEnv()
 })
 
 describe('fastMode ant-only fallback cleanup', () => {

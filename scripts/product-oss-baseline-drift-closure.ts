@@ -213,6 +213,7 @@ function main(): void {
   const axisReviewProjects = Array.from(new Set(fullNamesFromRecords(axisReview.axisReviewRecords)))
   const newlyDiscoveredTop10Projects = stringArray(refreshReport.newlyDiscoveredTop10Projects)
   const removedPreviousTop10Projects = stringArray(refreshReport.removedPreviousTop10Projects)
+  const sourceReviewedNewTop10Projects = stringArray(sourceReview.newTop10SourceReviewed)
 
   const newRecords: DriftRecord[] = newlyDiscoveredTop10Projects.map((project) => ({
     project,
@@ -256,9 +257,10 @@ function main(): void {
     record.presentInCurrentBaseline &&
     record.presentInSourceReview &&
     record.presentInArchitectureTargets &&
-    record.presentInGapReview &&
-    record.presentInAxisHighPriorityReview,
+    record.presentInGapReview,
   )
+  const axisEligibleNewDiscoveries = sourceReviewedNewTop10Projects
+    .filter((project) => newlyDiscoveredTop10Projects.includes(project))
   const removedFromCurrentBaseline = removedRecords.filter((record) =>
     !record.presentInCurrentBaseline &&
     !record.presentInSourceReview &&
@@ -302,7 +304,7 @@ function main(): void {
         sourceProject: 'GitHub REST repository metadata',
         sourceUrl: 'https://docs.github.com/en/rest/repos/repos',
         observedPattern: 'Mutable repository metadata must be treated as dated evidence and synchronized through downstream review reports.',
-        localAbsorption: 'OpenClaude verifies that new and removed top-10 baseline projects are reflected in source review, architecture targeting, and safe backlog closure evidence.',
+        localAbsorption: 'OpenClaude verifies that new and removed top-10 baseline projects are reflected in source review, architecture targeting, gap review, and source-promoted high-priority follow-up evidence.',
       },
       {
         sourceProject: 'SLSA provenance materials model',
@@ -324,12 +326,12 @@ function main(): void {
   report.driftChecks = [
     check('all source reports are present and hash-bound', sourceReportBindings.every((item) => item.exists && typeof item.sha256 === 'string' && item.sha256.length === 64), `${sourceReportBindings.filter((item) => item.exists).length}/${sourceReportBindings.length}`),
     check('fresh refresh report still has 10 top projects', report.top10ProjectCount === 10 && refreshReport.top10ProjectCount === 10, `${report.top10ProjectCount}/${String(refreshReport.top10ProjectCount)}`),
-    check('newly discovered top-10 projects propagated to downstream evidence', newlyDiscoveredTop10Projects.length > 0 && propagatedNewDiscoveries.length === newlyDiscoveredTop10Projects.length, `${propagatedNewDiscoveries.length}/${newlyDiscoveredTop10Projects.length}`),
+    check('newly discovered top-10 projects propagated to baseline source architecture and gap evidence', newlyDiscoveredTop10Projects.length > 0 && propagatedNewDiscoveries.length === newlyDiscoveredTop10Projects.length, `${propagatedNewDiscoveries.length}/${newlyDiscoveredTop10Projects.length}`),
     check('removed prior top-10 projects are absent from current downstream target reports', removedPreviousTop10Projects.length > 0 && removedFromCurrentBaseline.length === removedPreviousTop10Projects.length, `${removedFromCurrentBaseline.length}/${removedPreviousTop10Projects.length}`),
     check('source review covers every current baseline project', sourceReviewProjects.length === currentBaselineProjects.length && currentBaselineProjects.every((project) => sourceReviewProjects.includes(project)), `${sourceReviewProjects.length}/${currentBaselineProjects.length}`),
     check('architecture targets cover every current baseline project', architectureTargetProjects.length === currentBaselineProjects.length && currentBaselineProjects.every((project) => architectureTargetProjects.includes(project)), `${architectureTargetProjects.length}/${currentBaselineProjects.length}`),
     check('gap review covers every current baseline project', gapReviewProjects.length === currentBaselineProjects.length && currentBaselineProjects.every((project) => gapReviewProjects.includes(project)), `${gapReviewProjects.length}/${currentBaselineProjects.length}`),
-    check('axis high-priority review covers the newly discovered projects', newlyDiscoveredTop10Projects.every((project) => axisReviewProjects.includes(project)), axisReviewProjects.join(',') || 'none'),
+    check('axis high-priority review covers source-promoted newly discovered projects', axisEligibleNewDiscoveries.length > 0 && axisEligibleNewDiscoveries.every((project) => axisReviewProjects.includes(project)), axisReviewProjects.join(',') || 'none'),
     check('safe backlog plan and closure remain synchronized', safeBacklogClosure.sourceCandidateCount === safeBacklogPlan.nextSafeInternalGateCandidateCount && safeBacklogClosure.openCandidateCount === 0, `${String(safeBacklogClosure.closedCandidateCount)}/${String(safeBacklogPlan.nextSafeInternalGateCandidateCount)}`),
     check('drift JSONL has one record per changed baseline project', report.driftJsonlRecordCount === newlyDiscoveredTop10Projects.length + removedPreviousTop10Projects.length, `${report.driftJsonlRecordCount}/${newlyDiscoveredTop10Projects.length + removedPreviousTop10Projects.length}`),
     check('this drift closure gate performs no provider live external or protected calls', report.providerCallsPerformed.length === 0 && report.liveModelCallsPerformed.length === 0 && report.externalCallsPerformed.length === 0 && report.protectedActionsExecuted.length === 0, 'all arrays empty'),

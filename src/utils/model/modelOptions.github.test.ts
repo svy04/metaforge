@@ -1,13 +1,9 @@
-import { afterEach, beforeEach, expect, mock, test } from 'bun:test'
+import { afterEach, beforeEach, expect, test } from 'bun:test'
 
 import { resetModelStringsForTestingOnly } from '../../bootstrap/state.js'
 import { saveGlobalConfig } from '../config.js'
 
 async function importFreshModelOptionsModule() {
-  mock.restore()
-  mock.module('./providers.js', () => ({
-    getAPIProvider: () => 'github',
-  }))
   const nonce = `${Date.now()}-${Math.random()}`
   return import(`./modelOptions.js?ts=${nonce}`)
 }
@@ -24,8 +20,16 @@ const originalEnv = {
   ANTHROPIC_CUSTOM_MODEL_OPTION: process.env.ANTHROPIC_CUSTOM_MODEL_OPTION,
 }
 
+function restoreEnv(key: keyof typeof originalEnv): void {
+  const value = originalEnv[key]
+  if (value === undefined) {
+    delete process.env[key]
+    return
+  }
+  process.env[key] = value
+}
+
 beforeEach(() => {
-  mock.restore()
   delete process.env.CLAUDE_CODE_USE_GITHUB
   delete process.env.CLAUDE_CODE_USE_OPENAI
   delete process.env.CLAUDE_CODE_USE_GEMINI
@@ -39,16 +43,9 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  process.env.CLAUDE_CODE_USE_GITHUB = originalEnv.CLAUDE_CODE_USE_GITHUB
-  process.env.CLAUDE_CODE_USE_OPENAI = originalEnv.CLAUDE_CODE_USE_OPENAI
-  process.env.CLAUDE_CODE_USE_GEMINI = originalEnv.CLAUDE_CODE_USE_GEMINI
-  process.env.CLAUDE_CODE_USE_BEDROCK = originalEnv.CLAUDE_CODE_USE_BEDROCK
-  process.env.CLAUDE_CODE_USE_VERTEX = originalEnv.CLAUDE_CODE_USE_VERTEX
-  process.env.CLAUDE_CODE_USE_FOUNDRY = originalEnv.CLAUDE_CODE_USE_FOUNDRY
-  process.env.OPENAI_MODEL = originalEnv.OPENAI_MODEL
-  process.env.OPENAI_BASE_URL = originalEnv.OPENAI_BASE_URL
-  process.env.ANTHROPIC_CUSTOM_MODEL_OPTION =
-    originalEnv.ANTHROPIC_CUSTOM_MODEL_OPTION
+  for (const key of Object.keys(originalEnv) as Array<keyof typeof originalEnv>) {
+    restoreEnv(key)
+  }
   saveGlobalConfig(current => ({
     ...current,
     additionalModelOptionsCache: [],

@@ -170,6 +170,10 @@ function countOccurrences(text: string, pattern: string): number {
   return text.split(pattern).length - 1
 }
 
+function scriptIncludesCommand(script: string | undefined, command: string): boolean {
+  return script?.split('&&').map((part) => part.trim()).includes(command) ?? false
+}
+
 function claimsBlocked(report: Record<string, unknown>): boolean {
   return [
     'releaseClaimAllowed',
@@ -336,8 +340,8 @@ function main(): void {
       existsSync(resolve(root, 'src/commands/privacy-settings/privacy-settings.tsx')) &&
       existsSync(resolve(root, 'src/utils/privacyLevel.ts')),
     verifyPrivacyScriptPresent: existsSync(resolve(root, 'scripts/verify-no-phone-home.ts')),
-    packageVerifyPrivacyScriptPresent: packageJson.scripts['verify:privacy'] === 'bun run scripts/verify-no-phone-home.ts',
-    buildVerifiedIncludesPrivacy: packageJson.scripts['build:verified'] === 'bun run build && bun run verify:privacy',
+    packageVerifyPrivacyScriptPresent: scriptIncludesCommand(packageJson.scripts['verify:privacy'], 'bun run scripts/verify-no-phone-home.ts'),
+    buildVerifiedIncludesPrivacy: scriptIncludesCommand(packageJson.scripts['build:verified'], 'bun run build') && scriptIncludesCommand(packageJson.scripts['build:verified'], 'bun run verify:privacy'),
     privacyEvidenceJsonlPath,
     privacyEvidenceJsonlSha256,
     privacyEvidenceJsonlRecordCount: reconciliationRecords.length,

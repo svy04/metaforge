@@ -1,6 +1,19 @@
 import { afterEach, describe, expect, mock, test } from 'bun:test'
 
+import * as actualStateModule from '../bootstrap/state.js'
+import * as actualAuthModule from './auth.js'
+import * as actualConfigModule from './config.js'
+import * as actualEnvModule from './env.js'
+import * as actualEnvUtilsModule from './envUtils.js'
+
 const originalEnv = { ...process.env }
+
+function restoreProcessEnv(): void {
+  for (const key of Object.keys(process.env)) {
+    delete process.env[key]
+  }
+  Object.assign(process.env, originalEnv)
+}
 
 async function importFreshUserModule() {
   return import(`./user.ts?ts=${Date.now()}-${Math.random()}`)
@@ -11,10 +24,12 @@ function installCommonMocks(options?: {
   gitEmail?: string
 }) {
   mock.module('../bootstrap/state.js', () => ({
+    ...actualStateModule,
     getSessionId: () => 'session-test',
   }))
 
   mock.module('./auth.js', () => ({
+    ...actualAuthModule,
     getOauthAccountInfo: () =>
       options?.oauthEmail
         ? {
@@ -28,20 +43,19 @@ function installCommonMocks(options?: {
   }))
 
   mock.module('./config.js', () => ({
+    ...actualConfigModule,
     getGlobalConfig: () => ({}),
     getOrCreateUserID: () => 'device-test',
   }))
 
-  mock.module('./cwd.js', () => ({
-    getCwd: () => 'C:\\repo',
-  }))
-
   mock.module('./env.js', () => ({
+    ...actualEnvModule,
     env: { platform: 'windows' },
     getHostPlatformForAnalytics: () => 'windows',
   }))
 
   mock.module('./envUtils.js', () => ({
+    ...actualEnvUtilsModule,
     isEnvTruthy: (value: string | undefined) =>
       !!value && value !== '0' && value.toLowerCase() !== 'false',
   }))
@@ -56,7 +70,7 @@ function installCommonMocks(options?: {
 
 afterEach(() => {
   mock.restore()
-  process.env = { ...originalEnv }
+  restoreProcessEnv()
   delete (globalThis as Record<string, unknown>).MACRO
 })
 

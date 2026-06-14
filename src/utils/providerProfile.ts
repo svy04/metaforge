@@ -891,6 +891,7 @@ export function applyProfileEnvToProcessEnv(
 export async function applySavedProfileToCurrentSession(options: {
   profileFile: ProfileFile
   processEnv?: NodeJS.ProcessEnv
+  validateProviderEnv?: (env: NodeJS.ProcessEnv) => Promise<string | null>
 }): Promise<string | null> {
   const processEnv = options.processEnv ?? process.env
   const baseEnv = { ...processEnv }
@@ -914,7 +915,9 @@ export async function applySavedProfileToCurrentSession(options: {
     getOllamaChatBaseUrl,
     readGeminiAccessToken,
   })
-  const validationError = await getProviderValidationError(nextEnv)
+  const validationError = await (
+    options.validateProviderEnv ?? getProviderValidationError
+  )(nextEnv)
   if (validationError) {
     return validationError
   }
