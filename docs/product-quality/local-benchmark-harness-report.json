@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-14T14:39:22.434Z",
+  "generatedAt": "2026-06-14T14:52:35.998Z",
   "mode": "local_no_provider_benchmark_replay_harness",
   "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
   "sourceBenchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
   "sourceBenchmarkTaskCount": 16,
-  "sourceBenchmarkManifestSha256": "916dd0e5c49246a7f84ea6f0381a63dd3ae9aa4b8cd357273c961253319eb46e",
+  "sourceBenchmarkManifestSha256": "685ffd1ca2357f1ece872dfa48ae4780b9c1b81d28c0f35d6d6ccdd9946869fd",
   "sourceExternalBenchmarkBoundaryPath": "docs/product-quality/external-benchmark-boundary-report.json",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,15 +13,15 @@
   "externalBenchmarkExecutionPerformed": false,
   "externalBenchmarkResultClaimed": false,
   "localBenchmarkResultPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "localBenchmarkResultSha256": "d45d7f7847d3314ca551f60773fadb8235777c688a7c55914dc7a188706e087c",
+  "localBenchmarkResultSha256": "7bd6c69dc61fac5fa4f6337d5b33fd4fec999dd9a26da518a9335cb69d43c750",
   "localBenchmarkTaskResults": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
       "benchmarkFamily": "local_no_provider_product_quality",
       "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "e620c92f32bd6391b2cacd5502ed6a5ef7cb25f41e86f3d38f5780a4f5594325",
-      "actualSourceEvidenceSha256": "e620c92f32bd6391b2cacd5502ed6a5ef7cb25f41e86f3d38f5780a4f5594325",
+      "expectedSourceEvidenceSha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+      "actualSourceEvidenceSha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 5,
       "terminalOutcomeClass": "succeeded",
@@ -290,8 +290,8 @@
       "benchmarkFamily": "local_no_provider_replay_eval",
       "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "8e3c47318079d5767561b61635c3cde87f141f534aeab68ef5f9b24a5f46adfd",
-      "actualSourceEvidenceSha256": "8e3c47318079d5767561b61635c3cde87f141f534aeab68ef5f9b24a5f46adfd",
+      "expectedSourceEvidenceSha256": "c370b7da6b58fa8d2ba410da71df388a481f0ad17ce31c61a9839512b110e6e6",
+      "actualSourceEvidenceSha256": "c370b7da6b58fa8d2ba410da71df388a481f0ad17ce31c61a9839512b110e6e6",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 4,
       "terminalOutcomeClass": "classified_environment_blocked",
@@ -373,7 +373,7 @@
     {
       "label": "result JSONL hash is recorded",
       "ok": true,
-      "detail": "d45d7f7847d3314ca551f60773fadb8235777c688a7c55914dc7a188706e087c"
+      "detail": "7bd6c69dc61fac5fa4f6337d5b33fd4fec999dd9a26da518a9335cb69d43c750"
     }
   ],
   "claimBoundary": "Local benchmark harness evidence is internal no-provider replay evidence only. It does not execute external benchmarks, providers, live models, external services, containers, hosted CI, deploy, publish, launch, or make release/public/production/external/autonomous reliability claims."

@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
@@ -160,6 +161,18 @@ function check(label: string, ok: boolean, detail: string): Check {
   return { label, ok, detail }
 }
 
+function ensureBuildOutput(): void {
+  if (existsSync(resolve(root, 'dist/cli.mjs'))) return
+  const result = spawnSync('bun', ['run', 'build'], {
+    cwd: root,
+    encoding: 'utf8',
+    stdio: 'inherit',
+  })
+  if (result.status !== 0) {
+    throw new Error(`local build output is missing and bun run build failed with exit code ${String(result.status)}`)
+  }
+}
+
 function extractBannedPatterns(scriptText: string): string[] {
   const match = scriptText.match(/BANNED_PATTERNS\s*=\s*\[([\s\S]*?)\]\s*as const/)
   if (!match) return []
@@ -277,6 +290,7 @@ function main(): void {
   const publicClaimBoundary = readJson<Record<string, unknown>>(sourcePublicClaimBoundaryReportPath)
   const packageJson = readJson<{ scripts: Record<string, string> }>('package.json')
   const verifyPrivacyText = readText('scripts/verify-no-phone-home.ts')
+  ensureBuildOutput()
   const distText = readText('dist/cli.mjs')
   const bannedPatterns = extractBannedPatterns(verifyPrivacyText)
   const bannedPatternFindingCount = bannedPatterns.reduce((total, pattern) => total + countOccurrences(distText, pattern), 0)
