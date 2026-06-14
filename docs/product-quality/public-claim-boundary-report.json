@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T09:50:33.703Z",
+  "generatedAt": "2026-06-14T10:05:19.017Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -22,9 +22,9 @@
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "6d58ab4bed62c80d8a3bcfbb178bc6723e5092c4d0cbe6cc03cecd4f55683b5e",
-      "sizeBytes": 15430,
-      "lineCount": 386
+      "sha256": "889da2a04ad9539a8526fae76133df35b81ed8c4fc3eb3b74698b5076be7a160",
+      "sizeBytes": 15816,
+      "lineCount": 393
     },
     {
       "path": "CHANGELOG.md",
@@ -36,8 +36,8 @@
     {
       "path": "CONTRIBUTING.md",
       "exists": true,
-      "sha256": "66d54bdfa23260ede4c56ec48ac3efa949225299d7753a2be0e991a4bfb2f148",
-      "sizeBytes": 4659,
+      "sha256": "08c81e163b62c06578fe346bd4c74ee300d4290576fed0a5578d22c1950d37bf",
+      "sizeBytes": 4646,
       "lineCount": 139
     },
     {
@@ -50,16 +50,16 @@
     {
       "path": "SUPPORT.md",
       "exists": true,
-      "sha256": "f558771ab75a69dd61b5c1ea0c0b7ee7834be3cf4e8d93aff3f45e72ddcc8977",
-      "sizeBytes": 1956,
+      "sha256": "9a16d19d46bc06f96b35bba3d3278afdab4e83769088c32fffb65ff6e14fe0b0",
+      "sizeBytes": 2111,
       "lineCount": 27
     },
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "ed5566c443919514874ea27c2f7e44602c272d24c4c7d055e97edc616a1b3458",
-      "sizeBytes": 18344,
-      "lineCount": 261
+      "sha256": "e054f29c6f2e04c6daacb73422b191bc1ebd7564a37140bb77e6bc0032175abc",
+      "sizeBytes": 18465,
+      "lineCount": 267
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -151,11 +151,32 @@
       "sha256": "49aa7f5af7b8f4110c1c26a35261fdc3ce818493e11af1acb24f05b80df517ae",
       "sizeBytes": 7454,
       "lineCount": 74
+    },
+    {
+      "path": "docs/MIMESIS_ENGINEERING.md",
+      "exists": true,
+      "sha256": "23cc1a6cf9a8c94d006f9b49a0b8518ed8d58caee29fde7e3fe8e41a3a890848",
+      "sizeBytes": 5175,
+      "lineCount": 112
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+      "exists": true,
+      "sha256": "516e25c75fe69e60e4b3cf78dfeee3ce0b759546674e874d55db9db492b81ff3",
+      "sizeBytes": 8503,
+      "lineCount": 109
+    },
+    {
+      "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
+      "exists": true,
+      "sha256": "1883d44641fe8c1bc10ecd1ae6f15146b0cd33e0b024237eb280192d69e196b6",
+      "sizeBytes": 4554,
+      "lineCount": 42
     }
   ],
-  "publicSurfaceCount": 19,
-  "scannedLineCount": 3307,
-  "blockedContextClaimMentionCount": 10,
+  "publicSurfaceCount": 22,
+  "scannedLineCount": 3583,
+  "blockedContextClaimMentionCount": 13,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -237,13 +258,37 @@
       "category": "superiority",
       "status": "blocked_context",
       "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+      "line": 44,
+      "phrase": "external validation completed",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "| Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/pub"
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+      "line": 92,
+      "phrase": "production ready",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "- Do not say Metaforge is production-ready."
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+      "line": 93,
+      "phrase": "external validation completed",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- Do not say it is externally validated."
     }
   ],
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "3f7256320e986f4645a115b94cdf4cd9f7794a5fc49caea895a5200f79e9189a",
-  "scanJsonlRecordCount": 10,
+  "scanJsonlSha256": "aba2b1edb9d25156951be625efdfb24da6b8c83d54d1e1d29f0008d223466419",
+  "scanJsonlRecordCount": 13,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -269,12 +314,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "19 surfaces"
+      "detail": "22 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "3307 lines"
+      "detail": "3583 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -284,12 +329,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "10 findings"
+      "detail": "13 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "10/10"
+      "detail": "13/13"
     },
     {
       "label": "claim JSONL hash is recorded",

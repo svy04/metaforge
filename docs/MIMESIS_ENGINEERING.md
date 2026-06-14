@@ -95,12 +95,17 @@ Not allowed yet:
 - SLSA/NIST/OWASP/OAuth compliance claim.
 - Claim that mimesis always improves model output.
 
-## Next Proof Slice
+## Visible Proof Slices
 
-The next proof slice should be small and visible:
+Completed:
 
-1. Select one public-facing output, such as the GitHub profile README.
-2. Build it from actual repos and current Digital Factory evidence.
-3. Remove old or inaccessible project claims.
-4. Verify every link.
-5. Record the profile update as a Mimesis Engineering case note.
+1. GitHub profile README was rebuilt from actual public repositories and current Digital Factory evidence.
+2. Old or inaccessible project claims were removed from the profile surface.
+3. The profile refresh was recorded in `docs/profile/github-profile-refresh-evidence-2026-06-14.md`.
+
+Current:
+
+1. Keep a public proof pack in `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`.
+2. Bind each copy block to a source ledger and local no-provider evidence.
+3. Add the proof pack to local claim-boundary and link-integrity checks.
+4. Use the proof pack as the only source for external Metaforge marketing copy until stronger evidence exists.

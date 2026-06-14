@@ -97,6 +97,9 @@ const publicSurfacePaths = [
   'docs/product-quality/terminal-report.md',
   'docs/product-quality/verification-report-2026-05-17.md',
   'docs/product-quality/protected-action-authorization-packet.md',
+  'docs/MIMESIS_ENGINEERING.md',
+  'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
+  'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
 ]
 
 const claimPatterns: ClaimPattern[] = [

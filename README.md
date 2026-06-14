@@ -9,11 +9,10 @@ It turns owner intent into durable goals, routes work through Claude and Codex O
 OpenClaude is the local CLI substrate Metaforge currently rides on. It provides the terminal UX, tools, MCP, slash commands, streaming output, provider routing, and credential surfaces; Metaforge is the operating layer above it.
 
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
-[![Release](https://img.shields.io/github/v/tag/svy04/metaforge?label=release&color=0ea5e9)](https://github.com/svy04/metaforge/tags)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
+[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
 ## Why Metaforge
 
@@ -35,6 +34,14 @@ The loop is source-first and anti-persona. It does not ask agents to pretend to 
 - **MFH** decides whether the adapted structure produced evidence or only a better-sounding story.
 
 Start here: [docs/MIMESIS_ENGINEERING.md](docs/MIMESIS_ENGINEERING.md). Current source ledger: [docs/research/mimesis-engineering-source-ledger-2026-06-14.md](docs/research/mimesis-engineering-source-ledger-2026-06-14.md).
+
+## Public Proof Pack
+
+Use the public proof pack when describing Metaforge outside the repo. It gives the strongest current copy blocks, but binds each claim to local evidence and explicit non-claims.
+
+- [Metaforge Public Proof Pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md)
+- [Public proof-pack source ledger](docs/research/public-proof-pack-source-ledger-2026-06-14.md)
+- [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-14.md)
 
 ## Operating Layers
 
