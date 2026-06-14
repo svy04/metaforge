@@ -1,10 +1,10 @@
-# OpenClaude Agent Workflow
+# Metaforge Agent Workflow
 
 ## Repository Orientation
 
 ### Repository Purpose
 
-OpenClaude is a local-first agentic coding CLI and product-quality harness. Its current product goal is to become a verifiably high-quality coding-agent product through primary-source research, local no-provider evidence, claim-bounded benchmark readiness, and protected-action gates.
+Metaforge is the public Meta/MFH/Orchestra OS product surface in this checkout. OpenClaude is the local-first CLI runtime and product-quality harness Metaforge currently rides on: terminal UX, tools, MCP, provider profiles, Claude/Codex routes, local no-provider evidence, claim-bounded benchmark readiness, and protected-action gates.
 
 ### Setup And Verification Commands
 

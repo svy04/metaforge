@@ -12,7 +12,7 @@ Metaforge uses GitHub Discussions, GitHub Issues, and the security policy for di
 
 ## What to Include
 
-- Metaforge checkout, OpenClaude runtime version, and install path.
+- Metaforge checkout type, OpenClaude runtime version, and redacted install path only when it is directly relevant.
 - OS, terminal, shell, and runtime versions.
 - Provider/model path if relevant, with secrets redacted.
 - Exact local command output or report paths when available.

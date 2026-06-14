@@ -19,6 +19,7 @@ const targetRoots = [
   'reports',
   'README.md',
   'AGENTS.md',
+  'PLAYBOOK.md',
   'package.json',
   'scripts/public-artifact-hygiene.ts',
 ]
@@ -41,57 +42,58 @@ type Replacement = {
 
 const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
+const userSegment = String.raw`[^\\/"]+`
 const replacements: Replacement[] = [
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}${segment}${sep}openclaude-0\.6\.0`,
+      String.raw`C:${sep}Users${sep}${userSegment}${sep}Desktop${sep}${segment}${sep}openclaude-0\.6\.0`,
       'g',
     ),
     replacement: '<repo>',
   },
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}${segment}${sep}${segment}`,
+      String.raw`C:${sep}Users${sep}${userSegment}${sep}Desktop${sep}${segment}${sep}${segment}`,
       'g',
     ),
     replacement: '<private-workspace>',
   },
   {
-    pattern: new RegExp(String.raw`C:${sep}Users${sep}admin${sep}\.claude`, 'g'),
+    pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}${sep}\.claude`, 'g'),
     replacement: '<config-dir>',
   },
   {
-    pattern: new RegExp(String.raw`C:${sep}Users${sep}admin${sep}\.codex`, 'g'),
+    pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}${sep}\.codex`, 'g'),
     replacement: '<codex-config-dir>',
   },
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}AppData${sep}Roaming${sep}npm${sep}node_modules${sep}bun${sep}bin${sep}bun\.exe`,
+      String.raw`C:${sep}Users${sep}${userSegment}${sep}AppData${sep}Roaming${sep}npm${sep}node_modules${sep}bun${sep}bin${sep}bun\.exe`,
       'g',
     ),
     replacement: '<bun>',
   },
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}AppData${sep}Local${sep}Programs${sep}Microsoft VS Code${sep}resources${sep}app${sep}updating`,
+      String.raw`C:${sep}Users${sep}${userSegment}${sep}AppData${sep}Local${sep}Programs${sep}Microsoft VS Code${sep}resources${sep}app${sep}updating`,
       'g',
     ),
     replacement: '<vscode-updating-sentinel>',
   },
   {
-    pattern: new RegExp(String.raw`C:${sep}Users${sep}admin`, 'g'),
+    pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}`, 'g'),
     replacement: '<user-home>',
   },
   {
-    pattern: /\/Users\/admin/g,
+    pattern: /\/Users\/[^/\s"']+/g,
     replacement: '<user-home>',
   },
 ]
 
 const forbiddenPatterns = [
-  /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)admin/,
-  /\/Users\/admin/,
-  /Users\/admin/,
+  /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)[^\\/\s"']+/,
+  /\/Users\/[^/\s"']+/,
+  /Users\/[^/\s"']+/,
   new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`),
   new RegExp('Digital ' + 'Factory'),
   new RegExp('Token: ' + 'gho_'),

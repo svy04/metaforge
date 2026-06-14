@@ -24,8 +24,10 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 | Source | URL | Pattern to absorb | Boundary |
 | --- | --- | --- | --- |
 | GitHub profile README docs | https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme | Profile README is a public repository README rendered on the profile when repository and README conditions are met. | Profile presence is not usage, quality, or adoption proof. |
+| GitHub README docs | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes | A README should explain what the project does, why it is useful, how to start, where to get help, and who maintains it. | README structure is marketing clarity, not production proof. |
 | GitHub repository topics docs | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics | Topics help people find and classify projects by purpose, subject, affinity, and language. | Topics are discoverability metadata, not validation. |
 | OpenSSF Scorecard | https://github.com/ossf/scorecard | Security posture becomes stronger when checks are explicit and repeatable. | Do not claim a Scorecard result without actually running Scorecard. |
+| NIST AI Risk Management Framework | https://www.nist.gov/itl/ai-risk-management-framework | Public AI risk language should stay attached to concrete govern/map/measure/manage-style controls and evidence. | Framework-inspired control language is not NIST compliance. |
 | Model Cards for Model Reporting | https://arxiv.org/abs/1810.03993 | Public AI/system reports should disclose intended use, evaluation procedures, and limitations. | This source supports transparency structure, not model-performance claims. |
 | Datasheets for Datasets | https://arxiv.org/abs/1803.09010 | Public proof artifacts should document motivation, composition, operating characteristics, tests, and recommended use. | This source supports documentation structure, not dataset certification. |
 | in-toto Attestation Framework | https://github.com/in-toto/attestation | Evidence can be structured as verifiable claims about how software is produced. | Metaforge proof packs are not signed attestations unless an attestation flow is actually implemented. |
@@ -38,3 +40,4 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 2. Link the proof pack from README so marketing copy points to evidence.
 3. Add the proof pack to local link/claim scans so it stays bounded.
 4. Use GitHub topics to improve repo discoverability while avoiding validation claims.
+5. Treat open PRs and visible remote branches as public staging surfaces that must not be used for marketing unless they pass the same hygiene and claim-boundary checks as `main`.
