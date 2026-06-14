@@ -1,0 +1,125 @@
+![Metaforge banner](docs/assets/metaforge-banner.gif)
+
+# Metaforge
+
+[English](README.md) | [한국어](README.ko.md)
+
+Metaforge는 Meta/MFH/Orchestra 기반의 governed-code 운영체제입니다.
+
+OpenClaude는 현재 Metaforge가 올라타는 로컬 CLI 런타임입니다. 터미널 UX,
+도구 호출, MCP, slash command, provider profile, streaming output, Claude/Codex
+route를 제공합니다. 하지만 공개적으로 중심에 둘 가치는 OpenClaude 자체가
+아니라 **Meta + MFH + Orchestra**입니다.
+
+## 한 줄 요약
+
+Metaforge는 사용자의 의도를 장기 목표로 고정하고, Meta에 운영 기억을 남기며,
+Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완료 주장으로
+승격하는 로컬 우선 agent OS입니다.
+
+## 현재 증명 가능한 것
+
+| 질문 | 현재 답 |
+| --- | --- |
+| 무엇인가요? | OpenClaude CLI runtime 위에서 동작하는 Meta/MFH/Orchestra OS입니다. |
+| 바로 확인할 명령 | `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
+| 가장 강한 공개 증거 | `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`, `docs/MODEL_SYSTEM_CARD.md`, `docs/product-quality/product-evidence-manifest.md` |
+| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
+
+## 운영 레이어
+
+| 레이어 | 역할 |
+| --- | --- |
+| Meta | 운영 기억, 결정, source ledger, 승인 경계 |
+| Goal Kernel | 목표 계층, 성공 기준, non-goals, 검증 명령, rollback rule |
+| Orchestra | Claude/Codex route, planning, critique, review, evidence arbitration |
+| MFH | drift, state, evidence, closure, release claim을 막는 governed-code gate |
+| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route |
+
+## 빠른 시작
+
+```bash
+npm install -g @gitlawb/openclaude
+openclaude
+```
+
+개발 checkout에서는:
+
+```bash
+bun install
+bun run build
+bun run verify:privacy
+```
+
+## Claude / Codex route
+
+Metaforge는 Claude와 Codex를 Orchestra 안의 실행 엔진으로 사용할 수 있습니다.
+Claude route는 planner, skeptic, reviewer 역할에 쓸 수 있고, Codex route는
+visible executor와 implementation role에 쓸 수 있습니다.
+
+중요한 경계:
+
+- Claude와 Codex는 engine입니다.
+- 제품 중심은 Meta/MFH/Orchestra입니다.
+- provider badge나 workflow badge는 외부 검증이 아니라 configured automation
+  health와 local evidence link입니다.
+
+## Mimesis Engineering
+
+Mimesis Engineering은 이미 세상에 존재하는 강한 원본, 논문, 특허, 표준,
+오픈소스 구현을 읽고 load-bearing structure를 추출한 뒤 로컬 시스템에
+적용하고 검증하는 개선 엔진입니다.
+
+이 방식은 “전문가인 척하는 프롬프트”가 아니라 “전문가의 산출물과 검증 구조를
+가져와서 흡수하는 방식”입니다.
+
+시작 문서:
+
+- [docs/MIMESIS_ENGINEERING.md](docs/MIMESIS_ENGINEERING.md)
+- [docs/research/mimesis-engineering-source-ledger-2026-06-14.md](docs/research/mimesis-engineering-source-ledger-2026-06-14.md)
+
+## 검증
+
+완료 주장은 파일 존재만으로 하지 않습니다. 관련 명령, test, loader check,
+version probe, live inspection 중 하나 이상을 실제로 실행해야 합니다.
+
+자주 쓰는 명령:
+
+```bash
+bun run build
+bun run typecheck --pretty false
+bun test
+bun run verify:privacy
+bun run product:quality
+```
+
+`product:quality`가 보호된 환경 경계에서 멈추면, 그것을 성공 주장으로 바꾸지
+말고 생성된 report와 blocker를 그대로 읽어야 합니다.
+
+## 공개 주장 경계
+
+현재 이 repo가 말할 수 있는 것:
+
+- Meta/MFH/Orchestra 구조의 공개 작업면이 있다.
+- OpenClaude runtime 위에서 로컬 검증과 evidence gate를 구축하고 있다.
+- public proof pack과 product-quality report가 claim boundary를 기록한다.
+
+아직 말하지 않는 것:
+
+- production-ready
+- hosted deployment complete
+- externally validated
+- benchmark superior
+- autonomous reliability proven
+
+## 라이선스와 출처
+
+OpenClaude runtime은 Claude Code 계열 코드베이스에서 출발했고, 여러 provider와
+Metaforge 운영 구조를 지원하도록 수정되었습니다. "Claude"와 "Claude Code"는
+Anthropic PBC의 상표입니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
+
+## 커뮤니티
+
+- 버그와 기능 요청: [GitHub Issues](https://github.com/svy04/metaforge/issues)
+- 보안 이슈: [SECURITY.md](SECURITY.md)
+- 기여 가이드: [CONTRIBUTING.md](CONTRIBUTING.md)
