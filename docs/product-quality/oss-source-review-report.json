@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T16:21:59.043Z",
+  "generatedAt": "2026-06-14T16:37:50.383Z",
   "mode": "external_github_api_oss_source_review",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
   "sourceBaselineSha256": "6b7fa8b4950022b107fc4d4a5fa462008c11700abc9261899da233eaf4a4283d",
@@ -13,7 +13,7 @@
     "warpdotdev/warp"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-source-review-provenance.jsonl",
-  "provenanceJsonlSha256": "3b486a9f0d4f2f5957d16d0df231ceecfb59189b50c362b37df1f1d467a157d9",
+  "provenanceJsonlSha256": "c37f16ba75bff66438f500ba80ea8e0a54276728be4c732fa07134ada5c9e893",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "externalGitHubSourceReviewPerformed": true,
@@ -32,49 +32,91 @@
     {
       "kind": "github_rest_readme",
       "url": "https://api.github.com/repos/ultraworkers/claw-code/readme",
-      "status": 200,
-      "rateLimitRemaining": "6",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
     },
     {
       "kind": "github_rest_contents",
       "url": "https://api.github.com/repos/ultraworkers/claw-code/contents",
-      "status": 200,
-      "rateLimitRemaining": "5",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
+    },
+    {
+      "kind": "github_raw_readme",
+      "url": "https://raw.githubusercontent.com/ultraworkers/claw-code/HEAD/README.md",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
+    },
+    {
+      "kind": "github_web_root",
+      "url": "https://github.com/ultraworkers/claw-code",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
     },
     {
       "kind": "github_rest_readme",
       "url": "https://api.github.com/repos/anomalyco/opencode/readme",
-      "status": 200,
-      "rateLimitRemaining": "4",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
     },
     {
       "kind": "github_rest_contents",
       "url": "https://api.github.com/repos/anomalyco/opencode/contents",
-      "status": 200,
-      "rateLimitRemaining": "3",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
+    },
+    {
+      "kind": "github_raw_readme",
+      "url": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
+    },
+    {
+      "kind": "github_web_root",
+      "url": "https://github.com/anomalyco/opencode",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
     },
     {
       "kind": "github_rest_readme",
       "url": "https://api.github.com/repos/anthropics/claude-code/readme",
-      "status": 200,
-      "rateLimitRemaining": "2",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
     },
     {
       "kind": "github_rest_contents",
       "url": "https://api.github.com/repos/anthropics/claude-code/contents",
-      "status": 200,
-      "rateLimitRemaining": "1",
+      "status": 403,
+      "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
+    },
+    {
+      "kind": "github_raw_readme",
+      "url": "https://raw.githubusercontent.com/anthropics/claude-code/HEAD/README.md",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
+    },
+    {
+      "kind": "github_web_root",
+      "url": "https://github.com/anthropics/claude-code",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
     },
     {
       "kind": "github_rest_readme",
       "url": "https://api.github.com/repos/google-gemini/gemini-cli/readme",
-      "status": 200,
+      "status": 403,
       "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
     },
@@ -84,6 +126,13 @@
       "status": 403,
       "rateLimitRemaining": "0",
       "rateLimitReset": "1781456606"
+    },
+    {
+      "kind": "github_raw_readme",
+      "url": "https://raw.githubusercontent.com/google-gemini/gemini-cli/HEAD/README.md",
+      "status": 200,
+      "rateLimitRemaining": null,
+      "rateLimitReset": null
     },
     {
       "kind": "github_web_root",
@@ -325,7 +374,7 @@
     {
       "label": "source review performed GitHub source calls only",
       "ok": true,
-      "detail": "33 GitHub calls"
+      "detail": "40 GitHub calls"
     }
   ],
   "reviewRecords": [
@@ -338,10 +387,10 @@
       "stars": 193781,
       "readmeFetched": true,
       "rootContentsFetched": true,
-      "readmeSourceKind": "github_rest_readme",
-      "rootContentsSourceKind": "github_rest_contents",
-      "readmeSha": "8f41d4ffafd0fc0ff15aea54a665dfc6af5a8dbc",
-      "readmeHtmlUrl": "https://github.com/ultraworkers/claw-code/blob/main/README.md",
+      "readmeSourceKind": "github_raw_readme",
+      "rootContentsSourceKind": "github_web_root",
+      "readmeSha": null,
+      "readmeHtmlUrl": "https://raw.githubusercontent.com/ultraworkers/claw-code/HEAD/README.md",
       "readmeSizeBytes": 14082,
       "readmeDigest": "e7881ed93bbf9219394e0d1e39168bfad9c5a59d955c1ecaa77e7c375abbabfc",
       "rootManifestMarkers": [],
@@ -357,7 +406,7 @@
       "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
       "absorptionCandidate": true,
       "immediateAbsorptionAction": "Review ultraworkers/claw-code architecture/docs next because it newly entered the top-10 baseline and has source-level product signals: terminal-cli, tool-use, provider-model.",
-      "recordDigest": "0d803fb339f7e83d075912678cbf6ff395efaf794e6cad7b3aa7c5279a9a28be"
+      "recordDigest": "6fe0c928be59098e0c508697bdee7858735de10511d832956a9c7b9dd24f6d63"
     },
     {
       "schemaVersion": "openclaude_oss_source_review_v1",
@@ -368,10 +417,10 @@
       "stars": 174289,
       "readmeFetched": true,
       "rootContentsFetched": true,
-      "readmeSourceKind": "github_rest_readme",
-      "rootContentsSourceKind": "github_rest_contents",
-      "readmeSha": "b5a4c8ddd9794e8c20bd287603bfa0c336522796",
-      "readmeHtmlUrl": "https://github.com/anomalyco/opencode/blob/dev/README.md",
+      "readmeSourceKind": "github_raw_readme",
+      "rootContentsSourceKind": "github_web_root",
+      "readmeSha": null,
+      "readmeHtmlUrl": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/README.md",
       "readmeSizeBytes": 5317,
       "readmeDigest": "400890a3082e225c440561825270a911cd7df90a9f64f85166aed330201e50ba",
       "rootManifestMarkers": [
@@ -390,7 +439,7 @@
       "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
       "absorptionCandidate": true,
       "immediateAbsorptionAction": "Use anomalyco/opencode as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
-      "recordDigest": "cace93cfbbce072b2493047cd56b55ef467c4b58c85b9a0ef0ab6d04b284b5bc"
+      "recordDigest": "335337d36e4f66133c2056016920a0d86b2fb6a3c3b503bdd1fe86936db7fd52"
     },
     {
       "schemaVersion": "openclaude_oss_source_review_v1",
@@ -401,10 +450,10 @@
       "stars": 132349,
       "readmeFetched": true,
       "rootContentsFetched": true,
-      "readmeSourceKind": "github_rest_readme",
-      "rootContentsSourceKind": "github_rest_contents",
-      "readmeSha": "80aa75edf74a5f9e1269811b4e8b5852be91e66e",
-      "readmeHtmlUrl": "https://github.com/anthropics/claude-code/blob/main/README.md",
+      "readmeSourceKind": "github_raw_readme",
+      "rootContentsSourceKind": "github_web_root",
+      "readmeSha": null,
+      "readmeHtmlUrl": "https://raw.githubusercontent.com/anthropics/claude-code/HEAD/README.md",
       "readmeSizeBytes": 2873,
       "readmeDigest": "aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d",
       "rootManifestMarkers": [],
@@ -421,7 +470,7 @@
       "reviewRationale": "GitHub metadata is not enough; README or root source markers were insufficient for implementation-pattern absorption.",
       "absorptionCandidate": false,
       "immediateAbsorptionAction": "Keep anthropics/claude-code in metadata baseline only; require deeper source review before implementation-pattern absorption.",
-      "recordDigest": "11c9fbbd69f5a651c93b9e14d87ce7660e43355768a6016f5fa398f583cde019"
+      "recordDigest": "c1a43236242527c2840bba60e55911fd2632653f84689e3f88077a0774359fdd"
     },
     {
       "schemaVersion": "openclaude_oss_source_review_v1",
@@ -432,10 +481,10 @@
       "stars": 105272,
       "readmeFetched": true,
       "rootContentsFetched": true,
-      "readmeSourceKind": "github_rest_readme",
+      "readmeSourceKind": "github_raw_readme",
       "rootContentsSourceKind": "github_web_root",
-      "readmeSha": "20813de3eb3e5db49a6345e969f08c32b57e76c9",
-      "readmeHtmlUrl": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
+      "readmeSha": null,
+      "readmeHtmlUrl": "https://raw.githubusercontent.com/google-gemini/gemini-cli/HEAD/README.md",
       "readmeSizeBytes": 13447,
       "readmeDigest": "bacf354f3f674d57679ebf7b42dd69311bb9ef14200e18ca703d82aba48bf833",
       "rootManifestMarkers": [
@@ -456,7 +505,7 @@
       "reviewRationale": "README product signals and root source markers support treating this as a source-reviewed benchmark candidate.",
       "absorptionCandidate": true,
       "immediateAbsorptionAction": "Use google-gemini/gemini-cli as source-supported benchmark input for future axis-specific reviews without claiming OpenClaude superiority.",
-      "recordDigest": "c0bb4e8369cab2e26933d201f2ca564da1ef19df5d26823e15257b0d66a583ca"
+      "recordDigest": "c7f54c63cd655c4e1394ac9af3a7c75269f9bec4a7dd3e78f805e2e8cc8b073d"
     },
     {
       "schemaVersion": "openclaude_oss_source_review_v1",

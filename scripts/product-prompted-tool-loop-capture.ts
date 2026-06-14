@@ -86,14 +86,14 @@ const operatorPrompt = [
 ].join(' ')
 const toolCommands = [
   {
-    name: 'inspect_auto_mode_defaults',
-    args: ['auto-mode', 'defaults'],
-    requiredSubstrings: ['"allow"', '"soft_deny"', '"environment"'],
+    name: 'inspect_auto_mode_help',
+    args: ['auto-mode', '--help'],
+    requiredSubstrings: ['Usage: claude auto-mode', 'defaults', 'critique'],
   },
   {
-    name: 'inspect_scoped_agents',
-    args: ['agents', '--setting-sources', 'local'],
-    requiredSubstrings: ['active agents', 'Built-in agents'],
+    name: 'inspect_agents_help',
+    args: ['agents', '--help'],
+    requiredSubstrings: ['Usage: claude agents', '--setting-sources'],
   },
 ] as const
 

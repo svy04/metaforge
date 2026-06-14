@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-14T16:25:56.184Z",
+  "generatedAt": "2026-06-14T16:42:16.186Z",
   "mode": "local_no_provider_trace_portability_export",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceRealTraceEvalReportSha256": "684d78605d6f0000e13b70a9090f31dfba56816315faee312c5bc65c2a3db063",
+  "sourceRealTraceEvalReportSha256": "35bb725e5513e3d62e216055333cfa50080d3ba50fedcc949f99298a133146ea",
   "sourceTraceSchemaContractReportPath": "docs/product-quality/trace-schema-contract-report.json",
-  "sourceTraceSchemaContractReportSha256": "5aa2e58894be0bef95dc4d7e36ce30c8cc179354dc3f51fda687603c38a0534f",
+  "sourceTraceSchemaContractReportSha256": "83310ba1903d3113e9718af47973f0ed9e41fe10f78d53968f2111d5cf1d30c4",
   "portableTraceExportPath": "reports/openclaude-portable-trace-events.jsonl",
-  "portableTraceExportSha256": "ea49f56a41f18dd111dee76bec1ce6890f02f813f160268d2f35b0886796cca8",
+  "portableTraceExportSha256": "5d2d689868b31cce963cc4540027b0d1d7471b8c55215c1265fe0bdabd8bad81",
   "sourceTraceCount": 13,
-  "sourceEventCount": 83,
-  "portableEventCount": 83,
+  "sourceEventCount": 79,
+  "portableEventCount": 79,
   "sourceHistoricalMissingEventNameCount": 13,
   "sourceHistoricalMissingTraceContextCount": 13,
   "sourceHistoricalMissingActionObservationCount": 0,
   "portableMissingEventNameCount": 0,
   "portableMissingTraceContextCount": 0,
   "portableMissingActionObservationCount": 0,
-  "sourceEventsAlreadyEnrichedCount": 70,
+  "sourceEventsAlreadyEnrichedCount": 66,
   "portableEventsSynthesizedFromHistoricalGapsCount": 13,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -55,7 +55,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "0622236b078b3070ead05e18fa9f7615fc26c9f0b2a5834200d03d729b0cb847",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "eventCount": 8
     },
     {
@@ -65,8 +65,8 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "0def2955b49fb33d7856d34f8fc37d1a593f29bfe55c39c5744236f50a98d758",
-      "eventCount": 16
+      "sha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
+      "eventCount": 12
     },
     {
       "path": "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl",
@@ -128,7 +128,7 @@
     {
       "label": "portable export has one event per source event",
       "ok": true,
-      "detail": "83/83"
+      "detail": "79/79"
     },
     {
       "label": "portable export preserves source trace hashes",

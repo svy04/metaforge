@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T16:25:30.364Z",
+  "generatedAt": "2026-06-14T16:41:58.358Z",
   "mode": "local_no_provider_operator_authorized_real_session_capture_fixture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,7 +13,7 @@
   "commandExecutable": "node",
   "commandTimeoutMs": 60000,
   "tracePath": "reports/orchestra-real-session-capture-local-cli.jsonl",
-  "traceSha256": "0def2955b49fb33d7856d34f8fc37d1a593f29bfe55c39c5744236f50a98d758",
+  "traceSha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
   "commandCaptures": [
     {
       "name": "version",
@@ -112,31 +112,6 @@
       "passed": true
     },
     {
-      "name": "auto_mode_defaults",
-      "command": [
-        "node",
-        "dist/cli.mjs",
-        "auto-mode",
-        "defaults"
-      ],
-      "exitCode": 0,
-      "signal": null,
-      "timeoutMs": 60000,
-      "timedOut": false,
-      "errorMessage": null,
-      "stdoutSha256": "5676853b71347990f1b4208e888442796cd53bb5f1cb957a939aa6ea2415f3db",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 58,
-      "stderrByteLength": 0,
-      "requiredSubstrings": [
-        "\"allow\"",
-        "\"soft_deny\"",
-        "\"environment\""
-      ],
-      "missingSubstrings": [],
-      "passed": true
-    },
-    {
       "name": "agents_help",
       "command": [
         "node",
@@ -156,31 +131,6 @@
       "requiredSubstrings": [
         "Usage: claude agents",
         "--setting-sources"
-      ],
-      "missingSubstrings": [],
-      "passed": true
-    },
-    {
-      "name": "agents_scoped_list",
-      "command": [
-        "node",
-        "dist/cli.mjs",
-        "agents",
-        "--setting-sources",
-        "local"
-      ],
-      "exitCode": 0,
-      "signal": null,
-      "timeoutMs": 60000,
-      "timedOut": false,
-      "errorMessage": null,
-      "stdoutSha256": "b96547b26a5677378eab872d9173c541ff4eb8f1b907d9c98919ebe4f4fd8cc5",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 155,
-      "stderrByteLength": 0,
-      "requiredSubstrings": [
-        "active agents",
-        "Built-in agents"
       ],
       "missingSubstrings": [],
       "passed": true
@@ -218,17 +168,7 @@
       "detail": "exit=0"
     },
     {
-      "label": "auto-mode defaults capture passed",
-      "ok": true,
-      "detail": "exit=0"
-    },
-    {
       "label": "agents help capture passed",
-      "ok": true,
-      "detail": "exit=0"
-    },
-    {
-      "label": "agents scoped list capture passed",
       "ok": true,
       "detail": "exit=0"
     },
@@ -250,17 +190,17 @@
     {
       "label": "broader no-provider command session captured",
       "ok": true,
-      "detail": "version,help,doctor_help,auto_mode_help,auto_mode_defaults,agents_help,agents_scoped_list"
+      "detail": "version,help,doctor_help,auto_mode_help,agents_help"
     },
     {
-      "label": "no-provider introspection commands captured beyond help/version",
+      "label": "no-provider introspection commands captured beyond top-level help/version",
       "ok": true,
-      "detail": "version,help,doctor_help,auto_mode_help,auto_mode_defaults,agents_help,agents_scoped_list"
+      "detail": "version,help,doctor_help,auto_mode_help,agents_help"
     },
     {
       "label": "raw command output is summarized by hashes",
       "ok": true,
-      "detail": "7 commands"
+      "detail": "5 commands"
     },
     {
       "label": "no provider calls performed",

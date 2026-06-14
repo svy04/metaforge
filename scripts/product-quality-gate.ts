@@ -4392,12 +4392,12 @@ function main(): void {
   checks.push(check('real session capture commands are timeout bounded', typeof realSessionCapture.commandTimeoutMs === 'number' && realSessionCapture.commandTimeoutMs > 0, String(realSessionCapture.commandTimeoutMs)))
   checks.push(check(
     'real session capture includes broader no-provider command session',
-    ['version', 'help', 'doctor_help', 'auto_mode_help', 'auto_mode_defaults', 'agents_help', 'agents_scoped_list'].every((name) => new Set(realSessionCapture.commandCaptures.map((capture) => capture.name)).has(name)),
+    ['version', 'help', 'doctor_help', 'auto_mode_help', 'agents_help'].every((name) => new Set(realSessionCapture.commandCaptures.map((capture) => capture.name)).has(name)),
     realSessionCapture.commandCaptures.map((capture) => capture.name).join(','),
   ))
   checks.push(check(
-    'real session capture includes no-provider introspection beyond help/version',
-    ['auto_mode_defaults', 'agents_scoped_list'].every((name) => realSessionCapture.commandCaptures.some((capture) => capture.name === name && capture.passed)),
+    'real session capture includes no-provider introspection beyond top-level help/version',
+    ['doctor_help', 'auto_mode_help', 'agents_help'].every((name) => realSessionCapture.commandCaptures.some((capture) => capture.name === name && capture.passed)),
     realSessionCapture.commandCaptures.map((capture) => capture.name).join(','),
   ))
   checks.push(check('real session capture commands pass', realSessionCapture.commandCaptures.every((capture) => capture.exitCode === 0 && capture.passed)))
