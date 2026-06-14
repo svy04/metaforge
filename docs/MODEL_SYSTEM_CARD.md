@@ -109,7 +109,7 @@ This evidence does not replace live provider probes, hosted security review, ext
 - The card does not execute Claude, Codex, OpenAI-compatible, or local model calls.
 - The card does not prove sandbox behavior, network isolation, or filesystem isolation beyond local configured evidence.
 - The card does not certify that prompt injection, tool misuse, data exfiltration, destructive actions, or hallucinated claims are impossible.
-- Current PR #10 is a stale/draft evidence archive rather than a clean merge candidate.
+- Open draft PRs are public staging surfaces. They must pass public-artifact hygiene before being reused as public proof.
 
 ## Protected Actions
 

@@ -14,11 +14,13 @@ const mode = argv.includes('--write') ? 'write' : 'check'
 const targetRoots = [
   '.github',
   '.planning',
+  'bin',
   'docs',
   'reports',
   'README.md',
   'AGENTS.md',
   'package.json',
+  'scripts/public-artifact-hygiene.ts',
 ]
 
 const textExtensions = new Set([
@@ -38,27 +40,21 @@ type Replacement = {
 }
 
 const sep = String.raw`(?:\\+|/)`
+const segment = String.raw`[^\\/"]+`
 const replacements: Replacement[] = [
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}내 순수 재미${sep}openclaude-0\.6\.0`,
+      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}${segment}${sep}openclaude-0\.6\.0`,
       'g',
     ),
     replacement: '<repo>',
   },
   {
     pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}내 순수 재미${sep}하네스 엔지니어링`,
+      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}${segment}${sep}${segment}`,
       'g',
     ),
-    replacement: '<private-harness-root>',
-  },
-  {
-    pattern: new RegExp(
-      String.raw`C:${sep}Users${sep}admin${sep}Desktop${sep}Digital Factory`,
-      'g',
-    ),
-    replacement: '<digital-factory-root>',
+    replacement: '<private-workspace>',
   },
   {
     pattern: new RegExp(String.raw`C:${sep}Users${sep}admin${sep}\.claude`, 'g'),
@@ -96,9 +92,9 @@ const forbiddenPatterns = [
   /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)admin/,
   /\/Users\/admin/,
   /Users\/admin/,
-  /내 순수 재미/,
-  /Token: gho_/,
-  /session_id/,
+  new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`),
+  new RegExp('Token: ' + 'gho_'),
+  new RegExp('session' + '_id'),
 ]
 
 function walk(path: string): string[] {

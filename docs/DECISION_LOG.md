@@ -230,10 +230,10 @@ Evidence:
 - `docs/RESEARCH_PIPELINE.md` already requires local-first, primary-source research.
 - `docs/avf/OSS_ASSIMILATION_PIPELINE.md` defines governed acquisition instead of copy-paste adoption.
 - `docs/research/mimesis-engineering-source-ledger-2026-06-14.md` records current product, OSS, paper, patent, and standards sources.
-- `<digital-factory-root>\MIMESIS-METHOD.md` and `MIMESIS-DEPLOYMENT-MAP.md` contain the freshest local Mimesis method and deployment boundary.
+- `<private-mimesis-workbench>\MIMESIS-METHOD.md` and `MIMESIS-DEPLOYMENT-MAP.md` contain the freshest local Mimesis method and deployment boundary.
 
 Consequence:
 
 - README can market Mimesis Engineering as Metaforge's improvement engine.
-- Profile README refresh should be based on current public repos and Digital Factory evidence, not older public pages alone.
+- Profile README refresh should be based on current public repos and private workbench evidence, not older public pages alone.
 - Mimesis claims remain proof-bounded: no production readiness, external validation, compliance, legal clearance, or universal-improvement claim.

@@ -14,6 +14,16 @@ OpenClaude is the local CLI substrate Metaforge currently rides on. It provides 
 
 [Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Model/System Card](#modelsystem-card) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
+## Current Proof Ladder
+
+| Question | Current answer |
+| --- | --- |
+| What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
+| Fastest verification | `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
+| Strongest public evidence | [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), and [evidence manifest](docs/product-quality/product-evidence-manifest.md). |
+| What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
+| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
+
 ## Why Metaforge
 
 - Treat the owner as the strategic governor, not the technical bottleneck.
