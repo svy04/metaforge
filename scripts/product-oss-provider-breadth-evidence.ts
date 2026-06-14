@@ -125,7 +125,6 @@ const provenanceJsonlPath = 'reports/openclaude-oss-provider-breadth-evidence.js
 const capabilityMatrixEvidence = [
   'docs/product-quality/provider-capability-matrix-report.json',
   'docs/product-quality/provider-capability-matrix-report.md',
-  'reports/openclaude-provider-capability-matrix.jsonl',
   'docs/product-quality/provider-compatibility-fixtures.md',
 ]
 
@@ -133,7 +132,6 @@ const fallbackBoundaryEvidence = [
   'docs/product-quality/runtime-doctor-regression-fixtures.md',
   'docs/product-quality/oss-runtime-doctoring-evidence-report.json',
   'docs/product-quality/oss-runtime-doctoring-evidence-report.md',
-  'reports/openclaude-oss-runtime-doctoring-evidence.jsonl',
 ]
 
 function sha256(input: string | Buffer): string {

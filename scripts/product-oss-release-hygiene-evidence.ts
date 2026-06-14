@@ -128,18 +128,14 @@ const reproducibilitySupplementalEvidence = [
   'docs/product-quality/release-artifact-provenance-report.md',
   'docs/product-quality/release-artifact-reproducibility-report.md',
   'docs/product-quality/lockfile-sbom-quality-report.json',
-  'reports/openclaude-lockfile-sbom-inventory.jsonl',
   'docs/product-quality/third-party-license-quality-report.json',
-  'reports/openclaude-third-party-license-inventory.jsonl',
   'docs/product-quality/source-license-metadata-quality-report.json',
-  'reports/openclaude-source-license-metadata-inventory.jsonl',
 ]
 
 const releaseClaimBoundarySupplementalEvidence = [
   'docs/product-quality/git-release-hygiene-report.md',
   'docs/product-quality/license-boundary-authorization-report.md',
   'docs/product-quality/license-boundary-authorization-request.md',
-  'reports/openclaude-license-boundary-authorization-items.jsonl',
 ]
 
 function sha256(input: string | Buffer): string {
