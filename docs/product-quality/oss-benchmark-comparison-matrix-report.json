@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-14T15:03:07.300Z",
+  "generatedAt": "2026-06-14T15:17:00.732Z",
   "mode": "local_no_provider_oss_benchmark_comparison_matrix",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-  "sourceBaselineSha256": "2952ff33c87d66e9fd8a1df33187fa3b8efb3cd2fafa2c96111680614f337374",
+  "sourceBaselineSha256": "322050a7084c27ac5a18d56bba7add5b1954eb61b2293f71dd59b87527ec3238",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
-  "sourceReviewReportSha256": "8db461293e498c4563d804a5846dc16d3659a8d3f150b674998dae6768401355",
+  "sourceReviewReportSha256": "d4593ccf8b70afdc7441ef0c6d6db076afa6cf90f7b0629601690cd1664cfe51",
   "sourceGapReviewReportPath": "docs/product-quality/oss-architecture-gap-review-report.json",
-  "sourceGapReviewReportSha256": "1a147b777f43fecffff5f357b89734686627d814297884b0ecfbbabb6230c13a",
+  "sourceGapReviewReportSha256": "e69af51feb15550086fe02772907de27125566d37fd8601316c341477818c813",
   "sourceAxisReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-  "sourceAxisReviewReportSha256": "1f8a107d4bf9b3a1452ffe7c0395b25f3c178b64933d6a005bd363d65e55bcfb",
+  "sourceAxisReviewReportSha256": "28c9151e2142dab9513aebeb7a615bdaf2edd5635bbb36604853275ee75dc12d",
   "sourcePublicClaimBoundaryReportPath": "docs/product-quality/public-claim-boundary-report.json",
-  "sourcePublicClaimBoundaryReportSha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+  "sourcePublicClaimBoundaryReportSha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
   "sourceProtectedActionAuthorizationPacketPath": "docs/product-quality/protected-action-authorization-packet.json",
-  "sourceProtectedActionAuthorizationPacketSha256": "86ae300e3bc9f61977650df8515b45f2f206b2f421f70fbd57e06738b6043c52",
+  "sourceProtectedActionAuthorizationPacketSha256": "3bb698461b1872e10fd38ecd6cb8185b4b28cbafa46881b124848fce538e630b",
   "baselineSnapshotDate": "2026-05-21",
   "top10ProjectCount": 10,
   "requiredProductAxisCount": 10,
@@ -23,38 +23,38 @@
   "metadataOnlyRecordCount": 2,
   "axisNotYetAbsorbedRecordCount": 11,
   "comparisonMatrixJsonlPath": "reports/openclaude-oss-benchmark-comparison-matrix.jsonl",
-  "comparisonMatrixJsonlSha256": "dd634aed5286058ad46b844b3c12978ccb2342a46b39c3a602688884142202de",
+  "comparisonMatrixJsonlSha256": "8c22b48a40f1443c7f0cbcfa481c6845199efdaebc606adfbaad661bcbfc8084",
   "comparisonMatrixJsonlRecordCount": 100,
   "sourceReportBindings": [
     {
       "path": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
       "exists": true,
-      "sha256": "2952ff33c87d66e9fd8a1df33187fa3b8efb3cd2fafa2c96111680614f337374"
+      "sha256": "322050a7084c27ac5a18d56bba7add5b1954eb61b2293f71dd59b87527ec3238"
     },
     {
       "path": "docs/product-quality/oss-source-review-report.json",
       "exists": true,
-      "sha256": "8db461293e498c4563d804a5846dc16d3659a8d3f150b674998dae6768401355"
+      "sha256": "d4593ccf8b70afdc7441ef0c6d6db076afa6cf90f7b0629601690cd1664cfe51"
     },
     {
       "path": "docs/product-quality/oss-architecture-gap-review-report.json",
       "exists": true,
-      "sha256": "1a147b777f43fecffff5f357b89734686627d814297884b0ecfbbabb6230c13a"
+      "sha256": "e69af51feb15550086fe02772907de27125566d37fd8601316c341477818c813"
     },
     {
       "path": "docs/product-quality/oss-axis-architecture-review-report.json",
       "exists": true,
-      "sha256": "1f8a107d4bf9b3a1452ffe7c0395b25f3c178b64933d6a005bd363d65e55bcfb"
+      "sha256": "28c9151e2142dab9513aebeb7a615bdaf2edd5635bbb36604853275ee75dc12d"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
       "exists": true,
-      "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6"
+      "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.json",
       "exists": true,
-      "sha256": "86ae300e3bc9f61977650df8515b45f2f206b2f421f70fbd57e06738b6043c52"
+      "sha256": "3bb698461b1872e10fd38ecd6cb8185b4b28cbafa46881b124848fce538e630b"
     }
   ],
   "providerCallsPerformed": [],
@@ -100,7 +100,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "provider_breadth",
       "sourceReviewStatus": "source_supported_candidate",
@@ -110,25 +110,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -152,7 +152,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "terminal_workflow",
       "sourceReviewStatus": "source_supported_candidate",
@@ -162,31 +162,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -210,7 +210,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "tool_loop_reliability",
       "sourceReviewStatus": "source_supported_candidate",
@@ -220,49 +220,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -286,7 +286,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "privacy_and_no_phone_home",
       "sourceReviewStatus": "source_supported_candidate",
@@ -296,13 +296,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -332,7 +332,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "runtime_doctoring",
       "sourceReviewStatus": "source_supported_candidate",
@@ -342,20 +342,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -378,7 +378,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "eval_and_quality_gates",
       "sourceReviewStatus": "source_supported_candidate",
@@ -388,7 +388,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -400,37 +400,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -454,7 +454,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "security_and_permissions",
       "sourceReviewStatus": "source_supported_candidate",
@@ -464,31 +464,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -512,7 +512,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "onboarding_docs",
       "sourceReviewStatus": "source_supported_candidate",
@@ -522,25 +522,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -564,7 +564,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "ide_or_editor_surface",
       "sourceReviewStatus": "source_supported_candidate",
@@ -591,7 +591,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 193774,
+      "stars": 193775,
       "license": "MIT",
       "axis": "release_hygiene",
       "sourceReviewStatus": "source_supported_candidate",
@@ -618,7 +618,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "provider_breadth",
       "sourceReviewStatus": "source_supported_candidate",
@@ -645,7 +645,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "terminal_workflow",
       "sourceReviewStatus": "source_supported_candidate",
@@ -655,31 +655,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -703,7 +703,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "tool_loop_reliability",
       "sourceReviewStatus": "source_supported_candidate",
@@ -713,49 +713,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -779,7 +779,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "privacy_and_no_phone_home",
       "sourceReviewStatus": "source_supported_candidate",
@@ -789,13 +789,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -825,7 +825,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "runtime_doctoring",
       "sourceReviewStatus": "source_supported_candidate",
@@ -852,7 +852,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "eval_and_quality_gates",
       "sourceReviewStatus": "source_supported_candidate",
@@ -862,7 +862,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -874,37 +874,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -928,7 +928,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "security_and_permissions",
       "sourceReviewStatus": "source_supported_candidate",
@@ -955,7 +955,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "onboarding_docs",
       "sourceReviewStatus": "source_supported_candidate",
@@ -965,25 +965,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -1007,7 +1007,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "ide_or_editor_surface",
       "sourceReviewStatus": "source_supported_candidate",
@@ -1034,7 +1034,7 @@
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 174267,
+      "stars": 174270,
       "license": "MIT",
       "axis": "release_hygiene",
       "sourceReviewStatus": "source_supported_candidate",
@@ -1044,37 +1044,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -1098,7 +1098,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "provider_breadth",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1108,25 +1108,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -1150,7 +1150,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "terminal_workflow",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1160,31 +1160,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -1208,7 +1208,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "tool_loop_reliability",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1218,49 +1218,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -1284,7 +1284,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "privacy_and_no_phone_home",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1311,7 +1311,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "runtime_doctoring",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1321,20 +1321,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -1357,7 +1357,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "eval_and_quality_gates",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1367,7 +1367,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -1379,37 +1379,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -1433,7 +1433,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "security_and_permissions",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1443,31 +1443,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -1491,7 +1491,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "onboarding_docs",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1501,25 +1501,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -1543,7 +1543,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "ide_or_editor_surface",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1553,67 +1553,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -1637,7 +1637,7 @@
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 132338,
+      "stars": 132339,
       "license": "NOASSERTION",
       "axis": "release_hygiene",
       "sourceReviewStatus": "metadata_only_needs_deeper_review",
@@ -1674,25 +1674,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -1726,31 +1726,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -1784,49 +1784,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -1860,13 +1860,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -1906,20 +1906,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -1952,7 +1952,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -1964,37 +1964,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -2028,31 +2028,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -2086,25 +2086,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -2138,67 +2138,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -2232,37 +2232,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -2286,7 +2286,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "provider_breadth",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2296,25 +2296,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -2338,7 +2338,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "terminal_workflow",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2348,31 +2348,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -2396,7 +2396,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "tool_loop_reliability",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2406,49 +2406,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -2472,7 +2472,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "privacy_and_no_phone_home",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2482,13 +2482,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -2518,7 +2518,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "runtime_doctoring",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2528,20 +2528,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -2564,7 +2564,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "eval_and_quality_gates",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2574,7 +2574,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -2586,37 +2586,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -2640,7 +2640,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "security_and_permissions",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2650,31 +2650,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -2698,7 +2698,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "onboarding_docs",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2708,25 +2708,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -2750,7 +2750,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "ide_or_editor_surface",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2760,67 +2760,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -2844,7 +2844,7 @@
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 90976,
+      "stars": 90979,
       "license": "Apache-2.0",
       "axis": "release_hygiene",
       "sourceReviewStatus": "source_supported_candidate",
@@ -2854,37 +2854,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -2918,25 +2918,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -2970,31 +2970,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -3055,13 +3055,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -3101,20 +3101,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -3201,25 +3201,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -3253,67 +3253,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -3347,37 +3347,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -3401,7 +3401,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "provider_breadth",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3411,25 +3411,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -3453,7 +3453,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "terminal_workflow",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3463,31 +3463,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -3511,7 +3511,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "tool_loop_reliability",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3521,49 +3521,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -3587,7 +3587,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "privacy_and_no_phone_home",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3597,13 +3597,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -3633,7 +3633,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "runtime_doctoring",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3643,20 +3643,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -3679,7 +3679,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "eval_and_quality_gates",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3689,7 +3689,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -3701,37 +3701,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -3755,7 +3755,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "security_and_permissions",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3765,31 +3765,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -3813,7 +3813,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "onboarding_docs",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3823,25 +3823,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -3865,7 +3865,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "ide_or_editor_surface",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3875,67 +3875,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -3959,7 +3959,7 @@
       "rank": 7,
       "fullName": "nexu-io/open-design",
       "sourceUrl": "https://github.com/nexu-io/open-design",
-      "stars": 64647,
+      "stars": 64653,
       "license": "Apache-2.0",
       "axis": "release_hygiene",
       "sourceReviewStatus": "source_supported_candidate",
@@ -3969,37 +3969,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -4033,25 +4033,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -4085,31 +4085,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -4143,49 +4143,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -4219,13 +4219,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -4265,20 +4265,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -4311,7 +4311,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -4323,37 +4323,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -4387,31 +4387,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -4445,25 +4445,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -4524,37 +4524,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -4588,25 +4588,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -4640,31 +4640,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -4698,49 +4698,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -4774,13 +4774,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -4820,20 +4820,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -4866,7 +4866,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -4878,37 +4878,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -4942,31 +4942,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -5000,25 +5000,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -5052,67 +5052,67 @@
         {
           "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
           "exists": true,
-          "sha256": "82fc740c6534cb7903125f2d603a7cddbd73aa593eb7cb5ee916c5e75093c93f",
+          "sha256": "fe4359a13a1870a9c4de117196605b662a1e7ebae10c2192f571013c16be1907",
           "sizeBytes": 22417
         },
         {
           "path": "docs/product-quality/ide-extension-surface-report.json",
           "exists": true,
-          "sha256": "6d57c756d6ba49c35066808c37e86bbef4d8d2707351dda4825b66197d54381f",
+          "sha256": "25a7b92d3ef41b6449b450ef05df2c24c4044584a9b567cb4958c500578c3354",
           "sizeBytes": 2174
         },
         {
           "path": "docs/product-quality/ide-extension-scope-report.json",
           "exists": true,
-          "sha256": "cae068ff9ec22ab9c74e301c1cc19640726e67dcf56761077e006c395afd769a",
+          "sha256": "e80c417c36684b4272e7dd7b8f08643906b73548df7eccfab5ac15491ca94213",
           "sizeBytes": 4744
         },
         {
           "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
           "exists": true,
-          "sha256": "7f12f8533daf1251ff31f1688a7492d2a38a8f1aa7a059ec0cb87657c26cbad4",
+          "sha256": "981cf18cb7b7e953fe9a7b1c5035a2afb660b987a5d8ea9ebdef223eaaffa5d2",
           "sizeBytes": 4243
         },
         {
           "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
           "exists": true,
-          "sha256": "e3bdae1f406f24591e1abf0fc9903e323b4f3e567ae79059e98d1718d295ed03",
+          "sha256": "445d95fe4e87e2d38f6651f732bd19aa6d8300ac292cce61a6209a88eb56eb07",
           "sizeBytes": 4180
         },
         {
           "path": "docs/product-quality/ide-extension-host-smoke-report.json",
           "exists": true,
-          "sha256": "5a7b04ab6b7cd3f3325cc54afb9c19b0b85dfd689f4b21bff4e8cc7c761dae76",
-          "sizeBytes": 4198
+          "sha256": "7cc2e26401d107036323510da876febebb6a8e63c745dfc5204517ed423fb4e7",
+          "sizeBytes": 4646
         },
         {
           "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
           "exists": true,
-          "sha256": "0c43a683332a71d31e04a2e349ca1d2ec53ab1caa41772a470a77ee929739457",
-          "sizeBytes": 4951
+          "sha256": "0436645a86b986fb6b9972b9d95c9970c71ba9d273708d3f86ed64b0079856f3",
+          "sizeBytes": 5399
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         },
         {
           "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
           "exists": true,
-          "sha256": "6493053afb8f298d874142e36ae2c63e6b5a3f1548dee987fca27e457ea1e681",
+          "sha256": "715d1e4cd27d6f0a1e186b232a2c8b99c395b42f348ba5768d4f26910415c5b6",
           "sizeBytes": 3461
         },
         {
           "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
           "exists": true,
-          "sha256": "3ab740154cbcb5b7c7f4c9bef58c1f10cac36f07af5b67125d8fbfd199b8a602",
+          "sha256": "6fb0f8dafcfcf03c3948fbaa22c492f36c3680ebde7f54247c2844b1f50bde80",
           "sizeBytes": 4410
         },
         {
           "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
           "exists": true,
-          "sha256": "d1c449d92deea94a75a2eddf826a27d3e24a67a23219b13f7f2237710e7f0b72",
+          "sha256": "3b7b013f90af7d2add2bb440520f47a89a6894d5661e9cb0a60df05885af214d",
           "sizeBytes": 6402
         }
       ],
@@ -5146,37 +5146,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
@@ -5210,25 +5210,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "f25765740e924cf46a19bdf1aa730813528cc252d1a937272c02e7e8e7ee9192",
+          "sha256": "9d20d72932ae9db8843dd7284683a924128548f635da533502f188bf9ed8dc59",
           "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "735cd7cca1da58d12ead7ba2cfb4a5b109c6aee06846f92d7fd5b92fb406b391",
+          "sha256": "601c050528ad32d79d2188fb0365465df4e2fe2f69babfe09dfe385eba9fb189",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "dba2065e30ebbf731e396e24259476e566b2e5c2f4fe9be4b633ffdd32f0f75a",
+          "sha256": "656520cdb8da54c106700e05bcdcbdb436412690558853618cede55fde6737a0",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         }
       ],
@@ -5262,31 +5262,31 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "44d8cdded3f3e20a1ab5a287154cc94e57a82722bd662e89ccfde10effa4eb27",
+          "sha256": "ca770ac987c156766380ec6c56883513435a061bbe5ff46bd4ac02a8d340206f",
           "sizeBytes": 19027
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "e53b53abba2cd4e93f8743d83bca7b33f196df5c4230d0e26130fa6a3282ab0e",
+          "sha256": "0938104119ad113c7b95d62bca244f14343a49d204b7569a0052cde7f0cffea2",
           "sizeBytes": 10655
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "c1137b35dde3ebc466e3f8f18d3d96ac7a5deb1be310eb230cd853266924ebe6",
+          "sha256": "5a8c6c18477e1e8a10edae26bef1880647c65e95a3edea382a6cdafbc0b59058",
           "sizeBytes": 5630
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "7470d1cd2946e9d4e3d0188bb540f2ae0a5717fcfe54c6d33b0a7913a27ecb49",
+          "sha256": "9be383d6541ade2cf8545bf843ddabf6d758076b534cecd4287dee3607dbc5a8",
           "sizeBytes": 6797
         }
       ],
@@ -5320,49 +5320,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "ec04e86c98eb9bad3c0884e1b0a4172b0fc1e0ad5d789ad2844fabaadb3c4da2",
+          "sha256": "ea00f32b4b7036073eba2219dfda8b21fd540d824472b416823bc0ff8067f841",
           "sizeBytes": 25673
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "3bd13aefa3fcc2499ede710f64230d9a2439431d87b00b2116be81af54a87e0c",
+          "sha256": "d71153e81f81e7ab79be97d30c84db8e8402ade8dbf7210c36c039c51eff37c4",
           "sizeBytes": 3909
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "e5d27b6a5f99c716de3eed8da77a2eca557447a2e67b6ee4f95c47f62a49d597",
+          "sha256": "2eebbd5387a33635399ec1294594e1394f708ba0ccd7bc91e81ebe63d1402259",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "f65a58949d33fa464c4538a342614bab4e84935a5a65389b9360401b6c5403ce",
+          "sha256": "516de170f3b9eeb600e15fad639a336204ca0ea3a1fc5eb7aad98847432701ae",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "3a9abf8baeb678d9cf40bbcf7f4291bfa75f9bc5d18b371a2b07be2846761e52",
+          "sha256": "5834fa6a889e20e155e18e09f14319ddc003cc009d0ba7476ccfedbeb0674951",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "5d9d28c1f1ffa5379e980a166bfbf19b4d9d10c38d15da61df7e298569f82cca",
+          "sha256": "5eecd1bd38715290771a36dc25d11824b1b9e8726803ef43d680fbafd78064bb",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "f04412126c243635a7bddac33d17fbd5c7b4f9869947d4f2fcefefaa619d8868",
+          "sha256": "8e015014f55c17b285e36fb112d6b29425f2a69b62d745c98bdc0bd74f0f39fb",
           "sizeBytes": 6267
         }
       ],
@@ -5396,13 +5396,13 @@
         {
           "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
           "exists": true,
-          "sha256": "6ea678852aad7672ff1ecd7f47d6b7a2dd0327bf943832f021eefd4777293169",
+          "sha256": "d691793792c922a10f9bbb987c07f6f91e4b026fa31b485963b26adb4ce984e3",
           "sizeBytes": 19974
         },
         {
           "path": "docs/product-quality/public-claim-boundary-report.json",
           "exists": true,
-          "sha256": "35f45fa9a13ff8709267c204355579eda780e93fc3efa9859adc1b67eba110b6",
+          "sha256": "7ce82c8cbaf48f8cc0b89aca4a7883dfe4a56524a9e149ec0c51cc82a7b36687",
           "sizeBytes": 13825
         },
         {
@@ -5442,20 +5442,20 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "a8eaba8de5aed02147d5e81ac35948fe0af819283ce56615ef091854ac4555a5",
+          "sha256": "f6b987e0b14d06e947ba364155445c4cb85044206f2472d012a99522b63bac6e",
           "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "d3b18ebe88bba7fedefe18670baa32687c729c4328333cbf40d8586adc8b6faa",
+          "sha256": "48d030f8912bd92ab81c638ac6dc9bcf97480cdba1f994c9ef67c35f0ff96c70",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "107e19c67c3b635bc82c1dd4ecd7d7969c461c2d2149713df30c747394f4e8df",
-          "sizeBytes": 6970
+          "sha256": "6fef703c16e1bf2e7de6ba27be8231cf3645ae8a2eae4d328939081510c01215",
+          "sizeBytes": 7164
         }
       ],
       "openClaudeEvidencePresentCount": 3,
@@ -5488,7 +5488,7 @@
         {
           "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
           "exists": true,
-          "sha256": "e89514d4c24a4e1d5daccc73583f628778c782fcc30e7b9e00c7b44b0a49e665",
+          "sha256": "49608e8f407ce0bd4b3693643043eb87c32964fb086df18fd6adb1eb956207f2",
           "sizeBytes": 15677
         },
         {
@@ -5500,37 +5500,37 @@
         {
           "path": "docs/product-quality/benchmark-readiness-matrix.json",
           "exists": true,
-          "sha256": "39d06f3ace6f3389dff9b2fcfba73a8b5ad37ce1e3fe7266844caf91e6d2668c",
+          "sha256": "1b087b83bf77b9576dead0696089c0c146cb04c7f1d1033357fc799bfab3ecc9",
           "sizeBytes": 10653
         },
         {
           "path": "docs/product-quality/local-benchmark-harness-report.json",
           "exists": true,
-          "sha256": "b2b4373eef43fd2d2db15312e2991f7aea423f92eb75b69e190e84a035543ae9",
+          "sha256": "34c82a0fae99da4526be6a35ab62ac6be56bfe91c3a55f23903774fc1b88ca32",
           "sizeBytes": 17652
         },
         {
           "path": "docs/product-quality/benchmark-submission-readiness-report.json",
           "exists": true,
-          "sha256": "6763ab3e7426e2e91b9dcf161192d4ac5db7745b5ae9d4f0bd577ebd49c5a14e",
+          "sha256": "33d1916675006e3a5ab76d0a938f588a91d235d70e291a565f94e45bdf1282d0",
           "sizeBytes": 11875
         },
         {
           "path": "docs/product-quality/terminal-bench-readiness-report.json",
           "exists": true,
-          "sha256": "81f847415b91001105b24fb685388fa04f3e85f37ad9e0a7eeca4a68de71496c",
+          "sha256": "d55908d7affa99c4145527c99bbe2a64429a828f66bf39831014ee92b5b134b5",
           "sizeBytes": 13091
         },
         {
           "path": "docs/product-quality/verification-report-consistency-report.json",
           "exists": true,
-          "sha256": "f6b1a72ba99da2c208896e3dc34aa40824436b25b24b50abad20d8f1bb553dc7",
+          "sha256": "e0d79d4238000bae247bbe40345a134052ed38da82c1238251a4c498157e7468",
           "sizeBytes": 2909
         },
         {
           "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
           "exists": true,
-          "sha256": "a0de360b43812f11646917f2ce976e639105eebcf181ec1b292eace4421c7401",
+          "sha256": "12a03989a5b67b7de1d707b18673ee4d7942024cc477617b72c78d17ae9f543c",
           "sizeBytes": 6104
         }
       ],
@@ -5564,31 +5564,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "d8cd58ac0a6de890ce573d7ed5b2f783e1be47d62f608bc09e9eab1288bffc4e",
+          "sha256": "12f5a6e8f9b617152d13b85806ecdab67330efa33efe93c8a2d21ce8cb75c459",
           "sizeBytes": 19338
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "a4c5d67cf30ae7bcc71e08fb2940966d853ffb3650c98bc2cb3a60ac89542cbb",
+          "sha256": "e14fd87ea6e69a1481c1420f00a7c954af35ece135cdcc96f5f9320e46c0e147",
           "sizeBytes": 6551
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "135f0853921f9771d1f8afd402ab378d22544c9e114f29d136ab85260fee5a7f",
+          "sha256": "43268a9ff2ad03078bf6ffb4ab54b35b87c3a04de0cbcb688c2414ddaf4b0a17",
           "sizeBytes": 10544
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "77757e021cf371604a3f84b8afec3ffab52dd238e3fb0d35b4c12cb77b3bfc55",
+          "sha256": "735bbf2c99a0bfa14807eccb69a529713e04f5a26ef15576b4cef65d841793ef",
           "sizeBytes": 19473
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "a7fa09521f2ebe105f5bdbb504ab6c5834a8998fa4dfdec004af39b96a27b58f",
+          "sha256": "1b01fe133c11ae8a283f5c6e08a53a80a5b63ff761e2f5eacc119a5850a5bccf",
           "sizeBytes": 1530
         }
       ],
@@ -5622,25 +5622,25 @@
         {
           "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
           "exists": true,
-          "sha256": "6ad387543b8579f9e6642deed43295eae3b4fb537e7208328cb8dae42e7f221e",
+          "sha256": "40513fdbf4e4ded449e0a0a8ed70b295e18715e38b92ac1e9d24aa3d66527775",
           "sizeBytes": 17271
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "a89355ded8580bb81eea3fb4474d959e70b60e84ad525c2c5d8d83d6e70ea236",
+          "sha256": "fa4b53dbd56b2295b75851d0c7c39b4a2fc286bd827ede55a12810506e7f71d7",
           "sizeBytes": 15336
         },
         {
           "path": "docs/product-quality/doc-link-integrity-report.json",
           "exists": true,
-          "sha256": "c242cbf2116a92ac00a69e0b3652e6169b4677c8fbbe2639770c2ab652ad3ab6",
+          "sha256": "26964226ccf76a7d32d6214a581a11f5c6c3f7b1a5fa312c3fb8b6ed9381ba13",
           "sizeBytes": 12789
         },
         {
           "path": "docs/product-quality/community-profile-quality-report.json",
           "exists": true,
-          "sha256": "206130bc9c67d7a990fbaffe164e5ddad0cfd444178766c282a5367695b7ca59",
+          "sha256": "dc62957a0ce466715f655486fc903add86c90e401e543870f96297803236c9ec",
           "sizeBytes": 8091
         }
       ],
@@ -5701,37 +5701,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "95c94c304b708a257b503ae015b4f6ced7aacbb8853199e45cc0914133a8c0ec",
+          "sha256": "021a7e767ab9fbe848157194cc1efd6f1bb30e2d9f276ace797bfd144c164770",
           "sizeBytes": 13984
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "c8fa6069dd9a060a9d0beab9fed15149d475136242dd90c0ccb8747b398c46d3",
+          "sha256": "4c771003115d558759241a05a6a7d23024a6483e8655b0f1023fcf20d3897852",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "948dd08278e7ea583d069030b6c1cbc47718789d9f2776e08bdd29d3844a91c6",
+          "sha256": "af07201421f8f03299766b413eb0435a9cae83521005165c6144fac526542bd2",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "ec0530fc7a3f9d95ff677f4b1ed305b3a50d4fe978ffc0447ca398cec9eb29db",
+          "sha256": "ceb3c78493a3a62b3cdc44238937070d9b2582be9d17d3516c4e39428bb2ec1b",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "d60a00dbd54be71a685a8509d0bda90cdac76e3a26198d2c8dd2c223fee3c23a",
-          "sizeBytes": 6053
+          "sha256": "d0902b65a7a3bf250ef7d67d324226700be01953cd0ac0f48aa811ad084c5836",
+          "sizeBytes": 5989
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "ba544704422891e521f8d7e1f74c01dd89bc99373872ae226ee21f292e37bca8",
+          "sha256": "99e8f78cfe06cb0a518165c6fd5ec8a5d930d9a479c09e97e68c3934804d0ab4",
           "sizeBytes": 15540
         }
       ],
