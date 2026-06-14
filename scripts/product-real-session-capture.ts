@@ -43,6 +43,7 @@ type RealSessionCaptureReport = {
     protectedActionsAuthorized: false
   }
   capturePerformed: true
+  commandExecutable: string
   commandTimeoutMs: number
   tracePath: string
   traceSha256: string
@@ -75,6 +76,7 @@ const reportsDir = resolve(root, 'reports')
 const cliPath = resolve(root, 'dist/cli.mjs')
 const tracePath = 'reports/orchestra-real-session-capture-local-cli.jsonl'
 const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')) as PackageJson
+const commandExecutable = process.env.OPENCLAUDE_PRODUCT_CLI_EXECUTABLE ?? 'node'
 const commandTimeoutMs = 60_000
 const commandSpecs = [
   {
@@ -127,7 +129,7 @@ function check(label: string, ok: boolean, detail: string): CaptureCheck {
 }
 
 function runCapture(name: string, args: string[], requiredSubstrings: string[]): CommandCapture {
-  const result = spawnSync(process.execPath, [cliPath, ...args], {
+  const result = spawnSync(commandExecutable, [cliPath, ...args], {
     cwd: root,
     encoding: 'utf8',
     input: '',
@@ -148,7 +150,7 @@ function runCapture(name: string, args: string[], requiredSubstrings: string[]):
 
   return {
     name,
-    command: ['node', 'dist/cli.mjs', ...args],
+    command: [commandExecutable, 'dist/cli.mjs', ...args],
     exitCode: result.status,
     signal: result.signal ?? null,
     timeoutMs: commandTimeoutMs,
@@ -262,6 +264,7 @@ function writeReports(report: RealSessionCaptureReport): void {
     `- protected_actions_authorized: \`${report.operatorAuthorization.protectedActionsAuthorized}\``,
     `- trace_path: \`${report.tracePath}\``,
     `- trace_sha256: \`${report.traceSha256}\``,
+    `- command_executable: \`${report.commandExecutable}\``,
     `- command_timeout_ms: \`${report.commandTimeoutMs}\``,
     `- command_capture_count: \`${report.commandCaptures.length}\``,
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
@@ -341,6 +344,7 @@ function main(): void {
       protectedActionsAuthorized: false,
     },
     capturePerformed: true,
+    commandExecutable,
     commandTimeoutMs,
     tracePath,
     traceSha256,

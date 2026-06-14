@@ -14,6 +14,10 @@ type ToolCommandCapture = {
   name: string
   command: string[]
   exitCode: number | null
+  signal: string | null
+  timeoutMs: number
+  timedOut: boolean
+  errorMessage: string | null
   stdoutSha256: string
   stderrSha256: string
   stdoutByteLength: number
@@ -38,6 +42,8 @@ type PromptedToolLoopCaptureReport = {
   promptSha256: string
   promptByteLength: number
   nonSyntheticUserSessionClaimed: false
+  commandExecutable: string
+  commandTimeoutMs: number
   tracePath: string
   traceSha256: string
   toolCommandCaptures: ToolCommandCapture[]
@@ -58,6 +64,7 @@ type TraceEvent = {
   toolName?: string
   commandName?: string
   exitCode?: number | null
+  timedOut?: boolean
   stdoutSha256?: string
   stderrSha256?: string
   stdoutByteLength?: number
@@ -70,6 +77,8 @@ const docsDir = resolve(root, 'docs/product-quality')
 const reportsDir = resolve(root, 'reports')
 const cliPath = resolve(root, 'dist/cli.mjs')
 const tracePath = 'reports/orchestra-prompted-tool-loop-local-cli.jsonl'
+const commandExecutable = process.env.OPENCLAUDE_PRODUCT_CLI_EXECUTABLE ?? 'node'
+const commandTimeoutMs = 60_000
 const operatorPrompt = [
   'Inspect OpenClaude local no-provider configuration surfaces.',
   'Use only bounded local CLI introspection tools.',
@@ -83,7 +92,7 @@ const toolCommands = [
   },
   {
     name: 'inspect_scoped_agents',
-    args: ['agents', '--setting-sources', 'user,project,local'],
+    args: ['agents', '--setting-sources', 'local'],
     requiredSubstrings: ['active agents', 'Built-in agents'],
   },
 ] as const
@@ -101,11 +110,15 @@ function check(label: string, ok: boolean, detail: string): ToolLoopCheck {
 }
 
 function runToolCommand(command: (typeof toolCommands)[number]): ToolCommandCapture {
-  const result = spawnSync(process.execPath, [cliPath, ...command.args], {
+  const result = spawnSync(commandExecutable, [cliPath, ...command.args], {
     cwd: root,
     encoding: 'utf8',
+    input: '',
+    timeout: commandTimeoutMs,
+    windowsHide: true,
     env: {
       ...process.env,
+      OPENCLAUDE_DISABLE_AUTO_PROVIDER_CALLS: '1',
       OPENCLAUDE_PRODUCT_PROMPTED_TOOL_LOOP_NO_PROVIDER: '1',
     },
   })
@@ -113,18 +126,24 @@ function runToolCommand(command: (typeof toolCommands)[number]): ToolCommandCapt
   const stderr = normalize(result.stderr)
   const combined = `${stdout}\n${stderr}`
   const missingSubstrings = command.requiredSubstrings.filter((substring) => !combined.includes(substring))
+  const errorMessage = result.error?.message ?? null
+  const timedOut = errorMessage?.includes('ETIMEDOUT') === true
 
   return {
     name: command.name,
-    command: ['node', 'dist/cli.mjs', ...command.args],
+    command: [commandExecutable, 'dist/cli.mjs', ...command.args],
     exitCode: result.status,
+    signal: result.signal ?? null,
+    timeoutMs: commandTimeoutMs,
+    timedOut,
+    errorMessage,
     stdoutSha256: sha256(stdout),
     stderrSha256: sha256(stderr),
     stdoutByteLength: Buffer.byteLength(stdout, 'utf8'),
     stderrByteLength: Buffer.byteLength(stderr, 'utf8'),
     requiredSubstrings: [...command.requiredSubstrings],
     missingSubstrings,
-    passed: result.status === 0 && missingSubstrings.length === 0,
+    passed: result.status === 0 && missingSubstrings.length === 0 && !result.error,
   }
 }
 
@@ -183,6 +202,7 @@ function buildTrace(promptSha256: string, promptByteLength: number, commandCaptu
       toolName: 'local_cli_introspection',
       commandName: command.name,
       exitCode: command.exitCode,
+      timedOut: command.timedOut,
       stdoutSha256: command.stdoutSha256,
       stderrSha256: command.stderrSha256,
       stdoutByteLength: command.stdoutByteLength,
@@ -193,6 +213,7 @@ function buildTrace(promptSha256: string, promptByteLength: number, commandCaptu
       toolName: 'local_cli_introspection',
       commandName: command.name,
       exitCode: command.exitCode,
+      timedOut: command.timedOut,
       stdoutSha256: command.stdoutSha256,
       stderrSha256: command.stderrSha256,
       stdoutByteLength: command.stdoutByteLength,
@@ -234,6 +255,8 @@ function writeReports(report: PromptedToolLoopCaptureReport): void {
     `- protected_actions_authorized: \`${report.operatorAuthorization.protectedActionsAuthorized}\``,
     `- trace_path: \`${report.tracePath}\``,
     `- trace_sha256: \`${report.traceSha256}\``,
+    `- command_executable: \`${report.commandExecutable}\``,
+    `- command_timeout_ms: \`${report.commandTimeoutMs}\``,
     `- tool_command_count: \`${report.toolCommandCaptures.length}\``,
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
     `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
@@ -241,10 +264,10 @@ function writeReports(report: PromptedToolLoopCaptureReport): void {
     '',
     '## Tool Commands',
     '',
-    '| Command | Exit | Passed | Stdout SHA-256 | Stderr SHA-256 | Stdout Bytes | Stderr Bytes |',
-    '| --- | ---: | --- | --- | --- | ---: | ---: |',
+    '| Command | Exit | Signal | Timed Out | Passed | Stdout SHA-256 | Stderr SHA-256 | Stdout Bytes | Stderr Bytes |',
+    '| --- | ---: | --- | --- | --- | --- | --- | ---: | ---: |',
     ...report.toolCommandCaptures.map((capture) => (
-      `| \`${capture.command.join(' ')}\` | \`${capture.exitCode}\` | \`${capture.passed}\` | \`${capture.stdoutSha256}\` | \`${capture.stderrSha256}\` | ${capture.stdoutByteLength} | ${capture.stderrByteLength} |`
+      `| \`${capture.command.join(' ')}\` | \`${capture.exitCode}\` | \`${capture.signal}\` | \`${capture.timedOut}\` | \`${capture.passed}\` | \`${capture.stdoutSha256}\` | \`${capture.stderrSha256}\` | ${capture.stdoutByteLength} | ${capture.stderrByteLength} |`
     )),
     '',
     '## Checks',
@@ -280,6 +303,9 @@ function main(): void {
     check('operator prompt is captured only by hash', promptSha256.length === 64 && promptByteLength > 0, `${promptByteLength} bytes`),
     check('tool loop executed at least two local CLI tool steps', toolCommandCaptures.length >= 2, `${toolCommandCaptures.length} commands`),
     check('all local tool commands passed', toolCommandCaptures.every((command) => command.passed), toolCommandCaptures.map((command) => `${command.name}=${command.exitCode}`).join(',')),
+    check('tool commands are timeout bounded', toolCommandCaptures.every((command) => command.timeoutMs === commandTimeoutMs), `${commandTimeoutMs}ms`),
+    check('tool commands did not time out', toolCommandCaptures.every((command) => !command.timedOut), toolCommandCaptures.filter((command) => command.timedOut).map((command) => command.name).join(',') || 'none'),
+    check('tool commands have no spawn errors', toolCommandCaptures.every((command) => command.errorMessage === null), toolCommandCaptures.filter((command) => command.errorMessage !== null).map((command) => `${command.name}:${command.errorMessage}`).join(',') || 'none'),
     check('tool command output is summarized by hashes', toolCommandCaptures.every((command) => command.stdoutSha256.length === 64 && command.stderrSha256.length === 64), `${toolCommandCaptures.length} commands`),
     check('trace artifact was written', existsSync(resolve(root, tracePath)), tracePath),
     check('trace artifact hash is recorded', traceSha256.length === 64, traceSha256),
@@ -304,6 +330,8 @@ function main(): void {
     promptSha256,
     promptByteLength,
     nonSyntheticUserSessionClaimed: false,
+    commandExecutable,
+    commandTimeoutMs,
     tracePath,
     traceSha256,
     toolCommandCaptures,

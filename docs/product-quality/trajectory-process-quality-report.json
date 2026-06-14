@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-14T16:10:37.160Z",
+  "generatedAt": "2026-06-14T16:25:57.882Z",
   "mode": "local_no_provider_trajectory_process_quality",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
   "sourceRealTraceEvalMode": "local_no_provider_real_session_jsonl_trace_grading",
   "sourceTraceCount": 13,
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "bb19edfcc415946db6f3e2080dfa255815190f68d53730999151699ce9a3e4b6",
+  "sourceLocalBenchmarkResultsSha256": "20978f1a707f42d44246a6bd66fa1240930a2ef171fc5d6581da8acb85952058",
   "primarySourceInputs": [
     {
       "sourceProject": "SWE-agent/SWE-agent",
@@ -184,7 +184,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "sha256": "0622236b078b3070ead05e18fa9f7615fc26c9f0b2a5834200d03d729b0cb847",
       "traceKind": "prompted_tool_loop_cli",
       "eventCount": 8,
       "terminalOutcome": "succeeded",
@@ -359,7 +359,7 @@
     {
       "label": "local benchmark result hash matches harness report",
       "ok": true,
-      "detail": "bb19edfcc415946db6f3e2080dfa255815190f68d53730999151699ce9a3e4b6/bb19edfcc415946db6f3e2080dfa255815190f68d53730999151699ce9a3e4b6"
+      "detail": "20978f1a707f42d44246a6bd66fa1240930a2ef171fc5d6581da8acb85952058/20978f1a707f42d44246a6bd66fa1240930a2ef171fc5d6581da8acb85952058"
     },
     {
       "label": "trace discovery count matches real trace eval report",
@@ -404,7 +404,7 @@
     {
       "label": "process-quality result JSONL hash is recordable",
       "ok": true,
-      "detail": "49b2558e32efa62679aaa9bc39a04c91bf5ad9ff018c16d237edf8c1aa72b600"
+      "detail": "388685b4ba8b2bbdfe51d33094b7eaf35576d6661dcf37af6a40d9538a3ad809"
     }
   ],
   "claimBoundary": "This report is internal local process-quality evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."
