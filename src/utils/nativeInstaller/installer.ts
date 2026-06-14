@@ -73,6 +73,10 @@ import {
 
 export const VERSION_RETENTION_COUNT = 2
 
+let execFileNoThrowWithCwdImpl = execFileNoThrowWithCwd
+let rmImpl = rm
+let getClaudeConfigHomeDirImpl = getClaudeConfigHomeDir
+
 // 7 days in milliseconds - used for mtime-based lock stale timeout.
 // This is long enough to survive laptop sleep durations while still
 // allowing cleanup of abandoned locks from crashed processes within a reasonable time.
@@ -1527,7 +1531,7 @@ async function manualRemoveNpmPackage(
 ): Promise<{ success: boolean; error?: string; warning?: string }> {
   try {
     // Get npm global prefix
-    const prefixResult = await execFileNoThrowWithCwd('npm', [
+    const prefixResult = await execFileNoThrowWithCwdImpl('npm', [
       'config',
       'get',
       'prefix',
@@ -1609,7 +1613,7 @@ async function manualRemoveNpmPackage(
 async function attemptNpmUninstall(
   packageName: string,
 ): Promise<{ success: boolean; error?: string; warning?: string }> {
-  const { code, stderr } = await execFileNoThrowWithCwd(
+  const { code, stderr } = await execFileNoThrowWithCwdImpl(
     'npm',
     ['uninstall', '-g', packageName],
     // eslint-disable-next-line custom-rules/no-process-cwd -- matches original behavior
@@ -1690,12 +1694,12 @@ export async function cleanupNpmInstallations(): Promise<{
 
   // Preserve compatibility with pre-migration installs under ~/.claude/local.
   const localInstallDirs = Array.from(
-    new Set([join(getClaudeConfigHomeDir(), 'local'), join(homedir(), '.claude', 'local')]),
+    new Set([join(getClaudeConfigHomeDirImpl(), 'local'), join(homedir(), '.claude', 'local')]),
   )
 
   for (const localInstallDir of localInstallDirs) {
     try {
-      await rm(localInstallDir, { recursive: true })
+      await rmImpl(localInstallDir, { recursive: true })
       removed++
       logForDebugging(`Removed local installation at ${localInstallDir}`)
     } catch (error) {
@@ -1709,4 +1713,24 @@ export async function cleanupNpmInstallations(): Promise<{
   }
 
   return { removed, errors, warnings }
+}
+
+/** @internal test-only */
+export function _setNativeInstallerTestHooks(hooks: {
+  execFileNoThrowWithCwd?: typeof execFileNoThrowWithCwd
+  rm?: typeof rm
+  getClaudeConfigHomeDir?: typeof getClaudeConfigHomeDir
+}): void {
+  execFileNoThrowWithCwdImpl =
+    hooks.execFileNoThrowWithCwd ?? execFileNoThrowWithCwd
+  rmImpl = hooks.rm ?? rm
+  getClaudeConfigHomeDirImpl =
+    hooks.getClaudeConfigHomeDir ?? getClaudeConfigHomeDir
+}
+
+/** @internal test-only */
+export function _resetNativeInstallerTestHooks(): void {
+  execFileNoThrowWithCwdImpl = execFileNoThrowWithCwd
+  rmImpl = rm
+  getClaudeConfigHomeDirImpl = getClaudeConfigHomeDir
 }

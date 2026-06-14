@@ -1,6 +1,17 @@
 import { afterEach, describe, expect, mock, test } from 'bun:test'
+import {
+  getIsInteractive,
+  getKairosActive,
+  setIsInteractive,
+  setKairosActive,
+} from '../bootstrap/state.js'
+import { saveGlobalConfig } from './config.js'
 
 const originalEnv = { ...process.env }
+const originalState = {
+  isInteractive: getIsInteractive(),
+  kairosActive: getKairosActive(),
+}
 
 async function importFreshFastModeModule() {
   return import(`./fastMode.ts?ts=${Date.now()}-${Math.random()}`)
@@ -11,86 +22,41 @@ function installCommonMocks(options?: {
   apiKey?: string | null
   oauthToken?: string | null
   hasProfileScope?: boolean
-  axiosReject?: boolean
 }) {
-  mock.module('axios', () => ({
-    default: {
-      get: options?.axiosReject
-        ? async () => {
-            throw new Error('network fail')
-          }
-        : async () => ({ data: { enabled: false, disabled_reason: 'preference' } }),
-      isAxiosError: () => false,
-    },
-  }))
-
-  mock.module('src/constants/oauth.js', () => ({
-    getOauthConfig: () => ({ BASE_API_URL: 'https://api.anthropic.com' }),
-    OAUTH_BETA_HEADER: 'test-beta',
-  }))
-
-  mock.module('src/services/analytics/growthbook.js', () => ({
-    getFeatureValue_CACHED_MAY_BE_STALE: (_name: string, defaultValue: unknown) =>
-      defaultValue,
-  }))
-
-  mock.module('../bootstrap/state.js', () => ({
-    getIsNonInteractiveSession: () => false,
-    getKairosActive: () => false,
-    preferThirdPartyAuthentication: () => false,
+  setIsInteractive(true)
+  setKairosActive(false)
+  delete process.env.CLAUDE_CODE_USE_OPENAI
+  delete process.env.CLAUDE_CODE_USE_GEMINI
+  delete process.env.CLAUDE_CODE_USE_GITHUB
+  delete process.env.CLAUDE_CODE_USE_MISTRAL
+  delete process.env.CLAUDE_CODE_USE_BEDROCK
+  delete process.env.CLAUDE_CODE_USE_VERTEX
+  delete process.env.CLAUDE_CODE_USE_FOUNDRY
+  delete process.env.NVIDIA_NIM
+  delete process.env.MINIMAX_API_KEY
+  delete process.env.ANTHROPIC_AUTH_TOKEN
+  delete process.env.CLAUDE_CODE_OAUTH_TOKEN
+  process.env.CLAUDE_CODE_SIMPLE = '1'
+  if (options?.apiKey) {
+    process.env.ANTHROPIC_API_KEY = options.apiKey
+  } else {
+    delete process.env.ANTHROPIC_API_KEY
+  }
+  saveGlobalConfig(current => ({
+    ...current,
+    penguinModeOrgEnabled: options?.cachedEnabled === true,
   }))
 
   mock.module('../services/analytics/index.js', () => ({
     logEvent: () => {},
   }))
 
-  mock.module('./auth.js', () => ({
-    getAnthropicApiKey: () => options?.apiKey ?? null,
-    getClaudeAIOAuthTokens: () =>
-      options?.oauthToken ? { accessToken: options.oauthToken } : null,
-    handleOAuth401Error: async () => {},
-    hasProfileScope: () => options?.hasProfileScope ?? false,
-  }))
-
-  mock.module('./bundledMode.js', () => ({
-    isInBundledMode: () => true,
-  }))
-
-  mock.module('./config.js', () => ({
-    getGlobalConfig: () => ({
-      penguinModeOrgEnabled: options?.cachedEnabled === true,
-    }),
-    saveGlobalConfig: (updater: (current: Record<string, unknown>) => Record<string, unknown>) =>
-      updater({ penguinModeOrgEnabled: options?.cachedEnabled === true }),
-  }))
-
   mock.module('./debug.js', () => ({
     logForDebugging: () => {},
   }))
 
-  mock.module('./envUtils.js', () => ({
-    isEnvTruthy: (value: string | undefined) =>
-      !!value && value !== '0' && value.toLowerCase() !== 'false',
-  }))
-
-  mock.module('./model/model.js', () => ({
-    getDefaultMainLoopModelSetting: () => 'claude-sonnet-4-6',
-    isOpus1mMergeEnabled: () => false,
-    parseUserSpecifiedModel: (model: string) => model,
-  }))
-
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'firstParty',
-  }))
-
   mock.module('./privacyLevel.js', () => ({
     isEssentialTrafficOnly: () => false,
-  }))
-
-  mock.module('./settings/settings.js', () => ({
-    getInitialSettings: () => ({ fastMode: true }),
-    getSettingsForSource: () => ({}),
-    updateSettingsForSource: () => {},
   }))
 
   mock.module('./signal.js', () => ({
@@ -105,6 +71,8 @@ function installCommonMocks(options?: {
 afterEach(() => {
   mock.restore()
   process.env = { ...originalEnv }
+  setIsInteractive(originalState.isInteractive)
+  setKairosActive(originalState.kairosActive)
 })
 
 describe('fastMode ant-only fallback cleanup', () => {
@@ -131,7 +99,13 @@ describe('fastMode ant-only fallback cleanup', () => {
     const {
       prefetchFastModeStatus,
       getFastModeUnavailableReason,
+      _setFastModeTestHooks,
     } = await importFreshFastModeModule()
+    _setFastModeTestHooks({
+      getAnthropicApiKey: () => null,
+      getClaudeAIOAuthTokens: () => null,
+      hasProfileScope: () => false,
+    })
 
     await prefetchFastModeStatus()
 
@@ -145,13 +119,21 @@ describe('fastMode ant-only fallback cleanup', () => {
     installCommonMocks({
       cachedEnabled: false,
       apiKey: 'test-key',
-      axiosReject: true,
     })
 
     const {
       prefetchFastModeStatus,
       getFastModeUnavailableReason,
+      _setFastModeTestHooks,
     } = await importFreshFastModeModule()
+    _setFastModeTestHooks({
+      getAnthropicApiKey: () => 'test-key',
+      getClaudeAIOAuthTokens: () => null,
+      hasProfileScope: () => false,
+      fetchFastModeStatus: async () => {
+        throw new Error('network fail')
+      },
+    })
 
     await prefetchFastModeStatus()
 

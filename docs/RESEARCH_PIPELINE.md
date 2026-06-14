@@ -57,12 +57,12 @@ For this project, the natural source files include:
 
 When the goal touches MFH/Meta/governed-code, also read the harness-engineering authority files:
 
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\CLAUDE.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\SPEC.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\decisions\`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\spec.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\plan.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\docs\reports\`
+- `<private-harness-root>\meta\CLAUDE.md`
+- `<private-harness-root>\meta\SPEC.md`
+- `<private-harness-root>\meta\decisions\`
+- `<private-harness-root>\mfh\.mfh\spec.md`
+- `<private-harness-root>\mfh\.mfh\plan.md`
+- `<private-harness-root>\mfh\docs\reports\`
 - `docs/MFH_META_SYNTHESIS.md`
 
 ## Meta Raw/Wiki/Decision Flow
@@ -97,10 +97,10 @@ The raw layer is evidence. The wiki/brief layer is interpretation. The decision 
 | Reasoning + acting | https://arxiv.org/abs/2210.03629 | Research basis for interleaved reasoning/actions |
 | Reflection loop | https://arxiv.org/abs/2303.11366 | Feedback/reflection memory basis |
 | Patents/prior art | https://www.uspto.gov/patents/search/patent-public-search/ | Prior-art search requirement |
-| Governed-code category | `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md` | Local decision record for product category |
-| MFH Operating Gate | `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\spec.md` | Local authority for evidence and closure principles |
-| Meta Constitution | `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\CLAUDE.md` | Local authority for operator boundary and decision ledger |
-| Candidate M closure | `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\docs\reports\2026-05-09-candidate-m-closure.md` | Local evidence for state-machine/session-anchor pattern |
+| Governed-code category | `<private-harness-root>\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md` | Local decision record for product category |
+| MFH Operating Gate | `<private-harness-root>\mfh\.mfh\spec.md` | Local authority for evidence and closure principles |
+| Meta Constitution | `<private-harness-root>\meta\CLAUDE.md` | Local authority for operator boundary and decision ledger |
+| Candidate M closure | `<private-harness-root>\mfh\docs\reports\2026-05-09-candidate-m-closure.md` | Local evidence for state-machine/session-anchor pattern |
 
 ## Research Artifact Template
 

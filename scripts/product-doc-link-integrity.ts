@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
-import { dirname, normalize, resolve } from 'node:path'
+import { dirname, normalize, relative, resolve } from 'node:path'
 
 type SourceInput = {
   sourceProject: string
@@ -52,6 +52,7 @@ const scannedMarkdownFiles = [
   'docs/quick-start-mac-linux.md',
   'docs/product-quality/product-quality-gate.md',
   'docs/product-quality/competitive-scorecard.md',
+  'docs/MODEL_SYSTEM_CARD.md',
   'docs/MIMESIS_ENGINEERING.md',
   'docs/marketing/README.md',
   'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
@@ -91,6 +92,10 @@ function resolveLocalHref(sourcePath: string, href: string): string {
   return normalize(resolve(root, dirname(sourcePath), decoded))
 }
 
+function toRepoPath(path: string): string {
+  return relative(root, path).replace(/\\/g, '/') || '.'
+}
+
 function extractRelativeLinks(sourcePath: string): LinkCheck[] {
   const text = readText(sourcePath)
   const checks: LinkCheck[] = []
@@ -101,13 +106,13 @@ function extractRelativeLinks(sourcePath: string): LinkCheck[] {
     if (isExternalOrAnchor(href)) {
       continue
     }
-    const resolvedPath = resolveLocalHref(sourcePath, href)
+    const absolutePath = resolveLocalHref(sourcePath, href)
     checks.push({
       sourcePath,
       linkText,
       href,
-      resolvedPath,
-      ok: existsSync(resolvedPath),
+      resolvedPath: toRepoPath(absolutePath),
+      ok: existsSync(absolutePath),
     })
   }
   return checks

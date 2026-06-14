@@ -15,6 +15,49 @@ import { isEnvTruthy } from './envUtils.js'
 let cachedEmail: string | undefined | null = null // null means not fetched yet
 let emailFetchPromise: Promise<string | undefined> | null = null
 
+type UserTestHooks = {
+  execa?: typeof execa
+  getCwd?: typeof getCwd
+  getGlobalConfig?: typeof getGlobalConfig
+  getHostPlatformForAnalytics?: typeof getHostPlatformForAnalytics
+  getOauthAccountInfo?: typeof getOauthAccountInfo
+  getOrCreateUserID?: typeof getOrCreateUserID
+  getRateLimitTier?: typeof getRateLimitTier
+  getSessionId?: typeof getSessionId
+  getSubscriptionType?: typeof getSubscriptionType
+  isEnvTruthy?: typeof isEnvTruthy
+}
+
+let userTestHooks: UserTestHooks = {}
+
+function getUserDeps() {
+  return {
+    execa: userTestHooks.execa ?? execa,
+    getCwd: userTestHooks.getCwd ?? getCwd,
+    getGlobalConfig: userTestHooks.getGlobalConfig ?? getGlobalConfig,
+    getHostPlatformForAnalytics:
+      userTestHooks.getHostPlatformForAnalytics ?? getHostPlatformForAnalytics,
+    getOauthAccountInfo:
+      userTestHooks.getOauthAccountInfo ?? getOauthAccountInfo,
+    getOrCreateUserID: userTestHooks.getOrCreateUserID ?? getOrCreateUserID,
+    getRateLimitTier: userTestHooks.getRateLimitTier ?? getRateLimitTier,
+    getSessionId: userTestHooks.getSessionId ?? getSessionId,
+    getSubscriptionType:
+      userTestHooks.getSubscriptionType ?? getSubscriptionType,
+    isEnvTruthy: userTestHooks.isEnvTruthy ?? isEnvTruthy,
+  }
+}
+
+export function _setUserTestHooks(hooks: UserTestHooks): void {
+  userTestHooks = hooks
+  resetUserCache()
+}
+
+export function _resetUserTestHooks(): void {
+  userTestHooks = {}
+  resetUserCache()
+}
+
 /**
  * GitHub Actions metadata when running in CI
  */
@@ -77,15 +120,16 @@ export function resetUserCache(): void {
  */
 export const getCoreUserData = memoize(
   (includeAnalyticsMetadata?: boolean): CoreUserData => {
-    const deviceId = getOrCreateUserID()
-    const config = getGlobalConfig()
+    const deps = getUserDeps()
+    const deviceId = deps.getOrCreateUserID()
+    const config = deps.getGlobalConfig()
 
     let subscriptionType: string | undefined
     let rateLimitTier: string | undefined
     let firstTokenTime: number | undefined
     if (includeAnalyticsMetadata) {
-      subscriptionType = getSubscriptionType() ?? undefined
-      rateLimitTier = getRateLimitTier() ?? undefined
+      subscriptionType = deps.getSubscriptionType() ?? undefined
+      rateLimitTier = deps.getRateLimitTier() ?? undefined
       if (subscriptionType && config.claudeCodeFirstTokenDate) {
         const configFirstTokenTime = new Date(
           config.claudeCodeFirstTokenDate,
@@ -97,23 +141,23 @@ export const getCoreUserData = memoize(
     }
 
     // Only include OAuth account data when actively using OAuth authentication
-    const oauthAccount = getOauthAccountInfo()
+    const oauthAccount = deps.getOauthAccountInfo()
     const organizationUuid = oauthAccount?.organizationUuid
     const accountUuid = oauthAccount?.accountUuid
 
     return {
       deviceId,
-      sessionId: getSessionId(),
+      sessionId: deps.getSessionId(),
       email: getEmail(),
       appVersion: MACRO.VERSION,
-      platform: getHostPlatformForAnalytics(),
+      platform: deps.getHostPlatformForAnalytics(),
       organizationUuid,
       accountUuid,
       userType: process.env.USER_TYPE,
       subscriptionType,
       rateLimitTier,
       firstTokenTime,
-      ...(isEnvTruthy(process.env.GITHUB_ACTIONS) && {
+      ...(deps.isEnvTruthy(process.env.GITHUB_ACTIONS) && {
         githubActionsMetadata: {
           actor: process.env.GITHUB_ACTOR,
           actorId: process.env.GITHUB_ACTOR_ID,
@@ -141,7 +185,7 @@ function getEmail(): string | undefined {
   }
 
   // Only include OAuth email when actively using OAuth authentication
-  const oauthAccount = getOauthAccountInfo()
+  const oauthAccount = getUserDeps().getOauthAccountInfo()
   if (oauthAccount?.emailAddress) {
     return oauthAccount.emailAddress
   }
@@ -152,7 +196,7 @@ function getEmail(): string | undefined {
 
 async function getEmailAsync(): Promise<string | undefined> {
   // Only include OAuth email when actively using OAuth authentication
-  const oauthAccount = getOauthAccountInfo()
+  const oauthAccount = getUserDeps().getOauthAccountInfo()
   if (oauthAccount?.emailAddress) {
     return oauthAccount.emailAddress
   }
@@ -165,10 +209,11 @@ async function getEmailAsync(): Promise<string | undefined> {
  * Memoized so the subprocess only spawns once per process.
  */
 export const getGitEmail = memoize(async (): Promise<string | undefined> => {
-  const result = await execa('git config --get user.email', {
+  const deps = getUserDeps()
+  const result = await deps.execa('git config --get user.email', {
     shell: true,
     reject: false,
-    cwd: getCwd(),
+    cwd: deps.getCwd(),
   })
   return result.exitCode === 0 && result.stdout
     ? result.stdout.trim()

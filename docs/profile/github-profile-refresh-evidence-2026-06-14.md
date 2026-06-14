@@ -48,7 +48,7 @@ Current private/internal work that should not be marketed as public access:
 
 ## Digital Factory Evidence
 
-`C:\Users\admin\Desktop\Digital Factory` is not a git repository, but it contains the freshest local Mimesis Engineering artifacts:
+`<digital-factory-root>` is not a git repository, but it contains the freshest local Mimesis Engineering artifacts:
 
 - `MIMESIS-METHOD.md`
 - `FRONTIER-MIMESIS-THREAD.md`

@@ -244,13 +244,13 @@ if (message.type === 'assistant') {
 1. **RED**: 명령 실행 전, jsonl에 skeptic 라인 0개 단언 (수동).
 2. **GREEN**: 라이브 프로브 실행:
    ```powershell
-   Set-Location "C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0"
+   Set-Location "<repo>"
    bun run build
    "OpenClaude Phase 2 검증. src/query.ts 안에서 lastOrchestraGuidanceTurn이 어떻게 쓰이는지 한국어로 한 문단 설명해줘." `
      | node dist/cli.mjs -p --output-format json --no-session-persistence --max-turns 3
    ```
 3. **VERIFY**:
-   - `Get-Content "$env:USERPROFILE\.claude\orchestra-usage.jsonl" -Tail 30`
+   - `Get-Content "<config-dir>/orchestra-usage.jsonl" -Tail 30`
    - 매 turn에 `"role":"planner"`와 `"role":"skeptic"` 둘 다 `started → succeeded` 라인 존재 확인.
    - jsonl output(stdout)에서 `type:"system"` 메시지에 "Opus 4.7 야당" 헤더 포함 확인.
 4. **REFACTOR**: 필요 시 `scripts/probe-orchestra-skeptic.ts` 신설 (Phase 1 패턴 따라). MVP에서는 수동 명령으로 충분.

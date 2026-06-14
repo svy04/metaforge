@@ -237,7 +237,7 @@ OpenClaude 빌드 디렉토리는 **non-git** → `checkWorktreeAvailability` "n
 **Steps**:
 1. `bun run build`
 2. `"src/services/orchestra/dummy.ts에 'use strict' 한 줄 추가" | node dist/cli.mjs -p ...`
-3. `Get-Content "$env:USERPROFILE/.claude/orchestra-usage.jsonl" -Tail 10` — `role:"shadow-*"` / `cross-reviewer-*` 라인 0개.
+3. `Get-Content "<config-dir>/orchestra-usage.jsonl" -Tail 10` — `role:"shadow-*"` / `cross-reviewer-*` 라인 0개.
 4. debug log 또는 stdout에 "Phase 3 skipped: not-git" 메시지 검증.
 
 OpenClaude 자체는 git 아니므로 *실제 worktree 생성*은 라이브로 검증 못 함. 단위 테스트가 mock runner로 보증. 실 git 환경 검증은 Done Definition의 후속 항목.

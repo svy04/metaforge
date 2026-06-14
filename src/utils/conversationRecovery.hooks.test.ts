@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const tempDirs: string[] = []
+const originalEnv = { ...process.env }
 const originalSimple = process.env.CLAUDE_CODE_SIMPLE
 const sessionId = '00000000-0000-4000-8000-000000001999'
 const ts = '2026-04-02T00:00:00.000Z'
@@ -46,9 +47,23 @@ async function writeJsonl(entry: unknown): Promise<string> {
 
 afterEach(async () => {
   mock.restore()
+  process.env = { ...originalEnv }
   process.env.CLAUDE_CODE_SIMPLE = originalSimple
   await Promise.all(tempDirs.splice(0).map(dir => rm(dir, { recursive: true, force: true })))
 })
+
+function clearProviderEnv(): void {
+  delete process.env.CLAUDE_CODE_USE_OPENAI
+  delete process.env.CLAUDE_CODE_USE_GEMINI
+  delete process.env.CLAUDE_CODE_USE_GITHUB
+  delete process.env.CLAUDE_CODE_USE_MISTRAL
+  delete process.env.CLAUDE_CODE_USE_BEDROCK
+  delete process.env.CLAUDE_CODE_USE_VERTEX
+  delete process.env.CLAUDE_CODE_USE_FOUNDRY
+  delete process.env.NVIDIA_NIM
+  delete process.env.MINIMAX_API_KEY
+  delete process.env.OPENAI_MODEL
+}
 
 test('loadConversationForResume rejects oversized transcripts before resume hooks run', async () => {
   delete process.env.CLAUDE_CODE_SIMPLE
@@ -105,14 +120,9 @@ test('deserializeMessagesWithInterruptDetection strips thinking blocks only for 
     user(id(13), 'follow up'),
   ]
 
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'openai',
-    isOpenAICompatibleProvider: (provider: string) =>
-      provider === 'openai' ||
-      provider === 'gemini' ||
-      provider === 'github' ||
-      provider === 'codex',
-  }))
+  clearProviderEnv()
+  process.env.CLAUDE_CODE_USE_OPENAI = '1'
+  process.env.OPENAI_MODEL = 'gpt-4o'
 
   const openaiModule = await import(`./conversationRecovery.ts?provider=openai-${Date.now()}`)
   const thirdParty = openaiModule.deserializeMessagesWithInterruptDetection(serializedMessages as never[])
@@ -131,15 +141,8 @@ test('deserializeMessagesWithInterruptDetection strips thinking blocks only for 
     JSON.stringify(thirdPartyAssistantMessages.map((message: { message?: { content?: unknown } }) => message.message?.content)),
   ).not.toContain('only hidden reasoning')
 
-  mock.restore()
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'bedrock',
-    isOpenAICompatibleProvider: (provider: string) =>
-      provider === 'openai' ||
-      provider === 'gemini' ||
-      provider === 'github' ||
-      provider === 'codex',
-  }))
+  clearProviderEnv()
+  process.env.CLAUDE_CODE_USE_BEDROCK = '1'
 
   const bedrockModule = await import(`./conversationRecovery.ts?provider=bedrock-${Date.now()}`)
   const anthropicCompatible = bedrockModule.deserializeMessagesWithInterruptDetection(serializedMessages as never[])

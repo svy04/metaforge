@@ -16,9 +16,9 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 | `docs/profile/github-profile-refresh-evidence-2026-06-14.md` | Profile rewrite used current public repos and avoided private/inaccessible proof. | Use as current profile evidence. |
 | `docs/product-quality/public-claim-boundary-report.md` | Local no-provider scan blocks unsupported public claims on configured surfaces. | Use as claim-boundary evidence. |
 | `docs/product-quality/product-evidence-manifest.md` | Local evidence package can hash-bind reports and artifacts. | Use as proof-pack pattern without signed-attestation claims. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\CLAIMS.md` | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use as the tone and maxims for public proof-pack copy. |
-| `C:\Users\admin\Desktop\Digital Factory\MIMESIS-DEPLOYMENT-MAP.md` | Fresh local deployment map says value comes from knowing where the method works, not claiming it always wins. | Use as the non-superiority boundary. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\experts\frontier-visual-designer\MODULE.md` | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a public-surface design test. |
+| `<digital-factory-root>\mimesis-plugin\CLAIMS.md` | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use as the tone and maxims for public proof-pack copy. |
+| `<digital-factory-root>\MIMESIS-DEPLOYMENT-MAP.md` | Fresh local deployment map says value comes from knowing where the method works, not claiming it always wins. | Use as the non-superiority boundary. |
+| `<digital-factory-root>\mimesis-plugin\experts\frontier-visual-designer\MODULE.md` | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a public-surface design test. |
 
 ## Primary Sources
 
@@ -26,8 +26,16 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 | --- | --- | --- | --- |
 | GitHub profile README docs | https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme | Profile README is a public repository README rendered on the profile when repository and README conditions are met. | Profile presence is not usage, quality, or adoption proof. |
 | GitHub repository topics docs | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics | Topics help people find and classify projects by purpose, subject, affinity, and language. | Topics are discoverability metadata, not validation. |
+| OpenAI Model Spec | https://model-spec.openai.com/ | Instruction hierarchy, autonomy bounds, side-effect control, and untrusted-data handling are useful for model/system card structure. | This supports disclosure shape only; no OpenAI alignment or vendor endorsement claim. |
+| OpenAI GPT-5.3-Codex System Card | https://deploymentsafety.openai.com/gpt-5-3-codex | System cards separate baseline evaluations, product-specific mitigations, network/sandbox boundaries, and model-specific risk. | Metaforge does not inherit vendor safety evals or model claims. |
+| OpenAI Codex agent approvals and security | https://developers.openai.com/codex/agent-approvals-security | Coding-agent side effects need sandbox, approval, network, and destructive-action boundaries. | Local controls require local verification. |
+| Claude Code how it works | https://code.claude.com/docs/en/how-claude-code-works | Agentic coding tools gather context, act, and verify through iterative local workflows. | This is not evidence of Metaforge runtime behavior. |
+| Claude Code permission modes | https://code.claude.com/docs/en/permission-modes | Permission modes make tool autonomy and approval boundaries explicit. | This is a disclosure pattern, not a Metaforge permission claim. |
+| Anthropic system prompt release notes | https://platform.claude.com/docs/en/release-notes/system-prompts | Versioned prompt disclosure can support public transparency. | The page is not evidence for Claude Code/API hidden prompts. |
 | OpenSSF Scorecard | https://github.com/ossf/scorecard | Security posture becomes stronger when checks are explicit and repeatable. | Do not claim a Scorecard result without actually running Scorecard. |
 | Model Cards for Model Reporting | https://arxiv.org/abs/1810.03993 | Public AI/system reports should disclose intended use, evaluation procedures, and limitations. | This source supports transparency structure, not model-performance claims. |
+| NIST AI RMF 1.0 | https://doi.org/10.6028/NIST.AI.100-1 | AI risk documentation can be organized around govern, map, measure, and manage concepts. | No NIST certification or conformance claim. |
+| NIST AI RMF Generative AI Profile | https://doi.org/10.6028/NIST.AI.600-1 | Generative AI documentation should expose provenance, testing, limitations, and incident boundaries. | No GenAI Profile assessment claim. |
 | Datasheets for Datasets | https://arxiv.org/abs/1803.09010 | Public proof artifacts should document motivation, composition, operating characteristics, tests, and recommended use. | This source supports documentation structure, not dataset certification. |
 | in-toto Attestation Framework | https://github.com/in-toto/attestation | Evidence can be structured as verifiable claims about how software is produced. | Metaforge proof packs are not signed attestations unless an attestation flow is actually implemented. |
 | OpenSSF OSPS Baseline | https://baseline.openssf.org/versions/2026-02-19.html | Security maturity can be expressed as controls by level and category. | No OSPS conformance claim without a control-by-control assessment. |

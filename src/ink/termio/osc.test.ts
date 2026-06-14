@@ -20,19 +20,17 @@ function execFileNoThrowCalls(): ExecFileNoThrowCall[] {
   return execFileNoThrowMock.mock.calls as unknown as ExecFileNoThrowCall[]
 }
 
-function installOscMocks(): void {
-  mock.module('../../utils/execFileNoThrow.js', () => ({
-    execFileNoThrow: execFileNoThrowMock,
-    execFileNoThrowWithCwd: execFileNoThrowMock,
-  }))
-
-  mock.module('../../utils/tempfile.js', () => ({
-    generateTempFilePath: generateTempFilePathMock,
-  }))
-}
-
 async function importFreshOscModule() {
   return import(`./osc.ts?ts=${Date.now()}-${Math.random()}`)
+}
+
+async function importFreshOscModuleWithMocks() {
+  const mod = await importFreshOscModule()
+  mod._setClipboardTestHooks({
+    execFileNoThrow: execFileNoThrowMock,
+    generateTempFilePath: generateTempFilePathMock,
+  })
+  return mod
 }
 
 async function flushClipboardCopy(): Promise<void> {
@@ -56,7 +54,6 @@ async function waitForExecCall(
 
 describe('Windows clipboard fallback', () => {
   beforeEach(() => {
-    installOscMocks()
     execFileNoThrowMock.mockClear()
     generateTempFilePathMock.mockClear()
     process.env = { ...originalEnv }
@@ -66,12 +63,13 @@ describe('Windows clipboard fallback', () => {
   })
 
   afterEach(() => {
+    mock.restore()
     process.env = { ...originalEnv }
     Object.defineProperty(process, 'platform', { value: originalPlatform })
   })
 
   test('uses PowerShell instead of clip.exe for local Windows copy', async () => {
-    const { setClipboard } = await importFreshOscModule()
+    const { setClipboard } = await importFreshOscModuleWithMocks()
 
     await setClipboard('Привет мир')
     const windowsCall = await waitForExecCall('powershell')
@@ -83,7 +81,7 @@ describe('Windows clipboard fallback', () => {
   })
 
   test('passes Windows clipboard text through a UTF-8 temp file instead of stdin', async () => {
-    const { setClipboard } = await importFreshOscModule()
+    const { setClipboard } = await importFreshOscModuleWithMocks()
 
     await setClipboard('Привет мир')
     await flushClipboardCopy()
@@ -107,21 +105,22 @@ describe('Windows clipboard fallback', () => {
 
 describe('clipboard path behavior remains stable', () => {
   beforeEach(() => {
-    installOscMocks()
     execFileNoThrowMock.mockClear()
+    generateTempFilePathMock.mockClear()
     process.env = { ...originalEnv }
     delete process.env['SSH_CONNECTION']
     delete process.env['TMUX']
   })
 
   afterEach(() => {
+    mock.restore()
     process.env = { ...originalEnv }
     Object.defineProperty(process, 'platform', { value: originalPlatform })
   })
 
   test('getClipboardPath stays native on local macOS', async () => {
     Object.defineProperty(process, 'platform', { value: 'darwin' })
-    const { getClipboardPath } = await importFreshOscModule()
+    const { getClipboardPath } = await importFreshOscModuleWithMocks()
 
     expect(getClipboardPath()).toBe('native')
   })
@@ -129,7 +128,7 @@ describe('clipboard path behavior remains stable', () => {
   test('getClipboardPath stays tmux-buffer when TMUX is set', async () => {
     Object.defineProperty(process, 'platform', { value: 'linux' })
     process.env['TMUX'] = '/tmp/tmux-1000/default,123,0'
-    const { getClipboardPath } = await importFreshOscModule()
+    const { getClipboardPath } = await importFreshOscModuleWithMocks()
 
     expect(getClipboardPath()).toBe('tmux-buffer')
   })
@@ -137,7 +136,7 @@ describe('clipboard path behavior remains stable', () => {
   test('Windows clipboard fallback is skipped over SSH', async () => {
     Object.defineProperty(process, 'platform', { value: 'win32' })
     process.env['SSH_CONNECTION'] = '1 2 3 4'
-    const { setClipboard } = await importFreshOscModule()
+    const { setClipboard } = await importFreshOscModuleWithMocks()
 
     await setClipboard('Привет мир')
 
@@ -148,7 +147,7 @@ describe('clipboard path behavior remains stable', () => {
 
   test('local macOS clipboard fallback still uses pbcopy', async () => {
     Object.defineProperty(process, 'platform', { value: 'darwin' })
-    const { setClipboard } = await importFreshOscModule()
+    const { setClipboard } = await importFreshOscModuleWithMocks()
 
     await setClipboard('hello')
 

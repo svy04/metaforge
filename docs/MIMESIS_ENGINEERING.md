@@ -70,10 +70,10 @@ This gives Metaforge a marketable but proof-bounded claim:
 
 Digital Factory has the freshest local Mimesis workbench:
 
-- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-METHOD.md`
-- `C:\Users\admin\Desktop\Digital Factory\FRONTIER-MIMESIS-THREAD.md`
-- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-DEPLOYMENT-MAP.md`
-- `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\README.ko.md`
+- `<digital-factory-root>\MIMESIS-METHOD.md`
+- `<digital-factory-root>\FRONTIER-MIMESIS-THREAD.md`
+- `<digital-factory-root>\MIMESIS-DEPLOYMENT-MAP.md`
+- `<digital-factory-root>\mimesis-plugin\README.ko.md`
 
 The Digital Factory root is a local workbench, not a published repository. `mimesis-plugin` and `mimesis-source-packet` are git repositories inside it, but both currently have local dirty state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
 

@@ -1,5 +1,4 @@
 import { afterEach, expect, mock, test } from 'bun:test'
-import * as fsPromises from 'fs/promises'
 import { homedir } from 'os'
 import { join } from 'path'
 
@@ -21,23 +20,15 @@ async function importFreshInstaller() {
 }
 
 test('install command displays ~/.local/bin/openclaude on non-Windows', async () => {
-  mock.module('../utils/env.js', () => ({
-    env: { platform: 'darwin' },
-  }))
-
   const { getInstallationPath } = await importFreshInstallCommand()
 
-  expect(getInstallationPath()).toBe('~/.local/bin/openclaude')
+  expect(getInstallationPath('darwin')).toBe('~/.local/bin/openclaude')
 })
 
 test('install command displays openclaude.exe path on Windows', async () => {
-  mock.module('../utils/env.js', () => ({
-    env: { platform: 'win32' },
-  }))
-
   const { getInstallationPath } = await importFreshInstallCommand()
 
-  expect(getInstallationPath()).toBe(
+  expect(getInstallationPath('win32')).toBe(
     join(homedir(), '.local', 'bin', 'openclaude.exe').replace(/\//g, '\\'),
   )
 })
@@ -48,26 +39,19 @@ test('cleanupNpmInstallations removes both openclaude and legacy claude local in
     PACKAGE_URL: '@gitlawb/openclaude',
   }
 
-  mock.module('fs/promises', () => ({
-    ...fsPromises,
-    rm: async (path: string) => {
-      removedPaths.push(path)
-    },
-  }))
-
-  mock.module('./execFileNoThrow.js', () => ({
+  const { cleanupNpmInstallations, _setNativeInstallerTestHooks } =
+    await importFreshInstaller()
+  _setNativeInstallerTestHooks({
     execFileNoThrowWithCwd: async () => ({
       code: 1,
       stderr: 'npm ERR! code E404',
     }),
-  }))
-
-  mock.module('./envUtils.js', () => ({
     getClaudeConfigHomeDir: () => join(homedir(), '.openclaude'),
-    isEnvTruthy: (value: string | undefined) => value === '1',
-  }))
+    rm: async (path: string) => {
+      removedPaths.push(path)
+    },
+  })
 
-  const { cleanupNpmInstallations } = await importFreshInstaller()
   await cleanupNpmInstallations()
 
   expect(removedPaths).toContain(join(homedir(), '.openclaude', 'local'))

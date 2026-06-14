@@ -1,20 +1,20 @@
-import { afterEach, describe, expect, mock, test } from 'bun:test'
+import { afterEach, describe, expect, test } from 'bun:test'
+
+import {
+  _resetUserTestHooks,
+  _setUserTestHooks,
+  getCoreUserData,
+  initUser,
+} from './user.js'
 
 const originalEnv = { ...process.env }
-
-async function importFreshUserModule() {
-  return import(`./user.ts?ts=${Date.now()}-${Math.random()}`)
-}
 
 function installCommonMocks(options?: {
   oauthEmail?: string
   gitEmail?: string
 }) {
-  mock.module('../bootstrap/state.js', () => ({
-    getSessionId: () => 'session-test',
-  }))
-
-  mock.module('./auth.js', () => ({
+  _setUserTestHooks({
+    getSessionId: (() => 'session-test') as never,
     getOauthAccountInfo: () =>
       options?.oauthEmail
         ? {
@@ -25,37 +25,23 @@ function installCommonMocks(options?: {
         : undefined,
     getRateLimitTier: () => null,
     getSubscriptionType: () => null,
-  }))
-
-  mock.module('./config.js', () => ({
-    getGlobalConfig: () => ({}),
+    getGlobalConfig: (() => ({})) as never,
     getOrCreateUserID: () => 'device-test',
-  }))
-
-  mock.module('./cwd.js', () => ({
     getCwd: () => 'C:\\repo',
-  }))
-
-  mock.module('./env.js', () => ({
-    env: { platform: 'windows' },
-    getHostPlatformForAnalytics: () => 'windows',
-  }))
-
-  mock.module('./envUtils.js', () => ({
-    isEnvTruthy: (value: string | undefined) =>
-      !!value && value !== '0' && value.toLowerCase() !== 'false',
-  }))
-
-  mock.module('execa', () => ({
-    execa: async () => ({
+    getHostPlatformForAnalytics: (() => 'windows') as never,
+    isEnvTruthy: (value: string | boolean | undefined) =>
+      !!value &&
+      value !== '0' &&
+      String(value).toLowerCase() !== 'false',
+    execa: (async () => ({
       exitCode: options?.gitEmail ? 0 : 1,
       stdout: options?.gitEmail ?? '',
-    }),
-  }))
+    })) as never,
+  })
 }
 
 afterEach(() => {
-  mock.restore()
+  _resetUserTestHooks()
   process.env = { ...originalEnv }
   delete (globalThis as Record<string, unknown>).MACRO
 })
@@ -68,7 +54,6 @@ describe('user email fallbacks', () => {
 
     installCommonMocks()
 
-    const { getCoreUserData } = await importFreshUserModule()
     const result = getCoreUserData()
 
     expect(result.email).toBeUndefined()
@@ -81,7 +66,6 @@ describe('user email fallbacks', () => {
 
     installCommonMocks({ gitEmail: 'git@example.com' })
 
-    const { initUser, getCoreUserData } = await importFreshUserModule()
     await initUser()
 
     const result = getCoreUserData()

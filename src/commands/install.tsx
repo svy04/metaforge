@@ -42,8 +42,8 @@ type InstallState = {
 type SetupNotesProps = {
   messages: string[];
 };
-export function getInstallationPath(): string {
-  const isWindows = env.platform === 'win32';
+export function getInstallationPath(platform = env.platform): string {
+  const isWindows = platform === 'win32';
   const homeDir = homedir();
   if (isWindows) {
     // Convert to Windows-style path

@@ -144,6 +144,10 @@ const requiredEvidencePaths = [
   'docs/product-quality/provider-capability-matrix-report.json',
   'docs/product-quality/provider-capability-matrix-report.md',
   'reports/openclaude-provider-capability-matrix.jsonl',
+  'docs/MODEL_SYSTEM_CARD.md',
+  'docs/product-quality/model-system-card-report.json',
+  'docs/product-quality/model-system-card-report.md',
+  'reports/openclaude-model-system-card.jsonl',
   'docs/product-quality/terminal-failure-recovery-transcripts-report.json',
   'docs/product-quality/terminal-failure-recovery-transcripts-report.md',
   'docs/product-quality/tool-interruption-recovery-trace-report.json',
@@ -239,6 +243,7 @@ function listFiles(prefix: string): string[] {
 function roleFor(path: string): EvidenceRecord['role'] {
   if (path === 'package.json') return 'source'
   if (path === 'bun.lock') return 'source'
+  if (path === 'docs/MODEL_SYSTEM_CARD.md') return 'source'
   if (path.startsWith('.github/')) return 'workflow'
   if (path === 'docs/product-quality/product-quality-gate.md') return 'quality_gate'
   if (path.startsWith('docs/product-quality/')) return 'evidence_report'
@@ -249,6 +254,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
   const candidatePaths = [
     'package.json',
     'bun.lock',
+    'docs/MODEL_SYSTEM_CARD.md',
     ...listFiles('docs/product-quality'),
     ...listFiles('reports').filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path)),
     ...listFiles('.github').filter((path) => /\.(ya?ml)$/.test(path) || path === '.github/CODEOWNERS'),

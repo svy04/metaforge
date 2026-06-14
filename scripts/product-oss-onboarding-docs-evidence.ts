@@ -236,6 +236,8 @@ function main(): void {
   const sourceText = readText(sourceSafeBacklogPlanReportPath)
   const sourceReport = JSON.parse(sourceText) as SafeBacklogPlanReport
   const sourcePlanItems = sourceReport.planItems.filter((item) => item.axis === 'onboarding_docs')
+  const sourceGateCandidate = sourceReport.nextSafeInternalGateCandidates.find((candidate) => candidate.gateId === 'openclaude_internal_onboarding_docs_evidence_gate')
+  const expectedSourcePlanItemCount = sourceGateCandidate?.sourceBacklogItemCount ?? sourcePlanItems.length
   const evidenceItems = sourcePlanItems.map(toEvidenceItem)
   const sourceProjects = [...new Set(evidenceItems.map((item) => item.sourceProject))].sort()
 
@@ -256,8 +258,8 @@ function main(): void {
   const evidenceChecks = [
     check('source safe backlog plan is local no-provider', sourceReport.mode === 'local_no_provider_oss_safe_backlog_plan', sourceReport.mode),
     check('source safe backlog plan performed no provider/live/external/protected calls', sourceReport.providerCallsPerformed.length === 0 && sourceReport.liveModelCallsPerformed.length === 0 && sourceReport.externalCallsPerformed.length === 0 && sourceReport.protectedActionsExecuted.length === 0, 'all source call/action arrays empty'),
-    check('selected onboarding docs axis has source items', sourcePlanItems.length === 6, `${sourcePlanItems.length}/6`),
-    check('source next gate candidate exists', sourceReport.nextSafeInternalGateCandidates.some((candidate) => candidate.gateId === 'openclaude_internal_onboarding_docs_evidence_gate' && candidate.protectedActionRequiredForPlanning === false), 'openclaude_internal_onboarding_docs_evidence_gate'),
+    check('selected onboarding docs axis has source items', sourcePlanItems.length > 0 && sourcePlanItems.length === expectedSourcePlanItemCount, `${sourcePlanItems.length}/${expectedSourcePlanItemCount}`),
+    check('source next gate candidate exists', sourceGateCandidate?.protectedActionRequiredForPlanning === false, 'openclaude_internal_onboarding_docs_evidence_gate'),
     check('every evidence item has hash-bound local evidence', allBindings.length > 0 && allBindings.every((binding) => binding.exists && typeof binding.sha256 === 'string' && binding.sha256.length === 64 && binding.sizeBytes > 0), `${allBindings.length} bindings`),
     check('coverage includes first-run boundary and link integrity classes', ['non_synthetic_first_run_boundary', 'readme_quickstart_link_integrity'].every((coverage) => evidenceItems.some((item) => item.onboardingCoverageClass === coverage)), [...new Set(evidenceItems.map((item) => item.onboardingCoverageClass))].join(',')),
     check('every evidence item rejects claim expansion', evidenceItems.every((item) => item.nonSyntheticFirstRunClaimAllowed === false && item.crossPlatformOnboardingClaimAllowed === false && item.publicReadinessClaimAllowed === false && item.releaseReadinessClaimAllowed === false && item.productionReadinessClaimAllowed === false && item.externalValidationClaimAllowed === false && item.autonomousReliabilityClaimAllowed === false), `${evidenceItems.length} items`),

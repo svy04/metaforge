@@ -381,6 +381,43 @@ async function fetchFastModeStatus(
   return response.data
 }
 
+type FetchFastModeStatus = typeof fetchFastModeStatus
+let fetchFastModeStatusImpl: FetchFastModeStatus = fetchFastModeStatus
+let getAnthropicApiKeyImpl: typeof getAnthropicApiKey | null = null
+let getClaudeAIOAuthTokensImpl: typeof getClaudeAIOAuthTokens | null = null
+let hasProfileScopeImpl: typeof hasProfileScope | null = null
+
+function readAnthropicApiKey() {
+  return (getAnthropicApiKeyImpl ?? getAnthropicApiKey)()
+}
+
+function readClaudeAIOAuthTokens() {
+  return (getClaudeAIOAuthTokensImpl ?? getClaudeAIOAuthTokens)()
+}
+
+function readHasProfileScope() {
+  return (hasProfileScopeImpl ?? hasProfileScope)()
+}
+
+export function _setFastModeTestHooks(hooks: {
+  fetchFastModeStatus?: FetchFastModeStatus
+  getAnthropicApiKey?: typeof getAnthropicApiKey
+  getClaudeAIOAuthTokens?: typeof getClaudeAIOAuthTokens
+  hasProfileScope?: typeof hasProfileScope
+}): void {
+  fetchFastModeStatusImpl = hooks.fetchFastModeStatus ?? fetchFastModeStatus
+  getAnthropicApiKeyImpl = hooks.getAnthropicApiKey ?? null
+  getClaudeAIOAuthTokensImpl = hooks.getClaudeAIOAuthTokens ?? null
+  hasProfileScopeImpl = hooks.hasProfileScope ?? null
+}
+
+export function _resetFastModeTestHooks(): void {
+  fetchFastModeStatusImpl = fetchFastModeStatus
+  getAnthropicApiKeyImpl = null
+  getClaudeAIOAuthTokensImpl = null
+  hasProfileScopeImpl = null
+}
+
 const PREFETCH_MIN_INTERVAL_MS = 30_000
 let lastPrefetchAt = 0
 let inflightPrefetch: Promise<void> | null = null
@@ -424,9 +461,9 @@ export async function prefetchFastModeStatus(): Promise<void> {
   // Service key OAuth sessions lack user:profile scope → endpoint 403s.
   // Resolve orgStatus from cache and bail before burning the throttle window.
   // API key auth is unaffected.
-  const apiKey = getAnthropicApiKey()
+  const apiKey = readAnthropicApiKey()
   const hasUsableOAuth =
-    getClaudeAIOAuthTokens()?.accessToken && hasProfileScope()
+    readClaudeAIOAuthTokens()?.accessToken && readHasProfileScope()
   if (!hasUsableOAuth && !apiKey) {
     const cachedEnabled = getGlobalConfig().penguinModeOrgEnabled === true
     orgStatus =
@@ -444,9 +481,9 @@ export async function prefetchFastModeStatus(): Promise<void> {
   lastPrefetchAt = now
 
   const fetchWithCurrentAuth = async (): Promise<FastModeResponse> => {
-    const currentTokens = getClaudeAIOAuthTokens()
+    const currentTokens = readClaudeAIOAuthTokens()
     const auth =
-      currentTokens?.accessToken && hasProfileScope()
+      currentTokens?.accessToken && readHasProfileScope()
         ? { accessToken: currentTokens.accessToken }
         : apiKey
           ? { apiKey }
@@ -454,7 +491,7 @@ export async function prefetchFastModeStatus(): Promise<void> {
     if (!auth) {
       throw new Error('No auth available')
     }
-    return fetchFastModeStatus(auth)
+    return fetchFastModeStatusImpl(auth)
   }
 
   async function doFetch(): Promise<void> {
@@ -466,11 +503,11 @@ export async function prefetchFastModeStatus(): Promise<void> {
         const isAuthError =
           axios.isAxiosError(err) &&
           (err.response?.status === 401 ||
-            (err.response?.status === 403 &&
+          (err.response?.status === 403 &&
               typeof err.response?.data === 'string' &&
               err.response.data.includes('OAuth token has been revoked')))
         if (isAuthError) {
-          const failedAccessToken = getClaudeAIOAuthTokens()?.accessToken
+          const failedAccessToken = readClaudeAIOAuthTokens()?.accessToken
           if (failedAccessToken) {
             await handleOAuth401Error(failedAccessToken)
             status = await fetchWithCurrentAuth()

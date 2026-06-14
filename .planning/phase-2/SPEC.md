@@ -120,7 +120,7 @@ Skeptic은 `callClaudeLoginPlanner` 패턴과 동일하게 `sideQuery`로 호출
 ```
 
 검증 항목:
-- `Get-Content "$env:USERPROFILE\.claude\orchestra-usage.jsonl" -Tail 30` →
+- `Get-Content "<config-dir>/orchestra-usage.jsonl" -Tail 30` →
   매 turn에 `role:"planner"` 와 `role:"skeptic"` 둘 다 `started → succeeded` 기록.
 - 사용자 stdout에 `[Opus 4.7 야당]` 헤더가 들어간 system 메시지가 보임 (jsonl output에서는 `type:"system", subtype:"info|warning|error"` 항목으로).
 - skeptic 호출 latency가 turn당 5-15초 추가되는지 측정 (REQ R1 위험에 적힘).

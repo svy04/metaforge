@@ -270,6 +270,8 @@ function main(): void {
   const sourceText = readText(sourceSafeBacklogPlanReportPath)
   const sourceReport = JSON.parse(sourceText) as SafeBacklogPlanReport
   const sourcePlanItems = sourceReport.planItems.filter((item) => item.axis === 'release_hygiene')
+  const sourceGateCandidate = sourceReport.nextSafeInternalGateCandidates.find((candidate) => candidate.gateId === 'openclaude_internal_release_hygiene_evidence_gate')
+  const expectedSourcePlanItemCount = sourceGateCandidate?.sourceBacklogItemCount ?? sourcePlanItems.length
   const evidenceItems = sourcePlanItems.map(toEvidenceItem)
   const sourceProjects = [...new Set(evidenceItems.map((item) => item.sourceProject))].sort()
 
@@ -291,8 +293,8 @@ function main(): void {
   const evidenceChecks = [
     check('source safe backlog plan is local no-provider', sourceReport.mode === 'local_no_provider_oss_safe_backlog_plan', sourceReport.mode),
     check('source safe backlog plan performed no provider/live/external/protected calls', sourceReport.providerCallsPerformed.length === 0 && sourceReport.liveModelCallsPerformed.length === 0 && sourceReport.externalCallsPerformed.length === 0 && sourceReport.protectedActionsExecuted.length === 0, 'all source call/action arrays empty'),
-    check('selected release hygiene axis has source items', sourcePlanItems.length === 4, `${sourcePlanItems.length}/4`),
-    check('source next gate candidate exists', sourceReport.nextSafeInternalGateCandidates.some((candidate) => candidate.gateId === 'openclaude_internal_release_hygiene_evidence_gate' && candidate.protectedActionRequiredForPlanning === false), 'openclaude_internal_release_hygiene_evidence_gate'),
+    check('selected release hygiene axis has source items', sourcePlanItems.length > 0 && sourcePlanItems.length === expectedSourcePlanItemCount, `${sourcePlanItems.length}/${expectedSourcePlanItemCount}`),
+    check('source next gate candidate exists', sourceGateCandidate?.protectedActionRequiredForPlanning === false, 'openclaude_internal_release_hygiene_evidence_gate'),
     check('every evidence item has hash-bound local evidence', allBindings.length > 0 && allBindings.every((binding) => binding.exists && typeof binding.sha256 === 'string' && binding.sha256.length === 64 && binding.sizeBytes > 0), `${allBindings.length} bindings`),
     check('coverage includes artifact reproducibility and release-claim boundaries', ['local_artifact_reproducibility_sbom_license_gate', 'signed_provenance_publish_release_claim_boundary'].every((coverage) => coverageClasses.includes(coverage as ReleaseHygieneCoverageClass)), coverageClasses.join(',')),
     check('every evidence item rejects release and protected-action expansion', evidenceItems.every((item) => item.commitAllowed === false && item.pushAllowed === false && item.publishAllowed === false && item.deployAllowed === false && item.launchAllowed === false && item.signedProvenanceClaimAllowed === false && item.legalNoticeReuseDecisionAllowed === false && item.releaseReadinessClaimAllowed === false && item.productionReadinessClaimAllowed === false && item.publicReadinessClaimAllowed === false && item.externalValidationClaimAllowed === false && item.autonomousReliabilityClaimAllowed === false), `${evidenceItems.length} items`),

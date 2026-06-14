@@ -192,6 +192,27 @@ function nextGateCandidates(items: BacklogPlanItem[], axes: string[]): NextSafeI
   })
 }
 
+function primarySourceInputsFor(records: AxisReviewRecord[]): OssSafeBacklogPlanReport['primarySourceInputs'] {
+  const byProject = new Map<string, AxisReviewRecord>()
+  for (const record of records) {
+    if (!byProject.has(record.fullName)) {
+      byProject.set(record.fullName, record)
+    }
+  }
+  const knownPatterns: Record<string, string> = {
+    'ultraworkers/claw-code': 'Claw Code exposes doctor, usage, parity, and Windows-first verification surfaces as first-class product evidence.',
+    'warpdotdev/warp': 'Warp positions terminal workflows as an agentic development surface that needs auditable local evidence.',
+  }
+  return [...byProject.values()].map((record) => ({
+    sourceProject: record.fullName,
+    sourceUrl: record.sourceUrl,
+    observedPattern:
+      knownPatterns[record.fullName] ??
+      `${record.fullName} contributes source-reviewed signals for bounded OSS architecture absorption.`,
+    localAbsorption: 'OpenClaude preserves high-priority backlog items as bounded evidence-gate candidates before implementation claims.',
+  }))
+}
+
 function writeMarkdown(report: OssSafeBacklogPlanReport): void {
   const categoryRows = Object.entries(report.categoryCounts)
     .sort(([left], [right]) => left.localeCompare(right))
@@ -324,26 +345,7 @@ function main(): void {
     publicReadinessClaimAllowed: false,
     externalValidationClaimAllowed: false,
     autonomousReliabilityClaimAllowed: false,
-    primarySourceInputs: [
-      {
-        sourceProject: 'ultraworkers/claw-code',
-        sourceUrl: 'https://github.com/ultraworkers/claw-code',
-        observedPattern: 'Claw Code exposes doctor, usage, parity, and Windows-first verification surfaces as first-class product evidence.',
-        localAbsorption: 'OpenClaude preserves high-priority backlog items as bounded evidence-gate candidates before implementation claims.',
-      },
-      {
-        sourceProject: 'warpdotdev/warp',
-        sourceUrl: 'https://github.com/warpdotdev/warp',
-        observedPattern: 'Warp positions terminal workflows as an agentic development surface that needs auditable local evidence.',
-        localAbsorption: 'OpenClaude categorizes terminal and recovery backlog items into local no-provider evidence gates.',
-      },
-      {
-        sourceProject: 'ruvnet/ruflo',
-        sourceUrl: 'https://github.com/ruvnet/ruflo',
-        observedPattern: 'Ruflo positions agent orchestration as a coordinated workflow surface, requiring explicit boundaries around multi-agent claims.',
-        localAbsorption: 'OpenClaude maps orchestration and reliability backlog items to future internal gates without expanding autonomous reliability claims.',
-      },
-    ],
+    primarySourceInputs: primarySourceInputsFor(source.axisReviewRecords),
     planItems,
     planChecks: checks,
     claimBoundary: 'OSS safe backlog planning is internal local no-provider planning evidence only. It does not execute backlog items, protected actions, external validation, public comparison, release readiness, production readiness, or autonomous reliability claims.',

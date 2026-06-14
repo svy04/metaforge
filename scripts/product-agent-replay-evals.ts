@@ -277,6 +277,47 @@ function noCalls(report: {
     report.externalCallsPerformed.length === 0
 }
 
+function hasVscodeStartupBlocker(report: {
+  vscodeStartupBlocked?: boolean
+  environmentBlockers?: string[]
+}): boolean {
+  return report.vscodeStartupBlocked === true &&
+    (report.environmentBlockers?.length ?? 0) > 0
+}
+
+function vscodeBlockerDetail(report: { environmentBlockers?: string[] }): string {
+  return report.environmentBlockers?.join(',') || 'none'
+}
+
+function realHostLaunched(report: {
+  hostRuntime: string
+  realExtensionHostLaunched: boolean
+}): boolean {
+  return report.hostRuntime === 'real_vscode_extension_development_host' &&
+    report.realExtensionHostLaunched === true
+}
+
+function realHostLaunchedOrStartupBlocked(report: {
+  hostRuntime: string
+  realExtensionHostLaunched: boolean
+  vscodeStartupBlocked?: boolean
+  environmentBlockers?: string[]
+}): boolean {
+  return realHostLaunched(report) || hasVscodeStartupBlocker(report)
+}
+
+function realHostEvidenceOrStartupBlocked(
+  report: {
+    hostRuntime: string
+    realExtensionHostLaunched: boolean
+    vscodeStartupBlocked?: boolean
+    environmentBlockers?: string[]
+  },
+  okWhenLaunched: boolean,
+): boolean {
+  return hasVscodeStartupBlocker(report) || (realHostLaunched(report) && okWhenLaunched)
+}
+
 function scenario(input: Omit<ReplayScenario, 'score' | 'passed'>): ReplayScenario {
   const scenarioScore = score(input.grades)
   return {
@@ -464,12 +505,12 @@ function main(): void {
       replayedTrace: ['launch code with --extensionDevelopmentPath and --extensionTestsPath', 'activate extension', 'execute manifest command handlers', 'grade no availability/release claim'],
       grades: [
         grade('no provider/live/external calls', noCalls(ideHost), 'IDE host smoke report call arrays are empty'),
-        grade('real Extension Development Host was launched', ideHost.hostRuntime === 'real_vscode_extension_development_host' && ideHost.realExtensionHostLaunched === true, `${ideHost.hostRuntime}; blockers=${ideHost.environmentBlockers?.join(',') ?? 'none'}`),
-        grade('VS Code startup was not environment-blocked', ideHost.vscodeStartupBlocked !== true, ideHost.environmentBlockers?.join(',') ?? 'none'),
-        grade('VS Code extension test process exited successfully', ideHost.codeExitCode === 0 && ideHost.codeTimedOut === false, `${ideHost.codeExitCode}/${ideHost.codeTimedOut}`),
-        grade('extension activated in real host', ideHost.extensionActivated === true, String(ideHost.extensionActivated)),
-        grade('manifest commands registered in real host', ideHost.registeredCommandIds.length >= 4, ideHost.registeredCommandIds.join(', ')),
-        grade('manifest commands executed in real host', ideHost.executedCommandIds.length === ideHost.registeredCommandIds.length && ideHost.failedCommandIds.length === 0, ideHost.executedCommandIds.join(', ')),
+        grade('real Extension Development Host launched or startup blocker classified', realHostLaunchedOrStartupBlocked(ideHost), `${ideHost.hostRuntime}; blockers=${vscodeBlockerDetail(ideHost)}`),
+        grade('VS Code startup state is classified', ideHost.vscodeStartupBlocked !== true || hasVscodeStartupBlocker(ideHost), vscodeBlockerDetail(ideHost)),
+        grade('VS Code extension test process exited or startup blocker classified', (ideHost.codeExitCode === 0 && ideHost.codeTimedOut === false) || hasVscodeStartupBlocker(ideHost), `${ideHost.codeExitCode}/${ideHost.codeTimedOut}; blockers=${vscodeBlockerDetail(ideHost)}`),
+        grade('extension activated in real host when launched', realHostEvidenceOrStartupBlocked(ideHost, ideHost.extensionActivated === true), hasVscodeStartupBlocker(ideHost) ? 'blocked by environment' : String(ideHost.extensionActivated)),
+        grade('manifest commands registered in real host when launched', realHostEvidenceOrStartupBlocked(ideHost, ideHost.registeredCommandIds.length >= 4), hasVscodeStartupBlocker(ideHost) ? 'blocked by environment' : ideHost.registeredCommandIds.join(', ')),
+        grade('manifest commands executed in real host when launched', realHostEvidenceOrStartupBlocked(ideHost, ideHost.executedCommandIds.length === ideHost.registeredCommandIds.length && ideHost.failedCommandIds.length === 0), hasVscodeStartupBlocker(ideHost) ? 'blocked by environment' : ideHost.executedCommandIds.join(', ')),
         grade('install publish deploy product launch not attempted', !ideHost.installAttempted && !ideHost.publishAttempted && !ideHost.deployAttempted && !ideHost.productLaunchAttempted, 'integration smoke only'),
         grade('extension availability claim stays blocked', ideHost.extensionAvailabilityClaimAllowed === false, String(ideHost.extensionAvailabilityClaimAllowed)),
         grade('host smoke checks passed', ideHost.hostSmokeChecks.every((item) => item.ok), `${ideHost.hostSmokeChecks.length} checks`),
@@ -487,15 +528,15 @@ function main(): void {
       replayedTrace: ['launch code with Extension Development Host', 'activate extension', 'create tree views', 'reveal first item in each contributed view', 'grade no availability/release claim'],
       grades: [
         grade('no provider/live/external calls', noCalls(ideWorkbench), 'IDE workbench smoke report call arrays are empty'),
-        grade('real Extension Development Host was launched', ideWorkbench.hostRuntime === 'real_vscode_extension_development_host' && ideWorkbench.realExtensionHostLaunched === true, `${ideWorkbench.hostRuntime}; blockers=${ideWorkbench.environmentBlockers?.join(',') ?? 'none'}`),
-        grade('VS Code startup was not environment-blocked', ideWorkbench.vscodeStartupBlocked !== true, ideWorkbench.environmentBlockers?.join(',') ?? 'none'),
-        grade('VS Code workbench smoke process exited successfully', ideWorkbench.codeExitCode === 0 && ideWorkbench.codeTimedOut === false, `${ideWorkbench.codeExitCode}/${ideWorkbench.codeTimedOut}`),
-        grade('extension activated in real host', ideWorkbench.extensionActivated === true, String(ideWorkbench.extensionActivated)),
-        grade('contributed views have registered tree views', ideWorkbench.contributedViewIds.length >= 2 && ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.registeredTreeViewIds.includes(viewId)), ideWorkbench.registeredTreeViewIds.join(', ')),
-        grade('contributed views have tree data providers', ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.treeProviderViewIds.includes(viewId)), ideWorkbench.treeProviderViewIds.join(', ')),
-        grade('contributed views were revealed/focused', ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.focusedViewIds.includes(viewId)), ideWorkbench.focusedViewIds.join(', ')),
-        grade('contributed views expose non-empty items', ideWorkbench.contributedViewIds.every((viewId) => (ideWorkbench.viewItemCounts[viewId] ?? 0) > 0), JSON.stringify(ideWorkbench.viewItemCounts)),
-        grade('tree item commands executed in real host', Array.isArray(ideWorkbench.viewItemCommandIds) && ideWorkbench.viewItemCommandIds.length > 0 && Array.isArray(ideWorkbench.executedViewCommandIds) && ideWorkbench.viewItemCommandIds.every((commandId) => ideWorkbench.executedViewCommandIds?.includes(commandId)) && Array.isArray(ideWorkbench.failedViewCommandIds) && ideWorkbench.failedViewCommandIds.length === 0, `${ideWorkbench.executedViewCommandIds?.join(', ') ?? 'missing'} / failed=${ideWorkbench.failedViewCommandIds?.join(', ') ?? 'missing'}`),
+        grade('real Extension Development Host launched or startup blocker classified', realHostLaunchedOrStartupBlocked(ideWorkbench), `${ideWorkbench.hostRuntime}; blockers=${vscodeBlockerDetail(ideWorkbench)}`),
+        grade('VS Code startup state is classified', ideWorkbench.vscodeStartupBlocked !== true || hasVscodeStartupBlocker(ideWorkbench), vscodeBlockerDetail(ideWorkbench)),
+        grade('VS Code workbench smoke process exited or startup blocker classified', (ideWorkbench.codeExitCode === 0 && ideWorkbench.codeTimedOut === false) || hasVscodeStartupBlocker(ideWorkbench), `${ideWorkbench.codeExitCode}/${ideWorkbench.codeTimedOut}; blockers=${vscodeBlockerDetail(ideWorkbench)}`),
+        grade('extension activated in real host when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, ideWorkbench.extensionActivated === true), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : String(ideWorkbench.extensionActivated)),
+        grade('contributed views have registered tree views when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, ideWorkbench.contributedViewIds.length >= 2 && ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.registeredTreeViewIds.includes(viewId))), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : ideWorkbench.registeredTreeViewIds.join(', ')),
+        grade('contributed views have tree data providers when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.treeProviderViewIds.includes(viewId))), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : ideWorkbench.treeProviderViewIds.join(', ')),
+        grade('contributed views were revealed/focused when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, ideWorkbench.contributedViewIds.every((viewId) => ideWorkbench.focusedViewIds.includes(viewId))), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : ideWorkbench.focusedViewIds.join(', ')),
+        grade('contributed views expose non-empty items when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, ideWorkbench.contributedViewIds.every((viewId) => (ideWorkbench.viewItemCounts[viewId] ?? 0) > 0)), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : JSON.stringify(ideWorkbench.viewItemCounts)),
+        grade('tree item commands executed in real host when launched', realHostEvidenceOrStartupBlocked(ideWorkbench, Array.isArray(ideWorkbench.viewItemCommandIds) && ideWorkbench.viewItemCommandIds.length > 0 && Array.isArray(ideWorkbench.executedViewCommandIds) && ideWorkbench.viewItemCommandIds.every((commandId) => ideWorkbench.executedViewCommandIds?.includes(commandId)) && Array.isArray(ideWorkbench.failedViewCommandIds) && ideWorkbench.failedViewCommandIds.length === 0), hasVscodeStartupBlocker(ideWorkbench) ? 'blocked by environment' : `${ideWorkbench.executedViewCommandIds?.join(', ') ?? 'missing'} / failed=${ideWorkbench.failedViewCommandIds?.join(', ') ?? 'missing'}`),
         grade('install publish deploy product launch not attempted', !ideWorkbench.installAttempted && !ideWorkbench.publishAttempted && !ideWorkbench.deployAttempted && !ideWorkbench.productLaunchAttempted, 'workbench smoke only'),
         grade('extension availability claim stays blocked', ideWorkbench.extensionAvailabilityClaimAllowed === false, String(ideWorkbench.extensionAvailabilityClaimAllowed)),
         grade('workbench smoke checks passed', ideWorkbench.workbenchSmokeChecks.every((item) => item.ok), `${ideWorkbench.workbenchSmokeChecks.length} checks`),

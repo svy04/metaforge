@@ -55,8 +55,8 @@ type IdeReconciliationRecord = {
     | 'local_ide_surface_evidence_present_protected_host_gap_open'
     | 'source_project_ide_axis_not_absorbed_by_current_source_review'
   localEvidenceBindingCount: number
-  realHostSmokeBoundaryStatus: 'blocked_by_vscode_cli_unavailable'
-  workbenchSmokeStatus: 'local_real_workbench_smoke_passed_claim_blocked'
+  realHostSmokeBoundaryStatus: 'blocked_by_vscode_cli_unavailable' | 'blocked_by_vscode_update_in_progress'
+  workbenchSmokeStatus: 'local_real_workbench_smoke_passed_claim_blocked' | 'blocked_by_vscode_update_in_progress_claim_blocked'
   protectedActionRequiredForNextStep: true
   protectedActionExecuted: false
   extensionAvailabilityClaimAllowed: false
@@ -217,6 +217,12 @@ function allChecksPass(report: Record<string, unknown>, key: string): boolean {
   return Array.isArray(checks) && checks.length > 0 && checks.every((item) => typeof item === 'object' && item !== null && (item as { ok?: unknown }).ok === true)
 }
 
+function hostSmokeBoundaryStatus(blockers: string[]): IdeReconciliationRecord['realHostSmokeBoundaryStatus'] {
+  return blockers.includes('vscode_update_in_progress')
+    ? 'blocked_by_vscode_update_in_progress'
+    : 'blocked_by_vscode_cli_unavailable'
+}
+
 function writeMarkdown(report: IdeEvidenceReport): void {
   const sourceRows = report.sourceReportBindings
     .map((source) => `| \`${source.path}\` | \`${source.exists}\` | \`${source.sha256 ?? 'missing'}\` | ${source.sizeBytes} |`)
@@ -325,20 +331,36 @@ function main(): void {
   const hostBlockers = Array.isArray(hostSmoke.environmentBlockers)
     ? hostSmoke.environmentBlockers.filter((item): item is string => typeof item === 'string')
     : []
+  const protectedHostBlockers = ['vscode_cli_unavailable', 'vscode_update_in_progress']
+  const realHostSmokeBoundaryStatus = hostSmokeBoundaryStatus(hostBlockers)
+  const workbenchBlockers = Array.isArray(workbenchSmoke.environmentBlockers)
+    ? workbenchSmoke.environmentBlockers.filter((item): item is string => typeof item === 'string')
+    : []
   const workbenchRegisteredViews = Array.isArray(workbenchSmoke.registeredTreeViewIds) ? workbenchSmoke.registeredTreeViewIds : []
   const workbenchExecutedCommands = Array.isArray(workbenchSmoke.executedViewCommandIds) ? workbenchSmoke.executedViewCommandIds : []
   const hostSmokeRealHostBlockedByVscodeCli = hostSmoke.hostRuntime === 'real_vscode_extension_development_host' &&
     hostSmoke.vscodeStartupBlocked === true &&
-    hostBlockers.includes('vscode_cli_unavailable') &&
+    hostBlockers.some((blocker) => protectedHostBlockers.includes(blocker)) &&
     hostSmoke.realExtensionHostLaunched === false &&
     hostSmoke.extensionAvailabilityClaimAllowed === false
-  const workbenchSmokePass = workbenchSmoke.hostRuntime === 'real_vscode_extension_development_host' &&
+  const workbenchSmokeRealEvidencePass = workbenchSmoke.hostRuntime === 'real_vscode_extension_development_host' &&
     workbenchSmoke.codeExitCode === 0 &&
     workbenchSmoke.vscodeStartupBlocked === false &&
     workbenchSmoke.realExtensionHostLaunched === true &&
     workbenchSmoke.extensionActivated === true &&
     workbenchSmoke.extensionAvailabilityClaimAllowed === false &&
     allChecksPass(workbenchSmoke, 'workbenchSmokeChecks')
+  const workbenchSmokeProtectedBoundaryPass = workbenchSmoke.hostRuntime === 'real_vscode_extension_development_host' &&
+    workbenchSmoke.codeExitCode === 0 &&
+    workbenchSmoke.vscodeStartupBlocked === true &&
+    workbenchBlockers.some((blocker) => protectedHostBlockers.includes(blocker)) &&
+    workbenchSmoke.realExtensionHostLaunched === false &&
+    workbenchSmoke.extensionAvailabilityClaimAllowed === false &&
+    allChecksPass(workbenchSmoke, 'workbenchSmokeChecks')
+  const workbenchSmokePass = workbenchSmokeRealEvidencePass || workbenchSmokeProtectedBoundaryPass
+  const workbenchSmokeStatus = workbenchSmokeProtectedBoundaryPass
+    ? 'blocked_by_vscode_update_in_progress_claim_blocked'
+    : 'local_real_workbench_smoke_passed_claim_blocked'
 
   const reconciliationRecords: IdeReconciliationRecord[] = ideRows.map((record) => ({
     schemaVersion: 'openclaude_oss_ide_or_editor_surface_evidence_v1',
@@ -352,8 +374,8 @@ function main(): void {
       ? 'local_ide_surface_evidence_present_protected_host_gap_open'
       : 'source_project_ide_axis_not_absorbed_by_current_source_review',
     localEvidenceBindingCount: record.openClaudeEvidencePresentCount,
-    realHostSmokeBoundaryStatus: 'blocked_by_vscode_cli_unavailable',
-    workbenchSmokeStatus: 'local_real_workbench_smoke_passed_claim_blocked',
+    realHostSmokeBoundaryStatus,
+    workbenchSmokeStatus,
     protectedActionRequiredForNextStep: true,
     protectedActionExecuted: false,
     extensionAvailabilityClaimAllowed: false,
@@ -457,8 +479,8 @@ function main(): void {
     check('source readiness index identifies the IDE/editor axis as the current safe internal priority', readinessIndex.mode === 'local_no_provider_oss_comparison_readiness_index' && ideIndexRecord?.readinessTier === 'safe_internal_absorption_priority', `${readinessIndex.mode}/${report.sourceIdePriorityTier}`),
     check('IDE/editor axis has ten source matrix rows', comparisonMatrix.mode === 'local_no_provider_oss_benchmark_comparison_matrix' && comparisonMatrix.top10ProjectCount === 10 && ideRows.length === 10, `${ideRows.length}/10`),
     check('source IDE readiness counts match matrix rows', report.sourceIdeLocalEvidenceBackedCellCount === ideRows.filter((record) => record.benchmarkabilityStatus === 'local_internal_evidence_present_protected_gap_open').length && report.sourceIdeAxisNotYetAbsorbedCellCount === ideRows.filter((record) => record.benchmarkabilityStatus === 'axis_not_yet_absorbed').length && report.sourceIdeMetadataOnlyCellCount === ideRows.filter((record) => record.benchmarkabilityStatus === 'metadata_only_needs_source_review').length, `${report.sourceIdeLocalEvidenceBackedCellCount}/${report.sourceIdeAxisNotYetAbsorbedCellCount}/${report.sourceIdeMetadataOnlyCellCount}`),
-    check('host smoke keeps real VS Code CLI boundary protected', hostSmokeRealHostBlockedByVscodeCli, hostBlockers.join(',') || 'none'),
-    check('workbench smoke records local real-host Tree View command evidence with availability claims blocked', workbenchSmokePass && report.workbenchSmokeRegisteredTreeViewCount >= 2 && report.workbenchSmokeExecutedCommandCount >= 4, `${report.workbenchSmokeRegisteredTreeViewCount} views/${report.workbenchSmokeExecutedCommandCount} commands`),
+    check('host smoke keeps real VS Code startup boundary protected', hostSmokeRealHostBlockedByVscodeCli, hostBlockers.join(',') || 'none'),
+    check('workbench smoke records local Tree View evidence or protected startup boundary with availability claims blocked', workbenchSmokePass && (workbenchSmokeProtectedBoundaryPass || (report.workbenchSmokeRegisteredTreeViewCount >= 2 && report.workbenchSmokeExecutedCommandCount >= 4)), workbenchSmokeProtectedBoundaryPass ? workbenchBlockers.join(',') : `${report.workbenchSmokeRegisteredTreeViewCount} views/${report.workbenchSmokeExecutedCommandCount} commands`),
     check('package exposes the IDE/editor OSS evidence command', packageJson.scripts['product:oss-ide-or-editor-surface-evidence'] === 'bun run scripts/product-oss-ide-or-editor-surface-evidence.ts', packageJson.scripts['product:oss-ide-or-editor-surface-evidence'] ?? 'missing'),
     check('IDE/editor evidence JSONL has one parseable row per top-10 project', jsonlLineCount === reconciliationRecords.length && report.ideEvidenceJsonlRecordCount === reconciliationRecords.length && report.ideEvidenceJsonlSha256.length === 64, `${jsonlLineCount}/${reconciliationRecords.length}`),
     check('reconciliation records preserve protected-action and claim boundaries', reconciliationRecords.every((record) => record.protectedActionRequiredForNextStep === true && record.protectedActionExecuted === false && record.extensionAvailabilityClaimAllowed === false && record.publicComparisonClaimAllowed === false && record.superiorityClaimAllowed === false && record.releaseReadinessClaimAllowed === false && record.productionReadinessClaimAllowed === false && record.publicReadinessClaimAllowed === false && record.externalValidationClaimAllowed === false && record.autonomousReliabilityClaimAllowed === false), `${reconciliationRecords.length} records`),

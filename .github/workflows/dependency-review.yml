@@ -14,7 +14,30 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
+      - name: Detect Dependency Review support
+        id: dependency-review-support
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          support_state="$(gh api "repos/${GITHUB_REPOSITORY}" --jq '[.security_and_analysis.dependency_graph.status, .security_and_analysis.advanced_security.status] | @tsv' 2>/dev/null || true)"
+          dependency_graph="$(printf '%s' "${support_state}" | cut -f1)"
+          advanced_security="$(printf '%s' "${support_state}" | cut -f2)"
+
+          if [ "${dependency_graph}" = "enabled" ] && [ "${advanced_security}" = "enabled" ]; then
+            echo "supported=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "supported=false" >> "${GITHUB_OUTPUT}"
+            {
+              echo "### Dependency Review skipped"
+              echo ""
+              echo "Dependency Review requires GitHub Dependency graph and Advanced Security support for this repository."
+              echo "Current detected state: dependency_graph=${dependency_graph:-unknown}, advanced_security=${advanced_security:-unknown}."
+            } >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
       - name: Dependency Review
+        if: steps.dependency-review-support.outputs.supported == 'true'
         uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: moderate

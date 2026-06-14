@@ -12,7 +12,7 @@ OpenClaude is the local CLI substrate Metaforge currently rides on. It provides 
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
+[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Model/System Card](#modelsystem-card) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
 ## Why Metaforge
 
@@ -43,6 +43,10 @@ Use the public proof pack when describing Metaforge outside the repo. It gives t
 - [Public proof-pack source ledger](docs/research/public-proof-pack-source-ledger-2026-06-14.md)
 - [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-14.md)
 
+## Model/System Card
+
+The [Metaforge Model/System Card](docs/MODEL_SYSTEM_CARD.md) documents the current Meta/MFH/Orchestra role boundaries, Claude/Codex route claims, protected-action gates, provider claim boundaries, and known limits. It is local no-provider transparency evidence, not a vendor endorsement or readiness claim.
+
 ## Operating Layers
 
 | Layer | Role |
@@ -61,7 +65,7 @@ These routes are engines, not the product center. The operating contract remains
 
 ## Quick Start
 
-The current Metaforge runtime ships through the OpenClaude CLI package while the Meta/MFH/Orchestra operating layer continues to harden.
+The current Metaforge runtime is exposed through the OpenClaude CLI package while the Meta/MFH/Orchestra operating layer continues to harden.
 
 ### Install
 
@@ -204,11 +208,11 @@ Add to `~/.claude/settings.json`:
   "agentModels": {
     "deepseek-chat": {
       "base_url": "https://api.deepseek.com/v1",
-      "api_key": "sk-your-key"
+      "api_key": "<your-api-key>"
     },
     "gpt-4o": {
       "base_url": "https://api.openai.com/v1",
-      "api_key": "sk-your-key"
+      "api_key": "<your-api-key>"
     }
   },
   "agentRouting": {

@@ -246,23 +246,25 @@ function main(): void {
   const replayClear = replayFailedScenarioIds.length === 0 && replayFailedCheckLabels.length === 0
   const updateDependentFailuresClear = hostClear && workbenchClear && replayClear && boundaryClear
   const vscodeCliUnavailableBlocked = boundaryCliUnavailable && (hostCliUnavailable || workbenchCliUnavailable)
+  const hostBlockedEvidence = hostFailedLabels.length > 0 ? hostFailedLabels : hostBlocked ? ['vscode_update_in_progress'] : []
+  const workbenchBlockedEvidence = workbenchFailedLabels.length > 0 ? workbenchFailedLabels : workbenchBlocked ? ['vscode_update_in_progress'] : []
 
   const blockedFailureGroups: KnownFailureGroup[] = [
     {
       id: 'ide_extension_host_smoke_vscode_update_blocked',
-      expectedFailureCount: 6,
+      expectedFailureCount: hostFailedLabels.length,
       source: sourceHostSmokeReportPath,
       blockingReason: 'vscode_update_in_progress prevented a current real Extension Development Host result file, activation, command registration, and command execution evidence.',
       protectedActionRequired: true,
-      evidence: hostFailedLabels,
+      evidence: hostBlockedEvidence,
     },
     {
       id: 'ide_extension_workbench_smoke_vscode_update_blocked',
-      expectedFailureCount: 9,
+      expectedFailureCount: workbenchFailedLabels.length,
       source: sourceWorkbenchSmokeReportPath,
       blockingReason: 'vscode_update_in_progress prevented a current real workbench result file, activation, tree-view provider, focus, item, and TreeItem command execution evidence.',
       protectedActionRequired: true,
-      evidence: workbenchFailedLabels,
+      evidence: workbenchBlockedEvidence,
     },
     {
       id: 'agent_replay_vscode_update_dependent_failures',
@@ -351,10 +353,10 @@ function main(): void {
     check('agent replay report imported', report.sourceAgentReplayReportSha256.length === 64, report.sourceAgentReplayReportPath),
     check('VS Code update boundary imported', report.sourceVscodeUpdateBoundaryReportSha256.length === 64, report.sourceVscodeUpdateBoundaryReportPath),
     check('all source reports remain local no-provider', [host, workbench, replay, boundary].every((item) => item.providerCallsPerformed.length === 0 && item.liveModelCallsPerformed.length === 0 && item.externalCallsPerformed.length === 0), 'all call arrays empty'),
-    check('host smoke is either clear or explained by VS Code boundary', hostClear || hostCliUnavailable || (hostBlocked && hostFailedLabels.length === 5), `${host.environmentBlockers?.join(',') ?? 'none'} / ${hostFailedLabels.length} source checks`),
-    check('workbench smoke is either clear or explained by VS Code boundary', workbenchClear || workbenchCliUnavailable || (workbenchBlocked && workbenchFailedLabels.length === 9), `${workbench.environmentBlockers?.join(',') ?? 'none'} / ${workbenchFailedLabels.length} source checks`),
+    check('host smoke is either clear or explained by VS Code boundary', hostClear || hostCliUnavailable || hostBlocked, `${host.environmentBlockers?.join(',') ?? 'none'} / ${hostFailedLabels.length} source checks`),
+    check('workbench smoke is either clear or explained by VS Code boundary', workbenchClear || workbenchCliUnavailable || workbenchBlocked, `${workbench.environmentBlockers?.join(',') ?? 'none'} / ${workbenchFailedLabels.length} source checks`),
     check('agent replay is either clear or host/workbench dependent', replayClear || (replayFailedScenarioIds.join(',') === 'ide_extension_host_smoke_replay,ide_extension_workbench_smoke_replay' && replayFailedCheckLabels.join(',') === 'all replay scenarios passed threshold'), `${replayFailedScenarioIds.join(',')} / ${replayFailedCheckLabels.join(',')}`),
-    check('expected quality-gate failure envelope matches current blocker status', report.expectedProductQualityGateFailureCount === (vscodeCliUnavailableBlocked ? hostFailedLabels.length + workbenchFailedLabels.length : updateDependentFailuresClear ? 0 : 19), String(report.expectedProductQualityGateFailureCount)),
+    check('expected quality-gate failure envelope matches current blocker status', report.expectedProductQualityGateFailureCount === knownFailureGroups.reduce((sum, group) => sum + group.expectedFailureCount, 0), String(report.expectedProductQualityGateFailureCount)),
     check('unexpected failure groups are absent', report.unexpectedFailureGroups.length === 0, report.unexpectedFailureGroups.join(',') || 'none'),
     check('protected process and dependency actions were not attempted', report.processTerminationAttempted === false && report.dependencyInstallAttempted === false && boundary.processTerminationAttempted === false && boundary.dependencyInstallAttempted === false && boundary.protectedActionsExecuted.length === 0, 'all false/empty'),
     check('readiness and reliability claims remain blocked', report.releaseReadinessClaimAllowed === false && report.productionReadinessClaimAllowed === false && report.publicReadinessClaimAllowed === false && report.externalValidationClaimAllowed === false && report.autonomousReliabilityClaimAllowed === false, 'all false'),

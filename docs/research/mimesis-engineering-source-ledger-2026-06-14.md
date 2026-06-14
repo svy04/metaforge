@@ -19,12 +19,12 @@ Define Mimesis Engineering as a Metaforge operating loop and decide which source
 | `docs/RESEARCH_PIPELINE.md` | Primary-source ladder already requires local code, official docs, repos, standards, papers, patents, and rejection of blog-only final evidence. | Mimesis inherits this ladder. |
 | `docs/avf/OSS_ASSIMILATION_PIPELINE.md` | Existing local rule: OSS assimilation is governed acquisition, not copy-paste adoption. | Reuse as the open-source absorption boundary. |
 | `docs/avf/OPEN_SOURCE_EXPANSION_MAP.md` | Existing local map already separates candidate reuse from dependency adoption and runtime claims. | Reuse candidate-only boundary language. |
-| `C:\Users\admin\Desktop\Digital Factory\MIMESIS-METHOD.md` | Current local method distinguishes persona labels from load-bearing structure and requires non-LLM gates. | Use as freshest local Mimesis method evidence. |
-| `C:\Users\admin\Desktop\Digital Factory\FRONTIER-MIMESIS-THREAD.md` | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use as current expert-thinking evidence. |
-| `C:\Users\admin\Desktop\Digital Factory\MIMESIS-DEPLOYMENT-MAP.md` | Current deployment rule says mimesis is conditional: turn it on only where naked output is below expert structure, and keep objective gates always on. | Use for claim boundary. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\README.ko.md` | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Use as profile README source, with old public links rechecked first. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\CLAIMS.md` | Current local claim pack for public statement guardrails. | Use before profile or README marketing changes. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-source-packet\00-OVERVIEW.md` | Canonical source packet candidate for the Mimesis method. | Use as method evidence after dirty-state review. |
+| `<digital-factory-root>\MIMESIS-METHOD.md` | Current local method distinguishes persona labels from load-bearing structure and requires non-LLM gates. | Use as freshest local Mimesis method evidence. |
+| `<digital-factory-root>\FRONTIER-MIMESIS-THREAD.md` | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use as current expert-thinking evidence. |
+| `<digital-factory-root>\MIMESIS-DEPLOYMENT-MAP.md` | Current deployment rule says mimesis is conditional: turn it on only where naked output is below expert structure, and keep objective gates always on. | Use for claim boundary. |
+| `<digital-factory-root>\mimesis-plugin\README.ko.md` | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Use as profile README source, with old public links rechecked first. |
+| `<digital-factory-root>\mimesis-plugin\CLAIMS.md` | Current local claim pack for public statement guardrails. | Use before profile or README marketing changes. |
+| `<digital-factory-root>\mimesis-source-packet\00-OVERVIEW.md` | Canonical source packet candidate for the Mimesis method. | Use as method evidence after dirty-state review. |
 
 ## Product And Open-Source Sources
 

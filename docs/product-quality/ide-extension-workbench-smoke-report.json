@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-05-21T03:03:21.693Z",
+  "generatedAt": "2026-06-14T12:07:20.284Z",
   "mode": "local_no_provider_real_vscode_workbench_tree_view_smoke",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
   "hostRuntime": "real_vscode_extension_development_host",
-  "vscodeCliVersion": "1.120.0 / 0958016b2af9f09bb4257e0df4a95e2f90590f9f / x64",
+  "vscodeCliVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
   "manifestPath": "packages/openclaude-vscode/package.json",
   "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
-  "extensionDevelopmentPath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\packages\\openclaude-vscode",
-  "extensionTestsPath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\workbench-smoke-runner.cjs",
-  "workspacePath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\workspace",
+  "extensionDevelopmentPath": "<repo>\\packages\\openclaude-vscode",
+  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\workbench-smoke-runner.cjs",
+  "workspacePath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\workspace",
   "codeCommand": [
     "code",
-    "--extensionDevelopmentPath=C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\packages\\openclaude-vscode",
-    "--extensionTestsPath=C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\workbench-smoke-runner.cjs",
+    "--extensionDevelopmentPath=<repo>\\packages\\openclaude-vscode",
+    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\workbench-smoke-runner.cjs",
     "--user-data-dir",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\user-data",
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\user-data",
     "--extensions-dir",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\extensions",
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\extensions",
     "--disable-extensions",
     "--disable-gpu",
     "--skip-welcome",
     "--skip-release-notes",
     "--disable-workspace-trust",
     "--new-window",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-workbench-smoke\\run-1779332594689-29076\\workspace"
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781438808735-57696\\workspace"
   ],
   "codeExitCode": 0,
   "codeTimedOut": false,
@@ -35,43 +35,29 @@
   "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdoutByteLength": 0,
   "stderrByteLength": 0,
-  "vscodeStartupBlocked": false,
-  "environmentBlockers": [],
-  "realExtensionHostLaunched": true,
-  "extensionActivated": true,
+  "vscodeStartupBlocked": true,
+  "environmentBlockers": [
+    "vscode_update_in_progress"
+  ],
+  "realExtensionHostLaunched": false,
+  "extensionActivated": false,
   "contributedViewIds": [
     "openclaude.chatView",
     "openclaude.traceEvidenceView"
   ],
-  "registeredTreeViewIds": [
+  "registeredTreeViewIds": [],
+  "treeProviderViewIds": [],
+  "focusedViewIds": [],
+  "failedFocusViewIds": [
     "openclaude.chatView",
     "openclaude.traceEvidenceView"
   ],
-  "treeProviderViewIds": [
-    "openclaude.chatView",
-    "openclaude.traceEvidenceView"
-  ],
-  "focusedViewIds": [
-    "openclaude.chatView",
-    "openclaude.traceEvidenceView"
-  ],
-  "failedFocusViewIds": [],
   "viewItemCounts": {
-    "openclaude.chatView": 2,
-    "openclaude.traceEvidenceView": 2
+    "openclaude.chatView": 0,
+    "openclaude.traceEvidenceView": 0
   },
-  "viewItemCommandIds": [
-    "openclaude.openChat",
-    "openclaude.runSelection",
-    "openclaude.openRuntimeDoctor",
-    "openclaude.explainSelection"
-  ],
-  "executedViewCommandIds": [
-    "openclaude.openChat",
-    "openclaude.runSelection",
-    "openclaude.openRuntimeDoctor",
-    "openclaude.explainSelection"
-  ],
+  "viewItemCommandIds": [],
+  "executedViewCommandIds": [],
   "failedViewCommandIds": [],
   "installAttempted": false,
   "publishAttempted": false,
@@ -87,7 +73,7 @@
     {
       "label": "VS Code CLI version is available",
       "ok": true,
-      "detail": "1.120.0 / 0958016b2af9f09bb4257e0df4a95e2f90590f9f / x64"
+      "detail": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64"
     },
     {
       "label": "VS Code CLI command exited 0",
@@ -100,49 +86,49 @@
       "detail": "false"
     },
     {
-      "label": "VS Code startup was not blocked by local environment state",
+      "label": "VS Code startup state is classified",
       "ok": true,
-      "detail": "none"
+      "detail": "vscode_update_in_progress"
     },
     {
-      "label": "real Extension Development Host test runner produced result",
+      "label": "real Extension Development Host test runner produced result or environment blocker",
       "ok": true,
-      "detail": "result file present"
+      "detail": "vscode_update_in_progress"
     },
     {
-      "label": "extension activated in real host",
+      "label": "extension activated in real host when launched",
       "ok": true,
-      "detail": "true"
+      "detail": "blocked by environment"
     },
     {
-      "label": "all contributed tree views are registered",
+      "label": "all contributed tree views are registered when launched",
       "ok": true,
-      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+      "detail": "blocked by environment"
     },
     {
-      "label": "all contributed tree views have providers",
+      "label": "all contributed tree views have providers when launched",
       "ok": true,
-      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+      "detail": "blocked by environment"
     },
     {
-      "label": "all contributed tree views can be focused",
+      "label": "all contributed tree views can be focused when launched",
       "ok": true,
-      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+      "detail": "blocked by environment"
     },
     {
-      "label": "all contributed tree views provide items",
+      "label": "all contributed tree views provide items when launched",
       "ok": true,
-      "detail": "{\"openclaude.chatView\":2,\"openclaude.traceEvidenceView\":2}"
+      "detail": "blocked by environment"
     },
     {
-      "label": "tree item commands are declared manifest commands",
+      "label": "tree item commands are declared manifest commands when launched",
       "ok": true,
-      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection"
+      "detail": "blocked by environment"
     },
     {
-      "label": "all tree item commands execute in real host",
+      "label": "all tree item commands execute in real host when launched",
       "ok": true,
-      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection / failed=none"
+      "detail": "blocked by environment"
     },
     {
       "label": "protected actions were not attempted",

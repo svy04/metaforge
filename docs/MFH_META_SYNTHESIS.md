@@ -7,18 +7,18 @@ Date: 2026-05-10
 
 Harness workspace:
 
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\MASTER_SPEC.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\NARROW_SPEC.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\POSITIONING_BRIEF.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\CLAUDE.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\SPEC.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\README.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\spec.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\plan.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\status.md`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\.mfh\cascade_log.txt`
-- `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\docs\reports\2026-05-09-candidate-m-closure.md`
+- `<private-harness-root>\MASTER_SPEC.md`
+- `<private-harness-root>\NARROW_SPEC.md`
+- `<private-harness-root>\POSITIONING_BRIEF.md`
+- `<private-harness-root>\meta\CLAUDE.md`
+- `<private-harness-root>\meta\SPEC.md`
+- `<private-harness-root>\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md`
+- `<private-harness-root>\mfh\README.md`
+- `<private-harness-root>\mfh\.mfh\spec.md`
+- `<private-harness-root>\mfh\.mfh\plan.md`
+- `<private-harness-root>\mfh\.mfh\status.md`
+- `<private-harness-root>\mfh\.mfh\cascade_log.txt`
+- `<private-harness-root>\mfh\docs\reports\2026-05-09-candidate-m-closure.md`
 
 Live probe:
 

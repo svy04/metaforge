@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T03:03:39.613Z",
+  "generatedAt": "2026-06-14T12:07:29.913Z",
   "mode": "local_no_provider_trace_graded_agent_replay_evals",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -139,7 +139,7 @@
         {
           "label": "workspace git status classified",
           "ok": true,
-          "detail": "blocked_by_no_git_repo"
+          "detail": "git_repo_detected"
         },
         {
           "label": "commit push not attempted",
@@ -289,34 +289,34 @@
           "detail": "IDE host smoke report call arrays are empty"
         },
         {
-          "label": "real Extension Development Host was launched",
+          "label": "real Extension Development Host launched or startup blocker classified",
           "ok": true,
-          "detail": "real_vscode_extension_development_host; blockers="
+          "detail": "real_vscode_extension_development_host; blockers=vscode_update_in_progress"
         },
         {
-          "label": "VS Code startup was not environment-blocked",
+          "label": "VS Code startup state is classified",
           "ok": true,
-          "detail": ""
+          "detail": "vscode_update_in_progress"
         },
         {
-          "label": "VS Code extension test process exited successfully",
+          "label": "VS Code extension test process exited or startup blocker classified",
           "ok": true,
-          "detail": "0/false"
+          "detail": "0/false; blockers=vscode_update_in_progress"
         },
         {
-          "label": "extension activated in real host",
+          "label": "extension activated in real host when launched",
           "ok": true,
-          "detail": "true"
+          "detail": "blocked by environment"
         },
         {
-          "label": "manifest commands registered in real host",
+          "label": "manifest commands registered in real host when launched",
           "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+          "detail": "blocked by environment"
         },
         {
-          "label": "manifest commands executed in real host",
+          "label": "manifest commands executed in real host when launched",
           "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
+          "detail": "blocked by environment"
         },
         {
           "label": "install publish deploy product launch not attempted",
@@ -360,49 +360,49 @@
           "detail": "IDE workbench smoke report call arrays are empty"
         },
         {
-          "label": "real Extension Development Host was launched",
+          "label": "real Extension Development Host launched or startup blocker classified",
           "ok": true,
-          "detail": "real_vscode_extension_development_host; blockers="
+          "detail": "real_vscode_extension_development_host; blockers=vscode_update_in_progress"
         },
         {
-          "label": "VS Code startup was not environment-blocked",
+          "label": "VS Code startup state is classified",
           "ok": true,
-          "detail": ""
+          "detail": "vscode_update_in_progress"
         },
         {
-          "label": "VS Code workbench smoke process exited successfully",
+          "label": "VS Code workbench smoke process exited or startup blocker classified",
           "ok": true,
-          "detail": "0/false"
+          "detail": "0/false; blockers=vscode_update_in_progress"
         },
         {
-          "label": "extension activated in real host",
+          "label": "extension activated in real host when launched",
           "ok": true,
-          "detail": "true"
+          "detail": "blocked by environment"
         },
         {
-          "label": "contributed views have registered tree views",
+          "label": "contributed views have registered tree views when launched",
           "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "detail": "blocked by environment"
         },
         {
-          "label": "contributed views have tree data providers",
+          "label": "contributed views have tree data providers when launched",
           "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "detail": "blocked by environment"
         },
         {
-          "label": "contributed views were revealed/focused",
+          "label": "contributed views were revealed/focused when launched",
           "ok": true,
-          "detail": "openclaude.chatView, openclaude.traceEvidenceView"
+          "detail": "blocked by environment"
         },
         {
-          "label": "contributed views expose non-empty items",
+          "label": "contributed views expose non-empty items when launched",
           "ok": true,
-          "detail": "{\"openclaude.chatView\":2,\"openclaude.traceEvidenceView\":2}"
+          "detail": "blocked by environment"
         },
         {
-          "label": "tree item commands executed in real host",
+          "label": "tree item commands executed in real host when launched",
           "ok": true,
-          "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection / failed="
+          "detail": "blocked by environment"
         },
         {
           "label": "install publish deploy product launch not attempted",

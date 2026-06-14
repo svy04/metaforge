@@ -37,7 +37,7 @@
 
 **REQ**: M1-02
 
-**Current**: 프로필이 `{"profile": "openai", "OPENAI_MODEL": "gpt-4o", "OPENAI_API_KEY": "sk-openai-key"}` placeholder. 비-orchestra context에서 gpt-4o로 떨어짐.
+**Current**: 프로필이 `{"profile": "openai", "OPENAI_MODEL": "gpt-4o", "OPENAI_API_KEY": "<openai-api-key>"}` placeholder. 비-orchestra context에서 gpt-4o로 떨어짐.
 
 **Target**: codex 프로필로 교체. 사용자가 codex 인증 갖고 있다고 가정.
 

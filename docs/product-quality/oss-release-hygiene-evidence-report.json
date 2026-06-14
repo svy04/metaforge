@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-05-21T14:11:35.719Z",
+  "generatedAt": "2026-06-14T12:05:14.290Z",
   "mode": "local_no_provider_oss_release_hygiene_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+  "sourceSafeBacklogPlanReportSha256": "79a48c702941ff0df54d5e6c25888a142237f467510fa391f608ed91768ef33a",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "release_hygiene",
-  "sourcePlanItemCount": 4,
-  "evidenceItemCount": 4,
+  "sourcePlanItemCount": 2,
+  "evidenceItemCount": 2,
   "sourceProjects": [
-    "ruvnet/ruflo",
     "warpdotdev/warp"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-release-hygiene-evidence.jsonl",
-  "provenanceJsonlSha256": "fe0edfdc6e0900ddf7149acbfa00f495e412597849d0218772f64964029e0724",
-  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlSha256": "9823d9bd81b718d3574d84f11759d32d09644eb1b132360daeab52ab35c4a4a4",
+  "provenanceJsonlRecordCount": 2,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -34,12 +33,6 @@
   "autonomousReliabilityClaimAllowed": false,
   "primarySourceInputs": [
     {
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "observedPattern": "Release hygiene evidence should bind reproducible local artifacts, SBOM-shaped inventory, license-boundary authorization, and signed/publish/deploy claim blockers before release claims.",
-      "localAbsorption": "Convert release_hygiene backlog items into a source-hash-addressed local artifact and release-claim boundary evidence matrix."
-    },
-    {
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "observedPattern": "Release hygiene evidence should bind reproducible local artifacts, SBOM-shaped inventory, license-boundary authorization, and signed/publish/deploy claim blockers before release claims.",
@@ -59,37 +52,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "713b09a4f3285415993064f1c81b3cc1e6dac5135211706ba0d44337eed73eff",
-          "sizeBytes": 25929
+          "sha256": "a7dc51d1f122a8bdb977ca56c5a940a6a9440d02224d268c8895456a94b0f9eb",
+          "sizeBytes": 14952
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "df4e6777653a43077229c0ef63934f50a1b9505083a0e077afb9bcc4d6075eb9",
+          "sha256": "6fbdbf81d2e2fbf0c98b3ba5a0e2de328762c92cef2b71e74e7434542fa0f7dc",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "c4ab358372449abe5ccfee6c6403c712a80b1dd069a08e289b7d7c73023f8f1a",
+          "sha256": "2e1520eeb022492dad0cb92428a450d7469e2c80de0f5601602a9c6cbe4353a0",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "5759d098744fb078ecefa678016297b79509b1c69bc2221c648bbbc757f47fe5",
+          "sha256": "739efa24440bfc6cffdc7ae7d53dc6c10d6d283a3bd18ed03936a66722a0c494",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "cca6d82675ddf69b9d2e0b52c5baaf63b45ed7ac8d8163cbd7f69194e3f9fda0",
-          "sizeBytes": 3194
+          "sha256": "82904d5a193f5973609ce2d710c85589d2954b067cbd148dae1575a687943b9f",
+          "sizeBytes": 5037
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+          "sha256": "8b91de46a9a6e5ee89d7b1c8eeba8c397a50565d86baf4fbc25eaae8f5f75697",
           "sizeBytes": 15540
         }
       ],
@@ -97,25 +90,25 @@
         {
           "path": "docs/product-quality/release-artifact-file-list-report.md",
           "exists": true,
-          "sha256": "862689800174525a049049729094e1f4c64dd42cb7404c66c83277f91e4179db",
+          "sha256": "dc91e16948daf26b52df89f05a96a1a9991e45aaabe17c1bdc2bc19f439e6fa4",
           "sizeBytes": 1869
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.md",
           "exists": true,
-          "sha256": "59ec55c1dac76ffe80dd35f9ec26210fbb9abf66dfa926f62d6d2d7cb1b0f4fc",
+          "sha256": "eb7ccacd525cffe216cb716b467b053764e1fc43e462f468f52c4e9e00804451",
           "sizeBytes": 2635
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.md",
           "exists": true,
-          "sha256": "1bf944a0cac69d11693bf762be268d4d06ec6a5ed4fd5d500c18ab452b88e247",
+          "sha256": "ee20f27b4d02e66eaead2041c0a99af1958b3a029b12ecf09f529e6a5baf3e26",
           "sizeBytes": 3306
         },
         {
           "path": "docs/product-quality/lockfile-sbom-quality-report.json",
           "exists": true,
-          "sha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
+          "sha256": "7aa1f193d2252f67a841a176c913548f701b8bae5fe7827368dcd49ec4acf927",
           "sizeBytes": 645028
         },
         {
@@ -127,7 +120,7 @@
         {
           "path": "docs/product-quality/third-party-license-quality-report.json",
           "exists": true,
-          "sha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+          "sha256": "255c58bed2e56d07694a8ad08936175b52e768b53a5d49b1caed86e0dae6eb47",
           "sizeBytes": 638697
         },
         {
@@ -139,14 +132,14 @@
         {
           "path": "docs/product-quality/source-license-metadata-quality-report.json",
           "exists": true,
-          "sha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
-          "sizeBytes": 1850911
+          "sha256": "2fa0ec77e2749d1ba2cef032db0fc20fd058c15d0b7b59c02aaca34515eea643",
+          "sizeBytes": 1868345
         },
         {
           "path": "reports/openclaude-source-license-metadata-inventory.jsonl",
           "exists": true,
-          "sha256": "1ba0132fc50069ae5a7f1254b51e919c4a316d9e1cc8251f249691913edfd111",
-          "sizeBytes": 1445082
+          "sha256": "4009bd01b81194857efa2abde5a2d4e13a5d56ec2342e9134d9436a5107b8e63",
+          "sizeBytes": 1458606
         }
       ],
       "requiredEvidenceBeforeReleaseClaim": [
@@ -192,37 +185,37 @@
         {
           "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
           "exists": true,
-          "sha256": "713b09a4f3285415993064f1c81b3cc1e6dac5135211706ba0d44337eed73eff",
-          "sizeBytes": 25929
+          "sha256": "a7dc51d1f122a8bdb977ca56c5a940a6a9440d02224d268c8895456a94b0f9eb",
+          "sizeBytes": 14952
         },
         {
           "path": "docs/product-quality/release-artifact-file-list-report.json",
           "exists": true,
-          "sha256": "df4e6777653a43077229c0ef63934f50a1b9505083a0e077afb9bcc4d6075eb9",
+          "sha256": "6fbdbf81d2e2fbf0c98b3ba5a0e2de328762c92cef2b71e74e7434542fa0f7dc",
           "sizeBytes": 2761
         },
         {
           "path": "docs/product-quality/release-artifact-provenance-report.json",
           "exists": true,
-          "sha256": "c4ab358372449abe5ccfee6c6403c712a80b1dd069a08e289b7d7c73023f8f1a",
+          "sha256": "2e1520eeb022492dad0cb92428a450d7469e2c80de0f5601602a9c6cbe4353a0",
           "sizeBytes": 17582
         },
         {
           "path": "docs/product-quality/release-artifact-reproducibility-report.json",
           "exists": true,
-          "sha256": "5759d098744fb078ecefa678016297b79509b1c69bc2221c648bbbc757f47fe5",
+          "sha256": "739efa24440bfc6cffdc7ae7d53dc6c10d6d283a3bd18ed03936a66722a0c494",
           "sizeBytes": 5272
         },
         {
           "path": "docs/product-quality/git-release-hygiene-report.json",
           "exists": true,
-          "sha256": "cca6d82675ddf69b9d2e0b52c5baaf63b45ed7ac8d8163cbd7f69194e3f9fda0",
-          "sizeBytes": 3194
+          "sha256": "82904d5a193f5973609ce2d710c85589d2954b067cbd148dae1575a687943b9f",
+          "sizeBytes": 5037
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.json",
           "exists": true,
-          "sha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+          "sha256": "8b91de46a9a6e5ee89d7b1c8eeba8c397a50565d86baf4fbc25eaae8f5f75697",
           "sizeBytes": 15540
         }
       ],
@@ -230,261 +223,25 @@
         {
           "path": "docs/product-quality/git-release-hygiene-report.md",
           "exists": true,
-          "sha256": "d16c670e48834c26f949c99eb04110c189ac8c747deee035e5d3aafa24689fd0",
-          "sizeBytes": 2312
+          "sha256": "6ad12ed3cc09e77d2d6998cf313fe8b2ed2815bcabebfa7f193517eb6e1e89fe",
+          "sizeBytes": 3911
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-report.md",
           "exists": true,
-          "sha256": "bf3c97b98d0bcffcf9fe1b0aea6b6ede848ea2c89122aad7e9c4bfe5df6ba955",
+          "sha256": "c4d7b93ea76721ba9d303581b91da892a4773ef329e37e5fb0db7978c9816cc1",
           "sizeBytes": 5812
         },
         {
           "path": "docs/product-quality/license-boundary-authorization-request.md",
           "exists": true,
-          "sha256": "7532eb3f19d38426e01d26647b0520855534d1430cab0f43792b1b3478ce7fec",
+          "sha256": "7b9b8642ab46040b8938c030dc191676a095a022987e72cef1242536ca04ed11",
           "sizeBytes": 4245
         },
         {
           "path": "reports/openclaude-license-boundary-authorization-items.jsonl",
           "exists": true,
-          "sha256": "bda899ed309e14b8a3424869df3fd1038c680ad581decbab9ae2f978e48b9a0c",
-          "sizeBytes": 7196
-        }
-      ],
-      "requiredEvidenceBeforeReleaseClaim": [
-        "real git repository and release boundary evidence",
-        "artifact reproducibility, file-list, SBOM-shaped inventory, and license-boundary evidence",
-        "explicit owner authorization before commit, push, publish, deploy, launch, signed provenance, legal/NOTICE/REUSE decisions, or readiness claims",
-        "separate external validation before any external, public, production, release, or autonomous reliability claim"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "release_hygiene_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "commitAllowed": false,
-      "pushAllowed": false,
-      "publishAllowed": false,
-      "deployAllowed": false,
-      "launchAllowed": false,
-      "signedProvenanceClaimAllowed": false,
-      "legalNoticeReuseDecisionAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "publicReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_release_hygiene_ruvnet_ruflo_f50a1e9054",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_1_db6e970b30",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "release_hygiene",
-      "backlogText": "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
-      "releaseHygieneCoverageClass": "local_artifact_reproducibility_sbom_license_gate",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
-          "exists": true,
-          "sha256": "713b09a4f3285415993064f1c81b3cc1e6dac5135211706ba0d44337eed73eff",
-          "sizeBytes": 25929
-        },
-        {
-          "path": "docs/product-quality/release-artifact-file-list-report.json",
-          "exists": true,
-          "sha256": "df4e6777653a43077229c0ef63934f50a1b9505083a0e077afb9bcc4d6075eb9",
-          "sizeBytes": 2761
-        },
-        {
-          "path": "docs/product-quality/release-artifact-provenance-report.json",
-          "exists": true,
-          "sha256": "c4ab358372449abe5ccfee6c6403c712a80b1dd069a08e289b7d7c73023f8f1a",
-          "sizeBytes": 17582
-        },
-        {
-          "path": "docs/product-quality/release-artifact-reproducibility-report.json",
-          "exists": true,
-          "sha256": "5759d098744fb078ecefa678016297b79509b1c69bc2221c648bbbc757f47fe5",
-          "sizeBytes": 5272
-        },
-        {
-          "path": "docs/product-quality/git-release-hygiene-report.json",
-          "exists": true,
-          "sha256": "cca6d82675ddf69b9d2e0b52c5baaf63b45ed7ac8d8163cbd7f69194e3f9fda0",
-          "sizeBytes": 3194
-        },
-        {
-          "path": "docs/product-quality/license-boundary-authorization-report.json",
-          "exists": true,
-          "sha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
-          "sizeBytes": 15540
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/release-artifact-file-list-report.md",
-          "exists": true,
-          "sha256": "862689800174525a049049729094e1f4c64dd42cb7404c66c83277f91e4179db",
-          "sizeBytes": 1869
-        },
-        {
-          "path": "docs/product-quality/release-artifact-provenance-report.md",
-          "exists": true,
-          "sha256": "59ec55c1dac76ffe80dd35f9ec26210fbb9abf66dfa926f62d6d2d7cb1b0f4fc",
-          "sizeBytes": 2635
-        },
-        {
-          "path": "docs/product-quality/release-artifact-reproducibility-report.md",
-          "exists": true,
-          "sha256": "1bf944a0cac69d11693bf762be268d4d06ec6a5ed4fd5d500c18ab452b88e247",
-          "sizeBytes": 3306
-        },
-        {
-          "path": "docs/product-quality/lockfile-sbom-quality-report.json",
-          "exists": true,
-          "sha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
-          "sizeBytes": 645028
-        },
-        {
-          "path": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-          "exists": true,
-          "sha256": "026df626ea745009070a7ffcee665eeeaafbfc5107a60b000ed71d4c67a9bdc8",
-          "sizeBytes": 376934
-        },
-        {
-          "path": "docs/product-quality/third-party-license-quality-report.json",
-          "exists": true,
-          "sha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
-          "sizeBytes": 638697
-        },
-        {
-          "path": "reports/openclaude-third-party-license-inventory.jsonl",
-          "exists": true,
-          "sha256": "e8c8715f00f7a2f403adeb3a360ac637d6e0b9c69257240abd339226a7d071e0",
-          "sizeBytes": 514790
-        },
-        {
-          "path": "docs/product-quality/source-license-metadata-quality-report.json",
-          "exists": true,
-          "sha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
-          "sizeBytes": 1850911
-        },
-        {
-          "path": "reports/openclaude-source-license-metadata-inventory.jsonl",
-          "exists": true,
-          "sha256": "1ba0132fc50069ae5a7f1254b51e919c4a316d9e1cc8251f249691913edfd111",
-          "sizeBytes": 1445082
-        }
-      ],
-      "requiredEvidenceBeforeReleaseClaim": [
-        "real git repository and release boundary evidence",
-        "artifact reproducibility, file-list, SBOM-shaped inventory, and license-boundary evidence",
-        "explicit owner authorization before commit, push, publish, deploy, launch, signed provenance, legal/NOTICE/REUSE decisions, or readiness claims",
-        "separate external validation before any external, public, production, release, or autonomous reliability claim"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "release_hygiene_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "commitAllowed": false,
-      "pushAllowed": false,
-      "publishAllowed": false,
-      "deployAllowed": false,
-      "launchAllowed": false,
-      "signedProvenanceClaimAllowed": false,
-      "legalNoticeReuseDecisionAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "publicReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_release_hygiene_ruvnet_ruflo_d29c28cd6c",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_2_c044375242",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "release_hygiene",
-      "backlogText": "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists",
-      "releaseHygieneCoverageClass": "signed_provenance_publish_release_claim_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
-          "exists": true,
-          "sha256": "713b09a4f3285415993064f1c81b3cc1e6dac5135211706ba0d44337eed73eff",
-          "sizeBytes": 25929
-        },
-        {
-          "path": "docs/product-quality/release-artifact-file-list-report.json",
-          "exists": true,
-          "sha256": "df4e6777653a43077229c0ef63934f50a1b9505083a0e077afb9bcc4d6075eb9",
-          "sizeBytes": 2761
-        },
-        {
-          "path": "docs/product-quality/release-artifact-provenance-report.json",
-          "exists": true,
-          "sha256": "c4ab358372449abe5ccfee6c6403c712a80b1dd069a08e289b7d7c73023f8f1a",
-          "sizeBytes": 17582
-        },
-        {
-          "path": "docs/product-quality/release-artifact-reproducibility-report.json",
-          "exists": true,
-          "sha256": "5759d098744fb078ecefa678016297b79509b1c69bc2221c648bbbc757f47fe5",
-          "sizeBytes": 5272
-        },
-        {
-          "path": "docs/product-quality/git-release-hygiene-report.json",
-          "exists": true,
-          "sha256": "cca6d82675ddf69b9d2e0b52c5baaf63b45ed7ac8d8163cbd7f69194e3f9fda0",
-          "sizeBytes": 3194
-        },
-        {
-          "path": "docs/product-quality/license-boundary-authorization-report.json",
-          "exists": true,
-          "sha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
-          "sizeBytes": 15540
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/git-release-hygiene-report.md",
-          "exists": true,
-          "sha256": "d16c670e48834c26f949c99eb04110c189ac8c747deee035e5d3aafa24689fd0",
-          "sizeBytes": 2312
-        },
-        {
-          "path": "docs/product-quality/license-boundary-authorization-report.md",
-          "exists": true,
-          "sha256": "bf3c97b98d0bcffcf9fe1b0aea6b6ede848ea2c89122aad7e9c4bfe5df6ba955",
-          "sizeBytes": 5812
-        },
-        {
-          "path": "docs/product-quality/license-boundary-authorization-request.md",
-          "exists": true,
-          "sha256": "7532eb3f19d38426e01d26647b0520855534d1430cab0f43792b1b3478ce7fec",
-          "sizeBytes": 4245
-        },
-        {
-          "path": "reports/openclaude-license-boundary-authorization-items.jsonl",
-          "exists": true,
-          "sha256": "bda899ed309e14b8a3424869df3fd1038c680ad581decbab9ae2f978e48b9a0c",
+          "sha256": "922455458b6cceeff0bcf0c093d5064894a47629cb19a8e3b26b68fc37522988",
           "sizeBytes": 7196
         }
       ],
@@ -534,7 +291,7 @@
     {
       "label": "selected release hygiene axis has source items",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     },
     {
       "label": "source next gate candidate exists",
@@ -544,7 +301,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "50 bindings"
+      "detail": "25 bindings"
     },
     {
       "label": "coverage includes artifact reproducibility and release-claim boundaries",
@@ -554,12 +311,12 @@
     {
       "label": "every evidence item rejects release and protected-action expansion",
       "ok": true,
-      "detail": "4 items"
+      "detail": "2 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     }
   ],
   "claimBoundary": "Internal no-provider release hygiene evidence only; not a commit, push, publish, deploy, launch, signed provenance, legal/NOTICE/REUSE decision, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim."

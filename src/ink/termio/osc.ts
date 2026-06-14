@@ -12,6 +12,9 @@ import type { Action, Color, TabStatusAction } from './types.js'
 
 export const OSC_PREFIX = ESC + String.fromCharCode(ESC_TYPE.OSC)
 
+let execFileNoThrowImpl = execFileNoThrow
+let generateTempFilePathImpl = generateTempFilePath
+
 /** String Terminator (ESC \) - alternative to BEL for terminating OSC */
 export const ST = ESC + '\\'
 
@@ -95,7 +98,7 @@ export async function tmuxLoadBuffer(text: string): Promise<boolean> {
     process.env['LC_TERMINAL'] === 'iTerm2'
       ? ['load-buffer', '-']
       : ['load-buffer', '-w', '-']
-  const { code } = await execFileNoThrow('tmux', args, {
+  const { code } = await execFileNoThrowImpl('tmux', args, {
     input: text,
     useCwd: false,
     timeout: 2000,
@@ -174,35 +177,35 @@ function copyNative(text: string): void {
   const opts = { input: text, useCwd: false, timeout: 2000 }
   switch (process.platform) {
     case 'darwin':
-      void execFileNoThrow('pbcopy', [], opts)
+      void execFileNoThrowImpl('pbcopy', [], opts)
       return
     case 'linux': {
       if (linuxCopy === null) return
       if (linuxCopy === 'wl-copy') {
-        void execFileNoThrow('wl-copy', [], opts)
+        void execFileNoThrowImpl('wl-copy', [], opts)
         return
       }
       if (linuxCopy === 'xclip') {
-        void execFileNoThrow('xclip', ['-selection', 'clipboard'], opts)
+        void execFileNoThrowImpl('xclip', ['-selection', 'clipboard'], opts)
         return
       }
       if (linuxCopy === 'xsel') {
-        void execFileNoThrow('xsel', ['--clipboard', '--input'], opts)
+        void execFileNoThrowImpl('xsel', ['--clipboard', '--input'], opts)
         return
       }
       // First call: probe wl-copy (Wayland) then xclip/xsel (X11), cache winner.
-      void execFileNoThrow('wl-copy', [], opts).then(r => {
+      void execFileNoThrowImpl('wl-copy', [], opts).then(r => {
         if (r.code === 0) {
           linuxCopy = 'wl-copy'
           return
         }
-        void execFileNoThrow('xclip', ['-selection', 'clipboard'], opts).then(
+        void execFileNoThrowImpl('xclip', ['-selection', 'clipboard'], opts).then(
           r2 => {
             if (r2.code === 0) {
               linuxCopy = 'xclip'
               return
             }
-            void execFileNoThrow('xsel', ['--clipboard', '--input'], opts).then(
+            void execFileNoThrowImpl('xsel', ['--clipboard', '--input'], opts).then(
               r3 => {
                 linuxCopy = r3.code === 0 ? 'xsel' : null
               },
@@ -217,11 +220,11 @@ function copyNative(text: string): void {
       // boundary. Write UTF-8 text to a temp file and let PowerShell read it
       // directly as UTF-8 before calling Set-Clipboard.
       void (async () => {
-        const tempPath = generateTempFilePath('openclaude-clipboard', '.txt')
+        const tempPath = generateTempFilePathImpl('openclaude-clipboard', '.txt')
         const escapedTempPath = tempPath.replace(/'/g, "''")
         try {
           await writeFile(tempPath, text, { encoding: 'utf8' })
-          await execFileNoThrow(
+          await execFileNoThrowImpl(
             'powershell',
             [
               '-NoProfile',
@@ -246,6 +249,22 @@ function copyNative(text: string): void {
 /** @internal test-only */
 export function _resetLinuxCopyCache(): void {
   linuxCopy = undefined
+}
+
+/** @internal test-only */
+export function _setClipboardTestHooks(hooks: {
+  execFileNoThrow?: typeof execFileNoThrow
+  generateTempFilePath?: typeof generateTempFilePath
+}): void {
+  execFileNoThrowImpl = hooks.execFileNoThrow ?? execFileNoThrow
+  generateTempFilePathImpl = hooks.generateTempFilePath ?? generateTempFilePath
+}
+
+/** @internal test-only */
+export function _resetClipboardTestHooks(): void {
+  execFileNoThrowImpl = execFileNoThrow
+  generateTempFilePathImpl = generateTempFilePath
+  _resetLinuxCopyCache()
 }
 
 /**

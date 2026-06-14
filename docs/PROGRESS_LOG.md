@@ -61,14 +61,14 @@ Status: active
 
 ## 2026-05-10 Checkpoint 7 - Harness Engineering Replan
 
-- User pointed out that `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링` already contains `meta` and `mfh` project work.
+- User pointed out that `<private-harness-root>` already contains `meta` and `mfh` project work.
 - Read harness sources: root `MASTER_SPEC.md`, `NARROW_SPEC.md`, `POSITIONING_BRIEF.md`; `meta/CLAUDE.md`, `meta/SPEC.md`, Decision 2388; `mfh/.mfh/spec.md`, `plan.md`, `status.md`, `cascade_log.txt`; Candidate M closure report.
 - Checked `git status --short` in actual repo roots:
   - `mfh`: dirty, with 9 modified tracked files and 3 untracked paths.
   - `meta`: dirty, with `CLAUDE.md` modified and 2 untracked decision files.
 - Ran harness source reconciliation:
   - command: `python meta\scripts\source_reconciler.py`
-  - cwd: `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링`
+  - cwd: `<private-harness-root>`
   - exit code: 1
   - result: `DRIFT`, with mfh working tree dirty and status `awaiting user adjudication`.
 - Created `docs/MFH_META_SYNTHESIS.md`.

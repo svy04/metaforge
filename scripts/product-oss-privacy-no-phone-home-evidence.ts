@@ -272,6 +272,8 @@ function main(): void {
   } & Record<string, unknown>>(sourceComparisonMatrixReportPath)
   const publicClaimBoundary = readJson<Record<string, unknown>>(sourcePublicClaimBoundaryReportPath)
   const packageJson = readJson<{ scripts: Record<string, string> }>('package.json')
+  const verifyPrivacyScript = packageJson.scripts['verify:privacy'] ?? ''
+  const buildVerifiedScript = packageJson.scripts['build:verified'] ?? ''
   const verifyPrivacyText = readText('scripts/verify-no-phone-home.ts')
   const distText = readText('dist/cli.mjs')
   const bannedPatterns = extractBannedPatterns(verifyPrivacyText)
@@ -336,8 +338,12 @@ function main(): void {
       existsSync(resolve(root, 'src/commands/privacy-settings/privacy-settings.tsx')) &&
       existsSync(resolve(root, 'src/utils/privacyLevel.ts')),
     verifyPrivacyScriptPresent: existsSync(resolve(root, 'scripts/verify-no-phone-home.ts')),
-    packageVerifyPrivacyScriptPresent: packageJson.scripts['verify:privacy'] === 'bun run scripts/verify-no-phone-home.ts',
-    buildVerifiedIncludesPrivacy: packageJson.scripts['build:verified'] === 'bun run build && bun run verify:privacy',
+    packageVerifyPrivacyScriptPresent:
+      verifyPrivacyScript.includes('scripts/verify-no-phone-home.ts') &&
+      verifyPrivacyScript.includes('product:public-artifact-hygiene'),
+    buildVerifiedIncludesPrivacy:
+      buildVerifiedScript.includes('bun run build') &&
+      buildVerifiedScript.includes('bun run verify:privacy'),
     privacyEvidenceJsonlPath,
     privacyEvidenceJsonlSha256,
     privacyEvidenceJsonlRecordCount: reconciliationRecords.length,

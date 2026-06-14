@@ -190,7 +190,7 @@ python meta\scripts\source_reconciler.py
 Run from:
 
 ```text
-C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링
+<private-harness-root>
 ```
 
 Current observed result on 2026-05-10:
@@ -215,7 +215,7 @@ Question: Does a completed milestone have ledger evidence, not just a completed 
 Harness source:
 
 ```text
-C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\bench\closure_reality_check.py
+<private-harness-root>/mfh/bench/closure_reality_check.py
 ```
 
 Method:

@@ -2,7 +2,7 @@
 
 Status: first high-resolution planning pass
 Owner: human owner
-Operating repo: `C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0`
+Operating repo: `<repo>`
 Canonical instruction entrypoint: `AGENTS.md`
 Harness evidence update: `docs/MFH_META_SYNTHESIS.md`
 
@@ -24,7 +24,7 @@ Observed local anchors:
 - `src/services/orchestra/` already contains implementation surfaces for planner routing, skeptic, shadow executor contract, cross-review, evidence arbiter, human gate, promotion store, worktree manager, and experiment metrics.
 - `package.json` exposes verification commands: `bun run build`, `bun test`, `bun run typecheck`, `bun run smoke`, `bun run doctor:runtime`, `bun run verify:privacy`.
 - `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` and its plan document establish the existing GStack/GSD/Superpowers role split.
-- `docs/MFH_META_SYNTHESIS.md` records the follow-up read of `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링`, including MFH, Meta, Candidate M, and the current `source_reconciler.py` drift result.
+- `docs/MFH_META_SYNTHESIS.md` records the follow-up read of `<private-harness-root>`, including MFH, Meta, Candidate M, and the current `source_reconciler.py` drift result.
 
 Imported harness-engineering anchors:
 

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-21T08:40:26.108Z",
+  "generatedAt": "2026-06-14T12:06:14.995Z",
   "mode": "local_no_provider_git_release_hygiene",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
-  "workspaceGitStatus": "blocked_by_no_git_repo",
-  "repoRoot": null,
+  "workspaceGitStatus": "git_repo_detected",
+  "repoRoot": "<repo>",
   "commitPushAttempted": false,
   "releaseActionPerformed": false,
   "protectedActionsPerformed": [],
@@ -17,11 +17,11 @@
         "rev-parse",
         "--show-toplevel"
       ],
-      "exitCode": 128,
-      "stdoutPreview": [],
-      "stderrPreview": [
-        "fatal: not a git repository (or any of the parent directories): .git"
-      ]
+      "exitCode": 0,
+      "stdoutPreview": [
+        "<repo>"
+      ],
+      "stderrPreview": []
     },
     {
       "name": "status_short",
@@ -30,11 +30,50 @@
         "status",
         "--short"
       ],
-      "exitCode": 128,
-      "stdoutPreview": [],
-      "stderrPreview": [
-        "fatal: not a git repository (or any of the parent directories): .git"
-      ]
+      "exitCode": 0,
+      "stdoutPreview": [
+        " M .github/workflows/dependency-review.yml",
+        " M .gitignore",
+        " M .planning/phase-1/PLAN.md",
+        " M .planning/phase-2/PLAN.md",
+        " M .planning/phase-2/SPEC.md",
+        " D .planning/phase-2/probe-stdout.json",
+        " D .planning/phase-2/probe2-stdout.json",
+        " D .planning/phase-2/probe3-streamjson.txt",
+        " D .planning/phase-2/probe4-streamjson.txt",
+        " D .planning/phase-2/probe5-streamjson.txt",
+        " D .planning/phase-2/probe6-streamjson.txt",
+        " M .planning/phase-3/PLAN.md",
+        " D .planning/phase-3/live-fixture-stream.txt",
+        " D .planning/phase-3/live10-stderr.txt",
+        " D .planning/phase-3/live10-stdout.txt",
+        " D .planning/phase-3/live2-stream.txt",
+        " D .planning/phase-3/live3-stream.txt",
+        " D .planning/phase-3/live4-stream.txt",
+        " D .planning/phase-3/live5-stream.txt",
+        " D .planning/phase-3/live6-json.txt",
+        " D .planning/phase-3/live7-debug.txt",
+        " D .planning/phase-3/live8-stderr-info.txt",
+        " D .planning/phase-3/live9.txt",
+        " M .planning/phase-5/summary-2026-05-07T12-40-41-319Z.md",
+        " M AGENTS.md",
+        " M README.md",
+        " M docs/DECISION_LOG.md",
+        " M docs/EVALS.md",
+        " M docs/MFH_META_SYNTHESIS.md",
+        " M docs/MIMESIS_ENGINEERING.md",
+        " M docs/NEXT_GOALS.md",
+        " M docs/PROGRESS_LOG.md",
+        " M docs/PROJECT_SPEC.md",
+        " M docs/RESEARCH_PIPELINE.md",
+        " M docs/advanced-setup.md",
+        " M docs/litellm-setup.md",
+        " M docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+        " M docs/product-quality/agent-instructions-quality-report.json",
+        " M docs/product-quality/agent-replay-evals-report.json",
+        " M docs/product-quality/agent-replay-evals-report.md"
+      ],
+      "stderrPreview": []
     },
     {
       "name": "remote_verbose",
@@ -43,18 +82,19 @@
         "remote",
         "-v"
       ],
-      "exitCode": 128,
-      "stdoutPreview": [],
-      "stderrPreview": [
-        "fatal: not a git repository (or any of the parent directories): .git"
-      ]
+      "exitCode": 0,
+      "stdoutPreview": [
+        "origin\thttps://github.com/svy04/metaforge.git (fetch)",
+        "origin\thttps://github.com/svy04/metaforge.git (push)"
+      ],
+      "stderrPreview": []
     }
   ],
   "releaseHygieneChecks": [
     {
       "label": "git root command was classified",
       "ok": true,
-      "detail": "blocked_by_no_git_repo"
+      "detail": "git_repo_detected"
     },
     {
       "label": "no commit or push was attempted",
@@ -69,7 +109,7 @@
     {
       "label": "package repository metadata exists",
       "ok": true,
-      "detail": "https://github.com/Gitlawb/openclaude.git"
+      "detail": "https://github.com/svy04/metaforge.git"
     },
     {
       "label": "package bin exposes openclaude",
@@ -109,7 +149,7 @@
     {
       "label": "non-repo workspace is recorded as blocked instead of ignored",
       "ok": true,
-      "detail": "blocked_by_no_git_repo"
+      "detail": "git_repo_detected"
     }
   ],
   "claimBoundary": "Git release hygiene verifies local repo/package release surfaces only. It does not commit, push, publish, deploy, launch, or claim release readiness."

@@ -46,6 +46,7 @@ This does not yet prove hosted deployment, public adoption, production readiness
 | Public claims are scanned locally. | [public claim boundary report](../product-quality/public-claim-boundary-report.md), command: `bun run product:public-claim-boundary` | Configured public surfaces contain no detected unauthorized positive readiness/superiority claims. | It does not fetch external pages or certify marketing truth. |
 | Privacy boundaries are checked locally. | command: `bun run verify:privacy` | Built CLI bundle is scanned for configured phone-home patterns. | It does not prove third-party provider behavior or hosted privacy. |
 | Evidence can be packaged as a local manifest. | [product evidence manifest](../product-quality/product-evidence-manifest.md), command: `bun run product:evidence-manifest` | Local reports/artifacts/workflows can be hash-bound into a manifest. | It is not a signed in-toto/SLSA attestation. |
+| Model/system boundaries are disclosed locally. | [Metaforge Model/System Card](../MODEL_SYSTEM_CARD.md), [model/system card report](../product-quality/model-system-card-report.md), command: `bun run product:model-system-card` | Current role boundaries, provider route claims, protected actions, and known limits are documented and locally checked. | It is not a vendor endorsement, live provider validation, external audit, or readiness claim. |
 | Community surface has local quality evidence. | [community profile quality report](../product-quality/community-profile-quality-report.md), command: `bun run product:community-profile-quality` | Core community files and README links are present locally. | It is not a hosted GitHub community-profile certification. |
 | Local docs links are checked. | [doc link integrity report](../product-quality/doc-link-integrity-report.md), command: `bun run product:doc-link-integrity` | Configured repository-local Markdown links resolve. | It does not verify all external URLs. |
 
@@ -55,6 +56,10 @@ This does not yet prove hosted deployment, public adoption, production readiness
 | --- | --- | --- | --- |
 | Official product docs | [GitHub profile README docs](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) | A profile README is a public repo README rendered on the profile when naming, visibility, and root `README.md` conditions hold. | A profile README is a profile surface, not adoption proof. |
 | Official product docs | [GitHub repository topics docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) | Topics improve discoverability by classifying repos by purpose, subject, affinity, or language. | Topics do not prove quality or usage. |
+| Official model spec | [OpenAI Model Spec](https://model-spec.openai.com/) | Public instruction hierarchy, autonomy, side-effect, and untrusted-data concepts help structure the model/system card. | Metaforge does not claim OpenAI model alignment or vendor endorsement. |
+| Official system card | [OpenAI GPT-5.3-Codex System Card](https://deploymentsafety.openai.com/gpt-5-3-codex) | System cards separate model, product, sandbox, network, and risk mitigations. | Metaforge does not inherit vendor safety evals. |
+| Official product docs | [OpenAI Codex agent approvals and security](https://developers.openai.com/codex/agent-approvals-security) | Coding-agent side effects need sandbox, approval, and destructive-action boundaries. | Local OpenClaude/Metaforge controls must be verified locally. |
+| Official product docs | [Claude Code how it works](https://code.claude.com/docs/en/how-claude-code-works) and [permission modes](https://code.claude.com/docs/en/permission-modes) | Agentic coding loops and permission modes inform route and tool-boundary disclosure. | Claude docs are not proof of Metaforge runtime behavior. |
 | Open-source project | [OpenSSF Scorecard](https://github.com/ossf/scorecard) | Security/quality posture should be expressed as explicit checks with scores, risks, and remediation. | A local report is not an OpenSSF Scorecard result unless Scorecard is actually run. |
 | Paper | [Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993) | Public AI surfaces should disclose intended use, evaluation procedure, and limits. | Metaforge is not publishing a trained model card from this document. |
 | Paper | [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) | Proof packets should expose motivation, composition, operating characteristics, test results, and recommended uses. | This does not certify datasets or benchmarks. |
@@ -77,7 +82,7 @@ Building **Metaforge**: a Meta/MFH/Orchestra operating system for evidence-gated
 
 ### Repo Description
 
-Meta/MFH/Orchestra OS with Mimesis Engineering loops, evidence gates, and Claude/Codex-ready OpenClaude runtime routes.
+Meta/MFH/Orchestra OS with Mimesis Engineering loops, evidence gates, and Claude/Codex route support through OpenClaude runtime.
 
 ### Short Social Post
 
