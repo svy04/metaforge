@@ -101,6 +101,7 @@ The gate validates:
 - verification report consistency fixtures check that the current product-quality verification report no longer carries stale TypeScript blocker wording after the repo-wide typecheck reached zero diagnostics, while preserving the VS Code updater, no-git-root, and external benchmark protected-action blockers;
 - quality blocker taxonomy fixtures classify either a clear VS Code host/workbench/replay state or the known VS Code updater-dependent host, workbench, and replay failure groups, so a future unexpected failure cannot hide inside the existing blocker envelope;
 - public claim boundary fixtures scan README/package/community/security/quick-start/product-quality public surfaces for unauthorized positive launch, publish, release, production, public, external-validation, provider-backed, live-model, autonomous-reliability, and top-10 superiority claims while preserving explicit blocked-context wording;
+- GitHub remote surface audit fixtures inventory remote branches and open pull request heads through Git/GitHub primary surfaces, block stale public branches, private local path or token disclosures, and browser-capture artifacts, and keep full-history secret-scanning, release, production, public-readiness, and external-validation claims blocked;
 - protected-action authorization packet fixtures consolidate VS Code/PATH/install-state repair, real Git commit/push, release execution, signed provenance, legal/NOTICE/REUSE, provider/live model validation, external benchmark execution/submission, and public/release/production/external/autonomous claim boundaries into explicit default-false owner decision items without executing protected actions;
 - product evidence manifest fixtures write `reports/openclaude-product-evidence-manifest.jsonl` as a source-hash-addressed evidence package for product-quality reports, benchmark artifacts, workflow files, package source metadata, OSS IDE/editor evidence, the protected-action authorization packet, and the quality gate itself, following SLSA/in-toto-style subject/materials discipline without generating signed provenance or external attestation claims;
 - the build output passes `bun run verify:privacy`.
@@ -194,6 +195,7 @@ The gate validates:
 - `bun run product:verification-report-consistency`
 - `bun run product:quality-blocker-taxonomy`
 - `bun run product:public-claim-boundary`
+- `bun run product:github-remote-surface-audit`
 - `bun run product:protected-action-authorization-packet`
 - `bun run product:evidence-manifest`
 - `bun run product:quality`
