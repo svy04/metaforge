@@ -1,23 +1,17 @@
-# OpenClaude
+![Metaforge banner](docs/assets/metaforge-banner.gif)
 
-OpenClaude is an open-source coding-agent CLI for cloud and local model providers.
+# Metaforge
 
-Use OpenAI-compatible APIs, Gemini, GitHub Models, Codex OAuth, Codex, Ollama, Atomic Chat, and other supported backends while keeping one terminal-first workflow: prompts, tools, agents, MCP, slash commands, and streaming output.
+Metaforge is a governed-code operating system built on an OpenClaude runtime layer.
 
-[![PR Checks](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/Gitlawb/openclaude/actions/workflows/pr-checks.yml)
-[![Release](https://img.shields.io/github/v/tag/Gitlawb/openclaude?label=release&color=0ea5e9)](https://github.com/Gitlawb/openclaude/tags)
-[![Discussions](https://img.shields.io/badge/discussions-open-7c3aed)](https://github.com/Gitlawb/openclaude/discussions)
+OpenClaude supplies the terminal-first CLI substrate: prompts, tools, agents, MCP, slash commands, streaming output, and provider routing across cloud and local models. The product gravity sits above that runtime: **Meta** preserves operator memory and strategic context, while **MFH** turns execution claims into evidence gates.
+
+[![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
+[![Release](https://img.shields.io/github/v/tag/svy04/metaforge?label=release&color=0ea5e9)](https://github.com/svy04/metaforge/tags)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-OpenClaude is also mirrored to GitLawb:
-[gitlawb.com/node/repos/z6MkqDnb/openclaude](https://gitlawb.com/node/repos/z6MkqDnb/openclaude)
-
 [Quick Start](#quick-start) | [Setup Guides](#setup-guides) | [Providers](#supported-providers) | [Source Build](#source-build-and-local-development) | [VS Code Extension](#vs-code-extension) | [Community](#community)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/chart?repos=gitlawb/openclaude&type=date&legend=top-left)](https://www.star-history.com/?repos=gitlawb%2Fopenclaude&type=date&legend=top-left)
 
 ## Why OpenClaude
 
@@ -319,8 +313,7 @@ If you believe you found a security issue, see [SECURITY.md](SECURITY.md).
 
 ## Community
 
-- Use [GitHub Discussions](https://github.com/Gitlawb/openclaude/discussions) for Q&A, ideas, and community conversation
-- Use [GitHub Issues](https://github.com/Gitlawb/openclaude/issues) for confirmed bugs and actionable feature work
+- Use [GitHub Issues](https://github.com/svy04/metaforge/issues) for confirmed bugs and actionable feature work
 - Use [SUPPORT.md](SUPPORT.md) for support routing, troubleshooting inputs, and privacy/safety boundaries
 - Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) in project spaces
 
