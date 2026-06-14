@@ -343,7 +343,6 @@ Ask before destructive filesystem operations, credential/account changes, public
 - OpenClaude v0.6.0 provider precedence: env > project profile > user profile > defaults (to be confirmed by reading source)
 - Z.ai GLM-4.6 Anthropic-compatible endpoint: https://api.z.ai/api/anthropic with model id glm-4.6 (pending official-doc verification)
 - Verification probe pattern: before declaring provider switch successful, run a one-shot request and assert the response model field equals glm-4.6, not claude-*
-- User's project at C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0 uses .openclaude-profile.json for provider override — keep this path in working memory for follow-up edits
 - AGENTS.md mandates Superpowers TDD + verification-before-completion for fixes in this repo
 - User insists only OpenAI, Z.ai, Anthropic API keys are permitted; no Google or other providers
 - Opus advisor must use OpenClaude’s OpenAI-compatible client for Z.ai/OpenAI endpoints
