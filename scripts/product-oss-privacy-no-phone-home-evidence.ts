@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
@@ -160,6 +161,18 @@ function check(label: string, ok: boolean, detail: string): Check {
   return { label, ok, detail }
 }
 
+function ensureBuildOutput(): void {
+  if (existsSync(resolve(root, 'dist/cli.mjs'))) return
+  const result = spawnSync('bun', ['run', 'build'], {
+    cwd: root,
+    encoding: 'utf8',
+    stdio: 'inherit',
+  })
+  if (result.status !== 0) {
+    throw new Error(`local build output is missing and bun run build failed with exit code ${String(result.status)}`)
+  }
+}
+
 function extractBannedPatterns(scriptText: string): string[] {
   const match = scriptText.match(/BANNED_PATTERNS\s*=\s*\[([\s\S]*?)\]\s*as const/)
   if (!match) return []
@@ -168,6 +181,10 @@ function extractBannedPatterns(scriptText: string): string[] {
 
 function countOccurrences(text: string, pattern: string): number {
   return text.split(pattern).length - 1
+}
+
+function scriptIncludesCommand(script: string | undefined, command: string): boolean {
+  return script?.split('&&').map((part) => part.trim()).includes(command) ?? false
 }
 
 function claimsBlocked(report: Record<string, unknown>): boolean {
@@ -273,6 +290,7 @@ function main(): void {
   const publicClaimBoundary = readJson<Record<string, unknown>>(sourcePublicClaimBoundaryReportPath)
   const packageJson = readJson<{ scripts: Record<string, string> }>('package.json')
   const verifyPrivacyText = readText('scripts/verify-no-phone-home.ts')
+  ensureBuildOutput()
   const distText = readText('dist/cli.mjs')
   const bannedPatterns = extractBannedPatterns(verifyPrivacyText)
   const bannedPatternFindingCount = bannedPatterns.reduce((total, pattern) => total + countOccurrences(distText, pattern), 0)
@@ -336,8 +354,8 @@ function main(): void {
       existsSync(resolve(root, 'src/commands/privacy-settings/privacy-settings.tsx')) &&
       existsSync(resolve(root, 'src/utils/privacyLevel.ts')),
     verifyPrivacyScriptPresent: existsSync(resolve(root, 'scripts/verify-no-phone-home.ts')),
-    packageVerifyPrivacyScriptPresent: packageJson.scripts['verify:privacy'] === 'bun run scripts/verify-no-phone-home.ts',
-    buildVerifiedIncludesPrivacy: packageJson.scripts['build:verified'] === 'bun run build && bun run verify:privacy',
+    packageVerifyPrivacyScriptPresent: scriptIncludesCommand(packageJson.scripts['verify:privacy'], 'bun run scripts/verify-no-phone-home.ts'),
+    buildVerifiedIncludesPrivacy: scriptIncludesCommand(packageJson.scripts['build:verified'], 'bun run build') && scriptIncludesCommand(packageJson.scripts['build:verified'], 'bun run verify:privacy'),
     privacyEvidenceJsonlPath,
     privacyEvidenceJsonlSha256,
     privacyEvidenceJsonlRecordCount: reconciliationRecords.length,

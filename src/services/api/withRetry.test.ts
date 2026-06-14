@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test'
+import { afterEach, beforeEach, describe, expect, test } from 'bun:test'
 import { APIError } from '@anthropic-ai/sdk'
 
 // Helper to build a mock APIError with specific headers
@@ -39,8 +39,51 @@ afterEach(() => {
     if (originalEnv[key] === undefined) delete process.env[key]
     else process.env[key] = originalEnv[key]
   }
-  mock.restore()
 })
+
+function applyProviderEnv(
+  provider:
+    | 'firstParty'
+    | 'openai'
+    | 'github'
+    | 'bedrock'
+    | 'vertex'
+    | 'gemini'
+    | 'codex'
+    | 'foundry',
+): void {
+  for (const key of envKeys) {
+    delete process.env[key]
+  }
+
+  switch (provider) {
+    case 'openai':
+      process.env.CLAUDE_CODE_USE_OPENAI = '1'
+      process.env.OPENAI_BASE_URL = 'https://api.openai.com/v1'
+      break
+    case 'codex':
+      process.env.CLAUDE_CODE_USE_OPENAI = '1'
+      process.env.OPENAI_MODEL = 'codexplan'
+      break
+    case 'github':
+      process.env.CLAUDE_CODE_USE_GITHUB = '1'
+      break
+    case 'bedrock':
+      process.env.CLAUDE_CODE_USE_BEDROCK = '1'
+      break
+    case 'vertex':
+      process.env.CLAUDE_CODE_USE_VERTEX = '1'
+      break
+    case 'gemini':
+      process.env.CLAUDE_CODE_USE_GEMINI = '1'
+      break
+    case 'foundry':
+      process.env.CLAUDE_CODE_USE_FOUNDRY = '1'
+      break
+    case 'firstParty':
+      break
+  }
+}
 
 async function importFreshWithRetryModule(
   provider:
@@ -53,11 +96,7 @@ async function importFreshWithRetryModule(
     | 'codex'
     | 'foundry' = 'firstParty',
 ) {
-  mock.restore()
-  mock.module('src/utils/model/providers.js', () => ({
-    getAPIProvider: () => provider,
-    getAPIProviderForStatsig: () => provider,
-  }))
+  applyProviderEnv(provider)
   return import(`./withRetry.js?ts=${Date.now()}-${Math.random()}`)
 }
 

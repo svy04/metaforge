@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test'
 import { join } from 'node:path'
 
+import * as actualExecFileNoThrowModule from '../../utils/execFileNoThrow.js'
+
 const originalEnv = { ...process.env }
 const originalPlatform = process.platform
 const mockedClipboardPath = join(process.cwd(), 'openclaude-clipboard.txt')
@@ -10,6 +12,9 @@ const generateTempFilePathMock = mock(() => mockedClipboardPath)
 const execFileNoThrowMock = mock(
   async () => ({ code: 0, stdout: '', stderr: '' }),
 )
+let execFileNoThrowOverride:
+  | typeof actualExecFileNoThrowModule.execFileNoThrow
+  | undefined
 type ExecFileNoThrowCall = [
   command: string,
   args?: string[],
@@ -20,10 +25,23 @@ function execFileNoThrowCalls(): ExecFileNoThrowCall[] {
   return execFileNoThrowMock.mock.calls as unknown as ExecFileNoThrowCall[]
 }
 
+function restoreProcessEnv(): void {
+  for (const key of Object.keys(process.env)) {
+    delete process.env[key]
+  }
+  Object.assign(process.env, originalEnv)
+}
+
 function installOscMocks(): void {
   mock.module('../../utils/execFileNoThrow.js', () => ({
-    execFileNoThrow: execFileNoThrowMock,
-    execFileNoThrowWithCwd: execFileNoThrowMock,
+    ...actualExecFileNoThrowModule,
+    execFileNoThrow: (
+      ...args: Parameters<typeof actualExecFileNoThrowModule.execFileNoThrow>
+    ) =>
+      (
+        execFileNoThrowOverride ??
+        actualExecFileNoThrowModule.execFileNoThrow
+      )(...args),
   }))
 
   mock.module('../../utils/tempfile.js', () => ({
@@ -57,17 +75,21 @@ async function waitForExecCall(
 describe('Windows clipboard fallback', () => {
   beforeEach(() => {
     installOscMocks()
+    execFileNoThrowOverride =
+      execFileNoThrowMock as unknown as typeof actualExecFileNoThrowModule.execFileNoThrow
     execFileNoThrowMock.mockClear()
     generateTempFilePathMock.mockClear()
-    process.env = { ...originalEnv }
+    restoreProcessEnv()
     delete process.env['SSH_CONNECTION']
     delete process.env['TMUX']
     Object.defineProperty(process, 'platform', { value: 'win32' })
   })
 
   afterEach(() => {
-    process.env = { ...originalEnv }
+    restoreProcessEnv()
     Object.defineProperty(process, 'platform', { value: originalPlatform })
+    execFileNoThrowOverride = undefined
+    mock.restore()
   })
 
   test('uses PowerShell instead of clip.exe for local Windows copy', async () => {
@@ -108,15 +130,19 @@ describe('Windows clipboard fallback', () => {
 describe('clipboard path behavior remains stable', () => {
   beforeEach(() => {
     installOscMocks()
+    execFileNoThrowOverride =
+      execFileNoThrowMock as unknown as typeof actualExecFileNoThrowModule.execFileNoThrow
     execFileNoThrowMock.mockClear()
-    process.env = { ...originalEnv }
+    restoreProcessEnv()
     delete process.env['SSH_CONNECTION']
     delete process.env['TMUX']
   })
 
   afterEach(() => {
-    process.env = { ...originalEnv }
+    restoreProcessEnv()
     Object.defineProperty(process, 'platform', { value: originalPlatform })
+    execFileNoThrowOverride = undefined
+    mock.restore()
   })
 
   test('getClipboardPath stays native on local macOS', async () => {

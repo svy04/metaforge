@@ -2,6 +2,28 @@ import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test'
 import axios from 'axios'
 
 const originalEnv = { ...process.env }
+const originalAxiosGet = axios.get
+
+function restoreProcessEnv(): void {
+  for (const key of Object.keys(process.env)) {
+    if (!(key in originalEnv)) {
+      delete process.env[key]
+    }
+  }
+  for (const [key, value] of Object.entries(originalEnv)) {
+    process.env[key] = value
+  }
+}
+
+function clearProviderFlags(): void {
+  delete process.env.CLAUDE_CODE_USE_OPENAI
+  delete process.env.CLAUDE_CODE_USE_GEMINI
+  delete process.env.CLAUDE_CODE_USE_GITHUB
+  delete process.env.CLAUDE_CODE_USE_MISTRAL
+  delete process.env.CLAUDE_CODE_USE_BEDROCK
+  delete process.env.CLAUDE_CODE_USE_VERTEX
+  delete process.env.CLAUDE_CODE_USE_FOUNDRY
+}
 
 async function importFreshModule() {
   mock.restore()
@@ -9,20 +31,20 @@ async function importFreshModule() {
 }
 
 beforeEach(() => {
-  process.env = { ...originalEnv }
+  restoreProcessEnv()
+  clearProviderFlags()
+  axios.get = originalAxiosGet
 })
 
 afterEach(() => {
-  process.env = { ...originalEnv }
+  restoreProcessEnv()
+  axios.get = originalAxiosGet
   mock.restore()
 })
 
 describe('checkDomainBlocklist', () => {
   test('returns allowed without API call in OpenAI mode', async () => {
     process.env.CLAUDE_CODE_USE_OPENAI = '1'
-    mock.module('../../utils/model/providers.js', () => ({
-      getAPIProvider: () => 'openai',
-    }))
     const getSpy = mock(() =>
       Promise.resolve({ status: 200, data: { can_fetch: true } }),
     )
@@ -37,9 +59,6 @@ describe('checkDomainBlocklist', () => {
 
   test('returns allowed without API call in Gemini mode', async () => {
     process.env.CLAUDE_CODE_USE_GEMINI = '1'
-    mock.module('../../utils/model/providers.js', () => ({
-      getAPIProvider: () => 'gemini',
-    }))
     const getSpy = mock(() =>
       Promise.resolve({ status: 200, data: { can_fetch: true } }),
     )
@@ -53,13 +72,7 @@ describe('checkDomainBlocklist', () => {
   })
 
   test('calls Anthropic domain check in first-party mode', async () => {
-    delete process.env.CLAUDE_CODE_USE_OPENAI
-    delete process.env.CLAUDE_CODE_USE_GEMINI
-    delete process.env.CLAUDE_CODE_USE_GITHUB
-
-    mock.module('../../utils/model/providers.js', () => ({
-      getAPIProvider: () => 'firstParty',
-    }))
+    clearProviderFlags()
     const getSpy = mock(() =>
       Promise.resolve({ status: 200, data: { can_fetch: true } }),
     )

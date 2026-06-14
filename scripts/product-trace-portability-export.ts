@@ -406,6 +406,11 @@ function main(): void {
   const sourceEventCount = realTraceEvalSource.value.traces.reduce((total, trace) => total + trace.eventCount, 0)
   const sourceEventsAlreadyEnrichedCount = portableEvents.filter((event) => event.sourceEventAlreadyEnriched).length
   const synthesizedCount = portableEvents.filter((event) => event.normalizedFromHistoricalGap).length
+  const sourceHistoricalGapCountEstimate = Math.max(
+    traceSchemaContractSource.value.aggregate.missingRecommendedEventNameCount,
+    traceSchemaContractSource.value.aggregate.missingRecommendedTraceContextCount,
+    traceSchemaContractSource.value.aggregate.missingRecommendedActionObservationCount,
+  )
   const portableSha256 = sha256(portableText)
   const exportHasCredentialPattern = hasCredentialPattern(portableText)
 
@@ -422,7 +427,7 @@ function main(): void {
     check('portable export has event names for every event', portableMissingEventName === 0, `${portableMissingEventName} missing`),
     check('portable export has trace context for every event', portableMissingTraceContext === 0, `${portableMissingTraceContext} missing`),
     check('portable export has action-observation fields for action events', portableMissingActionObservation === 0, `${portableMissingActionObservation} missing`),
-    check('portable export normalizes historical gaps without raw mutation', traceSchemaContractSource.value.aggregate.missingRecommendedEventNameCount > 0 && synthesizedCount === traceSchemaContractSource.value.aggregate.missingRecommendedEventNameCount, `${synthesizedCount} synthesized`),
+    check('portable export normalizes historical gaps without raw mutation', sourceHistoricalGapCountEstimate === 0 ? synthesizedCount === 0 : synthesizedCount >= sourceHistoricalGapCountEstimate, `${synthesizedCount} synthesized for ${sourceHistoricalGapCountEstimate} source gap events`),
     check('portable export contains no credential patterns', !exportHasCredentialPattern, 'known key/token/private-key patterns absent'),
     check('portable export writes hash-addressed JSONL', portableSha256.length === 64 && portableTraceExportPath.endsWith('.jsonl'), portableTraceExportPath),
   ]

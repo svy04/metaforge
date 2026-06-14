@@ -1,13 +1,26 @@
 import { PassThrough } from 'node:stream'
 
-import { expect, test } from 'bun:test'
+import { expect, mock, test } from 'bun:test'
 import React from 'react'
 import stripAnsi from 'strip-ansi'
 
 import { AppStateProvider } from '../state/AppState.js'
-import { createRoot } from '../ink.js'
+import { Box, Text, createRoot } from '../ink.js'
 import { KeybindingSetup } from '../keybindings/KeybindingProviderSetup.js'
-import { ConsoleOAuthFlow } from './ConsoleOAuthFlow.js'
+
+mock.module('./ProviderManager.js', () => ({
+  ProviderManager: ({ mode }: { mode: 'first-run' | 'manage' }) => (
+    <Box flexDirection="column">
+      <Text>{mode === 'first-run' ? 'Set up provider' : 'Provider manager'}</Text>
+      <Text>Anthropic</Text>
+      <Text>Azure OpenAI</Text>
+      <Text>DeepSeek</Text>
+      <Text>Google Gemini</Text>
+    </Box>
+  ),
+}))
+
+const { ConsoleOAuthFlow } = await import('./ConsoleOAuthFlow.js')
 
 const SYNC_START = '\x1B[?2026h'
 const SYNC_END = '\x1B[?2026l'
@@ -73,7 +86,46 @@ function createTestStreams(): {
   }
 }
 
-async function renderFrame(node: React.ReactNode): Promise<string> {
+async function waitForCondition(
+  predicate: () => boolean,
+  options?: { timeoutMs?: number; intervalMs?: number },
+): Promise<void> {
+  const timeoutMs = options?.timeoutMs ?? 2500
+  const intervalMs = options?.intervalMs ?? 10
+  const startedAt = Date.now()
+
+  while (Date.now() - startedAt < timeoutMs) {
+    if (predicate()) {
+      return
+    }
+    await Bun.sleep(intervalMs)
+  }
+
+  throw new Error('Timed out waiting for ConsoleOAuthFlow test condition')
+}
+
+async function waitForFrameOutput(
+  getOutput: () => string,
+  predicate: (output: string) => boolean,
+  timeoutMs = 2500,
+): Promise<string> {
+  let output = ''
+
+  await waitForCondition(() => {
+    output = stripAnsi(extractLastFrame(getOutput()))
+    return predicate(output)
+  }, { timeoutMs })
+
+  return output
+}
+
+async function renderFrame(
+  node: React.ReactNode,
+  options?: {
+    waitForOutput?: (output: string) => boolean
+    timeoutMs?: number
+  },
+): Promise<string> {
   const { stdout, stdin, getOutput } = createTestStreams()
   const root = await createRoot({
     stdout: stdout as unknown as NodeJS.WriteStream,
@@ -87,13 +139,23 @@ async function renderFrame(node: React.ReactNode): Promise<string> {
     </AppStateProvider>,
   )
 
-  await Bun.sleep(50)
-  root.unmount()
-  stdin.end()
-  stdout.end()
-  await Bun.sleep(25)
+  try {
+    if (options?.waitForOutput) {
+      return await waitForFrameOutput(
+        getOutput,
+        options.waitForOutput,
+        options.timeoutMs,
+      )
+    }
 
-  return stripAnsi(extractLastFrame(getOutput()))
+    await Bun.sleep(50)
+    return stripAnsi(extractLastFrame(getOutput()))
+  } finally {
+    root.unmount()
+    stdin.end()
+    stdout.end()
+    await Bun.sleep(0)
+  }
 }
 
 test('login picker shows the third-party platform option', async () => {
@@ -109,6 +171,14 @@ test('third-party provider branch opens the first-run provider manager', async (
       initialStatus={{ state: 'platform_setup' }}
       onDone={() => {}}
     />,
+    {
+      waitForOutput: frame =>
+        frame.includes('Set up provider') &&
+        frame.includes('Anthropic') &&
+        frame.includes('Azure OpenAI') &&
+        frame.includes('DeepSeek') &&
+        frame.includes('Google Gemini'),
+    },
   )
 
   expect(output).toContain('Set up provider')

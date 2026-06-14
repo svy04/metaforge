@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-21T09:48:24.527Z",
+  "generatedAt": "2026-06-14T17:42:21.388Z",
   "mode": "local_no_provider_benchmark_efficiency_metrics",
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "aa3d8212324e11a3eb3d9f87c3aa1ffde6e8c8d8672901dcd3c971d81b2ddd2f",
+  "sourceLocalBenchmarkResultsSha256": "6376352fc36d7af551a8f3f29bc4ff547bae2afea2a6bfb38467705b005a8e81",
   "primarySourceInputs": [
     {
       "sourceProject": "Vexp-ai/vexp-swe-bench",
@@ -34,7 +34,7 @@
     "sourceEvidenceSha256"
   ],
   "metricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-  "metricsJsonlSha256": "2f24f651c9973d03ecaeff0eaa487ac9cc20a979a52906fcb440238deb7bd6f4",
+  "metricsJsonlSha256": "c2918f066a8cd538a8b3183b93a5bb2932f23422e25ae529796476e946b01236",
   "benchmarkEfficiencyRecords": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
@@ -42,7 +42,7 @@
       "localHarnessStatus": "valid_local_evidence",
       "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sourceEvidenceSha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+      "sourceEvidenceSha256": "0def3220878ce457b06474b8aa3e5ee2e5e66d919578bfa7db76639c9daf3840",
       "sourceEvidenceSizeBytes": 5630,
       "sourceEvidenceLineCount": 155,
       "comparableMetricFields": {
@@ -72,8 +72,8 @@
       "localHarnessStatus": "valid_local_evidence",
       "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sourceEvidenceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
-      "sourceEvidenceSizeBytes": 5288,
+      "sourceEvidenceSha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
+      "sourceEvidenceSizeBytes": 5320,
       "sourceEvidenceLineCount": 8,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",
@@ -282,8 +282,8 @@
       "localHarnessStatus": "valid_local_evidence",
       "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sourceEvidenceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
-      "sourceEvidenceSizeBytes": 5288,
+      "sourceEvidenceSha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
+      "sourceEvidenceSizeBytes": 5320,
       "sourceEvidenceLineCount": 8,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",
@@ -342,9 +342,9 @@
       "localHarnessStatus": "valid_local_evidence",
       "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sourceEvidenceSha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
-      "sourceEvidenceSizeBytes": 11236,
-      "sourceEvidenceLineCount": 16,
+      "sourceEvidenceSha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
+      "sourceEvidenceSizeBytes": 8326,
+      "sourceEvidenceLineCount": 12,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",
         "model": null,
@@ -489,11 +489,11 @@
     {
       "benchmarkTaskId": "openclaude.local.agent_replay_eval_summary",
       "benchmarkFamily": "local_no_provider_replay_eval",
-      "localHarnessStatus": "valid_local_evidence",
-      "localOutcomeForReplayOnly": "succeeded",
+      "localHarnessStatus": "classified_environment_blocked",
+      "localOutcomeForReplayOnly": "classified_environment_blocked",
       "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
-      "sourceEvidenceSha256": "e1e8666be343b2935b6b3983683c53a301b818c08c1451145348c5f131093cb9",
-      "sourceEvidenceSizeBytes": 23171,
+      "sourceEvidenceSha256": "0695b8130611dbb5eeb3dfdd1809b391e2e4dd90024034a313da89a4e02e1d7f",
+      "sourceEvidenceSizeBytes": 22836,
       "sourceEvidenceLineCount": 702,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",

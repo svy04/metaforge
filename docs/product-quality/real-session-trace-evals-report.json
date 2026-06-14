@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T09:21:24.627Z",
+  "generatedAt": "2026-06-14T17:42:19.303Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
   "traceFileCount": 13,
@@ -240,7 +240,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "traceKind": "prompted_tool_loop_cli",
       "lineCount": 8,
       "eventCount": 8,
@@ -329,21 +329,17 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "sha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
       "traceKind": "real_session_capture_cli",
-      "lineCount": 16,
-      "eventCount": 16,
+      "lineCount": 12,
+      "eventCount": 12,
       "parseErrorCount": 0,
       "statuses": {
-        "started": 8,
-        "succeeded": 8
+        "started": 6,
+        "succeeded": 6
       },
       "statusSequence": [
         "started",
-        "started",
-        "succeeded",
-        "started",
-        "succeeded",
         "started",
         "succeeded",
         "started",
@@ -609,6 +605,24 @@
         "status": "not_present",
         "detail": "17 models represented.",
         "protectedActionRequired": false
+      },
+      {
+        "id": "live_trace_kind_coverage",
+        "status": "not_present",
+        "detail": "Live trace kinds represented.",
+        "protectedActionRequired": false
+      },
+      {
+        "id": "usage_trace_kind_coverage",
+        "status": "not_present",
+        "detail": "Usage trace kinds represented.",
+        "protectedActionRequired": false
+      },
+      {
+        "id": "failed_terminal_outcome_coverage",
+        "status": "not_present",
+        "detail": "Failed terminal outcomes represented.",
+        "protectedActionRequired": false
       }
     ]
   },
@@ -649,7 +663,7 @@
       "detail": "failed,started,succeeded"
     },
     {
-      "label": "live and usage trace kinds are represented",
+      "label": "live and usage trace kind gaps are represented or classified",
       "ok": true,
       "detail": "fixture_user_executor_session,implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,live_adaptive_probe,live_probe,live_sidequery_probe,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture,usage_cli_probe,usage_repl_probe"
     },
@@ -661,7 +675,7 @@
     {
       "label": "coverage gaps are explicitly classified",
       "ok": true,
-      "detail": "2 gaps"
+      "detail": "5 gaps"
     },
     {
       "label": "coverage gaps do not require protected action",

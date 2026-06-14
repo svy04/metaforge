@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-05-21T14:11:29.729Z",
+  "generatedAt": "2026-06-14T17:37:59.077Z",
   "mode": "local_no_provider_oss_privacy_no_phone_home_evidence",
   "selectedAxis": "privacy_and_no_phone_home",
   "sourceReadinessIndexReportPath": "docs/product-quality/oss-comparison-readiness-index-report.json",
-  "sourceReadinessIndexReportSha256": "b02489b61bed89a57156798148df8f63739572374484ebd18e11c7f823237f39",
+  "sourceReadinessIndexReportSha256": "20a3d140525548377b9a66f6e83a48628aa7c536917536564f61239f6fbe0148",
   "sourceComparisonMatrixReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-  "sourceComparisonMatrixReportSha256": "8e6358fe98021bd80a5a4410cb18ea106ef6c86a0d304ce056adfb174066b5d4",
+  "sourceComparisonMatrixReportSha256": "91e2c9b899254397720801f22a9d92b1501742f84a549f09a946524507239de5",
   "sourcePublicClaimBoundaryReportPath": "docs/product-quality/public-claim-boundary-report.json",
-  "sourcePublicClaimBoundaryReportSha256": "469f3c5a4776808c35c85ddf7e9fe1dbed17205c5c7e02f229553ec9d2d3c8c4",
+  "sourcePublicClaimBoundaryReportSha256": "0960ab0c59e563d490868ea5c30be12c199ce5cf4eeb9def1dc465ebd16fbf4b",
   "sourceReportBindings": [
     {
       "path": "docs/product-quality/oss-comparison-readiness-index-report.json",
       "exists": true,
-      "sha256": "b02489b61bed89a57156798148df8f63739572374484ebd18e11c7f823237f39",
-      "sizeBytes": 48480
+      "sha256": "20a3d140525548377b9a66f6e83a48628aa7c536917536564f61239f6fbe0148",
+      "sizeBytes": 48479
     },
     {
       "path": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
       "exists": true,
-      "sha256": "8e6358fe98021bd80a5a4410cb18ea106ef6c86a0d304ce056adfb174066b5d4",
-      "sizeBytes": 220381
+      "sha256": "91e2c9b899254397720801f22a9d92b1501742f84a549f09a946524507239de5",
+      "sizeBytes": 261590
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
       "exists": true,
-      "sha256": "469f3c5a4776808c35c85ddf7e9fe1dbed17205c5c7e02f229553ec9d2d3c8c4",
-      "sizeBytes": 12077
+      "sha256": "0960ab0c59e563d490868ea5c30be12c199ce5cf4eeb9def1dc465ebd16fbf4b",
+      "sizeBytes": 13825
     }
   ],
   "sourcePrivacyPriorityTier": "source_review_priority",
@@ -43,8 +43,8 @@
     {
       "path": "dist/cli.mjs",
       "exists": true,
-      "sha256": "ffaac11bbf9065d5e079e451e0ade7f51e9f09dbf004dbc3fef1e79ec62837eb",
-      "sizeBytes": 21037658
+      "sha256": "72a3141be47c1f3290727b9b0de3ac27574c9dd53b319b4b6b441201076abae4",
+      "sizeBytes": 21038128
     },
     {
       "path": "scripts/no-telemetry-plugin.ts",
@@ -79,8 +79,8 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "ed5566c443919514874ea27c2f7e44602c272d24c4c7d055e97edc616a1b3458",
-      "sizeBytes": 18344
+      "sha256": "d88d2599725ba6f4115d6103769fcf27f5f037eed1998473d9f95b8ca0020d07",
+      "sizeBytes": 18859
     }
   ],
   "bannedPatterns": [
@@ -103,7 +103,7 @@
   "packageVerifyPrivacyScriptPresent": true,
   "buildVerifiedIncludesPrivacy": true,
   "privacyEvidenceJsonlPath": "reports/openclaude-oss-privacy-no-phone-home-evidence.jsonl",
-  "privacyEvidenceJsonlSha256": "11964dd236ff95a8296193e64cff88723cf3d8aecac5d5ea7ff8adba8f09a645",
+  "privacyEvidenceJsonlSha256": "48af485173dd47d8f510805d837dda810a6ed005862794b2ea843533dc6a2eb3",
   "privacyEvidenceJsonlRecordCount": 10,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -275,7 +275,7 @@
     {
       "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
       "rank": 7,
-      "fullName": "openinterpreter/open-interpreter",
+      "fullName": "nexu-io/open-design",
       "axis": "privacy_and_no_phone_home",
       "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
       "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
@@ -295,7 +295,7 @@
     {
       "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
       "rank": 8,
-      "fullName": "cline/cline",
+      "fullName": "openinterpreter/openinterpreter",
       "axis": "privacy_and_no_phone_home",
       "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
       "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
@@ -315,7 +315,7 @@
     {
       "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
       "rank": 9,
-      "fullName": "warpdotdev/warp",
+      "fullName": "cline/cline",
       "axis": "privacy_and_no_phone_home",
       "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
       "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",
@@ -335,7 +335,7 @@
     {
       "schemaVersion": "openclaude_oss_privacy_no_phone_home_evidence_v1",
       "rank": 10,
-      "fullName": "ruvnet/ruflo",
+      "fullName": "warpdotdev/warp",
       "axis": "privacy_and_no_phone_home",
       "sourceComparisonStatus": "local_internal_evidence_present_protected_gap_open",
       "localOpenClaudeEvidenceStatus": "local_no_phone_home_dist_scan_passed",

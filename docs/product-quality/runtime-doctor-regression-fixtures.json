@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T08:40:25.683Z",
+  "generatedAt": "2026-06-14T17:39:43.025Z",
   "mode": "local_no_provider_runtime_doctor_regression",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -8,7 +8,7 @@
     {
       "name": "json_stdout",
       "command": [
-        "C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\bun\\bin\\bun.exe",
+        "<bun>",
         "run",
         "scripts/system-check.ts",
         "--json"
@@ -17,8 +17,8 @@
       "passed": true,
       "stdoutPreview": [
         "{",
-        "  \"timestamp\": \"2026-05-21T08:40:21.012Z\",",
-        "  \"cwd\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\",",
+        "  \"timestamp\": \"2026-06-14T17:39:35.440Z\",",
+        "  \"cwd\": \"<repo>\",",
         "  \"summary\": {",
         "    \"total\": 7,",
         "    \"passed\": 7,",
@@ -39,7 +39,7 @@
         "    {",
         "      \"ok\": true,",
         "      \"label\": \"Build artifacts\",",
-        "      \"detail\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\\\\dist\\\\cli.mjs\"",
+        "      \"detail\": \"<repo>\\\\dist\\\\cli.mjs\"",
         "    },",
         "    {",
         "      \"ok\": true,",
@@ -74,19 +74,19 @@
     {
       "name": "json_stdout_and_out_file",
       "command": [
-        "C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\bun\\bin\\bun.exe",
+        "<bun>",
         "run",
         "scripts/system-check.ts",
         "--json",
         "--out",
-        "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
+        "<repo>\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
       ],
       "exitCode": 0,
       "passed": true,
       "stdoutPreview": [
         "{",
-        "  \"timestamp\": \"2026-05-21T08:40:25.655Z\",",
-        "  \"cwd\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\",",
+        "  \"timestamp\": \"2026-06-14T17:39:42.993Z\",",
+        "  \"cwd\": \"<repo>\",",
         "  \"summary\": {",
         "    \"total\": 7,",
         "    \"passed\": 7,",
@@ -107,7 +107,7 @@
         "    {",
         "      \"ok\": true,",
         "      \"label\": \"Build artifacts\",",
-        "      \"detail\": \"C:\\\\Users\\\\admin\\\\Desktop\\\\내 순수 재미\\\\openclaude-0.6.0\\\\dist\\\\cli.mjs\"",
+        "      \"detail\": \"<repo>\\\\dist\\\\cli.mjs\"",
         "    },",
         "    {",
         "      \"ok\": true,",
@@ -179,7 +179,7 @@
     {
       "label": "out report was written",
       "ok": true,
-      "detail": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
+      "detail": "<repo>\\.tmp-product-runtime-doctor-regression\\system-check-report.json"
     },
     {
       "label": "out report summary has no failures",

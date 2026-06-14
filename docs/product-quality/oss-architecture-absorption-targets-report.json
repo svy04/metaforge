@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-21T13:27:36.424Z",
+  "generatedAt": "2026-06-14T17:37:53.244Z",
   "mode": "local_no_provider_oss_architecture_absorption_targets",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
-  "sourceReviewReportSha256": "14c9abc47c0cc8f398270efbea2169861b60b3518983ed8c946b6b2d75b2339d",
+  "sourceReviewReportSha256": "c3169e92f524929c6b0acfef6ad998afbace74768cfde275ee5b886f31d8ae9b",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
   "baselineSnapshotDate": "2026-05-21",
   "reviewedProjectCount": 10,
@@ -11,8 +11,7 @@
   "deferredTargetCount": 1,
   "newlyDiscoveredPrioritizedTargets": [
     "ultraworkers/claw-code",
-    "warpdotdev/warp",
-    "ruvnet/ruflo"
+    "warpdotdev/warp"
   ],
   "coveredAbsorptionAxes": [
     "eval_and_quality_gates",
@@ -27,7 +26,7 @@
     "tool_loop_reliability"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-architecture-absorption-targets.jsonl",
-  "provenanceJsonlSha256": "ec2b4bf17bcbda08a02f3128cb94cdd654c0e2b0d4924641166fe3d284fce784",
+  "provenanceJsonlSha256": "7a2d07bc513690c927d06a4a4c8cf7e2e84a390917a738b2b330b2ffb204e831",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -91,7 +90,7 @@
     {
       "label": "newly discovered source-supported projects are high priority",
       "ok": true,
-      "detail": "ultraworkers/claw-code,warpdotdev/warp,ruvnet/ruflo"
+      "detail": "ultraworkers/claw-code,warpdotdev/warp"
     },
     {
       "label": "absorption axes cover core product-quality dimensions",
@@ -120,7 +119,7 @@
       "rank": 1,
       "fullName": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
-      "stars": 192141,
+      "stars": 193785,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "high",
       "sourceSignals": [
@@ -162,14 +161,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "b266df37773faa686fe6495d4a3372f73f4b4bcbecb5611bda65dcb057049fc1"
+      "recordDigest": "4c501321f6ea5d73f7ec5c17c0e55dbe01a7af283b036828e51288562df971b6"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 2,
       "fullName": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
-      "stars": 163411,
+      "stars": 174304,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -211,14 +210,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "e53c15a93fde76ce707997e4a2559c651d0aeff2f8f44eb4e278d187bdabe8c6"
+      "recordDigest": "d2686d9f5880aa4a6fb911009e45f3be02901006aef2cc7377cfdc9af9a011eb"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 3,
       "fullName": "anthropics/claude-code",
       "sourceUrl": "https://github.com/anthropics/claude-code",
-      "stars": 125428,
+      "stars": 132354,
       "targetStatus": "deferred_metadata_only_target",
       "priority": "deferred",
       "sourceSignals": [
@@ -260,14 +259,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "2c428b49eb62629c3e3771c0ef51960414bb1c17f0a8b02ddf984ac58c541e27"
+      "recordDigest": "a6d39f6e260b67b347851bd4e8f56b8dab613305b859f968a6bd30dc4381a712"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 4,
       "fullName": "google-gemini/gemini-cli",
       "sourceUrl": "https://github.com/google-gemini/gemini-cli",
-      "stars": 104427,
+      "stars": 105275,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -315,14 +314,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "738e1682678473ab3cb380f218e4f33164a27e8469f1021f50ba5223fcf5903c"
+      "recordDigest": "82f002d8357f65866f4a7f76761ca1e1559864c7a574031508f2be457d933142"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 5,
       "fullName": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
-      "stars": 84320,
+      "stars": 90992,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -370,14 +369,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "26e37bf9f4cc74d6370ed8080502d9628a8f9d47e5025b5c346e2c01108fc6bf"
+      "recordDigest": "0fcd51db29b5ea41d4b1ef0e4e615673e2a8491fe9923a329ebca7a88aed7fad"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 6,
       "fullName": "OpenHands/OpenHands",
       "sourceUrl": "https://github.com/OpenHands/OpenHands",
-      "stars": 74367,
+      "stars": 77029,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -386,9 +385,11 @@
         "terminal-cli"
       ],
       "rootMarkers": [
-        "pyproject.toml"
+        "pyproject.toml",
+        "python"
       ],
       "absorptionAxes": [
+        "eval_and_quality_gates",
         "ide_or_editor_surface",
         "onboarding_docs",
         "privacy_and_no_phone_home",
@@ -418,25 +419,33 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "552cedd3b3b552005704df7249361afc6fb67395b85459f223d97d372effc120"
+      "recordDigest": "2387c3a49f70bf0ac9c287fbdef28ac58b5ea1574dcb72eb3b88d7663d4a3cd5"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 7,
-      "fullName": "openinterpreter/open-interpreter",
-      "sourceUrl": "https://github.com/openinterpreter/open-interpreter",
-      "stars": 63602,
+      "fullName": "nexu-io/open-design",
+      "sourceUrl": "https://github.com/nexu-io/open-design",
+      "stars": 64701,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
+        "codebase-workflow",
+        "coding-agent",
+        "ide-extension",
         "provider-model",
         "terminal-cli",
         "tool-use"
       ],
       "rootMarkers": [
-        "pyproject.toml"
+        "apps",
+        "package.json",
+        "packages",
+        "pnpm-lock.yaml"
       ],
       "absorptionAxes": [
+        "eval_and_quality_gates",
+        "ide_or_editor_surface",
         "onboarding_docs",
         "privacy_and_no_phone_home",
         "provider_breadth",
@@ -446,7 +455,7 @@
         "terminal_workflow",
         "tool_loop_reliability"
       ],
-      "safeLocalAction": "Use openinterpreter/open-interpreter as a source-supported architecture benchmark input for the next scoped no-provider product-quality gap review.",
+      "safeLocalAction": "Use nexu-io/open-design as a source-supported architecture benchmark input for the next scoped no-provider product-quality gap review.",
       "requiredNextEvidence": [
         "axis-specific source/doc inspection without cloning or installing dependencies",
         "local OpenClaude gap mapping for each observed pattern",
@@ -467,14 +476,66 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "34932e8abbdb14beda87ed1a4278efea84d969ead86162b93924a0c066ea7e3c"
+      "recordDigest": "e414ed22d5b62bde7945c029c7705c3bec418719a07446456a3d515d87970ac9"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
       "rank": 8,
+      "fullName": "openinterpreter/openinterpreter",
+      "sourceUrl": "https://github.com/openinterpreter/openinterpreter",
+      "stars": 63950,
+      "targetStatus": "prioritized_source_supported_target",
+      "priority": "medium",
+      "sourceSignals": [
+        "coding-agent",
+        "provider-model",
+        "terminal-cli",
+        "tool-use"
+      ],
+      "rootMarkers": [
+        "package.json",
+        "pnpm-lock.yaml"
+      ],
+      "absorptionAxes": [
+        "eval_and_quality_gates",
+        "onboarding_docs",
+        "privacy_and_no_phone_home",
+        "provider_breadth",
+        "release_hygiene",
+        "runtime_doctoring",
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
+      ],
+      "safeLocalAction": "Use openinterpreter/openinterpreter as a source-supported architecture benchmark input for the next scoped no-provider product-quality gap review.",
+      "requiredNextEvidence": [
+        "axis-specific source/doc inspection without cloning or installing dependencies",
+        "local OpenClaude gap mapping for each observed pattern",
+        "no-provider fixture or report before any production implementation",
+        "explicit protected-action request before external benchmark, provider call, install, publish, deploy, or public claim"
+      ],
+      "forbiddenShortcuts": [
+        "do not infer superiority from stars",
+        "do not treat README-only evidence as external validation",
+        "do not clone, install, publish, deploy, or run external services in this gate",
+        "do not call providers or live models",
+        "do not claim release, production, public, external-validation, or autonomous-reliability readiness"
+      ],
+      "protectedActionRequiredBeforeClaim": true,
+      "publicComparisonClaimAllowed": false,
+      "superiorityClaimAllowed": false,
+      "releaseReadinessClaimAllowed": false,
+      "productionReadinessClaimAllowed": false,
+      "externalValidationClaimAllowed": false,
+      "autonomousReliabilityClaimAllowed": false,
+      "recordDigest": "038d99458b47955998b19bfe88a27135f181b161cb7621fefce994dd0734a323"
+    },
+    {
+      "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
+      "rank": 9,
       "fullName": "cline/cline",
       "sourceUrl": "https://github.com/cline/cline",
-      "stars": 62137,
+      "stars": 63271,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "sourceSignals": [
@@ -486,9 +547,10 @@
         "tool-use"
       ],
       "rootMarkers": [
-        "package-lock.json",
-        "package.json",
-        "src"
+        "apps",
+        "bun.lock",
+        "cli",
+        "package.json"
       ],
       "absorptionAxes": [
         "eval_and_quality_gates",
@@ -523,14 +585,14 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "dc515984127b3cc8a42fb3b093ccda718af8bd64fc71bf048de36927d2ade611"
+      "recordDigest": "7b5f6ea19dda0a8cb22b88963c0173e379717cc447a7cdc9296026291326c2e8"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
-      "rank": 9,
+      "rank": 10,
       "fullName": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
-      "stars": 59387,
+      "stars": 61710,
       "targetStatus": "prioritized_source_supported_target",
       "priority": "high",
       "sourceSignals": [
@@ -577,58 +639,7 @@
       "productionReadinessClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "ff51b7a8c67daaeec79a7f0639227268dbaca4e8e5c5fde0a5941a917f719e88"
-    },
-    {
-      "schemaVersion": "openclaude_oss_architecture_absorption_target_v1",
-      "rank": 10,
-      "fullName": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "stars": 53756,
-      "targetStatus": "prioritized_source_supported_target",
-      "priority": "high",
-      "sourceSignals": [
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "rootMarkers": [
-        "package-lock.json",
-        "package.json",
-        "pnpm-lock.yaml"
-      ],
-      "absorptionAxes": [
-        "onboarding_docs",
-        "privacy_and_no_phone_home",
-        "provider_breadth",
-        "release_hygiene",
-        "runtime_doctoring",
-        "security_and_permissions",
-        "terminal_workflow",
-        "tool_loop_reliability"
-      ],
-      "safeLocalAction": "Create the next axis-specific no-provider architecture review for ruvnet/ruflo, starting with terminal workflow, tool-loop evidence, release hygiene, and any IDE/provider surfaces visible in source-reviewed materials.",
-      "requiredNextEvidence": [
-        "axis-specific source/doc inspection without cloning or installing dependencies",
-        "local OpenClaude gap mapping for each observed pattern",
-        "no-provider fixture or report before any production implementation",
-        "explicit protected-action request before external benchmark, provider call, install, publish, deploy, or public claim"
-      ],
-      "forbiddenShortcuts": [
-        "do not infer superiority from stars",
-        "do not treat README-only evidence as external validation",
-        "do not clone, install, publish, deploy, or run external services in this gate",
-        "do not call providers or live models",
-        "do not claim release, production, public, external-validation, or autonomous-reliability readiness"
-      ],
-      "protectedActionRequiredBeforeClaim": true,
-      "publicComparisonClaimAllowed": false,
-      "superiorityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false,
-      "recordDigest": "0767372e36cad09b751ec45dde81c86de6dd1e01ee2e10ecedaccd2c44362eba"
+      "recordDigest": "fc8bb61e4482c5ac7229c22332558ce95a5731cc8e8f74ad10e6b8c1d3452433"
     }
   ],
   "claimBoundary": "Architecture absorption targets are local no-provider planning evidence only. They do not clone repositories, install dependencies, call providers, call live models, mutate production OpenClaude, publish, deploy, launch, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."

@@ -424,6 +424,7 @@ test('explicitly declared env takes precedence over applySavedProfileToCurrentSe
   const warning = await applySavedProfileToCurrentSession({
     profileFile,
     processEnv,
+    validateProviderEnv: async () => null,
   })
 
   expect(warning).toBeNull()
@@ -439,7 +440,7 @@ test('explicitly declared env takes precedence over applySavedProfileToCurrentSe
   expect(processEnv.CLAUDE_CODE_PROVIDER_PROFILE_ENV_APPLIED_ID).toBeUndefined()
 })
 
-test('explicitly declared env takes precedence over applySavedProfileToCurrentSession', async () => {
+test('explicitly declared env takes precedence over Codex OAuth profile activation', async () => {
   // @ts-ignore cache-busting query string for Bun module mocks
   const { applySavedProfileToCurrentSession } = await importFresh('../../utils/providerProfile.js?apply-saved-profile-codex-oauth')
   const processEnv: NodeJS.ProcessEnv = {
@@ -459,6 +460,7 @@ test('explicitly declared env takes precedence over applySavedProfileToCurrentSe
   const warning = await applySavedProfileToCurrentSession({
     profileFile,
     processEnv,
+    validateProviderEnv: async () => 'Codex auth is required for codexplan.',
   })
 
   expect(warning).not.toBeUndefined()

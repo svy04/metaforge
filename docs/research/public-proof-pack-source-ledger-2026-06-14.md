@@ -16,9 +16,8 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 | `docs/profile/github-profile-refresh-evidence-2026-06-14.md` | Profile rewrite used current public repos and avoided private/inaccessible proof. | Use as current profile evidence. |
 | `docs/product-quality/public-claim-boundary-report.md` | Local no-provider scan blocks unsupported public claims on configured surfaces. | Use as claim-boundary evidence. |
 | `docs/product-quality/product-evidence-manifest.md` | Local evidence package can hash-bind reports and artifacts. | Use as proof-pack pattern without signed-attestation claims. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\CLAIMS.md` | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use as the tone and maxims for public proof-pack copy. |
-| `C:\Users\admin\Desktop\Digital Factory\MIMESIS-DEPLOYMENT-MAP.md` | Fresh local deployment map says value comes from knowing where the method works, not claiming it always wins. | Use as the non-superiority boundary. |
-| `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\experts\frontier-visual-designer\MODULE.md` | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a public-surface design test. |
+| `<private-workspace>\CLAIMS.md` | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use as the tone and maxims for public proof-pack copy. |
+| `<private-mimesis-workbench>\mimesis-plugin\experts\frontier-visual-designer\MODULE.md` | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a public-surface design test. |
 
 ## Primary Sources
 

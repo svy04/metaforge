@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T11:51:19.765Z",
+  "generatedAt": "2026-06-14T17:42:00.372Z",
   "mode": "local_no_provider_operator_authorized_real_session_capture_fixture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -10,8 +10,10 @@
     "protectedActionsAuthorized": false
   },
   "capturePerformed": true,
+  "commandExecutable": "node",
+  "commandTimeoutMs": 60000,
   "tracePath": "reports/orchestra-real-session-capture-local-cli.jsonl",
-  "traceSha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+  "traceSha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
   "commandCaptures": [
     {
       "name": "version",
@@ -21,6 +23,10 @@
         "--version"
       ],
       "exitCode": 0,
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
       "stdoutSha256": "85fdb502a0f8b204187d7421eae60106925dfbe5eebc57dd0b80ad392af08866",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdoutByteLength": 20,
@@ -39,6 +45,10 @@
         "--help"
       ],
       "exitCode": 0,
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
       "stdoutSha256": "8c8f9ef447c16f671af4660e5fb329c76966f972e741467cca0187eacfd0d7a0",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdoutByteLength": 8800,
@@ -61,6 +71,10 @@
         "--help"
       ],
       "exitCode": 0,
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
       "stdoutSha256": "b4c4cac439d6ddfafbf7500af443dc7d930534e5859f71cfc117c2cfe55bcc6e",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdoutByteLength": 288,
@@ -81,6 +95,10 @@
         "--help"
       ],
       "exitCode": 0,
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
       "stdoutSha256": "40ce1ee14b9df4b97ff2620ad0f127d61f3b1b2b3cdff60e484bf0abfc7fa297",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdoutByteLength": 521,
@@ -94,27 +112,6 @@
       "passed": true
     },
     {
-      "name": "auto_mode_defaults",
-      "command": [
-        "node",
-        "dist/cli.mjs",
-        "auto-mode",
-        "defaults"
-      ],
-      "exitCode": 0,
-      "stdoutSha256": "5676853b71347990f1b4208e888442796cd53bb5f1cb957a939aa6ea2415f3db",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 58,
-      "stderrByteLength": 0,
-      "requiredSubstrings": [
-        "\"allow\"",
-        "\"soft_deny\"",
-        "\"environment\""
-      ],
-      "missingSubstrings": [],
-      "passed": true
-    },
-    {
       "name": "agents_help",
       "command": [
         "node",
@@ -123,6 +120,10 @@
         "--help"
       ],
       "exitCode": 0,
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
       "stdoutSha256": "b3320b8673ff39c99ce84ae651dce80328a84cc7e60913a44d37bc9f5ae2b437",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdoutByteLength": 255,
@@ -130,27 +131,6 @@
       "requiredSubstrings": [
         "Usage: claude agents",
         "--setting-sources"
-      ],
-      "missingSubstrings": [],
-      "passed": true
-    },
-    {
-      "name": "agents_scoped_list",
-      "command": [
-        "node",
-        "dist/cli.mjs",
-        "agents",
-        "--setting-sources",
-        "user,project,local"
-      ],
-      "exitCode": 0,
-      "stdoutSha256": "7c047ceb5218722da87a74f94a772f26ec16459a992e4fe39dbd8e08edab4546",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 1457,
-      "stderrByteLength": 0,
-      "requiredSubstrings": [
-        "active agents",
-        "Built-in agents"
       ],
       "missingSubstrings": [],
       "passed": true
@@ -188,34 +168,39 @@
       "detail": "exit=0"
     },
     {
-      "label": "auto-mode defaults capture passed",
-      "ok": true,
-      "detail": "exit=0"
-    },
-    {
       "label": "agents help capture passed",
       "ok": true,
       "detail": "exit=0"
     },
     {
-      "label": "agents scoped list capture passed",
+      "label": "command captures are timeout bounded",
       "ok": true,
-      "detail": "exit=0"
+      "detail": "60000ms"
+    },
+    {
+      "label": "command captures did not time out",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "command captures have no spawn errors",
+      "ok": true,
+      "detail": "none"
     },
     {
       "label": "broader no-provider command session captured",
       "ok": true,
-      "detail": "version,help,doctor_help,auto_mode_help,auto_mode_defaults,agents_help,agents_scoped_list"
+      "detail": "version,help,doctor_help,auto_mode_help,agents_help"
     },
     {
-      "label": "no-provider introspection commands captured beyond help/version",
+      "label": "no-provider introspection commands captured beyond top-level help/version",
       "ok": true,
-      "detail": "version,help,doctor_help,auto_mode_help,auto_mode_defaults,agents_help,agents_scoped_list"
+      "detail": "version,help,doctor_help,auto_mode_help,agents_help"
     },
     {
       "label": "raw command output is summarized by hashes",
       "ok": true,
-      "detail": "7 commands"
+      "detail": "5 commands"
     },
     {
       "label": "no provider calls performed",

@@ -190,15 +190,7 @@ python meta\scripts\source_reconciler.py
 Run from:
 
 ```text
-C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링
-```
-
-Current observed result on 2026-05-10:
-
-- Exit code: 1.
-- Verdict: `DRIFT`.
-- Finding: mfh working tree dirty with 9 modified and 3 untracked files.
-- Status source: `.mfh/status.md` says `awaiting user adjudication`.
+<private-workspace>/status.md` says `awaiting user adjudication`.
 
 Pass condition:
 
@@ -215,7 +207,7 @@ Question: Does a completed milestone have ledger evidence, not just a completed 
 Harness source:
 
 ```text
-C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링\mfh\bench\closure_reality_check.py
+<private-workspace>\mfh\bench\closure_reality_check.py
 ```
 
 Method:

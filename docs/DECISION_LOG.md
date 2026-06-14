@@ -137,7 +137,7 @@ Status: accepted revision
 
 Decision:
 
-After reading `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링`, this package treats MFH as the canonical project component. The earlier `mth` term remains an unresolved alias/spelling unless the owner defines a separate `mth` project.
+After reading `<private-workspace>/spelling unless the owner defines a separate `mth` project.
 
 Evidence:
 
@@ -207,9 +207,7 @@ The OpenClaude plan may import MFH/Meta concepts, but it must not claim the harn
 
 Evidence:
 
-- `python meta\scripts\source_reconciler.py` from `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링` exited 1.
-- Output reported `DRIFT`, with mfh working tree dirty: 9 modified and 3 untracked files.
-- `.mfh/status.md` says `Current Milestone: awaiting user adjudication` and `Last Verification: not run`.
+- `python meta\scripts\source_reconciler.py` from `<private-workspace>/status.md` says `Current Milestone: awaiting user adjudication` and `Last Verification: not run`.
 
 Consequence:
 
@@ -230,10 +228,4 @@ Evidence:
 - `docs/RESEARCH_PIPELINE.md` already requires local-first, primary-source research.
 - `docs/avf/OSS_ASSIMILATION_PIPELINE.md` defines governed acquisition instead of copy-paste adoption.
 - `docs/research/mimesis-engineering-source-ledger-2026-06-14.md` records current product, OSS, paper, patent, and standards sources.
-- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-METHOD.md` and `MIMESIS-DEPLOYMENT-MAP.md` contain the freshest local Mimesis method and deployment boundary.
-
-Consequence:
-
-- README can market Mimesis Engineering as Metaforge's improvement engine.
-- Profile README refresh should be based on current public repos and Digital Factory evidence, not older public pages alone.
-- Mimesis claims remain proof-bounded: no production readiness, external validation, compliance, legal clearance, or universal-improvement claim.
+- `<private-workspace>

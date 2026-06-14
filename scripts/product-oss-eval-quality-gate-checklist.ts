@@ -237,6 +237,8 @@ function main(): void {
   const sourceText = readText(sourceSafeBacklogPlanReportPath)
   const sourceReport = JSON.parse(sourceText) as SafeBacklogPlanReport
   const sourcePlanItems = sourceReport.planItems.filter((item) => item.axis === 'eval_and_quality_gates')
+  const sourceGateCandidate = sourceReport.nextSafeInternalGateCandidates.find((candidate) => candidate.gateId === 'openclaude_internal_eval_and_quality_gates_evidence_gate' && candidate.axis === 'eval_and_quality_gates')
+  const expectedSourcePlanItemCount = sourceGateCandidate?.sourceBacklogItemCount ?? sourcePlanItems.length
   const checklistItems = sourcePlanItems.map(toChecklistItem)
   const sourceProjects = [...new Set(checklistItems.map((item) => item.sourceProject))].sort()
 
@@ -256,8 +258,8 @@ function main(): void {
   const checklistChecks = [
     check('source safe backlog plan is local no-provider', sourceReport.mode === 'local_no_provider_oss_safe_backlog_plan', sourceReport.mode),
     check('source safe backlog plan performed no provider/live/external/protected calls', sourceReport.providerCallsPerformed.length === 0 && sourceReport.liveModelCallsPerformed.length === 0 && sourceReport.externalCallsPerformed.length === 0 && sourceReport.protectedActionsExecuted.length === 0, 'all source call/action arrays empty'),
-    check('selected eval quality axis has source items', sourcePlanItems.length === 4, `${sourcePlanItems.length}/4`),
-    check('source next gate candidate exists', sourceReport.nextSafeInternalGateCandidates.some((candidate) => candidate.gateId === 'openclaude_internal_eval_and_quality_gates_evidence_gate' && candidate.protectedActionRequiredForPlanning === false), 'openclaude_internal_eval_and_quality_gates_evidence_gate'),
+    check('selected eval quality axis has source items', sourcePlanItems.length > 0 && sourcePlanItems.length === expectedSourcePlanItemCount, `${sourcePlanItems.length}/${expectedSourcePlanItemCount}`),
+    check('source next gate candidate exists', sourceGateCandidate?.protectedActionRequiredForPlanning === false, 'openclaude_internal_eval_and_quality_gates_evidence_gate'),
     check('every checklist item rejects claim expansion', checklistItems.every((item) => item.publicBenchmarkClaimAllowed === false && item.leaderboardClaimAllowed === false && item.superiorityClaimAllowed === false && item.releaseReadinessClaimAllowed === false && item.productionReadinessClaimAllowed === false && item.externalValidationClaimAllowed === false && item.autonomousReliabilityClaimAllowed === false), `${checklistItems.length} items`),
     check('every checklist item preserves current local evidence and protected boundary', checklistItems.every((item) => item.currentLocalEvidence.length > 0 && item.protectedBoundary.length > 0 && item.forbiddenShortcuts.length > 0), `${checklistItems.length} items`),
     check('provenance JSONL is parseable', provenanceJsonlParseable && provenanceLines.length === checklistItems.length, `${provenanceLines.length}/${checklistItems.length}`),

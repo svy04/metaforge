@@ -244,7 +244,7 @@ if (message.type === 'assistant') {
 1. **RED**: 명령 실행 전, jsonl에 skeptic 라인 0개 단언 (수동).
 2. **GREEN**: 라이브 프로브 실행:
    ```powershell
-   Set-Location "C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0"
+   Set-Location "<repo>"
    bun run build
    "OpenClaude Phase 2 검증. src/query.ts 안에서 lastOrchestraGuidanceTurn이 어떻게 쓰이는지 한국어로 한 문단 설명해줘." `
      | node dist/cli.mjs -p --output-format json --no-session-persistence --max-turns 3

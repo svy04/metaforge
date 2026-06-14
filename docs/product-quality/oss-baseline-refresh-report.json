@@ -1,26 +1,28 @@
 {
-  "generatedAt": "2026-05-21T12:26:49.775Z",
+  "generatedAt": "2026-06-14T17:18:47.734Z",
   "mode": "external_github_api_oss_baseline_refresh",
   "snapshotDate": "2026-05-21",
   "outputBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-  "outputBaselineSha256": "2d01c208f18b43b3abfd4bc6c9c02cd3fd8dec32f6d9378f7ad1b361a8e32fb0",
+  "outputBaselineSha256": "3b8c57c92de9838fd06efae8200568d3f3e94223ef46714aa34394d2fc0e5437",
   "previousBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-17.json",
   "previousBaselineSha256": "525e606c76fcf6083189416500c0479519205753e812a8aaeab74f6958067e81",
   "provenanceJsonlPath": "reports/openclaude-oss-baseline-refresh-provenance.jsonl",
-  "provenanceJsonlSha256": "1110fddba1342f3b5a7ea65043bb6dccf202f9ff414aa2c0b807c01962c0bb8f",
+  "provenanceJsonlSha256": "62d798de484f93d06d82e4933216f3de7d996faea85e9ab82d0294bcc02ee088",
   "provenanceJsonlRecordCount": 10,
   "searchQueryCount": 6,
-  "searchedRepositoryCount": 38,
+  "searchedRepositoryCount": 39,
   "explicitSeedRepositoryCount": 11,
   "uniqueCandidateCount": 49,
   "eligibleCandidateCount": 17,
   "top10ProjectCount": 10,
   "newlyDiscoveredTop10Projects": [
     "ultraworkers/claw-code",
-    "warpdotdev/warp",
-    "ruvnet/ruflo"
+    "nexu-io/open-design",
+    "openinterpreter/openinterpreter",
+    "warpdotdev/warp"
   ],
   "removedPreviousTop10Projects": [
+    "openinterpreter/open-interpreter",
     "aaif-goose/goose",
     "Aider-AI/aider",
     "continuedev/continue"
@@ -28,88 +30,88 @@
   "discoveredHigherStarCandidatesExcluded": [
     {
       "fullName": "sindresorhus/awesome",
-      "stars": 468648,
+      "stars": 475714,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "vinta/awesome-python",
-      "stars": 298826,
+      "stars": 302888,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "awesome-selfhosted/awesome-selfhosted",
-      "stars": 294249,
+      "stars": 299109,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 200978,
+      "stars": 227648,
       "reason": "workflow/skill package, not a coding-agent runtime product by itself"
     },
     {
-      "fullName": "ollama/ollama",
-      "stars": 171863,
-      "reason": "model runtime, not a coding-agent product by itself"
+      "fullName": "avelino/awesome-go",
+      "stars": 175435,
+      "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "multica-ai/andrej-karpathy-skills",
-      "stars": 142253,
+      "stars": 175224,
       "reason": "insufficient coding-agent relevance terms: codex-compatible"
     },
     {
+      "fullName": "ollama/ollama",
+      "stars": 174142,
+      "reason": "model runtime, not a coding-agent product by itself"
+    },
+    {
+      "fullName": "mattpocock/skills",
+      "stars": 128568,
+      "reason": "insufficient coding-agent relevance terms: none"
+    },
+    {
       "fullName": "Shubhamsaboo/awesome-llm-apps",
-      "stars": 111330,
+      "stars": 114528,
       "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
-      "fullName": "jaywcjlove/awesome-mac",
-      "stars": 104464,
-      "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
-      "fullName": "github/spec-kit",
-      "stars": 104337,
-      "reason": "spec-driven development toolkit, not a coding-agent CLI or IDE product"
     },
     {
       "fullName": "msitarzewski/agency-agents",
-      "stars": 103315,
+      "stars": 113106,
       "reason": "general agency role pack, not a coding-agent CLI or IDE product"
     },
     {
+      "fullName": "github/spec-kit",
+      "stars": 112105,
+      "reason": "spec-driven development toolkit, not a coding-agent CLI or IDE product"
+    },
+    {
       "fullName": "garrytan/gstack",
-      "stars": 100273,
+      "stars": 110069,
       "reason": "Claude Code setup/workflow package, not a coding-agent runtime product by itself"
     },
     {
+      "fullName": "jaywcjlove/awesome-mac",
+      "stars": 105742,
+      "reason": "awesome-list, not an executable coding-agent product"
+    },
+    {
+      "fullName": "VoltAgent/awesome-design-md",
+      "stars": 90153,
+      "reason": "awesome-list, not an executable coding-agent product"
+    },
+    {
       "fullName": "punkpeye/awesome-mcp-servers",
-      "stars": 87280,
+      "stars": 89131,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "laravel/laravel",
-      "stars": 84311,
+      "stars": 84475,
       "reason": "insufficient coding-agent relevance terms: none"
     },
     {
-      "fullName": "VoltAgent/awesome-design-md",
-      "stars": 82100,
-      "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
       "fullName": "ComposioHQ/awesome-claude-skills",
-      "stars": 61009,
+      "stars": 64555,
       "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
-      "fullName": "rust-unofficial/awesome-rust",
-      "stars": 57439,
-      "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
-      "fullName": "Textualize/rich",
-      "stars": 56410,
-      "reason": "insufficient coding-agent relevance terms: terminal"
     }
   ],
   "baselineFreshForPublicComparisonInput": true,
@@ -235,32 +237,32 @@
     {
       "label": "fresh GitHub baseline stars are sorted descending",
       "ok": true,
-      "detail": "ultraworkers/claw-code:192141,anomalyco/opencode:163411,anthropics/claude-code:125428,google-gemini/gemini-cli:104427,openai/codex:84320,OpenHands/OpenHands:74367,openinterpreter/open-interpreter:63602,cline/cline:62137,warpdotdev/warp:59387,ruvnet/ruflo:53756"
+      "detail": "ultraworkers/claw-code:193785,anomalyco/opencode:174304,anthropics/claude-code:132354,google-gemini/gemini-cli:105275,openai/codex:90992,OpenHands/OpenHands:77029,nexu-io/open-design:64701,openinterpreter/openinterpreter:63950,cline/cline:63271,warpdotdev/warp:61710"
     },
     {
       "label": "fresh GitHub baseline source URLs are GitHub repos",
       "ok": true,
-      "detail": "https://github.com/ultraworkers/claw-code,https://github.com/anomalyco/opencode,https://github.com/anthropics/claude-code,https://github.com/google-gemini/gemini-cli,https://github.com/openai/codex,https://github.com/OpenHands/OpenHands,https://github.com/openinterpreter/open-interpreter,https://github.com/cline/cline,https://github.com/warpdotdev/warp,https://github.com/ruvnet/ruflo"
+      "detail": "https://github.com/ultraworkers/claw-code,https://github.com/anomalyco/opencode,https://github.com/anthropics/claude-code,https://github.com/google-gemini/gemini-cli,https://github.com/openai/codex,https://github.com/OpenHands/OpenHands,https://github.com/nexu-io/open-design,https://github.com/openinterpreter/openinterpreter,https://github.com/cline/cline,https://github.com/warpdotdev/warp"
     },
     {
       "label": "fresh GitHub baseline contains explicit seed and search evidence",
       "ok": true,
-      "detail": "ultraworkers/claw-code:explicit-seed+search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,anomalyco/opencode:explicit-seed+search:\"ai coding agent\" in:name,description,readme stars:>1000 fork:false archived:false+search:\"coding agent\" in:name,description,readme stars:>1000 fork:false archived:false,anthropics/claude-code:explicit-seed+search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,google-gemini/gemini-cli:explicit-seed,openai/codex:explicit-seed,OpenHands/OpenHands:explicit-seed,openinterpreter/open-interpreter:explicit-seed,cline/cline:explicit-seed+search:\"autonomous coding agent\" in:name,description,readme stars:>1000 fork:false archived:false,warpdotdev/warp:search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,ruvnet/ruflo:search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false"
+      "detail": "ultraworkers/claw-code:explicit-seed+search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,anomalyco/opencode:explicit-seed+search:\"ai coding agent\" in:name,description,readme stars:>1000 fork:false archived:false+search:\"coding agent\" in:name,description,readme stars:>1000 fork:false archived:false,anthropics/claude-code:explicit-seed+search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,google-gemini/gemini-cli:explicit-seed,openai/codex:explicit-seed,OpenHands/OpenHands:explicit-seed,nexu-io/open-design:search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false,openinterpreter/openinterpreter:explicit-seed,cline/cline:explicit-seed+search:\"autonomous coding agent\" in:name,description,readme stars:>1000 fork:false archived:false,warpdotdev/warp:search:\"agentic coding\" in:name,description,readme stars:>1000 fork:false archived:false"
     },
     {
       "label": "fresh GitHub baseline records relevance terms",
       "ok": true,
-      "detail": "ultraworkers/claw-code:tool-execution+codex-compatible,anomalyco/opencode:coding-agent+tool-execution+codex-compatible,anthropics/claude-code:coding-agent+terminal+code-editing+tool-execution+codex-compatible,google-gemini/gemini-cli:terminal+tool-execution+codex-compatible,openai/codex:coding-agent+terminal+tool-execution+codex-compatible,OpenHands/OpenHands:terminal+code-editing+tool-execution+codex-compatible,openinterpreter/open-interpreter:explicit-related-project-seed,cline/cline:coding-agent+terminal+ide+tool-execution+codex-compatible,warpdotdev/warp:terminal+tool-execution,ruvnet/ruflo:tool-execution+codex-compatible"
+      "detail": "ultraworkers/claw-code:tool-execution+codex-compatible,anomalyco/opencode:coding-agent+tool-execution+codex-compatible,anthropics/claude-code:coding-agent+terminal+code-editing+tool-execution+codex-compatible,google-gemini/gemini-cli:terminal+tool-execution+codex-compatible,openai/codex:coding-agent+terminal+tool-execution+codex-compatible,OpenHands/OpenHands:terminal+code-editing+tool-execution+codex-compatible,nexu-io/open-design:terminal+tool-execution+codex-compatible,openinterpreter/openinterpreter:coding-agent+tool-execution,cline/cline:coding-agent+terminal+ide+tool-execution+codex-compatible,warpdotdev/warp:terminal+tool-execution"
     },
     {
       "label": "fresh GitHub refresh discovered current high-star related candidate",
       "ok": true,
-      "detail": "ultraworkers/claw-code,anomalyco/opencode,anthropics/claude-code,google-gemini/gemini-cli,openai/codex,OpenHands/OpenHands,openinterpreter/open-interpreter,cline/cline,warpdotdev/warp,ruvnet/ruflo"
+      "detail": "ultraworkers/claw-code,anomalyco/opencode,anthropics/claude-code,google-gemini/gemini-cli,openai/codex,OpenHands/OpenHands,nexu-io/open-design,openinterpreter/openinterpreter,cline/cline,warpdotdev/warp"
     },
     {
       "label": "fresh GitHub refresh excludes higher-star non-product candidates with reasons",
       "ok": true,
-      "detail": "sindresorhus/awesome:awesome-list, not an executable coding-agent product,vinta/awesome-python:awesome-list, not an executable coding-agent product,awesome-selfhosted/awesome-selfhosted:awesome-list, not an executable coding-agent product,obra/superpowers:workflow/skill package, not a coding-agent runtime product by itself,ollama/ollama:model runtime, not a coding-agent product by itself,multica-ai/andrej-karpathy-skills:insufficient coding-agent relevance terms: codex-compatible,Shubhamsaboo/awesome-llm-apps:awesome-list, not an executable coding-agent product,jaywcjlove/awesome-mac:awesome-list, not an executable coding-agent product,github/spec-kit:spec-driven development toolkit, not a coding-agent CLI or IDE product,msitarzewski/agency-agents:general agency role pack, not a coding-agent CLI or IDE product,garrytan/gstack:Claude Code setup/workflow package, not a coding-agent runtime product by itself,punkpeye/awesome-mcp-servers:awesome-list, not an executable coding-agent product,laravel/laravel:insufficient coding-agent relevance terms: none,VoltAgent/awesome-design-md:awesome-list, not an executable coding-agent product,ComposioHQ/awesome-claude-skills:awesome-list, not an executable coding-agent product,rust-unofficial/awesome-rust:awesome-list, not an executable coding-agent product,Textualize/rich:insufficient coding-agent relevance terms: terminal"
+      "detail": "sindresorhus/awesome:awesome-list, not an executable coding-agent product,vinta/awesome-python:awesome-list, not an executable coding-agent product,awesome-selfhosted/awesome-selfhosted:awesome-list, not an executable coding-agent product,obra/superpowers:workflow/skill package, not a coding-agent runtime product by itself,avelino/awesome-go:awesome-list, not an executable coding-agent product,multica-ai/andrej-karpathy-skills:insufficient coding-agent relevance terms: codex-compatible,ollama/ollama:model runtime, not a coding-agent product by itself,mattpocock/skills:insufficient coding-agent relevance terms: none,Shubhamsaboo/awesome-llm-apps:awesome-list, not an executable coding-agent product,msitarzewski/agency-agents:general agency role pack, not a coding-agent CLI or IDE product,github/spec-kit:spec-driven development toolkit, not a coding-agent CLI or IDE product,garrytan/gstack:Claude Code setup/workflow package, not a coding-agent runtime product by itself,jaywcjlove/awesome-mac:awesome-list, not an executable coding-agent product,VoltAgent/awesome-design-md:awesome-list, not an executable coding-agent product,punkpeye/awesome-mcp-servers:awesome-list, not an executable coding-agent product,laravel/laravel:insufficient coding-agent relevance terms: none,ComposioHQ/awesome-claude-skills:awesome-list, not an executable coding-agent product"
     },
     {
       "label": "fresh GitHub refresh wrote parseable provenance JSONL",
