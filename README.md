@@ -13,7 +13,7 @@ OpenClaude is the local CLI substrate Metaforge currently rides on. It provides 
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
 
-[Operating Layers](#operating-layers) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
+[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
 ## Why Metaforge
 
@@ -23,6 +23,18 @@ OpenClaude is the local CLI substrate Metaforge currently rides on. It provides 
 - Let Orchestra split work across planner, skeptic, implementer, shadow review, cross-review, evidence arbiter, and human gate roles.
 - Make MFH-style evidence gates the condition for closure: tests, reports, source reconciliation, claim boundaries, and rollback notes.
 - Use OpenClaude as the local terminal runtime instead of making OpenClaude the product center.
+
+## Mimesis Engineering
+
+Mimesis Engineering is Metaforge's improvement engine: take the best solved examples in the world, decompose their load-bearing structure, adapt the structure into the local operating system, and verify the result before making stronger claims.
+
+The loop is source-first and anti-persona. It does not ask agents to pretend to be experts. It gives them expert artifacts, standards, papers, patents, repositories, product surfaces, failure detectors, and acceptance gates.
+
+- **Meta** keeps the source ledger, decisions, and operating memory.
+- **Orchestra** dispatches scouts, implementers, critics, and reviewers in parallel.
+- **MFH** decides whether the adapted structure produced evidence or only a better-sounding story.
+
+Start here: [docs/MIMESIS_ENGINEERING.md](docs/MIMESIS_ENGINEERING.md). Current source ledger: [docs/research/mimesis-engineering-source-ledger-2026-06-14.md](docs/research/mimesis-engineering-source-ledger-2026-06-14.md).
 
 ## Operating Layers
 
