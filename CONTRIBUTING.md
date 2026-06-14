@@ -1,12 +1,12 @@
-# Contributing to OpenClaude
+# Contributing to Metaforge
 
 Thanks for contributing.
 
-OpenClaude is a fast-moving open-source coding-agent CLI with support for multiple providers, local backends, MCP, and a terminal-first workflow. The best contributions here are focused, well-tested, and easy to review.
+Metaforge is a Meta/MFH/Orchestra operating system for governed-code execution on top of the OpenClaude runtime. The best contributions here are focused, well-tested, proof-bounded, and easy to review.
 
 ## Before You Start
 
-- Search existing [issues](https://github.com/Gitlawb/openclaude/issues) and [discussions](https://github.com/Gitlawb/openclaude/discussions) before opening a new thread.
+- Search existing [issues](https://github.com/svy04/metaforge/issues) and [discussions](https://github.com/svy04/metaforge/discussions) before opening a new thread.
 - Use issues for confirmed bugs and actionable feature work.
 - Use discussions for setup help, ideas, and general community conversation.
 - Use [SUPPORT.md](SUPPORT.md) when you need setup help, troubleshooting direction, or help deciding whether something is a support request, bug, security report, or feature proposal.
@@ -117,7 +117,7 @@ If the PR changes provider behavior, mention which provider path was tested.
 
 ## Provider Changes
 
-OpenClaude supports multiple provider paths. If you change provider logic:
+The OpenClaude runtime supports multiple provider paths. If you change provider logic:
 
 - be explicit about which providers are affected
 - avoid breaking third-party providers while fixing first-party behavior

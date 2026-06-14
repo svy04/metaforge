@@ -52,6 +52,10 @@ const scannedMarkdownFiles = [
   'docs/quick-start-mac-linux.md',
   'docs/product-quality/product-quality-gate.md',
   'docs/product-quality/competitive-scorecard.md',
+  'docs/MIMESIS_ENGINEERING.md',
+  'docs/marketing/README.md',
+  'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
+  'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
 ]
 
 function readText(path: string): string {
