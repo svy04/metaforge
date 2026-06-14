@@ -1962,12 +1962,17 @@ type RealSessionCaptureReport = {
     protectedActionsAuthorized: boolean
   }
   capturePerformed: boolean
+  commandTimeoutMs?: number
   tracePath: string
   traceSha256: string
   commandCaptures: Array<{
     name: string
     command: string[]
     exitCode: number | null
+    signal?: string | null
+    timeoutMs?: number
+    timedOut?: boolean
+    errorMessage?: string | null
     stdoutSha256: string
     stderrSha256: string
     stdoutByteLength?: number
@@ -4384,6 +4389,7 @@ function main(): void {
   checks.push(check('real session capture was performed', realSessionCapture.capturePerformed === true))
   checks.push(check('real session capture writes expected trace', realSessionCapture.tracePath === 'reports/orchestra-real-session-capture-local-cli.jsonl', realSessionCapture.tracePath))
   checks.push(check('real session capture trace hash is recorded', typeof realSessionCapture.traceSha256 === 'string' && realSessionCapture.traceSha256.length === 64, realSessionCapture.traceSha256))
+  checks.push(check('real session capture commands are timeout bounded', typeof realSessionCapture.commandTimeoutMs === 'number' && realSessionCapture.commandTimeoutMs > 0, String(realSessionCapture.commandTimeoutMs)))
   checks.push(check(
     'real session capture includes broader no-provider command session',
     ['version', 'help', 'doctor_help', 'auto_mode_help', 'auto_mode_defaults', 'agents_help', 'agents_scoped_list'].every((name) => new Set(realSessionCapture.commandCaptures.map((capture) => capture.name)).has(name)),
@@ -4395,6 +4401,7 @@ function main(): void {
     realSessionCapture.commandCaptures.map((capture) => capture.name).join(','),
   ))
   checks.push(check('real session capture commands pass', realSessionCapture.commandCaptures.every((capture) => capture.exitCode === 0 && capture.passed)))
+  checks.push(check('real session capture commands do not time out', realSessionCapture.commandCaptures.every((capture) => capture.timedOut === false), realSessionCapture.commandCaptures.filter((capture) => capture.timedOut !== false).map((capture) => `${capture.name}:${capture.timedOut}`).join(',') || 'none'))
   checks.push(check('real session capture uses local CLI command only', realSessionCapture.commandCaptures.every((capture) => capture.command[0] === 'node' && capture.command[1] === 'dist/cli.mjs')))
   checks.push(check('real session capture checks pass', realSessionCapture.captureChecks.every((item) => item.ok)))
   checks.push(check('prompted tool-loop capture is local no-provider fixture', promptedToolLoopCapture.mode === 'local_no_provider_prompted_tool_loop_capture'))

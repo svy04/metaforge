@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-14T15:20:57.296Z",
+  "generatedAt": "2026-06-14T16:10:35.857Z",
   "mode": "local_no_provider_benchmark_replay_harness",
   "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
   "sourceBenchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
   "sourceBenchmarkTaskCount": 16,
-  "sourceBenchmarkManifestSha256": "49a8d87e707b737cf08b02bdf50ffcb28e4c090d6cda66c10f2f32575f4af96d",
+  "sourceBenchmarkManifestSha256": "f0bf43e7d91252814be2428671d4d0f13a43d0f2bde5751a2720fecd8e4817c4",
   "sourceExternalBenchmarkBoundaryPath": "docs/product-quality/external-benchmark-boundary-report.json",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,15 +13,15 @@
   "externalBenchmarkExecutionPerformed": false,
   "externalBenchmarkResultClaimed": false,
   "localBenchmarkResultPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "localBenchmarkResultSha256": "451a86be9d51ad4e5fa2481ca0901de75b6b5e0439cfa12e70d30e29aad7510f",
+  "localBenchmarkResultSha256": "bb19edfcc415946db6f3e2080dfa255815190f68d53730999151699ce9a3e4b6",
   "localBenchmarkTaskResults": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
       "benchmarkFamily": "local_no_provider_product_quality",
       "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "a55fae0a7027a6730d8a1b75bdd2bc891a3b1339d93d4dc13e58ab2e59acb890",
-      "actualSourceEvidenceSha256": "a55fae0a7027a6730d8a1b75bdd2bc891a3b1339d93d4dc13e58ab2e59acb890",
+      "expectedSourceEvidenceSha256": "19d54dbe623e4ce5fd2ba1a847a208d3a990e1174a3f31bd5118367a5913291e",
+      "actualSourceEvidenceSha256": "19d54dbe623e4ce5fd2ba1a847a208d3a990e1174a3f31bd5118367a5913291e",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 5,
       "terminalOutcomeClass": "succeeded",
@@ -200,8 +200,8 @@
       "benchmarkFamily": "local_no_provider_trace_eval",
       "sourceEvidencePath": "reports/orchestra-real-session-capture-local-cli.jsonl",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
-      "actualSourceEvidenceSha256": "11e31fad0f47e8627ba8c094062274f299cf25e6c783219636fc3d80dbc8f34b",
+      "expectedSourceEvidenceSha256": "0def2955b49fb33d7856d34f8fc37d1a593f29bfe55c39c5744236f50a98d758",
+      "actualSourceEvidenceSha256": "0def2955b49fb33d7856d34f8fc37d1a593f29bfe55c39c5744236f50a98d758",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 4,
       "terminalOutcomeClass": "succeeded",
@@ -290,8 +290,8 @@
       "benchmarkFamily": "local_no_provider_replay_eval",
       "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "8af733cfd98663de84cec2fc91ea809a8264d4d43402d920cc5c5973fc806732",
-      "actualSourceEvidenceSha256": "8af733cfd98663de84cec2fc91ea809a8264d4d43402d920cc5c5973fc806732",
+      "expectedSourceEvidenceSha256": "5cd9bf3fd73ffba178181427061fb86a6fd4ce51fc3e797b83819cbd3d7d8f78",
+      "actualSourceEvidenceSha256": "5cd9bf3fd73ffba178181427061fb86a6fd4ce51fc3e797b83819cbd3d7d8f78",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 4,
       "terminalOutcomeClass": "classified_environment_blocked",
@@ -373,7 +373,7 @@
     {
       "label": "result JSONL hash is recorded",
       "ok": true,
-      "detail": "451a86be9d51ad4e5fa2481ca0901de75b6b5e0439cfa12e70d30e29aad7510f"
+      "detail": "bb19edfcc415946db6f3e2080dfa255815190f68d53730999151699ce9a3e4b6"
     }
   ],
   "claimBoundary": "Local benchmark harness evidence is internal no-provider replay evidence only. It does not execute external benchmarks, providers, live models, external services, containers, hosted CI, deploy, publish, launch, or make release/public/production/external/autonomous reliability claims."

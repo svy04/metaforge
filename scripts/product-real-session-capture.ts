@@ -18,6 +18,10 @@ type CommandCapture = {
   name: string
   command: string[]
   exitCode: number | null
+  signal: string | null
+  timeoutMs: number
+  timedOut: boolean
+  errorMessage: string | null
   stdoutSha256: string
   stderrSha256: string
   stdoutByteLength: number
@@ -39,6 +43,7 @@ type RealSessionCaptureReport = {
     protectedActionsAuthorized: false
   }
   capturePerformed: true
+  commandTimeoutMs: number
   tracePath: string
   traceSha256: string
   commandCaptures: CommandCapture[]
@@ -56,6 +61,7 @@ type TraceEvent = {
   captureKind: string
   commandName?: string
   exitCode?: number | null
+  timedOut?: boolean
   stdoutSha256?: string
   stderrSha256?: string
   stdoutByteLength?: number
@@ -69,6 +75,7 @@ const reportsDir = resolve(root, 'reports')
 const cliPath = resolve(root, 'dist/cli.mjs')
 const tracePath = 'reports/orchestra-real-session-capture-local-cli.jsonl'
 const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')) as PackageJson
+const commandTimeoutMs = 60_000
 const commandSpecs = [
   {
     name: 'version',
@@ -102,7 +109,7 @@ const commandSpecs = [
   },
   {
     name: 'agents_scoped_list',
-    args: ['agents', '--setting-sources', 'user,project,local'],
+    args: ['agents', '--setting-sources', 'local'],
     requiredSubstrings: ['active agents', 'Built-in agents'],
   },
 ] as const
@@ -123,8 +130,12 @@ function runCapture(name: string, args: string[], requiredSubstrings: string[]):
   const result = spawnSync(process.execPath, [cliPath, ...args], {
     cwd: root,
     encoding: 'utf8',
+    input: '',
+    timeout: commandTimeoutMs,
+    windowsHide: true,
     env: {
       ...process.env,
+      OPENCLAUDE_DISABLE_AUTO_PROVIDER_CALLS: '1',
       OPENCLAUDE_PRODUCT_REAL_SESSION_CAPTURE_NO_PROVIDER: '1',
     },
   })
@@ -132,18 +143,24 @@ function runCapture(name: string, args: string[], requiredSubstrings: string[]):
   const stderr = normalize(result.stderr)
   const combined = `${stdout}\n${stderr}`
   const missingSubstrings = requiredSubstrings.filter((substring) => !combined.includes(substring))
+  const errorMessage = result.error?.message ?? null
+  const timedOut = errorMessage?.includes('ETIMEDOUT') === true
 
   return {
     name,
     command: ['node', 'dist/cli.mjs', ...args],
     exitCode: result.status,
+    signal: result.signal ?? null,
+    timeoutMs: commandTimeoutMs,
+    timedOut,
+    errorMessage,
     stdoutSha256: sha256(stdout),
     stderrSha256: sha256(stderr),
     stdoutByteLength: Buffer.byteLength(stdout, 'utf8'),
     stderrByteLength: Buffer.byteLength(stderr, 'utf8'),
     requiredSubstrings,
     missingSubstrings,
-    passed: result.status === 0 && missingSubstrings.length === 0,
+    passed: result.status === 0 && missingSubstrings.length === 0 && !result.error,
   }
 }
 
@@ -167,6 +184,7 @@ function event(
       ? {
           commandName: command.name,
           exitCode: command.exitCode,
+          timedOut: command.timedOut,
           stdoutSha256: command.stdoutSha256,
           stderrSha256: command.stderrSha256,
           stdoutByteLength: command.stdoutByteLength,
@@ -244,6 +262,7 @@ function writeReports(report: RealSessionCaptureReport): void {
     `- protected_actions_authorized: \`${report.operatorAuthorization.protectedActionsAuthorized}\``,
     `- trace_path: \`${report.tracePath}\``,
     `- trace_sha256: \`${report.traceSha256}\``,
+    `- command_timeout_ms: \`${report.commandTimeoutMs}\``,
     `- command_capture_count: \`${report.commandCaptures.length}\``,
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
     `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
@@ -251,10 +270,10 @@ function writeReports(report: RealSessionCaptureReport): void {
     '',
     '## Command Captures',
     '',
-    '| Command | Exit | Passed | Stdout SHA-256 | Stderr SHA-256 | Stdout Bytes | Stderr Bytes |',
-    '| --- | ---: | --- | --- | --- | ---: | ---: |',
+    '| Command | Exit | Signal | Timed Out | Passed | Stdout SHA-256 | Stderr SHA-256 | Stdout Bytes | Stderr Bytes |',
+    '| --- | ---: | --- | --- | --- | --- | --- | ---: | ---: |',
     ...report.commandCaptures.map((capture) => (
-      `| \`${capture.command.join(' ')}\` | \`${capture.exitCode}\` | \`${capture.passed}\` | \`${capture.stdoutSha256}\` | \`${capture.stderrSha256}\` | ${capture.stdoutByteLength} | ${capture.stderrByteLength} |`
+      `| \`${capture.command.join(' ')}\` | \`${capture.exitCode}\` | \`${capture.signal}\` | \`${capture.timedOut}\` | \`${capture.passed}\` | \`${capture.stdoutSha256}\` | \`${capture.stderrSha256}\` | ${capture.stdoutByteLength} | ${capture.stderrByteLength} |`
     )),
     '',
     '## Checks',
@@ -299,6 +318,9 @@ function main(): void {
     check('auto-mode defaults capture passed', autoModeDefaultsCapture?.passed === true, `exit=${autoModeDefaultsCapture?.exitCode}`),
     check('agents help capture passed', agentsHelpCapture?.passed === true, `exit=${agentsHelpCapture?.exitCode}`),
     check('agents scoped list capture passed', agentsScopedListCapture?.passed === true, `exit=${agentsScopedListCapture?.exitCode}`),
+    check('command captures are timeout bounded', commandCaptures.every((capture) => capture.timeoutMs === commandTimeoutMs), `${commandTimeoutMs}ms`),
+    check('command captures did not time out', commandCaptures.every((capture) => !capture.timedOut), commandCaptures.filter((capture) => capture.timedOut).map((capture) => capture.name).join(',') || 'none'),
+    check('command captures have no spawn errors', commandCaptures.every((capture) => capture.errorMessage === null), commandCaptures.filter((capture) => capture.errorMessage !== null).map((capture) => `${capture.name}:${capture.errorMessage}`).join(',') || 'none'),
     check('broader no-provider command session captured', commandSpecs.every((command) => commandCaptures.some((capture) => capture.name === command.name && capture.passed)), commandCaptures.map((capture) => capture.name).join(',')),
     check('no-provider introspection commands captured beyond help/version', ['auto_mode_defaults', 'agents_scoped_list'].every((name) => commandCaptures.some((capture) => capture.name === name && capture.passed)), commandCaptures.map((capture) => capture.name).join(',')),
     check('raw command output is summarized by hashes', commandCaptures.every((capture) => capture.stdoutSha256.length === 64 && capture.stderrSha256.length === 64), `${commandCaptures.length} commands`),
@@ -319,6 +341,7 @@ function main(): void {
       protectedActionsAuthorized: false,
     },
     capturePerformed: true,
+    commandTimeoutMs,
     tracePath,
     traceSha256,
     commandCaptures,
