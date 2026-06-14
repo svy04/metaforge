@@ -49,13 +49,35 @@ This does not yet prove hosted deployment, public adoption, production readiness
 | Community surface has local quality evidence. | [community profile quality report](../product-quality/community-profile-quality-report.md), command: `bun run product:community-profile-quality` | Core community files and README links are present locally. | It is not a hosted GitHub community-profile certification. |
 | Local docs links are checked. | [doc link integrity report](../product-quality/doc-link-integrity-report.md), command: `bun run product:doc-link-integrity` | Configured repository-local Markdown links resolve. | It does not verify all external URLs. |
 
+## Remote GitHub Surface Card
+
+Marketing does not start only at `README.md`. The public surface includes the default branch, profile README, open PRs, visible branches, workflow badges, and proof routes.
+
+| Surface | Current operating rule | Evidence to check before reuse | Boundary |
+| --- | --- | --- | --- |
+| Default repo branch | Treat `main` as the canonical public story. | `git status -sb`, `git grep` for local/private patterns, `bun run product:public-artifact-hygiene`, `bun run product:public-claim-boundary` | A clean local checkout is not proof that every remote branch is clean. |
+| GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, production readiness, or external validation. |
+| Open PRs | Treat open PRs as public staging surfaces. | `gh pr list`, `gh pr checks <number>`, and branch-scoped public-artifact scans when the PR changes public copy or generated reports | A PR body or green local run is not a merge/readiness claim. |
+| Visible branches | Keep stale public branches out of the proof path. | `git ls-remote --heads origin` plus branch-targeted scans for local paths, private workbench names, and token-shaped strings | Branch presence is not proof that the branch should be marketed. |
+| Proof routes | Link only artifacts that carry explicit claim boundaries. | Source ledger, proof pack, model/system card, public claim boundary report | Public proof routes remain bounded unless external validation actually happens. |
+
+Reusable public line:
+
+```text
+Metaforge markets only what the current GitHub surface can prove: default-branch docs, profile routes, open PR state, local no-provider gates, and explicit non-claims.
+```
+
+Do not reuse copy from a branch, PR, generated report, or private workbench unless it passes the same public-surface scan as `main`.
+
 ## Source Absorption
 
 | Source class | Source | Absorbed structure | Boundary |
 | --- | --- | --- | --- |
 | Official product docs | [GitHub profile README docs](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) | A profile README is a public repo README rendered on the profile when naming, visibility, and root `README.md` conditions hold. | A profile README is a profile surface, not adoption proof. |
+| Official product docs | [GitHub README docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) | A repository README should help people understand what the project does, why it is useful, how to start, where to get help, and who maintains it. | README clarity is not proof of product readiness. |
 | Official product docs | [GitHub repository topics docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) | Topics improve discoverability by classifying repos by purpose, subject, affinity, or language. | Topics do not prove quality or usage. |
 | Open-source project | [OpenSSF Scorecard](https://github.com/ossf/scorecard) | Security/quality posture should be expressed as explicit checks with scores, risks, and remediation. | A local report is not an OpenSSF Scorecard result unless Scorecard is actually run. |
+| Standard | [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | Risk language should be tied to govern/map/measure/manage-style controls and evidence, not broad safety claims. | NIST alignment language is not a compliance claim. |
 | Paper | [Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993) | Public AI surfaces should disclose intended use, evaluation procedure, and limits. | Metaforge is not publishing a trained model card from this document. |
 | Paper | [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) | Proof packets should expose motivation, composition, operating characteristics, test results, and recommended uses. | This does not certify datasets or benchmarks. |
 | Standard / OSS spec | [in-toto Attestation Framework](https://github.com/in-toto/attestation) | Evidence should be structured as verifiable claims about software production. | This pack is unsigned and local unless real attestations are generated. |
