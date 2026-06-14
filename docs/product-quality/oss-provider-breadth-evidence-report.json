@@ -1,20 +1,19 @@
 {
-  "generatedAt": "2026-05-21T14:11:20.232Z",
+  "generatedAt": "2026-06-14T17:37:58.405Z",
   "mode": "local_no_provider_oss_provider_breadth_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+  "sourceSafeBacklogPlanReportSha256": "3c1de4887c1c155171760f20d47d117a339dc4f556e7fa89bd3ee1fdc1e79c22",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "provider_breadth",
-  "sourcePlanItemCount": 6,
-  "evidenceItemCount": 6,
+  "sourcePlanItemCount": 4,
+  "evidenceItemCount": 4,
   "sourceProjects": [
-    "ruvnet/ruflo",
     "ultraworkers/claw-code",
     "warpdotdev/warp"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-provider-breadth-evidence.jsonl",
-  "provenanceJsonlSha256": "15114727a0ca33bd5bb17311892f4df087adb651660af2891a0669d4108ba8e2",
-  "provenanceJsonlRecordCount": 6,
+  "provenanceJsonlSha256": "a4f102eb74d9e99ee32a7b8ae6e06b0c22fc5653820b14e4ee56c52494804fd3",
+  "provenanceJsonlRecordCount": 4,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -33,12 +32,6 @@
   "externalValidationClaimAllowed": false,
   "autonomousReliabilityClaimAllowed": false,
   "primarySourceInputs": [
-    {
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "observedPattern": "Provider breadth evidence should preserve per-provider capability/failure-mode rows and provider fallback boundaries before any live-provider validation or compatibility claim.",
-      "localAbsorption": "Convert provider_breadth backlog items into a source-hash-addressed local capability and live-authorization boundary evidence matrix."
-    },
     {
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
@@ -65,25 +58,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
+          "sha256": "9388bff3f96f1d32fd95d8efb93512db9aabc6061261858534b1acf9e13ecb8d",
+          "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
+          "sha256": "c64c9058499cf721e8da373c6d24c89b475f275aeb0df0c30d3d968106b5245b",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
+          "sha256": "30757cb0aef91e36193403cb7e8516188501b91e61d9f8d1b84dd27c9d58b056",
           "sizeBytes": 8262
         }
       ],
@@ -91,20 +84,14 @@
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.md",
           "exists": true,
-          "sha256": "5dfad2410ddaf59a79363ee9abdaa3c5ef2f5e2483c7f3d1e6b5408462f35053",
+          "sha256": "09ff5415af7195ffc1fd44ab662cefc711452f655a23f6bff73d3d3d7e8ad6a5",
           "sizeBytes": 5527
-        },
-        {
-          "path": "reports/openclaude-provider-capability-matrix.jsonl",
-          "exists": true,
-          "sha256": "b525ae40ef4acbecfddcb174441fbccd9ebd29da43e791fd57361a977a02a840",
-          "sizeBytes": 30338
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.md",
@@ -156,25 +143,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
+          "sha256": "9388bff3f96f1d32fd95d8efb93512db9aabc6061261858534b1acf9e13ecb8d",
+          "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
+          "sha256": "c64c9058499cf721e8da373c6d24c89b475f275aeb0df0c30d3d968106b5245b",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
+          "sha256": "30757cb0aef91e36193403cb7e8516188501b91e61d9f8d1b84dd27c9d58b056",
           "sizeBytes": 8262
         }
       ],
@@ -188,20 +175,14 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
-          "sizeBytes": 23157
+          "sha256": "5b4b39102eecc9bba64223f505080031d5a0c868701d9f9207499197c925c57b",
+          "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.md",
           "exists": true,
-          "sha256": "05726addede6cb94684b6fa9cd8841931995458b7358acebaf9e15017832aab0",
-          "sizeBytes": 4462
-        },
-        {
-          "path": "reports/openclaude-oss-runtime-doctoring-evidence.jsonl",
-          "exists": true,
-          "sha256": "84c7ba212e167b937c779e8323864f5e2285f766776d7daee121f35344cd92c7",
-          "sizeBytes": 15968
+          "sha256": "6ef5dd52e3ea203109393bdc6c4aafbbd66bd79ffbfc91497322de4bad206a3a",
+          "sizeBytes": 3637
         }
       ],
       "requiredEvidenceBeforeProviderClaim": [
@@ -247,25 +228,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
+          "sha256": "9388bff3f96f1d32fd95d8efb93512db9aabc6061261858534b1acf9e13ecb8d",
+          "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
+          "sha256": "c64c9058499cf721e8da373c6d24c89b475f275aeb0df0c30d3d968106b5245b",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
+          "sha256": "30757cb0aef91e36193403cb7e8516188501b91e61d9f8d1b84dd27c9d58b056",
           "sizeBytes": 8262
         }
       ],
@@ -273,20 +254,14 @@
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.md",
           "exists": true,
-          "sha256": "5dfad2410ddaf59a79363ee9abdaa3c5ef2f5e2483c7f3d1e6b5408462f35053",
+          "sha256": "09ff5415af7195ffc1fd44ab662cefc711452f655a23f6bff73d3d3d7e8ad6a5",
           "sizeBytes": 5527
-        },
-        {
-          "path": "reports/openclaude-provider-capability-matrix.jsonl",
-          "exists": true,
-          "sha256": "b525ae40ef4acbecfddcb174441fbccd9ebd29da43e791fd57361a977a02a840",
-          "sizeBytes": 30338
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.md",
@@ -338,25 +313,25 @@
         {
           "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
           "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
+          "sha256": "9388bff3f96f1d32fd95d8efb93512db9aabc6061261858534b1acf9e13ecb8d",
+          "sizeBytes": 21714
         },
         {
           "path": "docs/product-quality/provider-capability-matrix-report.json",
           "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+          "sha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
           "sizeBytes": 42224
         },
         {
           "path": "docs/product-quality/provider-compatibility-fixtures.json",
           "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
+          "sha256": "c64c9058499cf721e8da373c6d24c89b475f275aeb0df0c30d3d968106b5245b",
           "sizeBytes": 6909
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
+          "sha256": "30757cb0aef91e36193403cb7e8516188501b91e61d9f8d1b84dd27c9d58b056",
           "sizeBytes": 8262
         }
       ],
@@ -370,202 +345,14 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
-          "sizeBytes": 23157
+          "sha256": "5b4b39102eecc9bba64223f505080031d5a0c868701d9f9207499197c925c57b",
+          "sizeBytes": 16426
         },
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.md",
           "exists": true,
-          "sha256": "05726addede6cb94684b6fa9cd8841931995458b7358acebaf9e15017832aab0",
-          "sizeBytes": 4462
-        },
-        {
-          "path": "reports/openclaude-oss-runtime-doctoring-evidence.jsonl",
-          "exists": true,
-          "sha256": "84c7ba212e167b937c779e8323864f5e2285f766776d7daee121f35344cd92c7",
-          "sizeBytes": 15968
-        }
-      ],
-      "requiredEvidenceBeforeProviderClaim": [
-        "per-provider local capability and failure-mode rows",
-        "runtime doctor and provider compatibility fixture evidence",
-        "explicit owner authorization before provider calls, live model calls, external services, or live provider validation",
-        "separate measured live-provider evidence before provider compatibility, model behavior, external validation, release, production, or autonomous reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "provider_breadth_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "providerCallsAllowed": false,
-      "liveModelCallsAllowed": false,
-      "externalCallsAllowed": false,
-      "liveProviderValidationAllowed": false,
-      "providerCompatibilityClaimAllowed": false,
-      "modelBehaviorClaimAllowed": false,
-      "providerBackedExecutionAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "publicReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_provider_breadth_ruvnet_ruflo_d9e402dba7",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_1_5eeb3cb376",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "provider_breadth",
-      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
-      "providerBreadthCoverageClass": "provider_capability_failure_mode_matrix",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-          "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
-        },
-        {
-          "path": "docs/product-quality/provider-capability-matrix-report.json",
-          "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
-          "sizeBytes": 42224
-        },
-        {
-          "path": "docs/product-quality/provider-compatibility-fixtures.json",
-          "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
-          "sizeBytes": 6909
-        },
-        {
-          "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-          "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
-          "sizeBytes": 8262
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/provider-capability-matrix-report.json",
-          "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
-          "sizeBytes": 42224
-        },
-        {
-          "path": "docs/product-quality/provider-capability-matrix-report.md",
-          "exists": true,
-          "sha256": "5dfad2410ddaf59a79363ee9abdaa3c5ef2f5e2483c7f3d1e6b5408462f35053",
-          "sizeBytes": 5527
-        },
-        {
-          "path": "reports/openclaude-provider-capability-matrix.jsonl",
-          "exists": true,
-          "sha256": "b525ae40ef4acbecfddcb174441fbccd9ebd29da43e791fd57361a977a02a840",
-          "sizeBytes": 30338
-        },
-        {
-          "path": "docs/product-quality/provider-compatibility-fixtures.md",
-          "exists": true,
-          "sha256": "9b04235f227e32093aac49e388833ebd2d0922a12a2c1eea9c0a24f50c33fcc2",
-          "sizeBytes": 3977
-        }
-      ],
-      "requiredEvidenceBeforeProviderClaim": [
-        "per-provider local capability and failure-mode rows",
-        "runtime doctor and provider compatibility fixture evidence",
-        "explicit owner authorization before provider calls, live model calls, external services, or live provider validation",
-        "separate measured live-provider evidence before provider compatibility, model behavior, external validation, release, production, or autonomous reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "provider_breadth_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "providerCallsAllowed": false,
-      "liveModelCallsAllowed": false,
-      "externalCallsAllowed": false,
-      "liveProviderValidationAllowed": false,
-      "providerCompatibilityClaimAllowed": false,
-      "modelBehaviorClaimAllowed": false,
-      "providerBackedExecutionAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "publicReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_provider_breadth_ruvnet_ruflo_3c18d03f3b",
-      "sourcePlanItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_2_2cdb318139",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "provider_breadth",
-      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
-      "providerBreadthCoverageClass": "provider_fallback_live_authorization_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-          "exists": true,
-          "sha256": "088f163f0a4bfdfe0b95c4c5c6c8be7ca38f4dfc218a49689da6e0fb176bb97b",
-          "sizeBytes": 29481
-        },
-        {
-          "path": "docs/product-quality/provider-capability-matrix-report.json",
-          "exists": true,
-          "sha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
-          "sizeBytes": 42224
-        },
-        {
-          "path": "docs/product-quality/provider-compatibility-fixtures.json",
-          "exists": true,
-          "sha256": "51db7d14029f21974d51092244ae637e7366f311d13d72165a5d0768c32f12e4",
-          "sizeBytes": 6909
-        },
-        {
-          "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-          "exists": true,
-          "sha256": "c814e2e24057d996cdd19e1cdd69a54dfe0a6eac588bae780fea7f285773b8f3",
-          "sizeBytes": 8262
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/runtime-doctor-regression-fixtures.md",
-          "exists": true,
-          "sha256": "0bda94031057b4e558e8f2c3bbb070ce3a24662b7ed60fea3a2f3e380150102b",
-          "sizeBytes": 3214
-        },
-        {
-          "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-          "exists": true,
-          "sha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
-          "sizeBytes": 23157
-        },
-        {
-          "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.md",
-          "exists": true,
-          "sha256": "05726addede6cb94684b6fa9cd8841931995458b7358acebaf9e15017832aab0",
-          "sizeBytes": 4462
-        },
-        {
-          "path": "reports/openclaude-oss-runtime-doctoring-evidence.jsonl",
-          "exists": true,
-          "sha256": "84c7ba212e167b937c779e8323864f5e2285f766776d7daee121f35344cd92c7",
-          "sizeBytes": 15968
+          "sha256": "6ef5dd52e3ea203109393bdc6c4aafbbd66bd79ffbfc91497322de4bad206a3a",
+          "sizeBytes": 3637
         }
       ],
       "requiredEvidenceBeforeProviderClaim": [
@@ -614,7 +401,7 @@
     {
       "label": "selected provider breadth axis has source items",
       "ok": true,
-      "detail": "6/6"
+      "detail": "4/4"
     },
     {
       "label": "source next gate candidate exists",
@@ -624,7 +411,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "48 bindings"
+      "detail": "28 bindings"
     },
     {
       "label": "coverage includes capability matrix and fallback authorization boundaries",
@@ -634,12 +421,12 @@
     {
       "label": "every evidence item rejects provider and claim expansion",
       "ok": true,
-      "detail": "6 items"
+      "detail": "4 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "6/6"
+      "detail": "4/4"
     }
   ],
   "claimBoundary": "Internal no-provider provider breadth evidence only; not provider calls, live model calls, live provider validation, provider compatibility evidence, model behavior evidence, release readiness, production readiness, public readiness, external validation, or autonomous reliability evidence."

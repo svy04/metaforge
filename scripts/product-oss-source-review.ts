@@ -434,6 +434,9 @@ async function main(): Promise<void> {
 
   const sourceSupportedCandidateCount = reviewRecords.filter((record) => record.sourceReviewStatus === 'source_supported_candidate').length
   const metadataOnlyNeedsReviewCount = reviewRecords.filter((record) => record.sourceReviewStatus === 'metadata_only_needs_deeper_review').length
+  const baselineNewTop10Candidates = baseline.top10
+    .map((project) => project.full_name)
+    .filter((name) => newTop10Candidates.has(name))
   const newTop10SourceReviewed = reviewRecords
     .filter((record) => newTop10Candidates.has(record.fullName))
     .map((record) => record.fullName)
@@ -442,7 +445,7 @@ async function main(): Promise<void> {
     check('source review covers every baseline project', reviewRecords.length === baseline.top10.length, `${reviewRecords.length}/${baseline.top10.length}`),
     check('source review fetched README and root contents for most candidates', reviewRecords.filter((record) => record.readmeFetched && record.rootContentsFetched).length >= 8, `${reviewRecords.filter((record) => record.readmeFetched && record.rootContentsFetched).length}/10`),
     check('source review records source-supported or metadata-only classification for every candidate', reviewRecords.every((record) => record.sourceReviewStatus === 'source_supported_candidate' || record.sourceReviewStatus === 'metadata_only_needs_deeper_review'), 'all classified'),
-    check('source review preserves newly discovered top-10 candidates', ['ultraworkers/claw-code', 'warpdotdev/warp', 'ruvnet/ruflo'].every((name) => newTop10SourceReviewed.includes(name)), newTop10SourceReviewed.join(',')),
+    check('source review preserves newly discovered top-10 candidates', baselineNewTop10Candidates.every((name) => newTop10SourceReviewed.includes(name)), newTop10SourceReviewed.join(',')),
     check('source review keeps metadata-only candidates bounded when evidence is insufficient', metadataOnlyNeedsReviewCount >= 0 && sourceSupportedCandidateCount + metadataOnlyNeedsReviewCount === reviewRecords.length, `${metadataOnlyNeedsReviewCount}`),
     check('source review finds source-supported benchmark candidates', sourceSupportedCandidateCount >= 5, `${sourceSupportedCandidateCount}`),
     check('source review writes parseable provenance JSONL', provenanceJsonlParseable && provenanceJsonlSha256.length === 64 && reviewRecords.length === baseline.top10.length, provenanceJsonlPath),

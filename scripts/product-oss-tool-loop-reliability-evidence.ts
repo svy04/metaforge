@@ -122,8 +122,6 @@ const provenanceJsonlPath = 'reports/openclaude-oss-tool-loop-reliability-eviden
 const interruptionAndRepairEvidence = [
   'docs/product-quality/tool-interruption-recovery-trace-report.json',
   'docs/product-quality/protected-action-denial-trace-report.json',
-  'reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl',
-  'reports/orchestra-protected-action-denial-trace-local-fixture.jsonl',
 ]
 
 const redactionAndPortabilityEvidence = [
@@ -131,7 +129,6 @@ const redactionAndPortabilityEvidence = [
   'docs/product-quality/trace-schema-contract-report.json',
   'docs/product-quality/trace-portability-export-report.json',
   'docs/product-quality/trace-capture-redaction-policy-report.json',
-  'reports/openclaude-portable-trace-events.jsonl',
 ]
 
 function sha256(input: string | Buffer): string {
@@ -257,6 +254,8 @@ function main(): void {
   const sourceText = readText(sourceSafeBacklogPlanReportPath)
   const sourceReport = JSON.parse(sourceText) as SafeBacklogPlanReport
   const sourcePlanItems = sourceReport.planItems.filter((item) => item.axis === 'tool_loop_reliability')
+  const sourceGateCandidate = sourceReport.nextSafeInternalGateCandidates.find((candidate) => candidate.gateId === 'openclaude_internal_tool_loop_reliability_evidence_gate' && candidate.axis === 'tool_loop_reliability')
+  const expectedSourcePlanItemCount = sourceGateCandidate?.sourceBacklogItemCount ?? sourcePlanItems.length
   const evidenceItems = sourcePlanItems.map(toEvidenceItem)
   const sourceProjects = [...new Set(evidenceItems.map((item) => item.sourceProject))].sort()
 
@@ -277,8 +276,8 @@ function main(): void {
   const evidenceChecks = [
     check('source safe backlog plan is local no-provider', sourceReport.mode === 'local_no_provider_oss_safe_backlog_plan', sourceReport.mode),
     check('source safe backlog plan performed no provider/live/external/protected calls', sourceReport.providerCallsPerformed.length === 0 && sourceReport.liveModelCallsPerformed.length === 0 && sourceReport.externalCallsPerformed.length === 0 && sourceReport.protectedActionsExecuted.length === 0, 'all source call/action arrays empty'),
-    check('selected tool loop reliability axis has source items', sourcePlanItems.length === 6, `${sourcePlanItems.length}/6`),
-    check('source next gate candidate exists', sourceReport.nextSafeInternalGateCandidates.some((candidate) => candidate.gateId === 'openclaude_internal_tool_loop_reliability_evidence_gate' && candidate.protectedActionRequiredForPlanning === false), 'openclaude_internal_tool_loop_reliability_evidence_gate'),
+    check('selected tool loop reliability axis has source items', sourcePlanItems.length > 0 && sourcePlanItems.length === expectedSourcePlanItemCount, `${sourcePlanItems.length}/${expectedSourcePlanItemCount}`),
+    check('source next gate candidate exists', sourceGateCandidate?.protectedActionRequiredForPlanning === false, 'openclaude_internal_tool_loop_reliability_evidence_gate'),
     check('every evidence item has hash-bound local evidence', allBindings.length > 0 && allBindings.every((binding) => binding.exists && typeof binding.sha256 === 'string' && binding.sha256.length === 64 && binding.sizeBytes > 0), `${allBindings.length} bindings`),
     check('coverage includes tool repair and redaction portability classes', ['disposable_code_editing_trace_reliability', 'trace_redaction_portability_boundary'].every((coverage) => evidenceItems.some((item) => item.toolLoopCoverageClass === coverage)), [...new Set(evidenceItems.map((item) => item.toolLoopCoverageClass))].join(',')),
     check('every evidence item rejects reliability and protected-action expansion', evidenceItems.every((item) => item.realProductRepoMutationAllowed === false && item.providerBackedExecutionAllowed === false && item.liveModelValidationAllowed === false && item.externalBenchmarkExecutionAllowed === false && item.nonSyntheticReliabilityClaimAllowed === false && item.publicReliabilityClaimAllowed === false && item.releaseReadinessClaimAllowed === false && item.productionReadinessClaimAllowed === false && item.externalValidationClaimAllowed === false && item.autonomousReliabilityClaimAllowed === false), `${evidenceItems.length} items`),

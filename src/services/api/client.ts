@@ -5,6 +5,7 @@ import {
   getAnthropicApiKey,
   getApiKeyFromApiKeyHelper,
   getClaudeAIOAuthTokens,
+  hasAnthropicApiKeyAuth,
   isClaudeAISubscriber,
   refreshAndGetAwsCredentials,
   refreshGcpCredentialsIfNeeded,
@@ -143,14 +144,6 @@ export async function getAnthropicClient({
   )
   if (additionalProtectionEnabled) {
     defaultHeaders['x-anthropic-additional-protection'] = 'true'
-  }
-
-  logForDebugging('[API:auth] OAuth token check starting')
-  await checkAndRefreshOAuthTokenIfNeeded()
-  logForDebugging('[API:auth] OAuth token check complete')
-
-  if (!isClaudeAISubscriber()) {
-    await configureApiKeyHeaders(defaultHeaders, getIsNonInteractiveSession())
   }
 
   const resolvedFetch = buildFetch(fetchOverride, source)
@@ -380,6 +373,17 @@ export async function getAnthropicClient({
     }
     // we have always been lying about the return type - this doesn't support batching or models
     return new AnthropicVertex(vertexArgs) as unknown as Anthropic
+  }
+
+  const hasDirectAnthropicApiKey = Boolean(apiKey) || hasAnthropicApiKeyAuth()
+  if (!hasDirectAnthropicApiKey) {
+    logForDebugging('[API:auth] OAuth token check starting')
+    await checkAndRefreshOAuthTokenIfNeeded()
+    logForDebugging('[API:auth] OAuth token check complete')
+  }
+
+  if (!hasDirectAnthropicApiKey && !isClaudeAISubscriber()) {
+    await configureApiKeyHeaders(defaultHeaders, getIsNonInteractiveSession())
   }
 
   // Determine authentication method based on available tokens.

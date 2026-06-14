@@ -1,34 +1,35 @@
 {
-  "generatedAt": "2026-05-21T08:40:57.412Z",
+  "generatedAt": "2026-06-14T17:40:21.622Z",
   "mode": "local_no_provider_real_vscode_extension_host_smoke",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
   "hostRuntime": "real_vscode_extension_development_host",
-  "vscodeCliVersion": "not_available",
+  "vscodeCliVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
   "manifestPath": "packages/openclaude-vscode/package.json",
   "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
-  "extensionDevelopmentPath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\packages\\openclaude-vscode",
-  "extensionTestsPath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\host-smoke-runner.cjs",
-  "workspacePath": "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\workspace",
+  "extensionDevelopmentPath": "<repo>\\packages\\openclaude-vscode",
+  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\host-smoke-runner.cjs",
+  "workspacePath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\workspace",
   "codeCommand": [
     "code",
-    "--extensionDevelopmentPath=C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\packages\\openclaude-vscode",
-    "--extensionTestsPath=C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\host-smoke-runner.cjs",
+    "--extensionDevelopmentPath=<repo>\\packages\\openclaude-vscode",
+    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\host-smoke-runner.cjs",
     "--user-data-dir",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\user-data",
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\user-data",
     "--extensions-dir",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\extensions",
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\extensions",
     "--disable-extensions",
     "--disable-gpu",
     "--skip-welcome",
     "--skip-release-notes",
     "--disable-workspace-trust",
     "--new-window",
-    "C:\\Users\\admin\\Desktop\\내 순수 재미\\openclaude-0.6.0\\.tmp-product-ide-extension-host-smoke\\run-1779352827307-29216\\workspace"
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781458788736-59920\\workspace"
   ],
+  "codeExitCode": 0,
   "codeTimedOut": false,
-  "codeError": "Executable not found in $PATH: \"code\"",
+  "codeError": null,
   "codeSignal": null,
   "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -36,7 +37,7 @@
   "stderrByteLength": 0,
   "vscodeStartupBlocked": true,
   "environmentBlockers": [
-    "vscode_cli_unavailable"
+    "vscode_update_in_progress"
   ],
   "realExtensionHostLaunched": false,
   "extensionActivated": false,
@@ -62,13 +63,13 @@
     },
     {
       "label": "VS Code CLI version is available",
-      "ok": false,
-      "detail": "not_available"
+      "ok": true,
+      "detail": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64"
     },
     {
       "label": "VS Code CLI command exited 0",
-      "ok": false,
-      "detail": "undefined"
+      "ok": true,
+      "detail": "0"
     },
     {
       "label": "VS Code CLI command did not time out",
@@ -78,7 +79,7 @@
     {
       "label": "VS Code startup was not blocked by local environment state",
       "ok": false,
-      "detail": "vscode_cli_unavailable"
+      "detail": "vscode_update_in_progress"
     },
     {
       "label": "real Extension Development Host test runner produced result",

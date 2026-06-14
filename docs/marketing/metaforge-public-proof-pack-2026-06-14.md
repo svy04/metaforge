@@ -42,7 +42,7 @@ This does not yet prove hosted deployment, public adoption, production readiness
 | --- | --- | --- | --- |
 | Metaforge is centered on Meta/MFH/Orchestra, not OpenClaude alone. | [README.md](../../README.md), [docs/PROJECT_SPEC.md](../PROJECT_SPEC.md), [docs/MFH_META_SYNTHESIS.md](../MFH_META_SYNTHESIS.md), [docs/AGENT_REGISTRY.md](../AGENT_REGISTRY.md) | Current repository positioning and operating architecture. | Runtime completeness or external adoption. |
 | Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/public-proof-pack-source-ledger-2026-06-14.md) | Current method, source-first operating rules, and absorbed source patterns. | That Mimesis always improves output or is externally validated. |
-| Public profile was refreshed from current repo evidence. | [GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-14.md), [svy04 profile](https://github.com/svy04) | The profile surface was rebuilt around current public repos and private/local boundaries. | That all local Digital Factory work is public or stable. |
+| Public profile was refreshed from current repo evidence. | [GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-14.md), [svy04 profile](https://github.com/svy04) | The profile surface was rebuilt around current public repos and private/local boundaries. | That all private workbench material is public or stable. |
 | Public claims are scanned locally. | [public claim boundary report](../product-quality/public-claim-boundary-report.md), command: `bun run product:public-claim-boundary` | Configured public surfaces contain no detected unauthorized positive readiness/superiority claims. | It does not fetch external pages or certify marketing truth. |
 | Privacy boundaries are checked locally. | command: `bun run verify:privacy` | Built CLI bundle is scanned for configured phone-home patterns. | It does not prove third-party provider behavior or hosted privacy. |
 | Evidence can be packaged as a local manifest. | [product evidence manifest](../product-quality/product-evidence-manifest.md), command: `bun run product:evidence-manifest` | Local reports/artifacts/workflows can be hash-bound into a manifest. | It is not a signed in-toto/SLSA attestation. |
@@ -95,7 +95,7 @@ Start with the README, then read the proof pack and claim-boundary reports befor
 - Do not claim hosted deployment or public adoption.
 - Do not claim autonomous reliability.
 - Do not claim it beats other agent systems.
-- Do not market private Digital Factory repositories as public proof.
+- Do not market private workbench repositories as public proof.
 
 ## Verification Routine
 

@@ -10,6 +10,15 @@ import { join } from 'node:path'
 
 const tempDirs: string[] = []
 const originalSimple = process.env.CLAUDE_CODE_SIMPLE
+const originalProviderEnv = {
+  CLAUDE_CODE_USE_OPENAI: process.env.CLAUDE_CODE_USE_OPENAI,
+  CLAUDE_CODE_USE_GEMINI: process.env.CLAUDE_CODE_USE_GEMINI,
+  CLAUDE_CODE_USE_GITHUB: process.env.CLAUDE_CODE_USE_GITHUB,
+  CLAUDE_CODE_USE_BEDROCK: process.env.CLAUDE_CODE_USE_BEDROCK,
+  CLAUDE_CODE_USE_VERTEX: process.env.CLAUDE_CODE_USE_VERTEX,
+  CLAUDE_CODE_USE_FOUNDRY: process.env.CLAUDE_CODE_USE_FOUNDRY,
+  OPENAI_MODEL: process.env.OPENAI_MODEL,
+}
 const sessionId = '00000000-0000-4000-8000-000000001999'
 const ts = '2026-04-02T00:00:00.000Z'
 
@@ -44,9 +53,30 @@ async function writeJsonl(entry: unknown): Promise<string> {
   return filePath
 }
 
+function restoreProviderEnv(): void {
+  for (const [key, value] of Object.entries(originalProviderEnv)) {
+    if (value === undefined) {
+      delete process.env[key]
+    } else {
+      process.env[key] = value
+    }
+  }
+}
+
+function clearProviderFlags(): void {
+  delete process.env.CLAUDE_CODE_USE_OPENAI
+  delete process.env.CLAUDE_CODE_USE_GEMINI
+  delete process.env.CLAUDE_CODE_USE_GITHUB
+  delete process.env.CLAUDE_CODE_USE_BEDROCK
+  delete process.env.CLAUDE_CODE_USE_VERTEX
+  delete process.env.CLAUDE_CODE_USE_FOUNDRY
+  delete process.env.OPENAI_MODEL
+}
+
 afterEach(async () => {
   mock.restore()
   process.env.CLAUDE_CODE_SIMPLE = originalSimple
+  restoreProviderEnv()
   await Promise.all(tempDirs.splice(0).map(dir => rm(dir, { recursive: true, force: true })))
 })
 
@@ -105,14 +135,9 @@ test('deserializeMessagesWithInterruptDetection strips thinking blocks only for 
     user(id(13), 'follow up'),
   ]
 
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'openai',
-    isOpenAICompatibleProvider: (provider: string) =>
-      provider === 'openai' ||
-      provider === 'gemini' ||
-      provider === 'github' ||
-      provider === 'codex',
-  }))
+  clearProviderFlags()
+  process.env.CLAUDE_CODE_USE_OPENAI = '1'
+  process.env.OPENAI_MODEL = 'gpt-4o'
 
   const openaiModule = await import(`./conversationRecovery.ts?provider=openai-${Date.now()}`)
   const thirdParty = openaiModule.deserializeMessagesWithInterruptDetection(serializedMessages as never[])
@@ -131,18 +156,10 @@ test('deserializeMessagesWithInterruptDetection strips thinking blocks only for 
     JSON.stringify(thirdPartyAssistantMessages.map((message: { message?: { content?: unknown } }) => message.message?.content)),
   ).not.toContain('only hidden reasoning')
 
-  mock.restore()
-  mock.module('./model/providers.js', () => ({
-    getAPIProvider: () => 'bedrock',
-    isOpenAICompatibleProvider: (provider: string) =>
-      provider === 'openai' ||
-      provider === 'gemini' ||
-      provider === 'github' ||
-      provider === 'codex',
-  }))
+  clearProviderFlags()
+  process.env.CLAUDE_CODE_USE_BEDROCK = '1'
 
-  const bedrockModule = await import(`./conversationRecovery.ts?provider=bedrock-${Date.now()}`)
-  const anthropicCompatible = bedrockModule.deserializeMessagesWithInterruptDetection(serializedMessages as never[])
+  const anthropicCompatible = openaiModule.deserializeMessagesWithInterruptDetection(serializedMessages as never[])
   const anthropicAssistantMessages = anthropicCompatible.messages.filter(
     (message: { type?: string }) => message.type === 'assistant',
   )

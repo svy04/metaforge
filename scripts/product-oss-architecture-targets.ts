@@ -263,6 +263,9 @@ function main(): void {
   const sourceReview = JSON.parse(sourceReviewText) as SourceReviewReport
   const sourceReviewReportSha256 = sha256(sourceReviewText)
   const newTop10 = new Set(sourceReview.newTop10SourceReviewed)
+  const sourceSupportedNewTop10 = sourceReview.reviewRecords
+    .filter((record) => newTop10.has(record.fullName) && record.sourceReviewStatus === 'source_supported_candidate' && record.absorptionCandidate)
+    .map((record) => record.fullName)
   const targetRecords = sourceReview.reviewRecords.map((record) => targetFor(record, newTop10))
   const prioritizedTargets = targetRecords.filter((record) => record.targetStatus === 'prioritized_source_supported_target')
   const deferredTargets = targetRecords.filter((record) => record.targetStatus === 'deferred_metadata_only_target')
@@ -292,7 +295,7 @@ function main(): void {
     check('target records cover every reviewed project', targetRecords.length === sourceReview.reviewedProjectCount && targetRecords.length === sourceReview.reviewRecords.length, `${targetRecords.length}/${sourceReview.reviewedProjectCount}`),
     check('prioritized targets match source-supported candidates', prioritizedTargets.length === sourceReview.sourceSupportedCandidateCount, `${prioritizedTargets.length}/${sourceReview.sourceSupportedCandidateCount}`),
     check('deferred targets match metadata-only candidates', deferredTargets.length === sourceReview.metadataOnlyNeedsReviewCount, `${deferredTargets.length}/${sourceReview.metadataOnlyNeedsReviewCount}`),
-    check('newly discovered source-supported projects are high priority', ['ultraworkers/claw-code', 'warpdotdev/warp', 'ruvnet/ruflo'].every((name) => newlyDiscoveredPrioritizedTargets.includes(name)), newlyDiscoveredPrioritizedTargets.join(',') || 'none'),
+    check('newly discovered source-supported projects are high priority', sourceSupportedNewTop10.every((name) => newlyDiscoveredPrioritizedTargets.includes(name)), newlyDiscoveredPrioritizedTargets.join(',') || 'none'),
     check('absorption axes cover core product-quality dimensions', ['provider_breadth', 'terminal_workflow', 'tool_loop_reliability', 'privacy_and_no_phone_home', 'eval_and_quality_gates', 'ide_or_editor_surface', 'release_hygiene'].every((axis) => coveredAbsorptionAxes.includes(axis)), coveredAbsorptionAxes.join(',')),
     check('every target keeps protected claims blocked', targetRecords.every((record) => record.publicComparisonClaimAllowed === false && record.superiorityClaimAllowed === false && record.releaseReadinessClaimAllowed === false && record.productionReadinessClaimAllowed === false && record.externalValidationClaimAllowed === false && record.autonomousReliabilityClaimAllowed === false && record.protectedActionRequiredBeforeClaim === true), 'all target claim flags false'),
     check('provenance JSONL is parseable and hash-addressed', provenanceJsonlParseable && provenanceJsonlSha256.length === 64 && targetRecords.every((record) => record.recordDigest.length === 64), provenanceJsonlPath),

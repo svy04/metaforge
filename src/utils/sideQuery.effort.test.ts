@@ -1,6 +1,17 @@
 import { afterEach, expect, mock, test } from 'bun:test'
 
+import * as actualStateModule from '../bootstrap/state.js'
+import * as actualSystemModule from '../constants/system.js'
+import * as actualAnalyticsModule from '../services/analytics/index.js'
+import * as actualClaudeModule from '../services/api/claude.js'
+import * as actualBetasModule from './betas.js'
+import * as actualFingerprintModule from './fingerprint.js'
+import * as actualModelModule from './model/model.js'
+
+const originalMacro = (globalThis as Record<string, unknown>).MACRO
+
 afterEach(() => {
+  ;(globalThis as Record<string, unknown>).MACRO = originalMacro
   mock.restore()
 })
 
@@ -10,8 +21,7 @@ test('sideQuery forwards string effort through output_config with the effort bet
   }
   const createCalls: any[] = []
 
-  mock.module('../services/api/client.js', () => ({
-    getAnthropicClient: async () => ({
+  const getClient = async () => ({
       beta: {
         messages: {
           create: async (params: any) => {
@@ -28,29 +38,35 @@ test('sideQuery forwards string effort through output_config with the effort bet
           },
         },
       },
-    }),
-  }))
+    } as any)
   mock.module('../services/analytics/index.js', () => ({
+    ...actualAnalyticsModule,
     logEvent: () => {},
   }))
   mock.module('../services/api/claude.js', () => ({
+    ...actualClaudeModule,
     getAPIMetadata: () => ({ user_id: '{}' }),
   }))
   mock.module('./betas.js', () => ({
+    ...actualBetasModule,
     getModelBetas: () => ['oauth-2025-04-20'],
     modelSupportsStructuredOutputs: () => false,
   }))
   mock.module('./fingerprint.js', () => ({
+    ...actualFingerprintModule,
     computeFingerprint: () => 'fingerprint',
   }))
   mock.module('../constants/system.js', () => ({
+    ...actualSystemModule,
     getAttributionHeader: () => 'x-anthropic-billing-header: test',
     getCLISyspromptPrefix: () => 'You are OpenClaude.',
   }))
   mock.module('./model/model.js', () => ({
+    ...actualModelModule,
     normalizeModelStringForAPI: (model: string) => model,
   }))
   mock.module('../bootstrap/state.js', () => ({
+    ...actualStateModule,
     getLastApiCompletionTimestamp: () => null,
     setLastApiCompletionTimestamp: () => {},
   }))
@@ -64,6 +80,7 @@ test('sideQuery forwards string effort through output_config with the effort bet
     querySource: 'orchestra_planner' as any,
     maxRetries: 0,
     effort: 'max' as any,
+    getClient,
   })
 
   expect(createCalls).toHaveLength(1)

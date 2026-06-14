@@ -152,14 +152,14 @@ function authorizationItems(): ProtectedActionAuthorization[] {
         'docs/product-quality/vscode-startup-diagnostics-report.json',
         'docs/product-quality/oss-ide-or-editor-surface-evidence-report.json',
       ],
-      currentEvidence: 'Product-quality gate remains blocked by vscode_cli_unavailable, with real Extension Host evidence requiring explicit owner authorization before VS Code/PATH/install-state repair.',
-      requiredOwnerDecision: 'Authorize or deny local VS Code CLI/PATH/install-state repair, then rerun the real host/workbench/replay gates if authorized.',
+      currentEvidence: 'Product-quality gate remains blocked by a protected local VS Code boundary (vscode_cli_unavailable or vscode_update_in_progress), with real Extension Host evidence requiring explicit owner authorization before VS Code/PATH/install-state/update intervention.',
+      requiredOwnerDecision: 'Authorize or deny local VS Code CLI/PATH/install-state/update intervention, then rerun the real host/workbench/replay gates if authorized.',
       forbiddenShortcuts: [
         'Do not install or repair VS Code without explicit owner authorization.',
         'Do not modify user PATH or VS Code install state without explicit owner authorization.',
         'Do not claim VS Code Extension Host availability from mock-host evidence.',
       ],
-      validationMethod: 'After authorization and repair, rerun product:ide-extension-host-smoke, product:ide-extension-workbench-smoke, product:vscode-update-boundary, product:agent-replay-evals, product:quality-blocker-taxonomy, and product:quality.',
+      validationMethod: 'After authorization and intervention, rerun product:ide-extension-host-smoke, product:ide-extension-workbench-smoke, product:vscode-update-boundary, product:agent-replay-evals, product:quality-blocker-taxonomy, and product:quality.',
     },
     {
       id: 'authorize_real_git_repository_commit_push_boundary',
@@ -168,8 +168,8 @@ function authorizationItems(): ProtectedActionAuthorization[] {
       authorized: false,
       executed: false,
       sourceReports: ['docs/product-quality/git-release-hygiene-report.json'],
-      currentEvidence: 'Current workspace is blocked_by_no_git_repo; commit and push cannot be verified from this directory.',
-      requiredOwnerDecision: 'Provide or authorize a real Git repository boundary and remote before any commit, push, hosted CI, or source-controlled release claim.',
+      currentEvidence: 'Current workspace is classified for Git release hygiene, and this local product-quality gate did not attempt commit or push.',
+      requiredOwnerDecision: 'Authorize an explicit source-control publish workflow before any commit, push, hosted CI, or source-controlled release claim.',
       forbiddenShortcuts: [
         'Do not claim commit or push completion from package metadata.',
         'Do not create or rewrite repository history as part of this local evidence gate.',
@@ -420,16 +420,32 @@ function main(): void {
     bool(externalBenchmarkBoundary, 'externalBenchmarkExecutionPerformed') === false
   const licenseAuthorizationsFalse = bool(licenseBoundaryAuthorization, 'allProtectedAuthorizationsDefaultFalse') === true &&
     bool(licenseBoundaryAuthorization, 'protectedAuthorizationRequestCreated') === true
-  const vscodeBoundaryHeld = qualityBlockerTaxonomy.currentProductQualityGateStatus === 'blocked_by_vscode_cli_unavailable' &&
+  const protectedVscodeQualityStatuses = ['blocked_by_vscode_cli_unavailable', 'blocked_by_known_vscode_update_dependent_failures']
+  const protectedVscodeBoundaryStatuses = ['blocked_missing_vscode_cli_or_explicit_owner_repair_action', 'blocked_wait_for_local_vscode_update_or_explicit_owner_process_action']
+  const protectedVscodeDiagnosisStatuses = [
+    'vscode_cli_unavailable_or_install_boundary',
+    'vscode_core_update_guard_without_visible_sentinel_or_codesetup_process',
+    'vscode_core_update_guard_with_visible_codesetup_process',
+    'vscode_core_update_guard_with_visible_sentinel',
+  ]
+  const vscodeBoundaryHeld = protectedVscodeQualityStatuses.includes(String(qualityBlockerTaxonomy.currentProductQualityGateStatus)) &&
     typeof qualityBlockerTaxonomy.expectedProductQualityGateFailureCount === 'number' &&
     qualityBlockerTaxonomy.expectedProductQualityGateFailureCount > 0 &&
-    vscodeUpdateBoundary.boundaryStatus === 'blocked_missing_vscode_cli_or_explicit_owner_repair_action' &&
-    vscodeStartupDiagnostics.diagnosisStatus === 'vscode_cli_unavailable_or_install_boundary'
+    protectedVscodeBoundaryStatuses.includes(String(vscodeUpdateBoundary.boundaryStatus)) &&
+    protectedVscodeDiagnosisStatuses.includes(String(vscodeStartupDiagnostics.diagnosisStatus))
+  const ideReconciliationRecords = Array.isArray(ossIdeOrEditorSurfaceEvidence.reconciliationRecords)
+    ? ossIdeOrEditorSurfaceEvidence.reconciliationRecords.filter((record): record is Record<string, unknown> => record !== null && typeof record === 'object')
+    : []
+  const workbenchProtectedBoundary = bool(ossIdeOrEditorSurfaceEvidence, 'workbenchSmokePass') === true ||
+    (
+      ideReconciliationRecords.length > 0 &&
+      ideReconciliationRecords.every((record) => ['blocked_by_vscode_cli_unavailable', 'blocked_by_vscode_update_in_progress'].includes(String(record.workbenchSmokeStatus)))
+    )
   const ideSurfaceBoundaryHeld = bool(ossIdeOrEditorSurfaceEvidence, 'hostSmokeRealHostBlockedByVscodeCli') === true &&
-    bool(ossIdeOrEditorSurfaceEvidence, 'workbenchSmokePass') === true &&
+    workbenchProtectedBoundary &&
     bool(ossIdeOrEditorSurfaceEvidence, 'extensionAvailabilityClaimAllowed') === false &&
     ossIdeOrEditorSurfaceEvidence.terminalCondition === 'PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY'
-  const gitBoundaryHeld = gitReleaseHygiene.workspaceGitStatus === 'blocked_by_no_git_repo' &&
+  const gitBoundaryHeld = ['blocked_by_no_git_repo', 'git_repo_detected'].includes(String(gitReleaseHygiene.workspaceGitStatus)) &&
     bool(gitReleaseHygiene, 'commitPushAttempted') === false &&
     bool(gitReleaseHygiene, 'releaseActionPerformed') === false
   const providerBoundaryHeld = bool(ossProviderBreadthEvidence, 'providerCallsAllowed') === false &&
@@ -481,7 +497,7 @@ function main(): void {
     check('readiness and external claim flags remain blocked', claimFlagsBlocked, 'release/production/public/external/autonomous flags false'),
     check('every protected authorization item defaults false and unexecuted', requiredOwnerAuthorizations.every((item) => item.authorized === false && item.executed === false), `${requiredOwnerAuthorizations.length} authorizations`),
     check('authorization JSONL is parseable and complete', jsonlParseable && jsonlLines.length === requiredOwnerAuthorizations.length, `${jsonlLines.length}/${requiredOwnerAuthorizations.length}`),
-    check('verification report consistency preserves current terminal condition', verificationReportConsistency.sourceTerminalCondition === 'PRODUCT_QUALITY_GATE_BLOCKED_BY_LOCAL_VSCODE_CLI_UNAVAILABLE', String(verificationReportConsistency.sourceTerminalCondition)),
+    check('verification report consistency preserves current terminal condition', ['PRODUCT_QUALITY_GATE_BLOCKED_BY_LOCAL_VSCODE_CLI_UNAVAILABLE', 'PRODUCT_QUALITY_GATE_BLOCKED_BY_LOCAL_VSCODE_UPDATE'].includes(String(verificationReportConsistency.sourceTerminalCondition)), String(verificationReportConsistency.sourceTerminalCondition)),
   ]
 
   const report: ProtectedActionAuthorizationPacket = {

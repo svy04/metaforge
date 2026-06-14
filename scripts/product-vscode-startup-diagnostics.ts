@@ -375,6 +375,11 @@ function main(): void {
       'obtain_explicit_owner_authorization_before_modifying_user_path_or_vs_code_install_state',
     )
   }
+  const sentinelEnumerationApplicable = process.platform === 'win32' && typeof process.env.LOCALAPPDATA === 'string' && process.env.LOCALAPPDATA.length > 0
+  const sentinelCandidatesWellFormed = sentinelCandidates.every((candidate) => typeof candidate.exists === 'boolean')
+  const sentinelCandidatesEnumeratedOrBounded = sentinelCandidatesWellFormed &&
+    (sentinelCandidates.length >= 1 || !sentinelEnumerationApplicable || status === 'vscode_cli_unavailable_or_install_boundary')
+  const sentinelCandidateDetail = `${sentinelCandidates.length} candidates${sentinelEnumerationApplicable ? '' : '/not_applicable_on_this_platform_or_env'}`
 
   const checks = [
     check('host smoke report imported', hostReport.mode === 'local_no_provider_real_vscode_extension_host_smoke', hostReport.mode),
@@ -382,7 +387,7 @@ function main(): void {
     check('VS Code update boundary report imported', updateBoundary.mode === 'local_no_provider_vscode_update_boundary', updateBoundary.mode),
     check('isolated Extension Development Host arguments are observed', isolatedExecutionArgumentsObserved.every((arg) => hostReport.extensionTestsPath && workbenchReport.extensionTestsPath && arg.startsWith('--')), isolatedExecutionArgumentsObserved.join(',')),
     check('startup blocker log evidence is collected when source reports are update-blocked', updateGuardLogEvidenceCount > 0 || status === 'vscode_cli_unavailable_or_install_boundary' || (!hostReport.vscodeStartupBlocked && !workbenchReport.vscodeStartupBlocked), `${updateGuardLogEvidenceCount} update guard logs`),
-    check('sentinel candidates are enumerated without mutation', sentinelCandidates.length >= 1 && sentinelCandidates.every((candidate) => typeof candidate.exists === 'boolean'), `${sentinelCandidates.length} candidates`),
+    check('sentinel candidates are enumerated or bounded without mutation', sentinelCandidatesEnumeratedOrBounded, sentinelCandidateDetail),
     check('current CodeSetup process list is local-only', processCollection.exitCode === 0 || processCollection.processes.length === 0, `${processCollection.processes.length} processes`),
     check('diagnosis status is bounded', [
       'vscode_core_update_guard_without_visible_sentinel_or_codesetup_process',

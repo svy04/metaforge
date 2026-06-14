@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T11:51:00.367Z",
+  "generatedAt": "2026-06-14T17:42:17.470Z",
   "mode": "local_no_provider_prompted_tool_loop_capture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,47 +13,56 @@
   "promptSha256": "55aa34b1c176d3d5b297e96a75b7b2c6fe0001adc179080a15eb885f0d542d4d",
   "promptByteLength": 173,
   "nonSyntheticUserSessionClaimed": false,
+  "commandExecutable": "node",
+  "commandTimeoutMs": 60000,
   "tracePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-  "traceSha256": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9",
+  "traceSha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
   "toolCommandCaptures": [
     {
-      "name": "inspect_auto_mode_defaults",
+      "name": "inspect_auto_mode_help",
       "command": [
         "node",
         "dist/cli.mjs",
         "auto-mode",
-        "defaults"
+        "--help"
       ],
       "exitCode": 0,
-      "stdoutSha256": "5676853b71347990f1b4208e888442796cd53bb5f1cb957a939aa6ea2415f3db",
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
+      "stdoutSha256": "40ce1ee14b9df4b97ff2620ad0f127d61f3b1b2b3cdff60e484bf0abfc7fa297",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 58,
+      "stdoutByteLength": 521,
       "stderrByteLength": 0,
       "requiredSubstrings": [
-        "\"allow\"",
-        "\"soft_deny\"",
-        "\"environment\""
+        "Usage: claude auto-mode",
+        "defaults",
+        "critique"
       ],
       "missingSubstrings": [],
       "passed": true
     },
     {
-      "name": "inspect_scoped_agents",
+      "name": "inspect_agents_help",
       "command": [
         "node",
         "dist/cli.mjs",
         "agents",
-        "--setting-sources",
-        "user,project,local"
+        "--help"
       ],
       "exitCode": 0,
-      "stdoutSha256": "7c047ceb5218722da87a74f94a772f26ec16459a992e4fe39dbd8e08edab4546",
+      "signal": null,
+      "timeoutMs": 60000,
+      "timedOut": false,
+      "errorMessage": null,
+      "stdoutSha256": "b3320b8673ff39c99ce84ae651dce80328a84cc7e60913a44d37bc9f5ae2b437",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdoutByteLength": 1457,
+      "stdoutByteLength": 255,
       "stderrByteLength": 0,
       "requiredSubstrings": [
-        "active agents",
-        "Built-in agents"
+        "Usage: claude agents",
+        "--setting-sources"
       ],
       "missingSubstrings": [],
       "passed": true
@@ -83,7 +92,22 @@
     {
       "label": "all local tool commands passed",
       "ok": true,
-      "detail": "inspect_auto_mode_defaults=0,inspect_scoped_agents=0"
+      "detail": "inspect_auto_mode_help=0,inspect_agents_help=0"
+    },
+    {
+      "label": "tool commands are timeout bounded",
+      "ok": true,
+      "detail": "60000ms"
+    },
+    {
+      "label": "tool commands did not time out",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "tool commands have no spawn errors",
+      "ok": true,
+      "detail": "none"
     },
     {
       "label": "tool command output is summarized by hashes",
@@ -98,7 +122,7 @@
     {
       "label": "trace artifact hash is recorded",
       "ok": true,
-      "detail": "764ee2983fb78b44f23900dcb74956b4f30ea929becf520640bdc898ecaf63c9"
+      "detail": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652"
     },
     {
       "label": "non-synthetic user-session capture is not claimed",

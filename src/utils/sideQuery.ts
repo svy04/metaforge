@@ -67,6 +67,8 @@ export type SideQueryOptions = {
   stop_sequences?: string[]
   /** Attributes this call in tengu_api_success for COGS joining against reporting.sampling_calls. */
   querySource: QuerySource
+  /** Test seam for injecting a client without mocking the shared API module. */
+  getClient?: typeof getAnthropicClient
   /**
    * Force the first-party Anthropic client even when the user's primary
    * provider is OpenAI/Bedrock/Vertex/Foundry/etc. Required for callers
@@ -133,10 +135,11 @@ export async function sideQuery(opts: SideQueryOptions): Promise<BetaMessage> {
     thinking,
     effort,
     stop_sequences,
+    getClient = getAnthropicClient,
     forceFirstParty,
   } = opts
 
-  const client = await getAnthropicClient({
+  const client = await getClient({
     maxRetries,
     model,
     source: 'side_query',

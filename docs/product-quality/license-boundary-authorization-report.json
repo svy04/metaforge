@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T08:40:15.897Z",
+  "generatedAt": "2026-06-14T17:39:26.664Z",
   "mode": "local_no_provider_license_boundary_authorization",
   "primarySourceInputs": [
     {
@@ -34,12 +34,12 @@
     }
   ],
   "sourceThirdPartyLicenseQualityReportPath": "docs/product-quality/third-party-license-quality-report.json",
-  "sourceThirdPartyLicenseQualityReportSha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+  "sourceThirdPartyLicenseQualityReportSha256": "3b4b7d3171ec60efda0fcc05aa40fcd55742c1c926774671902ec7cc753cc1be",
   "sourceSourceLicenseMetadataQualityReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-  "sourceSourceLicenseMetadataQualityReportSha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
+  "sourceSourceLicenseMetadataQualityReportSha256": "b165836f5c0b4effbc54a0136354b7868d380f5cf3d8ae96e387ee3d52a3cbb4",
   "requestMarkdownPath": "docs/product-quality/license-boundary-authorization-request.md",
   "authorizationItemsJsonlPath": "reports/openclaude-license-boundary-authorization-items.jsonl",
-  "authorizationItemsJsonlSha256": "bda899ed309e14b8a3424869df3fd1038c680ad581decbab9ae2f978e48b9a0c",
+  "authorizationItemsJsonlSha256": "922455458b6cceeff0bcf0c093d5064894a47629cb19a8e3b26b68fc37522988",
   "authorizationItemsJsonlRecordCount": 9,
   "authorizationItemsJsonlParseable": true,
   "licenseBoundaryStatus": "owner_legal_authorization_required_before_release_or_license_compliance_claims",
@@ -58,9 +58,9 @@
     "type-fest"
   ],
   "thirdPartyNoticeFilePresentCount": 0,
-  "sourceScannedFileCount": 2425,
+  "sourceScannedFileCount": 2447,
   "sourceFilesWithSpdxLicenseIdentifierCount": 1,
-  "sourceFilesMissingFileLevelMetadataCount": 2424,
+  "sourceFilesMissingFileLevelMetadataCount": 2446,
   "reuseTomlPresent": false,
   "licensesDirectoryPresent": false,
   "derivedCodeBoundaryRecognized": true,
@@ -147,14 +147,14 @@
       "schemaVersion": "openclaude_license_boundary_authorization_item_v1",
       "id": "authorize_source_file_license_metadata_updates",
       "category": "source_metadata",
-      "currentEvidence": "2424 of 2425 scanned files lack file-level metadata.",
+      "currentEvidence": "2446 of 2447 scanned files lack file-level metadata.",
       "requiredDecision": "Owner/legal must authorize source-file SPDX headers, adjacent .license files, or REUSE annotations before source metadata updates.",
       "forbiddenShortcut": "Do not mass-insert SPDX headers into derived-code files without a reviewed license mapping.",
       "validationMethod": "Require reviewed file-class mapping and rerun source-license metadata quality after any update.",
       "defaultAuthorized": false,
       "protectedAction": true,
       "status": "blocked_pending_explicit_owner_or_legal_authorization",
-      "recordDigest": "ecd5d87467088e188055e68d8d20d4543d41efee429fb725c357aa79aa9a4f21"
+      "recordDigest": "bfed053b6af4d9e07a4ff27dbf668a13c8de6fbfa21bde9762bac3b2fc9fbffe"
     },
     {
       "schemaVersion": "openclaude_license_boundary_authorization_item_v1",

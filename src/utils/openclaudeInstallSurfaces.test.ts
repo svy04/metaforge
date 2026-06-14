@@ -1,13 +1,21 @@
 import { afterEach, expect, mock, test } from 'bun:test'
-import * as fsPromises from 'fs/promises'
 import { homedir } from 'os'
 import { join } from 'path'
+
+import * as actualEnvModule from './env.js'
 
 const originalEnv = { ...process.env }
 const originalMacro = (globalThis as Record<string, unknown>).MACRO
 
+function restoreProcessEnv(): void {
+  for (const key of Object.keys(process.env)) {
+    delete process.env[key]
+  }
+  Object.assign(process.env, originalEnv)
+}
+
 afterEach(() => {
-  process.env = { ...originalEnv }
+  restoreProcessEnv()
   ;(globalThis as Record<string, unknown>).MACRO = originalMacro
   mock.restore()
 })
@@ -22,6 +30,7 @@ async function importFreshInstaller() {
 
 test('install command displays ~/.local/bin/openclaude on non-Windows', async () => {
   mock.module('../utils/env.js', () => ({
+    ...actualEnvModule,
     env: { platform: 'darwin' },
   }))
 
@@ -32,6 +41,7 @@ test('install command displays ~/.local/bin/openclaude on non-Windows', async ()
 
 test('install command displays openclaude.exe path on Windows', async () => {
   mock.module('../utils/env.js', () => ({
+    ...actualEnvModule,
     env: { platform: 'win32' },
   }))
 
@@ -48,27 +58,15 @@ test('cleanupNpmInstallations removes both openclaude and legacy claude local in
     PACKAGE_URL: '@gitlawb/openclaude',
   }
 
-  mock.module('fs/promises', () => ({
-    ...fsPromises,
-    rm: async (path: string) => {
+  const { cleanupNpmInstallations } = await importFreshInstaller()
+  await cleanupNpmInstallations({
+    attemptNpmUninstall: async () => ({ success: false }),
+    configHomeDir: join(homedir(), '.openclaude'),
+    homeDir: homedir(),
+    removeLocalInstallDir: async (path: string) => {
       removedPaths.push(path)
     },
-  }))
-
-  mock.module('./execFileNoThrow.js', () => ({
-    execFileNoThrowWithCwd: async () => ({
-      code: 1,
-      stderr: 'npm ERR! code E404',
-    }),
-  }))
-
-  mock.module('./envUtils.js', () => ({
-    getClaudeConfigHomeDir: () => join(homedir(), '.openclaude'),
-    isEnvTruthy: (value: string | undefined) => value === '1',
-  }))
-
-  const { cleanupNpmInstallations } = await importFreshInstaller()
-  await cleanupNpmInstallations()
+  })
 
   expect(removedPaths).toContain(join(homedir(), '.openclaude', 'local'))
   expect(removedPaths).toContain(join(homedir(), '.claude', 'local'))

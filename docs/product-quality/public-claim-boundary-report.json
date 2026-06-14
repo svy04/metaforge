@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T10:05:19.017Z",
+  "generatedAt": "2026-06-14T17:42:24.809Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -22,9 +22,9 @@
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "889da2a04ad9539a8526fae76133df35b81ed8c4fc3eb3b74698b5076be7a160",
-      "sizeBytes": 15816,
-      "lineCount": 393
+      "sha256": "49066940f768b345097f2c2b1fa8305b77b024027c0386c4fb2cfbd1ca2aff13",
+      "sizeBytes": 16660,
+      "lineCount": 403
     },
     {
       "path": "CHANGELOG.md",
@@ -57,9 +57,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "e054f29c6f2e04c6daacb73422b191bc1ebd7564a37140bb77e6bc0032175abc",
-      "sizeBytes": 18465,
-      "lineCount": 267
+      "sha256": "d88d2599725ba6f4115d6103769fcf27f5f037eed1998473d9f95b8ca0020d07",
+      "sizeBytes": 18859,
+      "lineCount": 270
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -85,16 +85,16 @@
     {
       "path": "docs/PROJECT_SPEC.md",
       "exists": true,
-      "sha256": "930bc9efff6eed53c3edf24db473489e4bd19eec733f68aaee688669e462cfe9",
-      "sizeBytes": 12372,
-      "lineCount": 183
+      "sha256": "efe0b14ec765c1dc78c69fa1787ff335a3932b4e29c7eb803187481994207b15",
+      "sizeBytes": 11940,
+      "lineCount": 178
     },
     {
       "path": "docs/EVALS.md",
       "exists": true,
-      "sha256": "82141ab9b74cdf13f937f6de03d11b675e1fcb4677fbbbf1875a1633083f2e69",
-      "sizeBytes": 8490,
-      "lineCount": 261
+      "sha256": "9d891755075e4f026b21dc25eb02c606b165781834f723cdb4676589127c8e45",
+      "sizeBytes": 8219,
+      "lineCount": 253
     },
     {
       "path": "docs/ROADMAP.md",
@@ -148,40 +148,40 @@
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
       "exists": true,
-      "sha256": "49aa7f5af7b8f4110c1c26a35261fdc3ce818493e11af1acb24f05b80df517ae",
-      "sizeBytes": 7454,
+      "sha256": "2be1f61f849c18fd2e617395f9e4ed12b6f540875a447f062c974cb2b9130109",
+      "sizeBytes": 7494,
       "lineCount": 74
     },
     {
       "path": "docs/MIMESIS_ENGINEERING.md",
       "exists": true,
-      "sha256": "23cc1a6cf9a8c94d006f9b49a0b8518ed8d58caee29fde7e3fe8e41a3a890848",
-      "sizeBytes": 5175,
-      "lineCount": 112
+      "sha256": "46a9c6e4d38da07a263d868b412a2b0ab68390cf8d7d560dc518e0efb86582d3",
+      "sizeBytes": 5051,
+      "lineCount": 110
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
       "exists": true,
-      "sha256": "516e25c75fe69e60e4b3cf78dfeee3ce0b759546674e874d55db9db492b81ff3",
-      "sizeBytes": 8503,
+      "sha256": "85e73979db877ebd316b05191b7bfccf1e16f959b1b1c684dc40efbd2cb5e3d6",
+      "sizeBytes": 8497,
       "lineCount": 109
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
       "exists": true,
-      "sha256": "1883d44641fe8c1bc10ecd1ae6f15146b0cd33e0b024237eb280192d69e196b6",
-      "sizeBytes": 4554,
-      "lineCount": 42
+      "sha256": "622324d698dcf805b729ae5e57407882b4da8de52d83b75bdc86d4157a0dc3d8",
+      "sizeBytes": 4287,
+      "lineCount": 41
     }
   ],
   "publicSurfaceCount": 22,
-  "scannedLineCount": 3583,
+  "scannedLineCount": 3580,
   "blockedContextClaimMentionCount": 13,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
       "path": "docs/EVALS.md",
-      "line": 209,
+      "line": 201,
       "phrase": "release ready",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -287,7 +287,7 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "aba2b1edb9d25156951be625efdfb24da6b8c83d54d1e1d29f0008d223466419",
+  "scanJsonlSha256": "1799ae4f1fb6a4b91b273b33b7f5d89a246c513948b2faee24c32bee574a2b79",
   "scanJsonlRecordCount": 13,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -319,7 +319,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "3583 lines"
+      "detail": "3580 lines"
     },
     {
       "label": "unauthorized positive claims are absent",

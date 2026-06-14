@@ -66,16 +66,14 @@ This gives Metaforge a marketable but proof-bounded claim:
 | MFH | Blocks closure when evidence, state, source reconciliation, or claim boundary is weak |
 | OpenClaude runtime | Provides local tools, OAuth-backed model routes, file edits, tests, and reports |
 
-## Current Local Evidence
+## Current Private Workbench Evidence
 
-Digital Factory has the freshest local Mimesis workbench:
+A private/local Mimesis v.next workbench has the freshest Mimesis evidence:
 
-- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-METHOD.md`
-- `C:\Users\admin\Desktop\Digital Factory\FRONTIER-MIMESIS-THREAD.md`
-- `C:\Users\admin\Desktop\Digital Factory\MIMESIS-DEPLOYMENT-MAP.md`
-- `C:\Users\admin\Desktop\Digital Factory\mimesis-plugin\README.ko.md`
+- `<private-mimesis-workbench>\FRONTIER-MIMESIS-THREAD.md`
+- `<private-mimesis-workbench>\mimesis-plugin\README.ko.md`
 
-The Digital Factory root is a local workbench, not a published repository. `mimesis-plugin` and `mimesis-source-packet` are git repositories inside it, but both currently have local dirty state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
+The private workbench root is local, not a published repository. `mimesis-plugin` and `mimesis-source-packet` are git repositories inside it, but both currently have local dirty state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
 
 ## Claim Boundary
 
@@ -84,7 +82,7 @@ Allowed now:
 - Metaforge uses a source-first Mimesis Engineering loop.
 - Mimesis Engineering is a working operating frame for extracting structure from proven artifacts.
 - Current evidence is local, repo-bound, and partially experimental.
-- Some Mimesis gates have local scripts and case notes in Digital Factory.
+- Some Mimesis gates have local scripts and case notes in the private workbench.
 
 Not allowed yet:
 
@@ -99,7 +97,7 @@ Not allowed yet:
 
 Completed:
 
-1. GitHub profile README was rebuilt from actual public repositories and current Digital Factory evidence.
+1. GitHub profile README was rebuilt from actual public repositories and current private workbench evidence.
 2. Old or inaccessible project claims were removed from the profile surface.
 3. The profile refresh was recorded in `docs/profile/github-profile-refresh-evidence-2026-06-14.md`.
 

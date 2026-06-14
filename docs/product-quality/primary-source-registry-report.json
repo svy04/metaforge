@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T14:12:29.649Z",
+  "generatedAt": "2026-06-14T17:39:20.949Z",
   "mode": "local_no_provider_primary_source_registry",
   "registryFormat": "openclaude_primary_source_registry_v1",
   "primarySourceInputs": [
@@ -22,7 +22,7 @@
       "localAbsorption": "The registry adds a repeatable check that rejects blog-summary or secondary-source domains from product-quality evidence."
     }
   ],
-  "scannedReportCount": 84,
+  "scannedReportCount": 85,
   "reportsWithPrimarySourceInputs": [
     "docs/product-quality/agent-instructions-quality-report.json",
     "docs/product-quality/benchmark-efficiency-metrics-report.json",
@@ -39,6 +39,7 @@
     "docs/product-quality/license-boundary-authorization-report.json",
     "docs/product-quality/lockfile-sbom-quality-report.json",
     "docs/product-quality/maintainer-ownership-quality-report.json",
+    "docs/product-quality/model-system-card-report.json",
     "docs/product-quality/onboarding-smoke-report.json",
     "docs/product-quality/openssf-security-posture-report.json",
     "docs/product-quality/oss-architecture-absorption-targets-report.json",
@@ -111,29 +112,34 @@
     "docs/product-quality/verification-report-consistency-report.json",
     "docs/product-quality/vscode-update-boundary-report.json"
   ],
-  "primarySourceEntryCount": 153,
-  "uniqueSourceUrlCount": 84,
+  "primarySourceEntryCount": 155,
+  "uniqueSourceUrlCount": 93,
   "sourceKindCounts": {
     "benchmark_project": 14,
     "official_documentation": 52,
-    "official_project_site": 2,
-    "original_repository": 60,
-    "research_paper": 4,
+    "official_project_site": 10,
+    "original_repository": 53,
+    "research_paper": 5,
     "standard_or_specification": 21
   },
   "sourceHostCounts": {
-    "arxiv.org": 4,
+    "arxiv.org": 5,
     "bun.com": 2,
+    "code.claude.com": 2,
     "code.visualstudio.com": 12,
     "cyclonedx.org": 1,
-    "developers.openai.com": 1,
+    "deploymentsafety.openai.com": 1,
+    "developers.openai.com": 2,
     "docs.cline.bot": 1,
     "docs.github.com": 32,
     "docs.npmjs.com": 2,
     "docs.openhands.dev": 3,
-    "github.com": 71,
+    "doi.org": 2,
+    "github.com": 64,
     "harborframework.com": 1,
+    "model-spec.openai.com": 1,
     "opentelemetry.io": 3,
+    "platform.claude.com": 1,
     "platform.openai.com": 1,
     "reuse.software": 2,
     "slsa.dev": 9,
@@ -149,8 +155,8 @@
   "malformedSourceInputCount": 0,
   "malformedSourceInputs": [],
   "registryJsonlPath": "reports/openclaude-primary-source-registry.jsonl",
-  "registryJsonlSha256": "9d587626a031cd424102462b9437d89d02b120a2d1614672e1758d38d407d61a",
-  "registryJsonlRecordCount": 153,
+  "registryJsonlSha256": "fc1d7d9634c6fac09db89845e3633b3c5c125f6166d720acb72094103c5f9a19",
+  "registryJsonlRecordCount": 155,
   "registryJsonlParseable": true,
   "externalSourceFetchPerformed": false,
   "blogSummarySourceAllowed": false,
@@ -167,7 +173,7 @@
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/agent-instructions-quality-report.json",
-      "sourceReportSha256": "b2c45ba5ba67d712277973333a96a68b684b63cdb39eb1f29ff59b0345361988",
+      "sourceReportSha256": "6ad822153362d8236c74297aace6cd183c76248e97e4951c4bb0403636423ddf",
       "sourceProject": "OpenHands Repository Agent guidance",
       "sourceUrl": "https://docs.openhands.dev/overview/skills/repo",
       "sourceHost": "docs.openhands.dev",
@@ -177,12 +183,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f9a8458f84de1b899bb0831f4ef38ca079fe36f49a33061ae14dd7d52d19f927"
+      "recordDigest": "63e83ce1b4f663b79c7122f0a14ba01c2432aec546a1945e78ef8c6dbdf35218"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/agent-instructions-quality-report.json",
-      "sourceReportSha256": "b2c45ba5ba67d712277973333a96a68b684b63cdb39eb1f29ff59b0345361988",
+      "sourceReportSha256": "6ad822153362d8236c74297aace6cd183c76248e97e4951c4bb0403636423ddf",
       "sourceProject": "OpenHands Skills overview",
       "sourceUrl": "https://docs.openhands.dev/overview/skills",
       "sourceHost": "docs.openhands.dev",
@@ -192,12 +198,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "34efee15a00715619ec1d2f1ec9360e83c7a3fb6fc1d234edd2ea8c4a2f5d233"
+      "recordDigest": "a861b45b04d0cc9f36b0247ef088681a999faad4e143d3dc1a9157de5214ed27"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-efficiency-metrics-report.json",
-      "sourceReportSha256": "9c5fb202627a73e6b606e8c15698814afe67f49c54ec2e5747c6b6783f6a5b1c",
+      "sourceReportSha256": "039b288b803955a5da84c3c83935e7bd869c3a78449c689a6b1472ca49980ae8",
       "sourceProject": "Vexp-ai/vexp-swe-bench",
       "sourceUrl": "https://github.com/Vexp-ai/vexp-swe-bench",
       "sourceHost": "github.com",
@@ -207,12 +213,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "afd42049a1f40031b2783868c92b21b1a69d756fe43c059901b53950da9ec1e8"
+      "recordDigest": "9413c41dc86e0114382daa3a9d2d362e00ed2de08fb8f4229d34ceace7c330ac"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-efficiency-metrics-report.json",
-      "sourceReportSha256": "9c5fb202627a73e6b606e8c15698814afe67f49c54ec2e5747c6b6783f6a5b1c",
+      "sourceReportSha256": "039b288b803955a5da84c3c83935e7bd869c3a78449c689a6b1472ca49980ae8",
       "sourceProject": "SWE-bench/SWE-bench",
       "sourceUrl": "https://github.com/swe-bench/SWE-bench",
       "sourceHost": "github.com",
@@ -222,12 +228,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "2ce3be2bc9a887642ac5f9ea49c692899c926eb2efe2a95c81453ff2dc27ae41"
+      "recordDigest": "cf2cfbec65d87dd8d90d259a367126e85781b2a24be7ac0e449b4c43edcb642f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-efficiency-metrics-report.json",
-      "sourceReportSha256": "9c5fb202627a73e6b606e8c15698814afe67f49c54ec2e5747c6b6783f6a5b1c",
+      "sourceReportSha256": "039b288b803955a5da84c3c83935e7bd869c3a78449c689a6b1472ca49980ae8",
       "sourceProject": "OpenHands/benchmarks",
       "sourceUrl": "https://github.com/OpenHands/benchmarks",
       "sourceHost": "github.com",
@@ -237,12 +243,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "721853152b8ebe392132f3e702f23a4c133b54be0fb14be3c8d6373523cbf96a"
+      "recordDigest": "1cf3a7ae099e7a06d7b52f26b0cdfca47b68c4b596fce18abf1cd7fae9f7d32f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-policy-compliance-report.json",
-      "sourceReportSha256": "5c36b5bf537948857a62c684ea2c304fc74c2e924a66366d03b22529bb947f58",
+      "sourceReportSha256": "6648ec347d3d0c14113a71a62e2db87bc2c231e4cbe0b5cd8002f71cc7830e07",
       "sourceProject": "SWE-bench/experiments",
       "sourceUrl": "https://github.com/swe-bench/experiments",
       "sourceHost": "github.com",
@@ -252,12 +258,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "4d911124b46008007aa3b7d7ce0ac22c0c0f16a5dad4232d6cb762fc8dd76078"
+      "recordDigest": "de2397bf8ebafc2585e13367f2ba6f66608564f19ec92ec51dc1e9078270b25a"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-policy-compliance-report.json",
-      "sourceReportSha256": "5c36b5bf537948857a62c684ea2c304fc74c2e924a66366d03b22529bb947f58",
+      "sourceReportSha256": "6648ec347d3d0c14113a71a62e2db87bc2c231e4cbe0b5cd8002f71cc7830e07",
       "sourceProject": "SWE-bench/SWE-bench",
       "sourceUrl": "https://github.com/swe-bench/SWE-bench",
       "sourceHost": "github.com",
@@ -267,12 +273,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "338dee1110d7a6474638900b5f8cf13365aba0c48f922b6529d19be470ae48bf"
+      "recordDigest": "49d040c9813e209ae24546f2faeb0bfbbdb372934d415c00c0e72056329c3077"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-readiness-matrix.json",
-      "sourceReportSha256": "fe04d4cc4c8d122bc6025572b6ac7f26f83a46f8a34f2f6bc0b7891be6d258b6",
+      "sourceReportSha256": "64e746ea0fd7c09ebaa71c2af119458b0bf93b656bf33992b465b59bf502085c",
       "sourceProject": "SWE-bench/SWE-bench",
       "sourceUrl": "https://github.com/swe-bench/SWE-bench",
       "sourceHost": "github.com",
@@ -282,12 +288,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "544bc04358eae4763b8e015df330dd3f2f343bc11b9ed160bc612b3e80d21a96"
+      "recordDigest": "e92963bb9c33e10dad362d1830ca3bf3dd4b16e6204423e9d919326eedef8522"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-readiness-matrix.json",
-      "sourceReportSha256": "fe04d4cc4c8d122bc6025572b6ac7f26f83a46f8a34f2f6bc0b7891be6d258b6",
+      "sourceReportSha256": "64e746ea0fd7c09ebaa71c2af119458b0bf93b656bf33992b465b59bf502085c",
       "sourceProject": "OpenHands/benchmarks",
       "sourceUrl": "https://github.com/OpenHands/benchmarks",
       "sourceHost": "github.com",
@@ -297,12 +303,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5a3c734b0cd630169f4ba01dd1785d7f31daa5db872f25d6dcf661da97de6436"
+      "recordDigest": "8dbe64916dfc96c63bce8b1f8b5121e91692fa49a4f6119aa041c49bdd03bceb"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-readiness-matrix.json",
-      "sourceReportSha256": "fe04d4cc4c8d122bc6025572b6ac7f26f83a46f8a34f2f6bc0b7891be6d258b6",
+      "sourceReportSha256": "64e746ea0fd7c09ebaa71c2af119458b0bf93b656bf33992b465b59bf502085c",
       "sourceProject": "OpenHands/trajectory-visualizer",
       "sourceUrl": "https://github.com/OpenHands/trajectory-visualizer",
       "sourceHost": "github.com",
@@ -312,12 +318,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ff7c05f1464f7358610ab480a3408bbc79c45959e6d7fa8831ab326c20ccad8b"
+      "recordDigest": "6972a2c1cda56fb0c1280345553e2ad3b9b80405b349ccc06c800735251a1646"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-submission-readiness-report.json",
-      "sourceReportSha256": "44d6016901d9577b600ec8f49386f82d6f2ee1218d84d0ae042aac85ebe789b0",
+      "sourceReportSha256": "ed6de9833993573f2708a34c0d7d31db45f68cea116ca44c9af7d1c0cb4b4c58",
       "sourceProject": "SWE-bench/experiments",
       "sourceUrl": "https://github.com/swe-bench/experiments",
       "sourceHost": "github.com",
@@ -327,12 +333,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "78f84cc3a6653f9f5dfb823149b1ddbf3b2bcedd6869c42aeeb57def56906c62"
+      "recordDigest": "234371672699a631d51b6507d89ab168f4c6f12181085bade4e7bb229d51069a"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-submission-readiness-report.json",
-      "sourceReportSha256": "44d6016901d9577b600ec8f49386f82d6f2ee1218d84d0ae042aac85ebe789b0",
+      "sourceReportSha256": "ed6de9833993573f2708a34c0d7d31db45f68cea116ca44c9af7d1c0cb4b4c58",
       "sourceProject": "SWE-bench/SWE-bench",
       "sourceUrl": "https://github.com/swe-bench/SWE-bench",
       "sourceHost": "github.com",
@@ -342,12 +348,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "8c22fb1d755e0ee979aa3b8c2e154ae811fadbc860af0e0b10ef6b2b3f8b8b73"
+      "recordDigest": "f3770d9d82309a6148f4a3f26b1a0bfe025aedae78be1855008e496dc1647146"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/benchmark-submission-readiness-report.json",
-      "sourceReportSha256": "44d6016901d9577b600ec8f49386f82d6f2ee1218d84d0ae042aac85ebe789b0",
+      "sourceReportSha256": "ed6de9833993573f2708a34c0d7d31db45f68cea116ca44c9af7d1c0cb4b4c58",
       "sourceProject": "OpenHands/benchmarks",
       "sourceUrl": "https://github.com/OpenHands/benchmarks",
       "sourceHost": "github.com",
@@ -357,12 +363,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "16a92a97b72c60fb03e0ec8eec7dee5a81905c8f08ef3ac1c1973be611b46e2c"
+      "recordDigest": "444df175043ad93dd13abda751a172132cf788a1164860345033c326942157ee"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-intake-quality-report.json",
-      "sourceReportSha256": "eb32f6d9ae932cd23390c7328518f8889b514e48779457ecffd6c6d6e8e60953",
+      "sourceReportSha256": "7eb4d752e17305ee0429048e0e4d792fa259087af4d5528c20fbc385bf09d16e",
       "sourceProject": "GitHub Docs issue templates",
       "sourceUrl": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository",
       "sourceHost": "docs.github.com",
@@ -372,12 +378,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "e0bc7a8163949859035c13cc546fb144aba7a498f911db65f872d421369dd768"
+      "recordDigest": "096252da126f8d4b3f1a7388d8b2a180103b786790ad135b6aa3b0e51d90b7ad"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-intake-quality-report.json",
-      "sourceReportSha256": "eb32f6d9ae932cd23390c7328518f8889b514e48779457ecffd6c6d6e8e60953",
+      "sourceReportSha256": "7eb4d752e17305ee0429048e0e4d792fa259087af4d5528c20fbc385bf09d16e",
       "sourceProject": "GitHub Docs pull request standardization",
       "sourceUrl": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/managing-and-standardizing-pull-requests",
       "sourceHost": "docs.github.com",
@@ -387,12 +393,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "cd98328a0f8a373e15254e91e8ced7dddd47ab373b596f4c7129ed17bafcedfb"
+      "recordDigest": "a1cd7d318e5841acedf2ce8f5fc6bacd0d738fdb5480f2d1d9f7e7cd3647a28b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-intake-quality-report.json",
-      "sourceReportSha256": "eb32f6d9ae932cd23390c7328518f8889b514e48779457ecffd6c6d6e8e60953",
+      "sourceReportSha256": "7eb4d752e17305ee0429048e0e4d792fa259087af4d5528c20fbc385bf09d16e",
       "sourceProject": "GitHub Docs issue forms syntax",
       "sourceUrl": "https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms",
       "sourceHost": "docs.github.com",
@@ -402,12 +408,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "eaaab88dcccf872c3408de08a8dae5222ed49ecee3bd237c7239bf63fd25d3cb"
+      "recordDigest": "3857b71e87716a2d8d952efc6780ca54a81d5c27d8099da7af33b57175333a1f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-profile-quality-report.json",
-      "sourceReportSha256": "eb4cbc9313127fe38667d60e5d02b25f343568b076b99fd858ba11e4d6bef29c",
+      "sourceReportSha256": "89821e07dce40996538fed56b2a08810c23d3358b8863f17d8ab0ec34b1cd328",
       "sourceProject": "GitHub Docs healthy contributions",
       "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions",
       "sourceHost": "docs.github.com",
@@ -417,12 +423,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "94ff27584f14340551965beeff6976e2d25583955999618a1ff67d17f059d341"
+      "recordDigest": "f263648c244b8d2599d170b45cf68f8a5ff08f8eab46b06e713aca8d2db0ee4f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-profile-quality-report.json",
-      "sourceReportSha256": "eb4cbc9313127fe38667d60e5d02b25f343568b076b99fd858ba11e4d6bef29c",
+      "sourceReportSha256": "89821e07dce40996538fed56b2a08810c23d3358b8863f17d8ab0ec34b1cd328",
       "sourceProject": "GitHub Docs contributor guidelines",
       "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors",
       "sourceHost": "docs.github.com",
@@ -432,12 +438,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3d2d37148d5d0f414160ce56c580ebfe6e18351ce18ec311a1e4690698895db1"
+      "recordDigest": "62f616922f18dd1548459e1affad9270712f674874100ddf4ccc602878e276c4"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-profile-quality-report.json",
-      "sourceReportSha256": "eb4cbc9313127fe38667d60e5d02b25f343568b076b99fd858ba11e4d6bef29c",
+      "sourceReportSha256": "89821e07dce40996538fed56b2a08810c23d3358b8863f17d8ab0ec34b1cd328",
       "sourceProject": "GitHub Docs support resources",
       "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project",
       "sourceHost": "docs.github.com",
@@ -447,12 +453,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d60656bf04222b9335ae8952f2c7b93ef4edb786483c23553164a24b6a9da67f"
+      "recordDigest": "d9e08ffc5991de70386681174f9082947c9a02bee9ceb2e74846cd475833831b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-profile-quality-report.json",
-      "sourceReportSha256": "eb4cbc9313127fe38667d60e5d02b25f343568b076b99fd858ba11e4d6bef29c",
+      "sourceReportSha256": "89821e07dce40996538fed56b2a08810c23d3358b8863f17d8ab0ec34b1cd328",
       "sourceProject": "GitHub Docs code of conduct",
       "sourceUrl": "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project",
       "sourceHost": "docs.github.com",
@@ -462,12 +468,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "8f906adb3fccbc04d7c97a9f81b96ed2949ac3c10bd175b0a200414cae438508"
+      "recordDigest": "144cc101d33943c376ac2e5e4e2d7a92e66217932ac7ad91249d955cf93e4aed"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/community-profile-quality-report.json",
-      "sourceReportSha256": "eb4cbc9313127fe38667d60e5d02b25f343568b076b99fd858ba11e4d6bef29c",
+      "sourceReportSha256": "89821e07dce40996538fed56b2a08810c23d3358b8863f17d8ab0ec34b1cd328",
       "sourceProject": "GitHub Docs licensing",
       "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
       "sourceHost": "docs.github.com",
@@ -477,12 +483,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ba3cc837ec99dc1e89461ea72a5e3a1d769492ac16c4f595128e2949a1a40856"
+      "recordDigest": "d64d8bc3d31b2e81ba64a6ab18258f59d16d8f347f85093d10c3a70a5e65be66"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/dependency-governance-quality-report.json",
-      "sourceReportSha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+      "sourceReportSha256": "015fbf90ed6ed275c42b6ab5824342d8b99a0c9c3554ba06728211e388755c1a",
       "sourceProject": "GitHub Docs dependency review",
       "sourceUrl": "https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependency-review",
       "sourceHost": "docs.github.com",
@@ -492,12 +498,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "067d4ee202f375f6608d4e19e4015b8182f00231a5c88584ca099f40388287ca"
+      "recordDigest": "3a8565dc47bdcd0a630fe3f54932a117d5fa71cc266d8f8814884f6437e96e6b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/dependency-governance-quality-report.json",
-      "sourceReportSha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+      "sourceReportSha256": "015fbf90ed6ed275c42b6ab5824342d8b99a0c9c3554ba06728211e388755c1a",
       "sourceProject": "actions/dependency-review-action",
       "sourceUrl": "https://github.com/actions/dependency-review-action",
       "sourceHost": "github.com",
@@ -507,12 +513,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "b64155c87a5433f09969545ed8a3824f4441af699c580b006e6900b6b2f25098"
+      "recordDigest": "df905d5dcb77005f01f0d6e86b0c9f6de9a3a906044aefcdfd69610ef1c15a6e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/dependency-governance-quality-report.json",
-      "sourceReportSha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+      "sourceReportSha256": "015fbf90ed6ed275c42b6ab5824342d8b99a0c9c3554ba06728211e388755c1a",
       "sourceProject": "Bun lockfile documentation",
       "sourceUrl": "https://bun.com/docs/install/lockfile",
       "sourceHost": "bun.com",
@@ -522,12 +528,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "60197686f6eed5f700dc46be7d35e5ac61796c87ad77bcf16f257233dd2bf65c"
+      "recordDigest": "88bed45152d272beaa37b09486da63c74a2ab53462b5899d20b29857e8c6b1b6"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/dependency-governance-quality-report.json",
-      "sourceReportSha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+      "sourceReportSha256": "015fbf90ed6ed275c42b6ab5824342d8b99a0c9c3554ba06728211e388755c1a",
       "sourceProject": "GitHub Docs Dependabot options",
       "sourceUrl": "https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference",
       "sourceHost": "docs.github.com",
@@ -537,12 +543,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "4cf0fdb1a674700b1e24e1fae623ee619becec4a16158379c8f361821e4ec435"
+      "recordDigest": "6981ca6ccc8e8a72f87e0f262bd26f9b7633cb689fc47b927a2d865a10b83dde"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/dependency-governance-quality-report.json",
-      "sourceReportSha256": "6e9af3925bff541f2a412721ef30f37965f09b6472453f58a6673a74a6449d29",
+      "sourceReportSha256": "015fbf90ed6ed275c42b6ab5824342d8b99a0c9c3554ba06728211e388755c1a",
       "sourceProject": "OpenSSF Scorecard Pinned-Dependencies",
       "sourceUrl": "https://github.com/ossf/scorecard/blob/main/docs/checks.md",
       "sourceHost": "github.com",
@@ -552,12 +558,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "e0f8fb9783f1e49db3de8091795f2279a3b28c9f5282a71aa6b1c212c5fe9620"
+      "recordDigest": "115457891920e2200032288ecd776ae7a70ab5d3ca511d801a298ca5ba4da893"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "75fc66d8b848dd72f376d3c901f18df7c3b16589a6004878d0a0d08e2a31dc06",
+      "sourceReportSha256": "c3bd39242abf802ba74e95edbc4edac987adf71bdd4ecdc1d956c09a6d6b10c4",
       "sourceProject": "github/docs",
       "sourceUrl": "https://docs.github.com/articles/relative-links-in-readmes",
       "sourceHost": "docs.github.com",
@@ -567,12 +573,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "dd76ef78731638695fc576c17cec8562a70449e2dd8ae3ac64def4137f630ab9"
+      "recordDigest": "6740a82b2fba279ca9ab04c945259152072cfddc1958c272aecd2e10d69c9c27"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "75fc66d8b848dd72f376d3c901f18df7c3b16589a6004878d0a0d08e2a31dc06",
+      "sourceReportSha256": "c3bd39242abf802ba74e95edbc4edac987adf71bdd4ecdc1d956c09a6d6b10c4",
       "sourceProject": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
       "sourceHost": "github.com",
@@ -582,12 +588,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "385a7e1b13fdc29fd68f5c2b33f741f4716654c56c9f2364e362798cc67edb20"
+      "recordDigest": "cdcef5f2cac2a0e7d30b055ffa0ca5ee2caff90e43953cae9bea5352aa56feee"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "75fc66d8b848dd72f376d3c901f18df7c3b16589a6004878d0a0d08e2a31dc06",
+      "sourceReportSha256": "c3bd39242abf802ba74e95edbc4edac987adf71bdd4ecdc1d956c09a6d6b10c4",
       "sourceProject": "continuedev/continue",
       "sourceUrl": "https://github.com/continuedev/continue",
       "sourceHost": "github.com",
@@ -597,12 +603,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ea4b66ece83295ff0c11e2b7e72d0a1551f687c147f8ddf944bd81bbb981e515"
+      "recordDigest": "16d3a6f344fc7df2fc9955b6593a0312589eb347fded68a3dde4ca8b2a3ecadd"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
-      "sourceReportSha256": "31ad150b437e49d11ecf4cf6db8b27ff1bfb45f99aa5a30f1a920b6cfc252390",
+      "sourceReportSha256": "b6e3f644426c1bb4100be15f6ac0b377e0a9cdd5538c89f7b30821421277fea0",
       "sourceProject": "VS Code Webview API",
       "sourceUrl": "https://code.visualstudio.com/api/extension-guides/webview",
       "sourceHost": "code.visualstudio.com",
@@ -612,12 +618,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ffc1e370300c8897be71f2a89f0d777b5901bb4124d8902114d1503c9a17d3d9"
+      "recordDigest": "f7e4941099688e8884f04742186d5597059a638a59fe06661297551c9e70fc62"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
-      "sourceReportSha256": "31ad150b437e49d11ecf4cf6db8b27ff1bfb45f99aa5a30f1a920b6cfc252390",
+      "sourceReportSha256": "b6e3f644426c1bb4100be15f6ac0b377e0a9cdd5538c89f7b30821421277fea0",
       "sourceProject": "VS Code Webview UX Guidelines",
       "sourceUrl": "https://code.visualstudio.com/api/ux-guidelines/webviews",
       "sourceHost": "code.visualstudio.com",
@@ -627,12 +633,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "410b97efd678b73af49fc56ae4aaa1eeeda81b8682a18b1b08c44c12c8ee08c4"
+      "recordDigest": "a8da621d7f9fe955444a2fbbf7c13fe828dca6411299b4432cbbc17219cc3c8b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-scope-report.json",
-      "sourceReportSha256": "e2b5b06cc9f429c12f76006ab31de7b298fa05f2519759e44d3fafa6b79565c8",
+      "sourceReportSha256": "f2bbdbea86449ad0a618101b24149d5991084d7a42fe6ec7b39571017c280cc7",
       "sourceProject": "continuedev/continue",
       "sourceUrl": "https://github.com/continuedev/continue/blob/main/extensions/vscode/package.json",
       "sourceHost": "github.com",
@@ -642,12 +648,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "437103e6464299c143b75e5db551177b8bd19cdde898bb5541c7238a386441ad"
+      "recordDigest": "0f948f9d043f1b8efa70897b03dc3af6fcde5a51128118320f0700d6a42f7426"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-scope-report.json",
-      "sourceReportSha256": "e2b5b06cc9f429c12f76006ab31de7b298fa05f2519759e44d3fafa6b79565c8",
+      "sourceReportSha256": "f2bbdbea86449ad0a618101b24149d5991084d7a42fe6ec7b39571017c280cc7",
       "sourceProject": "cline/cline",
       "sourceUrl": "https://github.com/cline/cline/blob/main/package.json",
       "sourceHost": "github.com",
@@ -657,12 +663,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "c815b61f346c214c81c0d78eb82a6aacb174dc9059487eec6fafcc142ef2806c"
+      "recordDigest": "841176c67d89ea899cb09bf33246eebec6d854fae5d927c03f437c702f54d5e2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-scope-report.json",
-      "sourceReportSha256": "e2b5b06cc9f429c12f76006ab31de7b298fa05f2519759e44d3fafa6b79565c8",
+      "sourceReportSha256": "f2bbdbea86449ad0a618101b24149d5991084d7a42fe6ec7b39571017c280cc7",
       "sourceProject": "microsoft/vscode-docs",
       "sourceUrl": "https://code.visualstudio.com/api/references/extension-manifest",
       "sourceHost": "code.visualstudio.com",
@@ -672,12 +678,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "2b8419cea4d7a16c57490af2ea6171815b6c552fd2a95cb0f115145d65f8c7ce"
+      "recordDigest": "20305ed350cccbdb1eeb2944bd9000c380769db50eebbf2a6434361a885caa28"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-scope-report.json",
-      "sourceReportSha256": "e2b5b06cc9f429c12f76006ab31de7b298fa05f2519759e44d3fafa6b79565c8",
+      "sourceReportSha256": "f2bbdbea86449ad0a618101b24149d5991084d7a42fe6ec7b39571017c280cc7",
       "sourceProject": "microsoft/vscode-docs",
       "sourceUrl": "https://code.visualstudio.com/api/references/contribution-points",
       "sourceHost": "code.visualstudio.com",
@@ -687,12 +693,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "0590be91175795902489ea3ddf9442ed1135771f886ebd48f1f71194196e1849"
+      "recordDigest": "945ce44dabce173d8e833f7208098c05ed39c1970a6449f2957d65232e600373"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
-      "sourceReportSha256": "5db7af24f744aa6d3e0f05a951bea0a6ea56ad94ad33a76e48196e89d1c54897",
+      "sourceReportSha256": "2afb4dfd3be910ba40fea4a8d271ba896f2fd28bfb567bec87811cfbdc8528b5",
       "sourceProject": "VS Code Webview UX Guidelines",
       "sourceUrl": "https://code.visualstudio.com/api/ux-guidelines/webviews",
       "sourceHost": "code.visualstudio.com",
@@ -702,12 +708,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "87cd176da6aeb2749a7a3ffd54eeca47678c953ca75aabefacb07ccb8aaa5ab5"
+      "recordDigest": "b6ba5f48418f90f7379f77106c2844a1fa34d5dfefeb375d953da43a41bc3701"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
-      "sourceReportSha256": "5db7af24f744aa6d3e0f05a951bea0a6ea56ad94ad33a76e48196e89d1c54897",
+      "sourceReportSha256": "2afb4dfd3be910ba40fea4a8d271ba896f2fd28bfb567bec87811cfbdc8528b5",
       "sourceProject": "VS Code Webview API",
       "sourceUrl": "https://code.visualstudio.com/api/extension-guides/webview",
       "sourceHost": "code.visualstudio.com",
@@ -717,12 +723,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "279b13799a2be1daf9d28da64987665786b391ed4e9abc5b2110d11dad0bbfa4"
+      "recordDigest": "97fa80053ac7ae95985ddb7b92eec1538768be23262d40c962b99a78fa387619"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/license-boundary-authorization-report.json",
-      "sourceReportSha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+      "sourceReportSha256": "742b2c7dce0b559c5692129476cc25f5142607115e2d02abe669dc32668f42c2",
       "sourceProject": "GitHub Docs licensing a repository",
       "sourceUrl": "https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository/",
       "sourceHost": "docs.github.com",
@@ -732,12 +738,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f14413c70cbc94f8f61d4dd8dd4b13488020c20a142bcd5f4c1bc0b0a22e89e2"
+      "recordDigest": "d90c4d1a6f3e665f54eaf85681ce2c5e3adc0c3194f2fea585a186fbe227bb68"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/license-boundary-authorization-report.json",
-      "sourceReportSha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+      "sourceReportSha256": "742b2c7dce0b559c5692129476cc25f5142607115e2d02abe669dc32668f42c2",
       "sourceProject": "npm package.json license field",
       "sourceUrl": "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/#license",
       "sourceHost": "docs.npmjs.com",
@@ -747,12 +753,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "12d4ee2ddcdb1a92eb15184220bb3108255ee36804f108e75655e173f40db994"
+      "recordDigest": "2f30311e3ffd85eeea142578fae69a4416930e7433d016fb32be00cbadecf033"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/license-boundary-authorization-report.json",
-      "sourceReportSha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+      "sourceReportSha256": "742b2c7dce0b559c5692129476cc25f5142607115e2d02abe669dc32668f42c2",
       "sourceProject": "SPDX License List",
       "sourceUrl": "https://spdx.org/licenses/",
       "sourceHost": "spdx.org",
@@ -762,12 +768,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "a7d0b538fbf1183b88aa01ba7f0916940643f3ba044aef9f1766852efb10abbe"
+      "recordDigest": "86af51964f1b7ced300913c9922c0e567c90e51d7e0d9b3411b80842f214efa5"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/license-boundary-authorization-report.json",
-      "sourceReportSha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+      "sourceReportSha256": "742b2c7dce0b559c5692129476cc25f5142607115e2d02abe669dc32668f42c2",
       "sourceProject": "SPDX File Tags",
       "sourceUrl": "https://spdx.github.io/spdx-spec/v2.3/file-tags/",
       "sourceHost": "spdx.github.io",
@@ -777,12 +783,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "6e76b48f6505c15ee593885c2fa7ecf27789ebcc8243e1c4419cc31a8f9d4c80"
+      "recordDigest": "6a35dd8377a299af698b3fe16d9b0828e5e202458cb37f33b65f56310c64888f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/license-boundary-authorization-report.json",
-      "sourceReportSha256": "0cedd772bfba10344539582afa5e5e0b88d6d5921987ed3dac30797b9c2d3b66",
+      "sourceReportSha256": "742b2c7dce0b559c5692129476cc25f5142607115e2d02abe669dc32668f42c2",
       "sourceProject": "REUSE Specification 3.2",
       "sourceUrl": "https://reuse.software/spec-3.2/",
       "sourceHost": "reuse.software",
@@ -792,12 +798,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "00e0b6f8aba3826193eb9e88c41b241e9a1ee302660fc859858993ccdfca8273"
+      "recordDigest": "a81d6d89b20ddea3957c377030f61ee41fa4e890a64c0296607ab47f46df55a9"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-      "sourceReportSha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
+      "sourceReportSha256": "099b71664c9ecffdf6d9b54e88a3ee92a24d1da6d5ab74ad8347e05b62ebdcbe",
       "sourceProject": "Bun lockfile documentation",
       "sourceUrl": "https://bun.com/docs/pm/lockfile",
       "sourceHost": "bun.com",
@@ -807,12 +813,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "b32f7c371323cf7bb95e75fa2952a75acc18ad9bcf51658b570a229acf7f8240"
+      "recordDigest": "d8063c037e746815ddb553ea325ff0f60c8200ba4579f4ac16c564053bcd861e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-      "sourceReportSha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
+      "sourceReportSha256": "099b71664c9ecffdf6d9b54e88a3ee92a24d1da6d5ab74ad8347e05b62ebdcbe",
       "sourceProject": "CycloneDX specification overview",
       "sourceUrl": "https://cyclonedx.org/specification/overview/",
       "sourceHost": "cyclonedx.org",
@@ -822,12 +828,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "1e0152868f1ce1d3f422a96e0fbab1475603316aeb97a46d5a6dfa92421e677e"
+      "recordDigest": "7b873e6cac50d1edf7116509479a1b81b57b804a6470b2681577da758710c821"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-      "sourceReportSha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
+      "sourceReportSha256": "099b71664c9ecffdf6d9b54e88a3ee92a24d1da6d5ab74ad8347e05b62ebdcbe",
       "sourceProject": "SPDX specifications",
       "sourceUrl": "https://spdx.dev/use/specifications/",
       "sourceHost": "spdx.dev",
@@ -837,12 +843,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ac4fecfa385c42ec9f24e9f194fa9783327d7610c955f23f4bf6bf537bb96e31"
+      "recordDigest": "95d0db7d4eb6bad65d8c0a4def25ecbb5c875a2b1f5ea4853dc32e5e31dbd37c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-      "sourceReportSha256": "98225646448da1dd3a3ed9d91378acb610c8017dfc338e78dcce421b48c30b75",
+      "sourceReportSha256": "099b71664c9ecffdf6d9b54e88a3ee92a24d1da6d5ab74ad8347e05b62ebdcbe",
       "sourceProject": "GitHub Dependency Graph SBOM API",
       "sourceUrl": "https://docs.github.com/en/rest/dependency-graph",
       "sourceHost": "docs.github.com",
@@ -852,12 +858,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "57d9ac9d99c2587fb6f95c825e0fd1bcb0d6750b6dab4eaa1a3c58bd418ceee3"
+      "recordDigest": "f2670af256a5a2aaf399db6e0a6463c977a9ead6269e405afb2b14f98f1ea10f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/maintainer-ownership-quality-report.json",
-      "sourceReportSha256": "88aea580c0cbf8412b6c6607ab11a7c79108993d049d251605b52bdfa19255ba",
+      "sourceReportSha256": "b9c5667132051a49ee0f234db585d57a40e369b8803cb89d07843af4059ae0cc",
       "sourceProject": "GitHub Docs CODEOWNERS",
       "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
       "sourceHost": "docs.github.com",
@@ -867,12 +873,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "088982d3d2ac878f4690e5327b7232c9275b0f8ba16577aab50c9f5a3f0a76dd"
+      "recordDigest": "ff51cc1bccad06cab01e2a321b413cc50a279998dc8a68bb38d15adc31057696"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/maintainer-ownership-quality-report.json",
-      "sourceReportSha256": "88aea580c0cbf8412b6c6607ab11a7c79108993d049d251605b52bdfa19255ba",
+      "sourceReportSha256": "b9c5667132051a49ee0f234db585d57a40e369b8803cb89d07843af4059ae0cc",
       "sourceProject": "GitHub Docs protected branches",
       "sourceUrl": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
       "sourceHost": "docs.github.com",
@@ -882,12 +888,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "37d626c02a661ad8c059b78c9180b6a97466908d06a5bfb916e36c10650a22af"
+      "recordDigest": "4d0c3b3cbdd41fe2fcc9575dc94591101587f810b57f99e27b7f9c8c7da04351"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/maintainer-ownership-quality-report.json",
-      "sourceReportSha256": "88aea580c0cbf8412b6c6607ab11a7c79108993d049d251605b52bdfa19255ba",
+      "sourceReportSha256": "b9c5667132051a49ee0f234db585d57a40e369b8803cb89d07843af4059ae0cc",
       "sourceProject": "OpenSSF Scorecard checks",
       "sourceUrl": "https://github.com/ossf/scorecard/blob/main/docs/checks.md",
       "sourceHost": "github.com",
@@ -897,12 +903,147 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f0ce83ce0d108f3e7e64eb77e5edaf08d546952c73eb7a8e8567e72a0f03a960"
+      "recordDigest": "4593e6eb4269df28526eab897ee3fd91590e592b409ff850611f515b81aaf29a"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "OpenAI Model Spec",
+      "sourceUrl": "https://model-spec.openai.com/",
+      "sourceHost": "model-spec.openai.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Instruction hierarchy, autonomy bounds, side-effect control, and untrusted-data handling are documented as model behavior targets.",
+      "localAbsorption": "Metaforge records authority order, role boundaries, tool-output trust limits, and side-effect claims as local system-card requirements.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "0e3ad5eb5cfb767fe43a5fa374e8578ff3648601f8932a854b17c1bb8eb3649a"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "OpenAI GPT-5.3-Codex System Card",
+      "sourceUrl": "https://deploymentsafety.openai.com/gpt-5-3-codex",
+      "sourceHost": "deploymentsafety.openai.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Coding-agent system cards separate baseline evaluations, product-specific mitigations, model-specific risks, and preparedness boundaries.",
+      "localAbsorption": "Metaforge separates model/provider routes from runtime controls and keeps local evidence distinct from vendor safety claims.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "9fa2b5b112f7e684416973d77c938edfbf74190843f6d8f0aad6293fe47ec1c2"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "OpenAI Codex agent approvals and security",
+      "sourceUrl": "https://developers.openai.com/codex/agent-approvals-security",
+      "sourceHost": "developers.openai.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Agentic coding risk is reduced by sandboxing, approvals, and explicit control over destructive or networked side effects.",
+      "localAbsorption": "Metaforge treats protected actions and provider-backed execution as blocked until owner authorization and fresh evidence exist.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "895e92e38d322b960f98f299184a22b78c5c3d5f98c139e6cf4b26bd188a3814"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "Claude Code how it works",
+      "sourceUrl": "https://code.claude.com/docs/en/how-claude-code-works",
+      "sourceHost": "code.claude.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Agentic coding loops gather context, act through tools, and verify work through an iterative local workflow.",
+      "localAbsorption": "OpenClaude is documented as the CLI substrate, while Meta/MFH/Orchestra owns memory, routing, and closure.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "7616b6c02b832776edc94b22d78fb6214cd3690338accd79f6d856df85799116"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "Claude Code permission modes",
+      "sourceUrl": "https://code.claude.com/docs/en/permission-modes",
+      "sourceHost": "code.claude.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Permission modes expose different levels of tool autonomy and user approval.",
+      "localAbsorption": "The card requires tool and permission boundaries plus explicit protected-action authorization.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "78fa17866baec0d239493210e68cc9b5a6272ff7ab5a60b63cd043a7ca004ef2"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "Anthropic public system prompt release notes",
+      "sourceUrl": "https://platform.claude.com/docs/en/release-notes/system-prompts",
+      "sourceHost": "platform.claude.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Versioned public system prompt disclosure can improve transparency while remaining surface-specific.",
+      "localAbsorption": "Metaforge uses this only as transparency precedent, not as evidence of hidden Claude Code or API prompts.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "a1cffc4a9579bcae409cb53d9455bd8682fc42561aa1b8dd2846d65f60d3d847"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "Model Cards for Model Reporting",
+      "sourceUrl": "https://arxiv.org/abs/1810.03993",
+      "sourceHost": "arxiv.org",
+      "sourceKind": "research_paper",
+      "patternSummary": "Model cards disclose intended use, factors, metrics, evaluation data, ethical considerations, caveats, and recommendations.",
+      "localAbsorption": "Metaforge adapts the model-card shape into a model plus runtime plus tool/system transparency card.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "8baa3db6ce457c7378d75f5da4b029ce74ffa4d3a3f4ab8a1b7b391a24c1ca76"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "NIST AI RMF 1.0",
+      "sourceUrl": "https://doi.org/10.6028/NIST.AI.100-1",
+      "sourceHost": "doi.org",
+      "sourceKind": "official_project_site",
+      "patternSummary": "AI risk work can be organized through govern, map, measure, and manage functions.",
+      "localAbsorption": "The card maps local governance and measurement concepts without making a standards claim.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "ee13565401d0bc3eee47bc03c9d2ee0861b313d8b6a93ad541a05c54af9b8e12"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/model-system-card-report.json",
+      "sourceReportSha256": "8b3542e83becdb99cf45b40e55afcac6633ee880473ac283a8c88dba9eec1c50",
+      "sourceProject": "NIST AI RMF Generative AI Profile",
+      "sourceUrl": "https://doi.org/10.6028/NIST.AI.600-1",
+      "sourceHost": "doi.org",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Generative AI risk profiles emphasize documentation, provenance, testing, incident handling, and limitations.",
+      "localAbsorption": "Metaforge records known limits, change control, and blocked claims in the public card.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "2b9c167dd7d10d19b8f497b57026add9148c0c0a044d3e137540551ab1f2bde2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/onboarding-smoke-report.json",
-      "sourceReportSha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+      "sourceReportSha256": "079b59698d9681b2b15b0c5a26fe28879e7a3d4d4c18ce3dc015120e577464f5",
       "sourceProject": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
       "sourceHost": "github.com",
@@ -912,12 +1053,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "e5f4ce796b802bd1b21cd0151fb2f1314cf45022135cec96d41574f54c39bfd0"
+      "recordDigest": "3f2a89f0a099bd5d03a7dbc08201028adc1d08c9a0071e83cecb4c7e096a4905"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/onboarding-smoke-report.json",
-      "sourceReportSha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+      "sourceReportSha256": "079b59698d9681b2b15b0c5a26fe28879e7a3d4d4c18ce3dc015120e577464f5",
       "sourceProject": "Aider-AI/aider",
       "sourceUrl": "https://github.com/Aider-AI/aider",
       "sourceHost": "github.com",
@@ -927,12 +1068,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3ac61b2061f0ab0477d2298261fec11105ca5d686f45850b95aca35698a02423"
+      "recordDigest": "d0324ed19fc83d5a7531f5958bbf9f328a291396361091be57c66207f54fecc7"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/onboarding-smoke-report.json",
-      "sourceReportSha256": "9821ddf82dee0f814fa47292d266b6ce3410a3588cf38e7121fee1fe2f9ee4e8",
+      "sourceReportSha256": "079b59698d9681b2b15b0c5a26fe28879e7a3d4d4c18ce3dc015120e577464f5",
       "sourceProject": "opencode-ai/opencode",
       "sourceUrl": "https://github.com/opencode-ai/opencode",
       "sourceHost": "github.com",
@@ -942,12 +1083,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "cd7a6748932907fe9ad05729a74e140761d300be23af5bde281caef4dfa14d93"
+      "recordDigest": "d42611df5441f88defee107620b7875469d6cac5e5be490bc177bd92710a6c87"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/openssf-security-posture-report.json",
-      "sourceReportSha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+      "sourceReportSha256": "e6d76f84dffabc5c097697a5f6deda9093d04bead52cebc8969edf7109fba5d7",
       "sourceProject": "ossf/scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -957,12 +1098,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7ced899ee962d6aadf33320065824f3775b07ae1857da9ef50aac06d04d728a2"
+      "recordDigest": "7cafd3afb1e0324f659486067ba1115d03de33ebf5c199a638d0f3c35eb868f3"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/openssf-security-posture-report.json",
-      "sourceReportSha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+      "sourceReportSha256": "e6d76f84dffabc5c097697a5f6deda9093d04bead52cebc8969edf7109fba5d7",
       "sourceProject": "slsa-framework/slsa",
       "sourceUrl": "https://github.com/slsa-framework/slsa",
       "sourceHost": "github.com",
@@ -972,12 +1113,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "89b66d4b70118386d067da8f6b6735a8b495c64f6cc724cc0c27065e84535c8d"
+      "recordDigest": "5a2bdf13a6b28b7f89e99b3812159854bc053feb4323f33efdde5ea31f6843e5"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/openssf-security-posture-report.json",
-      "sourceReportSha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+      "sourceReportSha256": "e6d76f84dffabc5c097697a5f6deda9093d04bead52cebc8969edf7109fba5d7",
       "sourceProject": "github/docs",
       "sourceUrl": "https://github.com/github/docs",
       "sourceHost": "github.com",
@@ -987,12 +1128,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "1a6e09c174733a275da692e0c11a3d7f2ed573f3dee43af12d801a8b82edffdc"
+      "recordDigest": "1b770c9fc6ad01d05959dea4ee9bfc0c4c48c03813da77104fc308b24f4a935b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/openssf-security-posture-report.json",
-      "sourceReportSha256": "94583eb61c705b40304624695f1f54ab3f5b0c25aff3353867be58e9dd29c896",
+      "sourceReportSha256": "e6d76f84dffabc5c097697a5f6deda9093d04bead52cebc8969edf7109fba5d7",
       "sourceProject": "npm/documentation",
       "sourceUrl": "https://github.com/npm/documentation",
       "sourceHost": "github.com",
@@ -1002,12 +1143,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "25f9c7c13ea6fa84297b6a2989f15f50ecfa2e4ac79f1946cd21d77ab1abd0aa"
+      "recordDigest": "3a1e9d999859cc56567c08f4beb02d4f41dfaae516810ee49c81acc3d8ad18e2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-      "sourceReportSha256": "cf9a0b5ee68ee4aa331393d150c1a7cf7f43a8788c62c814e7f952c6a5b46c99",
+      "sourceReportSha256": "3c690aebca853528fb029f0a26beb3bdc77d72a5dbdf719a71beb3f1dc4215c7",
       "sourceProject": "GitHub REST repository contents endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
       "sourceHost": "docs.github.com",
@@ -1017,12 +1158,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7b3205e68b582cf43e72040b93da8916583954db8cd65dfd73d561341ecd6198"
+      "recordDigest": "437298e7eccb93c851b9d2a263fce23eb39522cf653d1b841e28c439f805224e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-      "sourceReportSha256": "cf9a0b5ee68ee4aa331393d150c1a7cf7f43a8788c62c814e7f952c6a5b46c99",
+      "sourceReportSha256": "3c690aebca853528fb029f0a26beb3bdc77d72a5dbdf719a71beb3f1dc4215c7",
       "sourceProject": "GitHub REST repository README endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-a-repository-readme",
       "sourceHost": "docs.github.com",
@@ -1032,12 +1173,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "80e43619a3e7cff0efe13c6f13fda044aa76a7c60ec289ca152c5c3d27437428"
+      "recordDigest": "ca091ad27875d61585734c24cdad808b0384ebbe43a1d4acf78df524f604b951"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-      "sourceReportSha256": "cf9a0b5ee68ee4aa331393d150c1a7cf7f43a8788c62c814e7f952c6a5b46c99",
+      "sourceReportSha256": "3c690aebca853528fb029f0a26beb3bdc77d72a5dbdf719a71beb3f1dc4215c7",
       "sourceProject": "GitHub REST repository contents endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
       "sourceHost": "docs.github.com",
@@ -1047,12 +1188,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3c4760d86822733d35a7e90f525de6440b5cd0ca79209f0026e84826ff71122f"
+      "recordDigest": "974e169bdb00f51e7e0255b1c86c633cf629bbbe1568c83c6cfb4649d11ee081"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-architecture-gap-review-report.json",
-      "sourceReportSha256": "87c04e48587996843f9b21c96f062d8afed17b75ab2b2c2a6753323852a8504c",
+      "sourceReportSha256": "c411cdbcef80a3f2f49efa5c8ea6923680dd268236a1932831b681ef94393df2",
       "sourceProject": "GitHub REST repository contents endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
       "sourceHost": "docs.github.com",
@@ -1062,12 +1203,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "c5e8134ae10da6e33eb1bd6c4ee727ab54968be8686f422fc46feb9712314065"
+      "recordDigest": "398a71302459639b2ed791aa54336bc1cb44c0d7aca5bafbc4a497f2e4453239"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-architecture-gap-review-report.json",
-      "sourceReportSha256": "87c04e48587996843f9b21c96f062d8afed17b75ab2b2c2a6753323852a8504c",
+      "sourceReportSha256": "c411cdbcef80a3f2f49efa5c8ea6923680dd268236a1932831b681ef94393df2",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1077,12 +1218,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7803d8a0a45dfbaecd95794b419aadf4d4ba250867cd1fe71db9e73ef8af7626"
+      "recordDigest": "0b735b9bb67ded3509118976a9f3908a6e69cbc43e063224675bd7b854a9054e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-      "sourceReportSha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad",
+      "sourceReportSha256": "fae965873e8eb227c7fc9cd280d6f54023297d8560cdf292838a77aa7a2a4e86",
       "sourceProject": "GitHub REST repository contents endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
       "sourceHost": "docs.github.com",
@@ -1092,12 +1233,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "94d4607c68abdf0b7879191ae5a94de169fd3f6a6e94641bbce43ada88fb1121"
+      "recordDigest": "f66cf4734952cdb382241dacf311831245f4c8c60cda523798b9afac11c47b27"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-      "sourceReportSha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad",
+      "sourceReportSha256": "fae965873e8eb227c7fc9cd280d6f54023297d8560cdf292838a77aa7a2a4e86",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1107,12 +1248,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "701c70013825868033b6c12bbf2a47285e3446a6c7f164e85c20cb6edf3e2c09"
+      "recordDigest": "7bd9d1efac3375bb91ab61cebca96ec0603afe7c1eab60ce585abc58d6d28526"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-      "sourceReportSha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad",
+      "sourceReportSha256": "fae965873e8eb227c7fc9cd280d6f54023297d8560cdf292838a77aa7a2a4e86",
       "sourceProject": "OpenTelemetry Logs Data Model",
       "sourceUrl": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
       "sourceHost": "opentelemetry.io",
@@ -1122,27 +1263,27 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "bcf5338b4ccc0c4b89c5c4f9246736ad7a5161d5262e6111dd292588e4ddac8c"
+      "recordDigest": "9615a4d4184863547bf2819ed1892543a143e962cf987f806808f3e94105994b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-drift-closure-report.json",
-      "sourceReportSha256": "9d53e86bf03d681f320b69305d5d9a455a3a1cee86a6874165b6aa5d463239e8",
+      "sourceReportSha256": "37d613fc9d41417e7c3cd71769e662d2a9dc9eb64427f54df368b5a13d4a14e3",
       "sourceProject": "GitHub REST repository metadata",
       "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
       "sourceHost": "docs.github.com",
       "sourceKind": "official_documentation",
       "patternSummary": "Mutable repository metadata must be treated as dated evidence and synchronized through downstream review reports.",
-      "localAbsorption": "OpenClaude verifies that new and removed top-10 baseline projects are reflected in source review, architecture targeting, and safe backlog closure evidence.",
+      "localAbsorption": "OpenClaude verifies that new and removed top-10 baseline projects are reflected in source review, architecture targeting, gap review, and source-promoted high-priority follow-up evidence.",
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "071a5c73898dff39b5b16dac7f6643a5846aa59bf15eff56147e232bcfb6133d"
+      "recordDigest": "5e910a8e8ae51863ac337369ac8d918418cb982f0fb794c7683b989a524fecaa"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-drift-closure-report.json",
-      "sourceReportSha256": "9d53e86bf03d681f320b69305d5d9a455a3a1cee86a6874165b6aa5d463239e8",
+      "sourceReportSha256": "37d613fc9d41417e7c3cd71769e662d2a9dc9eb64427f54df368b5a13d4a14e3",
       "sourceProject": "SLSA provenance materials model",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1152,12 +1293,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "044c6c6797aab48908f6898b11c8edb9d0ede4d3fd327ea6ddbbfe386fba2014"
+      "recordDigest": "f98a11d9e1a4eacf0c10d4db1e0f0c9f5b9375501e0ac205419e927c6e5132d4"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-freshness-report.json",
-      "sourceReportSha256": "8fa4c2de447d7b0026f70867275ab55d6adc6cc79c5abf9c47121af62ee63af1",
+      "sourceReportSha256": "7664e2ee7d4a1c511deebf317308d613fb068cae6c53195941845a1be6b833cb",
       "sourceProject": "GitHub Docs stars",
       "sourceUrl": "https://docs.github.com/articles/stars",
       "sourceHost": "docs.github.com",
@@ -1167,12 +1308,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d4c3865625401ede5670f3c42725e200dcdacfde60bbc1f47541e8704a456e7f"
+      "recordDigest": "08d3b0d80031001126505249917298814257ecaaa4513c512eb084a733835bea"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-freshness-report.json",
-      "sourceReportSha256": "8fa4c2de447d7b0026f70867275ab55d6adc6cc79c5abf9c47121af62ee63af1",
+      "sourceReportSha256": "7664e2ee7d4a1c511deebf317308d613fb068cae6c53195941845a1be6b833cb",
       "sourceProject": "GitHub Docs repository search syntax",
       "sourceUrl": "https://github.com/github/docs/blob/main/content/search-github/searching-on-github/searching-for-repositories.md",
       "sourceHost": "github.com",
@@ -1182,12 +1323,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3c9c9131b66f8e2e38e9a7b5f02dfe722e54f50d0ec38288f46edebae0c23286"
+      "recordDigest": "4ff8a88d38006c68e21a2497abab78779533890b6f821d6b9a6579f9211addc0"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-freshness-report.json",
-      "sourceReportSha256": "8fa4c2de447d7b0026f70867275ab55d6adc6cc79c5abf9c47121af62ee63af1",
+      "sourceReportSha256": "7664e2ee7d4a1c511deebf317308d613fb068cae6c53195941845a1be6b833cb",
       "sourceProject": "GitHub REST repositories metadata",
       "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
       "sourceHost": "docs.github.com",
@@ -1197,12 +1338,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3bc48809d526523ebb40b870bb8ad5131969d131f54544d6e257d0c37aa63cca"
+      "recordDigest": "628097081ade1291f6e6d0ac08d98a29cccc77f1baab88789450dd0b7a720730"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-refresh-report.json",
-      "sourceReportSha256": "8e6a6de7c24bdadabb90b137008ab2377e2f6b2dbc0cc3f43275171a57bb6458",
+      "sourceReportSha256": "c4f4e2606310780b46558503cb7eb65d65c3d549c39f24d7afe5499f5574fafd",
       "sourceProject": "GitHub REST Search repositories",
       "sourceUrl": "https://docs.github.com/en/rest/search/search#search-repositories",
       "sourceHost": "docs.github.com",
@@ -1212,12 +1353,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "4ab5c59576289a049502fd3ce3ab23d4b6534a3faeee9dd50030f75f6a144c90"
+      "recordDigest": "d541ff3603833239f52063df70ffbb5da6eb9d15e2552eb2c156d211c3809179"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-refresh-report.json",
-      "sourceReportSha256": "8e6a6de7c24bdadabb90b137008ab2377e2f6b2dbc0cc3f43275171a57bb6458",
+      "sourceReportSha256": "c4f4e2606310780b46558503cb7eb65d65c3d549c39f24d7afe5499f5574fafd",
       "sourceProject": "GitHub REST Repositories metadata",
       "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
       "sourceHost": "docs.github.com",
@@ -1227,12 +1368,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "35c8a2cfecbfaae6f843a370d04640757e8ee9606d4e35164bb9b24717408129"
+      "recordDigest": "2d3058cf890b95991153270120d589186c879ad01f6a04d7be7249b2eba26b93"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-baseline-refresh-report.json",
-      "sourceReportSha256": "8e6a6de7c24bdadabb90b137008ab2377e2f6b2dbc0cc3f43275171a57bb6458",
+      "sourceReportSha256": "c4f4e2606310780b46558503cb7eb65d65c3d549c39f24d7afe5499f5574fafd",
       "sourceProject": "GitHub Docs stars",
       "sourceUrl": "https://docs.github.com/articles/stars",
       "sourceHost": "docs.github.com",
@@ -1242,12 +1383,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "323b2b8aa0370aa46ede76990d26106e06a85063d7ee84a537b890b31a8668c0"
+      "recordDigest": "57247b9b847dccd8d400da1a2ed108ed830ea8740b4ee8b3278fd8520c157886"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-      "sourceReportSha256": "5c4003793e4e71043ae6a00c88f563511c7bc4af6be62d5f4ad28a5d13906239",
+      "sourceReportSha256": "dec2a89a883264007b7e0a997ab413e2053bfd47c90675461bd502828dff1c85",
       "sourceProject": "GitHub REST repository metadata",
       "sourceUrl": "https://docs.github.com/en/rest/repos/repos",
       "sourceHost": "docs.github.com",
@@ -1257,12 +1398,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "9ce0bc3209f1af884d9799c44921bc7453482f68c85dd25d30d266de7911749b"
+      "recordDigest": "ddfcc93670b34f945cc688ccd0a67f45e803c3def691374acdf2e4b287d2651f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-      "sourceReportSha256": "5c4003793e4e71043ae6a00c88f563511c7bc4af6be62d5f4ad28a5d13906239",
+      "sourceReportSha256": "dec2a89a883264007b7e0a997ab413e2053bfd47c90675461bd502828dff1c85",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -1272,12 +1413,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "6201407d0ba0d477a6e673da19a787fcae336918dba09ae15ab8db85f7e95c58"
+      "recordDigest": "aac8046286c933e9c6ecf29a78a7800e9b2dfbe6398ac7a575f067d78abc0cfa"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-      "sourceReportSha256": "5c4003793e4e71043ae6a00c88f563511c7bc4af6be62d5f4ad28a5d13906239",
+      "sourceReportSha256": "dec2a89a883264007b7e0a997ab413e2053bfd47c90675461bd502828dff1c85",
       "sourceProject": "SLSA provenance materials model",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1287,12 +1428,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "b9482c98fbec56bc6189c2f6bf5343c92a43da0f60b4263fb2015ef889698185"
+      "recordDigest": "23d3f2247b9a270a3ce5257ada4604f85675788ac310a41c5fa85b20e8106ea8"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-comparison-readiness-index-report.json",
-      "sourceReportSha256": "7ad73a367bf0ac32bc7cc6eac199de42c3d4f283cec7199f6f27c9f7cce5982e",
+      "sourceReportSha256": "853db6356a44cd79cba7d7224a545126d5e30089c0285bd3a3352a7b9db9eb37",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -1302,12 +1443,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "05f4ae1a37c63d4c0fff42209cd7b1cfe9d1c375bacf48b43134ca44fdae8afa"
+      "recordDigest": "30f237dba9832d139222db9423ac6697bbd19cb3f5fdc1aec320523119a37710"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-comparison-readiness-index-report.json",
-      "sourceReportSha256": "7ad73a367bf0ac32bc7cc6eac199de42c3d4f283cec7199f6f27c9f7cce5982e",
+      "sourceReportSha256": "853db6356a44cd79cba7d7224a545126d5e30089c0285bd3a3352a7b9db9eb37",
       "sourceProject": "SLSA provenance materials model",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1317,12 +1458,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "230dfed36ef9bc7583a21491e424536406c1d876f65eff3cbacdbe6e9344cbd2"
+      "recordDigest": "bc2cd5220da7993ec223001bd8c5e8e3543d6bcbab4d3c2c27712f5e36113c0f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-comparison-readiness-index-report.json",
-      "sourceReportSha256": "7ad73a367bf0ac32bc7cc6eac199de42c3d4f283cec7199f6f27c9f7cce5982e",
+      "sourceReportSha256": "853db6356a44cd79cba7d7224a545126d5e30089c0285bd3a3352a7b9db9eb37",
       "sourceProject": "in-toto Attestation Framework",
       "sourceUrl": "https://github.com/in-toto/attestation",
       "sourceHost": "github.com",
@@ -1332,12 +1473,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d42462799e223998ebe55a5bcaab7ee2a48ef33f6945922fcc9a947d6140da59"
+      "recordDigest": "0bffcc020b5957269e9269fb064af11eec3ce34ec8e3a5bd5edd61aedf636378"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-      "sourceReportSha256": "e42649e718c0efd4b6bf4603bf05eeb8509cd0959355763303669668e0a0b963",
+      "sourceReportSha256": "cf6f750b680cc0640b335b61c8a1c14c34ad44a1a180903583e17b1b0ca0e2ed",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1347,12 +1488,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d74baa6492f563d7ab2ce2cbbc3b6eefb2634ceb1987654ef13aec13d42ef813"
+      "recordDigest": "7a51b4d28a2f674e99e0d59753ee508374d53b62d5d62bdfa858f25ef9609dd3"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-      "sourceReportSha256": "e42649e718c0efd4b6bf4603bf05eeb8509cd0959355763303669668e0a0b963",
+      "sourceReportSha256": "cf6f750b680cc0640b335b61c8a1c14c34ad44a1a180903583e17b1b0ca0e2ed",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1362,12 +1503,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "cc1353e6a68836319be267489482d5d30df89a78c135c67bfaf092c50155d5e2"
+      "recordDigest": "26c0a45b58498c21a333ebad1b78e96ccf8d8d06f6befbca5a48b4143bff240b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
-      "sourceReportSha256": "5219d7d58340356b4cb14c72b83f46e70074c5f6c1c25c8d2160a2ef511d82c1",
+      "sourceReportSha256": "96d59c82c0fd8886da16eb89f5464376be0a6630d8b3ed0c8459900a887a5828",
       "sourceProject": "Visual Studio Code Extension API",
       "sourceUrl": "https://code.visualstudio.com/api",
       "sourceHost": "code.visualstudio.com",
@@ -1377,12 +1518,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "4e7bb51b14bb259d9dab123ad187abdd394fa2da351d64ac011968535b3aad13"
+      "recordDigest": "466ef32d7bb2b7432a681e24cd400a14a6903bb5c554cb6330b8a213503efc49"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
-      "sourceReportSha256": "5219d7d58340356b4cb14c72b83f46e70074c5f6c1c25c8d2160a2ef511d82c1",
+      "sourceReportSha256": "96d59c82c0fd8886da16eb89f5464376be0a6630d8b3ed0c8459900a887a5828",
       "sourceProject": "Visual Studio Code Testing Extensions",
       "sourceUrl": "https://code.visualstudio.com/api/working-with-extensions/testing-extension",
       "sourceHost": "code.visualstudio.com",
@@ -1392,12 +1533,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "067779dcccf6d6bb8ab479698abb7968bc4115a5af3cbd0c2a7b4165f3a07cfb"
+      "recordDigest": "10bb6a9a94bb1c7f4185bb52a209d51fe4b23c337261afac9ecc6b780a714c72"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
-      "sourceReportSha256": "5219d7d58340356b4cb14c72b83f46e70074c5f6c1c25c8d2160a2ef511d82c1",
+      "sourceReportSha256": "96d59c82c0fd8886da16eb89f5464376be0a6630d8b3ed0c8459900a887a5828",
       "sourceProject": "Visual Studio Code Workspace Trust",
       "sourceUrl": "https://code.visualstudio.com/docs/editing/workspace-trust",
       "sourceHost": "code.visualstudio.com",
@@ -1407,27 +1548,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f13dfcd32306fb791894208c60d2b64ea7f9917ff77b286258ac7839f58e808b"
+      "recordDigest": "b49736de2d6c2d84515f2ad526bf7db2d54087374f53b7ef8cb80ac217c14875"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-      "sourceReportSha256": "152a1c1518f1aded0950d4f22f9c74c0850d1e9254a2f7737136b4f4dcb8fa8a",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Onboarding quality should bind README, quick-start, link integrity, community support, and first-run evidence before cross-platform or public readiness claims.",
-      "localAbsorption": "Convert onboarding_docs backlog items into a source-hash-addressed onboarding evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "fe109e1f8b44d9813416fa428ff44df51ca4ef7948e2f32dbec20dae5a4d23f5"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-      "sourceReportSha256": "152a1c1518f1aded0950d4f22f9c74c0850d1e9254a2f7737136b4f4dcb8fa8a",
+      "sourceReportSha256": "2c86627a33b84bc949f7978ae6b4aa4ac8880e2ad6166bceea22a30f1cf8fb15",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1437,12 +1563,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5e31ba1327b60fa20fd44e6b5fc0aa9aedb89384dd977b6196842775ec599308"
+      "recordDigest": "f68f220076970cef1128c1f79bfaf7be99dd247ce30903ce85e76be950028354"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-      "sourceReportSha256": "152a1c1518f1aded0950d4f22f9c74c0850d1e9254a2f7737136b4f4dcb8fa8a",
+      "sourceReportSha256": "2c86627a33b84bc949f7978ae6b4aa4ac8880e2ad6166bceea22a30f1cf8fb15",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1452,12 +1578,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "721f415513174979e2a0be920195ca7ca2d1a39386a99418e5f2c9cc49ef4c98"
+      "recordDigest": "5e844ddba788b8c43b3f32b1aba59c8a84f1d53f7702fcaf6a3ca8041ad7e379"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-      "sourceReportSha256": "6cb7bd2c2e84b2f5fe1e1c90512a8ffac8c53946c44c17d383bb0a453dad49a1",
+      "sourceReportSha256": "95174ece1c4a1a8052864810ca90a08176ee0c51350b5eac8fafcd984f9f50bc",
       "sourceProject": "OpenTelemetry JavaScript",
       "sourceUrl": "https://github.com/open-telemetry/opentelemetry-js",
       "sourceHost": "github.com",
@@ -1467,12 +1593,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5efecb97dccb7147cc5556c69c0aa90852531203a30fd2a0062130743e42a50b"
+      "recordDigest": "f84197bcb627f150107d05ca8416c94cfe8745c2afcd8264e8f1bffc2886f1e5"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-      "sourceReportSha256": "6cb7bd2c2e84b2f5fe1e1c90512a8ffac8c53946c44c17d383bb0a453dad49a1",
+      "sourceReportSha256": "95174ece1c4a1a8052864810ca90a08176ee0c51350b5eac8fafcd984f9f50bc",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -1482,12 +1608,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "dafdd8e02ff8847809850c8079b426f69a97173791c63756516ca4c19117a76b"
+      "recordDigest": "67cb4cf43ee479231a345d1e02f960103daf4be98b80b0921a4486147e8301da"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-      "sourceReportSha256": "6cb7bd2c2e84b2f5fe1e1c90512a8ffac8c53946c44c17d383bb0a453dad49a1",
+      "sourceReportSha256": "95174ece1c4a1a8052864810ca90a08176ee0c51350b5eac8fafcd984f9f50bc",
       "sourceProject": "SLSA provenance materials model",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1497,27 +1623,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "6a485bf4cb330d67bbc6c59752c391a2e2a0eba0aeacdd06a46dc0b16906cdc8"
+      "recordDigest": "9ce4a8d78153c65fe6df2d1d41900f03593ae2b4de366114d2741d62b678956c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-      "sourceReportSha256": "1d555c226098dc4cef865d878b8bc496e96e9757971560ce6118977eba33fcba",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Provider breadth evidence should preserve per-provider capability/failure-mode rows and provider fallback boundaries before any live-provider validation or compatibility claim.",
-      "localAbsorption": "Convert provider_breadth backlog items into a source-hash-addressed local capability and live-authorization boundary evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "cac4868bf51ffa7bbe0344b78db2e437bc7e6448989920a43383e0e37c49a56a"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-      "sourceReportSha256": "1d555c226098dc4cef865d878b8bc496e96e9757971560ce6118977eba33fcba",
+      "sourceReportSha256": "0e24981fce7a670f6494b4ff81b5fce4fadb495f873c5d16084fc6bfce603fb3",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1527,12 +1638,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "c46579a2343807beac14790f6e4d267cd3d724eaeb026e67b895e55aa62df332"
+      "recordDigest": "250390dc0807052a3ac9d43cdbb123424c02bca36a501972d082ed6b5ba02c23"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-      "sourceReportSha256": "1d555c226098dc4cef865d878b8bc496e96e9757971560ce6118977eba33fcba",
+      "sourceReportSha256": "0e24981fce7a670f6494b4ff81b5fce4fadb495f873c5d16084fc6bfce603fb3",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1542,27 +1653,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ed769f0c4e1b373af70483952b0e5814ac5db589f5a3700a12a52b230ed2fcc2"
+      "recordDigest": "91d2727aade8f1f36e7c0544e65975add955fbfb7c64248c5304e54a88b140e1"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-release-hygiene-evidence-report.json",
-      "sourceReportSha256": "6571a9b84659998c85b26fa9b543880a8e7cbce2900aaabcf86fa27b68147f2a",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Release hygiene evidence should bind reproducible local artifacts, SBOM-shaped inventory, license-boundary authorization, and signed/publish/deploy claim blockers before release claims.",
-      "localAbsorption": "Convert release_hygiene backlog items into a source-hash-addressed local artifact and release-claim boundary evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "dcc42fa8a00e8c7cd156220cdca55a72a1fc9e761a307f3835dd3b4dcb858e34"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-release-hygiene-evidence-report.json",
-      "sourceReportSha256": "6571a9b84659998c85b26fa9b543880a8e7cbce2900aaabcf86fa27b68147f2a",
+      "sourceReportSha256": "212d3c244387fa462bcde2d3d79fced4dc07f526bc37ad7eda36ac6d95a3f33e",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1572,27 +1668,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "0b38624aefd73500368c0eba833a4422f08b37acf5efb6f4bfd457375504e232"
+      "recordDigest": "89ff5081bbd76debd5b79ef1399bc30d20c3d420b72cf05cb2a13feea7083040"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-      "sourceReportSha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Runtime doctoring should separate diagnostic evidence from protected repair, reinstall, dependency install, provider probe, and external diagnostic actions.",
-      "localAbsorption": "Convert runtime_doctoring backlog items into a source-hash-addressed runtime doctor evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "d754474ee8ac394c6957e76fd80ec5e435bde3f2daab044ed6aab06bd78bdf5b"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-      "sourceReportSha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
+      "sourceReportSha256": "5b4b39102eecc9bba64223f505080031d5a0c868701d9f9207499197c925c57b",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1602,12 +1683,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "337a96608d2c6fd1d85faa6f2a10e1080be64b0ec77abd09b57e8dbc461013fa"
+      "recordDigest": "d12f49d457a8db4c9ab65bbca3319b86f915c32a86888790899b4c2990b2f70c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-      "sourceReportSha256": "640d5979c60ce2b1ac8f350d8e6f558d554f577388c63473ca5b4a3218ab4c61",
+      "sourceReportSha256": "5b4b39102eecc9bba64223f505080031d5a0c868701d9f9207499197c925c57b",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1617,12 +1698,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "8a9a3533c80ebc419238ba1b1362e7805a275b4bf76234b6ec0ac87d6070c546"
+      "recordDigest": "bba5b8b0b15c25fe111c73a2ffdfd0537313a71e821887d1ce1c8256be67d99f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-      "sourceReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+      "sourceReportSha256": "3c1de4887c1c155171760f20d47d117a339dc4f556e7fa89bd3ee1fdc1e79c22",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1632,12 +1713,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f61018898a5f98644645d9863a4e97bb4d7b36ca274843c515a5fddd96ef2dc2"
+      "recordDigest": "8cc3e140450cccd23806fa75ecd0f6c6fe67e872c043bfb79f7e68d47563319c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-      "sourceReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+      "sourceReportSha256": "3c1de4887c1c155171760f20d47d117a339dc4f556e7fa89bd3ee1fdc1e79c22",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1647,12 +1728,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3f7638c1f41bcddf29da5e05581e58fab1d495868c9d2517945fe7992b29ec25"
+      "recordDigest": "d730aab13d40631fe7a36cc438cf529f4b0210309ae590dcf65cfff98d2a4952"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-      "sourceReportSha256": "329d4c50aadf3653ecb6bbc95197d64443abbc49a2cc0ff5017936b88560bad1",
+      "sourceReportSha256": "3c1de4887c1c155171760f20d47d117a339dc4f556e7fa89bd3ee1fdc1e79c22",
       "sourceProject": "ruvnet/ruflo",
       "sourceUrl": "https://github.com/ruvnet/ruflo",
       "sourceHost": "github.com",
@@ -1662,27 +1743,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ecaa7ce9744de39fe97e857c8eb8273c0afcec23602932c50fc37d99dac0f5cd"
+      "recordDigest": "dc5d7a4a0f033d8de77520dd17cbdbc156c2b7005e2303972e361348e19ae1af"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-security-permissions-evidence-report.json",
-      "sourceReportSha256": "1044a766203225b2fbdbc3fc82a67e1285f49ecaebaa43b2280bc428eae6125e",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
-      "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "d465d1c8f14814ac534d92aec4264521ca2bff89dd3baec375811ec0b26fcce3"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-security-permissions-evidence-report.json",
-      "sourceReportSha256": "1044a766203225b2fbdbc3fc82a67e1285f49ecaebaa43b2280bc428eae6125e",
+      "sourceReportSha256": "4b3e7520ba39a5bee3a147f5baff2e03545683576592ea7cc9ac8d41dd397a76",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1692,12 +1758,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "14183b6c80e8ced0c04f5fa4f53d8e0e1a636dd8f3b7f712fa22001d5a0571db"
+      "recordDigest": "302b77b649c88007565368625ef90b323696a2865134e3d01d2a609ccb75fc42"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-security-permissions-evidence-report.json",
-      "sourceReportSha256": "1044a766203225b2fbdbc3fc82a67e1285f49ecaebaa43b2280bc428eae6125e",
+      "sourceReportSha256": "4b3e7520ba39a5bee3a147f5baff2e03545683576592ea7cc9ac8d41dd397a76",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1707,12 +1773,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3e33185c5b76d9fa0b5421c98715dd11be958c4e9a0d2d1b4fca22b352353800"
+      "recordDigest": "90342007f62bb70760234260a7839b5e42e3b56d37f137932f442461e5df8be1"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-source-review-report.json",
-      "sourceReportSha256": "14c9abc47c0cc8f398270efbea2169861b60b3518983ed8c946b6b2d75b2339d",
+      "sourceReportSha256": "c3169e92f524929c6b0acfef6ad998afbace74768cfde275ee5b886f31d8ae9b",
       "sourceProject": "GitHub REST repository README endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-a-repository-readme",
       "sourceHost": "docs.github.com",
@@ -1722,12 +1788,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3356015d29cf96911e1aef6c06daf6864d8cc31692f5409f60f7999fcc6e6735"
+      "recordDigest": "b667ea9467e24ac58d856cf43706e204346811da276db85f1134af4cce427941"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-source-review-report.json",
-      "sourceReportSha256": "14c9abc47c0cc8f398270efbea2169861b60b3518983ed8c946b6b2d75b2339d",
+      "sourceReportSha256": "c3169e92f524929c6b0acfef6ad998afbace74768cfde275ee5b886f31d8ae9b",
       "sourceProject": "GitHub REST repository contents endpoint",
       "sourceUrl": "https://docs.github.com/en/rest/repos/contents#get-repository-content",
       "sourceHost": "docs.github.com",
@@ -1737,27 +1803,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "fe2c55724e04f553ed1feb6549cd015a837a571e71c6eafe69ae018ab8735f30"
+      "recordDigest": "20bc8bcdfcb7e0567b80e5f2cf5fb8f1fd7b5812a74298dbd94d90a09b260cd4"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-      "sourceReportSha256": "2bc0c2ee9bf972a12a74919735dc4f1360ddb74dbe1738915bc22c9c971a96b6",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Terminal workflow quality should bind first-run, failure recovery, doctor handoff, command hashes, and no-provider boundaries before stronger claims are made.",
-      "localAbsorption": "Convert terminal_workflow backlog items into a source-hash-addressed terminal workflow evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "41c67ef29302f2859d77e7071cd62cfdec7c1745df036007c65ac3fb3b80ad47"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-      "sourceReportSha256": "2bc0c2ee9bf972a12a74919735dc4f1360ddb74dbe1738915bc22c9c971a96b6",
+      "sourceReportSha256": "77ae0e0bd579664bc42e4da8c2ddc1a81d8293504e2ae0acce5fbe61e712850c",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1767,12 +1818,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3c9d8e3a16ffc557b432de3b941eb73196831d8de4595e459788f40e59f51f87"
+      "recordDigest": "4fff1ec6947893828dba763efdd9a82e226ce5d0f2ee92ce3c61c04783023146"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-      "sourceReportSha256": "2bc0c2ee9bf972a12a74919735dc4f1360ddb74dbe1738915bc22c9c971a96b6",
+      "sourceReportSha256": "77ae0e0bd579664bc42e4da8c2ddc1a81d8293504e2ae0acce5fbe61e712850c",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1782,27 +1833,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "a6c6caab8feb89ed7799ef5a054e5431e5b790986e8b937f92c185c4df6baa8e"
+      "recordDigest": "24de92b3730e07365ea9e00a0f4c2be774576ddc0ed58f8ad4b7bbfe6f570e2e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-      "sourceReportSha256": "00d6f14eadda2cb3b3489836134cb08f03d7214d1ff1147b528512738b5818f5",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "sourceHost": "github.com",
-      "sourceKind": "original_repository",
-      "patternSummary": "Tool-loop reliability evidence should preserve fixture-bounded repair traces, interrupted-tool recovery, redaction, and portable trace exports before stronger reliability claims.",
-      "localAbsorption": "Convert tool_loop_reliability backlog items into a source-hash-addressed local trace and tool-loop evidence matrix.",
-      "isHttps": true,
-      "isDisallowedSecondarySource": false,
-      "disallowedReason": null,
-      "recordDigest": "3e9420aad32732cf3085f9fec83502dbab119d0bbe4a7b29aab192612880fa79"
-    },
-    {
-      "schemaVersion": "openclaude_primary_source_registry_v1",
-      "sourceReportPath": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-      "sourceReportSha256": "00d6f14eadda2cb3b3489836134cb08f03d7214d1ff1147b528512738b5818f5",
+      "sourceReportSha256": "7d96a127f467f0fe930fa7c4dd6a0b36b3a1b1f18caff2ff4ffacb92d2cb44c0",
       "sourceProject": "ultraworkers/claw-code",
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "sourceHost": "github.com",
@@ -1812,12 +1848,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "2dbaee017e24279833243983d3da5ab653836430d41938ffba26c4ef3e621036"
+      "recordDigest": "632ed059992b132d19827ee3f1f0135de83cb9545a2fbbdc16eb80664482496d"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-      "sourceReportSha256": "00d6f14eadda2cb3b3489836134cb08f03d7214d1ff1147b528512738b5818f5",
+      "sourceReportSha256": "7d96a127f467f0fe930fa7c4dd6a0b36b3a1b1f18caff2ff4ffacb92d2cb44c0",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -1827,12 +1863,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ec5fb37a274f1166f5bdf56e722b6aa930c5178539b7b5cd62a7fc76ae9186d2"
+      "recordDigest": "ae92805d5527e1582762f779b1003737a921f0df34690f816409b9d835fb82f0"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "ae01233d282d46dab3e01170fa1fb5881ed67acf2b5ad86d282421255e6d40b0",
+      "sourceReportSha256": "d459a4abd548c573e21a8ca7c72b20ae11c2c52f5cfa209dce990d3db1a508e8",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1842,12 +1878,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "b7ca40bbca50bf297df32a5198bd583d6eb9dbef7790d697f0d92462ce58f898"
+      "recordDigest": "f4c8c2d1f4343a8b98322320dc9cb82774e59f83ea58f4bd9f4238fbc8e56368"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "ae01233d282d46dab3e01170fa1fb5881ed67acf2b5ad86d282421255e6d40b0",
+      "sourceReportSha256": "d459a4abd548c573e21a8ca7c72b20ae11c2c52f5cfa209dce990d3db1a508e8",
       "sourceProject": "in-toto Attestation Framework",
       "sourceUrl": "https://github.com/in-toto/attestation",
       "sourceHost": "github.com",
@@ -1857,12 +1893,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ac39b346f794666ea76756e1d7ed2f46fbd50419e8b6045bb8efd97086ace5ee"
+      "recordDigest": "96d2fff08bc1786ca27933621891a6ec57068864578c59629ee20434ba0b5817"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "ae01233d282d46dab3e01170fa1fb5881ed67acf2b5ad86d282421255e6d40b0",
+      "sourceReportSha256": "d459a4abd548c573e21a8ca7c72b20ae11c2c52f5cfa209dce990d3db1a508e8",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -1872,12 +1908,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "830be752f7e642ca3799e514d341ea1ed87e77286450f88118b4950c00fc00fe"
+      "recordDigest": "fabdde1566b32c76cd1d51b5fc5b8b2ad8ff16dfd883bc95713a7f6398f5cd3a"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sourceReportSha256": "6398fcfdcf8fa83ffecac501fc21886f22d7e023dc02da6be0d9108e5edfac53",
+      "sourceReportSha256": "48d58824151b6f48acebc3f894638d5730e47db9c105990f3d4e736e870afbba",
       "sourceProject": "Cline permission handling",
       "sourceUrl": "https://docs.cline.bot/sdk/guides/permission-handling",
       "sourceHost": "docs.cline.bot",
@@ -1887,12 +1923,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "21f1f884460bc0e89a8fd794ac3cae0912a64201f3d2a0fc4f71e4f01ecad692"
+      "recordDigest": "f2dbce551cc3bd481a40f13fe956f35802d893e69ced6d7f69de5235edb409fc"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sourceReportSha256": "6398fcfdcf8fa83ffecac501fc21886f22d7e023dc02da6be0d9108e5edfac53",
+      "sourceReportSha256": "48d58824151b6f48acebc3f894638d5730e47db9c105990f3d4e736e870afbba",
       "sourceProject": "OpenHands sandbox configuration",
       "sourceUrl": "https://docs.openhands.dev/openhands/usage/sandboxes/overview",
       "sourceHost": "docs.openhands.dev",
@@ -1902,12 +1938,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "4895891f500aa9e81ae2baefee3124134ce3a2d21fbb9d6d99c3fc3a098f6251"
+      "recordDigest": "9f4da3edda618f223e3ef09be996c222ae870260082919971162b591100c94dc"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sourceReportSha256": "6398fcfdcf8fa83ffecac501fc21886f22d7e023dc02da6be0d9108e5edfac53",
+      "sourceReportSha256": "48d58824151b6f48acebc3f894638d5730e47db9c105990f3d4e736e870afbba",
       "sourceProject": "OpenAI Codex security documentation",
       "sourceUrl": "https://developers.openai.com/codex/security",
       "sourceHost": "developers.openai.com",
@@ -1917,12 +1953,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5881d3f4a1a12003b8ef3421284d7006fdd13c62548ff4ddd6ad44230c616042"
+      "recordDigest": "5888ea71766204cc390dda3b2785642ca2bd770d708f2f588982217087372fb5"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sourceReportSha256": "6398fcfdcf8fa83ffecac501fc21886f22d7e023dc02da6be0d9108e5edfac53",
+      "sourceReportSha256": "48d58824151b6f48acebc3f894638d5730e47db9c105990f3d4e736e870afbba",
       "sourceProject": "openai/codex sandbox pointer",
       "sourceUrl": "https://github.com/openai/codex/blob/main/docs/sandbox.md",
       "sourceHost": "github.com",
@@ -1932,12 +1968,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f7ec12f003cc3ab77f651dbd88af55ff41a5b86f8aa10fac68ceef03f4a37334"
+      "recordDigest": "0011a84215bff6f02255abf29eb0a4fc5af656165c40033f8a57add9f554cd4c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/provider-capability-matrix-report.json",
-      "sourceReportSha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+      "sourceReportSha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
       "sourceProject": "OpenAI API Reference",
       "sourceUrl": "https://platform.openai.com/docs/api-reference",
       "sourceHost": "platform.openai.com",
@@ -1947,12 +1983,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "818043e8f69744640b7548025e735c1497c2f1a294e2da5581f198c5ad08ffce"
+      "recordDigest": "16a0f8e613daadf13ca6003e76c4550fbb2e62c4ed59646274e4a08a45ce5922"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/provider-capability-matrix-report.json",
-      "sourceReportSha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+      "sourceReportSha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
       "sourceProject": "OpenTelemetry Logs Data Model",
       "sourceUrl": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
       "sourceHost": "opentelemetry.io",
@@ -1962,12 +1998,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "87e6b2d47879e9043a32d3cb34acf9be830cebd09a4433c1d1b50fffc0b25852"
+      "recordDigest": "96b6df38d106dbc8ffc005a50edb40a7895e0c1f609ef979abaacf44bc579d4d"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/provider-capability-matrix-report.json",
-      "sourceReportSha256": "e26a848c208bf1e1680fe52457ba95e371e49e4db9c5396c6fc774d62040407f",
+      "sourceReportSha256": "085bb8306c2b5470366f0a18a1227a9e564abca22b82fe013c43a7eacff6102f",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -1977,12 +2013,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d76d5592e05c56ca8c05f3e9ce5ad12f68d56804c476e0533a2ab714ec1a913f"
+      "recordDigest": "f881325ed166e3bb094867024c9f6b63b9282d6e7ab1c8a5423b90f3054be7b2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/public-claim-boundary-report.json",
-      "sourceReportSha256": "0170b99804fa10a9f42f61bb410c78f0ddfa94c2d19f42b16910df14a7c9f31e",
+      "sourceReportSha256": "b430a49110a3f6bded9bb0f8f29db0737f27cfe459009c34ab7a67a10ca0be4b",
       "sourceProject": "GitHub Docs README guidance",
       "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
       "sourceHost": "docs.github.com",
@@ -1992,12 +2028,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "8e89e19e6d3abe782a3b731dbe4978f0a1aeb257c57ff343935dc5b6f025af21"
+      "recordDigest": "5d49b8ab4f8ef67749f12e3f416c14de10c081008d74d8fdf8ad8c2790dd43f4"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/public-claim-boundary-report.json",
-      "sourceReportSha256": "0170b99804fa10a9f42f61bb410c78f0ddfa94c2d19f42b16910df14a7c9f31e",
+      "sourceReportSha256": "b430a49110a3f6bded9bb0f8f29db0737f27cfe459009c34ab7a67a10ca0be4b",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -2007,12 +2043,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3d435837dcd94cf2d8034f2804879f3ba5d31d76f44bc8838de1a1e1292aeff6"
+      "recordDigest": "2da97857b42d9eb5b7578d5ce0ac30b9af4036332df73b6ddfa0b679e74e95cf"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/public-claim-boundary-report.json",
-      "sourceReportSha256": "0170b99804fa10a9f42f61bb410c78f0ddfa94c2d19f42b16910df14a7c9f31e",
+      "sourceReportSha256": "b430a49110a3f6bded9bb0f8f29db0737f27cfe459009c34ab7a67a10ca0be4b",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -2022,12 +2058,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "dfd819084f5be81586acad62568007a090c5ad513a60d8c39ea9621a35c3ed5e"
+      "recordDigest": "73cb0760e9ad64b1c91f59d360e0395c3865e956b829998b07f659a5303ea90c"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-      "sourceReportSha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
+      "sourceReportSha256": "baaa115033d82ee819e5d6a4a729838d1a3bc97b6949f17dff325421fce6094b",
       "sourceProject": "REUSE Specification",
       "sourceUrl": "https://reuse.software/spec-3.2/",
       "sourceHost": "reuse.software",
@@ -2037,12 +2073,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "610c7e1b5ff5674e24c84e9839dcf24a2cd42887d922bb35fc82895520ba122c"
+      "recordDigest": "a2071f4aa7e134dbcc4ed69e1be75a447e82c04205277d67a724b9a89bfd6448"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-      "sourceReportSha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
+      "sourceReportSha256": "baaa115033d82ee819e5d6a4a729838d1a3bc97b6949f17dff325421fce6094b",
       "sourceProject": "SPDX source-file identifiers",
       "sourceUrl": "https://spdx.github.io/spdx-spec/v2.3/using-SPDX-short-identifiers-in-source-files/",
       "sourceHost": "spdx.github.io",
@@ -2052,12 +2088,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "539fd337b5e0c6a92b8c9170bfff53405ed789a98665f2e857ccdbc87bf3e7c9"
+      "recordDigest": "a65b50d4d0da7c9f98adab4f910205eedd1e823ec336f8d38a090616916eb904"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-      "sourceReportSha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
+      "sourceReportSha256": "baaa115033d82ee819e5d6a4a729838d1a3bc97b6949f17dff325421fce6094b",
       "sourceProject": "fsfe/reuse-tool",
       "sourceUrl": "https://github.com/fsfe/reuse-tool",
       "sourceHost": "github.com",
@@ -2067,12 +2103,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "01aee76f26446b7f8f6380dcc881b130519a86696c56301b98ca82448ce1015c"
+      "recordDigest": "838ef20564d7bd4baf449b6df5f06b2d3fb77dc9a3836cc881fdf6eabe4668ac"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-      "sourceReportSha256": "801f965d066e1855b21a6b2b7768f6c5cfbd52fb00a761f1bbf8ce9b81cfcac7",
+      "sourceReportSha256": "baaa115033d82ee819e5d6a4a729838d1a3bc97b6949f17dff325421fce6094b",
       "sourceProject": "SPDX handling license info",
       "sourceUrl": "https://spdx.dev/learn/handling-license-info/",
       "sourceHost": "spdx.dev",
@@ -2082,12 +2118,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "112f1154e174fa61f7efcdfbb7df2da7ef72a2a727de7c09421893dd8b1f9de1"
+      "recordDigest": "4d98cb7ba244885bcb589d52feeddf943e0b2dbc8dd61f48014e1fd75eccfcfc"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sourceReportSha256": "86a0ef938be6ae316348ce3ced313df35d647bfc9907f8e225f03cc95d6c0408",
+      "sourceReportSha256": "e5aeb3644387dff829577a39bee64fc706172f6f4f15ec54a899dce8ad83e6c6",
       "sourceProject": "harbor-framework/terminal-bench",
       "sourceUrl": "https://github.com/harbor-framework/terminal-bench",
       "sourceHost": "github.com",
@@ -2097,12 +2133,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7841aef627b86256f17a3f280f6e3cc1d329a4645e23759b31d4b877d7cb2c93"
+      "recordDigest": "1fcbcba4686b6adcc6e91311bec27fb248ad9345fe06d0dd486c8b94c591c416"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sourceReportSha256": "86a0ef938be6ae316348ce3ced313df35d647bfc9907f8e225f03cc95d6c0408",
+      "sourceReportSha256": "e5aeb3644387dff829577a39bee64fc706172f6f4f15ec54a899dce8ad83e6c6",
       "sourceProject": "Terminal-Bench task documentation",
       "sourceUrl": "https://www.tbench.ai/docs/task-overview",
       "sourceHost": "www.tbench.ai",
@@ -2112,12 +2148,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "67b3ad6090ba277944ba9d9c7c1f6eb897eef1d043b1ff71b73968fbded2342d"
+      "recordDigest": "66924c2dab8cb398ca9bfb6b3d7a84ed70ba7dc8af025117c26300cf3ce4a61e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sourceReportSha256": "86a0ef938be6ae316348ce3ced313df35d647bfc9907f8e225f03cc95d6c0408",
+      "sourceReportSha256": "e5aeb3644387dff829577a39bee64fc706172f6f4f15ec54a899dce8ad83e6c6",
       "sourceProject": "Harbor Terminal-Bench runner documentation",
       "sourceUrl": "https://www.harborframework.com/docs/tutorials/running-terminal-bench",
       "sourceHost": "www.harborframework.com",
@@ -2127,12 +2163,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f6d0f15e90e71a14645d9cfa8b716e0aa64a38a1dfb58e1f9923621273449c0f"
+      "recordDigest": "b3a13cad902ee826339f30ce9274dba4070d0c0ebe2d4305c75bb7a19b160795"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sourceReportSha256": "86a0ef938be6ae316348ce3ced313df35d647bfc9907f8e225f03cc95d6c0408",
+      "sourceReportSha256": "e5aeb3644387dff829577a39bee64fc706172f6f4f15ec54a899dce8ad83e6c6",
       "sourceProject": "Harbor eval artifacts documentation",
       "sourceUrl": "https://harborframework.com/docs/run-jobs/run-evals",
       "sourceHost": "harborframework.com",
@@ -2142,12 +2178,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5a890cabb3a5b6eb2b28067a5a5bd0c3d4c7799e65e78e7d9a833ba4ddb736ca"
+      "recordDigest": "0cd1024698787cc194be41bfb67a2a3a52d62232cbbbdb5165ed5584949fae4a"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sourceReportSha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+      "sourceReportSha256": "0def3220878ce457b06474b8aa3e5ee2e5e66d919578bfa7db76639c9daf3840",
       "sourceProject": "anomalyco/opencode",
       "sourceUrl": "https://github.com/anomalyco/opencode",
       "sourceHost": "github.com",
@@ -2157,12 +2193,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3300336487ec346a17f0d9b48878e6f3d83215e60560ab58b1e1a79a58e0a164"
+      "recordDigest": "12bc75586b31229052437dd9007a6630a3942233ea206f9bd952dea745611e1f"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sourceReportSha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+      "sourceReportSha256": "0def3220878ce457b06474b8aa3e5ee2e5e66d919578bfa7db76639c9daf3840",
       "sourceProject": "warpdotdev/warp",
       "sourceUrl": "https://github.com/warpdotdev/warp",
       "sourceHost": "github.com",
@@ -2172,12 +2208,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "a94a86e84f9c933f131ed3b9d3e3b674ee61949296a5fd93281c0bae034c0161"
+      "recordDigest": "b7a0c295cf3e8d759c8906a34e726fd569fa9c1710a1d1e25ba574c18f786db2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sourceReportSha256": "645a2df5e814933169c503b9404cdc37bebb2155728972a9b385a3985096c2c8",
+      "sourceReportSha256": "0def3220878ce457b06474b8aa3e5ee2e5e66d919578bfa7db76639c9daf3840",
       "sourceProject": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
       "sourceHost": "github.com",
@@ -2187,12 +2223,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "0be264695dc34de476526956c2f6802f18c90c5c171131b001edab74d96fc164"
+      "recordDigest": "c0d3952ccff848ed80d91c972c671e58ec41100c3573d1dd2a1bc6bd6713158e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/third-party-license-quality-report.json",
-      "sourceReportSha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+      "sourceReportSha256": "17fb2feb5004dec19626f9ed16568c15c4e291b4aee81a70d9ba6c7c033eb104",
       "sourceProject": "SPDX License List",
       "sourceUrl": "https://spdx.org/licenses/",
       "sourceHost": "spdx.org",
@@ -2202,12 +2238,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d3df5be7466191ce58bba7879ff36774d40e6658fb79f9f5bcd0edd214d5b4c8"
+      "recordDigest": "f72eed9c923f4910b95cce727e1466d9878903b08b153696e5c8256e4e25fafa"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/third-party-license-quality-report.json",
-      "sourceReportSha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+      "sourceReportSha256": "17fb2feb5004dec19626f9ed16568c15c4e291b4aee81a70d9ba6c7c033eb104",
       "sourceProject": "npm package.json license field",
       "sourceUrl": "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/#license",
       "sourceHost": "docs.npmjs.com",
@@ -2217,12 +2253,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "1465eb840b07fbca7f5132cce64eb7ece81073a71f28eb365d16d08b5cc9f839"
+      "recordDigest": "d90f4c4a43334846ff970a0745d5423d72047d920b1712cc24a17df04bcbd53e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/third-party-license-quality-report.json",
-      "sourceReportSha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+      "sourceReportSha256": "17fb2feb5004dec19626f9ed16568c15c4e291b4aee81a70d9ba6c7c033eb104",
       "sourceProject": "GitHub Docs licensing a repository",
       "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
       "sourceHost": "docs.github.com",
@@ -2232,12 +2268,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7528c68d819e27c38afdd512bae18b40d0261c4fa5eae6414209a6a4a167e813"
+      "recordDigest": "ee53724393598aa555c46a70fb8f27e0dd85bd1ecbaf7718bdbb966368a53b6b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/third-party-license-quality-report.json",
-      "sourceReportSha256": "3f84769eb0d49a8f54debb31449cdc613574f9e2c172e47e7565190bc243fa8d",
+      "sourceReportSha256": "17fb2feb5004dec19626f9ed16568c15c4e291b4aee81a70d9ba6c7c033eb104",
       "sourceProject": "GitHub Licenses REST API",
       "sourceUrl": "https://docs.github.com/en/rest/licenses/licenses",
       "sourceHost": "docs.github.com",
@@ -2247,12 +2283,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "7c348908ca7ba44d92c862d8a6883775fa6e7fd8a28c972e9b0d260201c93418"
+      "recordDigest": "af99bbffff6e1895aedf7d563b03ae3c9488bc2aa87fca085284915a1aa72601"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sourceReportSha256": "0cccf2d9a24b88a5488410d0d1f4e7ae21a67240264d5d65c021883ef6207483",
+      "sourceReportSha256": "3df419aebe51279a8fa6373137cca831a3894ccc9f254613b0d70c4270ac4292",
       "sourceProject": "SWE-agent trajectory documentation",
       "sourceUrl": "https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md",
       "sourceHost": "github.com",
@@ -2262,12 +2298,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ac55c89a97a555913289f58427eff8c4f8bca6221c6f69d45d3a383a4c22e8a0"
+      "recordDigest": "f50ca98f94c3cd97fb4c7c4f7aa27ea28b27671d040c6ed728ee6082a45ef746"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sourceReportSha256": "0cccf2d9a24b88a5488410d0d1f4e7ae21a67240264d5d65c021883ef6207483",
+      "sourceReportSha256": "3df419aebe51279a8fa6373137cca831a3894ccc9f254613b0d70c4270ac4292",
       "sourceProject": "microsoft/AgentRx",
       "sourceUrl": "https://github.com/microsoft/AgentRx",
       "sourceHost": "github.com",
@@ -2277,12 +2313,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "78a1b5b528345d8c4edbdccafad6d2a699cb62499240cfd4e49fe31e9a0ce37b"
+      "recordDigest": "b8783f23079a875f628f403e9995820f9e5f6fda9feb08c936c541be16ba7ac5"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sourceReportSha256": "0cccf2d9a24b88a5488410d0d1f4e7ae21a67240264d5d65c021883ef6207483",
+      "sourceReportSha256": "3df419aebe51279a8fa6373137cca831a3894ccc9f254613b0d70c4270ac4292",
       "sourceProject": "TRAJEVAL",
       "sourceUrl": "https://arxiv.org/abs/2603.24631",
       "sourceHost": "arxiv.org",
@@ -2292,12 +2328,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "bb3362fc0bce96b438d53453bc5cf8f59272cfac3bf61c2f72c3567b4b0c9b67"
+      "recordDigest": "8c3834cb70cc55ca4b41999ff69213149f99d071bf5d76a4d87e33c277173088"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sourceReportSha256": "0cccf2d9a24b88a5488410d0d1f4e7ae21a67240264d5d65c021883ef6207483",
+      "sourceReportSha256": "3df419aebe51279a8fa6373137cca831a3894ccc9f254613b0d70c4270ac4292",
       "sourceProject": "AgentLens",
       "sourceUrl": "https://arxiv.org/abs/2605.12925",
       "sourceHost": "arxiv.org",
@@ -2307,12 +2343,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "d5d2511eda229e570401295214f4037bc43e2110e444ff1ca963aff72f64070e"
+      "recordDigest": "f4ef4f286bc930daa63514254d26683d14f55c476b220339e64b57d35c26fa4b"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trace-schema-contract-report.json",
-      "sourceReportSha256": "ef2534fde8ce97725d2006386c4869df5ee48e32e7256382ded41249afbec6a7",
+      "sourceReportSha256": "37c41da845ba397a3b1f36b71c943b583e27d5ee5416a07d28a583a82000aa48",
       "sourceProject": "OpenTelemetry Logs Data Model",
       "sourceUrl": "https://opentelemetry.io/docs/specs/otel/logs/data-model/",
       "sourceHost": "opentelemetry.io",
@@ -2322,12 +2358,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "90f36f409aac6967a7e1ae267a51546160370b57eb6f51fc2acaa78496e55745"
+      "recordDigest": "fa511b3ccfdd0dd2a7f5816171e659eeb1624dc56c5e41cdb736c7828a050f65"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trace-schema-contract-report.json",
-      "sourceReportSha256": "ef2534fde8ce97725d2006386c4869df5ee48e32e7256382ded41249afbec6a7",
+      "sourceReportSha256": "37c41da845ba397a3b1f36b71c943b583e27d5ee5416a07d28a583a82000aa48",
       "sourceProject": "SWE-agent trajectories",
       "sourceUrl": "https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md",
       "sourceHost": "github.com",
@@ -2337,12 +2373,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "78ce2bbb9a90c4632038e8e4be2a4baf86cc1c9bfa1cf606b9d8c2ab26a93752"
+      "recordDigest": "345963033b020c33e1b9a4b2667c3712177da887da3fc3bacd83e25748df7c6e"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trace-schema-contract-report.json",
-      "sourceReportSha256": "ef2534fde8ce97725d2006386c4869df5ee48e32e7256382ded41249afbec6a7",
+      "sourceReportSha256": "37c41da845ba397a3b1f36b71c943b583e27d5ee5416a07d28a583a82000aa48",
       "sourceProject": "AgentLens",
       "sourceUrl": "https://arxiv.org/abs/2605.12925",
       "sourceHost": "arxiv.org",
@@ -2352,12 +2388,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "c510cd1ffda8eac4a285aebf63ae4966f0b5b7133c6eb599a97b265b3069ca32"
+      "recordDigest": "d49a048c9409f7c845009c593c261670ee2e24c6807d9f14f2ddbed3af7f07c2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trajectory-process-quality-report.json",
-      "sourceReportSha256": "0bc2b9bb55bdb7ed936dc85d2f239f182db5bbaf23596b73e143b8d85d01fba3",
+      "sourceReportSha256": "c53302677210decc1f6f0cd4a8cef278e73d79febfb70c9a9bd5c8952c97b62e",
       "sourceProject": "SWE-agent/SWE-agent",
       "sourceUrl": "https://github.com/SWE-agent/SWE-agent/blob/main/docs/usage/trajectories.md",
       "sourceHost": "github.com",
@@ -2367,12 +2403,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "0fab6c9f6f0abd24591c693cba3cd6b6805317bf4271c4228d1b366496e91c48"
+      "recordDigest": "2240e182f3ed9e4cb2bdf34a7f1fc2d79c7763dc47ced491672fe1cae6a65edb"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trajectory-process-quality-report.json",
-      "sourceReportSha256": "0bc2b9bb55bdb7ed936dc85d2f239f182db5bbaf23596b73e143b8d85d01fba3",
+      "sourceReportSha256": "c53302677210decc1f6f0cd4a8cef278e73d79febfb70c9a9bd5c8952c97b62e",
       "sourceProject": "AgentLens paper",
       "sourceUrl": "https://arxiv.org/abs/2605.12925",
       "sourceHost": "arxiv.org",
@@ -2382,12 +2418,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "3d1231cd0956a6c05b710d7cba46092fbcb2caa1a87aaadd766e2c8594e6f163"
+      "recordDigest": "b82359ede80e78a4dd393d8a9f5225658d6db5501d9a638345289a36f94d31c2"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trajectory-process-quality-report.json",
-      "sourceReportSha256": "0bc2b9bb55bdb7ed936dc85d2f239f182db5bbaf23596b73e143b8d85d01fba3",
+      "sourceReportSha256": "c53302677210decc1f6f0cd4a8cef278e73d79febfb70c9a9bd5c8952c97b62e",
       "sourceProject": "microsoft/AgentRx",
       "sourceUrl": "https://github.com/microsoft/AgentRx",
       "sourceHost": "github.com",
@@ -2397,12 +2433,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "214497708a32b71e1c8a3bb7991d06d5c7f6ef91e5b0329006aaeb7e1cdd9e29"
+      "recordDigest": "93e3aae85eb1667a6024293c6ad65092b5ceca89c4c648c1d40d73bd6de906af"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/trajectory-process-quality-report.json",
-      "sourceReportSha256": "0bc2b9bb55bdb7ed936dc85d2f239f182db5bbaf23596b73e143b8d85d01fba3",
+      "sourceReportSha256": "c53302677210decc1f6f0cd4a8cef278e73d79febfb70c9a9bd5c8952c97b62e",
       "sourceProject": "Aider-AI/aider",
       "sourceUrl": "https://github.com/Aider-AI/aider/blob/main/benchmark/README.md",
       "sourceHost": "github.com",
@@ -2412,12 +2448,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "9a95beb3dff0979e4f0681b1b52570049acae0067a66b00dd4b712005e20bcd6"
+      "recordDigest": "e6781e346abca873f68260f6e978c860f190e1d13e884f35626ea7ca75ac2b57"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sourceReportSha256": "f705ddb0d92542cbce9587659d1f384a1b3c345f66dfc43036ca1f1a9e507ad5",
+      "sourceReportSha256": "e404eef2359e0beeaaaa146eda29244bb8808e4901dd8baf81668993473135af",
       "sourceProject": "VS Code Workspace Trust",
       "sourceUrl": "https://code.visualstudio.com/docs/editor/workspace-trust",
       "sourceHost": "code.visualstudio.com",
@@ -2427,12 +2463,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "5cd28dbba60fe6267e60f82c8f43b51235410fc4dbac89bc78660838b650c200"
+      "recordDigest": "8917a4b847faedfc84a3660a7563a1a44531bc6f9ad332b224620d2a495b51d9"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sourceReportSha256": "f705ddb0d92542cbce9587659d1f384a1b3c345f66dfc43036ca1f1a9e507ad5",
+      "sourceReportSha256": "e404eef2359e0beeaaaa146eda29244bb8808e4901dd8baf81668993473135af",
       "sourceProject": "VS Code Extension API - Testing Extensions",
       "sourceUrl": "https://code.visualstudio.com/api/working-with-extensions/testing-extension",
       "sourceHost": "code.visualstudio.com",
@@ -2442,12 +2478,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "f5ee82c64f5a7bceab326e4493e82b887567a05dd0d88bd445bed243ec44265b"
+      "recordDigest": "7ff62c73c6ae4c553453d877e9e89312c7dce02c7310482368cb53ec44657338"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sourceReportSha256": "f705ddb0d92542cbce9587659d1f384a1b3c345f66dfc43036ca1f1a9e507ad5",
+      "sourceReportSha256": "e404eef2359e0beeaaaa146eda29244bb8808e4901dd8baf81668993473135af",
       "sourceProject": "VS Code Command Line Interface",
       "sourceUrl": "https://code.visualstudio.com/docs/editor/command-line",
       "sourceHost": "code.visualstudio.com",
@@ -2457,19 +2493,19 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "6071239f6d4524047dabb5ba0e804b5ae6446b2d22b7e3bcb427c11bb2b509e0"
+      "recordDigest": "a305cacbc33a7f912d8e64a105be540aaee9c04a38e7f47ba0b439ee0bf844c9"
     }
   ],
   "primarySourceRegistryChecks": [
     {
       "label": "product-quality reports were scanned",
       "ok": true,
-      "detail": "84 reports"
+      "detail": "85 reports"
     },
     {
       "label": "primary-source inputs are broadly represented",
       "ok": true,
-      "detail": "49 reports / 153 entries / 84 unique URLs"
+      "detail": "50 reports / 155 entries / 93 unique URLs"
     },
     {
       "label": "primary-source records have HTTPS URLs",
@@ -2479,7 +2515,7 @@
     {
       "label": "primary-source records include project, pattern, and local absorption text",
       "ok": true,
-      "detail": "153 records"
+      "detail": "155 records"
     },
     {
       "label": "blog-summary and secondary-source domains are absent",
@@ -2489,7 +2525,7 @@
     {
       "label": "source kinds cover repositories, docs, standards, benchmarks, and research",
       "ok": true,
-      "detail": "{\"benchmark_project\":14,\"official_documentation\":52,\"official_project_site\":2,\"original_repository\":60,\"research_paper\":4,\"standard_or_specification\":21}"
+      "detail": "{\"benchmark_project\":14,\"official_documentation\":52,\"official_project_site\":10,\"original_repository\":53,\"research_paper\":5,\"standard_or_specification\":21}"
     },
     {
       "label": "malformed source inputs are absent",
@@ -2504,7 +2540,7 @@
     {
       "label": "registry JSONL has one record per source input",
       "ok": true,
-      "detail": "153 records"
+      "detail": "155 records"
     },
     {
       "label": "registry JSONL is parseable and hash-addressed",

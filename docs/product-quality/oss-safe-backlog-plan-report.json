@@ -1,16 +1,15 @@
 {
-  "generatedAt": "2026-05-21T14:10:33.482Z",
+  "generatedAt": "2026-06-14T17:37:55.313Z",
   "mode": "local_no_provider_oss_safe_backlog_plan",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-  "sourceAxisArchitectureReviewReportSha256": "1dc3ec6e27e51c1c0356c37ad1aeb54ec877ebc94fd337dedf3d23ded8f6b2ad",
+  "sourceAxisArchitectureReviewReportSha256": "fae965873e8eb227c7fc9cd280d6f54023297d8560cdf292838a77aa7a2a4e86",
   "sourceAxisArchitectureReviewProvenanceJsonlPath": "reports/openclaude-oss-axis-architecture-review.jsonl",
-  "sourceAxisArchitectureReviewProvenanceJsonlSha256": "2ea41a078f47513ef8a6e109c749d3585fdc427879ae69d01c0f1082f64b645e",
-  "sourceSafeInternalBacklogItemCount": 47,
-  "plannedBacklogItemCount": 47,
+  "sourceAxisArchitectureReviewProvenanceJsonlSha256": "6f13c72da526b780bdc67ae864b10395bf7cca88c5283c46d482338ca2c0e3ab",
+  "sourceSafeInternalBacklogItemCount": 32,
+  "plannedBacklogItemCount": 32,
   "reviewedHighPriorityProjects": [
     "ultraworkers/claw-code",
-    "warpdotdev/warp",
-    "ruvnet/ruflo"
+    "warpdotdev/warp"
   ],
   "reviewedAxes": [
     "eval_and_quality_gates",
@@ -26,13 +25,13 @@
   "uniqueAxisCount": 9,
   "categoryCounts": {
     "benchmark_claim_boundary": 4,
-    "onboarding_evidence": 6,
-    "provider_surface": 12,
-    "terminal_runtime_surface": 6,
-    "runtime_doctoring": 3,
-    "security_permission_boundary": 6,
-    "tool_loop_traceability": 6,
-    "release_hygiene": 4
+    "onboarding_evidence": 4,
+    "provider_surface": 8,
+    "terminal_runtime_surface": 4,
+    "runtime_doctoring": 2,
+    "security_permission_boundary": 4,
+    "tool_loop_traceability": 4,
+    "release_hygiene": 2
   },
   "nextSafeInternalGateCandidateCount": 9,
   "nextSafeInternalGateCandidates": [
@@ -47,7 +46,7 @@
     {
       "gateId": "openclaude_internal_onboarding_docs_evidence_gate",
       "axis": "onboarding_docs",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for onboarding_docs backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -55,7 +54,7 @@
     {
       "gateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
       "axis": "privacy_and_no_phone_home",
-      "sourceBacklogItemCount": 3,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for privacy_and_no_phone_home backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -63,7 +62,7 @@
     {
       "gateId": "openclaude_internal_provider_breadth_evidence_gate",
       "axis": "provider_breadth",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for provider_breadth backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -71,7 +70,7 @@
     {
       "gateId": "openclaude_internal_release_hygiene_evidence_gate",
       "axis": "release_hygiene",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for release_hygiene backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -79,7 +78,7 @@
     {
       "gateId": "openclaude_internal_runtime_doctoring_evidence_gate",
       "axis": "runtime_doctoring",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for runtime_doctoring backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -87,7 +86,7 @@
     {
       "gateId": "openclaude_internal_security_and_permissions_evidence_gate",
       "axis": "security_and_permissions",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for security_and_permissions backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -95,7 +94,7 @@
     {
       "gateId": "openclaude_internal_terminal_workflow_evidence_gate",
       "axis": "terminal_workflow",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for terminal_workflow backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -103,15 +102,15 @@
     {
       "gateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
       "axis": "tool_loop_reliability",
-      "sourceBacklogItemCount": 6,
+      "sourceBacklogItemCount": 4,
       "purpose": "Create the next bounded no-provider evidence gate for tool_loop_reliability backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
     }
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-safe-backlog-plan.jsonl",
-  "provenanceJsonlSha256": "5d6c39b41792eb49985404156f7b29094e69d92f81f6a79831c9cb6846970e63",
-  "provenanceJsonlRecordCount": 47,
+  "provenanceJsonlSha256": "e3b3d366279d8ca2ea3ce26fba52d4688f1f0e7321ba293ea5178320585b74e0",
+  "provenanceJsonlRecordCount": 32,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -1110,454 +1109,6 @@
       "protectedActionRequiredForPlanning": false,
       "protectedActionExecuted": false,
       "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_onboarding_docs_1_34fc1e1f11",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "onboarding_docs",
-      "backlogText": "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
-      "category": "onboarding_evidence",
-      "sourceRecordDigest": "3f309e1980ee7ae7bb413e77570ac1a1cb6db1361030d35f233f76ed25f32790",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/doc-link-integrity-report.json",
-        "docs/product-quality/community-profile-quality-report.json"
-      ],
-      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
-      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_onboarding_docs_2_2aa376b30c",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "onboarding_docs",
-      "backlogText": "keep README and quick-start link integrity evidence in the product gate",
-      "category": "onboarding_evidence",
-      "sourceRecordDigest": "3f309e1980ee7ae7bb413e77570ac1a1cb6db1361030d35f233f76ed25f32790",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/doc-link-integrity-report.json",
-        "docs/product-quality/community-profile-quality-report.json"
-      ],
-      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
-      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_privacy_and_no_phone_home_1_0eb798a8a0",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "privacy_and_no_phone_home",
-      "backlogText": "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption",
-      "category": "provider_surface",
-      "sourceRecordDigest": "6287b47e44a7012fe5def87cbe5c496e207bd3def450f1829d07b36639232a78",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-        "docs/product-quality/public-claim-boundary-report.json",
-        "scripts/verify-no-phone-home.ts"
-      ],
-      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
-      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_1_5eeb3cb376",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "provider_breadth",
-      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
-      "category": "provider_surface",
-      "sourceRecordDigest": "054202719fd1b59ae151a2d5e349fcff1e65b241124de27019f18f4e186ebe2c",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-provider-breadth-evidence-report.json",
-        "docs/product-quality/provider-capability-matrix-report.json",
-        "docs/product-quality/provider-compatibility-fixtures.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_provider_breadth_2_2cdb318139",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "provider_breadth",
-      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
-      "category": "provider_surface",
-      "sourceRecordDigest": "054202719fd1b59ae151a2d5e349fcff1e65b241124de27019f18f4e186ebe2c",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-provider-breadth-evidence-report.json",
-        "docs/product-quality/provider-capability-matrix-report.json",
-        "docs/product-quality/provider-compatibility-fixtures.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_1_db6e970b30",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "release_hygiene",
-      "backlogText": "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
-      "category": "release_hygiene",
-      "sourceRecordDigest": "d3e9db0bff2ea77af76358facf642356d22a692b498c492d3802b8bbbf1b2830",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-release-hygiene-evidence-report.json",
-        "docs/product-quality/release-artifact-file-list-report.json",
-        "docs/product-quality/release-artifact-provenance-report.json",
-        "docs/product-quality/release-artifact-reproducibility-report.json",
-        "docs/product-quality/git-release-hygiene-report.json",
-        "docs/product-quality/license-boundary-authorization-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_release_hygiene_2_c044375242",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "release_hygiene",
-      "backlogText": "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists",
-      "category": "release_hygiene",
-      "sourceRecordDigest": "d3e9db0bff2ea77af76358facf642356d22a692b498c492d3802b8bbbf1b2830",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-release-hygiene-evidence-report.json",
-        "docs/product-quality/release-artifact-file-list-report.json",
-        "docs/product-quality/release-artifact-provenance-report.json",
-        "docs/product-quality/release-artifact-reproducibility-report.json",
-        "docs/product-quality/git-release-hygiene-report.json",
-        "docs/product-quality/license-boundary-authorization-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_runtime_doctoring_1_81c2f02314",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "runtime_doctoring",
-      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
-      "category": "terminal_runtime_surface",
-      "sourceRecordDigest": "6d1c5ef6ef6187325bd0f8901d1e4b87e3209fb29693c38972a3f2f52776cd5d",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json",
-        "docs/product-quality/vscode-startup-diagnostics-report.json"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_runtime_doctoring_2_771f4909d7",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "runtime_doctoring",
-      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
-      "category": "runtime_doctoring",
-      "sourceRecordDigest": "6d1c5ef6ef6187325bd0f8901d1e4b87e3209fb29693c38972a3f2f52776cd5d",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json",
-        "docs/product-quality/vscode-startup-diagnostics-report.json"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_1_7c7eb24881",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "security_and_permissions",
-      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
-      "category": "security_permission_boundary",
-      "sourceRecordDigest": "4132344ad4e5cd2a8fc19b222d83698245cdc105264d59f11b78c96df55c291d",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-security-permissions-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/openssf-security-posture-report.json",
-        "docs/product-quality/dependency-governance-quality-report.json",
-        "docs/product-quality/source-controlled-checks-report.json"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_security_and_permissions_2_b36fc89a51",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "security_and_permissions",
-      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
-      "category": "security_permission_boundary",
-      "sourceRecordDigest": "4132344ad4e5cd2a8fc19b222d83698245cdc105264d59f11b78c96df55c291d",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-security-permissions-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/openssf-security-posture-report.json",
-        "docs/product-quality/dependency-governance-quality-report.json",
-        "docs/product-quality/source-controlled-checks-report.json"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_1_cc460e30d2",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "terminal_workflow",
-      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
-      "category": "terminal_runtime_surface",
-      "sourceRecordDigest": "3a22d09880293ed7c2e9a9d24fb3d6bc8d92073204ad5f0b07ccf5982fb407cd",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-        "docs/product-quality/golden-path-terminal-transcripts.json",
-        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/real-session-capture-report.json"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_terminal_workflow_2_eb63ebed9a",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "terminal_workflow",
-      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
-      "category": "provider_surface",
-      "sourceRecordDigest": "3a22d09880293ed7c2e9a9d24fb3d6bc8d92073204ad5f0b07ccf5982fb407cd",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-        "docs/product-quality/golden-path-terminal-transcripts.json",
-        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/real-session-capture-report.json"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_tool_loop_reliability_1_2f84686973",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "tool_loop_reliability",
-      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
-      "category": "tool_loop_traceability",
-      "sourceRecordDigest": "72077e8f47142cd4a08df47726d7b0a9e3e4e5c83f3e7084e6fecbb15df7453b",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/prompted-tool-loop-capture-report.json",
-        "docs/product-quality/code-editing-trace-capture-report.json",
-        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-        "docs/product-quality/tool-interruption-recovery-trace-report.json",
-        "docs/product-quality/protected-action-denial-trace-report.json"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_ruvnet_ruflo_tool_loop_reliability_2_a5d95c12b9",
-      "sourceProject": "ruvnet/ruflo",
-      "sourceUrl": "https://github.com/ruvnet/ruflo",
-      "axis": "tool_loop_reliability",
-      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
-      "category": "tool_loop_traceability",
-      "sourceRecordDigest": "72077e8f47142cd4a08df47726d7b0a9e3e4e5c83f3e7084e6fecbb15df7453b",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/prompted-tool-loop-capture-report.json",
-        "docs/product-quality/code-editing-trace-capture-report.json",
-        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-        "docs/product-quality/tool-interruption-recovery-trace-report.json",
-        "docs/product-quality/protected-action-denial-trace-report.json"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
     }
   ],
   "planChecks": [
@@ -1574,12 +1125,12 @@
     {
       "label": "planned backlog count matches source count",
       "ok": true,
-      "detail": "47/47"
+      "detail": "32/32"
     },
     {
       "label": "every plan item preserves source evidence and boundary",
       "ok": true,
-      "detail": "47 items"
+      "detail": "32 items"
     },
     {
       "label": "every plan item remains internal no-provider planning",
