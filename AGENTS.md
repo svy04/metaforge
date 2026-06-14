@@ -146,7 +146,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 ## OpenClaude Orchestrator Memory
 - Handshake/echo prompts of the form 'Reply exactly: <token>' are liveness/wiring tests for the orchestra pipeline — respond with the literal token only, no formatting
 - User communicates in Korean; '다음' = 'next' and is used as a continuation cue
-- Project root: C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0
+- Project root: <repo>
 - Project enforces three-tier workflow: GStack → GSD → Superpowers with strict layer separation
 - Verification Standard: never claim done from file presence; require command/test/version probe
 - Standing Research Rule: prefer primary sources (repos, official docs, papers, standards) over blogs
@@ -156,7 +156,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Test hygiene: when monkey-patching AbortSignal.timeout, always restore via try/finally and afterEach
 - Verification policy: changed-file TS diagnostics must be 0 even if broad typecheck fails elsewhere; treat unrelated failures as out-of-scope
 - Required regression set for this area: orchestrator.sideQuery.test.ts + orchestrator.test.ts (both orders), src/query/orchestra.test.ts, and bun run build
-- Project root: C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0\
+- Project root: <repo>\
 - Project name: openclaude version 0.6.0 (inferred from directory name)
 - AGENTS.md contains workflow instructions for GStack, GSD, and Superpowers stacks
 - Standing rule: prefer primary sources over blogs for research
@@ -199,7 +199,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Project uses AGENTS.md routing: GStack for spec, GSD for phases, Superpowers for implementation
 - User pattern: review existing document before generating derivative artifact (sequential, not parallel)
 - Mojibake recurrence in user messages — may indicate terminal/shell encoding issue worth flagging once
-- User environment: Windows, Korean locale (path contains 내 순수 재미), OpenClaude 0.6.0
+- User environment: Windows, Korean locale with a non-ASCII workspace path, OpenClaude 0.6.0
 - Encoding issue pattern: question marks replacing multibyte characters indicates codepage mismatch between input source and terminal
 - AGENTS.md mandates GStack-first routing for unclear scope - clarification questions should be the default response to ambiguous input
 - Standing rule: never fabricate tasks from corrupted input; always request clarification first
@@ -207,11 +207,11 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Verification-before-completion is a hard requirement, not optional
 - Three-layer agent stack: GStack -> GSD -> Superpowers, in that order for full lifecycle
 - User input contained encoding-corrupted Korean text suggesting locale/encoding issue worth flagging
-- User is working on Windows (path: C:\Users\admin\Desktop) with Korean locale
+- User is working on Windows (path: <user-home>\Desktop) with Korean locale
 - Project is OpenClaude v0.6.0 with multi-agent orchestra workflow (GStack/GSD/Superpowers)
 - User communicates in Korean and encounters encoding issues - future sessions should default to UTF-8 with explicit Windows console handling
 - Project enforces verification-before-completion standard from AGENTS.md - any encoding fix must be verified by actual round-trip test, not file presence
-- User environment: Windows, working in C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0\, Korean locale likely
+- User environment: Windows, working in <repo>\, Korean locale likely
 - User has installed or is installing OpenClaude version 0.6.0
 - Project enforces strict three-stack workflow: GStack → GSD → Superpowers with non-overlapping responsibilities
 - User's project mandates verification-before-completion (no file-presence-based claims)
@@ -250,7 +250,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Workflow routing: GStack for spec/judgment, GSD for phases/state, Superpowers for TDD/debug/verify—never let one swallow the others
 - Verification standard: require executed validation (command, loader, test, version probe) before claiming completion
 - Primary source rule: prefer official repos, docs, papers, standards; blogs only as pointers
-- Project location: C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0
+- Project location: <repo>
 - AGENTS.md governs workflow; instructions override defaults
 - Role contract: Opus = private JSON-only planner/critic; Codex = sole writer/executor.
 - Workflow routing: GStack (spec/judgment) → GSD (phases/state, .planning/) → Superpowers (TDD, systematic-debugging, code-review, verification-before-completion).
@@ -264,7 +264,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Primary sources required for research: official repos, docs, papers, standards over blogs
 - Codex is sole executor; planner returns JSON only with no tool calls
 - Avoid speculative complexity: no unrequested abstractions, error handling, or refactors
-- User is working on OpenClaude 0.6.0 located at C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0 on Windows
+- User is working on OpenClaude 0.6.0 located at <repo> on Windows
 - Project uses three-tier workflow: GStack (judgment) → GSD (phases) → Superpowers (TDD implementation)
 - Project has strict anti-over-engineering rules: no speculative abstractions, no unnecessary error handling, no backwards-compat shims, no docstrings on unchanged code
 - Verification standard: must actually run commands/tests to confirm completion, not infer from file presence
@@ -314,7 +314,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - Self-improvement signal: Track count of suppressed empty triggers per task to detect upstream bugs causing empty invocations.
 - 사용자는 명시적으로 요청하지 않은 모델/기능이 활성화되는 것을 선호하지 않음 - 변경 사항은 사전 통보/동의 필요
 - 사용자 주 언어는 한국어 - 응답은 한국어로 제공
-- 사용자는 OpenClaude 0.6.0을 Windows 환경(C:\Users\admin\Desktop)에서 사용 중
+- 사용자는 OpenClaude 0.6.0을 Windows 환경(<user-home>\Desktop)에서 사용 중
 - 프로젝트는 GStack/GSD/Superpowers 3계층 워크플로우를 따름 - 모델 설정도 이 컨텍스트와 일관되어야 함
 - Verification Standard: 모델 활성화 여부는 파일 존재가 아닌 런타임 프로브로 확인해야 함
 - User explicitly does not want gpt-4o auto-selected and reacts negatively to silent model changes — always confirm model/provider before switching.
@@ -330,7 +330,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - OpenClaude on this machine resolves OPENAI_MODEL=gpt-4o at runtime; source of this assignment is under investigation
 - Project uses a three-system workflow: GStack (spec/judgment), GSD (phase planning), Superpowers (implementation discipline) per AGENTS.md
 - Verification standard: do not trust file presence; run the actual command and report resolved values
-- Working environment is Windows (C:\Users\admin\Desktop\...\openclaude-0.6.0), so all shell probes must use Windows syntax
+- Working environment is Windows (<repo>), so all shell probes must use Windows syntax
 - User's intent: visible Codex role must run on OpenAI GPT-5.1-Codex; private planner remains Claude Opus. These two roles should be configured independently.
 - Project AGENTS.md mandates primary-source research, minimal-change implementation, and runtime verification (not file-presence verification) before claiming completion.
 - Likely failure pattern observed: 'OpenAI provider' silently routed to z.ai due to OPENAI_BASE_URL/OPENAI_API_BASE env override combined with a GLM model id; check env scopes (process, user, system) on Windows.
@@ -351,7 +351,7 @@ Ask before destructive filesystem operations, credential/account changes, public
 - AGENTS.md routing is authoritative: GStack for ideation/spec, GSD for phased execution, Superpowers for implementation discipline; Opus must recommend within this stack.
 - Verification rule: completion is claimed only after a real end-to-end probe, never from file presence alone.
 - Memory writes from Opus suggestions require explicit user/Codex confirmation; memoryCandidates are proposals, not commits.
-- OpenClaude project location: C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0
+- OpenClaude project location: <repo>
 - Project uses three-tier agent workflow: GStack (planning) -> GSD (phases) -> Superpowers (implementation)
 - Verification standard requires running commands, not just file presence checks
 - User prefers thorough investigation over quick assumptions

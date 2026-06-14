@@ -22,37 +22,37 @@
 ### Task 2: Normalize GSD
 
 **Files:**
-- Modify: `C:\Users\admin\.claude\commands\gsd\*.md`
-- Create/modify: `C:\Users\admin\.claude\get-shit-done\`
-- Create/modify: `C:\Users\admin\.claude\agents\gsd-*.md`
+- Modify: `<config-dir>\commands\gsd\*.md`
+- Create/modify: `<config-dir>\get-shit-done\`
+- Create/modify: `<config-dir>\agents\gsd-*.md`
 
-- [ ] Back up relevant `C:\Users\admin\.claude` files under `C:\Users\admin\.claude\backups\agent-stack-2026-05-05`.
+- [ ] Back up relevant `<config-dir>` files under `<config-dir>\backups\agent-stack-2026-05-05`.
 - [ ] Run `npx.cmd -y get-shit-done-cc@latest --claude --global`.
-- [ ] Verify `C:\Users\admin\.claude\get-shit-done\workflows\execute-phase.md` exists.
-- [ ] Verify `C:\Users\admin\.claude\commands\gsd\execute-phase.md` exists.
-- [ ] Verify `C:\Users\admin\.claude\agents\gsd-executor.md` exists.
+- [ ] Verify `<config-dir>\get-shit-done\workflows\execute-phase.md` exists.
+- [ ] Verify `<config-dir>\commands\gsd\execute-phase.md` exists.
+- [ ] Verify `<config-dir>\agents\gsd-executor.md` exists.
 
 ### Task 3: Ensure GStack Is Runnable
 
 **Files:**
-- Modify/create: `C:\Users\admin\.claude\skills\gstack\`
-- Modify/create: `C:\Users\admin\.claude\skills\gstack-*` or generated GStack skill entries
+- Modify/create: `<config-dir>\skills\gstack\`
+- Modify/create: `<config-dir>\skills\gstack-*` or generated GStack skill entries
 
 - [ ] Install Bun with `npm.cmd install -g bun` if `bun` is not available.
 - [ ] Run GStack setup from Git Bash: `cd ~/.claude/skills/gstack && ./setup --host claude --quiet`.
-- [ ] Verify `C:\Users\admin\.claude\skills\gstack\VERSION` exists.
-- [ ] Verify `C:\Users\admin\.claude\skills\gstack\node_modules` exists.
+- [ ] Verify `<config-dir>\skills\gstack\VERSION` exists.
+- [ ] Verify `<config-dir>\skills\gstack\node_modules` exists.
 
 ### Task 4: Install Superpowers For OpenClaude
 
 **Files:**
-- Create/update: `C:\Users\admin\.claude\superpowers\`
-- Create/update: `C:\Users\admin\.claude\skills\superpowers`
+- Create/update: `<config-dir>\superpowers\`
+- Create/update: `<config-dir>\skills\superpowers`
 
-- [ ] Clone or update `https://github.com/obra/superpowers.git` into `C:\Users\admin\.claude\superpowers`.
-- [ ] Create a Windows junction from `C:\Users\admin\.claude\skills\superpowers` to `C:\Users\admin\.claude\superpowers\skills`.
-- [ ] Verify `C:\Users\admin\.claude\skills\superpowers\using-superpowers\SKILL.md` exists.
-- [ ] Verify `C:\Users\admin\.claude\skills\superpowers\test-driven-development\SKILL.md` exists.
+- [ ] Clone or update `https://github.com/obra/superpowers.git` into `<config-dir>\superpowers`.
+- [ ] Create a Windows junction from `<config-dir>\skills\superpowers` to `<config-dir>\superpowers\skills`.
+- [ ] Verify `<config-dir>\skills\superpowers\using-superpowers\SKILL.md` exists.
+- [ ] Verify `<config-dir>\skills\superpowers\test-driven-development\SKILL.md` exists.
 
 ### Task 5: Add OpenClaude Routing Rules
 
@@ -70,8 +70,8 @@
 - Read: `src\tools\AgentTool\loadAgentsDir.ts`
 - Read: `src\utils\claudemd.ts`
 
-- [ ] Verify OpenClaude loads user skills from `C:\Users\admin\.claude\skills`.
-- [ ] Verify OpenClaude loads legacy commands from `C:\Users\admin\.claude\commands`.
+- [ ] Verify OpenClaude loads user skills from `<config-dir>\skills`.
+- [ ] Verify OpenClaude loads legacy commands from `<config-dir>\commands`.
 - [ ] Verify OpenClaude prefers `AGENTS.md` for project instructions.
 - [ ] Run `node dist/cli.mjs --version` or `openclaude --version`.
 

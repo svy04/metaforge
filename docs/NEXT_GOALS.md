@@ -115,7 +115,7 @@ Requirements:
 
 Validation:
 - Run bun run scripts/orchestra-experiment-runner.ts.
-- From C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링, run python meta\scripts\source_reconciler.py and record pass/drift without editing that workspace.
+- From <private-workspace>\scripts\source_reconciler.py and record pass/drift without editing that workspace.
 - Run bun run build.
 - If tests are practical, run focused Orchestra tests for experimentMetrics and promotion gates.
 

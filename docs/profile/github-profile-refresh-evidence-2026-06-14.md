@@ -46,16 +46,9 @@ Current private/internal work that should not be marketed as public access:
 - `svy04/harness-meta`
 - `svy04/mfh`
 
-## Digital Factory Evidence
+## Private Workbench Evidence
 
-`C:\Users\admin\Desktop\Digital Factory` is not a git repository, but it contains the freshest local Mimesis Engineering artifacts:
-
-- `MIMESIS-METHOD.md`
-- `FRONTIER-MIMESIS-THREAD.md`
-- `MIMESIS-DEPLOYMENT-MAP.md`
-- `MIMESIS-EXTERNAL-VALIDATION-STRATEGY.md`
-- `mimesis-plugin\README.ko.md`
-- `mimesis-source-packet\`
+`<private-workspace>\`
 
 Nested repo status:
 

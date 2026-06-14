@@ -2,7 +2,7 @@
 
 Status: first high-resolution planning pass
 Owner: human owner
-Operating repo: `C:\Users\admin\Desktop\내 순수 재미\openclaude-0.6.0`
+Operating repo: `<repo>`
 Canonical instruction entrypoint: `AGENTS.md`
 Harness evidence update: `docs/MFH_META_SYNTHESIS.md`
 
@@ -24,12 +24,7 @@ Observed local anchors:
 - `src/services/orchestra/` already contains implementation surfaces for planner routing, skeptic, shadow executor contract, cross-review, evidence arbiter, human gate, promotion store, worktree manager, and experiment metrics.
 - `package.json` exposes verification commands: `bun run build`, `bun test`, `bun run typecheck`, `bun run smoke`, `bun run doctor:runtime`, `bun run verify:privacy`.
 - `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` and its plan document establish the existing GStack/GSD/Superpowers role split.
-- `docs/MFH_META_SYNTHESIS.md` records the follow-up read of `C:\Users\admin\Desktop\내 순수 재미\하네스 엔지니어링`, including MFH, Meta, Candidate M, and the current `source_reconciler.py` drift result.
-
-Imported harness-engineering anchors:
-
-- `MASTER_SPEC.md` defines the larger vision: overcome AI limits and the human owner's limits so products can be built without making the owner the technical bottleneck.
-- `POSITIONING_BRIEF.md` and `meta/decisions/2026-05-05-2388-governed-code-problem-definition.md` define the product category as governed-code, not no-code.
+- `docs/MFH_META_SYNTHESIS.md` records the follow-up read of `<private-workspace>/decisions/2026-05-05-2388-governed-code-problem-definition.md` define the product category as governed-code, not no-code.
 - `meta/CLAUDE.md` defines Meta as the operator OS: Constitution, decision ledger, raw/wiki substrate, technical-decision autonomy, and approval boundaries.
 - `mfh/.mfh/spec.md` defines MFH as a Claude Code Operating Gate that judges drift, evidence, state, permissions, and release claims rather than acting as a coding agent.
 - `mfh/.mfh/plan.md` and `mfh/docs/reports/2026-05-09-candidate-m-closure.md` define Candidate M as the 3-layer vision/session anchor and state-machine closure pattern.
