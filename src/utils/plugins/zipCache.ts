@@ -349,7 +349,7 @@ export async function extractZipToDirectory(
 
     const fullPath = join(targetDir, relPath)
     await getFsImplementation().mkdir(dirname(fullPath))
-    await writeFile(fullPath, data)
+    await writeFile(fullPath, data, { flag: 'wx', mode: 0o600 })
     const mode = modes[relPath]
     if (mode && mode & 0o111) {
       // Swallow EPERM/ENOTSUP (NFS root_squash, some FUSE mounts) — losing +x
