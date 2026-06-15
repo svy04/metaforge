@@ -42,6 +42,7 @@ type OpenSsfSecurityPostureReport = {
   responseTimelinePresent: boolean
   allWorkflowActionReferencesPinned: boolean
   prWorkflowTokenPermissionsReadOnly: boolean
+  releaseWorkflowBoundaryOnly: boolean
   releaseWorkflowPermissionsScoped: boolean
   pullRequestTargetAbsent: boolean
   dependabotConfigPresent: boolean
@@ -139,6 +140,7 @@ function writeReports(report: OpenSsfSecurityPostureReport): void {
     `- response_timeline_present: \`${report.responseTimelinePresent}\``,
     `- all_workflow_action_references_pinned: \`${report.allWorkflowActionReferencesPinned}\``,
     `- pr_workflow_token_permissions_read_only: \`${report.prWorkflowTokenPermissionsReadOnly}\``,
+    `- release_workflow_boundary_only: \`${report.releaseWorkflowBoundaryOnly}\``,
     `- release_workflow_permissions_scoped: \`${report.releaseWorkflowPermissionsScoped}\``,
     `- pull_request_target_absent: \`${report.pullRequestTargetAbsent}\``,
     `- dependabot_config_present: \`${report.dependabotConfigPresent}\``,
@@ -199,12 +201,23 @@ function main(): void {
   const responseTimelinePresent = /within 7 days/i.test(securityPolicy)
   const allWorkflowActionReferencesPinned = allActionsPinned([prWorkflow, releaseWorkflow])
   const prWorkflowTokenPermissionsReadOnly = /permissions:\s*\r?\n\s+contents:\s+read/i.test(prWorkflow) && !/\b(write-all|contents:\s+write|packages:\s+write|id-token:\s+write)\b/i.test(prWorkflow)
-  const releaseWorkflowPermissionsScoped =
+  const releaseWorkflowBoundaryOnly =
+    /name:\s+Release Boundary/i.test(releaseWorkflow) &&
+    /No npm publish, Docker push, or release creation is authorized/.test(releaseWorkflow) &&
+    !/^\s*run:\s*npm publish\b/im.test(releaseWorkflow) &&
+    !/docker\/build-push-action/i.test(releaseWorkflow) &&
+    !/release-please-action/i.test(releaseWorkflow)
+  const releaseBoundaryPermissionsScoped =
+    releaseWorkflowBoundaryOnly &&
+    /permissions:\s*\r?\n\s+contents:\s+read/i.test(releaseWorkflow) &&
+    !/\b(write-all|contents:\s+write|pull-requests:\s+write|packages:\s+write|id-token:\s+write)\b/i.test(releaseWorkflow)
+  const releasePipelinePermissionsScoped =
     sectionContains(releaseWorkflow, 'permissions:', ['contents: write', 'pull-requests: write']) &&
     releaseWorkflow.includes('contents: read') &&
     releaseWorkflow.includes('id-token: write') &&
     releaseWorkflow.includes('packages: write') &&
     !/\bwrite-all\b/i.test(releaseWorkflow)
+  const releaseWorkflowPermissionsScoped = releaseBoundaryPermissionsScoped || releasePipelinePermissionsScoped
   const pullRequestTargetAbsent = !/\bpull_request_target\b/i.test(combinedWorkflows)
   const dependabotConfigPresent = dependabotConfig.trim().length > 0 && /version:\s*2/.test(dependabotConfig)
   const dependabotCoversNpm = /package-ecosystem:\s*["']?npm["']?/i.test(dependabotConfig) && /directory:\s*["']?\/["']?/i.test(dependabotConfig)
@@ -256,7 +269,7 @@ function main(): void {
     check('response timeline exists', responseTimelinePresent, 'initial triage acknowledgment within 7 days'),
     check('workflow action references are pinned by full SHA', allWorkflowActionReferencesPinned, usesLines(combinedWorkflows).join(', ')),
     check('PR workflow token permissions are read-only', prWorkflowTokenPermissionsReadOnly, 'permissions: contents: read'),
-    check('release workflow permissions are scoped per job', releaseWorkflowPermissionsScoped, 'release-please/publish-npm/docker job permissions'),
+    check('release workflow is boundary-only or has scoped release permissions', releaseWorkflowPermissionsScoped, releaseWorkflowBoundaryOnly ? 'boundary workflow uses contents: read only' : 'release-please/publish-npm/docker job permissions'),
     check('pull_request_target is absent', pullRequestTargetAbsent, 'no pull_request_target trigger'),
     check('Dependabot configuration exists', dependabotConfigPresent, dependabotConfigPath),
     check('Dependabot covers npm dependencies', dependabotCoversNpm, 'package-ecosystem: npm at /'),
@@ -270,10 +283,10 @@ function main(): void {
     check('CodeQL workflow has scheduled scanning', codeqlScheduledScanConfigured, 'schedule cron'),
     check('product-quality workflow is present', productQualityWorkflowPresent, 'bun run product:quality'),
     check('dependency install uses frozen lockfile', frozenDependencyInstallPresent, 'bun install --frozen-lockfile'),
-    check('npm provenance publish flag is configured', npmProvenanceConfigured, 'npm publish --access public --provenance'),
-    check('npm OIDC/trusted publishing boundary is present', npmTrustedPublishingBoundaryPresent, 'id-token: write plus NODE_AUTH_TOKEN clearing'),
-    check('release environment gate is present', releaseEnvironmentPresent, 'environment: release'),
-    check('Docker package write permission is scoped to release workflow', dockerPackageWriteScoped, 'packages: write only in release docker job'),
+    check('npm provenance publish flag is configured or release is boundary-only', releaseWorkflowBoundaryOnly || npmProvenanceConfigured, releaseWorkflowBoundaryOnly ? 'release boundary disables npm publish' : 'npm publish --access public --provenance'),
+    check('npm OIDC/trusted publishing boundary is present or release is boundary-only', releaseWorkflowBoundaryOnly || npmTrustedPublishingBoundaryPresent, releaseWorkflowBoundaryOnly ? 'release boundary disables trusted publishing' : 'id-token: write plus NODE_AUTH_TOKEN clearing'),
+    check('release environment gate is present or release is boundary-only', releaseWorkflowBoundaryOnly || releaseEnvironmentPresent, releaseWorkflowBoundaryOnly ? 'release boundary has no release environment' : 'environment: release'),
+    check('Docker package write permission is scoped or release is boundary-only', releaseWorkflowBoundaryOnly || dockerPackageWriteScoped, releaseWorkflowBoundaryOnly ? 'release boundary disables Docker package writes' : 'packages: write only in release docker job'),
     check('external Scorecard run remains blocked', true, 'realScorecardRunPerformed=false'),
     check('release/public/production/external/autonomous claims remain blocked', true, 'all claim booleans false'),
     check('protected gaps are classified unresolved', classifiedUnresolvedGaps.every((gap) => gap.status === 'classified_unresolved'), classifiedUnresolvedGaps.map((gap) => gap.id).join(', ')),
@@ -323,6 +336,7 @@ function main(): void {
     responseTimelinePresent,
     allWorkflowActionReferencesPinned,
     prWorkflowTokenPermissionsReadOnly,
+    releaseWorkflowBoundaryOnly,
     releaseWorkflowPermissionsScoped,
     pullRequestTargetAbsent,
     dependabotConfigPresent,
@@ -370,6 +384,7 @@ function main(): void {
   console.log(`security_policy_present=${securityPolicyPresent}`)
   console.log(`all_workflow_action_references_pinned=${allWorkflowActionReferencesPinned}`)
   console.log(`pr_workflow_token_permissions_read_only=${prWorkflowTokenPermissionsReadOnly}`)
+  console.log(`release_workflow_boundary_only=${releaseWorkflowBoundaryOnly}`)
   console.log(`release_workflow_permissions_scoped=${releaseWorkflowPermissionsScoped}`)
   console.log(`dependabot_config_present=${dependabotConfigPresent}`)
   console.log(`dependabot_covers_npm=${dependabotCoversNpm}`)

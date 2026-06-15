@@ -5,7 +5,7 @@ import {
   statSync,
   writeFileSync,
 } from 'node:fs'
-import { extname, relative, resolve } from 'node:path'
+import { basename, extname, relative, resolve } from 'node:path'
 import { argv, cwd, exit } from 'node:process'
 
 const root = cwd()
@@ -21,6 +21,7 @@ const targetRoots = [
   'README.ko.md',
   'AGENTS.md',
   'PLAYBOOK.md',
+  '.env.example',
   'package.json',
   'scripts/public-artifact-hygiene.ts',
 ]
@@ -98,6 +99,7 @@ const forbiddenPatterns = [
   new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`),
   new RegExp('Digital ' + 'Factory'),
   new RegExp('Token: ' + 'gho_'),
+  /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i,
   new RegExp('session' + '_id'),
 ]
 
@@ -115,6 +117,7 @@ function walk(path: string): string[] {
 
 function isTextTarget(path: string): boolean {
   if (!existsSync(path)) return false
+  if (basename(path) === '.env.example') return true
   const ext = extname(path)
   return textExtensions.has(ext) || ext === ''
 }

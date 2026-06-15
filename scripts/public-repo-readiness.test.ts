@@ -43,4 +43,32 @@ describe('public repository readiness surfaces', () => {
     expect(koreanReadme).toContain('OpenClaude')
     expect(koreanReadme).toContain('검증')
   })
+
+  test('advanced setup uses the current public repository source URL', () => {
+    const advancedSetup = readRepoText('docs/advanced-setup.md')
+
+    expect(advancedSetup).toContain('https://github.com/svy04/metaforge.git')
+    expect(advancedSetup).not.toContain('node.gitlawb.com')
+    expect(advancedSetup).not.toContain('Gitlawb/openclaude')
+  })
+
+  test('release workflow is a public boundary gate, not an active publish pipeline', () => {
+    const releaseWorkflow = readRepoText('.github/workflows/release.yml')
+
+    expect(releaseWorkflow).toContain('Release Boundary')
+    expect(releaseWorkflow).toContain('No npm publish, Docker push, or release creation is authorized')
+    expect(releaseWorkflow).not.toMatch(/^\s*run:\s*npm publish\b/m)
+    expect(releaseWorkflow).not.toMatch(/docker\/build-push-action/)
+    expect(releaseWorkflow).not.toMatch(/release-please-action/)
+    expect(releaseWorkflow).not.toContain('Gitlawb/openclaude')
+  })
+
+  test('README states runtime wiring honestly', () => {
+    const readme = readRepoText('README.md')
+
+    expect(readme).toContain('Orchestra is the runtime-wired layer in this package today')
+    expect(readme).toContain('Meta and MFH are governance, schema, and evidence-gate surfaces')
+    expect(readme).toContain('AVF Influence Factory is a repo-local manual artifact lane')
+    expect(readme).not.toContain('Meta, MFH, and AVF are runtime-wired modules')
+  })
 })

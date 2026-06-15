@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T18:47:19.977Z",
+  "generatedAt": "2026-06-15T00:03:54.821Z",
   "mode": "local_no_provider_openssf_security_posture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -10,7 +10,7 @@
   "prWorkflowPath": ".github/workflows/pr-checks.yml",
   "prWorkflowSha256": "34e94f5415debbedc8d9215c71ab2448cacb8fdbfef88d2058f8ff695435cb06",
   "releaseWorkflowPath": ".github/workflows/release.yml",
-  "releaseWorkflowSha256": "eb86d240428d103ac0ab44bcc72e7bc359d788888cf529d6d108b5e393df8015",
+  "releaseWorkflowSha256": "f30ca3e230842738e536eb836214026afcd0d685ae74a728ede15a8216d1c710",
   "codeqlWorkflowPath": ".github/workflows/codeql.yml",
   "codeqlWorkflowSha256": "f21c6e3a7cf09a01b2afad10c171e35763e192f0c4f587fbd81a7a292734f8a2",
   "dependabotConfigPath": ".github/dependabot.yml",
@@ -42,6 +42,7 @@
   "responseTimelinePresent": true,
   "allWorkflowActionReferencesPinned": true,
   "prWorkflowTokenPermissionsReadOnly": true,
+  "releaseWorkflowBoundaryOnly": true,
   "releaseWorkflowPermissionsScoped": true,
   "pullRequestTargetAbsent": true,
   "dependabotConfigPresent": true,
@@ -57,10 +58,10 @@
   "codeqlHostedExecutionPerformed": false,
   "productQualityWorkflowPresent": true,
   "frozenDependencyInstallPresent": true,
-  "npmProvenanceConfigured": true,
-  "npmTrustedPublishingBoundaryPresent": true,
-  "releaseEnvironmentPresent": true,
-  "dockerPackageWriteScoped": true,
+  "npmProvenanceConfigured": false,
+  "npmTrustedPublishingBoundaryPresent": false,
+  "releaseEnvironmentPresent": false,
+  "dockerPackageWriteScoped": false,
   "realScorecardRunPerformed": false,
   "scorecardExternalClaimAllowed": false,
   "releaseReadinessClaimAllowed": false,
@@ -113,7 +114,7 @@
     {
       "label": "workflow action references are pinned by full SHA",
       "ok": true,
-      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38, uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0, uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0, uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0, uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0, uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
+      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
     },
     {
       "label": "PR workflow token permissions are read-only",
@@ -121,9 +122,9 @@
       "detail": "permissions: contents: read"
     },
     {
-      "label": "release workflow permissions are scoped per job",
+      "label": "release workflow is boundary-only or has scoped release permissions",
       "ok": true,
-      "detail": "release-please/publish-npm/docker job permissions"
+      "detail": "boundary workflow uses contents: read only"
     },
     {
       "label": "pull_request_target is absent",
@@ -191,24 +192,24 @@
       "detail": "bun install --frozen-lockfile"
     },
     {
-      "label": "npm provenance publish flag is configured",
+      "label": "npm provenance publish flag is configured or release is boundary-only",
       "ok": true,
-      "detail": "npm publish --access public --provenance"
+      "detail": "release boundary disables npm publish"
     },
     {
-      "label": "npm OIDC/trusted publishing boundary is present",
+      "label": "npm OIDC/trusted publishing boundary is present or release is boundary-only",
       "ok": true,
-      "detail": "id-token: write plus NODE_AUTH_TOKEN clearing"
+      "detail": "release boundary disables trusted publishing"
     },
     {
-      "label": "release environment gate is present",
+      "label": "release environment gate is present or release is boundary-only",
       "ok": true,
-      "detail": "environment: release"
+      "detail": "release boundary has no release environment"
     },
     {
-      "label": "Docker package write permission is scoped to release workflow",
+      "label": "Docker package write permission is scoped or release is boundary-only",
       "ok": true,
-      "detail": "packages: write only in release docker job"
+      "detail": "release boundary disables Docker package writes"
     },
     {
       "label": "external Scorecard run remains blocked",
