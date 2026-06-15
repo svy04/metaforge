@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:05:17.023Z",
+  "generatedAt": "2026-06-15T20:01:30.446Z",
   "mode": "local_no_provider_release_artifact_hash_sbom_provenance",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -26,8 +26,8 @@
     {
       "path": "dist/cli.mjs",
       "exists": true,
-      "sizeBytes": 21038128,
-      "sha256": "73b4f9598516a0e9344737c14833d288caa1b219dd2ea31ff83a4f0de44df30c"
+      "sizeBytes": 21038494,
+      "sha256": "d45228558590d12c0ea986dbe26f48fe3794faa8e3c032f61eaab928416ff13c"
     },
     {
       "path": "LICENSE",
@@ -38,20 +38,20 @@
     {
       "path": "package.json",
       "exists": true,
-      "sizeBytes": 19399,
-      "sha256": "9d5123b14e0cc0f5857b5fb00d76234aee664a1914146254deaa471129ccfc94"
+      "sizeBytes": 19911,
+      "sha256": "29748b512f1a8a9b2060062e84849bec6a500fd99fa8805602f6a802af9cd4e9"
     },
     {
       "path": "README.ko.md",
       "exists": true,
-      "sizeBytes": 5461,
-      "sha256": "529c4c30e1e2ea8560bce7b6ef53fbcd51ad6952f1e732e982f1ce383a267f69"
+      "sizeBytes": 6009,
+      "sha256": "8e9cda1aaca9927897a325a9e5ce4b05d2be22f1a2b51f8370eca3eec162850c"
     },
     {
       "path": "README.md",
       "exists": true,
-      "sizeBytes": 18088,
-      "sha256": "854cfb905c301abdd8c8e53cc72040e0f9e20c387a23e99ab92cd7f7c0308e8a"
+      "sizeBytes": 18881,
+      "sha256": "7fa5db74a3d74a30d4694f30ed53e6619370316d4b30bf6b724ed8ca269533e4"
     }
   ],
   "sbomFormat": "local_package_json_component_inventory",
@@ -125,6 +125,12 @@
     {
       "name": "@types/ws",
       "versionRange": "^8.18.1",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "dependency-cruiser",
+      "versionRange": "17.4.3",
       "scope": "development",
       "source": "package.json.devDependencies"
     },
@@ -673,7 +679,7 @@
     {
       "label": "SBOM inventory includes development components",
       "ok": true,
-      "detail": "14"
+      "detail": "15"
     },
     {
       "label": "provider calls were not performed",
