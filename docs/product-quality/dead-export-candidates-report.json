@@ -1,0 +1,440 @@
+{
+  "generatedAt": "2026-06-15T21:26:40.025Z",
+  "mode": "local_no_provider_dead_export_candidate_gate",
+  "scannerTarget": "knip --config knip.jsonc --exports",
+  "knipVersion": "6.16.1",
+  "knipCommands": [
+    {
+      "name": "knip_exports_json",
+      "command": [
+        "knip",
+        "--config",
+        "knip.jsonc",
+        "--exports",
+        "--reporter",
+        "json",
+        "--no-exit-code",
+        "--no-progress"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "requiredSubstrings": [
+        "\"issues\"",
+        "\"exports\""
+      ],
+      "missingSubstrings": [],
+      "stdoutPreview": [
+        "{\"issues\":[{\"file\":\"src/commands.ts\",\"owners\":[{\"name\":\"@Gitlawb\"}],\"duplicates\":[],\"enumMembers\":[],\"exports\":[{\"name\":\"meetsAvailabilityRequirement\",\"line\":436,\"col\":17,\"pos\":14584},{\"name\":\"BRIDGE_SAFE_COMMANDS\",\"line\":670,\"col\":14,\"pos\":22459}],\"namespa..."
+      ],
+      "stderrPreview": []
+    }
+  ],
+  "candidateFileCount": 641,
+  "candidateUnusedExportCount": 1402,
+  "candidateUnusedTypeCount": 365,
+  "candidateDuplicateExportCount": 12,
+  "candidateFileBaseline": 657,
+  "candidateUnusedExportBaseline": 1461,
+  "candidateUnusedTypeBaseline": 492,
+  "candidateDuplicateExportBaseline": 12,
+  "sampleCandidateFiles": [
+    {
+      "file": "src/commands.ts",
+      "unusedExports": 2,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "meetsAvailabilityRequirement",
+        "BRIDGE_SAFE_COMMANDS"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/services/api/providerConfig.ts",
+      "unusedExports": 7,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "DEFAULT_MISTRAL_BASE_URL",
+        "isCodexAlias",
+        "normalizeGithubCopilotModel",
+        "GITHUB_COPILOT_BASE_URL",
+        "GITHUB_MODELS_BASE_URL",
+        "resolveCodexAuthPath",
+        "resolveStoredCodexCredentials"
+      ],
+      "sampleTypes": [
+        "ProviderTransport"
+      ]
+    },
+    {
+      "file": "src/utils/providerProfile.ts",
+      "unusedExports": 4,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "isProviderProfile",
+        "buildNvidiaNimProfileEnv",
+        "buildMiniMaxProfileEnv",
+        "hasExplicitProviderSelection"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/utils/config.ts",
+      "unusedExports": 14,
+      "unusedTypes": 7,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualConfigModule.EDITOR_MODES",
+        "actualConfigModule.NOTIFICATION_CHANNELS",
+        "actualConfigModule.DEFAULT_GLOBAL_CONFIG",
+        "actualConfigModule.GLOBAL_CONFIG_KEYS",
+        "actualConfigModule.isGlobalConfigKey",
+        "actualConfigModule.PROJECT_CONFIG_KEYS",
+        "actualConfigModule.resetTrustDialogAcceptedCacheForTesting",
+        "actualConfigModule.isPathTrusted"
+      ],
+      "sampleTypes": [
+        "actualConfigModule.SerializedStructuredHistoryEntry",
+        "actualConfigModule.NotificationChannel",
+        "actualConfigModule.EditorMode",
+        "actualConfigModule.DiffTool",
+        "actualConfigModule.Providers",
+        "actualConfigModule.GlobalConfigKey",
+        "actualConfigModule.ProjectConfigKey"
+      ]
+    },
+    {
+      "file": "src/utils/geminiCredentials.ts",
+      "unusedExports": 2,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "GEMINI_TOKEN_STORAGE_KEY",
+        "clearGeminiAccessToken"
+      ],
+      "sampleTypes": [
+        "GeminiCredentialBlob"
+      ]
+    },
+    {
+      "file": "src/utils/githubModelsCredentials.ts",
+      "unusedExports": 1,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "GITHUB_MODELS_STORAGE_KEY"
+      ],
+      "sampleTypes": [
+        "GithubModelsCredentialBlob"
+      ]
+    },
+    {
+      "file": "src/utils/providerDiscovery.ts",
+      "unusedExports": 1,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "getOpenAICompatibleModelsBaseUrl"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/bridge/sessionRunner.ts",
+      "unusedExports": 1,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "_extractActivitiesForTesting"
+      ],
+      "sampleTypes": [
+        "PermissionRequest"
+      ]
+    },
+    {
+      "file": "src/constants/prompts.ts",
+      "unusedExports": 5,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "CLAUDE_CODE_DOCS_MAP_URL",
+        "computeEnvInfo",
+        "computeSimpleEnvInfo",
+        "getUnameSR",
+        "getScratchpadInstructions"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/state/AppState.tsx",
+      "unusedExports": 2,
+      "unusedTypes": 3,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "getDefaultAppState",
+        "IDLE_SPECULATION_STATE"
+      ],
+      "sampleTypes": [
+        "CompletionBoundary",
+        "SpeculationResult",
+        "SpeculationState"
+      ]
+    },
+    {
+      "file": "src/ink.ts",
+      "unusedExports": 13,
+      "unusedTypes": 11,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "ThemeProvider",
+        "BaseBox",
+        "Button",
+        "Spacer",
+        "BaseText",
+        "EventEmitter",
+        "Event",
+        "TerminalFocusEvent"
+      ],
+      "sampleTypes": [
+        "BoxProps",
+        "AppProps",
+        "BaseBoxProps",
+        "ButtonState",
+        "ButtonProps",
+        "LinkProps",
+        "NewlineProps",
+        "StdinProps"
+      ]
+    },
+    {
+      "file": "src/utils/Cursor.ts",
+      "unusedExports": 6,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "getKillRingItem",
+        "getKillRingSize",
+        "clearKillRing",
+        "canYankPop",
+        "VIM_WORD_CHAR_REGEX",
+        "WHITESPACE_REGEX"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/services/mcp/types.ts",
+      "unusedExports": 8,
+      "unusedTypes": 8,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "TransportSchema",
+        "McpSSEServerConfigSchema",
+        "McpSSEIDEServerConfigSchema",
+        "McpWebSocketIDEServerConfigSchema",
+        "McpHTTPServerConfigSchema",
+        "McpWebSocketServerConfigSchema",
+        "McpSdkServerConfigSchema",
+        "McpClaudeAIProxyServerConfigSchema"
+      ],
+      "sampleTypes": [
+        "Transport",
+        "FailedMCPServer",
+        "NeedsAuthMCPServer",
+        "PendingMCPServer",
+        "DisabledMCPServer",
+        "SerializedTool",
+        "SerializedClient",
+        "MCPCliState"
+      ]
+    },
+    {
+      "file": "src/ink/frame.ts",
+      "unusedExports": 1,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "shouldClearScreen"
+      ],
+      "sampleTypes": [
+        "Patch"
+      ]
+    },
+    {
+      "file": "src/ink/screen.ts",
+      "unusedExports": 3,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "isCellEmpty",
+        "clearRegion",
+        "diff"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/ink/parse-keypress.ts",
+      "unusedExports": 1,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "DECRPM_STATUS"
+      ],
+      "sampleTypes": [
+        "ParsedResponse"
+      ]
+    },
+    {
+      "file": "src/ink/root.ts",
+      "unusedExports": 1,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "renderSync"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/utils/messages.ts",
+      "unusedExports": 16,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "deriveShortMessageId",
+        "DENIAL_WORKAROUND_GUIDANCE",
+        "SYNTHETIC_TOOL_RESULT_PLACEHOLDER",
+        "isToolUseRequestMessage",
+        "hasUnresolvedHooks",
+        "getToolResultIDs",
+        "getSiblingToolUseIDs",
+        "reorderAttachmentsForAPI"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/skills/loadSkillsDir.ts",
+      "unusedExports": 4,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "getCommandDirCommands",
+        "clearCommandCaches",
+        "transformSkillFiles",
+        "getConditionalSkillCount"
+      ],
+      "sampleTypes": []
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "Knip",
+      "sourceUrl": "https://github.com/webpro-nl/knip",
+      "observedPattern": "Knip detects unused files, dependencies, and exports in JavaScript and TypeScript projects and supports machine-readable JSON reporting.",
+      "localAbsorption": "Metaforge records Knip unused-export candidates as a baseline only; no deletion or autofix claim follows from a candidate report."
+    },
+    {
+      "sourceType": "project_docs",
+      "sourceProject": "Knip JSON reporter docs",
+      "sourceUrl": "https://knip.dev/features/reporters",
+      "observedPattern": "The JSON reporter is designed for tool consumption and exposes per-file issues.",
+      "localAbsorption": "The product gate parses JSON reporter output and stores counts, samples, and claim boundaries for follow-up review."
+    },
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "fallow",
+      "sourceUrl": "https://github.com/fallow-rs/fallow",
+      "observedPattern": "Fallow also treats unused files, unused exports, and stale cleanup opportunities as codebase intelligence rather than automatic deletion.",
+      "localAbsorption": "Metaforge keeps cleanup-candidate evidence separate from refactor completion or runtime behavior claims."
+    }
+  ],
+  "dependencyInstallPerformed": false,
+  "autofixPerformed": false,
+  "deletionPerformed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "deletionClaimAllowed": false,
+  "cleanupCompletionClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "deadExportChecks": [
+    {
+      "label": "Knip version command passes",
+      "ok": true,
+      "detail": "6.16.1"
+    },
+    {
+      "label": "Knip exports JSON command passes",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "candidate files are discovered",
+      "ok": true,
+      "detail": "641 files"
+    },
+    {
+      "label": "unused export candidates are discovered",
+      "ok": true,
+      "detail": "1402 exports"
+    },
+    {
+      "label": "candidate files do not exceed baseline",
+      "ok": true,
+      "detail": "641/657"
+    },
+    {
+      "label": "unused export candidates do not exceed baseline",
+      "ok": true,
+      "detail": "1402/1461"
+    },
+    {
+      "label": "unused type candidates do not exceed baseline",
+      "ok": true,
+      "detail": "365/492"
+    },
+    {
+      "label": "duplicate export candidates do not exceed baseline",
+      "ok": true,
+      "detail": "12/12"
+    },
+    {
+      "label": "primary sources include Knip docs and fallow comparator",
+      "ok": true
+    },
+    {
+      "label": "provider/live/external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "autofix deletion and readiness claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ],
+  "claimBoundary": "Knip findings are candidate unused export/type/duplicate-export evidence only. They do not prove a symbol is safe to delete, that cleanup is complete, or that the repo is public-ready."
+}

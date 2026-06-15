@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T20:00:06.525Z",
+  "generatedAt": "2026-06-15T21:22:10.980Z",
   "mode": "local_no_provider_license_boundary_authorization",
   "primarySourceInputs": [
     {
@@ -34,12 +34,12 @@
     }
   ],
   "sourceThirdPartyLicenseQualityReportPath": "docs/product-quality/third-party-license-quality-report.json",
-  "sourceThirdPartyLicenseQualityReportSha256": "34fdfc63e39b57145df1417c7726b6d23f2f4d42c052080634c20595ece7143f",
+  "sourceThirdPartyLicenseQualityReportSha256": "c9de6210afbc66db272644f15fc4738884b94f4925f69a391b32049e6d161290",
   "sourceSourceLicenseMetadataQualityReportPath": "docs/product-quality/source-license-metadata-quality-report.json",
-  "sourceSourceLicenseMetadataQualityReportSha256": "e25b82f154a09e80a91c5c6bd4bef7420f881b0ae93c0efe4f38aea9d5db2b0a",
+  "sourceSourceLicenseMetadataQualityReportSha256": "bcb233d463cf7dfe399113441f1c6a8c604d144c13a70e5f25d102236ac202a7",
   "requestMarkdownPath": "docs/product-quality/license-boundary-authorization-request.md",
   "authorizationItemsJsonlPath": "reports/openclaude-license-boundary-authorization-items.jsonl",
-  "authorizationItemsJsonlSha256": "4af17a4bfce12f4211250c7cb09e7af688b7b1905b1c5e3504424f5e4566f6a7",
+  "authorizationItemsJsonlSha256": "da8d2f5f4c40b2527fb2cb497e07cd10af8344d8476308717f6bbf65dfce6207",
   "authorizationItemsJsonlRecordCount": 9,
   "authorizationItemsJsonlParseable": true,
   "licenseBoundaryStatus": "owner_legal_authorization_required_before_release_or_license_compliance_claims",
@@ -47,8 +47,8 @@
   "protectedAuthorizationRequestCreated": true,
   "protectedAuthorizationRequestCount": 9,
   "allProtectedAuthorizationsDefaultFalse": true,
-  "thirdPartySourceLockfilePackageCount": 791,
-  "thirdPartyDirectManifestDependencyCount": 95,
+  "thirdPartySourceLockfilePackageCount": 852,
+  "thirdPartyDirectManifestDependencyCount": 96,
   "thirdPartyDirectDependenciesCoveredByMetadata": true,
   "thirdPartyDirectLicenseFileMissingPackages": [
     "@growthbook/growthbook",
@@ -58,9 +58,9 @@
     "type-fest"
   ],
   "thirdPartyNoticeFilePresentCount": 0,
-  "sourceScannedFileCount": 2487,
+  "sourceScannedFileCount": 2489,
   "sourceFilesWithSpdxLicenseIdentifierCount": 1,
-  "sourceFilesMissingFileLevelMetadataCount": 2486,
+  "sourceFilesMissingFileLevelMetadataCount": 2488,
   "reuseTomlPresent": false,
   "licensesDirectoryPresent": false,
   "derivedCodeBoundaryRecognized": true,
@@ -147,14 +147,14 @@
       "schemaVersion": "openclaude_license_boundary_authorization_item_v1",
       "id": "authorize_source_file_license_metadata_updates",
       "category": "source_metadata",
-      "currentEvidence": "2486 of 2487 scanned files lack file-level metadata.",
+      "currentEvidence": "2488 of 2489 scanned files lack file-level metadata.",
       "requiredDecision": "Owner/legal must authorize source-file SPDX headers, adjacent .license files, or REUSE annotations before source metadata updates.",
       "forbiddenShortcut": "Do not mass-insert SPDX headers into derived-code files without a reviewed license mapping.",
       "validationMethod": "Require reviewed file-class mapping and rerun source-license metadata quality after any update.",
       "defaultAuthorized": false,
       "protectedAction": true,
       "status": "blocked_pending_explicit_owner_or_legal_authorization",
-      "recordDigest": "c4e89c8802f8e1592091bed9ded80478aed1f4dc881fdfe94102980ab05a8a26"
+      "recordDigest": "a54078d12a09a08136dfe50530b70584ff6aa293cd804f30060659fef59d6e60"
     },
     {
       "schemaVersion": "openclaude_license_boundary_authorization_item_v1",

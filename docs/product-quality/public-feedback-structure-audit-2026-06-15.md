@@ -16,7 +16,7 @@ Generated after public/community feedback on the Metaforge/OpenClaude repository
 
 | Tool | Primary source | Use in this audit |
 | --- | --- | --- |
-| Knip | <https://knip.dev/> and <https://github.com/webpro-nl/knip> | Candidate unused exports, types, files, and dependencies. |
+| Knip | <https://knip.dev/> and <https://github.com/webpro-nl/knip> | Now wired through `bun run product:dead-export-candidates` as a local no-autofix candidate baseline gate. |
 | dependency-cruiser | <https://github.com/sverweij/dependency-cruiser> | Now wired through `bun run product:dependency-topology` as a local topology baseline gate. |
 | jscpd | <https://jscpd.dev/> and <https://github.com/kucherenko/jscpd> | Product-script clone detection. |
 | Lumin Repo Lens | <https://github.com/annyeong844/lumin-repo-lens> | Not installed in this pass; community-recommended topology and clone-cue lens. |
@@ -30,26 +30,25 @@ Generated after public/community feedback on the Metaforge/OpenClaude repository
 | README should support Korean readers. | Added `README.ko.md` and linked it from `README.md`. |
 | Marker-only checks are not enough. | Recorded as backlog: add happy-path, edge-case, and side-effect tests per product gate. |
 | Product scripts look heavily cloned. | Confirmed with local heuristic counts and jscpd; `product:script-duplication-audit` now has baseline caps and is wired into `product:quality`. |
-| Dead exports may exist. | Confirmed as knip candidates only; manual review required before deletion. |
+| Dead exports may exist. | `bun run product:dead-export-candidates` now records Knip candidates with a checked config; manual review is still required before deletion. |
 
 ## Local Heuristic Counts
 
 Command:
 
 ```text
-node local product-script helper-count scan
+bun run product:script-duplication-audit
 ```
 
 Observed:
 
 | Signal | Count |
 | --- | ---: |
-| `scripts/product-*.ts` files | 87 |
-| files containing `function check(` | 80 |
-| files containing `function sha256(` | 54 |
-| files containing `function readText(` | 43 |
-| files containing `function writeMarkdown(` | 50 |
-| files containing `type Check =` | 54 |
+| `scripts/product-*.ts` files | 90 |
+| duplicate helper clusters | 2 |
+| `check` helper occurrences | 76 |
+| `readText` helper occurrences | 39 |
+| `sha256Text` helper occurrences | 1 |
 
 Interpretation: the feedback about helper cloning is directionally correct.
 This does not mean all copies should be mechanically extracted in one pass.
@@ -104,7 +103,7 @@ Top clone pairs:
 Command:
 
 ```text
-bunx knip --exports --reporter json --no-exit-code --no-progress > <temp>/knip-exports.json
+bun run product:dead-export-candidates
 ```
 
 Tool version:
@@ -117,9 +116,9 @@ Summary:
 
 | Signal | Count |
 | --- | ---: |
-| files with candidate issues | 657 |
-| candidate unused exports | 1,462 |
-| candidate unused types | 492 |
+| files with candidate issues | 641 |
+| candidate unused exports | 1,402 |
+| candidate unused types | 365 |
 | duplicate export candidates | 12 |
 
 First candidate files:
@@ -129,18 +128,18 @@ First candidate files:
 | `src/commands.ts` | 2 | 0 |
 | `src/services/api/providerConfig.ts` | 7 | 1 |
 | `src/utils/providerProfile.ts` | 4 | 0 |
-| `scripts/provider-discovery.ts` | 4 | 0 |
 | `src/utils/config.ts` | 14 | 7 |
 | `src/utils/geminiCredentials.ts` | 2 | 1 |
-| `src/utils/githubModelsCredentials.ts` | 2 | 1 |
-| `src/utils/providerValidation.ts` | 1 | 0 |
-| `src/utils/providerDiscovery.ts` | 4 | 0 |
+| `src/utils/githubModelsCredentials.ts` | 1 | 1 |
+| `src/utils/providerDiscovery.ts` | 1 | 0 |
 | `src/bridge/sessionRunner.ts` | 1 | 1 |
 | `src/constants/prompts.ts` | 5 | 0 |
 | `src/state/AppState.tsx` | 2 | 3 |
 
-Interpretation: run a narrower Knip config before deleting anything. The first
-pass likely includes entrypoint, generated, test-only, and compatibility exports.
+Interpretation: the configured Knip pass is now a product-quality candidate
+baseline. It blocks candidate-count growth but still does not prove any export
+is safe to delete, because CLI entrypoints, compatibility exports, and test-only
+surfaces still need manual review.
 
 ## Recommended Next Refactor Order
 
@@ -152,7 +151,7 @@ pass likely includes entrypoint, generated, test-only, and compatibility exports
    and OSS evidence scripts.
 3. Add happy-path, edge-case, and side-effect assertions to each product gate
    before removing repeated local checks.
-4. Add a checked Knip config with explicit entrypoints, generated files, and
-   test-only exports before treating unused-export candidates as blockers.
+4. Use the checked Knip config and candidate gate before any dead-export cleanup
+   claim; deletion still needs symbol-level manual review and behavior tests.
 5. Use `bun run product:dependency-topology` as the dependency-cruiser
    baseline before any circular dependency or layer-boundary cleanup claim.
