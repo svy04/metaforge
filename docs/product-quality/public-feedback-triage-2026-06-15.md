@@ -106,6 +106,12 @@ quality docs; the durable signals are:
   Lumin Repo Lens as a topology reference with manual false-positive review.
 - CodeQL being present in CI is a positive signal, but source-controlled
   configuration is not the same as inspected hosted execution evidence.
+- Later comments also recommended simplifying public workflow language where
+  possible: GStack, GSD, and Superpowers may remain separated internally, but
+  public docs should avoid making the operating stack look like rule sprawl.
+- The latest security/refactor response lane is to start with P0 CodeQL alerts
+  and tiny TDD-backed fixes, then use hosted CodeQL feedback before claiming an
+  alert class is closed.
 
 Current response in this slice:
 
