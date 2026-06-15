@@ -11,6 +11,10 @@ OpenClaude는 현재 Metaforge가 올라타는 로컬 CLI 런타임입니다. �
 route를 제공합니다. 하지만 공개적으로 중심에 둘 가치는 OpenClaude 자체가
 아니라 **Meta + MFH + Orchestra**입니다.
 
+AVF Influence Factory는 기본 CLI runtime이 아니라 `avf/`와 `scripts/` 아래의
+manual artifact lane입니다. Generated operator run output은 공개 checkout에
+추적하지 않고 로컬 owner-review workspace에서만 재생성합니다.
+
 출처와 라이선스 경계: 이 repository에는 Anthropic Claude Code CLI에서 파생된
 runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 법적으로 가능한 범위에서 MIT
 라이선스로 제공되지만, 전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다.

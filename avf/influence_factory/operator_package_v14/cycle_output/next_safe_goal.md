@@ -1,4 +1,0 @@
-# Next Safe Goal
-
-selected_next_safe_goal: owner_runs_v14_operator_package_with_real_goal_or_requests_protected_authorization
-selected_next_goal_executed: false
