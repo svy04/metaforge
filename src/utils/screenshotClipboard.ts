@@ -1,4 +1,4 @@
-import { mkdir, unlink, writeFile } from 'fs/promises'
+import { mkdtemp, rm, writeFile } from 'fs/promises'
 import { tmpdir } from 'os'
 import { join } from 'path'
 import { type AnsiToPngOptions, ansiToPng } from './ansiToPng.js'
@@ -17,29 +17,46 @@ export async function copyAnsiToClipboard(
   ansiText: string,
   options?: AnsiToPngOptions,
 ): Promise<{ success: boolean; message: string }> {
+  let tempPng: ScreenshotTempPng | undefined
   try {
-    const tempDir = join(tmpdir(), 'claude-code-screenshots')
-    await mkdir(tempDir, { recursive: true })
-
-    const pngPath = join(tempDir, `screenshot-${Date.now()}.png`)
     const pngBuffer = ansiToPng(ansiText, options)
-    await writeFile(pngPath, pngBuffer)
-
-    const result = await copyPngToClipboard(pngPath)
-
-    try {
-      await unlink(pngPath)
-    } catch {
-      // Ignore cleanup errors
-    }
-
-    return result
+    tempPng = await writeScreenshotTempPng(pngBuffer)
+    return await copyPngToClipboard(tempPng.pngPath)
   } catch (error) {
     logError(error)
     return {
       success: false,
       message: `Failed to copy screenshot: ${error instanceof Error ? error.message : 'Unknown error'}`,
     }
+  } finally {
+    if (tempPng) {
+      try {
+        await tempPng.dispose()
+      } catch {
+        // Ignore cleanup errors
+      }
+    }
+  }
+}
+
+export type ScreenshotTempPng = {
+  tempDir: string
+  pngPath: string
+  dispose: () => Promise<void>
+}
+
+export async function writeScreenshotTempPng(
+  pngBuffer: Buffer,
+  tempRoot = tmpdir(),
+): Promise<ScreenshotTempPng> {
+  const tempDir = await mkdtemp(join(tempRoot, 'claude-code-screenshot-'))
+  const pngPath = join(tempDir, 'screenshot.png')
+  await writeFile(pngPath, pngBuffer, { flag: 'wx', mode: 0o600 })
+
+  return {
+    tempDir,
+    pngPath,
+    dispose: () => rm(tempDir, { recursive: true, force: true }),
   }
 }
 
