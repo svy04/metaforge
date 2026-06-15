@@ -85,6 +85,8 @@ function readPublicSetupDocs(): Record<string, string> {
   const paths = [
     'README.md',
     'README.ko.md',
+    'ANDROID_INSTALL.md',
+    'PLAYBOOK.md',
     'docs/quick-start-windows.md',
     'docs/quick-start-mac-linux.md',
     'docs/advanced-setup.md',
@@ -216,6 +218,18 @@ describe('public repository readiness surfaces', () => {
       expect(existsSync(join(root, path)), path).toBe(true)
     }
     expect(gitignore).toContain('avf/influence_factory/operator_package_v*/')
+    expect(gitignore).toContain('avf/influence_factory/owner_goal_runs/')
+    expect(gitignore).toContain('avf/influence_factory/active/')
+  })
+
+  test('generated AVF operator runs are not tracked in the public checkout', () => {
+    const generatedAvfRuns = trackedRepoPaths(root).filter((path) =>
+      path.startsWith('avf/influence_factory/owner_goal_runs/')
+      || path.startsWith('avf/influence_factory/active/')
+      || /^avf\/influence_factory\/operator_package_v\d+\//.test(path),
+    )
+
+    expect(generatedAvfRuns).toEqual([])
   })
 
   test('public setup docs do not pin stale OpenAI model examples', () => {
@@ -223,6 +237,10 @@ describe('public repository readiness surfaces', () => {
 
     for (const [path, text] of Object.entries(docs)) {
       expect(text, path).not.toMatch(/\bgpt-4o\b/i)
+      expect(text, path).not.toMatch(/\bsk-\.\.\./i)
+      expect(text, path).not.toMatch(/\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i)
+      expect(text, path).not.toMatch(/\bqwen\/qwen3\.6-plus-preview:free\b/i)
+      expect(text, path).not.toMatch(/\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i)
     }
 
     expect(docs['README.md']).toContain('<current-openai-tool-model>')
@@ -230,6 +248,41 @@ describe('public repository readiness surfaces', () => {
     expect(docs['docs/quick-start-mac-linux.md']).toContain('<current-openai-tool-model>')
     expect(docs['docs/advanced-setup.md']).toContain('<current-openai-tool-model>')
     expect(docs['docs/litellm-setup.md']).toContain('openai-tool-model')
+    expect(docs['PLAYBOOK.md']).toContain('<current-openai-tool-model>')
+  })
+
+  test('Android install notes stay legacy-bounded and avoid unsupported superiority claims', () => {
+    const androidInstall = readRepoText('ANDROID_INSTALL.md')
+    const publicClaimBoundary = readRepoText('scripts/product-public-claim-boundary.ts')
+
+    expect(publicClaimBoundary).toContain("'ANDROID_INSTALL.md'")
+    expect(androidInstall).toContain('Legacy OpenClaude Android Notes')
+    expect(androidInstall).toMatch(/not a Metaforge release or\s+support claim/)
+    expect(androidInstall).not.toMatch(/\b(best|beats?|outperforms?)\b/i)
+    expect(androidInstall).not.toMatch(/\bas of (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\b/i)
+  })
+
+  test('public planning docs do not point readers at private source workspaces', () => {
+    const docs = [
+      'docs/RESEARCH_PIPELINE.md',
+      'docs/PROGRESS_LOG.md',
+      'docs/DECISION_LOG.md',
+    ]
+
+    for (const path of docs) {
+      const text = readRepoText(path)
+      expect(text, path).not.toContain('<private-workspace>')
+      expect(text, path).not.toMatch(/\bmeta\/CLAUDE\.md\b|\bmfh\/\.mfh\/spec\.md\b/i)
+    }
+  })
+
+  test('legacy VS Code extension README points to the canonical Metaforge extension surface', () => {
+    const legacyReadme = readRepoText('vscode-extension/openclaude-vscode/README.md')
+
+    expect(legacyReadme).toContain('Legacy Extension Surface')
+    expect(legacyReadme).toContain('packages/openclaude-vscode')
+    expect(legacyReadme).toContain('Metaforge')
+    expect(legacyReadme).not.toMatch(/^# OpenClaude VS Code Extension/m)
   })
 
   test('README states origin and license boundaries honestly', () => {

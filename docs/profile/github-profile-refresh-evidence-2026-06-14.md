@@ -48,7 +48,8 @@ Current private/internal work that should not be marketed as public access:
 
 ## Private Workbench Evidence
 
-`<private-workspace>\`
+Owner-side private workbench summary. This is not public proof and should not be
+used as a public source path.
 
 Nested repo status:
 

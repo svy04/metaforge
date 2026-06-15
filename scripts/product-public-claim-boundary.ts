@@ -79,6 +79,9 @@ const scanJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
 
 const publicSurfacePaths = [
   'README.md',
+  'README.ko.md',
+  'ANDROID_INSTALL.md',
+  'PLAYBOOK.md',
   'CHANGELOG.md',
   'CONTRIBUTING.md',
   'SECURITY.md',
@@ -93,6 +96,8 @@ const publicSurfacePaths = [
   'docs/SECURITY_AND_GUARDRAILS.md',
   'docs/quick-start-windows.md',
   'docs/quick-start-mac-linux.md',
+  'docs/advanced-setup.md',
+  'docs/litellm-setup.md',
   'docs/product-quality/product-quality-gate.md',
   'docs/product-quality/terminal-report.md',
   'docs/product-quality/verification-report-2026-05-17.md',
@@ -101,6 +106,8 @@ const publicSurfacePaths = [
   'docs/MIMESIS_ENGINEERING.md',
   'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
   'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
+  'packages/openclaude-vscode/README.md',
+  'vscode-extension/openclaude-vscode/README.md',
 ]
 
 const claimPatterns: ClaimPattern[] = [
@@ -116,6 +123,8 @@ const claimPatterns: ClaimPattern[] = [
   { category: 'provider_backed_execution', phrase: 'provider-backed execution completed', pattern: /\bprovider[-\s]?backed execution (?:achieved|proven|complete|completed|passed)\b/i },
   { category: 'live_model_validation', phrase: 'live model validation completed', pattern: /\blive model validation (?:achieved|proven|complete|completed|passed)\b/i },
   { category: 'superiority', phrase: 'superior to top 10', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,80}\btop[-\s]?10\b|\btop[-\s]?10\b.{0,80}\b(?:superior|better|beats?|outperforms?)\b|\btop[-\s]?10.{0,20}\uBCF4\uB2E4\b/i },
+  { category: 'superiority', phrase: 'benchmark or model superiority', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,100}\b(?:agent|agents|benchmark|claude|gpt|model|openai|anthropic|terminal[-\s]?bench)\b/i },
+  { category: 'superiority', phrase: 'current-best model or provider', pattern: /\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i },
 ]
 
 const blockedContextTerms = [

@@ -51,6 +51,13 @@ def fail(message: str) -> None:
     sys.exit(1)
 
 
+def skip(message: str) -> None:
+    print("Influence Factory owner bundle review v12 validation")
+    print("RESULT: SKIP")
+    print(message)
+    sys.exit(0)
+
+
 def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
@@ -60,6 +67,12 @@ def read_json(path: Path) -> dict:
 
 
 def main() -> None:
+    if not REVIEW_DIR.is_dir():
+        skip(
+            "Generated owner bundle review output is absent from the public checkout; "
+            "regenerate local AVF run outputs before running this legacy validator."
+        )
+
     missing = [str(path.relative_to(ROOT)) for path in REQUIRED_FILES if not path.is_file()]
     if missing:
         fail("Missing required files:\n" + "\n".join(missing))

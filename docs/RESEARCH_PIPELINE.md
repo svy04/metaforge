@@ -55,15 +55,18 @@ For this project, the natural source files include:
 - `src/services/mcp/*.ts`
 - `src/commands/orchestra-apply/*`
 
-When the goal touches MFH/Meta/governed-code, also read the harness-engineering authority files:
+When the goal touches MFH/Meta/governed-code, use the public synthesis package
+in this repository as the public authority:
 
-- `<private-workspace>\meta\CLAUDE.md`
-- `<private-workspace>\meta\SPEC.md`
-- `<private-workspace>\meta\decisions\`
-- `<private-workspace>\mfh\.mfh\spec.md`
-- `<private-workspace>\mfh\.mfh\plan.md`
-- `<private-workspace>\mfh\docs\reports\`
 - `docs/MFH_META_SYNTHESIS.md`
+- `docs/PROJECT_SPEC.md`
+- `docs/GOAL_SCHEMA.md`
+- `docs/EVALS.md`
+- `docs/SECURITY_AND_GUARDRAILS.md`
+- `docs/DECISION_LOG.md`
+
+Private harness notes may inform owner-side planning, but they are not public
+proof and should not be named as public source paths.
 
 ## Meta Raw/Wiki/Decision Flow
 
@@ -97,10 +100,10 @@ The raw layer is evidence. The wiki/brief layer is interpretation. The decision 
 | Reasoning + acting | https://arxiv.org/abs/2210.03629 | Research basis for interleaved reasoning/actions |
 | Reflection loop | https://arxiv.org/abs/2303.11366 | Feedback/reflection memory basis |
 | Patents/prior art | https://www.uspto.gov/patents/search/patent-public-search/ | Prior-art search requirement |
-| Governed-code category | `<private-workspace>\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md` | Local decision record for product category |
-| MFH Operating Gate | `<private-workspace>\mfh\.mfh\spec.md` | Local authority for evidence and closure principles |
-| Meta Constitution | `<private-workspace>\meta\CLAUDE.md` | Local authority for operator boundary and decision ledger |
-| Candidate M closure | `<private-workspace>\mfh\docs\reports\2026-05-09-candidate-m-closure.md` | Local evidence for state-machine/session-anchor pattern |
+| Governed-code category | `docs/MFH_META_SYNTHESIS.md` | Public synthesis of the product category and gate import |
+| MFH Operating Gate | `docs/GOAL_SCHEMA.md` | Public goal evidence and closure schema |
+| Meta Constitution | `docs/SECURITY_AND_GUARDRAILS.md` | Public owner/operator boundary and guardrail model |
+| Candidate M closure pattern | `docs/EVALS.md` | Public state-machine and verification gate import |
 
 ## Research Artifact Template
 
