@@ -79,21 +79,27 @@ These routes are engines, not the product center. The operating contract remains
 
 ## Quick Start
 
-The current Metaforge runtime ships through the OpenClaude CLI package while the Meta/MFH/Orchestra operating layer continues to harden.
+This checkout builds a local OpenClaude-derived CLI runtime while the Meta/MFH/Orchestra operating layer continues to harden.
 
-### Install
+### Build This Checkout
 
 ```bash
-npm install -g @gitlawb/openclaude
+bun install
+bun run build
+node dist/cli.mjs
 ```
 
-If the install later reports `ripgrep not found`, install ripgrep system-wide and confirm `rg --version` works in the same terminal before starting OpenClaude.
+The registry command `npm install -g @gitlawb/openclaude` installs the external OpenClaude npm package, not a Metaforge release artifact from this checkout.
 
-### Start
+If the runtime later reports `ripgrep not found`, install ripgrep system-wide and confirm `rg --version` works in the same terminal before starting OpenClaude.
+
+### External Package Start
 
 ```bash
 openclaude
 ```
+
+Use this command only after intentionally installing the external OpenClaude npm package.
 
 Inside the runtime:
 
@@ -303,11 +309,7 @@ npm run dev:grpc:cli
 
 ## Source Build And Local Development
 
-```bash
-bun install
-bun run build
-node dist/cli.mjs
-```
+Use the same `bun install`, `bun run build`, and `node dist/cli.mjs` flow above.
 
 Helpful commands:
 

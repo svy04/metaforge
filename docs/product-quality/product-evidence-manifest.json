@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T02:31:26.391Z",
+  "generatedAt": "2026-06-15T03:06:08.147Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,13 +20,13 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "d1306d1c173b0765f7cd633ab617677a7f68ecfa2f3d1cf6c652822e191f27c9",
-  "evidenceRecordCount": 250,
-  "evidenceTotalSizeBytes": 9228445,
+  "manifestJsonlSha256": "f80b354f8cd614635eb75a70716ca0fb2f620cd61174b8df99942e11fd594491",
+  "evidenceRecordCount": 253,
+  "evidenceTotalSizeBytes": 9257711,
   "evidenceRoles": {
     "source": 2,
-    "evidence_report": 182,
-    "evidence_artifact": 58,
+    "evidence_report": 184,
+    "evidence_artifact": 59,
     "quality_gate": 1,
     "workflow": 7
   },
@@ -141,6 +141,9 @@
     "docs/product-quality/github-remote-surface-audit-report.json",
     "docs/product-quality/github-remote-surface-audit-report.md",
     "reports/openclaude-github-remote-surface-audit.jsonl",
+    "docs/product-quality/origin-license-provenance-boundary-report.json",
+    "docs/product-quality/origin-license-provenance-boundary-report.md",
+    "reports/openclaude-origin-license-provenance-boundary.jsonl",
     "docs/product-quality/protected-action-authorization-packet.json",
     "docs/product-quality/protected-action-authorization-packet.md",
     "reports/openclaude-protected-action-authorization-packet.jsonl",
@@ -229,7 +232,7 @@
     },
     {
       "path": "docs/product-quality/agent-instructions-quality-report.json",
-      "sha256": "f092731b6e91761e017b518b8835c0595e75c15f14b5fff4450e507bde205ac6",
+      "sha256": "78a9949175e5ad293ac1ac08a0b4ec4b349bfabc4d459adcb6097d69b9df3c7a",
       "sizeBytes": 5621,
       "role": "evidence_report"
     },
@@ -241,7 +244,7 @@
     },
     {
       "path": "docs/product-quality/agent-replay-evals-report.json",
-      "sha256": "da473661a3aa8b938931f08cba6efd7b903399977a5fc034c59c1068afdf197a",
+      "sha256": "e4b28a8b94b01c7f45496217713d1fb4898f1462accec07da03ccafedb2156fb",
       "sizeBytes": 22836,
       "role": "evidence_report"
     },
@@ -265,19 +268,19 @@
     },
     {
       "path": "docs/product-quality/benchmark-efficiency-metrics-report.json",
-      "sha256": "90b36a8060d3b77cc8ac0b8bc5e11fb246dd1df78ea9e9e72b2fe066912b1b3d",
+      "sha256": "2be66fbb03fb41b5bf5fa3a5769cbb6ed1ff49384cbb41fbb94b157e2a548a7e",
       "sizeBytes": 24480,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-efficiency-metrics-report.md",
-      "sha256": "edad6dafa2ff5f98d47aab78976e9e0333144e8f2c43f45c0606b91b3fc31754",
+      "sha256": "a31e67c7ab0752ecb0e2c6ebcfbee1e041675db7d6d5d1d578dedaa4a7be1b94",
       "sizeBytes": 6646,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-policy-compliance-report.json",
-      "sha256": "9e5bbaeb1830611da4702d81d084d7979a199aaef44044923cdbb780c1766f60",
+      "sha256": "76828c72a96839da41aacb3f2b1332bd36c9ab0aff95b1ba64ec4378dfbce301",
       "sizeBytes": 9124,
       "role": "evidence_report"
     },
@@ -289,31 +292,31 @@
     },
     {
       "path": "docs/product-quality/benchmark-readiness-matrix.json",
-      "sha256": "36a8d8ae33af75c305bef1d5d0382e19add6efe8f243e28dd81d768fe92bb656",
+      "sha256": "42b3bc639bdd074b93d4efb1a210dd1518fe062169d102f5719409b1e2447538",
       "sizeBytes": 10653,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-readiness-matrix.md",
-      "sha256": "26d9be7ad734de366fab79c40743e96c3b3459021043080c484b32e313d150a3",
+      "sha256": "adcd80c9d993d7a3b2fd3e8961e498d4170e8935053fb152370f3d48d8a4285a",
       "sizeBytes": 7929,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-submission-readiness-report.json",
-      "sha256": "239be0230fb4e5db98fa3a7286292aa8fa4e458fa1adf939c46b1bfd98a746a0",
+      "sha256": "29e125ec493e2b360a3fe6ed920f4b9be5dff356dfce8cc7f05ee0a88a8fc973",
       "sizeBytes": 11875,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-submission-readiness-report.md",
-      "sha256": "c8ef658c8d11c13942d85eb4ee68cef5299ed326b0b52bbb1956ea5ef5355fcd",
+      "sha256": "b5e1b3db8d164e72fab082826eb513b8a31f4fa04953789ff36b120d8a92f2a9",
       "sizeBytes": 5325,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/code-editing-trace-capture-report.json",
-      "sha256": "c8f87a32d01d3934a6c0250b53d09f064a8d04866d7c8020d518bd0acebb29da",
+      "sha256": "f3b1316b78df1f109644ba7cdb6c150817e11b5b5b2993779db96e4b6f0f790d",
       "sizeBytes": 3082,
       "role": "evidence_report"
     },
@@ -325,7 +328,7 @@
     },
     {
       "path": "docs/product-quality/community-intake-quality-report.json",
-      "sha256": "aa9749c01ec27f87a9ee909594f9ac2e010828c1fc3d58920a2a0a5416b7197b",
+      "sha256": "88d556999fd04d5c9f291e6c3aecf09a571ea0c64f1c225ea05e233f0480b502",
       "sizeBytes": 7158,
       "role": "evidence_report"
     },
@@ -337,7 +340,7 @@
     },
     {
       "path": "docs/product-quality/community-profile-quality-report.json",
-      "sha256": "f47d55ef63408cc7a3e931f053ec88fd6111231f88ffd43e80994fa6cf7b842a",
+      "sha256": "d0cebe9d3754a613a33f3ab457c765156273e1932190a7b45c0d7b07252c57d5",
       "sizeBytes": 8091,
       "role": "evidence_report"
     },
@@ -355,26 +358,26 @@
     },
     {
       "path": "docs/product-quality/dependency-governance-quality-report.json",
-      "sha256": "d6c53082113add23a397cdd44bb012d81568af62894acc28fd61a55f8862468d",
+      "sha256": "007e3d0e2359f8c23f31cd8773adeb2962407987cf3628f33f797eb90da74163",
       "sizeBytes": 19473,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dependency-governance-quality-report.md",
-      "sha256": "6e646db3e3a528814328067ecc571a0e17756b3cca953bcd0816d9962d43096a",
+      "sha256": "94ded7b3ab1e271fc5da024a5427909ebac869d05560fecd9ee6518aa7ea4781",
       "sizeBytes": 10099,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.json",
-      "sha256": "9d066197678cc699b38a3bd2e3ac7e86819b6b5ebfe551a9cdccc646e49d7a99",
-      "sizeBytes": 13365,
+      "sha256": "e37c0463c9708062a09b77fdbcfb08acba40571c9bfa12efbe16976f1c2df2d5",
+      "sizeBytes": 13522,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
-      "sha256": "c8d8fa486c97bf6f22072db356cd8904c847ddb8ecb58f4b2e2a9744f8d42fde",
-      "sizeBytes": 6537,
+      "sha256": "b166a4e8864bb4c8ab3f7f50e6c4c2530ab010e3128210b7d3b29c668f29b194",
+      "sizeBytes": 6580,
       "role": "evidence_report"
     },
     {
@@ -385,67 +388,67 @@
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.json",
-      "sha256": "6a5058389326f5c09ebc1b91dc5d7e36751be9931ee6bf7bea4d89c66c7aa330",
+      "sha256": "e12099a7639ece5f207ce08c357da0ded8c9d211b101e1995fb380d4dabf9288",
       "sizeBytes": 11170,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.md",
-      "sha256": "d1880cf27eeee11b65bb091f30c883c5186a53e41825cc10fc13e2ca771e3aee",
+      "sha256": "018c398864e514c31750f5f7ed8b2663c7637a25369dfcc4aef72cc98790d282",
       "sizeBytes": 6331,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.json",
-      "sha256": "635f0f1d21aa9b8e14601b49a9dc59ecd74297e2c42ff550627dfc062014baa1",
-      "sizeBytes": 5871,
+      "sha256": "f0ac480d3b7c54b74f414f2afacc6c2d3507b94e96c526a0ffb8bbbd9a12afd2",
+      "sizeBytes": 6019,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.md",
-      "sha256": "8ba646629b87916a39baaf35f5416ee18930b30448f47780334370c58c53c964",
-      "sizeBytes": 4745,
+      "sha256": "82090c5307ba2a80e3f9a33936f55039adc5238cec0e2b6b348ea4f06a0df4f6",
+      "sizeBytes": 4893,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.json",
-      "sha256": "b4b776226a9d1695f6c8484f7442d1e4892531c0030dcf955caa26a3ee37ecf8",
-      "sizeBytes": 4025,
+      "sha256": "ea22fbcc80c25fb7531922a9387db3cefce4d1d7113781f70e49991c374effcb",
+      "sizeBytes": 4004,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
-      "sha256": "c20d163659ddf1dd7ff0ad502454358666a2dc14c2f7cd2b612f9bc768540e80",
-      "sizeBytes": 3158,
+      "sha256": "aecb0b7371854126c2610cb7e1f53cdaa17767d4dc254285fe5c6759d8d49bd7",
+      "sizeBytes": 3144,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-      "sha256": "9bd64def7d8905241ccba50aefe4656a17245c205b04aa633f77858fd18a3bfa",
-      "sizeBytes": 10655,
+      "sha256": "2591d95ebc8c0b978bea170601771110e53689d1689dd1dd8d01dd0b75325e6c",
+      "sizeBytes": 10901,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/golden-path-terminal-transcripts.md",
-      "sha256": "7840e2aee4fdd9f7becc021668e136dd9cd9553bd856b3470f59d87c8589ec95",
-      "sizeBytes": 9574,
+      "sha256": "7fdd7e671f7b1b18f25874cdd401bacc3f71901e80795749076b7d6de753b5de",
+      "sizeBytes": 9792,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-host-smoke-report.json",
-      "sha256": "4f74942c607e3a6c2795c9401e1cd727be2c79e819c01012f01b2b8d90b9b7eb",
-      "sizeBytes": 4198,
+      "sha256": "68f2a8e39e6535cb17ed74916b50fdb23553ea19b2daca9bfa15ec9251dd7f17",
+      "sizeBytes": 4646,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-host-smoke-report.md",
-      "sha256": "dda081c9f88870509e72afebd89dce95f04ed86f1822b5c75668ea3957cdba09",
-      "sizeBytes": 3767,
+      "sha256": "765460731afb3eac76361676105adde6e0a176891a315a22ef5433283e2601e9",
+      "sizeBytes": 4175,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-manifest-smoke-report.json",
-      "sha256": "cc8a6ebabfe79d1b255de017a0e08966c885946450f08ce40382c6848df12f59",
+      "sha256": "c699e5947d3a383381fe96efdae53458307a0183f0fa986afbe6c54e2b06c749",
       "sizeBytes": 4243,
       "role": "evidence_report"
     },
@@ -457,7 +460,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
-      "sha256": "d69b74989c79ae1e4021f1013a00e95596ab51c11b159a3929609a8ea5dbe74e",
+      "sha256": "2c9c82b1b21d489db1fc0613d672e471e0a3f53bfc5373f7287aec45e5392a2e",
       "sizeBytes": 4410,
       "role": "evidence_report"
     },
@@ -469,7 +472,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-runtime-smoke-report.json",
-      "sha256": "6345790c245199fbbe8bb7be4b9252fc5d6fdb1416aec05da07f69899abfa649",
+      "sha256": "53eb2127d8abecfafe03b5578f8ae464ad843525ea96b269e5167b60ef9427e9",
       "sizeBytes": 4180,
       "role": "evidence_report"
     },
@@ -481,7 +484,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-scope-report.json",
-      "sha256": "809075621a8ff53b8e6d5dd6b491ebc71707965859e8745090149be0eccb0a4b",
+      "sha256": "166d4bd5db8bcced21de86a4ec145c67a9513b43b45aaf66c97510200eb3f500",
       "sizeBytes": 4744,
       "role": "evidence_report"
     },
@@ -493,7 +496,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-surface-report.json",
-      "sha256": "d8310d756593db468bdf24c61e229eb40ae9d4e40d3556f649747aceb58b0585",
+      "sha256": "9f73f17fcad886b6dd58d244a77b363c741879ecd08cd0d5c4559d46d09c05e1",
       "sizeBytes": 2174,
       "role": "evidence_report"
     },
@@ -505,7 +508,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
-      "sha256": "569a6ea428b587edd82d34de00e758a6ab13ab7dc08f8bb24b1434ce3583a214",
+      "sha256": "508971791fff1e964497e1472eacb1f21deccc75ff181d6e69f26aecb85f8d8a",
       "sizeBytes": 6402,
       "role": "evidence_report"
     },
@@ -517,7 +520,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
-      "sha256": "4577b6073f2de4901f609799da2fc43c8134501c9f697e80fb96bcf4c37bcbbf",
+      "sha256": "c09aef08c24bd327a99a2c0ef200ce16d8ea9673d28190cd7588fca7f8a4da8b",
       "sizeBytes": 3461,
       "role": "evidence_report"
     },
@@ -529,61 +532,61 @@
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-      "sha256": "c5debc629ae90fd2b44e05b672cb142faf05722eb163491dc68db661fd47e15a",
-      "sizeBytes": 4951,
+      "sha256": "c78ce9986f7ebd0b097d7d15bda8b0d467fda3f37bdef12ffea94e14f7db94d6",
+      "sizeBytes": 5399,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.md",
-      "sha256": "5c52d59bddec983bb842665ab16d1298ecdfcd44de716ea8533bb267a7c2da03",
-      "sizeBytes": 4075,
+      "sha256": "e27f2860ca140285e1bfa0e66db8c9e9529744639becea94ac16ad05e836e582",
+      "sizeBytes": 4330,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/license-boundary-authorization-report.json",
-      "sha256": "c1504082b2a999479fc11ea5d74b110d8f855a5280f86aec62563fd8130a76f6",
+      "sha256": "7b7c9b4f752e4ed2f772fd43609a656a8811b16b38e4c581415fd7e30a558f40",
       "sizeBytes": 15540,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/license-boundary-authorization-report.md",
-      "sha256": "a959be7e4c8e3cfc8c2bfb328679990f062c933f13a9373b98837d44690a5fe0",
+      "sha256": "09c6cd76558ab6e9bbc6da914743322803fbd4b5119af89829e1a5c477035324",
       "sizeBytes": 5812,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/license-boundary-authorization-request.md",
-      "sha256": "a95cdf8db3844e7fecf7028976d6616cd5d0b1afe9525a244a7855f3f89a8d67",
+      "sha256": "c3de0c689bc979b546bcb638dc3b2645eba906529a37fb8c6a3ae3c27ca99b43",
       "sizeBytes": 4245,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/local-benchmark-harness-report.json",
-      "sha256": "a2cc95ac3edfe7ae59ecd12948b3cacda11c1d4c80aeabf41beb911308f28169",
+      "sha256": "7fc83249a09fddfdfbb96fb08f537b1693d56eb679626575f86c5d3691b9e911",
       "sizeBytes": 17652,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/local-benchmark-harness-report.md",
-      "sha256": "6d8a8876a9ea91b589a2dbb2b4664a926024aaf53570a739de55117323a6e2ae",
+      "sha256": "3cea227d7dfbe4d744047654e31873b97037dacc0e647d55edbd81cc080dbdd9",
       "sizeBytes": 5018,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/lockfile-sbom-quality-report.json",
-      "sha256": "58164e1eabe01e3ebf7c7d0f32eddd2c184edee597d3e7a0a3e5c4460732eb58",
+      "sha256": "ac9de91a46497a5441aae6378b3fa1167510c200115d507931b0c1ac15f4fa46",
       "sizeBytes": 645028,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/lockfile-sbom-quality-report.md",
-      "sha256": "764c0aaae0af6c1c24f416a56349e67dd11929f50e1d9f3a83bf273269255b3d",
+      "sha256": "373a501b344367bc42c50a2927b76f3aca61192300ffa7f972ad37e7b61f1cd8",
       "sizeBytes": 10876,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/maintainer-ownership-quality-report.json",
-      "sha256": "7af2de3268fa405c9b3b025dacd6ad1acbe94ca3248277d6df7aad38e3175c08",
+      "sha256": "caf97f4fb6eab6a028d088e44bc9340148285bd6df010b5c7490d5e652defdc5",
       "sizeBytes": 6330,
       "role": "evidence_report"
     },
@@ -595,19 +598,19 @@
     },
     {
       "path": "docs/product-quality/model-system-card-report.json",
-      "sha256": "dcc34db483b2e6ebd202a7122ed873152528cd79354d78c9500b604b3d527b8c",
+      "sha256": "3ad49433447b48e77189d5b2f52ae303e20d419282295a91c0ed56bb8a13e68d",
       "sizeBytes": 9282,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/model-system-card-report.md",
-      "sha256": "3b56d895f548b78cfd5b3307d5776cb53e96fe952de4bb8f218c79b12b3806be",
+      "sha256": "a32d6f0b8571971bf898c79414386bb4216bab613caeaa43a8a09b6833a7ba29",
       "sizeBytes": 5211,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-      "sha256": "1cdf5bfac99369e014c3e4a4ec2d4060c23bf0f83ff0742ebff9b0bc1dc44da3",
+      "sha256": "dfb92d7eb264fe70c7d90c101f59d974f40eaa00ec5d5c5fa1cfbc6edc541d05",
       "sizeBytes": 4837,
       "role": "evidence_report"
     },
@@ -619,14 +622,14 @@
     },
     {
       "path": "docs/product-quality/onboarding-smoke-report.json",
-      "sha256": "70e870f97a10efd1ad64c6851fafcea3645189c2b990cce203709d6893bb3709",
-      "sizeBytes": 15336,
+      "sha256": "d7fcaa17202f1fc31bdd5259fb33d9aeac92dbe1d73d24e8d2c89d4938587fee",
+      "sizeBytes": 15705,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/onboarding-smoke-report.md",
-      "sha256": "264ab6ca48a64c861e3bc7f7dceb0541166fa2d727dbc8cbcce36e110306c520",
-      "sizeBytes": 12531,
+      "sha256": "b09263865e8407baf18d3d05717af03c50de34b3fc0255fb291b2caca4104ef8",
+      "sizeBytes": 12858,
       "role": "evidence_report"
     },
     {
@@ -637,7 +640,7 @@
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.json",
-      "sha256": "8e0faca06586ad09e310cb1ed5ce333f5c7ea70d444f9987312930d2f853f766",
+      "sha256": "df818293d46d92cd25549dd72227e073429a066172ed09befa16436ceaee93e6",
       "sizeBytes": 10086,
       "role": "evidence_report"
     },
@@ -648,8 +651,20 @@
       "role": "evidence_report"
     },
     {
+      "path": "docs/product-quality/origin-license-provenance-boundary-report.json",
+      "sha256": "a382d5114af986afdc667ea0ed6b634064922db3804febb18eadb4ea43ea869e",
+      "sizeBytes": 5313,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/origin-license-provenance-boundary-report.md",
+      "sha256": "a3a33088a511e72b14421b2a7f2d808991f91e33044e1870c63fe149b7ce2ffc",
+      "sizeBytes": 3405,
+      "role": "evidence_report"
+    },
+    {
       "path": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-      "sha256": "9be2877a49d35afcc747041fa9f7f7218a0c489b8d1727ba757387b1e5be8c28",
+      "sha256": "3eb45d8fe47ee8076d6876a6138a689bec2c3d5cc75156b4240991c76a7a08fb",
       "sizeBytes": 27724,
       "role": "evidence_report"
     },
@@ -661,7 +676,7 @@
     },
     {
       "path": "docs/product-quality/oss-architecture-gap-review-report.json",
-      "sha256": "b66dbad44d272acf20b1f220991df6c399cbb367f9cdaf7da326a0593cc2768b",
+      "sha256": "16dc4f937481e38dae520fbc818f59847a46fefa6b7900135f28defc204ec3d9",
       "sizeBytes": 106715,
       "role": "evidence_report"
     },
@@ -673,7 +688,7 @@
     },
     {
       "path": "docs/product-quality/oss-axis-architecture-review-report.json",
-      "sha256": "bdbc4cac312d686d7a4c6985d16947e957b4dd952da00ae17e9ff2e5e45105b4",
+      "sha256": "21ed0b5e9caa4ad44dfd13d6c8b717af09cfd47eff6fe3273493e497ccea085e",
       "sizeBytes": 46847,
       "role": "evidence_report"
     },
@@ -685,67 +700,67 @@
     },
     {
       "path": "docs/product-quality/oss-baseline-drift-closure-report.json",
-      "sha256": "4278d289bb65d0a6e5e3b5559b634de7597ad6905eca8da99a64fc8fa2fc71b7",
+      "sha256": "53ce38cacff873367be6515bcadcb276a1c3dc28e8dd82205a97a629847c310b",
       "sizeBytes": 9629,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-baseline-drift-closure-report.md",
-      "sha256": "cbf0560521dfcd355e8e0bcaff740a1019ac053d43913a873dfa17b3d664354f",
+      "sha256": "1335b06002d63848a51328b5d3df3f3efe1eecc7199b26d86f4da2df78f74e95",
       "sizeBytes": 4798,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-baseline-freshness-report.json",
-      "sha256": "b57a660d9746069f9b77e9bad56b84b88274d4381c0606c4a7a947140075894d",
+      "sha256": "7739782aeb394dd211834ab6159df8e7871c6912ee373a8006609c7718517a16",
       "sizeBytes": 15453,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-baseline-freshness-report.md",
-      "sha256": "ba10f80230f68f97fd18ace70030e3edaaa876d9448ee904ed51a6cee0f5a2e7",
+      "sha256": "681e767b91f862177c928c65468f73ec3dfe4823b55c0f6c13c018a373df1491",
       "sizeBytes": 5268,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-baseline-refresh-report.json",
-      "sha256": "1a59b5bbc8f9f8f4117c578275fd8688bbb1975c8c0f7c9bfe0c763b416411ea",
+      "sha256": "81adc7d8f8ecb75a12ae2098757a006b4109a014b39a5e195511d35a60ad0b99",
       "sizeBytes": 14266,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-baseline-refresh-report.md",
-      "sha256": "c9a2d8511e609b2596d15a70865f52cac6cf0c2a56fcaba61fe14f63f374d865",
+      "sha256": "f9974be5a2b221a331fd1c87de18c1faaad9deacf83563479b14bb48e9b5e2e6",
       "sizeBytes": 10364,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-      "sha256": "519c8e76d9a0cc0ecda5e7a5231ff4808258b44edf217a282348e15b8829a2de",
+      "sha256": "db5884d59e21692cb04ce0034e7683db75375e97de95c030b6f51fcc538f977e",
       "sizeBytes": 259580,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-benchmark-comparison-matrix-report.md",
-      "sha256": "4706941e480e738040011e3a5d5686a55287fd9e8cbfe4e5d64f9dce2c88bc8b",
+      "sha256": "aba432b953599b6662f80d754f13d95a3485b13d804d70377cdd7d34a7e37e7f",
       "sizeBytes": 8393,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-comparison-readiness-index-report.json",
-      "sha256": "9bc4c3c8f5409ca67d0d047c4048e804ddee3d8bf7c54c01628c3e58ae525e94",
+      "sha256": "8e47ce46bee781347429299eeeaaf0b0cdbb1da1c351de8bbef4c756c619fdf4",
       "sizeBytes": 48477,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-comparison-readiness-index-report.md",
-      "sha256": "a4e5a22a22cdd4a0a424cae16b1d89c9b849105dbb3c69d8030c81cca678b1f8",
+      "sha256": "fbb9186d004cc0e63ca838a6bd8de88d2626a6c84f1a03378a2c435eaeef274e",
       "sizeBytes": 4880,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-      "sha256": "662915bd12bfb8eed2e08bb200ab0efebc61c86121b871f2c735e03ee8f927ad",
+      "sha256": "e08595f4dfc70f0a4472b09e10c91dc115c72e021fee09e913b57a1a39702d70",
       "sizeBytes": 15677,
       "role": "evidence_report"
     },
@@ -757,19 +772,19 @@
     },
     {
       "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
-      "sha256": "0af001292c49dff33524f6caf193f263e52a712f261663acbba374589db4ab1b",
+      "sha256": "283c9b5b6a822f3da7eb48ab00790183d484e470255d6d95a1beb8cb07188cf5",
       "sizeBytes": 22417,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.md",
-      "sha256": "e549c541fb02ea144a25b7756743a317a3bf8971b75b45df0d3bb40e038c0fb4",
+      "sha256": "a5954ebf6522099ddd48df559312b86b592f432e4e0383f6687d3490530b5ce8",
       "sizeBytes": 7314,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-      "sha256": "892a1b33ea319ce39446341d53d793a7e848bf1fd1ee87fee55f5fe491adcae6",
+      "sha256": "05cd30eae7936cc77e41b6bce6f68883da67819b61fc6c734c9855826c088ebc",
       "sizeBytes": 17271,
       "role": "evidence_report"
     },
@@ -781,19 +796,19 @@
     },
     {
       "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-      "sha256": "cf28ea690be69d0b5c3c6e639567f77cbb691f220800f9197013e1cf3cb20c6e",
+      "sha256": "fe9ea53e1be8510f23856258228d82301959216866766ea664bd981a71b19d16",
       "sizeBytes": 19974,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.md",
-      "sha256": "5cdcada496a4df35dbfac13ffdda21cf679c24f91291b6c5f3f09984da1ef136",
+      "sha256": "6a7b3a3f6bb056b4650d70c989956e2299db4ed0885e370014b969d6f304fb56",
       "sizeBytes": 5958,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-provider-breadth-evidence-report.json",
-      "sha256": "cf6e0aeee36c080d6ca227b5d44d6d578bb4485b4e15d2a453750f3668497f75",
+      "sha256": "c2dcf1715c7863052517d16f51b75bd890e0cdfa645de5363f3b498ecea7847d",
       "sizeBytes": 21714,
       "role": "evidence_report"
     },
@@ -805,7 +820,7 @@
     },
     {
       "path": "docs/product-quality/oss-release-hygiene-evidence-report.json",
-      "sha256": "dc6c06ce45f521424463d40147b127f49086974d00be5ea4ad48a1931caa9637",
+      "sha256": "342a2cb131bdd0bd579cb8ccdd321f641183df9c7ddd53162216bf70803ecdab",
       "sizeBytes": 13984,
       "role": "evidence_report"
     },
@@ -817,7 +832,7 @@
     },
     {
       "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-      "sha256": "824d41223874a10a87cafd37acab4aa3195350337d3df9cb183f7017759a6df0",
+      "sha256": "6b01f623835c3c9963b9d11e2e70ad157c5c0fd28d1bd2fd51a1c26a1d1f88be",
       "sizeBytes": 16426,
       "role": "evidence_report"
     },
@@ -829,19 +844,19 @@
     },
     {
       "path": "docs/product-quality/oss-safe-backlog-closure-report.json",
-      "sha256": "35bd5659f867bb8be520d18b9841cc20da686994cf71683f4a0d93f4985fa9de",
+      "sha256": "677e1344b0c568f18142e8cdca0a8380b156e20583474ea32640933261c6e6b6",
       "sizeBytes": 11982,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-safe-backlog-closure-report.md",
-      "sha256": "02c1fcec1a30225322ca5b8ffffc4adf58887b1b833b14339742ed60e3c16257",
+      "sha256": "be8e85a8d2465da2a557534fe87af65f5d214da5ada6b73ccd111986fd34f389",
       "sizeBytes": 3599,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/oss-safe-backlog-plan-report.json",
-      "sha256": "516759f6312e9025fd7ede4ed05e860a1482667783aff5ae035096f1221459e0",
+      "sha256": "ff9c8bf4170227ae9475badea3af8613b81a53b57c8a6e300f8919d681a167de",
       "sizeBytes": 74845,
       "role": "evidence_report"
     },
@@ -853,7 +868,7 @@
     },
     {
       "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
-      "sha256": "ed7881fb4cfb75756f5a1cf655ffccda76b17396f6d2045dce19b1ba7d775a85",
+      "sha256": "67c52c248f85701febe271cfa1c9a92dfc3ac69c8334f069f55c7ed4bca2f9f9",
       "sizeBytes": 19338,
       "role": "evidence_report"
     },
@@ -865,8 +880,8 @@
     },
     {
       "path": "docs/product-quality/oss-source-review-report.json",
-      "sha256": "be1b2c4ca891c50114a5bad28321b5b3cd9ac988fffca2af9cb212a52c18970a",
-      "sizeBytes": 23544,
+      "sha256": "3b6cf59c598a0a7cc9d987d88ad71e6f8f5d32fe7a015b9ab1a0a0e17fb94990",
+      "sizeBytes": 23504,
       "role": "evidence_report"
     },
     {
@@ -877,7 +892,7 @@
     },
     {
       "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-      "sha256": "91cdf3161914b50c9755e5f84f7338bb8c672c3e4aba5e778a61291c3b0e5e48",
+      "sha256": "ad4d6c513267078e83d75a1796dbe8a6bae0be4f3429b1af1582c147cd54cc22",
       "sizeBytes": 19027,
       "role": "evidence_report"
     },
@@ -889,7 +904,7 @@
     },
     {
       "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-      "sha256": "d6ca62a79146b88533ccbdaa102d587b96ebc26bcc622289132849b94a7cd9d1",
+      "sha256": "ecef2a0987e47f712416e78c640e5e962e8b5c37697a9194085f29d1f0dcf9c9",
       "sizeBytes": 25673,
       "role": "evidence_report"
     },
@@ -907,13 +922,13 @@
     },
     {
       "path": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-      "sha256": "f90eb61d119a72fd45d01d74b1eaa16f3bfd3ff599ff48531ca9f632cdbe3729",
+      "sha256": "109838fe2495a76b6a25109e00a4dd25e9e10a3e5c6ded0a154d2c3eed44d674",
       "sizeBytes": 7449,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/permission-regression-fixtures.json",
-      "sha256": "a5e922bbd43cbf0a367f05013b4b28e37974370dd68d674d9e94a1b3cc63cc02",
+      "sha256": "c869bc4dfb1508468e8df5e084137310400f41a93f4612ee61d0f25a4987cde0",
       "sizeBytes": 6551,
       "role": "evidence_report"
     },
@@ -931,14 +946,14 @@
     },
     {
       "path": "docs/product-quality/primary-source-registry-report.json",
-      "sha256": "620bb539c93580e08c6ac1febdc817c1d184dce86a0c26005d15945890d4eb04",
-      "sizeBytes": 164260,
+      "sha256": "d655274a61d841c4b3b187a14e1ea7d3ba968fc64b798798e52f6f31acd04748",
+      "sizeBytes": 171128,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/primary-source-registry-report.md",
-      "sha256": "5f30d8a33e699cf22b884b58aea75b63a93ccb4be7eb34b25b03a48ede3e9c02",
-      "sizeBytes": 7004,
+      "sha256": "a57bb5f26b87ecf06efd76982860a625d2c0b89140c66272f9422ced7a1ec136",
+      "sizeBytes": 7163,
       "role": "evidence_report"
     },
     {
@@ -949,7 +964,7 @@
     },
     {
       "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
-      "sha256": "c1a1e191f966061171636b31aa62cae12a7116afdbf1273f022578e6e0df0c48",
+      "sha256": "ed236b1397ad33b92151619d385c00e0861f401fbfe0908b63a908f1e90109e8",
       "sizeBytes": 4446,
       "role": "evidence_report"
     },
@@ -961,19 +976,19 @@
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.json",
-      "sha256": "6d7a97058e8378c4740d5c4dbc3e93140cf0f6182ec030aa923049bc87c50122",
+      "sha256": "849c25ffaf4285b4ec94b13c0ac9a1c320769331c26b46d71476a8ec46abc6c0",
       "sizeBytes": 17965,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
-      "sha256": "976ad95ca9b7c03873fb0d753c6cd9fcc67da24e4fa4d78ea9891815f55b6610",
+      "sha256": "386ef2bee47cd254db8a1770a60b7f6a1008df49384a3a914167fc67ec0776c4",
       "sizeBytes": 7494,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sha256": "65b06d9eba8d985964dc18acfb7a6255b691486ddffecbcabc97de148e63079c",
+      "sha256": "a711842dcf6aa23a4b5c92bc8e90d89712516c677b76983ee30b0afb19529113",
       "sizeBytes": 6267,
       "role": "evidence_report"
     },
@@ -985,7 +1000,7 @@
     },
     {
       "path": "docs/product-quality/provider-capability-matrix-report.json",
-      "sha256": "991aafcdbef731cebb42f2cf3b6dabb3e99e6d190dfc21f87484b5e1691a6ad3",
+      "sha256": "2b82bbb70dbb2190e2243b146c9f4fca7e6ae395c0a7533300d0daf4eb207568",
       "sizeBytes": 42224,
       "role": "evidence_report"
     },
@@ -997,7 +1012,7 @@
     },
     {
       "path": "docs/product-quality/provider-compatibility-fixtures.json",
-      "sha256": "6ea268568a627560a2264497eaed55ff968fbaebc6923c8352f9db5be7fc293e",
+      "sha256": "8663b228d1fdb7825b4e62740944f64125cc1a89513808425cd6d7f0517468e9",
       "sizeBytes": 6909,
       "role": "evidence_report"
     },
@@ -1009,13 +1024,13 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "1ae305ee1a51603b8dd552a4dba51755c7888965f4e79f5453c9d33c258bfab1",
+      "sha256": "a49518e3c6713ba6c40ab2036bf65134327cb94522e127f2ce902418c36a6873",
       "sizeBytes": 14070,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "a05b66aa13a4fcdb52d5697ddcad2280cacb4398dfc18a3254114d04db0f77c9",
+      "sha256": "88c27b2ce2c52e4263a04bfe4d9ebae41017c6d77bd41bbb8889ee62ad3ff030",
       "sizeBytes": 9863,
       "role": "evidence_report"
     },
@@ -1039,7 +1054,7 @@
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
-      "sha256": "9ea8be8e3acf420a6238e409f5c1c9626616c73f333b99f538de8009015017b2",
+      "sha256": "f66c00e90110b421832c2c5acebac78572200c28b60e627311791a218c21cace",
       "sizeBytes": 6104,
       "role": "evidence_report"
     },
@@ -1051,7 +1066,7 @@
     },
     {
       "path": "docs/product-quality/real-session-capture-report.json",
-      "sha256": "91035de1071389d611107c12aad1d688d4b48d152c4382fa8d2cca60b5848373",
+      "sha256": "9d299bd70ccf9aa5f0c7d846082ae3462858748bde3800e84c31616df52b5640",
       "sizeBytes": 6231,
       "role": "evidence_report"
     },
@@ -1063,7 +1078,7 @@
     },
     {
       "path": "docs/product-quality/real-session-trace-evals-report.json",
-      "sha256": "7caf00ca75a53d346c28b167ee720c3212ea7c0e7394e3c22efbf9d15c759a35",
+      "sha256": "28a521235791b981a84b393cd0ba42ab4c702f9434eeab32ad78703f5605521c",
       "sizeBytes": 20244,
       "role": "evidence_report"
     },
@@ -1075,7 +1090,7 @@
     },
     {
       "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-      "sha256": "a991a66875b6dbb49ba1247d9caf4bc09c6949ce767b16209d1b0c75bae03bae",
+      "sha256": "34b2afd3dd67b5875b279eac6b9e125418281eee91c64b60127cbbf31cb7ce8a",
       "sizeBytes": 4586,
       "role": "evidence_report"
     },
@@ -1087,50 +1102,50 @@
     },
     {
       "path": "docs/product-quality/release-artifact-file-list-report.json",
-      "sha256": "3df5486941d7b21ccedc3c977df83cbfb5f00fb43af475409e8b322733040bb1",
+      "sha256": "3325c4d904bdba3713650d8824921ea9776277290e1fa2f5729b6fbc7c6e18f9",
       "sizeBytes": 2781,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-file-list-report.md",
-      "sha256": "b6a49e653a4d3daf1a0a81a0b1f6806af61a325e4a9e4dfa40ffe57c24264ff7",
+      "sha256": "2ddd5f536d4dab970daa981a27d1befb7a2b9909f82c1c451fadd915e30592bb",
       "sizeBytes": 1886,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-provenance-report.json",
-      "sha256": "291109841b5a0f4d6e7d0a76568e770bdd01de2bed3c6897491dbb1e4ed2d206",
+      "sha256": "a2e17292cb9e9f1a2f729dda41509cbfa2a4e0a7ab1e72c3a1118f6d0121d262",
       "sizeBytes": 17755,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-provenance-report.md",
-      "sha256": "22b9fb553eca8f651afe1b6e5691b3a4a1dd314508a32f9bd8c2b3c2273185a7",
+      "sha256": "a8ab45ee4b659840a4a33ffd6b3a86421c1805e200a134c7b875ccf1d46fd8c4",
       "sizeBytes": 2730,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-reproducibility-report.json",
-      "sha256": "e6e3325e5c5ea972cdc67f6b21644da613fd0d277c5fd1dd5e310e7e27a2da2c",
+      "sha256": "5c269fe54ae3edbb18473bfbd1a906e8134eecebd54d3c56893ca2dc3f5a1378",
       "sizeBytes": 5333,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-reproducibility-report.md",
-      "sha256": "00eae2fbe43448150ff5868d75bca101f0b73c4ee302f5322852b461204586d2",
+      "sha256": "234d54d22c082b8b8898488296ee949337727a57767efe7dd156748ab23269aa",
       "sizeBytes": 3319,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-      "sha256": "085a8dee839fddaeaede6e976c804ac0932ccc09f01c7863a30b109a24030bc7",
-      "sizeBytes": 7752,
+      "sha256": "17f556453fa347326facef059ced525827926a9dff65e768f61fa39d9c1ba419",
+      "sizeBytes": 8262,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/runtime-doctor-regression-fixtures.md",
-      "sha256": "7b9ef7fba04ffc74b6de423ebc5dff32a1dda99893bb6f8b4a57ea77e7c0cb33",
-      "sizeBytes": 2996,
+      "sha256": "0bda94031057b4e558e8f2c3bbb070ce3a24662b7ed60fea3a2f3e380150102b",
+      "sizeBytes": 3214,
       "role": "evidence_report"
     },
     {
@@ -1147,7 +1162,7 @@
     },
     {
       "path": "docs/product-quality/source-controlled-checks-report.json",
-      "sha256": "6d4f8798ff52d66c65512fb5da15e45ef93d431197aeaa35c4b8eef144e4cb1d",
+      "sha256": "19fcbf745af87d2aa24412b272e65b082c0e98c9d1e0cbdf8a6fda8285b0d3e6",
       "sizeBytes": 1530,
       "role": "evidence_report"
     },
@@ -1159,31 +1174,31 @@
     },
     {
       "path": "docs/product-quality/source-license-metadata-quality-report.json",
-      "sha256": "2a421035f602a8ff7807236ec37729ee296657e6f1fd05229a46acb9da4a3ccb",
-      "sizeBytes": 1890109,
+      "sha256": "48fd36d1b1687fafceedd6cab63abb38015109069882dc250c947467f0295d67",
+      "sizeBytes": 1891724,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/source-license-metadata-quality-report.md",
-      "sha256": "3457014933af74350d06680994ca9d2d16fe730678c0a9e6adc8b2d152b7ce17",
-      "sizeBytes": 9440,
+      "sha256": "f6ffa54885fe8d35f8acae12c79c3f899335efc6ac70933e477cf9707ccbc7b2",
+      "sizeBytes": 9460,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sha256": "e955fd9c82fae0a0760ee8cc0a137459f0f984f0400cc9fc7342d970b91aa63e",
+      "sha256": "f4de711f0eb3ea9adcb3401f120635ffcc05b8ec8ed235f015f2a34a95129877",
       "sizeBytes": 13091,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
-      "sha256": "940c59b499b04207a5fdec5e2d77801aa0c5536ea822e53a63a7d82e69ea7968",
+      "sha256": "63209a1c0a1d8b73a3095508b71438905787814562c1422c1ae1f4d15f5a356d",
       "sizeBytes": 5540,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sha256": "3b879ef6640ad5cfe9d17eab696ecec673ca327a9711ce7f69881f24d0202bb3",
+      "sha256": "ea89071250e5352aa526f51114514a541da0512197a50772ce3e2afa52d5b2c4",
       "sizeBytes": 5630,
       "role": "evidence_report"
     },
@@ -1201,19 +1216,19 @@
     },
     {
       "path": "docs/product-quality/third-party-license-quality-report.json",
-      "sha256": "6a862a3106655919a8dc3720ed649bbca8f0cc3837f3f2f119c3aaaacabca3d3",
+      "sha256": "1c3ddd77b4ef38a3a224a5e968c35b5fc2afef25d9e380dd8b148a32ec43b255",
       "sizeBytes": 638697,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/third-party-license-quality-report.md",
-      "sha256": "b17b861a6ff5032dd8cbc392ddb951dd64c88f7c06271d08768585b10f455738",
+      "sha256": "72eb88f7561fb42b4cab07f83fb38103ede4339864569e66c58d491133e0e59a",
       "sizeBytes": 19558,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sha256": "44d259f6834d02cbf9addce830b244477f66bb4967c70ec35c5fc1e6fa3f97f6",
+      "sha256": "83edbeced6c9ca9fad9a660ec48775234e409ad7a555a9662b15f1cb0e1b9887",
       "sizeBytes": 5551,
       "role": "evidence_report"
     },
@@ -1225,7 +1240,7 @@
     },
     {
       "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
-      "sha256": "5ac44206b60f626809daf419aaee3a181b20b915c18ba2a02373bc8859f73181",
+      "sha256": "5f2f5102baa22a6146cb92a44bd6b742af386ab36acb399aa19ab791963db6b8",
       "sizeBytes": 9595,
       "role": "evidence_report"
     },
@@ -1237,7 +1252,7 @@
     },
     {
       "path": "docs/product-quality/trace-portability-export-report.json",
-      "sha256": "7582ccaa7f9c8e16a2290b4d9e2f67dba4964afa7f77e796dd8094d864a8211a",
+      "sha256": "c1a8cacb31152695a5955509e59a84b331223ede6676e611781f7a5689b3ac1f",
       "sizeBytes": 6414,
       "role": "evidence_report"
     },
@@ -1249,7 +1264,7 @@
     },
     {
       "path": "docs/product-quality/trace-schema-contract-report.json",
-      "sha256": "b876221eccdbd767ce9abe6be15be39aae89de9c263dfdc61410aaa7a7c2d7e1",
+      "sha256": "ce3258146d104b384de4e32a328405f9fc045ba98667cd2287f885dc761df555",
       "sizeBytes": 14653,
       "role": "evidence_report"
     },
@@ -1261,19 +1276,19 @@
     },
     {
       "path": "docs/product-quality/trajectory-process-quality-report.json",
-      "sha256": "2fea31f70942ee9bec6e13b0c8842e94ae92f3ac7e339e59702c5efa23958610",
+      "sha256": "95d3fe9c7351e86fb9d396206bb5928d54d919496a93d59eb653e2646776dcea",
       "sizeBytes": 16260,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/trajectory-process-quality-report.md",
-      "sha256": "4a098b085ccef239e5a32b3611c7ee723f770dd7305a0631bf89829c4922a57f",
+      "sha256": "74f60ff4b0821ac940cb88f7f47ecfaea45f8fcbb19ee0cf84680a0fabcd2b0a",
       "sizeBytes": 8261,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/typecheck-health-report.json",
-      "sha256": "79f04f68b802c665d7f51d49de7ae343dd18d52c65e3f85c956aae9042b30d65",
+      "sha256": "e3479719e64a4a15004beaabd169b7fe7148e08ac3a0aafadd8c1115703e2bee",
       "sizeBytes": 250,
       "role": "evidence_report"
     },
@@ -1291,7 +1306,7 @@
     },
     {
       "path": "docs/product-quality/verification-report-consistency-report.json",
-      "sha256": "428a32c4ea84ed82bd1dfd90c12c8ada8bf6a977ff73e03d1bfd205acf1303e0",
+      "sha256": "567ad902f60738204f6946bce6d373c093dec04b66d0514b563af833b8d4d59d",
       "sizeBytes": 2909,
       "role": "evidence_report"
     },
@@ -1303,37 +1318,37 @@
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sha256": "538095d27beaf0bc506f59ea90f78e14455f85ee788690f8584a762dc6b5b43c",
-      "sizeBytes": 6981,
+      "sha256": "52feead40a93171407e109ea8ba31269350304748306f16b9607d959350ff0ac",
+      "sizeBytes": 7164,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.md",
-      "sha256": "33d720a70430367d42ab5762a65d4cd219b509b92b0317f694924fad71dcdbcf",
-      "sizeBytes": 5009,
+      "sha256": "5e4d49cd66e0a057d0068890e7de04c59df657012772620399e8423b65ba2861",
+      "sizeBytes": 5175,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.json",
-      "sha256": "cabdacf43faa2bc04e4642df8eceb70b19429b2ae3b3ef7fbfcb7afce5f86b3c",
-      "sizeBytes": 4248,
+      "sha256": "f84dbb576e52be5af8e307b43cb771dd3b2e9d28ce26234a61d5492b9b0537f7",
+      "sizeBytes": 4319,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.md",
-      "sha256": "46ed757290673259c5f35d0fc06e60ce4d2bdd68bac292a38b62d311083edd6e",
-      "sizeBytes": 3179,
+      "sha256": "3c4344d971def0ff5bb4b01ffb3c6df1443a429c583feccb9215af30e6d52355",
+      "sizeBytes": 3185,
       "role": "evidence_report"
     },
     {
       "path": "package.json",
-      "sha256": "98df43a0d646cc762f323acae09191f65b0081f78a7b3613bdf67f3d8ae7c090",
-      "sizeBytes": 19230,
+      "sha256": "9d5123b14e0cc0f5857b5fb00d76234aee664a1914146254deaa471129ccfc94",
+      "sizeBytes": 19399,
       "role": "source"
     },
     {
       "path": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-      "sha256": "5be8012a8f134790927d278c574d260cd34923423c9ae0df6efc857cea6e2ed6",
+      "sha256": "8e492cae4f013a6b5a9fa253f7fec1d39512109636faa9138bdfaa1b5b19a559",
       "sizeBytes": 14963,
       "role": "evidence_artifact"
     },
@@ -1345,13 +1360,13 @@
     },
     {
       "path": "reports/openclaude-benchmark-submission-assets.jsonl",
-      "sha256": "51de291a056f047046a77e42f8ca38157a7bbca95176c76f3cb686480dddf591",
+      "sha256": "0485925c59001ba54507454ed04654b83b9556b0232b4bca5c02cfdc2eb73ab3",
       "sizeBytes": 5870,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-benchmark-task-manifest.jsonl",
-      "sha256": "e590adc2280fd66cb39c6c940386a5587f9514e08c8c8a1cafa02e39b13ef67b",
+      "sha256": "6bfedd9b0ca29f6cad39a55a0d052b899bc7f20dbb88a1561b457d06caac0784",
       "sizeBytes": 12552,
       "role": "evidence_artifact"
     },
@@ -1363,13 +1378,13 @@
     },
     {
       "path": "reports/openclaude-license-boundary-authorization-items.jsonl",
-      "sha256": "cc6bbf7164226fab439c338d5c1ef02b9a6e6b0893f7d3e682d608d99eb583a8",
+      "sha256": "5b5df2b70acec3e6055ff362b28e633848980265a454bce5a4149ace9913d2fd",
       "sizeBytes": 7196,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-local-benchmark-results.jsonl",
-      "sha256": "a7c9ab53a8235414f64d1f2b5a1b9b079e466b8f659432b673e9457c0ba961ba",
+      "sha256": "ce67b4858bf3e0d6b3050a721d05ac188b7b2cb8ec8233a8efaf2be937a2b2f9",
       "sizeBytes": 12257,
       "role": "evidence_artifact"
     },
@@ -1381,13 +1396,19 @@
     },
     {
       "path": "reports/openclaude-model-system-card.jsonl",
-      "sha256": "b410dff5b9713d605d66bba6ab9d5912b006eac3d95a762acf9f8352c179d4e5",
+      "sha256": "957999a5f31094bb1b7256e0f738741ba6298b2c6dadbd8162b1fbdeab1daf53",
       "sizeBytes": 7452,
       "role": "evidence_artifact"
     },
     {
+      "path": "reports/openclaude-origin-license-provenance-boundary.jsonl",
+      "sha256": "d09f3734d249d2ee1d4b23206fb794ff376c0c3c31fe7e3865809a5c5ae9f147",
+      "sizeBytes": 270,
+      "role": "evidence_artifact"
+    },
+    {
       "path": "reports/openclaude-oss-architecture-absorption-targets.jsonl",
-      "sha256": "e3d8e0304addb3125f0750e2b4579c8f31d056464acda43640ed82a60923098a",
+      "sha256": "32291c7d852afb22ade62e3097108b64a948bacace90d6aa3d633ead8663840b",
       "sizeBytes": 18053,
       "role": "evidence_artifact"
     },
@@ -1411,19 +1432,19 @@
     },
     {
       "path": "reports/openclaude-oss-baseline-provenance.jsonl",
-      "sha256": "c078d6728b848d19d15b610f9fd8ae10d2447288437ad1ef0e67752733b91f9c",
+      "sha256": "c3153635ffe9e8ea8c657ed0fd4121ca3e4bd473096ffbc5855d730e73ea234d",
       "sizeBytes": 7235,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-baseline-refresh-provenance.jsonl",
-      "sha256": "de468bf5f009d140e8352881e08dac08855197a1442871e2da9e901ea36880c1",
+      "sha256": "b98ac605618a7ef978f67f2e4f3a07625f81c99026816bffba90a712670c175b",
       "sizeBytes": 7094,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-benchmark-comparison-matrix.jsonl",
-      "sha256": "25e8d1b0d76405541a3c5349ecc7b4cceb79fe6c18ccf20406e4823a6840865e",
+      "sha256": "554d188bd1fc9c257d85e99b08079ef5cb121938e735629af2650dfb63982bfb",
       "sizeBytes": 199169,
       "role": "evidence_artifact"
     },
@@ -1447,7 +1468,7 @@
     },
     {
       "path": "reports/openclaude-oss-onboarding-docs-evidence.jsonl",
-      "sha256": "2de3d9f9beac26e9c4f33477b40c89b2a3fef4f6e1bd4d2082120ffe0eb079ea",
+      "sha256": "a70743c73b3827fc56a1a97162bb50f5e3bd90be47c7855701ec471d7d6fb62b",
       "sizeBytes": 11316,
       "role": "evidence_artifact"
     },
@@ -1459,25 +1480,25 @@
     },
     {
       "path": "reports/openclaude-oss-provider-breadth-evidence.jsonl",
-      "sha256": "589d22e7d5b60d697b65c7bb7b8939385b43bb14089a4702fdb3881eee9e44f3",
+      "sha256": "7b8dd0cbae1ba6072b0e129ff57c50c8879bb34feda1c779613fabfa6a1fe38a",
       "sizeBytes": 14482,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-release-hygiene-evidence.jsonl",
-      "sha256": "a738c10c834939d7cd1dfa2f31520703bc512bb540e3b181bd7a42d4cac65117",
+      "sha256": "6fded8a4b911ea1f86a3b2cbd547c2ebd5db858e48e2cac032acfac08c2056de",
       "sizeBytes": 8456,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-runtime-doctoring-evidence.jsonl",
-      "sha256": "fd5321b4e7b40ccc1e356ac22ce5e9bdd6468c06ac82460f9e9e2fa869546a2a",
+      "sha256": "61c3657c50a50b8ae0e2ce31e4d364178bef639a876cb606931ed53fbfdbb906",
       "sizeBytes": 10680,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-safe-backlog-closure.jsonl",
-      "sha256": "0ee11edfdee73a379a11907d7413d1bd5d96486b758a7654a73b4212955b9bcc",
+      "sha256": "454039dac8d97519a07a83c62890d047a98302f9bc2057f6b8cb6e8fb20aa616",
       "sizeBytes": 8058,
       "role": "evidence_artifact"
     },
@@ -1489,25 +1510,25 @@
     },
     {
       "path": "reports/openclaude-oss-security-permissions-evidence.jsonl",
-      "sha256": "f744213968b1b20eca7d8b1b4017713db0d16fc2b94bbb8c5c307c724537e25e",
+      "sha256": "d9127f4e2d201df6550f3ba1efac939b3b5dc672a4612aba3fbea14dc2443dcc",
       "sizeBytes": 12874,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-source-review-provenance.jsonl",
-      "sha256": "07f21a337c2b9cce3ad7e37e66d7cb9a138c1b1048d63ed2de967418cf26003f",
+      "sha256": "6bb97f31325cf540a8bdd703493fbbdec6bd03c42bb55eceab8f19bebc796f3f",
       "sizeBytes": 12104,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-terminal-workflow-evidence.jsonl",
-      "sha256": "253423b9680b32b9f9e3d49b0ae95bf9f081508e948780ec7eff966a93114144",
+      "sha256": "65e1a17cafd4669cae19e24c52b5c33c84b939d00c2f93026a9a38f761123de2",
       "sizeBytes": 12700,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-tool-loop-reliability-evidence.jsonl",
-      "sha256": "a6048cf1ecba2c2676cfc21aff605d80509bc5916b7d49ec12afc0f7151d4a47",
+      "sha256": "bcf9b9b0b889432d5105dcdaac353e3fc0ae48af1e28b3940a85e7c592ad8be1",
       "sizeBytes": 17472,
       "role": "evidence_artifact"
     },
@@ -1519,8 +1540,8 @@
     },
     {
       "path": "reports/openclaude-primary-source-registry.jsonl",
-      "sha256": "b1a604eb70fc12125e4f70e3c6cbfec7944b16a27696812573ee2b53d8dcfdce",
-      "sizeBytes": 134370,
+      "sha256": "094cc4de899f1124b9f0ace9677540aa6716e62e2bfa8e5ae31903a719fb476c",
+      "sizeBytes": 140279,
       "role": "evidence_artifact"
     },
     {
@@ -1543,13 +1564,13 @@
     },
     {
       "path": "reports/openclaude-source-license-metadata-inventory.jsonl",
-      "sha256": "5839def9228e600cc6c0180d249a457cca841857142ae615d2a7f0307ef51094",
-      "sizeBytes": 1475397,
+      "sha256": "829874b12822fcb5acaa52f6074d5a5d1582a386bbda41171fb45ddd5a749797",
+      "sizeBytes": 1476641,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-terminal-bench-task-map.jsonl",
-      "sha256": "2cedf8d38d7db6fc75db44efdb8e92e5af856d9af7a1347e4e66c4f6b854ddd5",
+      "sha256": "c180a25686f41b46396102f5302e5f5ac35a36bac9ca112679112a91f620fb77",
       "sizeBytes": 5906,
       "role": "evidence_artifact"
     },
@@ -1689,17 +1710,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "250 records"
+      "detail": "253 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "9228445 total bytes"
+      "detail": "9257711 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "250 lines"
+      "detail": "253 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1714,7 +1735,7 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":182,\"evidence_artifact\":58,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":184,\"evidence_artifact\":59,\"quality_gate\":1,\"workflow\":7}"
     },
     {
       "label": "manifest contains no credential patterns",
