@@ -19,10 +19,10 @@ Define Mimesis Engineering as a Metaforge operating loop and decide which source
 | `docs/RESEARCH_PIPELINE.md` | Primary-source ladder already requires local code, official docs, repos, standards, papers, patents, and rejection of blog-only final evidence. | Mimesis inherits this ladder. |
 | `docs/avf/OSS_ASSIMILATION_PIPELINE.md` | Existing local rule: OSS assimilation is governed acquisition, not copy-paste adoption. | Reuse as the open-source absorption boundary. |
 | `docs/avf/OPEN_SOURCE_EXPANSION_MAP.md` | Existing local map already separates candidate reuse from dependency adoption and runtime claims. | Reuse candidate-only boundary language. |
-| `<private-mimesis-workbench>\FRONTIER-MIMESIS-THREAD.md` | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use as current expert-thinking evidence. |
-| `<private-mimesis-workbench>\mimesis-plugin\README.ko.md` | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Use as profile README source, with old public links rechecked first. |
-| `<private-workspace>\CLAIMS.md` | Current local claim pack for public statement guardrails. | Use before profile or README marketing changes. |
-| `<private-workspace>\00-OVERVIEW.md` | Canonical source packet candidate for the Mimesis method. | Use as method evidence after dirty-state review. |
+| Owner-side Mimesis workbench note | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use only as private planning context, not public proof. |
+| Owner-side Mimesis package note | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Re-check public sources before profile or README use. |
+| Owner-side claim pack | Current local claim pack for public statement guardrails. | Use only as private tone guidance, not a public source path. |
+| Owner-side source packet | Candidate source packet for the Mimesis method. | Use as private planning context after dirty-state review. |
 
 ## Product And Open-Source Sources
 

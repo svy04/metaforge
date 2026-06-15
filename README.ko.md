@@ -123,11 +123,11 @@ bun run product:quality
 
 아직 말하지 않는 것:
 
-- production-ready
-- hosted deployment complete
-- externally validated
-- benchmark superior
-- autonomous reliability proven
+- not production-ready
+- not hosted deployment complete
+- not externally validated
+- not benchmark superior
+- not autonomous reliability proven
 
 ## 라이선스와 출처
 

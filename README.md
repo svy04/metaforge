@@ -266,7 +266,7 @@ For Anthropic-native backends and Codex responses, the runtime keeps the native 
 Set a [Firecrawl](https://firecrawl.dev) API key if you want Firecrawl-powered search/fetch behavior:
 
 ```bash
-export FIRECRAWL_API_KEY=your-key-here
+export FIRECRAWL_API_KEY=<firecrawl-api-key>
 ```
 
 With Firecrawl enabled:
