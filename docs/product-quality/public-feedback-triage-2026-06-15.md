@@ -50,11 +50,25 @@ public-facing and concise enough for the existing gate:
 - private memory dumps, stale public model-lock lines, and local user paths are
   absent
 
+## Follow-Up Audit Added
+
+The duplicate-helper concern now has a local no-provider audit command:
+
+```bash
+bun run product:script-duplication-audit
+```
+
+The report lives in `docs/product-quality/script-duplication-audit-report.md`
+and `docs/product-quality/script-duplication-audit-report.json`. It records
+refactor candidates only; it does not claim that helper duplication has been
+removed.
+
 ## Remaining Work
 
 The feedback still identifies real follow-up work:
 
-- Run a dedicated duplicate-helper audit over `scripts/product-*.ts`.
+- Use the duplicate-helper audit to extract the smallest safe shared helper
+  cluster, starting with the community/public hygiene scripts.
 - Evaluate Knip or Fallow for dead exports, dependency-cruiser for cycles, and
   jscpd for duplicate shapes before broad refactors.
 - Upgrade the weakest product-quality gates from marker presence to behavioral
