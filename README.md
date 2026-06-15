@@ -12,9 +12,11 @@ OpenClaude is the local CLI substrate Metaforge currently rides on. It provides 
 
 Orchestra is the runtime-wired layer in this package today. Meta and MFH are governance, schema, and evidence-gate surfaces that constrain how the runtime is used; they are not separate runtime modules in this checkout. AVF Influence Factory is a repo-local manual artifact lane, not part of the default CLI runtime or CI path.
 
+Origin and license boundary: this repository contains runtime code derived from Anthropic's Claude Code CLI. OpenClaude contributor modifications are offered under MIT where legally permissible; this is not a blanket MIT license over the derived runtime. See [LICENSE](LICENSE) before reusing or redistributing code from this repository.
+
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
-[![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
+[![License](https://img.shields.io/badge/license-see_LICENSE-2563eb)](LICENSE)
 
 [Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
@@ -399,9 +401,7 @@ For larger changes, open an issue first so the scope is clear before implementat
 
 ## Disclaimer
 
-OpenClaude is an independent community project and is not affiliated with, endorsed by, or sponsored by Anthropic.
-
-OpenClaude originated from the Claude Code codebase and has since been substantially modified to support multiple providers and open use. "Claude" and "Claude Code" are trademarks of Anthropic PBC. See [LICENSE](LICENSE) for details.
+OpenClaude is an independent community fork/adaptation of runtime code derived from Anthropic's Claude Code CLI, substantially modified for multiple providers and Metaforge workflows. It is not affiliated with, endorsed by, or sponsored by Anthropic. This repository does not have Anthropic's authorization to distribute Anthropic proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC. See [LICENSE](LICENSE) for details.
 
 ## License
 

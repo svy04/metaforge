@@ -119,4 +119,57 @@ describe('public repository readiness surfaces', () => {
     expect(readme).toContain('AVF Influence Factory is a repo-local manual artifact lane')
     expect(readme).not.toContain('Meta, MFH, and AVF are runtime-wired modules')
   })
+
+  test('README states origin and license boundaries honestly', () => {
+    const readme = readRepoText('README.md')
+    const koreanReadme = readRepoText('README.ko.md')
+    const license = readRepoText('LICENSE')
+    const packageJson = JSON.parse(readRepoText('package.json')) as { license?: string }
+
+    expect(license).toContain("derived from Anthropic's Claude Code CLI")
+    expect(license).toContain('modifications only')
+    expect(packageJson.license).toBe('SEE LICENSE FILE')
+
+    expect(readme).toContain("derived from Anthropic's Claude Code CLI")
+    expect(readme).toContain('modifications are offered under MIT where legally permissible')
+    expect(readme).toContain('not a blanket MIT license over the derived runtime')
+    expect(readme).not.toContain('license-MIT')
+
+    expect(koreanReadme).toContain('Anthropic Claude Code CLI')
+    expect(koreanReadme).toContain('수정분은 법적으로 가능한 범위에서 MIT')
+    expect(koreanReadme).toContain('전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다')
+  })
+
+  test('extension package metadata does not advertise stale origin or blanket MIT licensing', () => {
+    const manifestPaths = [
+      'packages/openclaude-vscode/package.json',
+      'vscode-extension/openclaude-vscode/package.json',
+    ]
+
+    for (const manifestPath of manifestPaths) {
+      const manifest = JSON.parse(readRepoText(manifestPath)) as {
+        license?: string
+        repository?: { url?: string } | string
+      }
+      const repositoryUrl = typeof manifest.repository === 'string'
+        ? manifest.repository
+        : manifest.repository?.url ?? ''
+
+      expect(manifest.license, manifestPath).toBe('SEE LICENSE FILE')
+      expect(repositoryUrl, manifestPath).not.toContain('Gitlawb/openclaude')
+      if (repositoryUrl.length > 0) {
+        expect(repositoryUrl, manifestPath).toContain('svy04/metaforge')
+      }
+    }
+  })
+
+  test('source license inventory covers the legacy extension surface', () => {
+    const report = JSON.parse(readRepoText('docs/product-quality/source-license-metadata-quality-report.json')) as {
+      scanRoots?: string[]
+      sourceLicenseRecords?: Array<{ path?: string }>
+    }
+
+    expect(report.scanRoots).toContain('vscode-extension/openclaude-vscode')
+    expect(report.sourceLicenseRecords?.some((record) => record.path === 'vscode-extension/openclaude-vscode/package.json')).toBe(true)
+  })
 })

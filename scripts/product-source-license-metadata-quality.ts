@@ -100,7 +100,7 @@ const rootLicensePath = 'LICENSE'
 const reuseTomlPath = 'REUSE.toml'
 const licensesDirectoryPath = 'LICENSES'
 const inventoryJsonlPath = 'reports/openclaude-source-license-metadata-inventory.jsonl'
-const scanRoots = ['src', 'scripts', 'packages/openclaude-vscode', '.github']
+const scanRoots = ['src', 'scripts', 'packages/openclaude-vscode', 'vscode-extension/openclaude-vscode', '.github']
 const additionalFiles = ['package.json', 'README.md', 'LICENSE', 'CONTRIBUTING.md', 'SUPPORT.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', 'bin/openclaude', 'bin/openclaude.cmd']
 const scannedExtensions = new Set(['.ts', '.tsx', '.js', '.mjs', '.cjs', '.json', '.md', '.yml', '.yaml', '.cmd'])
 const excludedPathFragments = [
@@ -173,6 +173,7 @@ function sourceCategory(path: string): string {
   if (path.startsWith('src/')) return 'application_source'
   if (path.startsWith('scripts/')) return 'quality_or_build_script'
   if (path.startsWith('packages/openclaude-vscode/')) return 'vscode_extension_source'
+  if (path.startsWith('vscode-extension/openclaude-vscode/')) return 'legacy_vscode_extension_source'
   if (path.startsWith('.github/')) return 'github_community_or_workflow'
   if (path.startsWith('bin/')) return 'package_launcher'
   if (['README.md', 'CONTRIBUTING.md', 'SUPPORT.md', 'CODE_OF_CONDUCT.md', 'SECURITY.md', 'LICENSE'].includes(path)) return 'root_community_or_license_doc'

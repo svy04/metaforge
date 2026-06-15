@@ -11,6 +11,11 @@ OpenClaude는 현재 Metaforge가 올라타는 로컬 CLI 런타임입니다. �
 route를 제공합니다. 하지만 공개적으로 중심에 둘 가치는 OpenClaude 자체가
 아니라 **Meta + MFH + Orchestra**입니다.
 
+출처와 라이선스 경계: 이 repository에는 Anthropic Claude Code CLI에서 파생된
+runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 법적으로 가능한 범위에서 MIT
+라이선스로 제공되지만, 전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다.
+재사용이나 재배포 전에는 반드시 [LICENSE](LICENSE)를 확인하세요.
+
 ## 한 줄 요약
 
 Metaforge는 사용자의 의도를 장기 목표로 고정하고, Meta에 운영 기억을 남기며,
@@ -114,9 +119,12 @@ bun run product:quality
 
 ## 라이선스와 출처
 
-OpenClaude runtime은 Claude Code 계열 코드베이스에서 출발했고, 여러 provider와
-Metaforge 운영 구조를 지원하도록 수정되었습니다. "Claude"와 "Claude Code"는
-Anthropic PBC의 상표입니다. 자세한 내용은 [LICENSE](LICENSE)를 확인하세요.
+OpenClaude runtime에는 Anthropic Claude Code CLI에서 파생된 코드가 포함되어
+있습니다. OpenClaude 기여자의 수정 및 추가분은 법적으로 허용되는 범위에서만
+MIT License로 제공되며, 이는 파생 runtime 전체에 대한 blanket MIT license가
+아닙니다. 이 repository는 Anthropic proprietary source 배포 승인을 받은 것이
+아닙니다. 코드 재사용, 재배포, 설치 판단 전 [LICENSE](LICENSE)를 확인하세요.
+"Claude"와 "Claude Code"는 Anthropic PBC의 상표입니다.
 
 ## 커뮤니티
 
