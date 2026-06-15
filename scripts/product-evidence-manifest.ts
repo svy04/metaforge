@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { sha256 as sha256Text } from './quality-report-helpers'
 
 type EvidenceCheck = {
   label: string
@@ -211,10 +212,6 @@ const requiredEvidencePaths = [
 
 function sha256Buffer(buffer: Buffer): string {
   return createHash('sha256').update(buffer).digest('hex')
-}
-
-function sha256Text(text: string): string {
-  return createHash('sha256').update(text).digest('hex')
 }
 
 function check(label: string, ok: boolean, detail: string): EvidenceCheck {

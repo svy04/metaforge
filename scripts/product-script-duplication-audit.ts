@@ -64,9 +64,9 @@ const helperNames = ['check', 'readText', 'sha256Text']
 const helperOccurrenceBaselines: Record<string, number> = {
   check: 76,
   readText: 39,
-  sha256Text: 7,
+  sha256Text: 1,
 }
-const duplicateHelperClusterBaseline = 3
+const duplicateHelperClusterBaseline = 2
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')

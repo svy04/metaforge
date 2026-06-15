@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { sha256 as sha256Text } from './quality-report-helpers'
 
 type Check = {
   label: string
@@ -174,10 +175,6 @@ function readJson<T>(path: string): T {
 
 function fileSha256(path: string): string {
   return createHash('sha256').update(readFileSync(resolve(root, path))).digest('hex')
-}
-
-function sha256Text(text: string): string {
-  return createHash('sha256').update(text).digest('hex')
 }
 
 function check(label: string, ok: boolean, detail: string): Check {

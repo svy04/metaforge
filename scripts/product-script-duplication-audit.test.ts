@@ -83,6 +83,7 @@ function readText(path: string): string {
     expect(report.helperOccurrenceCounts.check).toBe(2)
     expect(report.helperOccurrenceCounts.readText).toBe(2)
     expect(report.helperOccurrenceBaselines.check).toBeGreaterThanOrEqual(report.helperOccurrenceCounts.check)
+    expect(report.helperOccurrenceBaselines.sha256Text).toBeLessThanOrEqual(1)
     expect(report.duplicateHelperClusterBaseline).toBeGreaterThanOrEqual(report.duplicateHelperClusterCount)
     expect(report.primarySourceInputs.map((source) => source.sourceType)).toEqual(
       expect.arrayContaining(['oss_tool', 'research_survey', 'patent']),

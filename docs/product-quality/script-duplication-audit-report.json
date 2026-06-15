@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T13:06:21.902Z",
+  "generatedAt": "2026-06-15T16:50:06.946Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -11,15 +11,15 @@
   "helperOccurrenceCounts": {
     "check": 76,
     "readText": 39,
-    "sha256Text": 7
+    "sha256Text": 1
   },
   "helperOccurrenceBaselines": {
     "check": 76,
     "readText": 39,
-    "sha256Text": 7
+    "sha256Text": 1
   },
-  "duplicateHelperClusterCount": 3,
-  "duplicateHelperClusterBaseline": 3,
+  "duplicateHelperClusterCount": 2,
+  "duplicateHelperClusterBaseline": 2,
   "duplicateHelperClusters": [
     {
       "helperName": "check",
@@ -28,19 +28,19 @@
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
-          "line": 139
+          "line": 135
         },
         {
           "path": "scripts/product-benchmark-policy-compliance.ts",
-          "line": 129
+          "line": 126
         },
         {
           "path": "scripts/product-benchmark-readiness-matrix.ts",
-          "line": 183
+          "line": 180
         },
         {
           "path": "scripts/product-benchmark-submission-readiness.ts",
-          "line": 132
+          "line": 129
         },
         {
           "path": "scripts/product-code-editing-trace-capture.ts",
@@ -56,7 +56,7 @@
         },
         {
           "path": "scripts/product-evidence-manifest.ts",
-          "line": 220
+          "line": 217
         },
         {
           "path": "scripts/product-external-benchmark-boundary.ts",
@@ -244,7 +244,7 @@
         },
         {
           "path": "scripts/product-public-claim-boundary.ts",
-          "line": 179
+          "line": 188
         },
         {
           "path": "scripts/product-quality-blocker-taxonomy.ts",
@@ -292,7 +292,7 @@
         },
         {
           "path": "scripts/product-terminal-bench-readiness.ts",
-          "line": 157
+          "line": 154
         },
         {
           "path": "scripts/product-third-party-license-quality.ts",
@@ -468,7 +468,7 @@
         },
         {
           "path": "scripts/product-public-claim-boundary.ts",
-          "line": 159
+          "line": 168
         },
         {
           "path": "scripts/product-quality-gate.ts",
@@ -496,38 +496,6 @@
         }
       ],
       "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
-    },
-    {
-      "helperName": "sha256Text",
-      "normalizedBodySha256": "aba7b7f9208b4ca0e372ca6f32669f07d35822d8a137d31b94e92748c0091b3e",
-      "occurrenceCount": 6,
-      "files": [
-        {
-          "path": "scripts/product-benchmark-efficiency-metrics.ts",
-          "line": 123
-        },
-        {
-          "path": "scripts/product-benchmark-policy-compliance.ts",
-          "line": 121
-        },
-        {
-          "path": "scripts/product-benchmark-readiness-matrix.ts",
-          "line": 179
-        },
-        {
-          "path": "scripts/product-benchmark-submission-readiness.ts",
-          "line": 123
-        },
-        {
-          "path": "scripts/product-evidence-manifest.ts",
-          "line": 216
-        },
-        {
-          "path": "scripts/product-terminal-bench-readiness.ts",
-          "line": 148
-        }
-      ],
-      "normalizedBodyPreview": "return createHash('sha256').update(text).digest('hex')"
     }
   ],
   "primarySourceInputs": [
@@ -590,22 +558,22 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":76,\"readText\":39,\"sha256Text\":7}"
+      "detail": "{\"check\":76,\"readText\":39,\"sha256Text\":1}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
       "ok": true,
-      "detail": "3 clusters"
+      "detail": "2 clusters"
     },
     {
       "label": "duplicate helper clusters do not exceed baseline",
       "ok": true,
-      "detail": "3/3"
+      "detail": "2/2"
     },
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":7},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":7}}"
+      "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":1},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":1}}"
     },
     {
       "label": "primary sources include OSS, research, and patent inputs",
