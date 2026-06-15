@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { sha256 as sha256Text } from './quality-report-helpers'
 
 type Check = {
   label: string
@@ -143,10 +144,6 @@ const terminalBenchTaskMapJsonlPath = 'reports/openclaude-terminal-bench-task-ma
 
 function readJson<T>(path: string): T {
   return JSON.parse(readFileSync(resolve(root, path), 'utf8')) as T
-}
-
-function sha256Text(text: string): string {
-  return createHash('sha256').update(text).digest('hex')
 }
 
 function fileSha256(path: string | null): string | null {
