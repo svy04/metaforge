@@ -45,6 +45,7 @@ function readText(path: string): string {
     writeFileSync(join(repo, 'scripts', 'product-alpha.ts'), helperSource)
     writeFileSync(join(repo, 'scripts', 'product-beta.ts'), helperSource)
     writeFileSync(join(repo, 'scripts', 'product-gamma.ts'), 'export const gamma = true\n')
+    writeFileSync(join(repo, 'scripts', 'product-script-duplication-audit.ts'), helperSource)
 
     const result = runAudit(repo)
 
@@ -60,6 +61,9 @@ function readText(path: string): string {
     const report = JSON.parse(reportText) as {
       sourceProductScriptCount: number
       helperOccurrenceCounts: Record<string, number>
+      helperOccurrenceBaselines: Record<string, number>
+      duplicateHelperClusterCount: number
+      duplicateHelperClusterBaseline: number
       duplicateHelperClusters: Array<{
         helperName: string
         occurrenceCount: number
@@ -69,6 +73,8 @@ function readText(path: string): string {
     expect(report.sourceProductScriptCount).toBe(3)
     expect(report.helperOccurrenceCounts.check).toBe(2)
     expect(report.helperOccurrenceCounts.readText).toBe(2)
+    expect(report.helperOccurrenceBaselines.check).toBeGreaterThanOrEqual(report.helperOccurrenceCounts.check)
+    expect(report.duplicateHelperClusterBaseline).toBeGreaterThanOrEqual(report.duplicateHelperClusterCount)
 
     const checkCluster = report.duplicateHelperClusters.find((cluster) => cluster.helperName === 'check')
     expect(checkCluster?.occurrenceCount).toBe(2)

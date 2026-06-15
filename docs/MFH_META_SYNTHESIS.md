@@ -1,36 +1,36 @@
 # MFH / Meta Synthesis For Autonomous Goal OS
 
-Status: planning update after reading harness-engineering workspace
+Status: public-safe planning update after companion harness review
 Date: 2026-05-10
 
-## Local Sources Read
+## Source Categories Read
 
-Harness workspace:
+This public document summarizes the source categories that informed the
+Metaforge planning import. It intentionally does not mirror private workspace
+paths, branch-local file names, raw logs, or local machine state.
 
-- `<private-workspace>\MASTER_SPEC.md`
-- `<private-workspace>\NARROW_SPEC.md`
-- `<private-workspace>\POSITIONING_BRIEF.md`
-- `<private-workspace>\meta\CLAUDE.md`
-- `<private-workspace>\meta\SPEC.md`
-- `<private-workspace>\meta\decisions\2026-05-05-2388-governed-code-problem-definition.md`
-- `<private-workspace>\mfh\README.md`
-- `<private-workspace>\mfh\.mfh\spec.md`
-- `<private-workspace>\mfh\.mfh\plan.md`
-- `<private-workspace>\mfh\.mfh\status.md`
-- `<private-workspace>\mfh\.mfh\cascade_log.txt`
-- `<private-workspace>\mfh\docs\reports\2026-05-09-candidate-m-closure.md`
+- companion product specs and positioning briefs;
+- companion Meta constitution, spec, and decision-ledger sources;
+- companion MFH spec, plan, status, and cascade evidence;
+- companion Candidate M closure report.
 
-Live probe:
+Probe category:
 
 ```powershell
-python meta\scripts\source_reconciler.py
+source reconciler from the companion harness workspace
 ```
 
-Result: exit 1, `DRIFT`; current mfh branch has 9 modified and 3 untracked files, while `.mfh/status.md` says `awaiting user adjudication`.
+Result summary: the probe reported drift. This import is therefore
+evidence-aware and does not claim the companion harness workspace was green or
+release-ready.
 
 ## Synthesis
 
-The earlier planning package treated `mth` as a provisional Mission-to-Harness layer because the OpenClaude repo had no definition. The harness-engineering workspace clarifies the real component: **MFH**, not `mth`, is the governed-code Operating Gate. Future references should treat `mth` as an unresolved spelling/alias unless the owner defines it separately.
+The earlier planning package treated `mth` as a provisional
+Mission-to-Harness layer because the OpenClaude repo had no definition.
+Companion harness sources clarify the real component: **MFH**, not `mth`, is
+the governed-code Operating Gate. Future references should treat `mth` as an
+unresolved spelling/alias unless the owner defines it separately.
 
 ### Meta
 
@@ -111,7 +111,8 @@ Evals / Reports / Next Goals
 4. Use Meta's raw/wiki/decision pattern as the research and memory model.
 5. Use MFH source reconciliation and closure reality checks as examples for future Goal OS evals.
 6. Keep the operator out of technical bottlenecks, but keep explicit approval gates for irreversible or product/taste decisions.
-7. Do not claim harness-engineering is currently green: the live source reconciler reported drift in the mfh working tree.
+7. Do not claim the companion harness is currently green: the source reconciler
+   reported drift.
 
 ## Immediate Changes To OpenClaude Plan
 

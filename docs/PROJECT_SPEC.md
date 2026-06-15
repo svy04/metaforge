@@ -1,4 +1,4 @@
-# Autonomous Goal OS Project Spec
+# Metaforge Autonomous Goal OS Project Spec
 
 Status: first high-resolution planning pass
 Owner: human owner
@@ -8,27 +8,44 @@ Harness evidence update: `docs/MFH_META_SYNTHESIS.md`
 
 ## Summary
 
-The unified `mth` / `meta` / Orchestra OS project is an Autonomous Goal Operating System layered on top of OpenClaude. Its purpose is to make the human owner the strategic governor, not the execution bottleneck. Agents should be able to autonomously research, plan, implement, evaluate, reflect, and propose next goals while leaving durable evidence, validation records, and approval gates.
+Metaforge is the public Meta + MFH + Orchestra OS project layered over the
+OpenClaude CLI/runtime substrate. Its purpose is to make the human owner the
+strategic governor, not the execution bottleneck. Agents should be able to
+autonomously research, plan, implement, evaluate, reflect, and propose next
+goals while leaving durable evidence, validation records, and approval gates.
 
 This pass does not claim the runtime is complete. It creates the planning package that lets the next Codex goals implement the OS in narrow, verifiable increments.
 
-Update after reading the harness-engineering workspace: the concrete project component is **MFH**, a governed-code Operating Gate, while `meta` is the operator Constitution / memory substrate. The user's earlier `mth` reference is treated as an unresolved spelling or alias unless separately defined.
+Update after companion harness review: the concrete project component is
+**MFH**, a governed-code Operating Gate, while Meta is the operator
+Constitution / memory substrate. The earlier `mth` reference is treated as an
+unresolved spelling or alias unless separately defined.
 
 ## Current Repository Basis
 
 Observed local anchors:
 
-- `README.md` defines OpenClaude as a terminal-first coding-agent CLI with tools, agents, MCP, slash commands, provider profiles, and validation commands.
+- `README.md` defines Metaforge as Meta + MFH + Orchestra OS with OpenClaude as
+  the local CLI/runtime substrate.
 - `AGENTS.md` already defines the GStack -> GSD -> Superpowers workflow hierarchy and the primary-source research rule.
-- `.planning/PROJECT.md` defines the existing Orchestra v0.2 vision: GPT 5.5 as visible lead/evidence arbiter, Opus 4.7 as private planner/skeptic/shadow opposition, tests as law, and the human as final judge.
+- `.planning/PROJECT.md` defines the existing Orchestra vision: a visible
+  lead/evidence arbiter, private planner/skeptic/shadow opposition, tests as
+  law, and the human as final judge, without making public model-lock claims.
 - `src/services/orchestra/` already contains implementation surfaces for planner routing, skeptic, shadow executor contract, cross-review, evidence arbiter, human gate, promotion store, worktree manager, and experiment metrics.
 - `package.json` exposes verification commands: `bun run build`, `bun test`, `bun run typecheck`, `bun run smoke`, `bun run doctor:runtime`, `bun run verify:privacy`.
 - `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` and its plan document establish the existing GStack/GSD/Superpowers role split.
-- `docs/MFH_META_SYNTHESIS.md` records the follow-up read of `<private-workspace>/decisions/2026-05-05-2388-governed-code-problem-definition.md` define the product category as governed-code, not no-code.
-- `meta/CLAUDE.md` defines Meta as the operator OS: Constitution, decision ledger, raw/wiki substrate, technical-decision autonomy, and approval boundaries.
-- `mfh/.mfh/spec.md` defines MFH as a Claude Code Operating Gate that judges drift, evidence, state, permissions, and release claims rather than acting as a coding agent.
-- `mfh/.mfh/plan.md` and `mfh/docs/reports/2026-05-09-candidate-m-closure.md` define Candidate M as the 3-layer vision/session anchor and state-machine closure pattern.
-- Live probe `python meta\scripts\source_reconciler.py` from the harness root returned drift, so the import is evidence-aware, not a green-completion claim.
+- `docs/MFH_META_SYNTHESIS.md` records a public-safe summary of companion
+  harness sources that define governed-code, Meta, MFH, and Candidate M.
+- Companion Meta sources define Meta as the operator OS: Constitution, decision
+  ledger, raw/wiki substrate, technical-decision autonomy, and approval
+  boundaries.
+- Companion MFH sources define MFH as an Operating Gate that judges drift,
+  evidence, state, permissions, and release claims rather than acting as a
+  coding agent.
+- Companion Candidate M records define the 3-layer vision/session anchor and
+  state-machine closure pattern.
+- The latest harness source-reconciliation probe reported drift, so the import
+  is evidence-aware, not a green-completion claim.
 
 External primary-source anchors:
 
@@ -49,7 +66,10 @@ External primary-source anchors:
 
 ### mth / mfh
 
-`mth` is not currently defined in the OpenClaude repository by a source file or docs hit. The harness-engineering workspace shows the operative project is **MFH**, not `mth`: a governed-code Operating Gate for Claude Code. The planning package therefore treats `mth` as an unresolved alias/spelling and uses MFH as the canonical role until the owner says otherwise.
+The public Metaforge role is **MFH**, a governed-code Operating Gate. The
+earlier `mth` spelling has no current source definition in this repository, so
+this planning package treats it as an unresolved alias/spelling and uses MFH as
+the canonical role until the owner says otherwise.
 
 Responsibilities:
 
@@ -60,7 +80,9 @@ Responsibilities:
 
 ### meta
 
-`meta` is the governance, memory, and operator Constitution layer. The harness-engineering `meta` repo defines the operator boundary, decision ledger, LLM Wiki substrate, raw immutable source storage, and escalation rules.
+Meta is the governance, memory, and operator Constitution layer. Companion Meta
+sources define the operator boundary, decision ledger, LLM Wiki substrate, raw
+immutable source storage, and escalation rules.
 
 Responsibilities:
 
@@ -162,8 +184,8 @@ The system starts with narrow domains because autonomy without evidence is just 
 | Start narrow, align to larger vision | `docs/ROADMAP.md` phase gates |
 | Goals are durable/revisable/evidence-driven | `docs/GOAL_SCHEMA.md` and decision/progress logs |
 | Security uses deterministic guardrails first | `docs/SECURITY_AND_GUARDRAILS.md`, OWASP/NIST controls, explicit approvals |
-| MFH/Meta have already solved part of this | `docs/MFH_META_SYNTHESIS.md` plus local harness paths; imported as evidence, not as current green status |
-| Governed-code is the category | Harness `POSITIONING_BRIEF.md`, Meta Decision 2388, and `docs/DECISION_LOG.md` |
+| MFH/Meta have already solved part of this | `docs/MFH_META_SYNTHESIS.md` summarizes companion harness evidence; imported as evidence, not as current green status |
+| Governed-code is the category | Companion harness positioning sources and `docs/DECISION_LOG.md` |
 
 ## First Package Acceptance
 
