@@ -93,6 +93,7 @@ const sourceReportPaths = [
   'docs/product-quality/verification-report-consistency-report.json',
   'docs/product-quality/public-claim-boundary-report.json',
   'docs/product-quality/github-hosted-trust-posture-report.json',
+  'docs/product-quality/code-scanning-remediation-queue-report.json',
 ]
 
 function sha256(input: string | Buffer): string {
@@ -295,15 +296,19 @@ function authorizationItems(): ProtectedActionAuthorization[] {
       protectedActionRequired: true,
       authorized: false,
       executed: false,
-      sourceReports: ['docs/product-quality/github-hosted-trust-posture-report.json'],
-      currentEvidence: 'Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, and main workflow status as read-only evidence.',
+      sourceReports: [
+        'docs/product-quality/github-hosted-trust-posture-report.json',
+        'docs/product-quality/code-scanning-remediation-queue-report.json',
+      ],
+      currentEvidence: 'Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, main workflow status, and claim-safe CodeQL remediation queue status as read-only evidence.',
       requiredOwnerDecision: 'Authorize or deny hosted GitHub security setting changes, including branch protection or rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, and code scanning remediation workflow.',
       forbiddenShortcuts: [
         'Do not enable, disable, or mutate GitHub repository settings without explicit owner authorization.',
         'Do not claim hosted security posture, public readiness, or release readiness while hosted trust risks remain recorded.',
         'Do not treat local privacy scans as a substitute for hosted secret scanning or push protection.',
+        'Do not claim CodeQL alerts are resolved from a remediation queue; require hosted CodeQL closure evidence.',
       ],
-      validationMethod: 'After authorization and hosted setting changes, rerun product:github-hosted-trust-posture, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks.',
+      validationMethod: 'After authorization and hosted setting changes or CodeQL fixes, rerun product:github-hosted-trust-posture, product:code-scanning-remediation-queue, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks.',
     },
     {
       id: 'authorize_release_public_production_external_or_autonomous_claims',
@@ -408,6 +413,7 @@ function main(): void {
   const verificationReportConsistency = readJson<Record<string, unknown>>('docs/product-quality/verification-report-consistency-report.json')
   const publicClaimBoundary = readJson<Record<string, unknown>>('docs/product-quality/public-claim-boundary-report.json')
   const githubHostedTrustPosture = readJson<Record<string, unknown>>('docs/product-quality/github-hosted-trust-posture-report.json')
+  const codeScanningRemediationQueue = readJson<Record<string, unknown>>('docs/product-quality/code-scanning-remediation-queue-report.json')
   const requiredOwnerAuthorizations = authorizationItems()
 
   const allLocalSourceReportsNoProviderLiveExternalOrProtected = [
@@ -448,12 +454,19 @@ function main(): void {
     verificationReportConsistency,
     publicClaimBoundary,
     githubHostedTrustPosture,
+    codeScanningRemediationQueue,
   ].every(hasNoProviderLiveOrProtectedActions)
   const hostedTrustReadOnlyBoundaryHeld = hasNoHostedSettingsMutation(githubHostedTrustPosture) &&
     bool(githubHostedTrustPosture, 'publicSecurityPostureClaimAllowed') === false &&
     bool(githubHostedTrustPosture, 'releaseReadinessClaimAllowed') === false &&
     bool(githubHostedTrustPosture, 'productionReadinessClaimAllowed') === false &&
     bool(githubHostedTrustPosture, 'externalValidationClaimAllowed') === false
+  const codeScanningQueueBoundaryHeld = hasNoHostedSettingsMutation(codeScanningRemediationQueue) &&
+    bool(codeScanningRemediationQueue, 'publicSecurityPostureClaimAllowed') === false &&
+    bool(codeScanningRemediationQueue, 'releaseReadinessClaimAllowed') === false &&
+    bool(codeScanningRemediationQueue, 'productionReadinessClaimAllowed') === false &&
+    bool(codeScanningRemediationQueue, 'externalValidationClaimAllowed') === false &&
+    bool(codeScanningRemediationQueue, 'alertResolutionClaimAllowed') === false
 
   const claimFlags = [
     'releaseReadinessClaimAllowed',
@@ -552,6 +565,7 @@ function main(): void {
     check('local source reports performed no provider live external or protected calls', allLocalSourceReportsNoProviderLiveExternalOrProtected, 'local no-provider source reports keep call/action arrays empty'),
     check('all source reports performed no provider live or protected actions', allSourceReportsNoProviderLiveOrProtectedActions, 'hosted GitHub report may record read-only discovery only'),
     check('hosted GitHub trust posture remains read-only and claim-blocked', hostedTrustReadOnlyBoundaryHeld, String(githubHostedTrustPosture.status)),
+    check('CodeQL remediation queue remains read-only and claim-blocked', codeScanningQueueBoundaryHeld, String(codeScanningRemediationQueue.status)),
     check('VS Code CLI/PATH/install-state boundary remains protected', vscodeBoundaryHeld, `${String(qualityBlockerTaxonomy.currentProductQualityGateStatus)}/${String(vscodeUpdateBoundary.boundaryStatus)}/${String(vscodeStartupDiagnostics.diagnosisStatus)}`),
     check('IDE/editor surface availability boundary remains protected', ideSurfaceBoundaryHeld, `${String(ossIdeOrEditorSurfaceEvidence.hostSmokeRealHostBlockedByVscodeCli)}/${String(ossIdeOrEditorSurfaceEvidence.workbenchSmokePass)}/${String(ossIdeOrEditorSurfaceEvidence.extensionAvailabilityClaimAllowed)}`),
     check('Git repository commit/push boundary remains protected', gitBoundaryHeld, String(gitReleaseHygiene.workspaceGitStatus)),
