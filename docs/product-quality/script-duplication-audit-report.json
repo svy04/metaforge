@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:21:49.046Z",
+  "generatedAt": "2026-06-15T23:17:08.014Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -56,7 +56,7 @@
         },
         {
           "path": "scripts/product-evidence-manifest.ts",
-          "line": 221
+          "line": 226
         },
         {
           "path": "scripts/product-external-benchmark-boundary.ts",
@@ -252,7 +252,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3133
+          "line": 3186
         },
         {
           "path": "scripts/product-real-session-capture.ts",
@@ -472,7 +472,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3129
+          "line": 3182
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
@@ -498,13 +498,251 @@
       "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
     }
   ],
+  "jscpdEnabled": true,
+  "jscpdVersion": "5.0.9",
+  "jscpdConfigPath": ".jscpd.json",
+  "jscpdCommand": {
+    "name": "jscpd_product_scripts_json",
+    "command": [
+      "jscpd",
+      "--config",
+      ".jscpd.json",
+      "--reporters",
+      "json",
+      "--output",
+      "<temp-jscpd-output>",
+      "--no-tips"
+    ],
+    "exitCode": 0,
+    "passed": true,
+    "requiredSubstrings": [
+      "Using config from .jscpd.json",
+      "JSON report saved"
+    ],
+    "missingSubstrings": [],
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 51.144ms\n",
+    "stderrPreview": "Using config from .jscpd.json\n"
+  },
+  "jscpdReportSha256": "5f6640a112354bc065ef9fb91bc978e04d9081ba3beba6cc53a5d32848c4271e",
+  "jscpdCloneCount": 30,
+  "jscpdCloneBaseline": 30,
+  "jscpdDuplicatedLines": 857,
+  "jscpdDuplicatedLinesBaseline": 857,
+  "jscpdDuplicatedTokens": 5308,
+  "jscpdDuplicatedTokensBaseline": 5308,
+  "jscpdDuplicatedPercentage": 2.1024999386668632,
+  "jscpdDuplicatedPercentageBaseline": 2.11,
+  "jscpdDuplicatedTokenPercentage": 2.0954727051652533,
+  "jscpdSourceCount": 90,
+  "jscpdTopClonePairs": [
+    {
+      "firstFile": "scripts/product-dead-export-candidates.ts",
+      "secondFile": "scripts/product-dependency-topology.ts",
+      "firstStartLine": 135,
+      "firstEndLine": 158,
+      "secondStartLine": 160,
+      "secondEndLine": 183,
+      "lines": 24,
+      "tokens": 122
+    },
+    {
+      "firstFile": "scripts/product-ide-extension-host-smoke.ts",
+      "secondFile": "scripts/product-ide-extension-workbench-smoke.ts",
+      "firstStartLine": 116,
+      "firstEndLine": 160,
+      "secondStartLine": 135,
+      "secondEndLine": 179,
+      "lines": 45,
+      "tokens": 159
+    },
+    {
+      "firstFile": "scripts/product-ide-extension-host-smoke.ts",
+      "secondFile": "scripts/product-ide-extension-workbench-smoke.ts",
+      "firstStartLine": 258,
+      "firstEndLine": 331,
+      "secondStartLine": 317,
+      "secondEndLine": 390,
+      "lines": 74,
+      "tokens": 374
+    },
+    {
+      "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
+      "secondFile": "scripts/product-ide-extension-webview-render-smoke.ts",
+      "firstStartLine": 145,
+      "firstEndLine": 181,
+      "secondStartLine": 102,
+      "secondEndLine": 138,
+      "lines": 37,
+      "tokens": 144
+    },
+    {
+      "firstFile": "scripts/product-ide-extension-runtime-smoke.ts",
+      "secondFile": "scripts/product-ide-extension-webview-interaction-smoke.ts",
+      "firstStartLine": 118,
+      "firstEndLine": 142,
+      "secondStartLine": 168,
+      "secondEndLine": 194,
+      "lines": 25,
+      "tokens": 126
+    },
+    {
+      "firstFile": "scripts/product-license-boundary-authorization.ts",
+      "secondFile": "scripts/product-lockfile-sbom-quality.ts",
+      "firstStartLine": 165,
+      "firstEndLine": 185,
+      "secondStartLine": 117,
+      "secondEndLine": 137,
+      "lines": 21,
+      "tokens": 129
+    },
+    {
+      "firstFile": "scripts/product-license-boundary-authorization.ts",
+      "secondFile": "scripts/product-source-license-metadata-quality.ts",
+      "firstStartLine": 165,
+      "firstEndLine": 185,
+      "secondStartLine": 116,
+      "secondEndLine": 136,
+      "lines": 21,
+      "tokens": 129
+    },
+    {
+      "firstFile": "scripts/product-license-boundary-authorization.ts",
+      "secondFile": "scripts/product-third-party-license-quality.ts",
+      "firstStartLine": 165,
+      "firstEndLine": 185,
+      "secondStartLine": 127,
+      "secondEndLine": 147,
+      "lines": 21,
+      "tokens": 129
+    },
+    {
+      "firstFile": "scripts/product-oss-baseline-drift-closure.ts",
+      "secondFile": "scripts/product-oss-safe-backlog-closure.ts",
+      "firstStartLine": 85,
+      "firstEndLine": 106,
+      "secondStartLine": 134,
+      "secondEndLine": 155,
+      "lines": 22,
+      "tokens": 142
+    },
+    {
+      "firstFile": "scripts/product-oss-eval-quality-gate-checklist.ts",
+      "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+      "firstStartLine": 2,
+      "firstEndLine": 53,
+      "secondStartLine": 2,
+      "secondEndLine": 53,
+      "lines": 52,
+      "tokens": 162
+    },
+    {
+      "firstFile": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+      "secondFile": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+      "firstStartLine": 162,
+      "firstEndLine": 190,
+      "secondStartLine": 136,
+      "secondEndLine": 164,
+      "lines": 29,
+      "tokens": 184
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-provider-breadth-evidence.ts",
+      "firstStartLine": 123,
+      "firstEndLine": 148,
+      "secondStartLine": 137,
+      "secondEndLine": 162,
+      "lines": 26,
+      "tokens": 191
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+      "firstStartLine": 123,
+      "firstEndLine": 148,
+      "secondStartLine": 120,
+      "secondEndLine": 145,
+      "lines": 26,
+      "tokens": 191
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+      "firstStartLine": 123,
+      "firstEndLine": 145,
+      "secondStartLine": 132,
+      "secondEndLine": 158,
+      "lines": 23,
+      "tokens": 181
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
+      "firstStartLine": 239,
+      "firstEndLine": 260,
+      "secondStartLine": 269,
+      "secondEndLine": 288,
+      "lines": 22,
+      "tokens": 186
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-runtime-doctoring-evidence.ts",
+      "firstStartLine": 239,
+      "firstEndLine": 261,
+      "secondStartLine": 229,
+      "secondEndLine": 251,
+      "lines": 23,
+      "tokens": 220
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+      "firstStartLine": 239,
+      "firstEndLine": 261,
+      "secondStartLine": 236,
+      "secondEndLine": 258,
+      "lines": 23,
+      "tokens": 220
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+      "firstStartLine": 239,
+      "firstEndLine": 261,
+      "secondStartLine": 254,
+      "secondEndLine": 276,
+      "lines": 23,
+      "tokens": 220
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+      "firstStartLine": 239,
+      "firstEndLine": 259,
+      "secondStartLine": 257,
+      "secondEndLine": 276,
+      "lines": 21,
+      "tokens": 169
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
+      "firstStartLine": 307,
+      "firstEndLine": 328,
+      "secondStartLine": 342,
+      "secondEndLine": 362,
+      "lines": 22,
+      "tokens": 189
+    }
+  ],
   "primarySourceInputs": [
     {
       "sourceType": "oss_tool",
       "sourceProject": "jscpd",
       "sourceUrl": "https://github.com/kucherenko/jscpd",
-      "observedPattern": "Copy/paste detection is a dedicated audit surface; clone findings are refactor candidates, not automatic defects.",
-      "localAbsorption": "This local audit records repeated helper shapes first, so later jscpd adoption can be compared against a stable project-specific baseline."
+      "observedPattern": "Copy/paste detection is a dedicated audit surface with CLI configuration, JSON reporting, and threshold/ratchet-friendly metrics.",
+      "localAbsorption": "This local audit runs jscpd against product scripts, records clone/line/token/percentage evidence, and blocks new growth against a stable baseline."
     },
     {
       "sourceType": "oss_tool",
@@ -574,6 +812,31 @@
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
       "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":1},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":1}}"
+    },
+    {
+      "label": "jscpd token clone command is configured when config is present",
+      "ok": true,
+      "detail": "5.0.9/0"
+    },
+    {
+      "label": "jscpd token clone count does not exceed baseline",
+      "ok": true,
+      "detail": "30/30"
+    },
+    {
+      "label": "jscpd duplicated line and token counts do not exceed baseline",
+      "ok": true,
+      "detail": "857/857; 5308/5308"
+    },
+    {
+      "label": "jscpd duplicated percentage does not exceed baseline",
+      "ok": true,
+      "detail": "2.1024999386668632/2.11"
+    },
+    {
+      "label": "jscpd clone pair paths are relative and normalized",
+      "ok": true,
+      "detail": "20 pairs"
     },
     {
       "label": "primary sources include OSS, research, and patent inputs",

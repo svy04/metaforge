@@ -72,6 +72,7 @@ const credentialPatterns = [
 const requiredEvidencePaths = [
   'package.json',
   'bun.lock',
+  '.jscpd.json',
   '.dependency-cruiser.mjs',
   '.dependency-cruiser-known-violations.json',
   '.github/CODEOWNERS',
@@ -166,6 +167,8 @@ const requiredEvidencePaths = [
   'docs/product-quality/community-profile-quality-report.json',
   'docs/product-quality/dependency-topology-report.json',
   'docs/product-quality/dependency-topology-report.md',
+  'docs/product-quality/script-duplication-audit-report.json',
+  'docs/product-quality/script-duplication-audit-report.md',
   'docs/product-quality/dead-export-candidates-report.json',
   'docs/product-quality/dead-export-candidates-report.md',
   'docs/product-quality/maintainer-ownership-quality-report.json',
@@ -264,6 +267,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
   const candidatePaths = [
     'package.json',
     'bun.lock',
+    '.jscpd.json',
     '.dependency-cruiser.mjs',
     '.dependency-cruiser-known-violations.json',
     ...listFiles('docs/product-quality'),
