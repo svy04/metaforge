@@ -64,7 +64,11 @@ describe('public repository readiness surfaces', () => {
     expect(lineCount).toBeLessThanOrEqual(220)
     expect(agents).toContain('Meta/MFH/Orchestra')
     expect(agents).toContain('OpenClaude runtime')
+    expect(agents).toContain('docs/product-quality/public-feedback-snapshot-2026-06-15.md')
+    expect(agents).toContain('docs/product-quality/public-feedback-triage-2026-06-15.md')
+    expect(agents).toContain('behavioral happy-path, edge-case, and side-effect evidence')
     expect(agents).not.toContain('OpenClaude Orchestrator Memory')
+    expect(agents).not.toContain('Use tools such as Knip')
     expect(agents).not.toMatch(/\b(gpt-5\.1|sonnet 4\.5|Opus 4\.7)\b/i)
     for (const needle of privateLocalPathNeedles()) {
       expect(agents).not.toContain(needle)
