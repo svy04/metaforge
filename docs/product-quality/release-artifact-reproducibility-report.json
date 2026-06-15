@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T18:47:19.259Z",
+  "generatedAt": "2026-06-15T00:03:54.397Z",
   "mode": "local_no_provider_release_artifact_reproducibility",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -24,18 +24,19 @@
       ],
       "exitCode": 0,
       "filename": "gitlawb-openclaude-0.6.0.tgz",
-      "artifactFileCount": 6,
-      "artifactSizeBytes": 4429020,
-      "artifactUnpackedSizeBytes": 21076152,
-      "tarballSha256": "7028a3721dd9018e14e01b536f5523723952b6f44cee41ff9507a90183946d91",
-      "npmShasum": "12becab28a4ec48d5440c872181716731878833e",
-      "npmIntegrity": "sha512-rqoV4QIdfJAQGtAxSC/o46u1xcjenqHkIpMD5KariR66pc1eEr6TcjGfsgMcxM3igKvuLioEueRL4263tf909A==",
+      "artifactFileCount": 7,
+      "artifactSizeBytes": 4431677,
+      "artifactUnpackedSizeBytes": 21081576,
+      "tarballSha256": "384b2611ce5d4f868ae4ef7aae5a2c4f4ee393f4fb9e7b502ca4a3e2a1d68fb7",
+      "npmShasum": "a9f3d606fcfb8d723f19a6d272f682af76022cd1",
+      "npmIntegrity": "sha512-hsvvnMVfH4dcxIilz8MWMATeThoUAPpGKQlgq5BJ3OqIqLCipfLo2pvSf2j2tS7p/Tr0s2AinOjStBWen1uAtQ==",
       "fileList": [
         "bin/openclaude",
         "bin/openclaude.cmd",
         "dist/cli.mjs",
         "LICENSE",
         "package.json",
+        "README.ko.md",
         "README.md"
       ]
     },
@@ -51,23 +52,24 @@
       ],
       "exitCode": 0,
       "filename": "gitlawb-openclaude-0.6.0.tgz",
-      "artifactFileCount": 6,
-      "artifactSizeBytes": 4429020,
-      "artifactUnpackedSizeBytes": 21076152,
-      "tarballSha256": "7028a3721dd9018e14e01b536f5523723952b6f44cee41ff9507a90183946d91",
-      "npmShasum": "12becab28a4ec48d5440c872181716731878833e",
-      "npmIntegrity": "sha512-rqoV4QIdfJAQGtAxSC/o46u1xcjenqHkIpMD5KariR66pc1eEr6TcjGfsgMcxM3igKvuLioEueRL4263tf909A==",
+      "artifactFileCount": 7,
+      "artifactSizeBytes": 4431677,
+      "artifactUnpackedSizeBytes": 21081576,
+      "tarballSha256": "384b2611ce5d4f868ae4ef7aae5a2c4f4ee393f4fb9e7b502ca4a3e2a1d68fb7",
+      "npmShasum": "a9f3d606fcfb8d723f19a6d272f682af76022cd1",
+      "npmIntegrity": "sha512-hsvvnMVfH4dcxIilz8MWMATeThoUAPpGKQlgq5BJ3OqIqLCipfLo2pvSf2j2tS7p/Tr0s2AinOjStBWen1uAtQ==",
       "fileList": [
         "bin/openclaude",
         "bin/openclaude.cmd",
         "dist/cli.mjs",
         "LICENSE",
         "package.json",
+        "README.ko.md",
         "README.md"
       ]
     }
   ],
-  "reproducibleTarballSha256": "7028a3721dd9018e14e01b536f5523723952b6f44cee41ff9507a90183946d91",
+  "reproducibleTarballSha256": "384b2611ce5d4f868ae4ef7aae5a2c4f4ee393f4fb9e7b502ca4a3e2a1d68fb7",
   "reproducibilityChecks": [
     {
       "label": "source release artifact report is local no-provider",
@@ -97,32 +99,32 @@
     {
       "label": "pack runs generated matching file lists",
       "ok": true,
-      "detail": "6/6"
+      "detail": "7/7"
     },
     {
       "label": "pack file list matches source dry-run report",
       "ok": true,
-      "detail": "bin/openclaude,bin/openclaude.cmd,dist/cli.mjs,LICENSE,package.json,README.md"
+      "detail": "bin/openclaude,bin/openclaude.cmd,dist/cli.mjs,LICENSE,package.json,README.ko.md,README.md"
     },
     {
       "label": "pack runs generated matching tarball hashes",
       "ok": true,
-      "detail": "7028a3721dd9018e14e01b536f5523723952b6f44cee41ff9507a90183946d91,7028a3721dd9018e14e01b536f5523723952b6f44cee41ff9507a90183946d91"
+      "detail": "384b2611ce5d4f868ae4ef7aae5a2c4f4ee393f4fb9e7b502ca4a3e2a1d68fb7,384b2611ce5d4f868ae4ef7aae5a2c4f4ee393f4fb9e7b502ca4a3e2a1d68fb7"
     },
     {
       "label": "npm shasums match",
       "ok": true,
-      "detail": "12becab28a4ec48d5440c872181716731878833e,12becab28a4ec48d5440c872181716731878833e"
+      "detail": "a9f3d606fcfb8d723f19a6d272f682af76022cd1,a9f3d606fcfb8d723f19a6d272f682af76022cd1"
     },
     {
       "label": "npm integrity values match",
       "ok": true,
-      "detail": "sha512-rqoV4QIdfJAQGtAxSC/o46u1xcjenqHkIpMD5KariR66pc1eEr6TcjGfsgMcxM3igKvuLioEueRL4263tf909A==,sha512-rqoV4QIdfJAQGtAxSC/o46u1xcjenqHkIpMD5KariR66pc1eEr6TcjGfsgMcxM3igKvuLioEueRL4263tf909A=="
+      "detail": "sha512-hsvvnMVfH4dcxIilz8MWMATeThoUAPpGKQlgq5BJ3OqIqLCipfLo2pvSf2j2tS7p/Tr0s2AinOjStBWen1uAtQ==,sha512-hsvvnMVfH4dcxIilz8MWMATeThoUAPpGKQlgq5BJ3OqIqLCipfLo2pvSf2j2tS7p/Tr0s2AinOjStBWen1uAtQ=="
     },
     {
       "label": "source provenance hashes cover package files",
       "ok": true,
-      "detail": "6 hashes"
+      "detail": "7 hashes"
     },
     {
       "label": "forbidden package files remain absent",

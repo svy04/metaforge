@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T18:45:37.567Z",
+  "generatedAt": "2026-06-15T00:02:24.150Z",
   "mode": "local_no_provider_source_license_metadata_quality",
   "inventoryFormat": "openclaude_source_license_metadata_inventory_v1",
   "primarySourceInputs": [
@@ -29,7 +29,7 @@
     }
   ],
   "packageJsonPath": "package.json",
-  "packageJsonSha256": "1f6f7b0cd3e3401b734c5e8c88ec50b08a77934b850b63db88b0f5727df82b0f",
+  "packageJsonSha256": "9b7f122be0fb4edeaa35102ac73f0e96fb4a4dc519c2d6cc64713ec4418f0a6d",
   "packageLicenseField": "SEE LICENSE FILE",
   "rootLicensePath": "LICENSE",
   "rootLicenseSha256": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061",
@@ -69,12 +69,12 @@
     "/.playwright-mcp/",
     "/assets/"
   ],
-  "scannedSourceFileCount": 2450,
+  "scannedSourceFileCount": 2452,
   "sourceFilesWithSpdxLicenseIdentifierCount": 1,
   "sourceFilesWithSpdxCopyrightTextCount": 1,
   "sourceFilesWithAdjacentLicenseFileCount": 0,
   "sourceFilesCoveredByReuseTomlAnnotationCount": 0,
-  "sourceFilesMissingFileLevelMetadataCount": 2449,
+  "sourceFilesMissingFileLevelMetadataCount": 2451,
   "sourceFilesMissingFileLevelMetadata": [
     ".github/dependabot.yml",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -191,7 +191,9 @@
     "scripts/provider-discovery.ts",
     "scripts/provider-launch.ts",
     "scripts/provider-recommend.ts",
+    "scripts/public-artifact-hygiene.test.ts",
     "scripts/public-artifact-hygiene.ts",
+    "scripts/public-repo-readiness.test.ts",
     "scripts/render-coverage-heatmap.ts",
     "scripts/start-grpc.ts",
     "scripts/system-check.test.ts",
@@ -2530,14 +2532,14 @@
     "application_source": 2325,
     "github_community_or_workflow": 9,
     "package_launcher": 2,
-    "quality_or_build_script": 105,
+    "quality_or_build_script": 107,
     "root_community_or_license_doc": 6,
     "root_package_metadata": 1,
     "vscode_extension_source": 2
   },
   "inventoryJsonlPath": "reports/openclaude-source-license-metadata-inventory.jsonl",
-  "inventoryJsonlSha256": "2e14b8aa64acab5a977934b739b692ed199d74a7536b6788629661d63274a34b",
-  "inventoryJsonlRecordCount": 2450,
+  "inventoryJsonlSha256": "55113e01604118390a867d3d25d4bf4ac83d1f0dbf3560f712c2faba6b8f84bb",
+  "inventoryJsonlRecordCount": 2452,
   "inventoryJsonlParseable": true,
   "sourceLicenseRecords": [
     {
@@ -2672,8 +2674,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": ".github/workflows/release.yml",
       "category": "github_community_or_workflow",
-      "sizeBytes": 4461,
-      "sha256": "eb86d240428d103ac0ab44bcc72e7bc359d788888cf529d6d108b5e393df8015",
+      "sizeBytes": 1090,
+      "sha256": "f30ca3e230842738e536eb836214026afcd0d685ae74a728ede15a8216d1c710",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -2682,7 +2684,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "e4e7b53985c91d05e9805d19922293c08bc43f1ef6c798dd91a4d494cb4865f7"
+      "recordDigest": "c8355bb344d36085ee7400519db2ddbbfb19f42a67cd05841577b250ea76df15"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -2768,8 +2770,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": "package.json",
       "category": "root_package_metadata",
-      "sizeBytes": 19007,
-      "sha256": "1f6f7b0cd3e3401b734c5e8c88ec50b08a77934b850b63db88b0f5727df82b0f",
+      "sizeBytes": 19135,
+      "sha256": "9b7f122be0fb4edeaa35102ac73f0e96fb4a4dc519c2d6cc64713ec4418f0a6d",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -2778,7 +2780,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "cef7c9f387c6b4e0234e2eb3f9941afeeeaf0d7a32c61259b83a3a1e3172be19"
+      "recordDigest": "eb8f71974d6a904ec7fbeab4157c506fb35d2dfe453c2488bcf8db52b021cd52"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -2816,8 +2818,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": "README.md",
       "category": "root_community_or_license_doc",
-      "sizeBytes": 16660,
-      "sha256": "49066940f768b345097f2c2b1fa8305b77b024027c0386c4fb2cfbd1ca2aff13",
+      "sizeBytes": 17343,
+      "sha256": "bb28cc1b289399c69c0b9929cc79d96cdeff9e35a58587f943255db7bff76e11",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -2826,7 +2828,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "ecfa8bdd6b87ad9f16ef4df66e38fd7dcdd220a503cf24c6b05b52588800d6b7"
+      "recordDigest": "692c53961db68c50dd75ec590c67ef0301a68113abcd976cf79b107f563c2aa6"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -2944,8 +2946,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": "scripts/product-agent-instructions-quality.ts",
       "category": "quality_or_build_script",
-      "sizeBytes": 12151,
-      "sha256": "e1c2842d67e2c36be47c0c260ab65067c731e52c9b4707486aba432d86d60ecd",
+      "sizeBytes": 14050,
+      "sha256": "2deb57e6014b33e3152b2234e3d82cea34cd5afdb33d1fd86f2cc71e1f639edd",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -2954,7 +2956,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "f2d20a5266f281c6647ca885fb72715348a758d8d3f881f07cf4e87b453fe8d8"
+      "recordDigest": "5f2d527db941f27c6123422056122216d9630f3f9fe2c4fd4f6e2b9730256997"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -3488,8 +3490,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": "scripts/product-openssf-security-posture.ts",
       "category": "quality_or_build_script",
-      "sizeBytes": 20712,
-      "sha256": "68a3d87beaec0a7bb9d6ad4a470f52f62d151d84ddf237732a7fde75b7942db8",
+      "sizeBytes": 22314,
+      "sha256": "a2c0cb5766e4b1589ba33536dba0cefca3bb73e2945081b77eea2929cdcc642a",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -3498,7 +3500,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "d66db074821c32a07e7d42d570f6cd6863006e8dfdd1dcd100e00756f719f907"
+      "recordDigest": "07e6e4a60ce77980932e80b943f369a98f02c25911a95da0b0e60ec8529203a0"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -3984,8 +3986,8 @@
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
       "path": "scripts/product-quality-gate.ts",
       "category": "quality_or_build_script",
-      "sizeBytes": 445527,
-      "sha256": "2a5b001019c12ef39dd348f7ee82c8482282e0dcd56f7bbc35b196c9d703a38d",
+      "sizeBytes": 445735,
+      "sha256": "860f47ad52c115ac2fb811ff7b4991d73d7ab062f68150bce15fe12cf6425063",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -3994,7 +3996,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "0adc538d9b6874927aa6590c7e4479dfe5e10629f9832bba2fb98e5f5bc28630"
+      "recordDigest": "69b29abf7224f605a5b46b0de4f3a2cef40b89ad3f8a8ffbfbba80ab38e71a3a"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -4402,10 +4404,10 @@
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
-      "path": "scripts/public-artifact-hygiene.ts",
+      "path": "scripts/public-artifact-hygiene.test.ts",
       "category": "quality_or_build_script",
-      "sizeBytes": 4243,
-      "sha256": "504176b65a8b61254ddea2659047117a9b24c6f2408cd1ca8103f167f771073e",
+      "sizeBytes": 1564,
+      "sha256": "d961406f5eae0c04c45a6c85e1be13676a00430def38408fbd903f545958ce1e",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -4414,7 +4416,39 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "bcbaff2ac7d8d31da106189650159d007effa3a025d67d7f2da10d68876f94e6"
+      "recordDigest": "47562e2d9330f417b023055ad2de97d04d1297465ebd5cc297bf25aad4342013"
+    },
+    {
+      "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
+      "path": "scripts/public-artifact-hygiene.ts",
+      "category": "quality_or_build_script",
+      "sizeBytes": 4409,
+      "sha256": "4afd3962128b4e694663ebbce76d881762107452c27584770f9a3366cd414692",
+      "hasSpdxLicenseIdentifier": false,
+      "spdxLicenseIdentifiers": [],
+      "hasSpdxFileCopyrightText": false,
+      "spdxFileCopyrightTexts": [],
+      "hasAdjacentLicenseFile": false,
+      "adjacentLicenseFilePath": null,
+      "coveredByReuseTomlAnnotation": false,
+      "metadataStatus": "missing_file_level_license_metadata",
+      "recordDigest": "344715014a4818e12897dc3d750fc9632dae66bdff4dfbc84768e9f3b0df3ccc"
+    },
+    {
+      "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
+      "path": "scripts/public-repo-readiness.test.ts",
+      "category": "quality_or_build_script",
+      "sizeBytes": 2978,
+      "sha256": "8839818f11ff4071c1613036c37ab202be3a785f5afb8d1a17dfd823f37ccde0",
+      "hasSpdxLicenseIdentifier": false,
+      "spdxLicenseIdentifiers": [],
+      "hasSpdxFileCopyrightText": false,
+      "spdxFileCopyrightTexts": [],
+      "hasAdjacentLicenseFile": false,
+      "adjacentLicenseFilePath": null,
+      "coveredByReuseTomlAnnotation": false,
+      "metadataStatus": "missing_file_level_license_metadata",
+      "recordDigest": "bb198896056b6c68f7db612f53b82b97a2456f8b2a49dcc63750fd9bd1211bcb"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -22853,7 +22887,7 @@
       "path": "src/services/api/openaiShim.ts",
       "category": "application_source",
       "sizeBytes": 74413,
-      "sha256": "2f672c4d18176e65fbcca0bd38f8fd80d51c1b7f24380558c6d7d849eaabce95",
+      "sha256": "af324bb3bbe6800c399baae79c74f51c60b2fed72aba2d608da4178e759b5200",
       "hasSpdxLicenseIdentifier": false,
       "spdxLicenseIdentifiers": [],
       "hasSpdxFileCopyrightText": false,
@@ -22862,7 +22896,7 @@
       "adjacentLicenseFilePath": null,
       "coveredByReuseTomlAnnotation": false,
       "metadataStatus": "missing_file_level_license_metadata",
-      "recordDigest": "42e20f9301d13c1e0bccbfd940c6092799ef30b4fe4148c6bef5e08d73102b71"
+      "recordDigest": "ebf7cbaef414de4e2bbf6a03bcdbed5de5724d0b13b15945a3a6e03a0dde6e7c"
     },
     {
       "schemaVersion": "openclaude_source_license_metadata_inventory_v1",
@@ -41770,12 +41804,12 @@
     {
       "label": "source scan covers expected source and product surfaces",
       "ok": true,
-      "detail": "2450 scanned files"
+      "detail": "2452 scanned files"
     },
     {
       "label": "file-level SPDX metadata gaps are classified",
       "ok": true,
-      "detail": "2449 gaps"
+      "detail": "2451 gaps"
     },
     {
       "label": "REUSE.toml and LICENSES absence is recorded without claiming compliance",
@@ -41785,7 +41819,7 @@
     {
       "label": "inventory JSONL has one record per scanned source file",
       "ok": true,
-      "detail": "2450 records"
+      "detail": "2452 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",

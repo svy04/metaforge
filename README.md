@@ -10,6 +10,8 @@ It turns owner intent into durable goals, routes work through Claude and Codex O
 
 OpenClaude is the local CLI substrate Metaforge currently rides on. It provides the terminal UX, tools, MCP, slash commands, streaming output, provider routing, and credential surfaces; Metaforge is the operating layer above it.
 
+Orchestra is the runtime-wired layer in this package today. Meta and MFH are governance, schema, and evidence-gate surfaces that constrain how the runtime is used; they are not separate runtime modules in this checkout. AVF Influence Factory is a repo-local manual artifact lane, not part of the default CLI runtime or CI path.
+
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-MIT-2563eb)](LICENSE)
@@ -64,6 +66,8 @@ Use the public proof pack when describing Metaforge outside the repo. It gives t
 | Orchestra | Claude/Codex agent routing, planning, critique, shadow execution, cross-review, evidence arbitration, promotion |
 | MFH | Governed-code gate for drift, state, evidence, closure, release claims, and false-completion prevention |
 | OpenClaude runtime | Local CLI substrate for tools, MCP, slash commands, provider profiles, streaming, and credential-backed model routes |
+
+Wiring boundary: Orchestra is runtime-wired in `src/` today. Meta and MFH are governance, schema, and evidence-gate surfaces in `docs/`, reports, and product-quality gates. AVF Influence Factory is a repo-local manual artifact lane under `avf/` and `scripts/`, not a default runtime import.
 
 ## Claude And Codex Routes
 
@@ -216,11 +220,11 @@ Add to `~/.claude/settings.json`:
   "agentModels": {
     "deepseek-chat": {
       "base_url": "https://api.deepseek.com/v1",
-      "api_key": "sk-your-key"
+      "api_key": "<deepseek-api-key>"
     },
     "gpt-4o": {
       "base_url": "https://api.openai.com/v1",
-      "api_key": "sk-your-key"
+      "api_key": "<openai-api-key>"
     }
   },
   "agentRouting": {

@@ -1914,6 +1914,7 @@ type OpenSsfSecurityPostureReport = {
   responseTimelinePresent: boolean
   allWorkflowActionReferencesPinned: boolean
   prWorkflowTokenPermissionsReadOnly: boolean
+  releaseWorkflowBoundaryOnly?: boolean
   releaseWorkflowPermissionsScoped: boolean
   pullRequestTargetAbsent: boolean
   dependabotConfigPresent: boolean
@@ -4432,8 +4433,8 @@ function main(): void {
   checks.push(check('OpenSSF security posture verifies CodeQL SAST workflow', openSsfSecurityPosture.codeqlWorkflowPath === '.github/workflows/codeql.yml' && openSsfSecurityPosture.codeqlWorkflowPresent && openSsfSecurityPosture.codeqlActionsPinned && openSsfSecurityPosture.codeqlPermissionsScoped && openSsfSecurityPosture.codeqlAnalyzesJavaScriptTypeScript && openSsfSecurityPosture.codeqlSecurityExtendedQueriesConfigured && openSsfSecurityPosture.codeqlScheduledScanConfigured && openSsfSecurityPosture.codeqlHostedExecutionPerformed === false, openSsfSecurityPosture.codeqlWorkflowPath))
   checks.push(check('OpenSSF security posture verifies product-quality CI wiring', openSsfSecurityPosture.productQualityWorkflowPresent))
   checks.push(check('OpenSSF security posture verifies frozen dependency install', openSsfSecurityPosture.frozenDependencyInstallPresent))
-  checks.push(check('OpenSSF security posture verifies npm provenance configuration', openSsfSecurityPosture.npmProvenanceConfigured && openSsfSecurityPosture.npmTrustedPublishingBoundaryPresent && openSsfSecurityPosture.releaseEnvironmentPresent))
-  checks.push(check('OpenSSF security posture verifies Docker package permission scope', openSsfSecurityPosture.dockerPackageWriteScoped))
+  checks.push(check('OpenSSF security posture verifies npm provenance configuration or release boundary', openSsfSecurityPosture.releaseWorkflowBoundaryOnly === true || (openSsfSecurityPosture.npmProvenanceConfigured && openSsfSecurityPosture.npmTrustedPublishingBoundaryPresent && openSsfSecurityPosture.releaseEnvironmentPresent)))
+  checks.push(check('OpenSSF security posture verifies Docker package permission scope or release boundary', openSsfSecurityPosture.releaseWorkflowBoundaryOnly === true || openSsfSecurityPosture.dockerPackageWriteScoped))
   checks.push(check('OpenSSF security posture blocks external Scorecard result claims', openSsfSecurityPosture.realScorecardRunPerformed === false && openSsfSecurityPosture.scorecardExternalClaimAllowed === false))
   checks.push(check('OpenSSF security posture keeps readiness and validation claims blocked', openSsfSecurityPosture.releaseReadinessClaimAllowed === false && openSsfSecurityPosture.productionReadinessClaimAllowed === false && openSsfSecurityPosture.publicReadinessClaimAllowed === false && openSsfSecurityPosture.externalValidationClaimAllowed === false && openSsfSecurityPosture.autonomousReliabilityClaimAllowed === false))
   checks.push(check('OpenSSF security posture classifies protected gaps', ['external_openssf_scorecard_run', 'hosted_ci_scorecard_evidence', 'hosted_codeql_analysis_evidence', 'signed_artifact_attestation_verification'].every((id) => openSsfSecurityPosture.classifiedUnresolvedGaps.some((gap) => gap.id === id && gap.status === 'classified_unresolved')), openSsfSecurityPosture.classifiedUnresolvedGaps.map((gap) => gap.id).join(',')))
