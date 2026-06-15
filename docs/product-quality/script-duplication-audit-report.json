@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T05:34:41.196Z",
+  "generatedAt": "2026-06-15T08:17:09.488Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -532,22 +532,46 @@
   ],
   "primarySourceInputs": [
     {
+      "sourceType": "oss_tool",
       "sourceProject": "jscpd",
       "sourceUrl": "https://github.com/kucherenko/jscpd",
       "observedPattern": "Copy/paste detection is a dedicated audit surface; clone findings are refactor candidates, not automatic defects.",
       "localAbsorption": "This local audit records repeated helper shapes first, so later jscpd adoption can be compared against a stable project-specific baseline."
     },
     {
+      "sourceType": "oss_tool",
       "sourceProject": "Knip",
       "sourceUrl": "https://knip.dev/",
       "observedPattern": "Unused files, dependencies, and exports need a project graph and configuration-aware audit surface.",
       "localAbsorption": "Dead export cleanup is kept as a follow-up lane separate from duplicate helper measurement."
     },
     {
+      "sourceType": "oss_tool",
       "sourceProject": "dependency-cruiser",
       "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
       "observedPattern": "Dependency rule and cycle validation is a different graph problem from clone detection.",
       "localAbsorption": "Cycle/rule checks stay out of this helper-duplication report and should be introduced as a dedicated gate."
+    },
+    {
+      "sourceType": "research_survey",
+      "sourceProject": "Roy and Cordy clone detection survey",
+      "sourceUrl": "https://research.cs.queensu.ca/TechReports/Reports/2007-541.pdf",
+      "observedPattern": "Clone-detection research treats duplicated and near-duplicated code as a maintenance signal that needs classification and human review.",
+      "localAbsorption": "This audit keeps repeated helper shapes as refactor candidates and avoids claiming semantic clone cleanup from a narrow helper hash scan."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US11662998B2 duplicate code pattern patent",
+      "sourceUrl": "https://patents.google.com/patent/US11662998B2/en",
+      "observedPattern": "Duplicated-code-pattern systems tokenize, index, identify candidate pairs, and surface visual refactor candidates rather than treating every match as an automatic fix.",
+      "localAbsorption": "OpenClaude records duplicate helper clusters with hashes and file locations first; extraction/refactor remains a separate authorized implementation lane."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US7904892B2 dependency graph cycle patent",
+      "sourceUrl": "https://patents.google.com/patent/US7904892B2/en",
+      "observedPattern": "Dependency graph systems use directed graphs to determine levels, cycles, and component relationships.",
+      "localAbsorption": "Dependency-cycle evidence is kept separate from duplicate-helper evidence so future graph gates can be evaluated without conflating clone detection and architecture topology."
     }
   ],
   "dependencyInstallPerformed": false,
@@ -584,9 +608,14 @@
       "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":7},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":7}}"
     },
     {
-      "label": "primary sources are official project sources",
+      "label": "primary sources include OSS, research, and patent inputs",
       "ok": true,
-      "detail": "https://github.com/kucherenko/jscpd,https://knip.dev/,https://github.com/sverweij/dependency-cruiser"
+      "detail": "oss_tool,research_survey,patent"
+    },
+    {
+      "label": "primary sources are official project, paper, or patent sources",
+      "ok": true,
+      "detail": "https://github.com/kucherenko/jscpd,https://knip.dev/,https://github.com/sverweij/dependency-cruiser,https://research.cs.queensu.ca/TechReports/Reports/2007-541.pdf,https://patents.google.com/patent/US11662998B2/en,https://patents.google.com/patent/US7904892B2/en"
     },
     {
       "label": "no dependency install was performed",
