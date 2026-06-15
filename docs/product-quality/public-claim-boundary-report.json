@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T20:02:08.325Z",
+  "generatedAt": "2026-06-15T21:26:19.795Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -78,9 +78,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "29748b512f1a8a9b2060062e84849bec6a500fd99fa8805602f6a802af9cd4e9",
-      "sizeBytes": 19911,
-      "lineCount": 278
+      "sha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16",
+      "sizeBytes": 20066,
+      "lineCount": 280
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -162,9 +162,9 @@
     {
       "path": "docs/product-quality/product-quality-gate.md",
       "exists": true,
-      "sha256": "de1166c06ecc5803b92b6f41d1ac093437106b253dfd5759d43412d8bbbaf936",
-      "sizeBytes": 37124,
-      "lineCount": 207
+      "sha256": "423c8e8f2b0f20177638a8d62658985e968fefa3a403bc51f29b00bfa2d0d664",
+      "sizeBytes": 37439,
+      "lineCount": 208
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -231,7 +231,7 @@
     }
   ],
   "publicSurfaceCount": 30,
-  "scannedLineCount": 4760,
+  "scannedLineCount": 4763,
   "blockedContextClaimMentionCount": 17,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -277,7 +277,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 206,
+      "line": 207,
       "phrase": "release ready",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -285,7 +285,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 206,
+      "line": 207,
       "phrase": "external validation completed",
       "category": "external_validation",
       "status": "blocked_context",
@@ -293,7 +293,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 206,
+      "line": 207,
       "phrase": "superior to top 10",
       "category": "superiority",
       "status": "blocked_context",
@@ -375,7 +375,7 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "97c6bcd18f3aa90cae462e43a9ad61532ada72fba2e705a3588152c82b963265",
+  "scanJsonlSha256": "9ff8159f24aeee0ad8d8d06827ce722238aa0330be92b975c53baa0237882c28",
   "scanJsonlRecordCount": 17,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -407,7 +407,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "4760 lines"
+      "detail": "4763 lines"
     },
     {
       "label": "unauthorized positive claims are absent",

@@ -46,7 +46,7 @@ that the feedback identified.
      they are actually wired.
 
 7. Recommended analysis lanes.
-   - Knip or Fallow for dead exports.
+   - Checked Knip candidate gate for dead exports.
    - dependency-cruiser for circular dependencies and topology rules.
    - jscpd for duplicate code shapes.
    - Lumin Repo Lens as a community reference for topology and clone cues, with
@@ -63,10 +63,11 @@ The first response slice extracts tiny shared helper surfaces from
 community/public and origin/license product-quality scripts, refreshes the local
 duplication audit report, and wires the audit into `product:quality` as a
 ratchet. Future helper-clone increases above the current baseline now fail the
-local gate. Public setup docs also avoid pinning stale OpenAI model examples.
-This converts the clone-pressure and stale-public-doc feedback into measured
-code movement without claiming that all duplication, dead exports, or wiring
-gaps are resolved.
+local gate, and a checked Knip candidate gate records dead-export/type/duplicate
+export candidates without autofix or deletion claims. Public setup docs also
+avoid pinning stale OpenAI model examples. This converts the clone-pressure,
+dead-export, and stale-public-doc feedback into measured code movement without
+claiming that all duplication, dead exports, or wiring gaps are resolved.
 
 Boundary: this snapshot is not production readiness, release readiness,
 external validation, hosted workflow proof, or autonomous reliability evidence.

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "{index,cli,main}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+    "src/{index,cli,main}.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
+    "src/entrypoints/**/*.{ts,tsx}",
+    "bin/openclaude",
+    "scripts/*.{ts,tsx}",
+    "packages/openclaude-vscode/src/**/*.{ts,tsx}",
+    "packages/openclaude-vscode/package.json"
+  ],
+  "project": [
+    "src/**/*.{ts,tsx}",
+    "scripts/**/*.{ts,tsx}",
+    "packages/openclaude-vscode/**/*.{ts,tsx}",
+    "!src/types/generated/**",
+    "!src/entrypoints/sdk/*.generated.ts",
+    "!scripts/_fixtures/**"
+  ],
+  "ignore": [
+    "src/types/generated/**",
+    "src/entrypoints/sdk/*.generated.ts"
+  ]
+}

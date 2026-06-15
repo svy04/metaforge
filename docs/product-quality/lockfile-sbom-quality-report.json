@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T19:59:41.818Z",
+  "generatedAt": "2026-06-15T21:22:09.805Z",
   "mode": "local_no_provider_lockfile_sbom_quality",
   "inventoryFormat": "openclaude_lockfile_inventory_v1",
   "primarySourceInputs": [
@@ -29,26 +29,26 @@
     }
   ],
   "packageJsonPath": "package.json",
-  "packageJsonSha256": "29748b512f1a8a9b2060062e84849bec6a500fd99fa8805602f6a802af9cd4e9",
+  "packageJsonSha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16",
   "bunLockPath": "bun.lock",
-  "bunLockSha256": "03ac16c42f4648cb0bb76a0f032b222c1b8f6855e220140ad5a6bff97712aceb",
-  "bunLockSizeBytes": 207612,
+  "bunLockSha256": "c439d05b423f930e0345e314ff229ba680ab9790e058c885dbf0c844de499114",
+  "bunLockSizeBytes": 223511,
   "bunLockTextStructureRecognized": true,
   "bunLockfileVersion": 1,
   "rootWorkspaceDependencyCount": 80,
-  "rootWorkspaceDevDependencyCount": 15,
-  "directManifestDependencyCount": 95,
-  "lockfilePackageCount": 791,
+  "rootWorkspaceDevDependencyCount": 16,
+  "directManifestDependencyCount": 96,
+  "lockfilePackageCount": 852,
   "lockfilePackageCountExceedsDirectDependencies": true,
-  "packagesWithIntegrityCount": 791,
+  "packagesWithIntegrityCount": 852,
   "packagesMissingIntegrity": [],
-  "packagesWithDependencyMetadataCount": 507,
-  "lockfileRelationshipCount": 1706,
+  "packagesWithDependencyMetadataCount": 523,
+  "lockfileRelationshipCount": 1780,
   "directManifestDependenciesCovered": true,
   "missingDirectManifestDependencies": [],
   "inventoryJsonlPath": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-  "inventoryJsonlSha256": "d81344a0ce0c251a87d7608df6e3a750cbc4ff8874346cfd67c732792403d7d5",
-  "inventoryJsonlRecordCount": 791,
+  "inventoryJsonlSha256": "94bc39a037e70ba3204972e268eb6294229e66fcbf8146623261ef43e7e2af43",
+  "inventoryJsonlRecordCount": 852,
   "inventoryJsonlParseable": true,
   "lockfilePackageRecords": [
     {
@@ -2664,6 +2664,20 @@
       "recordDigest": "47d6bfac127eef1b85328bb459241243e0579161ba8d19c8ba8bf63c8850f485"
     },
     {
+      "packageKey": "@emnapi/core",
+      "packageRef": "@emnapi/core@1.10.0",
+      "name": "@emnapi/core",
+      "version": "1.10.0",
+      "dependencyNames": [
+        "@emnapi/wasi-threads",
+        "tslib"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "922720b1a1a4bfd2d34b510e71d18b447a5c4b7e3759e4d529f5f17b18034fc2",
+      "recordDigest": "cdc2f169286a00d101facd0e881e3f17039727838e42dcc178cc26996c52f74c"
+    },
+    {
       "packageKey": "@emnapi/runtime",
       "packageRef": "@emnapi/runtime@1.9.2",
       "name": "@emnapi/runtime",
@@ -2675,6 +2689,19 @@
       "integrityPresent": true,
       "metadataDigest": "5b6c25910b562c05e69bf27e7d1fda9b3f3d2c9ed2213b8468b2821214fc4790",
       "recordDigest": "95b17c4285cc775cabda374075ab5a4e66fe7da1543c4d4c0c2a117404988649"
+    },
+    {
+      "packageKey": "@emnapi/wasi-threads",
+      "packageRef": "@emnapi/wasi-threads@1.2.1",
+      "name": "@emnapi/wasi-threads",
+      "version": "1.2.1",
+      "dependencyNames": [
+        "tslib"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "5b6c25910b562c05e69bf27e7d1fda9b3f3d2c9ed2213b8468b2821214fc4790",
+      "recordDigest": "cb4959af362af7a22485436058ea0bb7b185c3ac42549c7f297cffc5d244864e"
     },
     {
       "packageKey": "@esbuild/aix-ppc64",
@@ -3735,6 +3762,21 @@
       "recordDigest": "663475886a18e43829be310b515a8e37f259bbe744de0a373fab37a695019267"
     },
     {
+      "packageKey": "@napi-rs/wasm-runtime",
+      "packageRef": "@napi-rs/wasm-runtime@1.1.5",
+      "name": "@napi-rs/wasm-runtime",
+      "version": "1.1.5",
+      "dependencyNames": [
+        "@emnapi/core",
+        "@emnapi/runtime",
+        "@tybys/wasm-util"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "f61a1c1e375c5c63a7a950a311400c4aeeeff2f0940a6066e680a0c6ed4333a2",
+      "recordDigest": "9a1767519c6431389a82b2d07f547dac715ec425a156f8f0de5e86840a20e0c3"
+    },
+    {
       "packageKey": "@opentelemetry/api",
       "packageRef": "@opentelemetry/api@1.9.1",
       "name": "@opentelemetry/api",
@@ -4278,6 +4320,480 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "d6b02c9370c2fef2bbad450c831ab8bc34fcab532dddfda0d3b2c385266b37c5"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-android-arm-eabi",
+      "packageRef": "@oxc-parser/binding-android-arm-eabi@0.133.0",
+      "name": "@oxc-parser/binding-android-arm-eabi",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "54ea15010d3d496d7b36311fc51d9b0b8769217593e1b305326a90874f726ff7",
+      "recordDigest": "9e28905abd5025c1f15a6a9ebec322a1aaf4e275e33153aa716b46884faf0607"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-android-arm64",
+      "packageRef": "@oxc-parser/binding-android-arm64@0.133.0",
+      "name": "@oxc-parser/binding-android-arm64",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2d036bef8f5ae42bd5012eeeb77e39ce8dc403a759691b3f9e9cdc08e1ebce88",
+      "recordDigest": "b455849c4b2e7d491b69039dd432bff2c58c8989e881a381d6ee339d60179f9e"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-darwin-arm64",
+      "packageRef": "@oxc-parser/binding-darwin-arm64@0.133.0",
+      "name": "@oxc-parser/binding-darwin-arm64",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "e9c243e02c949eaa58c94c485969d8cb8a2e19e58074c12d3e53be73a7775b99",
+      "recordDigest": "6a7a421b22c31a3ef28ccb14ccdb680d69c6a3f4f38c4c6495c4bb467b14c27c"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-darwin-x64",
+      "packageRef": "@oxc-parser/binding-darwin-x64@0.133.0",
+      "name": "@oxc-parser/binding-darwin-x64",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "fd28faf160bd6b59b6c7b4d0846b6175ca1e61859b691b77911941bc31e9fd4f",
+      "recordDigest": "a0faad5ccc1f4e1fa0263412d9e5bbfc8c59e202c784ded6b975f49547f9f2bd"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-freebsd-x64",
+      "packageRef": "@oxc-parser/binding-freebsd-x64@0.133.0",
+      "name": "@oxc-parser/binding-freebsd-x64",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "03ab427ae40def0a8851306e3fd49a5f60cac5843112245a3e028f320e122616",
+      "recordDigest": "89ecb06feacf53cdb977dccd2ad894849ebab2ceabbe01726240731f3f7056bb"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-arm-gnueabihf",
+      "packageRef": "@oxc-parser/binding-linux-arm-gnueabihf@0.133.0",
+      "name": "@oxc-parser/binding-linux-arm-gnueabihf",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2544a2f2d96ee26f99c07b4ff8c2be7f565abbf9e31b570133773faba49eff76",
+      "recordDigest": "22804153485ebf01a1b1b5c4281d8dad08888d4999190d642a61db5ea7d418f8"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-arm-musleabihf",
+      "packageRef": "@oxc-parser/binding-linux-arm-musleabihf@0.133.0",
+      "name": "@oxc-parser/binding-linux-arm-musleabihf",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2544a2f2d96ee26f99c07b4ff8c2be7f565abbf9e31b570133773faba49eff76",
+      "recordDigest": "c2af7bda3feb7110fee908f099e6063cb732e58583009831e0bab3d5ea37a1e3"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-arm64-gnu",
+      "packageRef": "@oxc-parser/binding-linux-arm64-gnu@0.133.0",
+      "name": "@oxc-parser/binding-linux-arm64-gnu",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "bdb51fa0b2055fdb815d1c1e5b5b2354244c4b9f9ccaa8fe4ad98458c1e525a8",
+      "recordDigest": "162a1c491d86126348f9a47291cf5d2766d6741319b30ae2d8e00cc3c2016a5f"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-arm64-musl",
+      "packageRef": "@oxc-parser/binding-linux-arm64-musl@0.133.0",
+      "name": "@oxc-parser/binding-linux-arm64-musl",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "bdb51fa0b2055fdb815d1c1e5b5b2354244c4b9f9ccaa8fe4ad98458c1e525a8",
+      "recordDigest": "fffa61447ac9efa3f3882d0ad4b1dd189053ded51a9bfcd52810fb80a7b14ead"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-ppc64-gnu",
+      "packageRef": "@oxc-parser/binding-linux-ppc64-gnu@0.133.0",
+      "name": "@oxc-parser/binding-linux-ppc64-gnu",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ef3259559f2fbf69a72854dd914c724be7679678dee4ab5519f34a406e3f7be9",
+      "recordDigest": "3cdef25275edb34c1c6c6c77f81f3b356448ac2f0f9aa6d5f06b884e3a264cc2"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-riscv64-gnu",
+      "packageRef": "@oxc-parser/binding-linux-riscv64-gnu@0.133.0",
+      "name": "@oxc-parser/binding-linux-riscv64-gnu",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ee79ebaaa1478bc890d55307975983ae582fd200b03b1731da91b606208337c1",
+      "recordDigest": "7744d4ecd4fbeee5f0b1cc7acaf828b6af1b4af5633285514ea6ef59238b055d"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-riscv64-musl",
+      "packageRef": "@oxc-parser/binding-linux-riscv64-musl@0.133.0",
+      "name": "@oxc-parser/binding-linux-riscv64-musl",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ee79ebaaa1478bc890d55307975983ae582fd200b03b1731da91b606208337c1",
+      "recordDigest": "7dd9109e227a71f2ba96f3435afffebe804c71abe9da7d490028948085d6dfb8"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-s390x-gnu",
+      "packageRef": "@oxc-parser/binding-linux-s390x-gnu@0.133.0",
+      "name": "@oxc-parser/binding-linux-s390x-gnu",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "c6048c99d4102bb39ac13a7b0ff504500730a13ed39fdc5031e04a69b72cc392",
+      "recordDigest": "e2a29c425df7ce0b4660d1d1a1f180a8c41afd61971c24fe866c54ab3a2fe1fb"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-x64-gnu",
+      "packageRef": "@oxc-parser/binding-linux-x64-gnu@0.133.0",
+      "name": "@oxc-parser/binding-linux-x64-gnu",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "bc49291417332cfc6eec4a9f56b2b37df27e5061ab3396b7221611ac68bf0813"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-linux-x64-musl",
+      "packageRef": "@oxc-parser/binding-linux-x64-musl@0.133.0",
+      "name": "@oxc-parser/binding-linux-x64-musl",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "2c0649ce7baacef837e994c9e7035c9654a2d2a9d59a2b40178ed780048bf3bc"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-openharmony-arm64",
+      "packageRef": "@oxc-parser/binding-openharmony-arm64@0.133.0",
+      "name": "@oxc-parser/binding-openharmony-arm64",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "c5b8580f327e540b9fc65d7480c2192e44aad6cdbdc4476653677a66a463f452",
+      "recordDigest": "0615bc77ed4def3e43310c12a967718dcb56e145b4bcceb9e1cbe77d7422aa0b"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-wasm32-wasi",
+      "packageRef": "@oxc-parser/binding-wasm32-wasi@0.133.0",
+      "name": "@oxc-parser/binding-wasm32-wasi",
+      "version": "0.133.0",
+      "dependencyNames": [
+        "@emnapi/core",
+        "@emnapi/runtime",
+        "@napi-rs/wasm-runtime"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "f3a62e84ce2908684069a4ee4c83342e3f33e9b985a220e03b53bc852b379bf1",
+      "recordDigest": "f75cacb37ff2d505b13d31b61e6e151a6e61427e3222ab699d2dfd12f018c9a9"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-wasm32-wasi/@emnapi/runtime",
+      "packageRef": "@emnapi/runtime@1.10.0",
+      "name": "@oxc-parser/binding-wasm32-wasi/@emnapi/runtime",
+      "version": "1.10.0",
+      "dependencyNames": [
+        "tslib"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "5b6c25910b562c05e69bf27e7d1fda9b3f3d2c9ed2213b8468b2821214fc4790",
+      "recordDigest": "70f52de088a10909c83f5a5134c028ae3ad9775c7003a5f46c7fb88305b95d61"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-win32-arm64-msvc",
+      "packageRef": "@oxc-parser/binding-win32-arm64-msvc@0.133.0",
+      "name": "@oxc-parser/binding-win32-arm64-msvc",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "3fb8a3f89254f0fd27fe38809890ed090c60e98e4295ff4013f7be8c47939908",
+      "recordDigest": "ffe9764466e12b385a92ef5c52e75882b76d68bb4d2dace5292bf84eab0d4bc2"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-win32-ia32-msvc",
+      "packageRef": "@oxc-parser/binding-win32-ia32-msvc@0.133.0",
+      "name": "@oxc-parser/binding-win32-ia32-msvc",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "89d60c3af96fff01cc40c20a83cd347a1b5553987cdc08cd631184e3defa681c",
+      "recordDigest": "36b323dbdaeb808dc8025ab4719c20760d2f9469874fe3fa0761c58865766261"
+    },
+    {
+      "packageKey": "@oxc-parser/binding-win32-x64-msvc",
+      "packageRef": "@oxc-parser/binding-win32-x64-msvc@0.133.0",
+      "name": "@oxc-parser/binding-win32-x64-msvc",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "85ca15ace84a8d24e4c1b4e9198a595be8d384e164e9dc09a5aacf064e1ed9c9",
+      "recordDigest": "cb42ff4e6c83865a6228a92e1662ca897e1a8eea7d350d1d3885c5c2ca55bf37"
+    },
+    {
+      "packageKey": "@oxc-project/types",
+      "packageRef": "@oxc-project/types@0.133.0",
+      "name": "@oxc-project/types",
+      "version": "0.133.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "2bd5c36b9186d96660730ea23658baee85092a4a7c07cfad2432aaec028cb3c5"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-android-arm-eabi",
+      "packageRef": "@oxc-resolver/binding-android-arm-eabi@11.20.0",
+      "name": "@oxc-resolver/binding-android-arm-eabi",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "54ea15010d3d496d7b36311fc51d9b0b8769217593e1b305326a90874f726ff7",
+      "recordDigest": "e779ae687b85089ecf29baf6f1020831f19d6de5004457715babe11187941f00"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-android-arm64",
+      "packageRef": "@oxc-resolver/binding-android-arm64@11.20.0",
+      "name": "@oxc-resolver/binding-android-arm64",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2d036bef8f5ae42bd5012eeeb77e39ce8dc403a759691b3f9e9cdc08e1ebce88",
+      "recordDigest": "e12c3781a66e2f412e1873fd0e78cef4646517f222b73d77a5d7091cbe725f13"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-darwin-arm64",
+      "packageRef": "@oxc-resolver/binding-darwin-arm64@11.20.0",
+      "name": "@oxc-resolver/binding-darwin-arm64",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "e9c243e02c949eaa58c94c485969d8cb8a2e19e58074c12d3e53be73a7775b99",
+      "recordDigest": "f4defd7df89f41e66cdc6fb32774a1e8a29a7e1b4a4ac5518d55bc27d28f9ed8"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-darwin-x64",
+      "packageRef": "@oxc-resolver/binding-darwin-x64@11.20.0",
+      "name": "@oxc-resolver/binding-darwin-x64",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "fd28faf160bd6b59b6c7b4d0846b6175ca1e61859b691b77911941bc31e9fd4f",
+      "recordDigest": "88cf6bc64fc615fda97ab099c538985b99187f6a788ddf5a3f01375f33929a27"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-freebsd-x64",
+      "packageRef": "@oxc-resolver/binding-freebsd-x64@11.20.0",
+      "name": "@oxc-resolver/binding-freebsd-x64",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "03ab427ae40def0a8851306e3fd49a5f60cac5843112245a3e028f320e122616",
+      "recordDigest": "0d0269152a5bb206a476454c75d1a6fd5d224954f87d94ddbcfdcee8f3b465e9"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-arm-gnueabihf",
+      "packageRef": "@oxc-resolver/binding-linux-arm-gnueabihf@11.20.0",
+      "name": "@oxc-resolver/binding-linux-arm-gnueabihf",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2544a2f2d96ee26f99c07b4ff8c2be7f565abbf9e31b570133773faba49eff76",
+      "recordDigest": "0b7511ee2ce4557c8cfb6c86b369b08e13ef0fb5c995ddb58f0810c8ef6345a9"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-arm-musleabihf",
+      "packageRef": "@oxc-resolver/binding-linux-arm-musleabihf@11.20.0",
+      "name": "@oxc-resolver/binding-linux-arm-musleabihf",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2544a2f2d96ee26f99c07b4ff8c2be7f565abbf9e31b570133773faba49eff76",
+      "recordDigest": "328b194a0ea714db778cdd18a11d19c0ef494ffffa7478b968a1004c9d9e9155"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-arm64-gnu",
+      "packageRef": "@oxc-resolver/binding-linux-arm64-gnu@11.20.0",
+      "name": "@oxc-resolver/binding-linux-arm64-gnu",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "bdb51fa0b2055fdb815d1c1e5b5b2354244c4b9f9ccaa8fe4ad98458c1e525a8",
+      "recordDigest": "5aea4b8b36a5bdabf95cc049082de4ffc968068084a4551daa2c6e1d9e37f05a"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-arm64-musl",
+      "packageRef": "@oxc-resolver/binding-linux-arm64-musl@11.20.0",
+      "name": "@oxc-resolver/binding-linux-arm64-musl",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "bdb51fa0b2055fdb815d1c1e5b5b2354244c4b9f9ccaa8fe4ad98458c1e525a8",
+      "recordDigest": "4cfcd2d7487090b91e81a7d690728e28316a607eda64b21744905f76f4bfaf8b"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-ppc64-gnu",
+      "packageRef": "@oxc-resolver/binding-linux-ppc64-gnu@11.20.0",
+      "name": "@oxc-resolver/binding-linux-ppc64-gnu",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ef3259559f2fbf69a72854dd914c724be7679678dee4ab5519f34a406e3f7be9",
+      "recordDigest": "e244258f471ad1c0418bffecf181e61a8f90894a2f283beda59ab48d51bc49da"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-riscv64-gnu",
+      "packageRef": "@oxc-resolver/binding-linux-riscv64-gnu@11.20.0",
+      "name": "@oxc-resolver/binding-linux-riscv64-gnu",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ee79ebaaa1478bc890d55307975983ae582fd200b03b1731da91b606208337c1",
+      "recordDigest": "1f196ab23f0ed008ebe651586cd190e6e155b203018f0cbdcf2859e49edbc9f2"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-riscv64-musl",
+      "packageRef": "@oxc-resolver/binding-linux-riscv64-musl@11.20.0",
+      "name": "@oxc-resolver/binding-linux-riscv64-musl",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ee79ebaaa1478bc890d55307975983ae582fd200b03b1731da91b606208337c1",
+      "recordDigest": "9240e7bc1c2c4c95a60ba169e59193105630892d57a85e84bbb36f9398fc0d2d"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-s390x-gnu",
+      "packageRef": "@oxc-resolver/binding-linux-s390x-gnu@11.20.0",
+      "name": "@oxc-resolver/binding-linux-s390x-gnu",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "c6048c99d4102bb39ac13a7b0ff504500730a13ed39fdc5031e04a69b72cc392",
+      "recordDigest": "e892588c55b9def7701ccc41e1bc9b7786a1a0f6e73d8855a61486a60c4238ce"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-x64-gnu",
+      "packageRef": "@oxc-resolver/binding-linux-x64-gnu@11.20.0",
+      "name": "@oxc-resolver/binding-linux-x64-gnu",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "e93a0183d5c964ab4161483070879b9d01a4ed3ab97fa09e88990d3a0836a578"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-linux-x64-musl",
+      "packageRef": "@oxc-resolver/binding-linux-x64-musl@11.20.0",
+      "name": "@oxc-resolver/binding-linux-x64-musl",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "6f3743aaa730bf75967361273e61a4338abe02fa72dd66889bac867da79a5452"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-openharmony-arm64",
+      "packageRef": "@oxc-resolver/binding-openharmony-arm64@11.20.0",
+      "name": "@oxc-resolver/binding-openharmony-arm64",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "c5b8580f327e540b9fc65d7480c2192e44aad6cdbdc4476653677a66a463f452",
+      "recordDigest": "9aeea14391b652745f428e7ac8a86d95cccb70c84b83eb510a5be40e19557d05"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-wasm32-wasi",
+      "packageRef": "@oxc-resolver/binding-wasm32-wasi@11.20.0",
+      "name": "@oxc-resolver/binding-wasm32-wasi",
+      "version": "11.20.0",
+      "dependencyNames": [
+        "@emnapi/core",
+        "@emnapi/runtime",
+        "@napi-rs/wasm-runtime"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "f3a62e84ce2908684069a4ee4c83342e3f33e9b985a220e03b53bc852b379bf1",
+      "recordDigest": "744318e58f1a928177266f9da1e643044b2d6724aa670d629945475fab2a23d1"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-wasm32-wasi/@emnapi/runtime",
+      "packageRef": "@emnapi/runtime@1.10.0",
+      "name": "@oxc-resolver/binding-wasm32-wasi/@emnapi/runtime",
+      "version": "1.10.0",
+      "dependencyNames": [
+        "tslib"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "5b6c25910b562c05e69bf27e7d1fda9b3f3d2c9ed2213b8468b2821214fc4790",
+      "recordDigest": "86fa3aa573098d19316aab63afb78f16799d55f596ae2af50a30a3502d96c5c0"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-win32-arm64-msvc",
+      "packageRef": "@oxc-resolver/binding-win32-arm64-msvc@11.20.0",
+      "name": "@oxc-resolver/binding-win32-arm64-msvc",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "3fb8a3f89254f0fd27fe38809890ed090c60e98e4295ff4013f7be8c47939908",
+      "recordDigest": "0a4e7a6496d3c33ecf40d1a388e0138b302f784c23d81fc989bf764fb2e3cb21"
+    },
+    {
+      "packageKey": "@oxc-resolver/binding-win32-x64-msvc",
+      "packageRef": "@oxc-resolver/binding-win32-x64-msvc@11.20.0",
+      "name": "@oxc-resolver/binding-win32-x64-msvc",
+      "version": "11.20.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "85ca15ace84a8d24e4c1b4e9198a595be8d384e164e9dc09a5aacf064e1ed9c9",
+      "recordDigest": "14057c308bc37ed4dd457eba6dfc86fdfe030bd2e308e05afcd68b5748ebd597"
     },
     {
       "packageKey": "@pondwader/socks5-server",
@@ -6309,6 +6825,19 @@
       "recordDigest": "e7d750d830dad27be542125b0cafd62ca0f0446bcc6168ba39a58d70b7e03c1e"
     },
     {
+      "packageKey": "@tybys/wasm-util",
+      "packageRef": "@tybys/wasm-util@0.10.2",
+      "name": "@tybys/wasm-util",
+      "version": "0.10.2",
+      "dependencyNames": [
+        "tslib"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "5b6c25910b562c05e69bf27e7d1fda9b3f3d2c9ed2213b8468b2821214fc4790",
+      "recordDigest": "7c5d6f429bd29f80970fa9dc7324448dad61591ce5ec33e924ecfc3633c00bfb"
+    },
+    {
       "packageKey": "@types/bun",
       "packageRef": "@types/bun@1.3.11",
       "name": "@types/bun",
@@ -7963,6 +8492,32 @@
       "recordDigest": "547c995221219545dc1ed83154e274ed3daef412e87f5612089a362dddb5e729"
     },
     {
+      "packageKey": "fd-package-json",
+      "packageRef": "fd-package-json@2.0.0",
+      "name": "fd-package-json",
+      "version": "2.0.0",
+      "dependencyNames": [
+        "walk-up-path"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ff6e493809827b50a79c05387d6b63cc0f8a83a71cd2d41b723bf5da9b752f2b",
+      "recordDigest": "b2779d8323d86caafcaf862fd04cbaa682db9fece6cddf97b9b82bf6998c1a3a"
+    },
+    {
+      "packageKey": "fdir",
+      "packageRef": "fdir@6.5.0",
+      "name": "fdir",
+      "version": "6.5.0",
+      "dependencyNames": [
+        "picomatch"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "11216c33f89722f123c2dd30103aa28c153cad4ade5d5ae5d10427304d6fd30d",
+      "recordDigest": "2ed0d1928c972a54cffc0ca3facb332c0219d86c14e2ca2d66af4b252ebfd654"
+    },
+    {
       "packageKey": "fflate",
       "packageRef": "fflate@0.8.2",
       "name": "fflate",
@@ -8114,6 +8669,19 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "4f04aa4002f78b887c5fcc4b07d202dd2686713e46edc58aa2395b528f3e20c9"
+    },
+    {
+      "packageKey": "formatly",
+      "packageRef": "formatly@0.3.0",
+      "name": "formatly",
+      "version": "0.3.0",
+      "dependencyNames": [
+        "fd-package-json"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ba4cdcbcaed7d0917d08797083f82815039aa5e0f0c315c5e080dba28d76a5d6",
+      "recordDigest": "09a7695ecd00a9da3bcc8f9f8561fbc2e681b81c518077ffdecaa7d811a176c6"
     },
     {
       "packageKey": "forwarded",
@@ -8317,16 +8885,16 @@
     },
     {
       "packageKey": "get-tsconfig",
-      "packageRef": "get-tsconfig@4.13.7",
+      "packageRef": "get-tsconfig@4.14.0",
       "name": "get-tsconfig",
-      "version": "4.13.7",
+      "version": "4.14.0",
       "dependencyNames": [
         "resolve-pkg-maps"
       ],
       "integrityAlgorithm": "sha512",
       "integrityPresent": true,
       "metadataDigest": "e8818e92b89197054093645b249cbbf0cf79fbf088affe86eba826fcce66a82d",
-      "recordDigest": "57d85fa8380ff0ae56424a8acf5a1a182f6ae20ce933156fd931ca492f8584e7"
+      "recordDigest": "cbaaf987e94a3411a24fd698efcf72fc5ec67d1bf27241d3e36bd523af42d6ea"
     },
     {
       "packageKey": "global-directory",
@@ -8739,6 +9307,17 @@
       "recordDigest": "f9b18cf4c394eb3c57f8c59ffa1c05788319ce21124ee47340aed7f65134a302"
     },
     {
+      "packageKey": "jiti",
+      "packageRef": "jiti@2.7.0",
+      "name": "jiti",
+      "version": "2.7.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "6968684eb4d3defc832fdf7fcfdd28ef15bc3032e38a66d0c299c3ad761ce19d",
+      "recordDigest": "31f9db360c3e41831eac0208bf26359ea6834677506d471b5181cb22494a3ca1"
+    },
+    {
       "packageKey": "jose",
       "packageRef": "jose@6.2.2",
       "name": "jose",
@@ -8873,6 +9452,53 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "8556f5f2eeb6903735fba1bdd2d8a5c9af1cd1cbdad41c46921227daa5dffdef"
+    },
+    {
+      "packageKey": "knip",
+      "packageRef": "knip@6.16.1",
+      "name": "knip",
+      "version": "6.16.1",
+      "dependencyNames": [
+        "fdir",
+        "formatly",
+        "get-tsconfig",
+        "jiti",
+        "oxc-parser",
+        "oxc-resolver",
+        "picomatch",
+        "smol-toml",
+        "strip-json-comments",
+        "tinyglobby",
+        "unbash",
+        "yaml",
+        "zod"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2c21f7307002d2dc0261e53c230ac8755baa74d6dfae441205d373c012f4adbc",
+      "recordDigest": "30a453fc4687be249047ec87fe6a1a20a994cb96862e72a92d61c01ef7d64103"
+    },
+    {
+      "packageKey": "knip/yaml",
+      "packageRef": "yaml@2.9.0",
+      "name": "knip/yaml",
+      "version": "2.9.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "c576cc3bc382d0f70a76e5804aa9facf0d5030c0127a46c7e208de8f1f788a80",
+      "recordDigest": "a3672e52ae526ec4aab871ce3c1dc5ca611cbe8802460f967d6577517ce6073b"
+    },
+    {
+      "packageKey": "knip/zod",
+      "packageRef": "zod@4.4.3",
+      "name": "knip/zod",
+      "version": "4.4.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "6763f596c4f55e7abb732ddd233f34f569b7b507cf5d60d2b879cd669ed211d0"
     },
     {
       "packageKey": "locate-path",
@@ -9204,6 +9830,70 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "d793ff96ba118589453d8edd3e51ff8eb440d3a5cd575372d59950feaa626efc"
+    },
+    {
+      "packageKey": "oxc-parser",
+      "packageRef": "oxc-parser@0.133.0",
+      "name": "oxc-parser",
+      "version": "0.133.0",
+      "dependencyNames": [
+        "@oxc-parser/binding-android-arm-eabi",
+        "@oxc-parser/binding-android-arm64",
+        "@oxc-parser/binding-darwin-arm64",
+        "@oxc-parser/binding-darwin-x64",
+        "@oxc-parser/binding-freebsd-x64",
+        "@oxc-parser/binding-linux-arm-gnueabihf",
+        "@oxc-parser/binding-linux-arm-musleabihf",
+        "@oxc-parser/binding-linux-arm64-gnu",
+        "@oxc-parser/binding-linux-arm64-musl",
+        "@oxc-parser/binding-linux-ppc64-gnu",
+        "@oxc-parser/binding-linux-riscv64-gnu",
+        "@oxc-parser/binding-linux-riscv64-musl",
+        "@oxc-parser/binding-linux-s390x-gnu",
+        "@oxc-parser/binding-linux-x64-gnu",
+        "@oxc-parser/binding-linux-x64-musl",
+        "@oxc-parser/binding-openharmony-arm64",
+        "@oxc-parser/binding-wasm32-wasi",
+        "@oxc-parser/binding-win32-arm64-msvc",
+        "@oxc-parser/binding-win32-ia32-msvc",
+        "@oxc-parser/binding-win32-x64-msvc",
+        "@oxc-project/types"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "76d7f22ed9846251ffcd06d7a73acf650686ebab6f5fa701cd322368f082de1b",
+      "recordDigest": "de73d9e4ec9eb4dd0106f60321189265922ada7708c35e45f469345c609601ea"
+    },
+    {
+      "packageKey": "oxc-resolver",
+      "packageRef": "oxc-resolver@11.20.0",
+      "name": "oxc-resolver",
+      "version": "11.20.0",
+      "dependencyNames": [
+        "@oxc-resolver/binding-android-arm-eabi",
+        "@oxc-resolver/binding-android-arm64",
+        "@oxc-resolver/binding-darwin-arm64",
+        "@oxc-resolver/binding-darwin-x64",
+        "@oxc-resolver/binding-freebsd-x64",
+        "@oxc-resolver/binding-linux-arm-gnueabihf",
+        "@oxc-resolver/binding-linux-arm-musleabihf",
+        "@oxc-resolver/binding-linux-arm64-gnu",
+        "@oxc-resolver/binding-linux-arm64-musl",
+        "@oxc-resolver/binding-linux-ppc64-gnu",
+        "@oxc-resolver/binding-linux-riscv64-gnu",
+        "@oxc-resolver/binding-linux-riscv64-musl",
+        "@oxc-resolver/binding-linux-s390x-gnu",
+        "@oxc-resolver/binding-linux-x64-gnu",
+        "@oxc-resolver/binding-linux-x64-musl",
+        "@oxc-resolver/binding-openharmony-arm64",
+        "@oxc-resolver/binding-wasm32-wasi",
+        "@oxc-resolver/binding-win32-arm64-msvc",
+        "@oxc-resolver/binding-win32-x64-msvc"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "5ae6be19e0b9821c9a7466c1abf4c4913fd9b77dde12f1b5841b9697c6a11722",
+      "recordDigest": "d4bfaf2d01dd3c6dbe453e1059a015869ef0fd6d1183e7a1aa55c72cbdfcf07c"
     },
     {
       "packageKey": "p-limit",
@@ -10193,6 +10883,17 @@
       "recordDigest": "f7834c203067885e8df0079251f6b7007f2c1a07dfe6224c6d5658c2fec1d831"
     },
     {
+      "packageKey": "smol-toml",
+      "packageRef": "smol-toml@1.6.1",
+      "name": "smol-toml",
+      "version": "1.6.1",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "6530cdfd9ed710fb7e977ad0c5053ee85faae291a04ebcc6b9bf618179ac9dd1"
+    },
+    {
       "packageKey": "stack-utils",
       "packageRef": "stack-utils@2.0.6",
       "name": "stack-utils",
@@ -10265,6 +10966,17 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "d4ab21e5580200bc0c4763d3383167adb4a46b13fc21c3db2cc36d04c4a9995f"
+    },
+    {
+      "packageKey": "strip-json-comments",
+      "packageRef": "strip-json-comments@5.0.3",
+      "name": "strip-json-comments",
+      "version": "5.0.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "9f913a69d17da239958ab0cf14bdabe1649b46435efab01fa7951c5af0abacaf"
     },
     {
       "packageKey": "strnum",
@@ -10351,6 +11063,20 @@
       "integrityPresent": true,
       "metadataDigest": "0304bbe6bfc2e6ba8a9b6ac2c2a736b20a36c50b8ea7994c63ebd776fbfee974",
       "recordDigest": "71db0a9469a94fa019294d5eb1d14a84ba2b6953cdcfcb3b7673cb5fed83d927"
+    },
+    {
+      "packageKey": "tinyglobby",
+      "packageRef": "tinyglobby@0.2.17",
+      "name": "tinyglobby",
+      "version": "0.2.17",
+      "dependencyNames": [
+        "fdir",
+        "picomatch"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "d28f84d486f8c30e8edbbe6808944d621b05858bc723f6ce5d6131a804508c75",
+      "recordDigest": "7d68b902b86886c6fd732a641e132aa8161f3defccf37d660478fcc8ab6c78b0"
     },
     {
       "packageKey": "tmp",
@@ -10494,6 +11220,19 @@
       "recordDigest": "e4f19c37c89a781fcda80f1c16b7c50ea645f279cb3bbf21f21bef126bfe38a7"
     },
     {
+      "packageKey": "tsx/get-tsconfig",
+      "packageRef": "get-tsconfig@4.13.7",
+      "name": "tsx/get-tsconfig",
+      "version": "4.13.7",
+      "dependencyNames": [
+        "resolve-pkg-maps"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "e8818e92b89197054093645b249cbbf0cf79fbf088affe86eba826fcce66a82d",
+      "recordDigest": "8b11043858423450db0d19949318d7b8e6e31489d3dc318f87ab285fc0302209"
+    },
+    {
       "packageKey": "turndown",
       "packageRef": "turndown@7.2.2",
       "name": "turndown",
@@ -10553,6 +11292,17 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "296ad2da371425632e2a3ad17c363903ecbf86d2828bf872921c72e3877cf9c9"
+    },
+    {
+      "packageKey": "unbash",
+      "packageRef": "unbash@3.0.0",
+      "name": "unbash",
+      "version": "3.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "6c21dedbbe80d7c850a7acf5a682659431d23e774396e1182ca8bdc6190602d4"
     },
     {
       "packageKey": "undici",
@@ -10680,6 +11430,17 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "eab678f7b512c67e685e8e6deefddaeaad2b5a10f9c89f789a2490957fa2b7c1"
+    },
+    {
+      "packageKey": "walk-up-path",
+      "packageRef": "walk-up-path@4.0.0",
+      "name": "walk-up-path",
+      "version": "4.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "a4321e34737cddd6b081e9f89cf6f331052caaea063dc3482116422fe727bde6"
     },
     {
       "packageKey": "watskeburt",
@@ -14373,7 +15134,22 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "@emnapi/core",
+      "to": "@emnapi/wasi-threads",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@emnapi/core",
+      "to": "tslib",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "@emnapi/runtime",
+      "to": "tslib",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@emnapi/wasi-threads",
       "to": "tslib",
       "relationshipType": "declares_dependency"
     },
@@ -14923,6 +15699,21 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "@napi-rs/wasm-runtime",
+      "to": "@emnapi/core",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@napi-rs/wasm-runtime",
+      "to": "@emnapi/runtime",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@napi-rs/wasm-runtime",
+      "to": "@tybys/wasm-util",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "@opentelemetry/api-logs",
       "to": "@opentelemetry/api",
       "relationshipType": "declares_dependency"
@@ -15465,6 +16256,46 @@
     {
       "from": "@opentelemetry/sdk-trace-node",
       "to": "@opentelemetry/sdk-trace-base",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-parser/binding-wasm32-wasi",
+      "to": "@emnapi/core",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-parser/binding-wasm32-wasi",
+      "to": "@emnapi/runtime",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-parser/binding-wasm32-wasi",
+      "to": "@napi-rs/wasm-runtime",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-parser/binding-wasm32-wasi/@emnapi/runtime",
+      "to": "tslib",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-resolver/binding-wasm32-wasi",
+      "to": "@emnapi/core",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-resolver/binding-wasm32-wasi",
+      "to": "@emnapi/runtime",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-resolver/binding-wasm32-wasi",
+      "to": "@napi-rs/wasm-runtime",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "@oxc-resolver/binding-wasm32-wasi/@emnapi/runtime",
+      "to": "tslib",
       "relationshipType": "declares_dependency"
     },
     {
@@ -17098,6 +17929,11 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "@tybys/wasm-util",
+      "to": "tslib",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "@types/bun",
       "to": "bun-types",
       "relationshipType": "declares_dependency"
@@ -18078,6 +18914,16 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "fd-package-json",
+      "to": "walk-up-path",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "fdir",
+      "to": "picomatch",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "figures",
       "to": "is-unicode-supported",
       "relationshipType": "declares_dependency"
@@ -18195,6 +19041,11 @@
     {
       "from": "form-data/mime-types",
       "to": "mime-db",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "formatly",
+      "to": "fd-package-json",
       "relationshipType": "declares_dependency"
     },
     {
@@ -18513,6 +19364,71 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "knip",
+      "to": "fdir",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "formatly",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "get-tsconfig",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "jiti",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "oxc-parser",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "oxc-resolver",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "picomatch",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "smol-toml",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "strip-json-comments",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "tinyglobby",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "unbash",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "yaml",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "knip",
+      "to": "zod",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "locate-path",
       "to": "p-locate",
       "relationshipType": "declares_dependency"
@@ -18580,6 +19496,206 @@
     {
       "from": "once",
       "to": "wrappy",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-android-arm-eabi",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-android-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-darwin-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-darwin-x64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-freebsd-x64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-arm-gnueabihf",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-arm-musleabihf",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-arm64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-arm64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-ppc64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-riscv64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-riscv64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-s390x-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-x64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-linux-x64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-openharmony-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-wasm32-wasi",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-win32-arm64-msvc",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-win32-ia32-msvc",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-parser/binding-win32-x64-msvc",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-parser",
+      "to": "@oxc-project/types",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-android-arm-eabi",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-android-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-darwin-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-darwin-x64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-freebsd-x64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-arm-gnueabihf",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-arm-musleabihf",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-arm64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-arm64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-ppc64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-riscv64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-riscv64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-s390x-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-x64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-linux-x64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-openharmony-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-wasm32-wasi",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-win32-arm64-msvc",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "oxc-resolver",
+      "to": "@oxc-resolver/binding-win32-x64-msvc",
       "relationshipType": "declares_dependency"
     },
     {
@@ -19278,6 +20394,16 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "tinyglobby",
+      "to": "fdir",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tinyglobby",
+      "to": "picomatch",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "tmp",
       "to": "os-tmpdir",
       "relationshipType": "declares_dependency"
@@ -19345,6 +20471,11 @@
     {
       "from": "tsx",
       "to": "get-tsconfig",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsx/get-tsconfig",
+      "to": "resolve-pkg-maps",
       "relationshipType": "declares_dependency"
     },
     {
@@ -19522,7 +20653,7 @@
     {
       "label": "Bun text lockfile structure is recognized",
       "ok": true,
-      "detail": "791 package entries"
+      "detail": "852 package entries"
     },
     {
       "label": "lockfile version is current expected local format",
@@ -19532,7 +20663,7 @@
     {
       "label": "root workspace dependencies match package manifest count",
       "ok": true,
-      "detail": "80+15/95"
+      "detail": "80+16/96"
     },
     {
       "label": "lockfile inventory covers every direct manifest dependency",
@@ -19542,22 +20673,22 @@
     {
       "label": "lockfile inventory captures transitive package surface",
       "ok": true,
-      "detail": "791 packages > 95 direct"
+      "detail": "852 packages > 96 direct"
     },
     {
       "label": "lockfile package records include version and integrity metadata",
       "ok": true,
-      "detail": "791/791 with integrity"
+      "detail": "852/852 with integrity"
     },
     {
       "label": "lockfile dependency relationships are extracted",
       "ok": true,
-      "detail": "1706 relationships"
+      "detail": "1780 relationships"
     },
     {
       "label": "inventory JSONL has one record per lockfile package",
       "ok": true,
-      "detail": "791 records"
+      "detail": "852 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",
