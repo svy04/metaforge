@@ -137,9 +137,11 @@ stale model name.
 macOS / Linux:
 
 ```bash
+ollama pull <local-ollama-model>
+
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_MODEL=qwen2.5-coder:7b
+export OPENAI_MODEL=<local-ollama-model>
 
 openclaude
 ```
@@ -147,19 +149,24 @@ openclaude
 Windows PowerShell:
 
 ```powershell
+ollama pull <local-ollama-model>
+
 $env:CLAUDE_CODE_USE_OPENAI="1"
 $env:OPENAI_BASE_URL="http://localhost:11434/v1"
-$env:OPENAI_MODEL="qwen2.5-coder:7b"
+$env:OPENAI_MODEL="<local-ollama-model>"
 
 openclaude
 ```
+
+Replace `<local-ollama-model>` with a model that is already available in your
+local Ollama instance. Use `ollama list` to confirm the exact name.
 
 ### Using Ollama's launch command
 
 If you have [Ollama](https://ollama.com) installed, you can skip the env var setup entirely:
 
 ```bash
-ollama launch openclaude --model qwen2.5-coder:7b
+ollama launch openclaude --model <local-ollama-model>
 ```
 
 This automatically sets `ANTHROPIC_BASE_URL`, model routing, and auth so all API traffic goes through your local Ollama instance. Works with any model you have pulled — local or cloud.
