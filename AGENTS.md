@@ -121,14 +121,11 @@ boundaries, and MFH/Meta gate requirements before implementation begins.
 
 ## Public Readiness Backlog
 
-Community feedback identified these near-term priorities:
+Community feedback is tracked in:
 
-- Keep AGENTS.md public-facing and concise.
-- Add and maintain Korean documentation.
-- Remove local folder names and hard-coded private settings from public
-  surfaces.
-- Audit duplicate product-quality helper code before broad refactors.
-- Add behavioral happy-path, edge-case, and side-effect tests where current
-  checks only prove file existence, marker presence, or hard-coded flags.
-- Use tools such as Knip, dependency-cruiser, jscpd, and repo-topology lenses as
-  evidence inputs, then manually review false positives before changing code.
+- `docs/product-quality/public-feedback-snapshot-2026-06-15.md`
+- `docs/product-quality/public-feedback-triage-2026-06-15.md`
+
+Keep this public AGENTS.md concise: no private memory dumps, local paths, stale
+model locks, raw runtime logs, or internal-only rule transcripts. Stronger
+marketing waits for behavioral happy-path, edge-case, and side-effect evidence.
