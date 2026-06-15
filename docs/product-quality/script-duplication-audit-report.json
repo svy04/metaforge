@@ -1,0 +1,628 @@
+{
+  "generatedAt": "2026-06-15T01:36:01.488Z",
+  "mode": "local_no_provider_product_script_duplication_audit",
+  "scannerTargetGlob": "scripts/product-*.ts",
+  "auditTargetHelperNames": [
+    "check",
+    "readText",
+    "sha256Text"
+  ],
+  "sourceProductScriptCount": 85,
+  "helperOccurrenceCounts": {
+    "check": 80,
+    "readText": 43,
+    "sha256Text": 7
+  },
+  "duplicateHelperClusterCount": 3,
+  "duplicateHelperClusters": [
+    {
+      "helperName": "check",
+      "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
+      "occurrenceCount": 80,
+      "files": [
+        {
+          "path": "scripts/product-agent-instructions-quality.ts",
+          "line": 78
+        },
+        {
+          "path": "scripts/product-benchmark-efficiency-metrics.ts",
+          "line": 139
+        },
+        {
+          "path": "scripts/product-benchmark-policy-compliance.ts",
+          "line": 129
+        },
+        {
+          "path": "scripts/product-benchmark-readiness-matrix.ts",
+          "line": 183
+        },
+        {
+          "path": "scripts/product-benchmark-submission-readiness.ts",
+          "line": 132
+        },
+        {
+          "path": "scripts/product-code-editing-trace-capture.ts",
+          "line": 103
+        },
+        {
+          "path": "scripts/product-community-intake-quality.ts",
+          "line": 73
+        },
+        {
+          "path": "scripts/product-community-profile-quality.ts",
+          "line": 73
+        },
+        {
+          "path": "scripts/product-dependency-governance-quality.ts",
+          "line": 116
+        },
+        {
+          "path": "scripts/product-doc-link-integrity.ts",
+          "line": 127
+        },
+        {
+          "path": "scripts/product-evidence-manifest.ts",
+          "line": 211
+        },
+        {
+          "path": "scripts/product-external-benchmark-boundary.ts",
+          "line": 105
+        },
+        {
+          "path": "scripts/product-git-release-hygiene.ts",
+          "line": 81
+        },
+        {
+          "path": "scripts/product-github-remote-surface-audit.ts",
+          "line": 128
+        },
+        {
+          "path": "scripts/product-ide-extension-host-smoke.ts",
+          "line": 88
+        },
+        {
+          "path": "scripts/product-ide-extension-manifest-smoke.ts",
+          "line": 91
+        },
+        {
+          "path": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
+          "line": 100
+        },
+        {
+          "path": "scripts/product-ide-extension-runtime-smoke.ts",
+          "line": 64
+        },
+        {
+          "path": "scripts/product-ide-extension-scope.ts",
+          "line": 57
+        },
+        {
+          "path": "scripts/product-ide-extension-surface.ts",
+          "line": 68
+        },
+        {
+          "path": "scripts/product-ide-extension-webview-interaction-smoke.ts",
+          "line": 117
+        },
+        {
+          "path": "scripts/product-ide-extension-webview-render-smoke.ts",
+          "line": 73
+        },
+        {
+          "path": "scripts/product-ide-extension-workbench-smoke.ts",
+          "line": 99
+        },
+        {
+          "path": "scripts/product-license-boundary-authorization.ts",
+          "line": 181
+        },
+        {
+          "path": "scripts/product-local-benchmark-harness.ts",
+          "line": 109
+        },
+        {
+          "path": "scripts/product-lockfile-sbom-quality.ts",
+          "line": 133
+        },
+        {
+          "path": "scripts/product-maintainer-ownership-quality.ts",
+          "line": 87
+        },
+        {
+          "path": "scripts/product-model-system-card.ts",
+          "line": 211
+        },
+        {
+          "path": "scripts/product-multi-file-code-editing-trace-capture.ts",
+          "line": 139
+        },
+        {
+          "path": "scripts/product-onboarding-smoke.ts",
+          "line": 128
+        },
+        {
+          "path": "scripts/product-openssf-security-posture.ts",
+          "line": 93
+        },
+        {
+          "path": "scripts/product-oss-architecture-gap-review.ts",
+          "line": 119
+        },
+        {
+          "path": "scripts/product-oss-architecture-targets.ts",
+          "line": 119
+        },
+        {
+          "path": "scripts/product-oss-axis-architecture-review.ts",
+          "line": 127
+        },
+        {
+          "path": "scripts/product-oss-baseline-drift-closure.ts",
+          "line": 102
+        },
+        {
+          "path": "scripts/product-oss-baseline-freshness.ts",
+          "line": 111
+        },
+        {
+          "path": "scripts/product-oss-baseline-refresh.ts",
+          "line": 200
+        },
+        {
+          "path": "scripts/product-oss-benchmark-comparison-matrix.ts",
+          "line": 184
+        },
+        {
+          "path": "scripts/product-oss-comparison-readiness-index.ts",
+          "line": 189
+        },
+        {
+          "path": "scripts/product-oss-eval-quality-gate-checklist.ts",
+          "line": 132
+        },
+        {
+          "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+          "line": 186
+        },
+        {
+          "path": "scripts/product-oss-onboarding-docs-evidence.ts",
+          "line": 131
+        },
+        {
+          "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+          "line": 160
+        },
+        {
+          "path": "scripts/product-oss-provider-breadth-evidence.ts",
+          "line": 145
+        },
+        {
+          "path": "scripts/product-oss-release-hygiene-evidence.ts",
+          "line": 149
+        },
+        {
+          "path": "scripts/product-oss-runtime-doctoring-evidence.ts",
+          "line": 125
+        },
+        {
+          "path": "scripts/product-oss-safe-backlog-closure.ts",
+          "line": 151
+        },
+        {
+          "path": "scripts/product-oss-safe-backlog-plan.ts",
+          "line": 130
+        },
+        {
+          "path": "scripts/product-oss-security-permissions-evidence.ts",
+          "line": 128
+        },
+        {
+          "path": "scripts/product-oss-source-review.ts",
+          "line": 163
+        },
+        {
+          "path": "scripts/product-oss-terminal-workflow-evidence.ts",
+          "line": 140
+        },
+        {
+          "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+          "line": 142
+        },
+        {
+          "path": "scripts/product-primary-source-registry.ts",
+          "line": 134
+        },
+        {
+          "path": "scripts/product-prompted-tool-loop-capture.ts",
+          "line": 108
+        },
+        {
+          "path": "scripts/product-protected-action-authorization-packet.ts",
+          "line": 117
+        },
+        {
+          "path": "scripts/product-protected-action-denial-trace.ts",
+          "line": 120
+        },
+        {
+          "path": "scripts/product-provider-capability-matrix.ts",
+          "line": 162
+        },
+        {
+          "path": "scripts/product-provider-compatibility.ts",
+          "line": 89
+        },
+        {
+          "path": "scripts/product-public-claim-boundary.ts",
+          "line": 179
+        },
+        {
+          "path": "scripts/product-quality-blocker-taxonomy.ts",
+          "line": 161
+        },
+        {
+          "path": "scripts/product-quality-gate.ts",
+          "line": 3033
+        },
+        {
+          "path": "scripts/product-real-session-capture.ts",
+          "line": 117
+        },
+        {
+          "path": "scripts/product-real-trace-evals.ts",
+          "line": 81
+        },
+        {
+          "path": "scripts/product-regression-cycle-code-editing-trace-capture.ts",
+          "line": 120
+        },
+        {
+          "path": "scripts/product-release-artifact-file-list.ts",
+          "line": 113
+        },
+        {
+          "path": "scripts/product-release-artifact-provenance.ts",
+          "line": 83
+        },
+        {
+          "path": "scripts/product-release-reproducibility.ts",
+          "line": 127
+        },
+        {
+          "path": "scripts/product-runtime-doctor-regression.ts",
+          "line": 144
+        },
+        {
+          "path": "scripts/product-source-controlled-checks.ts",
+          "line": 30
+        },
+        {
+          "path": "scripts/product-source-license-metadata-quality.ts",
+          "line": 132
+        },
+        {
+          "path": "scripts/product-terminal-bench-readiness.ts",
+          "line": 157
+        },
+        {
+          "path": "scripts/product-third-party-license-quality.ts",
+          "line": 143
+        },
+        {
+          "path": "scripts/product-tool-interruption-recovery-trace.ts",
+          "line": 115
+        },
+        {
+          "path": "scripts/product-trace-portability-export.ts",
+          "line": 147
+        },
+        {
+          "path": "scripts/product-trace-redaction-policy.ts",
+          "line": 107
+        },
+        {
+          "path": "scripts/product-trace-schema-contract.ts",
+          "line": 124
+        },
+        {
+          "path": "scripts/product-trajectory-process-quality.ts",
+          "line": 137
+        },
+        {
+          "path": "scripts/product-verification-report-consistency.ts",
+          "line": 79
+        },
+        {
+          "path": "scripts/product-vscode-startup-diagnostics.ts",
+          "line": 131
+        },
+        {
+          "path": "scripts/product-vscode-update-boundary.ts",
+          "line": 82
+        }
+      ],
+      "normalizedBodyPreview": "return { label, ok, detail }"
+    },
+    {
+      "helperName": "readText",
+      "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
+      "occurrenceCount": 43,
+      "files": [
+        {
+          "path": "scripts/product-agent-instructions-quality.ts",
+          "line": 70
+        },
+        {
+          "path": "scripts/product-community-intake-quality.ts",
+          "line": 65
+        },
+        {
+          "path": "scripts/product-community-profile-quality.ts",
+          "line": 65
+        },
+        {
+          "path": "scripts/product-dependency-governance-quality.ts",
+          "line": 108
+        },
+        {
+          "path": "scripts/product-doc-link-integrity.ts",
+          "line": 61
+        },
+        {
+          "path": "scripts/product-license-boundary-authorization.ts",
+          "line": 169
+        },
+        {
+          "path": "scripts/product-lockfile-sbom-quality.ts",
+          "line": 121
+        },
+        {
+          "path": "scripts/product-maintainer-ownership-quality.ts",
+          "line": 79
+        },
+        {
+          "path": "scripts/product-model-system-card.ts",
+          "line": 194
+        },
+        {
+          "path": "scripts/product-onboarding-smoke.ts",
+          "line": 69
+        },
+        {
+          "path": "scripts/product-openssf-security-posture.ts",
+          "line": 85
+        },
+        {
+          "path": "scripts/product-oss-architecture-gap-review.ts",
+          "line": 123
+        },
+        {
+          "path": "scripts/product-oss-architecture-targets.ts",
+          "line": 123
+        },
+        {
+          "path": "scripts/product-oss-axis-architecture-review.ts",
+          "line": 131
+        },
+        {
+          "path": "scripts/product-oss-baseline-drift-closure.ts",
+          "line": 89
+        },
+        {
+          "path": "scripts/product-oss-baseline-freshness.ts",
+          "line": 107
+        },
+        {
+          "path": "scripts/product-oss-benchmark-comparison-matrix.ts",
+          "line": 163
+        },
+        {
+          "path": "scripts/product-oss-comparison-readiness-index.ts",
+          "line": 172
+        },
+        {
+          "path": "scripts/product-oss-eval-quality-gate-checklist.ts",
+          "line": 128
+        },
+        {
+          "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+          "line": 169
+        },
+        {
+          "path": "scripts/product-oss-onboarding-docs-evidence.ts",
+          "line": 127
+        },
+        {
+          "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+          "line": 143
+        },
+        {
+          "path": "scripts/product-oss-provider-breadth-evidence.ts",
+          "line": 141
+        },
+        {
+          "path": "scripts/product-oss-release-hygiene-evidence.ts",
+          "line": 145
+        },
+        {
+          "path": "scripts/product-oss-runtime-doctoring-evidence.ts",
+          "line": 121
+        },
+        {
+          "path": "scripts/product-oss-safe-backlog-closure.ts",
+          "line": 138
+        },
+        {
+          "path": "scripts/product-oss-safe-backlog-plan.ts",
+          "line": 126
+        },
+        {
+          "path": "scripts/product-oss-security-permissions-evidence.ts",
+          "line": 124
+        },
+        {
+          "path": "scripts/product-oss-source-review.ts",
+          "line": 167
+        },
+        {
+          "path": "scripts/product-oss-terminal-workflow-evidence.ts",
+          "line": 136
+        },
+        {
+          "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+          "line": 138
+        },
+        {
+          "path": "scripts/product-permission-regression.ts",
+          "line": 28
+        },
+        {
+          "path": "scripts/product-primary-source-registry.ts",
+          "line": 130
+        },
+        {
+          "path": "scripts/product-protected-action-authorization-packet.ts",
+          "line": 100
+        },
+        {
+          "path": "scripts/product-provider-capability-matrix.ts",
+          "line": 166
+        },
+        {
+          "path": "scripts/product-provider-compatibility.ts",
+          "line": 45
+        },
+        {
+          "path": "scripts/product-public-claim-boundary.ts",
+          "line": 159
+        },
+        {
+          "path": "scripts/product-quality-gate.ts",
+          "line": 3029
+        },
+        {
+          "path": "scripts/product-runtime-doctor-regression.ts",
+          "line": 62
+        },
+        {
+          "path": "scripts/product-source-license-metadata-quality.ts",
+          "line": 120
+        },
+        {
+          "path": "scripts/product-third-party-license-quality.ts",
+          "line": 131
+        },
+        {
+          "path": "scripts/product-trace-redaction-policy.ts",
+          "line": 95
+        },
+        {
+          "path": "scripts/product-verification-report-consistency.ts",
+          "line": 67
+        }
+      ],
+      "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
+    },
+    {
+      "helperName": "sha256Text",
+      "normalizedBodySha256": "aba7b7f9208b4ca0e372ca6f32669f07d35822d8a137d31b94e92748c0091b3e",
+      "occurrenceCount": 6,
+      "files": [
+        {
+          "path": "scripts/product-benchmark-efficiency-metrics.ts",
+          "line": 123
+        },
+        {
+          "path": "scripts/product-benchmark-policy-compliance.ts",
+          "line": 121
+        },
+        {
+          "path": "scripts/product-benchmark-readiness-matrix.ts",
+          "line": 179
+        },
+        {
+          "path": "scripts/product-benchmark-submission-readiness.ts",
+          "line": 123
+        },
+        {
+          "path": "scripts/product-evidence-manifest.ts",
+          "line": 207
+        },
+        {
+          "path": "scripts/product-terminal-bench-readiness.ts",
+          "line": 148
+        }
+      ],
+      "normalizedBodyPreview": "return createHash('sha256').update(text).digest('hex')"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "jscpd",
+      "sourceUrl": "https://github.com/kucherenko/jscpd",
+      "observedPattern": "Copy/paste detection is a dedicated audit surface; clone findings are refactor candidates, not automatic defects.",
+      "localAbsorption": "This local audit records repeated helper shapes first, so later jscpd adoption can be compared against a stable project-specific baseline."
+    },
+    {
+      "sourceProject": "Knip",
+      "sourceUrl": "https://knip.dev/",
+      "observedPattern": "Unused files, dependencies, and exports need a project graph and configuration-aware audit surface.",
+      "localAbsorption": "Dead export cleanup is kept as a follow-up lane separate from duplicate helper measurement."
+    },
+    {
+      "sourceProject": "dependency-cruiser",
+      "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
+      "observedPattern": "Dependency rule and cycle validation is a different graph problem from clone detection.",
+      "localAbsorption": "Cycle/rule checks stay out of this helper-duplication report and should be introduced as a dedicated gate."
+    }
+  ],
+  "dependencyInstallPerformed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "publicReadinessClaimAllowed": false,
+  "refactorCompletionClaimAllowed": false,
+  "auditChecks": [
+    {
+      "label": "product scripts are scanned",
+      "ok": true,
+      "detail": "85 files"
+    },
+    {
+      "label": "target helper occurrence surface is measured",
+      "ok": true,
+      "detail": "{\"check\":80,\"readText\":43,\"sha256Text\":7}"
+    },
+    {
+      "label": "duplicate helper clusters are reported as candidates",
+      "ok": true,
+      "detail": "3 clusters"
+    },
+    {
+      "label": "primary sources are official project sources",
+      "ok": true,
+      "detail": "https://github.com/kucherenko/jscpd,https://knip.dev/,https://github.com/sverweij/dependency-cruiser"
+    },
+    {
+      "label": "no dependency install was performed",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "label": "provider and external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "readiness and refactor-completion claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ]
+}
