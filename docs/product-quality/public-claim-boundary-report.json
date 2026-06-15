@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T16:01:03.403Z",
+  "generatedAt": "2026-06-15T20:02:08.325Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -78,9 +78,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "850210708787d31ef86628741d4890cee6b4e6164bab254c5ac024640b816405",
-      "sizeBytes": 19751,
-      "lineCount": 276
+      "sha256": "29748b512f1a8a9b2060062e84849bec6a500fd99fa8805602f6a802af9cd4e9",
+      "sizeBytes": 19911,
+      "lineCount": 278
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -148,8 +148,8 @@
     {
       "path": "docs/advanced-setup.md",
       "exists": true,
-      "sha256": "5b476bd143864c613dd7fe3f7fb6ab11d8411d68425684598d908299a8c511cd",
-      "sizeBytes": 8164,
+      "sha256": "9a10069d6b68772dc32598ba09be243fcf94a1972610cec3d8cf3927f3ca4fba",
+      "sizeBytes": 8204,
       "lineCount": 277
     },
     {
@@ -162,9 +162,9 @@
     {
       "path": "docs/product-quality/product-quality-gate.md",
       "exists": true,
-      "sha256": "7dfe51f01776b15b6c33060ddd41c27f3732f2f207fd15e4c85abd17ff90d254",
-      "sizeBytes": 36792,
-      "lineCount": 206
+      "sha256": "de1166c06ecc5803b92b6f41d1ac093437106b253dfd5759d43412d8bbbaf936",
+      "sizeBytes": 37124,
+      "lineCount": 207
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -231,7 +231,7 @@
     }
   ],
   "publicSurfaceCount": 30,
-  "scannedLineCount": 4757,
+  "scannedLineCount": 4760,
   "blockedContextClaimMentionCount": 17,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -277,7 +277,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 205,
+      "line": 206,
       "phrase": "release ready",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -285,7 +285,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 205,
+      "line": 206,
       "phrase": "external validation completed",
       "category": "external_validation",
       "status": "blocked_context",
@@ -293,7 +293,7 @@
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
-      "line": 205,
+      "line": 206,
       "phrase": "superior to top 10",
       "category": "superiority",
       "status": "blocked_context",
@@ -375,7 +375,7 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "c3bb64abc92ad4224e20cc0a3f4479513e14a5dd27693f3741ca9d4b735ffecf",
+  "scanJsonlSha256": "97c6bcd18f3aa90cae462e43a9ad61532ada72fba2e705a3588152c82b963265",
   "scanJsonlRecordCount": 17,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -407,7 +407,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "4757 lines"
+      "detail": "4760 lines"
     },
     {
       "label": "unauthorized positive claims are absent",

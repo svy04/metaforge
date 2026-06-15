@@ -17,7 +17,7 @@ Generated after public/community feedback on the Metaforge/OpenClaude repository
 | Tool | Primary source | Use in this audit |
 | --- | --- | --- |
 | Knip | <https://knip.dev/> and <https://github.com/webpro-nl/knip> | Candidate unused exports, types, files, and dependencies. |
-| dependency-cruiser | <https://github.com/sverweij/dependency-cruiser> | Not run in this pass; recommended next for circular dependency and topology rules. |
+| dependency-cruiser | <https://github.com/sverweij/dependency-cruiser> | Now wired through `bun run product:dependency-topology` as a local topology baseline gate. |
 | jscpd | <https://jscpd.dev/> and <https://github.com/kucherenko/jscpd> | Product-script clone detection. |
 | Lumin Repo Lens | <https://github.com/annyeong844/lumin-repo-lens> | Not installed in this pass; community-recommended topology and clone-cue lens. |
 
@@ -154,5 +154,5 @@ pass likely includes entrypoint, generated, test-only, and compatibility exports
    before removing repeated local checks.
 4. Add a checked Knip config with explicit entrypoints, generated files, and
    test-only exports before treating unused-export candidates as blockers.
-5. Run dependency-cruiser separately for circular dependency and layer-boundary
-   evidence.
+5. Use `bun run product:dependency-topology` as the dependency-cruiser
+   baseline before any circular dependency or layer-boundary cleanup claim.

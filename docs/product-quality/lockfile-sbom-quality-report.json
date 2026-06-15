@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:03:47.376Z",
+  "generatedAt": "2026-06-15T19:59:41.818Z",
   "mode": "local_no_provider_lockfile_sbom_quality",
   "inventoryFormat": "openclaude_lockfile_inventory_v1",
   "primarySourceInputs": [
@@ -29,26 +29,26 @@
     }
   ],
   "packageJsonPath": "package.json",
-  "packageJsonSha256": "9d5123b14e0cc0f5857b5fb00d76234aee664a1914146254deaa471129ccfc94",
+  "packageJsonSha256": "29748b512f1a8a9b2060062e84849bec6a500fd99fa8805602f6a802af9cd4e9",
   "bunLockPath": "bun.lock",
-  "bunLockSha256": "9f5085faa3c248187812b43eb90aef603f5a4062dbe89797912c74c1f1988012",
-  "bunLockSizeBytes": 200323,
+  "bunLockSha256": "03ac16c42f4648cb0bb76a0f032b222c1b8f6855e220140ad5a6bff97712aceb",
+  "bunLockSizeBytes": 207612,
   "bunLockTextStructureRecognized": true,
   "bunLockfileVersion": 1,
   "rootWorkspaceDependencyCount": 80,
-  "rootWorkspaceDevDependencyCount": 14,
-  "directManifestDependencyCount": 94,
-  "lockfilePackageCount": 757,
+  "rootWorkspaceDevDependencyCount": 15,
+  "directManifestDependencyCount": 95,
+  "lockfilePackageCount": 791,
   "lockfilePackageCountExceedsDirectDependencies": true,
-  "packagesWithIntegrityCount": 757,
+  "packagesWithIntegrityCount": 791,
   "packagesMissingIntegrity": [],
-  "packagesWithDependencyMetadataCount": 490,
-  "lockfileRelationshipCount": 1660,
+  "packagesWithDependencyMetadataCount": 507,
+  "lockfileRelationshipCount": 1706,
   "directManifestDependenciesCovered": true,
   "missingDirectManifestDependencies": [],
   "inventoryJsonlPath": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-  "inventoryJsonlSha256": "026df626ea745009070a7ffcee665eeeaafbfc5107a60b000ed71d4c67a9bdc8",
-  "inventoryJsonlRecordCount": 757,
+  "inventoryJsonlSha256": "d81344a0ce0c251a87d7608df6e3a750cbc4ff8874346cfd67c732792403d7d5",
+  "inventoryJsonlRecordCount": 791,
   "inventoryJsonlParseable": true,
   "lockfilePackageRecords": [
     {
@@ -6530,6 +6530,67 @@
       "recordDigest": "39e94ff41815748490614193e5ac98b23a8f111e075de453e842ec93d8de3a0c"
     },
     {
+      "packageKey": "acorn",
+      "packageRef": "acorn@8.16.0",
+      "name": "acorn",
+      "version": "8.16.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "1732a337b91f77c702d04d3515d9ab81f435acd149cc43164c4924b3260f53aa",
+      "recordDigest": "bce6d7a09af694e61c2b2e4f8a6112e9e84351b2667e1ae4196b9a89dfa34aaa"
+    },
+    {
+      "packageKey": "acorn-jsx",
+      "packageRef": "acorn-jsx@5.3.2",
+      "name": "acorn-jsx",
+      "version": "5.3.2",
+      "dependencyNames": [
+        "acorn"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "d5a4f04e4138d7b54be11fa820b6c3001ed4a58b5e7a6f3744818bd14d13d564",
+      "recordDigest": "bbd83fbee84a71bdab53a5f24c4c500bf7c023fa41e906cf1e7036ef836f7555"
+    },
+    {
+      "packageKey": "acorn-jsx-walk",
+      "packageRef": "acorn-jsx-walk@2.0.0",
+      "name": "acorn-jsx-walk",
+      "version": "2.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "f351fcd1816b338ada4e1ef4a439ea5f2d09aca4bab36ccd33deca0fe4aab15a"
+    },
+    {
+      "packageKey": "acorn-loose",
+      "packageRef": "acorn-loose@8.5.2",
+      "name": "acorn-loose",
+      "version": "8.5.2",
+      "dependencyNames": [
+        "acorn"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "85b387a86375193b59c569acd7bc603364e7aaadcaab09ffe58c07ea9943a586",
+      "recordDigest": "e08d318bd826222019cd1a4438a1a554768e10d0b41c8ae4d2528360ab9fbf20"
+    },
+    {
+      "packageKey": "acorn-walk",
+      "packageRef": "acorn-walk@8.3.5",
+      "name": "acorn-walk",
+      "version": "8.3.5",
+      "dependencyNames": [
+        "acorn"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "b86e023df7aeab7e10a2ca0b04d7e4d3601da2261da6e5fb86181eaa1a12de9e",
+      "recordDigest": "fca182786b1ab8c61cba79568656cd711df69109679a8c9ccf2fe2ae0c90b3f7"
+    },
+    {
       "packageKey": "agent-base",
       "packageRef": "agent-base@7.1.4",
       "name": "agent-base",
@@ -7382,6 +7443,58 @@
       "recordDigest": "5776b690f496148338083f74aaa5e3882f7e4f98f456edc05124f75032a20f12"
     },
     {
+      "packageKey": "dependency-cruiser",
+      "packageRef": "dependency-cruiser@17.4.3",
+      "name": "dependency-cruiser",
+      "version": "17.4.3",
+      "dependencyNames": [
+        "acorn",
+        "acorn-jsx",
+        "acorn-jsx-walk",
+        "acorn-loose",
+        "acorn-walk",
+        "commander",
+        "enhanced-resolve",
+        "ignore",
+        "interpret",
+        "is-installed-globally",
+        "json5",
+        "picomatch",
+        "prompts",
+        "rechoir",
+        "safe-regex",
+        "semver",
+        "tsconfig-paths-webpack-plugin",
+        "watskeburt"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "ddfdc5aa8494b86e3bd28e22a2b35fbd11f77a2e3d37077c019013219ebe0a62",
+      "recordDigest": "817b8258f9de49c5d902b06bd949f5db04450818657a8efcd7ad5d4a42ea28df"
+    },
+    {
+      "packageKey": "dependency-cruiser/commander",
+      "packageRef": "commander@14.0.3",
+      "name": "dependency-cruiser/commander",
+      "version": "14.0.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "a0eb96919a53c8d03fa9bfd3cf61f163cd919ebba94d1c97ecbe46ff5bd28471"
+    },
+    {
+      "packageKey": "dependency-cruiser/semver",
+      "packageRef": "semver@7.8.1",
+      "name": "dependency-cruiser/semver",
+      "version": "7.8.1",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "69c0558f61a42d829352b5b7101cf39b42cd8933005d625303535a558fa8206d",
+      "recordDigest": "a2ca2db8503abf403778052c45b62502736e16165c1435a7e8509d85fdf903ba"
+    },
+    {
       "packageKey": "detect-libc",
       "packageRef": "detect-libc@2.1.2",
       "name": "detect-libc",
@@ -7499,6 +7612,20 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "91057f6c2ea2453c78b120caa49854ad7e2299674acd195aac045203a5bd86ad"
+    },
+    {
+      "packageKey": "enhanced-resolve",
+      "packageRef": "enhanced-resolve@5.22.1",
+      "name": "enhanced-resolve",
+      "version": "5.22.1",
+      "dependencyNames": [
+        "graceful-fs",
+        "tapable"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "f5036149a17ba9d8cd608fc401b4eaf05013977e5d0017e51f6f3d92964c1584",
+      "recordDigest": "baa28f2bb5ab0a28ee46454ec758bcd0977b1c934594818b6f9acdb989243254"
     },
     {
       "packageKey": "env-paths",
@@ -8202,6 +8329,19 @@
       "recordDigest": "57d85fa8380ff0ae56424a8acf5a1a182f6ae20ce933156fd931ca492f8584e7"
     },
     {
+      "packageKey": "global-directory",
+      "packageRef": "global-directory@4.0.1",
+      "name": "global-directory",
+      "version": "4.0.1",
+      "dependencyNames": [
+        "ini"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "9f08bbf1adc676ec9a5c72671c3205c9ebfddefea4215ca1197af79292b2534f",
+      "recordDigest": "2ba200894b81712935277bb3a794fd838bffc6b621c3597208b9ce126913a14d"
+    },
+    {
       "packageKey": "google-auth-library",
       "packageRef": "google-auth-library@9.15.1",
       "name": "google-auth-library",
@@ -8436,6 +8576,28 @@
       "recordDigest": "374804b6e6688c7a24dbea88970075b2f7234b5deb8c06f1d10003f35eff00b8"
     },
     {
+      "packageKey": "ini",
+      "packageRef": "ini@4.1.1",
+      "name": "ini",
+      "version": "4.1.1",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "fc03afb8d188968791f64f59181ec3171ec837c4054bfc47f45f28ab7866f206"
+    },
+    {
+      "packageKey": "interpret",
+      "packageRef": "interpret@3.1.1",
+      "name": "interpret",
+      "version": "3.1.1",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "c68aa800c551483a3c3dee79b131bbca9bd6f1a48ed38c9938032f2664572ff8"
+    },
+    {
       "packageKey": "ip-address",
       "packageRef": "ip-address@10.1.0",
       "name": "ip-address",
@@ -8458,6 +8620,32 @@
       "recordDigest": "070d17c170a9cd0aaf699fa738c1fae313660f9f8afff1ec56c8e7129dd35726"
     },
     {
+      "packageKey": "is-core-module",
+      "packageRef": "is-core-module@2.16.2",
+      "name": "is-core-module",
+      "version": "2.16.2",
+      "dependencyNames": [
+        "hasown"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "82290ced26c93267a90c2be199eb1c43e4016c4aaa43a45b00c01f10c4a69dfa",
+      "recordDigest": "0468b9e043e4697bf4523b476cafdd3b224c1b7e9a49965c72e447100372dc66"
+    },
+    {
+      "packageKey": "is-core-module/hasown",
+      "packageRef": "hasown@2.0.4",
+      "name": "is-core-module/hasown",
+      "version": "2.0.4",
+      "dependencyNames": [
+        "function-bind"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "4ecca1e01f0218733dc1464b7bb5dd93f89493d8d4e569799aee0ba19a48e9d6",
+      "recordDigest": "271d1df639de572fceb9a348d4fc7dac24e695d6e9f77cbfc5157a549df1795d"
+    },
+    {
       "packageKey": "is-fullwidth-code-point",
       "packageRef": "is-fullwidth-code-point@5.1.0",
       "name": "is-fullwidth-code-point",
@@ -8469,6 +8657,31 @@
       "integrityPresent": true,
       "metadataDigest": "587224629e008b3dd0d43030d7ca497f85df19f83b808b28222ac01ce49f4dc4",
       "recordDigest": "6f7975c4a125f0d18caba16c464f455039d18b088ccc4d7a2ec12ed356648db2"
+    },
+    {
+      "packageKey": "is-installed-globally",
+      "packageRef": "is-installed-globally@1.0.0",
+      "name": "is-installed-globally",
+      "version": "1.0.0",
+      "dependencyNames": [
+        "global-directory",
+        "is-path-inside"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "9acb01c3a6f9d67f4eba70eb464ac12d5008fe95fc2a5a3752c8e10ea065d070",
+      "recordDigest": "802e0b9ed6d1c553854ad9ccc59d161a6ec35341c63380cc2f5e2af10354b6af"
+    },
+    {
+      "packageKey": "is-path-inside",
+      "packageRef": "is-path-inside@4.0.0",
+      "name": "is-path-inside",
+      "version": "4.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "a4dfe60008ec49581e5a9fcadbf31566e00daa8a1907d0e4f75a55c452bde78c"
     },
     {
       "packageKey": "is-plain-obj",
@@ -8586,6 +8799,17 @@
       "recordDigest": "2bb374d620adfab31bea776c54a5f2f6c71220de6dfe9976fb81aff12ef949bf"
     },
     {
+      "packageKey": "json5",
+      "packageRef": "json5@2.2.3",
+      "name": "json5",
+      "version": "2.2.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "a25deaf7bb33a301589c59863e7c93c4b48e01f225b268e63370de4c3d3d05f8",
+      "recordDigest": "031882b32e3c7d5c80e5ee6aa270501e0902cb91c973686a101b2444f5876394"
+    },
+    {
       "packageKey": "jsonc-parser",
       "packageRef": "jsonc-parser@3.3.1",
       "name": "jsonc-parser",
@@ -8638,6 +8862,17 @@
       "integrityPresent": true,
       "metadataDigest": "b94286e303afedccba6a4202d0e89a9e10678f1e6804c0c2cb208a3cc15fd6db",
       "recordDigest": "11ef4c2a9661b7875082bef487d809390b0a5193493f91b1bffa54d32744d0b6"
+    },
+    {
+      "packageKey": "kleur",
+      "packageRef": "kleur@3.0.3",
+      "name": "kleur",
+      "version": "3.0.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "8556f5f2eeb6903735fba1bdd2d8a5c9af1cd1cbdad41c46921227daa5dffdef"
     },
     {
       "packageKey": "locate-path",
@@ -8774,6 +9009,17 @@
       "integrityPresent": true,
       "metadataDigest": "1debe2c39a2746a6d6f2392e8e50cfecd9126e0a1657f6f939b9c2f298c56c27",
       "recordDigest": "7c3c6c1320b7396da346b39619857918c7a7cb4eb7ee4e0aa39ed64321d609de"
+    },
+    {
+      "packageKey": "minimist",
+      "packageRef": "minimist@1.2.8",
+      "name": "minimist",
+      "version": "1.2.8",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "0cbe4ab4ecb1b43e0e64326fed9268e359253bb8cf2b083bef32d0f8ee1154e2"
     },
     {
       "packageKey": "ms",
@@ -9098,6 +9344,17 @@
       "recordDigest": "666344d8a9edd82fa6233a6740844326628ebac641734ae3d52f85eb9df5dcc1"
     },
     {
+      "packageKey": "path-parse",
+      "packageRef": "path-parse@1.0.7",
+      "name": "path-parse",
+      "version": "1.0.7",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "71ad6ee25bfaa88799a36c2ae53bd6335a10526a83488ed7d940f8b153fb6f54"
+    },
+    {
       "packageKey": "path-to-regexp",
       "packageRef": "path-to-regexp@8.4.1",
       "name": "path-to-regexp",
@@ -9164,6 +9421,20 @@
       "integrityPresent": true,
       "metadataDigest": "4cd12aa0735efe4a3f012fc984122698a47ef915b7b3b4ae204482f68d51543d",
       "recordDigest": "b14d36ea159e465d8ce86042c88e7b1ebb80468e03fb4cf59d7415a53994a630"
+    },
+    {
+      "packageKey": "prompts",
+      "packageRef": "prompts@2.4.2",
+      "name": "prompts",
+      "version": "2.4.2",
+      "dependencyNames": [
+        "kleur",
+        "sisteransi"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "30921c42028ec1d952cc54d41c7e31e6d7e139cbddeae9a6641b15781fda6d42",
+      "recordDigest": "0ac3bd53128b69c0a8cd8bb36a442459c25208ff74e3024319460ab75e1664b4"
     },
     {
       "packageKey": "proper-lockfile",
@@ -9521,6 +9792,30 @@
       "recordDigest": "facfca5ff70c1ded7bfaaf4e3a0a2ceb1ea7daeb6d837cdd74fd38be128d2209"
     },
     {
+      "packageKey": "rechoir",
+      "packageRef": "rechoir@0.8.0",
+      "name": "rechoir",
+      "version": "0.8.0",
+      "dependencyNames": [
+        "resolve"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "16949334ac6c6c057e68d98145ddb1131f81ec8b750fc7b5ee78c4dbfb626a05",
+      "recordDigest": "69f8850306532d847c7a44136d3e41ad59eeac7a67679fdc05afba18956e1b91"
+    },
+    {
+      "packageKey": "regexp-tree",
+      "packageRef": "regexp-tree@0.1.27",
+      "name": "regexp-tree",
+      "version": "0.1.27",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "8f289b89259422e06f0a24ce0ff35491eee4c6e321701122c36f28d60f295b83",
+      "recordDigest": "f1d9463ef2c0fd8ddd0d797078e7db0271b8d39915adb3990ddc93052d618603"
+    },
+    {
       "packageKey": "require-directory",
       "packageRef": "require-directory@2.1.1",
       "name": "require-directory",
@@ -9552,6 +9847,22 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "a3048f2ac99ddc77001fe2c8db43b8b77b1e4059e00f0bcc949a775c58ce6cef"
+    },
+    {
+      "packageKey": "resolve",
+      "packageRef": "resolve@1.22.12",
+      "name": "resolve",
+      "version": "1.22.12",
+      "dependencyNames": [
+        "es-errors",
+        "is-core-module",
+        "path-parse",
+        "supports-preserve-symlinks-flag"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "7cfd2f54749f7a54c54aa09a27d9aada9650204c7325f1bcc264be90e0155738",
+      "recordDigest": "c0103935a825f2fd996c68ffac6d132ac76e11bc7a44bea91bc4a520f6bb13ae"
     },
     {
       "packageKey": "resolve-pkg-maps",
@@ -9602,6 +9913,19 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "06887bcb2bcf37dfe022d9f042fa76175514cf08b3c8bb43b798ae20f83b67d0"
+    },
+    {
+      "packageKey": "safe-regex",
+      "packageRef": "safe-regex@2.1.1",
+      "name": "safe-regex",
+      "version": "2.1.1",
+      "dependencyNames": [
+        "regexp-tree"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "346f85bb47948a5eef6dca63a8dfb407dea465322f6c2b8676c00a007db3a4d7",
+      "recordDigest": "30ee3d3ba8d41d6c058082b91fe3d9e2b8d5fb0492f92b51eae651202a4df7ef"
     },
     {
       "packageKey": "safer-buffer",
@@ -9858,6 +10182,17 @@
       "recordDigest": "a43a33db403309084375f44558875572763e7f0ce27911fe2c61e4e2abb7474f"
     },
     {
+      "packageKey": "sisteransi",
+      "packageRef": "sisteransi@1.0.5",
+      "name": "sisteransi",
+      "version": "1.0.5",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "f7834c203067885e8df0079251f6b7007f2c1a07dfe6224c6d5658c2fec1d831"
+    },
+    {
       "packageKey": "stack-utils",
       "packageRef": "stack-utils@2.0.6",
       "name": "stack-utils",
@@ -9910,6 +10245,17 @@
       "recordDigest": "e4aab24f703fa7f203394b69dd0c940f491997c6a68d92b67ca26dc16ce2f709"
     },
     {
+      "packageKey": "strip-bom",
+      "packageRef": "strip-bom@3.0.0",
+      "name": "strip-bom",
+      "version": "3.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "cbe4c4e01526992b3f47a5d9a07716a0e3bd1722d27f987e9c404745f95aea7f"
+    },
+    {
       "packageKey": "strip-final-newline",
       "packageRef": "strip-final-newline@4.0.0",
       "name": "strip-final-newline",
@@ -9957,6 +10303,28 @@
       "integrityPresent": true,
       "metadataDigest": "3762364a92d1d437d0bc4c5fa8736874129ed8a60d9232c1327e43a54314b0e1",
       "recordDigest": "c0bc60ab2fb786c243f323e9e3b8d8e47fb55c77dbf6d555879943f8d80c4d64"
+    },
+    {
+      "packageKey": "supports-preserve-symlinks-flag",
+      "packageRef": "supports-preserve-symlinks-flag@1.0.0",
+      "name": "supports-preserve-symlinks-flag",
+      "version": "1.0.0",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "c6f164c6719d5ddbe146370e8110dd63e9cf4ba098424b9c50a0471ddff8f9dc"
+    },
+    {
+      "packageKey": "tapable",
+      "packageRef": "tapable@2.3.3",
+      "name": "tapable",
+      "version": "2.3.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "recordDigest": "a5623f0e91e3f78eccf6fe2363155ad8d4abb804e37868d413cacdf8d83e8066"
     },
     {
       "packageKey": "thenify",
@@ -10040,6 +10408,64 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "a0c5c21c7d20f679fc936301a28160ee63763e2e47526cb8ffb1d4e4a4a5e1fb"
+    },
+    {
+      "packageKey": "tsconfig-paths",
+      "packageRef": "tsconfig-paths@4.2.0",
+      "name": "tsconfig-paths",
+      "version": "4.2.0",
+      "dependencyNames": [
+        "json5",
+        "minimist",
+        "strip-bom"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "94005ed60cbe87fabe6bd1bbb8bc6012f72aac69da6c2ed842cdb4e26396a32f",
+      "recordDigest": "98d317f4beb2a2024d8209c9c869dd0f9a5ba223bda99caf5f7206c73aeaf6ed"
+    },
+    {
+      "packageKey": "tsconfig-paths-webpack-plugin",
+      "packageRef": "tsconfig-paths-webpack-plugin@4.2.0",
+      "name": "tsconfig-paths-webpack-plugin",
+      "version": "4.2.0",
+      "dependencyNames": [
+        "chalk",
+        "enhanced-resolve",
+        "tapable",
+        "tsconfig-paths"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "e78329e3f9441b0a3d69d974f513f172aab915242b41be3828dfb6905b296b8a",
+      "recordDigest": "f6e7f6cdd8bd4bf0072939cb3ba111055f3b316173c1e7aa28d5f8d5094c6f3e"
+    },
+    {
+      "packageKey": "tsconfig-paths-webpack-plugin/chalk",
+      "packageRef": "chalk@4.1.2",
+      "name": "tsconfig-paths-webpack-plugin/chalk",
+      "version": "4.1.2",
+      "dependencyNames": [
+        "ansi-styles",
+        "supports-color"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "2d81ac7d007b4aa464fa65dcabc3299160f273a45f606209e46a802425509d5d",
+      "recordDigest": "89382d6ce9cbca8430bb4260df5bfa7eb1aa3b1228d52b834f10c14039487e5c"
+    },
+    {
+      "packageKey": "tsconfig-paths-webpack-plugin/chalk/ansi-styles",
+      "packageRef": "ansi-styles@4.3.0",
+      "name": "tsconfig-paths-webpack-plugin/chalk/ansi-styles",
+      "version": "4.3.0",
+      "dependencyNames": [
+        "color-convert"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "f9f47743489f4f7db228cff0a614c184fcebc7a48631e5667460b908d168b6a2",
+      "recordDigest": "5d90ee0117341294af48908a25568304e0dada5fd23f88399da30b31ea62261a"
     },
     {
       "packageKey": "tslib",
@@ -10254,6 +10680,17 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "eab678f7b512c67e685e8e6deefddaeaad2b5a10f9c89f789a2490957fa2b7c1"
+    },
+    {
+      "packageKey": "watskeburt",
+      "packageRef": "watskeburt@5.0.3",
+      "name": "watskeburt",
+      "version": "5.0.3",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "01513157d888bcd6c9e2d45ec14b01837031c8d608f2538dcd4ca1aec5b0be64",
+      "recordDigest": "12468bec52e558db422fae7873a9b14b93e5dee847ef403da5d5247486944535"
     },
     {
       "packageKey": "webidl-conversions",
@@ -16721,6 +17158,21 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "acorn-jsx",
+      "to": "acorn",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "acorn-loose",
+      "to": "acorn",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "acorn-walk",
+      "to": "acorn",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "ajv",
       "to": "fast-deep-equal",
       "relationshipType": "declares_dependency"
@@ -17086,6 +17538,96 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "dependency-cruiser",
+      "to": "acorn",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "acorn-jsx",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "acorn-jsx-walk",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "acorn-loose",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "acorn-walk",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "commander",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "enhanced-resolve",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "ignore",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "interpret",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "is-installed-globally",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "json5",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "picomatch",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "prompts",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "rechoir",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "safe-regex",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "semver",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "tsconfig-paths-webpack-plugin",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "dependency-cruiser",
+      "to": "watskeburt",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "duck-duck-scrape",
       "to": "html-entities",
       "relationshipType": "declares_dependency"
@@ -17113,6 +17655,16 @@
     {
       "from": "ecdsa-sig-formatter",
       "to": "safe-buffer",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "enhanced-resolve",
+      "to": "graceful-fs",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "enhanced-resolve",
+      "to": "tapable",
       "relationshipType": "declares_dependency"
     },
     {
@@ -17791,6 +18343,11 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "global-directory",
+      "to": "ini",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "google-auth-library",
       "to": "base64-js",
       "relationshipType": "declares_dependency"
@@ -17881,8 +18438,28 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "is-core-module",
+      "to": "hasown",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "is-core-module/hasown",
+      "to": "function-bind",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "is-fullwidth-code-point",
       "to": "get-east-asian-width",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "is-installed-globally",
+      "to": "global-directory",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "is-installed-globally",
+      "to": "is-path-inside",
       "relationshipType": "declares_dependency"
     },
     {
@@ -18023,6 +18600,16 @@
     {
       "from": "pretty-ms",
       "to": "parse-ms",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "prompts",
+      "to": "kleur",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "prompts",
+      "to": "sisteransi",
       "relationshipType": "declares_dependency"
     },
     {
@@ -18291,6 +18878,31 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "rechoir",
+      "to": "resolve",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "resolve",
+      "to": "es-errors",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "resolve",
+      "to": "is-core-module",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "resolve",
+      "to": "path-parse",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "resolve",
+      "to": "supports-preserve-symlinks-flag",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "router",
       "to": "debug",
       "relationshipType": "declares_dependency"
@@ -18313,6 +18925,11 @@
     {
       "from": "router",
       "to": "path-to-regexp",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "safe-regex",
+      "to": "regexp-tree",
       "relationshipType": "declares_dependency"
     },
     {
@@ -18666,6 +19283,56 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "tsconfig-paths",
+      "to": "json5",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths",
+      "to": "minimist",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths",
+      "to": "strip-bom",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin",
+      "to": "chalk",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin",
+      "to": "enhanced-resolve",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin",
+      "to": "tapable",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin",
+      "to": "tsconfig-paths",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin/chalk",
+      "to": "ansi-styles",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin/chalk",
+      "to": "supports-color",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "tsconfig-paths-webpack-plugin/chalk/ansi-styles",
+      "to": "color-convert",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "tsx",
       "to": "esbuild",
       "relationshipType": "declares_dependency"
@@ -18855,7 +19522,7 @@
     {
       "label": "Bun text lockfile structure is recognized",
       "ok": true,
-      "detail": "757 package entries"
+      "detail": "791 package entries"
     },
     {
       "label": "lockfile version is current expected local format",
@@ -18865,7 +19532,7 @@
     {
       "label": "root workspace dependencies match package manifest count",
       "ok": true,
-      "detail": "80+14/94"
+      "detail": "80+15/95"
     },
     {
       "label": "lockfile inventory covers every direct manifest dependency",
@@ -18875,22 +19542,22 @@
     {
       "label": "lockfile inventory captures transitive package surface",
       "ok": true,
-      "detail": "757 packages > 94 direct"
+      "detail": "791 packages > 95 direct"
     },
     {
       "label": "lockfile package records include version and integrity metadata",
       "ok": true,
-      "detail": "757/757 with integrity"
+      "detail": "791/791 with integrity"
     },
     {
       "label": "lockfile dependency relationships are extracted",
       "ok": true,
-      "detail": "1660 relationships"
+      "detail": "1706 relationships"
     },
     {
       "label": "inventory JSONL has one record per lockfile package",
       "ok": true,
-      "detail": "757 records"
+      "detail": "791 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",
