@@ -65,4 +65,17 @@ describe('public artifact hygiene scanner', () => {
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
+
+  test('scans the root license for local path disclosure', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'LICENSE'),
+      `Derived runtime note copied from ${windowsPrivatePath}\n`,
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('LICENSE')
+  })
 })

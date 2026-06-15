@@ -255,7 +255,7 @@ async function main(): Promise<void> {
       '\nNo local Ollama model was detected and OPENAI_API_KEY is unset.',
     )
     console.log(
-      'Next steps: `ollama pull qwen2.5-coder:7b` or set OPENAI_API_KEY.',
+      'Next steps: `ollama pull <local-ollama-model>` or set OPENAI_API_KEY.',
     )
   }
 }

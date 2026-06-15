@@ -241,6 +241,7 @@ describe('public repository readiness surfaces', () => {
       expect(text, path).not.toMatch(/\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i)
       expect(text, path).not.toMatch(/\bqwen\/qwen3\.6-plus-preview:free\b/i)
       expect(text, path).not.toMatch(/\bqwen2\.5-coder\b/i)
+      expect(text, path).not.toMatch(/\bllama3\.3:70b\b/i)
       expect(text, path).not.toMatch(/\bclaude-sonnet-4-5-20250929\b/i)
       expect(text, path).not.toMatch(/~\/\.codex\/auth\.json/i)
       expect(text, path).not.toMatch(/\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i)
@@ -255,6 +256,19 @@ describe('public repository readiness surfaces', () => {
     expect(docs['docs/litellm-setup.md']).toContain('<current-anthropic-tool-model>')
     expect(docs['PLAYBOOK.md']).toContain('<current-openai-tool-model>')
     expect(docs['PLAYBOOK.md']).toContain('<local-ollama-model>')
+  })
+
+  test('runtime diagnostics do not recommend pinned local model examples', () => {
+    const runtimeHintDocs = {
+      'scripts/system-check.ts': readRepoText('scripts/system-check.ts'),
+      'scripts/provider-recommend.ts': readRepoText('scripts/provider-recommend.ts'),
+    }
+
+    for (const [path, text] of Object.entries(runtimeHintDocs)) {
+      expect(text, path).toContain('<local-ollama-model>')
+      expect(text, path).not.toMatch(/\bqwen2\.5-coder\b/i)
+      expect(text, path).not.toMatch(/\bllama3\.3:70b\b/i)
+    }
   })
 
   test('Android install notes stay legacy-bounded and avoid unsupported superiority claims', () => {
