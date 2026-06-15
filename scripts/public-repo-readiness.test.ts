@@ -93,6 +93,10 @@ function readPublicSetupDocs(): Record<string, string> {
   return Object.fromEntries(paths.map((path) => [path, readRepoText(path)]))
 }
 
+function listFilesUnder(relativePath: string): string[] {
+  return trackedRepoPaths(root).filter((path) => path.startsWith(`${relativePath}/`))
+}
+
 describe('public repository readiness surfaces', () => {
   test('AGENTS.md is public-facing guidance, not a private memory dump', () => {
     const agents = readRepoText('AGENTS.md')
@@ -179,11 +183,39 @@ describe('public repository readiness surfaces', () => {
 
   test('README states runtime wiring honestly', () => {
     const readme = readRepoText('README.md')
+    const koreanReadme = readRepoText('README.ko.md')
+    const gitignore = readRepoText('.gitignore')
+    const orchestraFiles = listFilesUnder('src/services/orchestra')
+    const orchestraRuntimeFiles = orchestraFiles.filter((path) => path.endsWith('.ts') && !path.endsWith('.test.ts'))
+    const orchestraTestFiles = orchestraFiles.filter((path) => path.endsWith('.test.ts'))
+    const metaMfhDocs = [
+      'docs/MFH_META_SYNTHESIS.md',
+      'docs/GOAL_SCHEMA.md',
+      'docs/EVALS.md',
+      'docs/SECURITY_AND_GUARDRAILS.md',
+    ]
+    const avfDocs = [
+      'docs/avf/WEB_FIRST_AUTONOMOUS_VENTURE_FACTORY_SPEC.md',
+      'avf/influence_factory/operator_runs.md',
+    ]
 
     expect(readme).toContain('Orchestra is the runtime-wired layer in this package today')
     expect(readme).toContain('Meta and MFH are governance, schema, and evidence-gate surfaces')
     expect(readme).toContain('AVF Influence Factory is a repo-local manual artifact lane')
     expect(readme).not.toContain('Meta, MFH, and AVF are runtime-wired modules')
+    expect(koreanReadme).toMatch(/Orchestra는 현재 이 package에서 runtime-wired layer입니다/)
+    expect(koreanReadme).toMatch(/Meta와 MFH는\s+governance, schema, evidence-gate surface입니다/)
+    expect(koreanReadme).toMatch(/AVF Influence Factory는\s+repo-local manual artifact lane입니다/)
+    expect(koreanReadme).not.toContain('Meta, MFH, AVF가 모두 runtime-wired module입니다')
+    expect(orchestraRuntimeFiles.length).toBeGreaterThan(0)
+    expect(orchestraTestFiles.length).toBeGreaterThan(0)
+    for (const path of metaMfhDocs) {
+      expect(existsSync(join(root, path)), path).toBe(true)
+    }
+    for (const path of avfDocs) {
+      expect(existsSync(join(root, path)), path).toBe(true)
+    }
+    expect(gitignore).toContain('avf/influence_factory/operator_package_v*/')
   })
 
   test('public setup docs do not pin stale OpenAI model examples', () => {
