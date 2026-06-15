@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-15T00:00:46.884Z",
+  "generatedAt": "2026-06-15T03:02:38.464Z",
   "mode": "external_github_api_oss_baseline_refresh",
   "snapshotDate": "2026-05-21",
   "outputBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-  "outputBaselineSha256": "f90eb61d119a72fd45d01d74b1eaa16f3bfd3ff599ff48531ca9f632cdbe3729",
+  "outputBaselineSha256": "109838fe2495a76b6a25109e00a4dd25e9e10a3e5c6ded0a154d2c3eed44d674",
   "previousBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-17.json",
   "previousBaselineSha256": "525e606c76fcf6083189416500c0479519205753e812a8aaeab74f6958067e81",
   "provenanceJsonlPath": "reports/openclaude-oss-baseline-refresh-provenance.jsonl",
-  "provenanceJsonlSha256": "de468bf5f009d140e8352881e08dac08855197a1442871e2da9e901ea36880c1",
+  "provenanceJsonlSha256": "b98ac605618a7ef978f67f2e4f3a07625f81c99026816bffba90a712670c175b",
   "provenanceJsonlRecordCount": 10,
   "searchQueryCount": 6,
   "searchedRepositoryCount": 39,
@@ -30,87 +30,87 @@
   "discoveredHigherStarCandidatesExcluded": [
     {
       "fullName": "sindresorhus/awesome",
-      "stars": 475795,
+      "stars": 475823,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "vinta/awesome-python",
-      "stars": 302943,
+      "stars": 302965,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "awesome-selfhosted/awesome-selfhosted",
-      "stars": 299197,
+      "stars": 299221,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 227798,
+      "stars": 227950,
       "reason": "workflow/skill package, not a coding-agent runtime product by itself"
     },
     {
-      "fullName": "avelino/awesome-go",
-      "stars": 175455,
-      "reason": "awesome-list, not an executable coding-agent product"
-    },
-    {
       "fullName": "multica-ai/andrej-karpathy-skills",
-      "stars": 175354,
+      "stars": 175478,
       "reason": "insufficient coding-agent relevance terms: codex-compatible"
     },
     {
+      "fullName": "avelino/awesome-go",
+      "stars": 175468,
+      "reason": "awesome-list, not an executable coding-agent product"
+    },
+    {
       "fullName": "ollama/ollama",
-      "stars": 174167,
+      "stars": 174179,
       "reason": "model runtime, not a coding-agent product by itself"
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 128767,
+      "stars": 128920,
       "reason": "insufficient coding-agent relevance terms: none"
     },
     {
       "fullName": "Shubhamsaboo/awesome-llm-apps",
-      "stars": 114544,
+      "stars": 114561,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "msitarzewski/agency-agents",
-      "stars": 113156,
+      "stars": 113212,
       "reason": "general agency role pack, not a coding-agent CLI or IDE product"
     },
     {
       "fullName": "github/spec-kit",
-      "stars": 112148,
+      "stars": 112175,
       "reason": "spec-driven development toolkit, not a coding-agent CLI or IDE product"
     },
     {
       "fullName": "garrytan/gstack",
-      "stars": 110134,
+      "stars": 110166,
       "reason": "Claude Code setup/workflow package, not a coding-agent runtime product by itself"
     },
     {
       "fullName": "jaywcjlove/awesome-mac",
-      "stars": 105751,
+      "stars": 105758,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "VoltAgent/awesome-design-md",
-      "stars": 90193,
+      "stars": 90229,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "punkpeye/awesome-mcp-servers",
-      "stars": 89150,
+      "stars": 89161,
       "reason": "awesome-list, not an executable coding-agent product"
     },
     {
       "fullName": "laravel/laravel",
-      "stars": 84474,
+      "stars": 84473,
       "reason": "insufficient coding-agent relevance terms: none"
     },
     {
       "fullName": "ComposioHQ/awesome-claude-skills",
-      "stars": 64587,
+      "stars": 64601,
       "reason": "awesome-list, not an executable coding-agent product"
     }
   ],
@@ -237,7 +237,7 @@
     {
       "label": "fresh GitHub baseline stars are sorted descending",
       "ok": true,
-      "detail": "ultraworkers/claw-code:193795,anomalyco/opencode:174392,anthropics/claude-code:132381,google-gemini/gemini-cli:105275,openai/codex:91018,OpenHands/OpenHands:77060,nexu-io/open-design:64791,openinterpreter/openinterpreter:63953,cline/cline:63288,warpdotdev/warp:61721"
+      "detail": "ultraworkers/claw-code:193800,anomalyco/opencode:174443,anthropics/claude-code:132408,google-gemini/gemini-cli:105279,openai/codex:91048,OpenHands/OpenHands:77081,nexu-io/open-design:64888,openinterpreter/openinterpreter:63956,cline/cline:63296,warpdotdev/warp:61729"
     },
     {
       "label": "fresh GitHub baseline source URLs are GitHub repos",
@@ -262,7 +262,7 @@
     {
       "label": "fresh GitHub refresh excludes higher-star non-product candidates with reasons",
       "ok": true,
-      "detail": "sindresorhus/awesome:awesome-list, not an executable coding-agent product,vinta/awesome-python:awesome-list, not an executable coding-agent product,awesome-selfhosted/awesome-selfhosted:awesome-list, not an executable coding-agent product,obra/superpowers:workflow/skill package, not a coding-agent runtime product by itself,avelino/awesome-go:awesome-list, not an executable coding-agent product,multica-ai/andrej-karpathy-skills:insufficient coding-agent relevance terms: codex-compatible,ollama/ollama:model runtime, not a coding-agent product by itself,mattpocock/skills:insufficient coding-agent relevance terms: none,Shubhamsaboo/awesome-llm-apps:awesome-list, not an executable coding-agent product,msitarzewski/agency-agents:general agency role pack, not a coding-agent CLI or IDE product,github/spec-kit:spec-driven development toolkit, not a coding-agent CLI or IDE product,garrytan/gstack:Claude Code setup/workflow package, not a coding-agent runtime product by itself,jaywcjlove/awesome-mac:awesome-list, not an executable coding-agent product,VoltAgent/awesome-design-md:awesome-list, not an executable coding-agent product,punkpeye/awesome-mcp-servers:awesome-list, not an executable coding-agent product,laravel/laravel:insufficient coding-agent relevance terms: none,ComposioHQ/awesome-claude-skills:awesome-list, not an executable coding-agent product"
+      "detail": "sindresorhus/awesome:awesome-list, not an executable coding-agent product,vinta/awesome-python:awesome-list, not an executable coding-agent product,awesome-selfhosted/awesome-selfhosted:awesome-list, not an executable coding-agent product,obra/superpowers:workflow/skill package, not a coding-agent runtime product by itself,multica-ai/andrej-karpathy-skills:insufficient coding-agent relevance terms: codex-compatible,avelino/awesome-go:awesome-list, not an executable coding-agent product,ollama/ollama:model runtime, not a coding-agent product by itself,mattpocock/skills:insufficient coding-agent relevance terms: none,Shubhamsaboo/awesome-llm-apps:awesome-list, not an executable coding-agent product,msitarzewski/agency-agents:general agency role pack, not a coding-agent CLI or IDE product,github/spec-kit:spec-driven development toolkit, not a coding-agent CLI or IDE product,garrytan/gstack:Claude Code setup/workflow package, not a coding-agent runtime product by itself,jaywcjlove/awesome-mac:awesome-list, not an executable coding-agent product,VoltAgent/awesome-design-md:awesome-list, not an executable coding-agent product,punkpeye/awesome-mcp-servers:awesome-list, not an executable coding-agent product,laravel/laravel:insufficient coding-agent relevance terms: none,ComposioHQ/awesome-claude-skills:awesome-list, not an executable coding-agent product"
     },
     {
       "label": "fresh GitHub refresh wrote parseable provenance JSONL",

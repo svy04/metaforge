@@ -3014,6 +3014,31 @@ type GithubRemoteSurfaceAuditReport = {
   }>
 }
 
+type OriginLicenseProvenanceBoundaryReport = {
+  mode: string
+  status: string
+  blockerCount: number
+  blockers: Array<{
+    category: string
+    path?: string
+    detail: string
+  }>
+  packageLicenseField: string | null
+  packageRepositoryUrl: string | null
+  originRemoteUrl: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  protectedActionsExecuted: unknown[]
+  publishAttempted: boolean
+  deployAttempted: boolean
+  launchAttempted: boolean
+  evidenceChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
 type Check = {
   label: string
   ok: boolean
@@ -3032,6 +3057,10 @@ function readText(path: string): string {
 
 function check(label: string, ok: boolean, detail?: string): Check {
   return { label, ok, detail }
+}
+
+function isMetaforgeGithubUrl(value: string | null): boolean {
+  return typeof value === 'string' && /github\.com\/svy04\/metaforge(?:\.git)?$/i.test(value)
 }
 
 function fileExists(path: string): Check {
@@ -3241,6 +3270,9 @@ function main(): void {
   const githubRemoteSurfaceAuditJsonPath = 'docs/product-quality/github-remote-surface-audit-report.json'
   const githubRemoteSurfaceAuditMdPath = 'docs/product-quality/github-remote-surface-audit-report.md'
   const githubRemoteSurfaceAuditJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'
+  const originLicenseProvenanceBoundaryJsonPath = 'docs/product-quality/origin-license-provenance-boundary-report.json'
+  const originLicenseProvenanceBoundaryMdPath = 'docs/product-quality/origin-license-provenance-boundary-report.md'
+  const originLicenseProvenanceBoundaryJsonlPath = 'reports/openclaude-origin-license-provenance-boundary.jsonl'
   const protectedActionAuthorizationPacketJsonPath = 'docs/product-quality/protected-action-authorization-packet.json'
   const protectedActionAuthorizationPacketMdPath = 'docs/product-quality/protected-action-authorization-packet.md'
   const protectedActionAuthorizationPacketJsonlPath = 'reports/openclaude-protected-action-authorization-packet.jsonl'
@@ -3506,6 +3538,12 @@ function main(): void {
     publicClaimBoundaryJsonPath,
     publicClaimBoundaryMdPath,
     publicClaimBoundaryJsonlPath,
+    githubRemoteSurfaceAuditJsonPath,
+    githubRemoteSurfaceAuditMdPath,
+    githubRemoteSurfaceAuditJsonlPath,
+    originLicenseProvenanceBoundaryJsonPath,
+    originLicenseProvenanceBoundaryMdPath,
+    originLicenseProvenanceBoundaryJsonlPath,
     protectedActionAuthorizationPacketJsonPath,
     protectedActionAuthorizationPacketMdPath,
     protectedActionAuthorizationPacketJsonlPath,
@@ -3599,6 +3637,8 @@ function main(): void {
     'product:verification-report-consistency',
     'product:quality-blocker-taxonomy',
     'product:public-claim-boundary',
+    'product:github-remote-surface-audit',
+    'product:origin-license-provenance-boundary',
     'product:protected-action-authorization-packet',
     'product:evidence-manifest',
     'product:quality',
@@ -3751,6 +3791,7 @@ function main(): void {
   const qualityBlockerTaxonomy = readJson<QualityBlockerTaxonomyReport>(qualityBlockerTaxonomyJsonPath)
   const publicClaimBoundary = readJson<PublicClaimBoundaryReport>(publicClaimBoundaryJsonPath)
   const githubRemoteSurfaceAudit = readJson<GithubRemoteSurfaceAuditReport>(githubRemoteSurfaceAuditJsonPath)
+  const originLicenseProvenanceBoundary = readJson<OriginLicenseProvenanceBoundaryReport>(originLicenseProvenanceBoundaryJsonPath)
   const protectedActionAuthorizationPacket = readJson<ProtectedActionAuthorizationPacketReport>(protectedActionAuthorizationPacketJsonPath)
   const productEvidenceManifest = readJson<ProductEvidenceManifestReport>(productEvidenceManifestJsonPath)
   const manifestTreeViewIds = ideExtensionManifestSmoke.manifestSummary.treeViewIds ?? ideExtensionManifestSmoke.manifestSummary.viewIds
@@ -4769,6 +4810,12 @@ function main(): void {
   checks.push(check('GitHub remote surface audit detects no blockers', githubRemoteSurfaceAudit.blockerCount === 0 && githubRemoteSurfaceAudit.blockers.length === 0 && githubRemoteSurfaceAudit.status === 'no_public_github_surface_findings_detected', `${githubRemoteSurfaceAudit.blockerCount} blockers`))
   checks.push(check('GitHub remote surface audit blocks provider live and protected actions', githubRemoteSurfaceAudit.providerCallsPerformed.length === 0 && githubRemoteSurfaceAudit.liveModelCallsPerformed.length === 0 && githubRemoteSurfaceAudit.protectedActionsExecuted.length === 0))
   checks.push(check('GitHub remote surface audit checks pass', githubRemoteSurfaceAudit.evidenceChecks.every((item) => item.ok)))
+  checks.push(check('origin/license provenance boundary is local no-provider check', originLicenseProvenanceBoundary.mode === 'local_no_provider_origin_license_provenance_boundary', originLicenseProvenanceBoundary.mode))
+  checks.push(check('origin/license provenance boundary detects no blockers', originLicenseProvenanceBoundary.blockerCount === 0 && originLicenseProvenanceBoundary.blockers.length === 0 && originLicenseProvenanceBoundary.status === 'no_origin_license_provenance_boundary_findings', `${originLicenseProvenanceBoundary.blockerCount} blockers`))
+  checks.push(check('origin/license provenance boundary preserves package and origin metadata', originLicenseProvenanceBoundary.packageLicenseField === 'SEE LICENSE FILE' && isMetaforgeGithubUrl(originLicenseProvenanceBoundary.packageRepositoryUrl) && isMetaforgeGithubUrl(originLicenseProvenanceBoundary.originRemoteUrl), `${originLicenseProvenanceBoundary.packageLicenseField}/${originLicenseProvenanceBoundary.packageRepositoryUrl}/${originLicenseProvenanceBoundary.originRemoteUrl}`))
+  checks.push(check('origin/license provenance boundary performed no provider live external or protected calls', originLicenseProvenanceBoundary.providerCallsPerformed.length === 0 && originLicenseProvenanceBoundary.liveModelCallsPerformed.length === 0 && originLicenseProvenanceBoundary.externalCallsPerformed.length === 0 && originLicenseProvenanceBoundary.protectedActionsExecuted.length === 0))
+  checks.push(check('origin/license provenance boundary did not publish deploy or launch', originLicenseProvenanceBoundary.publishAttempted === false && originLicenseProvenanceBoundary.deployAttempted === false && originLicenseProvenanceBoundary.launchAttempted === false))
+  checks.push(check('origin/license provenance boundary checks pass', originLicenseProvenanceBoundary.evidenceChecks.every((item) => item.ok)))
   checks.push(check('protected action authorization packet is local no-provider check', protectedActionAuthorizationPacket.mode === 'local_no_provider_protected_action_authorization_packet'))
   checks.push(check('protected action authorization packet records terminal protected boundary', protectedActionAuthorizationPacket.terminalCondition === 'PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY' && protectedActionAuthorizationPacket.packetStatus === 'owner_authorization_required_before_protected_actions', protectedActionAuthorizationPacket.terminalCondition))
   checks.push(check('protected action authorization packet imports source reports', protectedActionAuthorizationPacket.sourceReportCount === protectedActionAuthorizationPacket.sourceReportBindings.length && [qualityBlockerTaxonomyJsonPath, vscodeUpdateBoundaryJsonPath, vscodeStartupDiagnosticsJsonPath, gitReleaseHygieneJsonPath, externalBenchmarkBoundaryJsonPath, benchmarkSubmissionReadinessJsonPath, benchmarkPolicyComplianceJsonPath, terminalBenchReadinessJsonPath, licenseBoundaryAuthorizationJsonPath, ossProviderBreadthEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceJsonPath, ossReleaseHygieneEvidenceJsonPath, verificationReportConsistencyJsonPath, publicClaimBoundaryJsonPath].every((path) => protectedActionAuthorizationPacket.sourceReportBindings.some((source) => source.path === path && source.exists && typeof source.sha256 === 'string' && source.sha256.length === 64 && source.sizeBytes > 0)), `${protectedActionAuthorizationPacket.sourceReportCount} reports`))
@@ -4785,7 +4832,7 @@ function main(): void {
   checks.push(check('product evidence manifest executed no protected actions', productEvidenceManifest.protectedActionsExecuted.length === 0))
   checks.push(check('product evidence manifest writes expected JSONL', productEvidenceManifest.manifestJsonlPath === productEvidenceManifestJsonlPath && productEvidenceManifest.manifestJsonlSha256.length === 64, productEvidenceManifest.manifestJsonlPath))
   checks.push(check('product evidence manifest has required format', productEvidenceManifest.manifestFormat === 'openclaude_product_evidence_manifest_v1', productEvidenceManifest.manifestFormat))
-  checks.push(check('product evidence manifest covers required evidence', productEvidenceManifest.missingRequiredEvidencePaths.length === 0 && ['.github/CODEOWNERS', '.github/workflows/dependency-review.yml', 'bun.lock', previousBaselinePath, baselinePath, ossBaselineRefreshJsonPath, ossBaselineRefreshMdPath, ossBaselineRefreshProvenanceJsonlPath, ossBaselineFreshnessJsonPath, ossBaselineFreshnessMdPath, ossBaselineProvenanceJsonlPath, ossSourceReviewJsonPath, ossSourceReviewMdPath, ossSourceReviewProvenanceJsonlPath, ossArchitectureTargetsJsonPath, ossArchitectureTargetsMdPath, ossArchitectureTargetsProvenanceJsonlPath, ossArchitectureGapReviewJsonPath, ossArchitectureGapReviewMdPath, ossArchitectureGapReviewProvenanceJsonlPath, ossAxisArchitectureReviewJsonPath, ossAxisArchitectureReviewMdPath, ossAxisArchitectureReviewProvenanceJsonlPath, ossSafeBacklogPlanJsonPath, ossSafeBacklogPlanMdPath, ossSafeBacklogPlanProvenanceJsonlPath, ossSafeBacklogClosureJsonPath, ossSafeBacklogClosureMdPath, ossSafeBacklogClosureJsonlPath, ossBaselineDriftClosureJsonPath, ossBaselineDriftClosureMdPath, ossBaselineDriftClosureJsonlPath, ossBenchmarkComparisonMatrixJsonPath, ossBenchmarkComparisonMatrixMdPath, ossBenchmarkComparisonMatrixJsonlPath, ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath, ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath, ossEvalQualityGateChecklistJsonPath, ossEvalQualityGateChecklistMdPath, ossEvalQualityGateChecklistProvenanceJsonlPath, ossTerminalWorkflowEvidenceJsonPath, ossTerminalWorkflowEvidenceMdPath, ossTerminalWorkflowEvidenceProvenanceJsonlPath, ossOnboardingDocsEvidenceJsonPath, ossOnboardingDocsEvidenceMdPath, ossOnboardingDocsEvidenceProvenanceJsonlPath, ossRuntimeDoctoringEvidenceJsonPath, ossRuntimeDoctoringEvidenceMdPath, ossRuntimeDoctoringEvidenceProvenanceJsonlPath, ossSecurityPermissionsEvidenceJsonPath, ossSecurityPermissionsEvidenceMdPath, ossSecurityPermissionsEvidenceProvenanceJsonlPath, ossToolLoopReliabilityEvidenceJsonPath, ossToolLoopReliabilityEvidenceMdPath, ossToolLoopReliabilityEvidenceProvenanceJsonlPath, ossProviderBreadthEvidenceJsonPath, ossProviderBreadthEvidenceMdPath, ossProviderBreadthEvidenceProvenanceJsonlPath, ossReleaseHygieneEvidenceJsonPath, ossReleaseHygieneEvidenceMdPath, ossReleaseHygieneEvidenceProvenanceJsonlPath, providerCapabilityMatrixJsonPath, providerCapabilityMatrixMdPath, providerCapabilityMatrixJsonlPath, terminalFailureRecoveryTranscriptsJsonPath, terminalFailureRecoveryTranscriptsMdPath, toolInterruptionRecoveryTraceJsonPath, toolInterruptionRecoveryTraceMdPath, toolInterruptionRecoveryTracePath, protectedActionDenialTraceJsonPath, protectedActionDenialTraceMdPath, protectedActionDenialTracePath, gatePath, terminalPath, verificationPath, agentInstructionsQualityJsonPath, primarySourceRegistryJsonPath, primarySourceRegistryMdPath, primarySourceRegistryJsonlPath, communityIntakeQualityJsonPath, communityProfileQualityJsonPath, maintainerOwnershipQualityJsonPath, dependencyGovernanceQualityJsonPath, lockfileSbomQualityJsonPath, lockfileSbomInventoryJsonlPath, thirdPartyLicenseQualityJsonPath, thirdPartyLicenseInventoryJsonlPath, sourceLicenseMetadataQualityJsonPath, sourceLicenseMetadataInventoryJsonlPath, licenseBoundaryAuthorizationJsonPath, licenseBoundaryAuthorizationRequestPath, licenseBoundaryAuthorizationItemsJsonlPath, qualityBlockerTaxonomyJsonPath, publicClaimBoundaryJsonPath, publicClaimBoundaryMdPath, publicClaimBoundaryJsonlPath, githubRemoteSurfaceAuditJsonPath, githubRemoteSurfaceAuditMdPath, githubRemoteSurfaceAuditJsonlPath, protectedActionAuthorizationPacketJsonPath, protectedActionAuthorizationPacketMdPath, protectedActionAuthorizationPacketJsonlPath, tracePortabilityExportJsonPath, benchmarkReadinessJsonPath, vscodeStartupDiagnosticsJsonPath, localBenchmarkHarnessJsonPath, benchmarkEfficiencyMetricsJsonPath, benchmarkSubmissionReadinessJsonPath, benchmarkPolicyComplianceJsonPath, terminalBenchReadinessJsonPath, openSsfSecurityPostureJsonPath, portableTraceEventsPath, benchmarkTaskManifestPath, localBenchmarkResultsPath, benchmarkEfficiencyMetricsJsonlPath, benchmarkSubmissionAssetsJsonlPath, benchmarkPolicyComplianceJsonlPath, terminalBenchTaskMapJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), productEvidenceManifest.missingRequiredEvidencePaths.join(',') || 'all present'))
+  checks.push(check('product evidence manifest covers required evidence', productEvidenceManifest.missingRequiredEvidencePaths.length === 0 && ['.github/CODEOWNERS', '.github/workflows/dependency-review.yml', 'bun.lock', previousBaselinePath, baselinePath, ossBaselineRefreshJsonPath, ossBaselineRefreshMdPath, ossBaselineRefreshProvenanceJsonlPath, ossBaselineFreshnessJsonPath, ossBaselineFreshnessMdPath, ossBaselineProvenanceJsonlPath, ossSourceReviewJsonPath, ossSourceReviewMdPath, ossSourceReviewProvenanceJsonlPath, ossArchitectureTargetsJsonPath, ossArchitectureTargetsMdPath, ossArchitectureTargetsProvenanceJsonlPath, ossArchitectureGapReviewJsonPath, ossArchitectureGapReviewMdPath, ossArchitectureGapReviewProvenanceJsonlPath, ossAxisArchitectureReviewJsonPath, ossAxisArchitectureReviewMdPath, ossAxisArchitectureReviewProvenanceJsonlPath, ossSafeBacklogPlanJsonPath, ossSafeBacklogPlanMdPath, ossSafeBacklogPlanProvenanceJsonlPath, ossSafeBacklogClosureJsonPath, ossSafeBacklogClosureMdPath, ossSafeBacklogClosureJsonlPath, ossBaselineDriftClosureJsonPath, ossBaselineDriftClosureMdPath, ossBaselineDriftClosureJsonlPath, ossBenchmarkComparisonMatrixJsonPath, ossBenchmarkComparisonMatrixMdPath, ossBenchmarkComparisonMatrixJsonlPath, ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath, ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath, ossEvalQualityGateChecklistJsonPath, ossEvalQualityGateChecklistMdPath, ossEvalQualityGateChecklistProvenanceJsonlPath, ossTerminalWorkflowEvidenceJsonPath, ossTerminalWorkflowEvidenceMdPath, ossTerminalWorkflowEvidenceProvenanceJsonlPath, ossOnboardingDocsEvidenceJsonPath, ossOnboardingDocsEvidenceMdPath, ossOnboardingDocsEvidenceProvenanceJsonlPath, ossRuntimeDoctoringEvidenceJsonPath, ossRuntimeDoctoringEvidenceMdPath, ossRuntimeDoctoringEvidenceProvenanceJsonlPath, ossSecurityPermissionsEvidenceJsonPath, ossSecurityPermissionsEvidenceMdPath, ossSecurityPermissionsEvidenceProvenanceJsonlPath, ossToolLoopReliabilityEvidenceJsonPath, ossToolLoopReliabilityEvidenceMdPath, ossToolLoopReliabilityEvidenceProvenanceJsonlPath, ossProviderBreadthEvidenceJsonPath, ossProviderBreadthEvidenceMdPath, ossProviderBreadthEvidenceProvenanceJsonlPath, ossReleaseHygieneEvidenceJsonPath, ossReleaseHygieneEvidenceMdPath, ossReleaseHygieneEvidenceProvenanceJsonlPath, providerCapabilityMatrixJsonPath, providerCapabilityMatrixMdPath, providerCapabilityMatrixJsonlPath, terminalFailureRecoveryTranscriptsJsonPath, terminalFailureRecoveryTranscriptsMdPath, toolInterruptionRecoveryTraceJsonPath, toolInterruptionRecoveryTraceMdPath, toolInterruptionRecoveryTracePath, protectedActionDenialTraceJsonPath, protectedActionDenialTraceMdPath, protectedActionDenialTracePath, gatePath, terminalPath, verificationPath, agentInstructionsQualityJsonPath, primarySourceRegistryJsonPath, primarySourceRegistryMdPath, primarySourceRegistryJsonlPath, communityIntakeQualityJsonPath, communityProfileQualityJsonPath, maintainerOwnershipQualityJsonPath, dependencyGovernanceQualityJsonPath, lockfileSbomQualityJsonPath, lockfileSbomInventoryJsonlPath, thirdPartyLicenseQualityJsonPath, thirdPartyLicenseInventoryJsonlPath, sourceLicenseMetadataQualityJsonPath, sourceLicenseMetadataInventoryJsonlPath, licenseBoundaryAuthorizationJsonPath, licenseBoundaryAuthorizationRequestPath, licenseBoundaryAuthorizationItemsJsonlPath, qualityBlockerTaxonomyJsonPath, publicClaimBoundaryJsonPath, publicClaimBoundaryMdPath, publicClaimBoundaryJsonlPath, githubRemoteSurfaceAuditJsonPath, githubRemoteSurfaceAuditMdPath, githubRemoteSurfaceAuditJsonlPath, originLicenseProvenanceBoundaryJsonPath, originLicenseProvenanceBoundaryMdPath, originLicenseProvenanceBoundaryJsonlPath, protectedActionAuthorizationPacketJsonPath, protectedActionAuthorizationPacketMdPath, protectedActionAuthorizationPacketJsonlPath, tracePortabilityExportJsonPath, benchmarkReadinessJsonPath, vscodeStartupDiagnosticsJsonPath, localBenchmarkHarnessJsonPath, benchmarkEfficiencyMetricsJsonPath, benchmarkSubmissionReadinessJsonPath, benchmarkPolicyComplianceJsonPath, terminalBenchReadinessJsonPath, openSsfSecurityPostureJsonPath, portableTraceEventsPath, benchmarkTaskManifestPath, localBenchmarkResultsPath, benchmarkEfficiencyMetricsJsonlPath, benchmarkSubmissionAssetsJsonlPath, benchmarkPolicyComplianceJsonlPath, terminalBenchTaskMapJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), productEvidenceManifest.missingRequiredEvidencePaths.join(',') || 'all present'))
   checks.push(check('product evidence manifest covers OSS comparison readiness index evidence', [ossComparisonReadinessIndexJsonPath, ossComparisonReadinessIndexMdPath, ossComparisonReadinessIndexJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'readiness index JSON/MD/JSONL present'))
   checks.push(check('product evidence manifest covers OSS IDE/editor surface evidence', [ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'IDE/editor JSON/MD/JSONL present'))
   checks.push(check('product evidence manifest covers OSS privacy no-phone-home evidence', [ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'privacy JSON/MD/JSONL present'))
