@@ -107,6 +107,13 @@ quality docs; the durable signals are:
 - CodeQL being present in CI is a positive signal, but source-controlled
   configuration is not the same as inspected hosted execution evidence.
 
-Current response in this slice: extract one tiny shared helper surface from the
-community/public quality scripts, re-run the affected scripts, and refresh the
-duplication audit report so the feedback turns into measured code movement.
+Current response in this slice:
+
+- extract tiny shared helper surfaces from community/public and origin/license
+  quality scripts;
+- wire `bun run product:script-duplication-audit` into `product:quality`;
+- add duplicate-helper baseline caps so future clone growth fails locally;
+- make public setup docs avoid stale OpenAI model pins such as old hardcoded
+  example model names;
+- keep the proof boundary explicit: this is public hygiene and regression
+  prevention, not production readiness or external validation.

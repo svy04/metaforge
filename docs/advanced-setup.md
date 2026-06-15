@@ -40,13 +40,14 @@ bun run dev
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=<openai-api-key>
-export OPENAI_MODEL=gpt-4o
+export OPENAI_MODEL=<current-openai-tool-model>
 ```
 
 ### Codex via ChatGPT auth
 
-`codexplan` maps to GPT-5.4 on the Codex backend with high reasoning.
-`codexspark` maps to GPT-5.3 Codex Spark for faster loops.
+`codexplan` and `codexspark` are Codex backend profiles handled by the runtime.
+Check current Codex provider docs before turning either profile into a public
+model-specific claim.
 
 If you use the in-app provider wizard, choose `Codex OAuth` to open ChatGPT sign-in in your browser and let OpenClaude store Codex credentials securely.
 
@@ -160,7 +161,7 @@ export MISTRAL_MODEL=mistral-large-latest
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=your-azure-key
 export OPENAI_BASE_URL=https://your-resource.openai.azure.com/openai/deployments/your-deployment/v1
-export OPENAI_MODEL=gpt-4o
+export OPENAI_MODEL=your-azure-deployment-name
 ```
 
 ## Environment Variables
@@ -169,7 +170,7 @@ export OPENAI_MODEL=gpt-4o
 |----------|----------|-------------|
 | `CLAUDE_CODE_USE_OPENAI` | Yes | Set to `1` to enable the OpenAI provider |
 | `OPENAI_API_KEY` | Yes* | Your API key (`*` not needed for local models like Ollama or Atomic Chat) |
-| `OPENAI_MODEL` | Yes | Model name such as `gpt-4o`, `deepseek-chat`, or `llama3.3:70b` |
+| `OPENAI_MODEL` | Yes | Model or deployment name such as `<current-openai-tool-model>`, `deepseek-chat`, or `llama3.3:70b` |
 | `OPENAI_BASE_URL` | No | API endpoint, defaulting to `https://api.openai.com/v1` |
 | `CODEX_API_KEY` | Codex only | Codex or ChatGPT access token override |
 | `CODEX_AUTH_JSON_PATH` | Codex only | Path to a Codex CLI `auth.json` file |

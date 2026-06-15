@@ -56,6 +56,18 @@ function validateKoreanReadmeRoute(basePath: string): string[] {
   return issues
 }
 
+function readPublicSetupDocs(): Record<string, string> {
+  const paths = [
+    'README.md',
+    'README.ko.md',
+    'docs/quick-start-windows.md',
+    'docs/quick-start-mac-linux.md',
+    'docs/advanced-setup.md',
+    'docs/litellm-setup.md',
+  ]
+  return Object.fromEntries(paths.map((path) => [path, readRepoText(path)]))
+}
+
 describe('public repository readiness surfaces', () => {
   test('AGENTS.md is public-facing guidance, not a private memory dump', () => {
     const agents = readRepoText('AGENTS.md')
@@ -122,6 +134,20 @@ describe('public repository readiness surfaces', () => {
     expect(readme).toContain('Meta and MFH are governance, schema, and evidence-gate surfaces')
     expect(readme).toContain('AVF Influence Factory is a repo-local manual artifact lane')
     expect(readme).not.toContain('Meta, MFH, and AVF are runtime-wired modules')
+  })
+
+  test('public setup docs do not pin stale OpenAI model examples', () => {
+    const docs = readPublicSetupDocs()
+
+    for (const [path, text] of Object.entries(docs)) {
+      expect(text, path).not.toMatch(/\bgpt-4o\b/i)
+    }
+
+    expect(docs['README.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/quick-start-windows.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/quick-start-mac-linux.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/advanced-setup.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/litellm-setup.md']).toContain('openai-tool-model')
   })
 
   test('README states origin and license boundaries honestly', () => {

@@ -113,7 +113,7 @@ macOS / Linux:
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=<key>
-export OPENAI_MODEL=gpt-4o
+export OPENAI_MODEL=<current-openai-tool-model>
 
 openclaude
 ```
@@ -123,10 +123,14 @@ Windows PowerShell:
 ```powershell
 $env:CLAUDE_CODE_USE_OPENAI="1"
 $env:OPENAI_API_KEY="<key>"
-$env:OPENAI_MODEL="gpt-4o"
+$env:OPENAI_MODEL="<current-openai-tool-model>"
 
 openclaude
 ```
+
+Replace `<current-openai-tool-model>` with the current OpenAI model you have
+enabled for tool/function calling. Public docs intentionally avoid pinning a
+stale model name.
 
 ### Fastest local Ollama setup
 
@@ -230,17 +234,17 @@ Add to `~/.claude/settings.json`:
       "base_url": "https://api.deepseek.com/v1",
       "api_key": "<deepseek-api-key>"
     },
-    "gpt-4o": {
+    "<current-openai-tool-model>": {
       "base_url": "https://api.openai.com/v1",
       "api_key": "<openai-api-key>"
     }
   },
   "agentRouting": {
     "Explore": "deepseek-chat",
-    "Plan": "gpt-4o",
-    "general-purpose": "gpt-4o",
+    "Plan": "<current-openai-tool-model>",
+    "general-purpose": "<current-openai-tool-model>",
     "frontend-dev": "deepseek-chat",
-    "default": "gpt-4o"
+    "default": "<current-openai-tool-model>"
   }
 }
 ```
@@ -251,7 +255,7 @@ When no routing match is found, the global provider remains the fallback.
 
 ## Web Search and Fetch
 
-By default, `WebSearch` works on non-Anthropic models using DuckDuckGo. This gives GPT-4o, DeepSeek, Gemini, Ollama, and other OpenAI-compatible providers a free web search path out of the box.
+By default, `WebSearch` works on non-Anthropic models using DuckDuckGo. This gives OpenAI-compatible providers such as OpenAI, DeepSeek, Gemini routes, Ollama, and local servers a free web search path out of the box.
 
 > **Note:** DuckDuckGo fallback works by scraping search results and may be rate-limited, blocked, or subject to DuckDuckGo's Terms of Service. If you want a more reliable supported option, configure Firecrawl.
 

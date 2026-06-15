@@ -26,9 +26,9 @@ Create a `litellm_config.yaml` with your desired model aliases:
 
 ```yaml
 model_list:
-  - model_name: gpt-4o
+  - model_name: openai-tool-model
     litellm_params:
-      model: openai/gpt-4o
+      model: openai/<current-openai-tool-model>
       api_key: os.environ/OPENAI_API_KEY
 
   - model_name: claude-sonnet-4
@@ -67,7 +67,7 @@ export OPENAI_MODEL=<your-litellm-model-alias>
 openclaude
 ```
 
-Replace `<your-litellm-model-alias>` with a model name from your `litellm_config.yaml` (e.g., `gpt-4o`, `claude-sonnet-4`, `gemini-2.5-flash`).
+Replace `<your-litellm-model-alias>` with a model name from your `litellm_config.yaml` (for example, `openai-tool-model`, `claude-sonnet-4`, or `gemini-2.5-flash`).
 
 ### Option B: Using /provider
 
@@ -86,9 +86,9 @@ Replace `<your-litellm-model-alias>` with a model name from your `litellm_config
 
 ```yaml
 model_list:
-  - model_name: gpt-4o
+  - model_name: openai-tool-model
     litellm_params:
-      model: openai/gpt-4o
+      model: openai/<current-openai-tool-model>
       api_key: os.environ/OPENAI_API_KEY
 
   - model_name: claude-sonnet-4
@@ -116,7 +116,7 @@ litellm --config litellm_config.yaml --port 4000 --master_key <litellm-master-ke
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_BASE_URL=http://localhost:4000
 export OPENAI_API_KEY=<litellm-master-key>
-export OPENAI_MODEL=gpt-4o
+export OPENAI_MODEL=openai-tool-model
 openclaude
 ```
 
@@ -135,7 +135,7 @@ openclaude
 | Connection Refused | LiteLLM proxy isn't running | Start the proxy with `litellm --config litellm_config.yaml --port 4000` |
 | Auth Failed | Missing or wrong `master_key` | Set the correct key in `OPENAI_API_KEY` |
 | Upstream provider error | The backend provider key is missing or invalid | Ensure the upstream API key (e.g., `OPENAI_API_KEY`) is set in your LiteLLM proxy process environment |
-| Tools fail but chat works | The selected model has weak function/tool calling support | Switch to a model with strong tool support (e.g., GPT-4o, Claude Sonnet) |
+| Tools fail but chat works | The selected model has weak function/tool calling support | Switch to a current model with strong tool support and verify with a small tool-call smoke test |
 
 ## 6. Resources
 
