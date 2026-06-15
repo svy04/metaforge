@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test'
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, rmSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const root = join(__dirname, '..')
@@ -14,6 +15,45 @@ function privateLocalPathNeedles(): string[] {
     `C:${'/'}Users`,
     ['내 순수', ' 재미'].join(''),
   ]
+}
+
+function readTextFrom(basePath: string, relativePath: string): string {
+  return readFileSync(join(basePath, relativePath), 'utf8')
+}
+
+function validateKoreanReadmeRoute(basePath: string): string[] {
+  const issues: string[] = []
+  const readme = readTextFrom(basePath, 'README.md')
+  const koreanLink = readme.match(/\[한국어\]\(([^)]+)\)/)
+
+  if (!koreanLink) {
+    issues.push('README missing Korean README link')
+    return issues
+  }
+
+  if (koreanLink[1] !== 'README.ko.md') {
+    issues.push('README Korean link must be repo-relative README.ko.md')
+    return issues
+  }
+
+  const koreanReadmePath = join(basePath, 'README.ko.md')
+  if (!existsSync(koreanReadmePath)) {
+    issues.push('README.ko.md target is missing')
+    return issues
+  }
+
+  const koreanReadme = readTextFrom(basePath, 'README.ko.md')
+  if (!koreanReadme.includes('Meta/MFH/Orchestra')) {
+    issues.push('README.ko.md missing Meta/MFH/Orchestra framing')
+  }
+  if (!koreanReadme.includes('OpenClaude')) {
+    issues.push('README.ko.md missing OpenClaude substrate wording')
+  }
+  if (!koreanReadme.includes('검증')) {
+    issues.push('README.ko.md missing Korean verification wording')
+  }
+
+  return issues
 }
 
 describe('public repository readiness surfaces', () => {
@@ -32,16 +72,24 @@ describe('public repository readiness surfaces', () => {
   })
 
   test('README routes Korean readers to a maintained Korean README', () => {
-    const readme = readRepoText('README.md')
-    const koreanReadmePath = join(root, 'README.ko.md')
+    expect(validateKoreanReadmeRoute(root)).toEqual([])
+  })
 
-    expect(readme).toMatch(/\[한국어\]\(README\.ko\.md\)/)
-    expect(existsSync(koreanReadmePath)).toBe(true)
+  test('Korean README route contract rejects broken public navigation fixtures', () => {
+    const fixtureRoot = mkdtempSync(join(tmpdir(), 'metaforge-readme-route-'))
+    try {
+      writeFileSync(join(fixtureRoot, 'README.md'), '[한국어](README.ko.md)\n')
+      expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README.ko.md target is missing')
 
-    const koreanReadme = readRepoText('README.ko.md')
-    expect(koreanReadme).toContain('Meta/MFH/Orchestra')
-    expect(koreanReadme).toContain('OpenClaude')
-    expect(koreanReadme).toContain('검증')
+      writeFileSync(join(fixtureRoot, 'README.ko.md'), 'OpenClaude only\n')
+      expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README.ko.md missing Meta/MFH/Orchestra framing')
+      expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README.ko.md missing Korean verification wording')
+
+      writeFileSync(join(fixtureRoot, 'README.md'), '[한국어](C:/Users/example/README.ko.md)\n')
+      expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README Korean link must be repo-relative README.ko.md')
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true })
+    }
   })
 
   test('advanced setup uses the current public repository source URL', () => {
