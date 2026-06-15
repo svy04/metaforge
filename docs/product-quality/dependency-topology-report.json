@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:22:06.281Z",
+  "generatedAt": "2026-06-15T22:49:09.230Z",
   "mode": "local_no_provider_dependency_topology_gate",
   "scannerTargetRoots": [
     "src",
@@ -71,6 +71,36 @@
         "      \"dependents\": [],"
       ],
       "stderrPreview": []
+    },
+    {
+      "name": "dependency_cruiser_known_violation_ratchet",
+      "command": [
+        "depcruise",
+        "--config",
+        ".dependency-cruiser.mjs",
+        "--ignore-known",
+        ".dependency-cruiser-known-violations.json",
+        "--output-type",
+        "err",
+        "--include-only",
+        "^src|^scripts",
+        "--exclude",
+        "(^node_modules|\\.test\\.ts$|^scripts/_fixtures)",
+        "src",
+        "scripts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "requiredSubstrings": [
+        "no dependency violations found",
+        "known violations ignored"
+      ],
+      "missingSubstrings": [],
+      "stdoutPreview": [
+        "✔ no dependency violations found (2622 modules, 11955 dependencies cruised)",
+        "‼ 2105 known violations ignored. Run with --no-ignore-known to see them."
+      ],
+      "stderrPreview": []
     }
   ],
   "moduleCount": 2622,
@@ -79,6 +109,16 @@
   "circularDependencyBaseline": 1737,
   "unresolvedDependencyCount": 863,
   "unresolvedDependencyBaseline": 863,
+  "configuredRatchetMode": "dependency_cruiser_known_violation_ratchet",
+  "dependencyCruiserConfigPath": ".dependency-cruiser.mjs",
+  "knownViolationBaselinePath": ".dependency-cruiser-known-violations.json",
+  "configuredRatchetKnownViolationCount": 2105,
+  "configuredRatchetKnownViolationRuleCounts": {
+    "no-circular": 1242,
+    "not-to-unresolvable": 863
+  },
+  "configuredRatchetNewViolationCount": 0,
+  "configuredRatchetClaimAllowed": false,
   "sampleCircularEdges": [
     {
       "source": "src/utils/slowOperations.ts",
@@ -248,8 +288,8 @@
       "sourceType": "oss_tool",
       "sourceProject": "dependency-cruiser",
       "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
-      "observedPattern": "dependency-cruiser extracts dependency graphs and can report cycles/rules as an explicit architecture topology surface.",
-      "localAbsorption": "Metaforge records current src/scripts dependency graph counts first and uses them as a ratchet baseline before claiming topology cleanup."
+      "observedPattern": "dependency-cruiser extracts dependency graphs, validates configured rules, and supports known-violation baselines through the baseline reporter plus --ignore-known.",
+      "localAbsorption": "Metaforge records current src/scripts graph counts and runs a configured known-violation ratchet so new topology violations fail without claiming cleanup of the existing knots."
     },
     {
       "sourceType": "patent",
@@ -279,6 +319,11 @@
       "detail": "0"
     },
     {
+      "label": "configured dependency-cruiser ratchet command passes",
+      "ok": true,
+      "detail": "0"
+    },
+    {
       "label": "modules are discovered",
       "ok": true,
       "detail": "2622 modules"
@@ -297,6 +342,16 @@
       "label": "unresolved dependencies do not exceed baseline",
       "ok": true,
       "detail": "863/863"
+    },
+    {
+      "label": "known dependency-cruiser violations are baselined",
+      "ok": true,
+      "detail": "2105 known violations"
+    },
+    {
+      "label": "configured dependency-cruiser ratchet has no new violations",
+      "ok": true,
+      "detail": "0 new violations"
     },
     {
       "label": "primary sources include official tool and patent sources",
@@ -319,5 +374,5 @@
       "detail": "all false"
     }
   ],
-  "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline only. It does not prove clean architecture, public readiness, or refactor completion."
+  "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
 }
