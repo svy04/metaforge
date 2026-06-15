@@ -22,6 +22,7 @@ const targetRoots = [
   'ANDROID_INSTALL.md',
   'AGENTS.md',
   'PLAYBOOK.md',
+  'LICENSE',
   'vscode-extension/openclaude-vscode/README.md',
   '.env.example',
   'package.json',

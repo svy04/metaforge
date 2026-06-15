@@ -90,7 +90,7 @@ OpenRouter model availability changes over time. If a model stops working, try a
 Using `ollama launch` (recommended if you have Ollama installed):
 
 ```bash
-ollama launch openclaude --model llama3.3:70b
+ollama launch openclaude --model <local-ollama-model>
 ```
 
 This handles all environment setup automatically — no env vars needed. Works with any local or cloud model available in your Ollama instance.
@@ -98,11 +98,11 @@ This handles all environment setup automatically — no env vars needed. Works w
 Using environment variables manually:
 
 ```bash
-ollama pull llama3.3:70b
+ollama pull <local-ollama-model>
 
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_BASE_URL=http://localhost:11434/v1
-export OPENAI_MODEL=llama3.3:70b
+export OPENAI_MODEL=<local-ollama-model>
 ```
 
 ### Atomic Chat (local, Apple Silicon)
@@ -172,7 +172,7 @@ export OPENAI_MODEL=<azure-openai-deployment>
 |----------|----------|-------------|
 | `CLAUDE_CODE_USE_OPENAI` | Yes | Set to `1` to enable the OpenAI provider |
 | `OPENAI_API_KEY` | Yes* | Your API key (`*` not needed for local models like Ollama or Atomic Chat) |
-| `OPENAI_MODEL` | Yes | Model or deployment name such as `<current-openai-tool-model>`, `deepseek-chat`, or `llama3.3:70b` |
+| `OPENAI_MODEL` | Yes | Model, alias, or deployment name such as `<current-openai-tool-model>`, `<local-ollama-model>`, or `deepseek-chat` |
 | `OPENAI_BASE_URL` | No | API endpoint, defaulting to `https://api.openai.com/v1` |
 | `CODEX_API_KEY` | Codex only | Codex or ChatGPT access token override |
 | `CODEX_AUTH_JSON_PATH` | Codex only | Path to a Codex CLI `auth.json` file |
