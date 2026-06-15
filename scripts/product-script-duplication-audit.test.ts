@@ -64,6 +64,15 @@ function readText(path: string): string {
       helperOccurrenceBaselines: Record<string, number>
       duplicateHelperClusterCount: number
       duplicateHelperClusterBaseline: number
+      primarySourceInputs: Array<{
+        sourceType: string
+        sourceProject: string
+        sourceUrl: string
+      }>
+      auditChecks: Array<{
+        label: string
+        ok: boolean
+      }>
       duplicateHelperClusters: Array<{
         helperName: string
         occurrenceCount: number
@@ -75,6 +84,24 @@ function readText(path: string): string {
     expect(report.helperOccurrenceCounts.readText).toBe(2)
     expect(report.helperOccurrenceBaselines.check).toBeGreaterThanOrEqual(report.helperOccurrenceCounts.check)
     expect(report.duplicateHelperClusterBaseline).toBeGreaterThanOrEqual(report.duplicateHelperClusterCount)
+    expect(report.primarySourceInputs.map((source) => source.sourceType)).toEqual(
+      expect.arrayContaining(['oss_tool', 'research_survey', 'patent']),
+    )
+    expect(report.primarySourceInputs.map((source) => source.sourceProject)).toEqual(
+      expect.arrayContaining([
+        'jscpd',
+        'Knip',
+        'dependency-cruiser',
+        'Roy and Cordy clone detection survey',
+        'US11662998B2 duplicate code pattern patent',
+        'US7904892B2 dependency graph cycle patent',
+      ]),
+    )
+    expect(
+      report.auditChecks.some(
+        (item) => item.label === 'primary sources include OSS, research, and patent inputs' && item.ok,
+      ),
+    ).toBe(true)
 
     const checkCluster = report.duplicateHelperClusters.find((cluster) => cluster.helperName === 'check')
     expect(checkCluster?.occurrenceCount).toBe(2)
@@ -82,5 +109,5 @@ function readText(path: string): string {
       'scripts/product-alpha.ts',
       'scripts/product-beta.ts',
     ])
-  })
+  }, 30000)
 })
