@@ -1,5 +1,14 @@
 # Influence Factory Local Iteration Execution v18 Validation Report
 
+## Current Public Checkout Boundary
+
+This report records a historical repo-local validation run. In the current
+public checkout, `avf/influence_factory/operator_package_v14` and other
+`operator_package_v*` directories are ignored generated outputs, not tracked
+source artifacts. Regenerate them only in a private local workspace when owner
+review evidence is needed; see
+`avf/influence_factory/operator_runs.md`.
+
 RESULT: PASS
 
 terminal_condition: LOCAL_ITERATION_EXECUTION_V18_READY
