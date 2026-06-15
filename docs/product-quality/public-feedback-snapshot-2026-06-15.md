@@ -70,3 +70,26 @@ gaps are resolved.
 
 Boundary: this snapshot is not production readiness, release readiness,
 external validation, hosted workflow proof, or autonomous reliability evidence.
+
+## Late Follow-Up Signals
+
+An additional owner-provided community thread on 2026-06-15 reinforced the same
+public-readiness priorities and added two sharper trust signals:
+
+- Early readers check commit/star history and provenance before trying the
+  tool; the public surface should explain the private-to-public transition
+  without implying a fully original CLI implementation.
+- The OpenClaude/Codex/Claude Code comparison should not become the product
+  thesis. Public copy should make clear that OpenClaude is the runtime
+  substrate, while the differentiating work is Meta, MFH, Orchestra, and the
+  drift/improvement loop above the CLI.
+- Claude Code-derived ancestry remains a legal/provenance risk that needs
+  explicit review before stronger promotion. If the substrate risk becomes too
+  high, evaluate a cleaner open CLI substrate rather than over-marketing the
+  fork.
+- Reviewers again flagged AGENTS.md/local-path hygiene, dead-code-like
+  Metaforge or AVF wiring, marker-only audits, duplicate product scripts, and
+  the need to keep Korean docs current.
+- The positive signal remains the workflow shape: generate evidence, verify it,
+  record versions, and keep CodeQL in CI. The next work should turn that shape
+  into behavioral tests and smaller security/refactor patches.
