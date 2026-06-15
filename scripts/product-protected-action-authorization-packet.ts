@@ -21,6 +21,7 @@ type ProtectedActionAuthorization = {
     | 'legal_license'
     | 'provider_validation'
     | 'external_benchmark'
+    | 'hosted_security'
     | 'claim_boundary'
   protectedActionRequired: true
   authorized: false
@@ -91,6 +92,7 @@ const sourceReportPaths = [
   'docs/product-quality/oss-release-hygiene-evidence-report.json',
   'docs/product-quality/verification-report-consistency-report.json',
   'docs/product-quality/public-claim-boundary-report.json',
+  'docs/product-quality/github-hosted-trust-posture-report.json',
 ]
 
 function sha256(input: string | Buffer): string {
@@ -131,6 +133,26 @@ function hasEmptyCallArrays(report: Record<string, unknown>): boolean {
       (Array.isArray(protectedActions) && protectedActions.length === 0) ||
       (Array.isArray(protectedActionsPerformed) && protectedActionsPerformed.length === 0)
     )
+}
+
+function hasNoProviderLiveOrProtectedActions(report: Record<string, unknown>): boolean {
+  const providerCalls = report.providerCallsPerformed
+  const liveCalls = report.liveModelCallsPerformed
+  const protectedActions = report.protectedActionsExecuted
+  const protectedActionsPerformed = report.protectedActionsPerformed
+  return Array.isArray(providerCalls) && providerCalls.length === 0 &&
+    Array.isArray(liveCalls) && liveCalls.length === 0 &&
+    (
+      (Array.isArray(protectedActions) && protectedActions.length === 0) ||
+      (Array.isArray(protectedActionsPerformed) && protectedActionsPerformed.length === 0)
+    )
+}
+
+function hasNoHostedSettingsMutation(report: Record<string, unknown>): boolean {
+  const settingsMutations = report.settingsMutationsPerformed
+  const protectedActions = report.protectedActionsExecuted
+  return Array.isArray(settingsMutations) && settingsMutations.length === 0 &&
+    Array.isArray(protectedActions) && protectedActions.length === 0
 }
 
 function bool(report: Record<string, unknown>, key: string): boolean | undefined {
@@ -268,6 +290,22 @@ function authorizationItems(): ProtectedActionAuthorization[] {
       validationMethod: 'Run a separate external benchmark execution/submission gate with dataset provenance, runtime transcript, provider usage record, official assets, and claim review.',
     },
     {
+      id: 'authorize_hosted_github_security_controls',
+      category: 'hosted_security',
+      protectedActionRequired: true,
+      authorized: false,
+      executed: false,
+      sourceReports: ['docs/product-quality/github-hosted-trust-posture-report.json'],
+      currentEvidence: 'Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, and main workflow status as read-only evidence.',
+      requiredOwnerDecision: 'Authorize or deny hosted GitHub security setting changes, including branch protection or rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, and code scanning remediation workflow.',
+      forbiddenShortcuts: [
+        'Do not enable, disable, or mutate GitHub repository settings without explicit owner authorization.',
+        'Do not claim hosted security posture, public readiness, or release readiness while hosted trust risks remain recorded.',
+        'Do not treat local privacy scans as a substitute for hosted secret scanning or push protection.',
+      ],
+      validationMethod: 'After authorization and hosted setting changes, rerun product:github-hosted-trust-posture, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks.',
+    },
+    {
       id: 'authorize_release_public_production_external_or_autonomous_claims',
       category: 'claim_boundary',
       protectedActionRequired: true,
@@ -369,9 +407,10 @@ function main(): void {
   const ossReleaseHygieneEvidence = readJson<Record<string, unknown>>('docs/product-quality/oss-release-hygiene-evidence-report.json')
   const verificationReportConsistency = readJson<Record<string, unknown>>('docs/product-quality/verification-report-consistency-report.json')
   const publicClaimBoundary = readJson<Record<string, unknown>>('docs/product-quality/public-claim-boundary-report.json')
+  const githubHostedTrustPosture = readJson<Record<string, unknown>>('docs/product-quality/github-hosted-trust-posture-report.json')
   const requiredOwnerAuthorizations = authorizationItems()
 
-  const allSourceReportsLocalNoProvider = [
+  const allLocalSourceReportsNoProviderLiveExternalOrProtected = [
     qualityBlockerTaxonomy,
     vscodeUpdateBoundary,
     vscodeStartupDiagnostics,
@@ -390,6 +429,31 @@ function main(): void {
     verificationReportConsistency,
     publicClaimBoundary,
   ].every(hasEmptyCallArrays)
+  const allSourceReportsNoProviderLiveOrProtectedActions = [
+    qualityBlockerTaxonomy,
+    vscodeUpdateBoundary,
+    vscodeStartupDiagnostics,
+    gitReleaseHygiene,
+    externalBenchmarkBoundary,
+    benchmarkSubmissionReadiness,
+    benchmarkPolicyCompliance,
+    terminalBenchReadiness,
+    ossBenchmarkComparisonMatrix,
+    ossComparisonReadinessIndex,
+    ossIdeOrEditorSurfaceEvidence,
+    ossPrivacyNoPhoneHomeEvidence,
+    licenseBoundaryAuthorization,
+    ossProviderBreadthEvidence,
+    ossReleaseHygieneEvidence,
+    verificationReportConsistency,
+    publicClaimBoundary,
+    githubHostedTrustPosture,
+  ].every(hasNoProviderLiveOrProtectedActions)
+  const hostedTrustReadOnlyBoundaryHeld = hasNoHostedSettingsMutation(githubHostedTrustPosture) &&
+    bool(githubHostedTrustPosture, 'publicSecurityPostureClaimAllowed') === false &&
+    bool(githubHostedTrustPosture, 'releaseReadinessClaimAllowed') === false &&
+    bool(githubHostedTrustPosture, 'productionReadinessClaimAllowed') === false &&
+    bool(githubHostedTrustPosture, 'externalValidationClaimAllowed') === false
 
   const claimFlags = [
     'releaseReadinessClaimAllowed',
@@ -485,7 +549,9 @@ function main(): void {
 
   const evidenceChecks = [
     check('all source reports are present and hash-bound', sourceReportBindings.every((source) => source.exists && typeof source.sha256 === 'string' && source.sha256.length === 64 && source.sizeBytes > 0), `${sourceReportBindings.length}/${sourceReportPaths.length}`),
-    check('source reports performed no provider live external or protected calls', allSourceReportsLocalNoProvider, 'all call/action arrays empty'),
+    check('local source reports performed no provider live external or protected calls', allLocalSourceReportsNoProviderLiveExternalOrProtected, 'local no-provider source reports keep call/action arrays empty'),
+    check('all source reports performed no provider live or protected actions', allSourceReportsNoProviderLiveOrProtectedActions, 'hosted GitHub report may record read-only discovery only'),
+    check('hosted GitHub trust posture remains read-only and claim-blocked', hostedTrustReadOnlyBoundaryHeld, String(githubHostedTrustPosture.status)),
     check('VS Code CLI/PATH/install-state boundary remains protected', vscodeBoundaryHeld, `${String(qualityBlockerTaxonomy.currentProductQualityGateStatus)}/${String(vscodeUpdateBoundary.boundaryStatus)}/${String(vscodeStartupDiagnostics.diagnosisStatus)}`),
     check('IDE/editor surface availability boundary remains protected', ideSurfaceBoundaryHeld, `${String(ossIdeOrEditorSurfaceEvidence.hostSmokeRealHostBlockedByVscodeCli)}/${String(ossIdeOrEditorSurfaceEvidence.workbenchSmokePass)}/${String(ossIdeOrEditorSurfaceEvidence.extensionAvailabilityClaimAllowed)}`),
     check('Git repository commit/push boundary remains protected', gitBoundaryHeld, String(gitReleaseHygiene.workspaceGitStatus)),
