@@ -1,6 +1,6 @@
 # Product Quality Gate
 
-This gate is the first durable productization control for the goal: make OpenClaude a verifiable high-quality product against the leading related GitHub projects.
+This gate is the durable Metaforge product-quality control for the public Meta/MFH/Orchestra OS surface and its OpenClaude CLI/runtime substrate. It compares evidence shape against leading related GitHub projects without turning local checks into production, release, superiority, or external-validation claims.
 
 ## Gate Command
 
