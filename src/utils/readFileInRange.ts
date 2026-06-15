@@ -38,7 +38,7 @@
 // ---------------------------------------------------------------------------
 
 import { createReadStream, fstat } from 'fs'
-import { stat as fsStat, readFile } from 'fs/promises'
+import { open as fsOpen } from 'fs/promises'
 import { formatFileSize } from './format.js'
 
 const FAST_PATH_MAX_SIZE = 10 * 1024 * 1024 // 10 MB
@@ -81,34 +81,39 @@ export async function readFileInRange(
   signal?.throwIfAborted()
   const truncateOnByteLimit = options?.truncateOnByteLimit ?? false
 
-  // stat to decide the code path and guard against OOM.
-  // For regular files under 10 MB: readFile + in-memory split (fast).
-  // Everything else (large files, FIFOs, devices): streaming.
-  const stats = await fsStat(filePath)
+  const fileHandle = await fsOpen(filePath, 'r')
+  try {
+    // fstat the opened file to decide the code path and guard against OOM.
+    // For regular files under 10 MB: FileHandle.readFile + in-memory split.
+    // Everything else (large files, FIFOs, devices): streaming.
+    const stats = await fileHandle.stat()
 
-  if (stats.isDirectory()) {
-    throw new Error(
-      `EISDIR: illegal operation on a directory, read '${filePath}'`,
-    )
-  }
-
-  if (stats.isFile() && stats.size < FAST_PATH_MAX_SIZE) {
-    if (
-      !truncateOnByteLimit &&
-      maxBytes !== undefined &&
-      stats.size > maxBytes
-    ) {
-      throw new FileTooLargeError(stats.size, maxBytes)
+    if (stats.isDirectory()) {
+      throw new Error(
+        `EISDIR: illegal operation on a directory, read '${filePath}'`,
+      )
     }
 
-    const text = await readFile(filePath, { encoding: 'utf8', signal })
-    return readFileInRangeFast(
-      text,
-      stats.mtimeMs,
-      offset,
-      maxLines,
-      truncateOnByteLimit ? maxBytes : undefined,
-    )
+    if (stats.isFile() && stats.size < FAST_PATH_MAX_SIZE) {
+      if (
+        !truncateOnByteLimit &&
+        maxBytes !== undefined &&
+        stats.size > maxBytes
+      ) {
+        throw new FileTooLargeError(stats.size, maxBytes)
+      }
+
+      const text = await fileHandle.readFile({ encoding: 'utf8', signal })
+      return readFileInRangeFast(
+        text,
+        stats.mtimeMs,
+        offset,
+        maxLines,
+        truncateOnByteLimit ? maxBytes : undefined,
+      )
+    }
+  } finally {
+    await fileHandle.close()
   }
 
   return readFileInRangeStreaming(
