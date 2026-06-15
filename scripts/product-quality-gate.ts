@@ -1440,6 +1440,41 @@ type DependencyTopologyReport = {
   }>
 }
 
+type DeadExportCandidatesReport = {
+  mode: string
+  knipVersion: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  protectedActionsExecuted: unknown[]
+  candidateFileCount: number
+  candidateUnusedExportCount: number
+  candidateUnusedTypeCount: number
+  candidateDuplicateExportCount: number
+  candidateFileBaseline: number
+  candidateUnusedExportBaseline: number
+  candidateUnusedTypeBaseline: number
+  candidateDuplicateExportBaseline: number
+  deletionClaimAllowed: boolean
+  cleanupCompletionClaimAllowed: boolean
+  publicReadinessClaimAllowed: boolean
+  knipCommands: Array<{
+    name: string
+    command: string[]
+    exitCode: number | null
+    passed: boolean
+    missingSubstrings: string[]
+  }>
+  primarySourceInputs: Array<{
+    sourceProject: string
+    sourceUrl: string
+  }>
+  deadExportChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
 type RuntimeDoctorRegressionReport = {
   mode: string
   providerCallsPerformed: unknown[]
@@ -3334,6 +3369,8 @@ function main(): void {
   const communityProfileQualityMdPath = 'docs/product-quality/community-profile-quality-report.md'
   const dependencyTopologyJsonPath = 'docs/product-quality/dependency-topology-report.json'
   const dependencyTopologyMdPath = 'docs/product-quality/dependency-topology-report.md'
+  const deadExportCandidatesJsonPath = 'docs/product-quality/dead-export-candidates-report.json'
+  const deadExportCandidatesMdPath = 'docs/product-quality/dead-export-candidates-report.md'
   const maintainerOwnershipQualityJsonPath = 'docs/product-quality/maintainer-ownership-quality-report.json'
   const maintainerOwnershipQualityMdPath = 'docs/product-quality/maintainer-ownership-quality-report.md'
   const dependencyGovernanceQualityJsonPath = 'docs/product-quality/dependency-governance-quality-report.json'
@@ -3456,6 +3493,8 @@ function main(): void {
     communityProfileQualityMdPath,
     dependencyTopologyJsonPath,
     dependencyTopologyMdPath,
+    deadExportCandidatesJsonPath,
+    deadExportCandidatesMdPath,
     maintainerOwnershipQualityJsonPath,
     maintainerOwnershipQualityMdPath,
     dependencyGovernanceQualityJsonPath,
@@ -3785,6 +3824,7 @@ function main(): void {
   const communityIntakeQuality = readJson<CommunityIntakeQualityReport>(communityIntakeQualityJsonPath)
   const communityProfileQuality = readJson<CommunityProfileQualityReport>(communityProfileQualityJsonPath)
   const dependencyTopology = readJson<DependencyTopologyReport>(dependencyTopologyJsonPath)
+  const deadExportCandidates = readJson<DeadExportCandidatesReport>(deadExportCandidatesJsonPath)
   const maintainerOwnershipQuality = readJson<MaintainerOwnershipQualityReport>(maintainerOwnershipQualityJsonPath)
   const dependencyGovernanceQuality = readJson<DependencyGovernanceQualityReport>(dependencyGovernanceQualityJsonPath)
   const lockfileSbomQuality = readJson<LockfileSbomQualityReport>(lockfileSbomQualityJsonPath)
@@ -4179,6 +4219,18 @@ function main(): void {
   checks.push(check('dependency topology keeps cleanup and readiness claims blocked', dependencyTopology.topologyCleanClaimAllowed === false && dependencyTopology.refactorCompletionClaimAllowed === false && dependencyTopology.publicReadinessClaimAllowed === false))
   checks.push(check('dependency topology commands pass', dependencyTopology.topologyCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
   checks.push(check('dependency topology checks pass', dependencyTopology.topologyChecks.every((item) => item.ok)))
+  checks.push(check('dead export candidate gate is local no-provider evidence', deadExportCandidates.mode === 'local_no_provider_dead_export_candidate_gate'))
+  checks.push(check('dead export candidate gate performed no provider live external or protected calls', deadExportCandidates.providerCallsPerformed.length === 0 && deadExportCandidates.liveModelCallsPerformed.length === 0 && deadExportCandidates.externalCallsPerformed.length === 0 && deadExportCandidates.protectedActionsExecuted.length === 0))
+  checks.push(check('dead export candidate gate records Knip config command evidence', deadExportCandidates.knipVersion.length > 0 && deadExportCandidates.knipCommands.some((item) => item.name === 'knip_exports_json' && item.command.includes('knip') && item.command.includes('--config') && item.command.includes('knip.jsonc') && item.command.includes('--exports') && item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0), deadExportCandidates.knipVersion))
+  checks.push(check('dead export candidate gate discovers candidates', deadExportCandidates.candidateFileCount > 0 && deadExportCandidates.candidateUnusedExportCount > 0, `${deadExportCandidates.candidateFileCount}/${deadExportCandidates.candidateUnusedExportCount}`))
+  checks.push(check('dead export candidate files do not exceed baseline', deadExportCandidates.candidateFileCount <= deadExportCandidates.candidateFileBaseline, `${deadExportCandidates.candidateFileCount}/${deadExportCandidates.candidateFileBaseline}`))
+  checks.push(check('dead export unused exports do not exceed baseline', deadExportCandidates.candidateUnusedExportCount <= deadExportCandidates.candidateUnusedExportBaseline, `${deadExportCandidates.candidateUnusedExportCount}/${deadExportCandidates.candidateUnusedExportBaseline}`))
+  checks.push(check('dead export unused types do not exceed baseline', deadExportCandidates.candidateUnusedTypeCount <= deadExportCandidates.candidateUnusedTypeBaseline, `${deadExportCandidates.candidateUnusedTypeCount}/${deadExportCandidates.candidateUnusedTypeBaseline}`))
+  checks.push(check('dead export duplicate exports do not exceed baseline', deadExportCandidates.candidateDuplicateExportCount <= deadExportCandidates.candidateDuplicateExportBaseline, `${deadExportCandidates.candidateDuplicateExportCount}/${deadExportCandidates.candidateDuplicateExportBaseline}`))
+  checks.push(check('dead export candidate gate records official primary sources', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => deadExportCandidates.primarySourceInputs.some((item) => item.sourceProject === source)) && deadExportCandidates.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://knip.dev/')), deadExportCandidates.primarySourceInputs.map((item) => item.sourceProject).join(',')))
+  checks.push(check('dead export candidate gate keeps deletion cleanup and readiness claims blocked', deadExportCandidates.deletionClaimAllowed === false && deadExportCandidates.cleanupCompletionClaimAllowed === false && deadExportCandidates.publicReadinessClaimAllowed === false))
+  checks.push(check('dead export candidate commands pass', deadExportCandidates.knipCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
+  checks.push(check('dead export candidate checks pass', deadExportCandidates.deadExportChecks.every((item) => item.ok)))
   checks.push(check('maintainer ownership quality is local no-provider check', maintainerOwnershipQuality.mode === 'local_no_provider_maintainer_ownership_quality'))
   checks.push(check('maintainer ownership quality performed no provider calls', maintainerOwnershipQuality.providerCallsPerformed.length === 0))
   checks.push(check('maintainer ownership quality performed no live model calls', maintainerOwnershipQuality.liveModelCallsPerformed.length === 0))
@@ -4957,6 +5009,8 @@ function main(): void {
   console.log(`community_profile_file_count=${communityProfileQuality.sourceProfilePaths.length}`)
   console.log(`dependency_topology_cycles=${dependencyTopology.circularDependencyCount}`)
   console.log(`dependency_topology_unresolved=${dependencyTopology.unresolvedDependencyCount}`)
+  console.log(`dead_export_candidate_unused_exports=${deadExportCandidates.candidateUnusedExportCount}`)
+  console.log(`dead_export_candidate_unused_types=${deadExportCandidates.candidateUnusedTypeCount}`)
   console.log(`maintainer_ownership_rule_count=${maintainerOwnershipQuality.codeownerRules.length}`)
   console.log(`dependency_governance_direct_dependency_count=${dependencyGovernanceQuality.dependencyEntries.length}`)
   console.log(`lockfile_sbom_package_count=${lockfileSbomQuality.lockfilePackageCount}`)

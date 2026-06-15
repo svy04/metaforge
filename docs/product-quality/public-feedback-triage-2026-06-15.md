@@ -69,8 +69,8 @@ The feedback still identifies real follow-up work:
 
 - Use the duplicate-helper audit to extract the smallest safe shared helper
   cluster, starting with the community/public hygiene scripts.
-- Evaluate Knip or Fallow for dead exports, dependency-cruiser for cycles, and
-  jscpd for duplicate shapes before broad refactors.
+- Use the checked Knip candidate gate, dependency-cruiser topology gate, and
+  jscpd duplicate-shape audit before broad refactors.
 - Upgrade the weakest product-quality gates from marker presence to behavioral
   happy-path, edge-case, and side-effect checks.
 - Keep Korean documentation maintained alongside the English README when the
@@ -101,9 +101,10 @@ quality docs; the durable signals are:
   slices rather than by broad mechanical rewrite.
 - Metaforge, AVF, and influence-factory surfaces need wiring evidence before
   they are marketed as active modules.
-- Recommended static-analysis lanes: Knip or Fallow for dead exports,
-  dependency-cruiser for cycles/topology, jscpd for duplicate shapes, and
-  Lumin Repo Lens as a topology reference with manual false-positive review.
+- Recommended static-analysis lanes: the checked Knip candidate gate for dead
+  exports, dependency-cruiser for cycles/topology, jscpd for duplicate shapes,
+  and Lumin Repo Lens as a topology reference with manual false-positive
+  review.
 - CodeQL being present in CI is a positive signal, but source-controlled
   configuration is not the same as inspected hosted execution evidence.
 - Later comments also recommended simplifying public workflow language where
