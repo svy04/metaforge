@@ -79,3 +79,34 @@ The feedback still identifies real follow-up work:
 Boundary: this triage proves the current public-surface checks passed locally.
 It does not prove production readiness, external validation, release readiness,
 or autonomous reliability.
+
+## Owner-Provided Community Feedback Snapshot
+
+Additional public-community feedback was recorded on 2026-06-15 as follow-up
+product input. The raw comment thread is not copied verbatim into the public
+quality docs; the durable signals are:
+
+- Provenance and trust need clearer handling: the repo should say plainly when
+  the CLI surface is forked/adapted and should not imply a fully original CLI
+  implementation.
+- AGENTS.md must stay public-facing: no local folder names, stale model locks,
+  duplicate private rules, or internal memory traces.
+- Public marketing should center Metaforge as Meta + MFH + Orchestra OS, with
+  OpenClaude described as a runtime substrate.
+- The audit workflow is directionally strong, but file-existence, marker, and
+  hardcoded-flag checks need behavioral happy-path, edge-case, and side-effect
+  tests before stronger public claims.
+- Product-quality scripts show clone pressure; repeated `check`, `readText`,
+  hashing, and markdown/report helpers should be extracted in small verified
+  slices rather than by broad mechanical rewrite.
+- Metaforge, AVF, and influence-factory surfaces need wiring evidence before
+  they are marketed as active modules.
+- Recommended static-analysis lanes: Knip or Fallow for dead exports,
+  dependency-cruiser for cycles/topology, jscpd for duplicate shapes, and
+  Lumin Repo Lens as a topology reference with manual false-positive review.
+- CodeQL being present in CI is a positive signal, but source-controlled
+  configuration is not the same as inspected hosted execution evidence.
+
+Current response in this slice: extract one tiny shared helper surface from the
+community/public quality scripts, re-run the affected scripts, and refresh the
+duplication audit report so the feedback turns into measured code movement.
