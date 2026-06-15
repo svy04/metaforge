@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T01:36:01.488Z",
+  "generatedAt": "2026-06-15T02:03:34.344Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,8 +9,8 @@
   ],
   "sourceProductScriptCount": 85,
   "helperOccurrenceCounts": {
-    "check": 80,
-    "readText": 43,
+    "check": 76,
+    "readText": 39,
     "sha256Text": 7
   },
   "duplicateHelperClusterCount": 3,
@@ -18,12 +18,8 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 80,
+      "occurrenceCount": 76,
       "files": [
-        {
-          "path": "scripts/product-agent-instructions-quality.ts",
-          "line": 78
-        },
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
           "line": 139
@@ -43,14 +39,6 @@
         {
           "path": "scripts/product-code-editing-trace-capture.ts",
           "line": 103
-        },
-        {
-          "path": "scripts/product-community-intake-quality.ts",
-          "line": 73
-        },
-        {
-          "path": "scripts/product-community-profile-quality.ts",
-          "line": 73
         },
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -123,10 +111,6 @@
         {
           "path": "scripts/product-lockfile-sbom-quality.ts",
           "line": 133
-        },
-        {
-          "path": "scripts/product-maintainer-ownership-quality.ts",
-          "line": 87
         },
         {
           "path": "scripts/product-model-system-card.ts",
@@ -346,20 +330,8 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 43,
+      "occurrenceCount": 39,
       "files": [
-        {
-          "path": "scripts/product-agent-instructions-quality.ts",
-          "line": 70
-        },
-        {
-          "path": "scripts/product-community-intake-quality.ts",
-          "line": 65
-        },
-        {
-          "path": "scripts/product-community-profile-quality.ts",
-          "line": 65
-        },
         {
           "path": "scripts/product-dependency-governance-quality.ts",
           "line": 108
@@ -375,10 +347,6 @@
         {
           "path": "scripts/product-lockfile-sbom-quality.ts",
           "line": 121
-        },
-        {
-          "path": "scripts/product-maintainer-ownership-quality.ts",
-          "line": 79
         },
         {
           "path": "scripts/product-model-system-card.ts",
@@ -592,7 +560,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":80,\"readText\":43,\"sha256Text\":7}"
+      "detail": "{\"check\":76,\"readText\":39,\"sha256Text\":7}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
