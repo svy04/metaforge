@@ -1,0 +1,23 @@
+{
+  "path": [
+    "scripts"
+  ],
+  "pattern": "**/product-*.ts",
+  "format": [
+    "typescript"
+  ],
+  "reporters": [
+    "json"
+  ],
+  "minLines": 20,
+  "minTokens": 120,
+  "ignore": [
+    "**/*.test.ts",
+    "scripts/product-script-duplication-audit.ts",
+    "**/node_modules/**",
+    "**/dist/**"
+  ],
+  "gitignore": true,
+  "absolute": false,
+  "mode": "mild"
+}

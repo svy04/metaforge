@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T22:46:56.589Z",
+  "generatedAt": "2026-06-15T23:19:57.952Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,19 +20,20 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "481d6c9ffcfe2fbb94dcc722b57bad738c10ae8efdcd812a5a8bd5660d16c53b",
-  "evidenceRecordCount": 265,
-  "evidenceTotalSizeBytes": 14458327,
+  "manifestJsonlSha256": "b2b5bfc82057bcda4b4944c14edcd15968e152439ff6f97b67a886617c5a4146",
+  "evidenceRecordCount": 266,
+  "evidenceTotalSizeBytes": 14479770,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 192,
-    "evidence_artifact": 63,
+    "evidence_artifact": 64,
     "quality_gate": 1,
     "workflow": 7
   },
   "requiredEvidencePaths": [
     "package.json",
     "bun.lock",
+    ".jscpd.json",
     ".dependency-cruiser.mjs",
     ".dependency-cruiser-known-violations.json",
     ".github/CODEOWNERS",
@@ -127,6 +128,8 @@
     "docs/product-quality/community-profile-quality-report.json",
     "docs/product-quality/dependency-topology-report.json",
     "docs/product-quality/dependency-topology-report.md",
+    "docs/product-quality/script-duplication-audit-report.json",
+    "docs/product-quality/script-duplication-audit-report.md",
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dead-export-candidates-report.md",
     "docs/product-quality/maintainer-ownership-quality-report.json",
@@ -249,9 +252,15 @@
       "role": "workflow"
     },
     {
+      "path": ".jscpd.json",
+      "sha256": "9efcca243fc14ea0ec3e42cab5352ef061cc77421e8b11067937825f0bc9fc68",
+      "sizeBytes": 366,
+      "role": "evidence_artifact"
+    },
+    {
       "path": "bun.lock",
-      "sha256": "c439d05b423f930e0345e314ff229ba680ab9790e058c885dbf0c844de499114",
-      "sizeBytes": 223511,
+      "sha256": "6c799f62f98cc6d8c7ed9ffdef1e4938017841de44da04702baa5dfa72ab8d34",
+      "sizeBytes": 225100,
       "role": "source"
     },
     {
@@ -268,7 +277,7 @@
     },
     {
       "path": "docs/product-quality/agent-replay-evals-report.json",
-      "sha256": "e4b28a8b94b01c7f45496217713d1fb4898f1462accec07da03ccafedb2156fb",
+      "sha256": "19aad546428767befe3425342b3c597ea0da9c5803b20f7134b037f7745ee839",
       "sizeBytes": 22836,
       "role": "evidence_report"
     },
@@ -292,19 +301,19 @@
     },
     {
       "path": "docs/product-quality/benchmark-efficiency-metrics-report.json",
-      "sha256": "2be66fbb03fb41b5bf5fa3a5769cbb6ed1ff49384cbb41fbb94b157e2a548a7e",
+      "sha256": "20f6715ffbe7b0b64c8e8aa244a251cf1686ca973672ef7f635411a99152dbc4",
       "sizeBytes": 24480,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-efficiency-metrics-report.md",
-      "sha256": "a31e67c7ab0752ecb0e2c6ebcfbee1e041675db7d6d5d1d578dedaa4a7be1b94",
+      "sha256": "1ee535ebd0addb06bf1cc5a344a27469a4b5ca93dae8d7325500f22eb45ac1f4",
       "sizeBytes": 6646,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-policy-compliance-report.json",
-      "sha256": "76828c72a96839da41aacb3f2b1332bd36c9ab0aff95b1ba64ec4378dfbce301",
+      "sha256": "a2d9d1b5720e8692ee2413ae43548fb9e1c50086169bc84588d4c261ac7c6c1d",
       "sizeBytes": 9124,
       "role": "evidence_report"
     },
@@ -316,31 +325,31 @@
     },
     {
       "path": "docs/product-quality/benchmark-readiness-matrix.json",
-      "sha256": "42b3bc639bdd074b93d4efb1a210dd1518fe062169d102f5719409b1e2447538",
+      "sha256": "bacd50e3fbc6ca726769f01790d38210620c1feba1036f02e8bcdb876d7869fc",
       "sizeBytes": 10653,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-readiness-matrix.md",
-      "sha256": "adcd80c9d993d7a3b2fd3e8961e498d4170e8935053fb152370f3d48d8a4285a",
+      "sha256": "a6abd65e2ebe518a1e28cf66d44a4f4d6412bc35d48a227a03100b12259245bd",
       "sizeBytes": 7929,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-submission-readiness-report.json",
-      "sha256": "29e125ec493e2b360a3fe6ed920f4b9be5dff356dfce8cc7f05ee0a88a8fc973",
+      "sha256": "646c0c68c61f2525b22526d4942e35e2a2033c40760ff7399ef2bc784047f620",
       "sizeBytes": 11875,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/benchmark-submission-readiness-report.md",
-      "sha256": "b5e1b3db8d164e72fab082826eb513b8a31f4fa04953789ff36b120d8a92f2a9",
+      "sha256": "57e859cd9c732381d4cfeb223f0bf91ed31212172252e6fc20deb52d0bf8e685",
       "sizeBytes": 5325,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/code-editing-trace-capture-report.json",
-      "sha256": "f3b1316b78df1f109644ba7cdb6c150817e11b5b5b2993779db96e4b6f0f790d",
+      "sha256": "9ad63e1a82139ed1bd7f2657c13b093c386160fecc565f25a7c8ffe5acfb0cc4",
       "sizeBytes": 3082,
       "role": "evidence_report"
     },
@@ -352,14 +361,14 @@
     },
     {
       "path": "docs/product-quality/code-scanning-remediation-queue-report.json",
-      "sha256": "72c031e7b897a9d942875cf6cdbf0aab2ddf3f2ecb8555807c51b70a783b5bd3",
-      "sizeBytes": 23550,
+      "sha256": "92ca46be88a54be3efb4452715b75fa47687fef46c2cb3b6e5c3f08996babf9c",
+      "sizeBytes": 23558,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/code-scanning-remediation-queue-report.md",
-      "sha256": "39a565791957a8236633c034f085cf75d8f913b64737e29d3452a1edf8efe269",
-      "sizeBytes": 8024,
+      "sha256": "72cff4acd50311e1237100229252f58275808c0822425b72049c672163403004",
+      "sizeBytes": 8030,
       "role": "evidence_report"
     },
     {
@@ -418,7 +427,7 @@
     },
     {
       "path": "docs/product-quality/dependency-topology-report.json",
-      "sha256": "8784e7ad5269e3c17272d5bb28c40bd3c4c3480f4292e65b317d4d220def494f",
+      "sha256": "395fc65093095a0737fd41b43390187b19459cb8719935872854d6abbb9a0639",
       "sizeBytes": 11232,
       "role": "evidence_report"
     },
@@ -448,13 +457,13 @@
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.json",
-      "sha256": "e12099a7639ece5f207ce08c357da0ded8c9d211b101e1995fb380d4dabf9288",
+      "sha256": "d626293da4e39fd16209d853bb0d42abbf961b06a48cc93301d38dca7c00b813",
       "sizeBytes": 11170,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.md",
-      "sha256": "018c398864e514c31750f5f7ed8b2663c7637a25369dfcc4aef72cc98790d282",
+      "sha256": "3cfe3af57e5683695559eb225c08b3cd39e214366e780f57884d07f0814fe576",
       "sizeBytes": 6331,
       "role": "evidence_report"
     },
@@ -472,25 +481,25 @@
     },
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.json",
-      "sha256": "48728234906f4562bdc17dffd19e01b38f9219437d038e0bb7eb7126bdc79121",
-      "sizeBytes": 10677,
+      "sha256": "559f5e3ddab2bf830460347c0899edf4062f2adcbd76be3460ccaab71ac9ca10",
+      "sizeBytes": 10679,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.md",
-      "sha256": "2a93b57da727fd0f0c9791458deec549673a7ba41d82c16e427b0e2d4f8fab15",
-      "sizeBytes": 5777,
+      "sha256": "dce8b00cae3fe8a90f02715cf66b98886059c826d549d0a2da1c78da00c77c75",
+      "sizeBytes": 5779,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.json",
-      "sha256": "ea22fbcc80c25fb7531922a9387db3cefce4d1d7113781f70e49991c374effcb",
+      "sha256": "e4e4bbfb105657a7ed90d75649b582e4ef69af55c1f6ff8835b0103f780cd080",
       "sizeBytes": 4004,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
-      "sha256": "aecb0b7371854126c2610cb7e1f53cdaa17767d4dc254285fe5c6759d8d49bd7",
+      "sha256": "9ce11f97277da521ece5a605076fd8fedca4981de2a4279211b3b7e6cb7e0c35",
       "sizeBytes": 3144,
       "role": "evidence_report"
     },
@@ -532,7 +541,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
-      "sha256": "2c9c82b1b21d489db1fc0613d672e471e0a3f53bfc5373f7287aec45e5392a2e",
+      "sha256": "e7d40706da671d76e34686cc54661f6ff5276fc2c6460b90e2aa7ef4ffb887c7",
       "sizeBytes": 4410,
       "role": "evidence_report"
     },
@@ -580,7 +589,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-webview-interaction-smoke-report.json",
-      "sha256": "508971791fff1e964497e1472eacb1f21deccc75ff181d6e69f26aecb85f8d8a",
+      "sha256": "92b00d20f738fcf5a522d2d752a9e26fac68912030f6899c36b0e7a13a2e031e",
       "sizeBytes": 6402,
       "role": "evidence_report"
     },
@@ -592,7 +601,7 @@
     },
     {
       "path": "docs/product-quality/ide-extension-webview-render-smoke-report.json",
-      "sha256": "c09aef08c24bd327a99a2c0ef200ce16d8ea9673d28190cd7588fca7f8a4da8b",
+      "sha256": "d990c499722d86f30b1c13ed74bfb85f7b54d8525f722b057ef9fda385a51f58",
       "sizeBytes": 3461,
       "role": "evidence_report"
     },
@@ -604,14 +613,14 @@
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-      "sha256": "ae55f24311985a4c487d94ad2fd44223d8e2e62370a943a2367ea6524e2a7cfc",
-      "sizeBytes": 4951,
+      "sha256": "74fe072ca0a6d09a1502042e1d1a54be12356f99ec58600704c3ffc162a3ef59",
+      "sizeBytes": 5399,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.md",
-      "sha256": "d1804ba734f757226c86cf9b28084a87403b66eddfbaa185704c5ae361a84ea3",
-      "sizeBytes": 4075,
+      "sha256": "7ae2c9e78349b941f856df0f27e184bd28e1d48ac7151580e8b02245526820d1",
+      "sizeBytes": 4330,
       "role": "evidence_report"
     },
     {
@@ -634,13 +643,13 @@
     },
     {
       "path": "docs/product-quality/local-benchmark-harness-report.json",
-      "sha256": "7fc83249a09fddfdfbb96fb08f537b1693d56eb679626575f86c5d3691b9e911",
+      "sha256": "6b6d97abca052f8bd7f6ad1e7a2f2642dda142dc8b73fb400dccbd64157744cd",
       "sizeBytes": 17652,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/local-benchmark-harness-report.md",
-      "sha256": "3cea227d7dfbe4d744047654e31873b97037dacc0e647d55edbd81cc080dbdd9",
+      "sha256": "5631c3e8420f7bbba8693748719783b44ff2e507776264406837b728e47d930a",
       "sizeBytes": 5018,
       "role": "evidence_report"
     },
@@ -682,7 +691,7 @@
     },
     {
       "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-      "sha256": "dfb92d7eb264fe70c7d90c101f59d974f40eaa00ec5d5c5fa1cfbc6edc541d05",
+      "sha256": "6e33bd39262159b24e9ecab444d825541b92840379d3fd4f91774f920973f1d2",
       "sizeBytes": 4837,
       "role": "evidence_report"
     },
@@ -712,7 +721,7 @@
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.json",
-      "sha256": "df818293d46d92cd25549dd72227e073429a066172ed09befa16436ceaee93e6",
+      "sha256": "733e784286c1c0c82a4e5e735b43ba35521d4a75a16b698285f8bbcefff33da5",
       "sizeBytes": 10086,
       "role": "evidence_report"
     },
@@ -724,7 +733,7 @@
     },
     {
       "path": "docs/product-quality/origin-license-provenance-boundary-report.json",
-      "sha256": "2e5bd2b73d11d635bdcc99772853340659c7f81c1b5dca08ef0cc08af40a2230",
+      "sha256": "762ebcc3d6de2cc5c6b040fd69c14b5a21cd0c16a8d7b81811f01728a1242752",
       "sizeBytes": 5313,
       "role": "evidence_report"
     },
@@ -1036,7 +1045,7 @@
     },
     {
       "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
-      "sha256": "ed236b1397ad33b92151619d385c00e0861f401fbfe0908b63a908f1e90109e8",
+      "sha256": "c9410f4d243b2100daa2638eaee7de5d16b4826b2d2d4f9687939a31c69667c7",
       "sizeBytes": 4446,
       "role": "evidence_report"
     },
@@ -1048,19 +1057,19 @@
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.json",
-      "sha256": "a3771852226a30247eab64fd6d7ca289cf0adec4644a4cfa291870ffe557c078",
+      "sha256": "0f0944ad82098af37c7a91607a035258617b045ec403678437ad1d6cc2e4c419",
       "sizeBytes": 20718,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
-      "sha256": "1aa3eed8980de29397dea177cbb4e1830cabf4f16ad9c33801138bd9248caa82",
+      "sha256": "8967631dea9908ae6c9e7dfde2430f4f9afb9641fbd8221563b63e9ae97dfee8",
       "sizeBytes": 8507,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/protected-action-denial-trace-report.json",
-      "sha256": "a711842dcf6aa23a4b5c92bc8e90d89712516c677b76983ee30b0afb19529113",
+      "sha256": "cb309175188963b24b235d7dd94625b46d344fa1d8ec9f1d7a35088fc5240d96",
       "sizeBytes": 6267,
       "role": "evidence_report"
     },
@@ -1096,13 +1105,13 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "84db2b37ae53fabf84e7b3450a405a869b49dc32b1cd3d186852d3cf90957d26",
+      "sha256": "d4536f1f211e78442a67a1516ca3768490ce6c718ae346db8c6a570dc2cf72c7",
       "sizeBytes": 16496,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "a44581fe671852aa3a805caf187610d749db8d1aa465054f1a7281166b3efeed",
+      "sha256": "c6e89ccebe2bc27e2e200bee6738d3d7d770b7759ddc173f5884ce2d996389d6",
       "sizeBytes": 11152,
       "role": "evidence_report"
     },
@@ -1126,7 +1135,7 @@
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
-      "sha256": "f66c00e90110b421832c2c5acebac78572200c28b60e627311791a218c21cace",
+      "sha256": "70d66f4f3893d4e92a4d9a2d8b53883d35cab9f4d77e14d0d5d1a680e7f1dcc1",
       "sizeBytes": 6104,
       "role": "evidence_report"
     },
@@ -1138,7 +1147,7 @@
     },
     {
       "path": "docs/product-quality/real-session-capture-report.json",
-      "sha256": "9d299bd70ccf9aa5f0c7d846082ae3462858748bde3800e84c31616df52b5640",
+      "sha256": "bf4b32df07ec79e7f36d1ce2b083a2305d5363fabf0881edd5af2d6e4300f4e9",
       "sizeBytes": 6231,
       "role": "evidence_report"
     },
@@ -1150,7 +1159,7 @@
     },
     {
       "path": "docs/product-quality/real-session-trace-evals-report.json",
-      "sha256": "28a521235791b981a84b393cd0ba42ab4c702f9434eeab32ad78703f5605521c",
+      "sha256": "255b090bbbfe8090f29cdf0f5bb6744c5e110f63ba52cdf71fe36f2cc650c477",
       "sizeBytes": 20244,
       "role": "evidence_report"
     },
@@ -1162,7 +1171,7 @@
     },
     {
       "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-      "sha256": "34b2afd3dd67b5875b279eac6b9e125418281eee91c64b60127cbbf31cb7ce8a",
+      "sha256": "e6a6939753ea10fddf439b8681497bf50428d59a8f52e0552e5b723be186e55b",
       "sizeBytes": 4586,
       "role": "evidence_report"
     },
@@ -1174,37 +1183,37 @@
     },
     {
       "path": "docs/product-quality/release-artifact-file-list-report.json",
-      "sha256": "43ea6cb3fcc187d5bd22f1c5fb548fa338d20235121f45ab4c6d161bcc95b955",
+      "sha256": "b36ff2f36b2681c4967e4c2b763f8e8d744aa2618c9073465dfeddf558998965",
       "sizeBytes": 2781,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-file-list-report.md",
-      "sha256": "c8212cb4295492217d54e78de03acd17328d75b475d0c5e2614208e32ede47c2",
+      "sha256": "1c0270481affbeb7761f039565593f7bb25c436e971d8ac72487adc79064d1d4",
       "sizeBytes": 1886,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-provenance-report.json",
-      "sha256": "bff2a1ff38b9e02f869451d8bd3e39da932e6c54c6be918d9073ed272344d415",
-      "sizeBytes": 18057,
+      "sha256": "525937309c16b54b0a7f1ca4d1374e086b45e07cd3faa4a98acfac8ed2ee8858",
+      "sizeBytes": 18201,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-provenance-report.md",
-      "sha256": "b47ec7d03d1c64e7ea5d34db7d3edb25cf7259ea54881cdd03e413d17b1dac24",
+      "sha256": "565a9d3ddc5038e039a8bb4cdd7fefc8d8da2c3e48232d9e6f0b8096e8bbf2ef",
       "sizeBytes": 2730,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-reproducibility-report.json",
-      "sha256": "ff8896e9a7a9516c8c9b002a0f854b60d574e5e1e54c42e66d1e7cd72f674b7f",
+      "sha256": "23101a2ef352bf2a3f9f98d692ab3d25868cdc511c43a5b79e0d972d39fedea3",
       "sizeBytes": 5333,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/release-artifact-reproducibility-report.md",
-      "sha256": "df0b8c9ef34e0c9a2c5ecf1eb600d7865620b3702c927c4f94e9ccf79f99edf8",
+      "sha256": "16b034ab40948a9cad342665a5c51869d28d51f82ec7dc5a0df275662f9d040e",
       "sizeBytes": 3319,
       "role": "evidence_report"
     },
@@ -1222,19 +1231,19 @@
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.json",
-      "sha256": "be6d9e2bff2d1a8e552c94a18617e40eea67c064914aa964238a23563cf02565",
-      "sizeBytes": 18657,
+      "sha256": "9d75281b78cca857cbb6f73336ce9bb3a03def9cfecf8e78f9c3720f0c18ca0b",
+      "sizeBytes": 26666,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
-      "sha256": "0f5f92d08fc72ff66a73a40ef35d115423a9a15935bfa22939e47e471ace4d80",
-      "sizeBytes": 5131,
+      "sha256": "8a5c1d947cfcec5e70a269245093da07d6b9ed226fe89932bdcba10bf79aa608",
+      "sizeBytes": 8762,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/source-controlled-checks-report.json",
-      "sha256": "19fcbf745af87d2aa24412b272e65b082c0e98c9d1e0cbdf8a6fda8285b0d3e6",
+      "sha256": "5d2642bdf9ef061aaee47226ddc9b86983bf95d3f21660836e85858d9c0326f4",
       "sizeBytes": 1530,
       "role": "evidence_report"
     },
@@ -1258,13 +1267,13 @@
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.json",
-      "sha256": "f4de711f0eb3ea9adcb3401f120635ffcc05b8ec8ed235f015f2a34a95129877",
+      "sha256": "8e986c4c2106f718ddcb564057fd81ece948c4e5ae18bf0d4b814b721d457f85",
       "sizeBytes": 13091,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
-      "sha256": "63209a1c0a1d8b73a3095508b71438905787814562c1422c1ae1f4d15f5a356d",
+      "sha256": "9b8fa14f42e1dd3313943ed7562ca6a1a69eeafe459d17043f59222a7e61fcfe",
       "sizeBytes": 5540,
       "role": "evidence_report"
     },
@@ -1300,7 +1309,7 @@
     },
     {
       "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-      "sha256": "83edbeced6c9ca9fad9a660ec48775234e409ad7a555a9662b15f1cb0e1b9887",
+      "sha256": "61061ff5772fc7140c4d20d992e8533fee80d5cdd9cbb75ead754f2f65230e65",
       "sizeBytes": 5551,
       "role": "evidence_report"
     },
@@ -1312,7 +1321,7 @@
     },
     {
       "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
-      "sha256": "5f2f5102baa22a6146cb92a44bd6b742af386ab36acb399aa19ab791963db6b8",
+      "sha256": "290f71b2cebc47ee602e19f2047c5ff118276d1a7ac36776d5e1c07e4a389827",
       "sizeBytes": 9595,
       "role": "evidence_report"
     },
@@ -1324,7 +1333,7 @@
     },
     {
       "path": "docs/product-quality/trace-portability-export-report.json",
-      "sha256": "c1a8cacb31152695a5955509e59a84b331223ede6676e611781f7a5689b3ac1f",
+      "sha256": "63739d10e1c0e3677bf65ba24d7a134805867bd97a433dde70a0754b0e20e295",
       "sizeBytes": 6414,
       "role": "evidence_report"
     },
@@ -1336,7 +1345,7 @@
     },
     {
       "path": "docs/product-quality/trace-schema-contract-report.json",
-      "sha256": "ce3258146d104b384de4e32a328405f9fc045ba98667cd2287f885dc761df555",
+      "sha256": "844634d1a0285192ca91bc26673b9b6e91b8678a9479163c0e6acb01dc698e04",
       "sizeBytes": 14653,
       "role": "evidence_report"
     },
@@ -1348,13 +1357,13 @@
     },
     {
       "path": "docs/product-quality/trajectory-process-quality-report.json",
-      "sha256": "95d3fe9c7351e86fb9d396206bb5928d54d919496a93d59eb653e2646776dcea",
+      "sha256": "44dec293e4ae00d89a3fc8b57bf5543a15be12d3392f06c7cd7f0519a44fbc77",
       "sizeBytes": 16260,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/trajectory-process-quality-report.md",
-      "sha256": "74f60ff4b0821ac940cb88f7f47ecfaea45f8fcbb19ee0cf84680a0fabcd2b0a",
+      "sha256": "7a698c4ee5163d3eeec8bc6f08415ac5f74a8929fbb0d5561dc3ada6e4da2736",
       "sizeBytes": 8261,
       "role": "evidence_report"
     },
@@ -1378,7 +1387,7 @@
     },
     {
       "path": "docs/product-quality/verification-report-consistency-report.json",
-      "sha256": "567ad902f60738204f6946bce6d373c093dec04b66d0514b563af833b8d4d59d",
+      "sha256": "16e41394fcc730b29024b15fb4c72d221bd7832a6a78e5111ca9831a4e1bbcc7",
       "sizeBytes": 2909,
       "role": "evidence_report"
     },
@@ -1390,37 +1399,37 @@
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sha256": "7457b1f9a873a4aafad08acedbce3ce3752a0ab3ed9ad3c2b46d538c906415e9",
-      "sizeBytes": 6981,
+      "sha256": "4f6d942ed946993a28f1b210ded63a822ed280ad19b1243fa26d73bebefd440a",
+      "sizeBytes": 6687,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.md",
-      "sha256": "19b1478e37ea1a32259b820bd5f1a5b9fe0a8f5b0c73823c1f437c455d1ef437",
-      "sizeBytes": 5009,
+      "sha256": "356fc6c9a2efeffb6944cba3f00d306e623e5a77b884cc6e6c040527eb371c3b",
+      "sizeBytes": 4924,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.json",
-      "sha256": "3266e0d0d3443771f0b7da7d667d3a649b947fa61bd38b2b450b799ed4f8b924",
-      "sizeBytes": 4248,
+      "sha256": "8d9be8c35a27f9960b6ff7a6b5d97388798544b7f15f53a4f2707b9cec17add2",
+      "sizeBytes": 4319,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.md",
-      "sha256": "46ed757290673259c5f35d0fc06e60ce4d2bdd68bac292a38b62d311083edd6e",
-      "sizeBytes": 3179,
+      "sha256": "3c4344d971def0ff5bb4b01ffb3c6df1443a429c583feccb9215af30e6d52355",
+      "sizeBytes": 3185,
       "role": "evidence_report"
     },
     {
       "path": "package.json",
-      "sha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16",
-      "sizeBytes": 20066,
+      "sha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc",
+      "sizeBytes": 20088,
       "role": "source"
     },
     {
       "path": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-      "sha256": "4c039e310cf297f0b5584b80b6029f72c06c556b00cddc78bee34f913c90192c",
+      "sha256": "f1ca7bbddcbe134743515d51c2541f9951cb4900acb027b955c90bf251ffbd80",
       "sizeBytes": 14963,
       "role": "evidence_artifact"
     },
@@ -1432,25 +1441,25 @@
     },
     {
       "path": "reports/openclaude-benchmark-submission-assets.jsonl",
-      "sha256": "1606dbebb93e7ea638e7776bf0e6f5cd8da22c678cc9647c6557d47a6ecded38",
+      "sha256": "c563eb3d4ae03548c0de5c1d358beba5229c173b24edbbdd2dac92d09ee9daf9",
       "sizeBytes": 5870,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-benchmark-task-manifest.jsonl",
-      "sha256": "0f413fab8ad2f9881d20aaa7488cd2ca2ff97066da486d213e71367b87d3d714",
+      "sha256": "a6e1809ed4a9000cbf4bf5a64ab36ce7a4612fbef64295c531c3ac1dbb07108d",
       "sizeBytes": 12552,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-code-scanning-remediation-queue.jsonl",
-      "sha256": "06214f1e97c1de970e05cdd34f86af1db5376b440eb61d9a9b4c999b1abda532",
-      "sizeBytes": 5303,
+      "sha256": "aac0bef82234b1e5f01b44507ee894aebaf7ff11a6908aefe0136f5853ab4964",
+      "sizeBytes": 5309,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-github-hosted-trust-posture.jsonl",
-      "sha256": "71667c5f2f8bc9c85dc94eb11a4126b62321d16ab7a6d49c59c8eec2e11e949c",
+      "sha256": "8cc73cce8b0ae5370beec91a708d7c8233ce0b506305d5a3926b7188386649e2",
       "sizeBytes": 1488,
       "role": "evidence_artifact"
     },
@@ -1462,25 +1471,25 @@
     },
     {
       "path": "reports/openclaude-license-boundary-authorization-items.jsonl",
-      "sha256": "da8d2f5f4c40b2527fb2cb497e07cd10af8344d8476308717f6bbf65dfce6207",
+      "sha256": "d9b12e89e57b875abb80120738a32f4b2a2fe8f6c9aaddf01a246b5db89191da",
       "sizeBytes": 7196,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-local-benchmark-results.jsonl",
-      "sha256": "784ac882f746bdd79ea547d019fe922b0823e38736108fa1c04dbb002bf98d85",
+      "sha256": "d4cb1c8e744125d8c34aab70eab8147f8484a8bed5653bc3b58856cf1b8a6eab",
       "sizeBytes": 12257,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-      "sha256": "94bc39a037e70ba3204972e268eb6294229e66fcbf8146623261ef43e7e2af43",
-      "sizeBytes": 422281,
+      "sha256": "90c95abd913c22a8bebdb927253bc260b021bc40a998970897be6fe48470fb5c",
+      "sizeBytes": 425389,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-model-system-card.jsonl",
-      "sha256": "ee65d8fbbb3114e5f1d54300f8defea9e75800ede4cdb80d5b5bbaf5efffbbce",
+      "sha256": "e7a011569cf7a649915afb63e938e74fa3fa277ca66d6dd2e5baf4c26bf1fc68",
       "sizeBytes": 7452,
       "role": "evidence_artifact"
     },
@@ -1492,8 +1501,8 @@
     },
     {
       "path": "reports/openclaude-oss-architecture-absorption-targets.jsonl",
-      "sha256": "c25a487a6920637289d94288810d12910101148a4218674c12e83632fd5b44a4",
-      "sizeBytes": 18093,
+      "sha256": "bb7007056a84e545691fe25a5fa562682c9841493d418280b6071b7cdb93111b",
+      "sizeBytes": 18099,
       "role": "evidence_artifact"
     },
     {
@@ -1516,19 +1525,19 @@
     },
     {
       "path": "reports/openclaude-oss-baseline-provenance.jsonl",
-      "sha256": "82af44e72daffbdd8dff1f7013a0225ad6fae11a843d4c3108028849c9e2b6c2",
+      "sha256": "641ecde841d9efeb75cd3f70847fb19e10fca7be8da2698c9b70042904ce684a",
       "sizeBytes": 7235,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-baseline-refresh-provenance.jsonl",
-      "sha256": "47e1c9ca18b34006e2414874781a3146e1c65a8fa95dd298cdab330d7b1092e1",
+      "sha256": "e3985fdb56205ef13c04531dbf58378cff4dd4ab1621f25e831a8a96c01784d2",
       "sizeBytes": 7094,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-benchmark-comparison-matrix.jsonl",
-      "sha256": "f380a792a857fd1e059605cba097d3d1d897aa43d8f48a042f4dbdb235af85f0",
+      "sha256": "5d71f425522a1d14e12aa87997a8cefa30643b3292c5f0fd201fce7186682493",
       "sizeBytes": 201334,
       "role": "evidence_artifact"
     },
@@ -1564,7 +1573,7 @@
     },
     {
       "path": "reports/openclaude-oss-provider-breadth-evidence.jsonl",
-      "sha256": "410d04b10b981b51d99c342cb5771be0f525bcdf07124a7032d43e8c39f0bec7",
+      "sha256": "e03d1bd05345384ce8fb74a04e2f7fc7ba26ed6689e3229e4ed1c5fff4faae5e",
       "sizeBytes": 14482,
       "role": "evidence_artifact"
     },
@@ -1582,7 +1591,7 @@
     },
     {
       "path": "reports/openclaude-oss-safe-backlog-closure.jsonl",
-      "sha256": "97e5def3b2e58ceff89e8912da3676b8f372a0203fe9c44718c69f6327534091",
+      "sha256": "2b0aa622e8f4cc790f3cd1d1d6da2894e961cfff5a69cb38ef7d1008d8322138",
       "sizeBytes": 8058,
       "role": "evidence_artifact"
     },
@@ -1600,8 +1609,8 @@
     },
     {
       "path": "reports/openclaude-oss-source-review-provenance.jsonl",
-      "sha256": "837526c431244e9d47bd9d5ac7f1e71a4f583cbcc31ec99b69ebaba22c6e03a0",
-      "sizeBytes": 12121,
+      "sha256": "23f5a0dd576fb7d94ac0278723a33e9246e89b84b08bb2dde1668d4121212799",
+      "sizeBytes": 12057,
       "role": "evidence_artifact"
     },
     {
@@ -1624,8 +1633,8 @@
     },
     {
       "path": "reports/openclaude-primary-source-registry.jsonl",
-      "sha256": "1e96172aa384f536405011903cf45f6942ac740ed69f83bd4c2b2c3626476fb8",
-      "sizeBytes": 158613,
+      "sha256": "c4dab76bcc27dd446c5a9567b542f74a97884e9d0c6047e8c3be170a867fc4f0",
+      "sizeBytes": 158638,
       "role": "evidence_artifact"
     },
     {
@@ -1648,20 +1657,20 @@
     },
     {
       "path": "reports/openclaude-source-license-metadata-inventory.jsonl",
-      "sha256": "8910755a729ab4086088f7d4bdd9a4ac0bc829f152ee20c456a0cf23b68433e4",
+      "sha256": "bd66b251c902a0e135a4d80253b66c26f8ee3fa847465bd70a1dfaa0c1990ba5",
       "sizeBytes": 1484568,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-terminal-bench-task-map.jsonl",
-      "sha256": "cc5ba9dbd1d325c51d0fe820274b093d2009832bc0a46f173c9c998e5dfdfc1a",
+      "sha256": "e7e608cc99bf2ebd27e831005da7bc519cafa18ed5dce60762c7faf9716222f1",
       "sizeBytes": 5906,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-third-party-license-inventory.jsonl",
-      "sha256": "77c9a3dca857afd70003b1378e3b77c6b9d76dbe53229ad239fbddb2d78fa677",
-      "sizeBytes": 576612,
+      "sha256": "ab96a3e57a091098b7abee9536df0aad18d1957890754efa50912b6fc4d085a0",
+      "sizeBytes": 580794,
       "role": "evidence_artifact"
     },
     {
@@ -1794,17 +1803,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "265 records"
+      "detail": "266 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "14458327 total bytes"
+      "detail": "14479770 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "265 lines"
+      "detail": "266 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1819,7 +1828,7 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":192,\"evidence_artifact\":63,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":192,\"evidence_artifact\":64,\"quality_gate\":1,\"workflow\":7}"
     },
     {
       "label": "manifest contains no credential patterns",
