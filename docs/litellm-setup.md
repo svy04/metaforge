@@ -31,9 +31,9 @@ model_list:
       model: openai/<current-openai-tool-model>
       api_key: os.environ/OPENAI_API_KEY
 
-  - model_name: claude-sonnet-4
+  - model_name: claude-tool-model
     litellm_params:
-      model: anthropic/claude-sonnet-4-5-20250929
+      model: anthropic/<current-anthropic-tool-model>
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: gemini-2.5-flash
@@ -67,7 +67,9 @@ export OPENAI_MODEL=<litellm-model-alias>
 openclaude
 ```
 
-Replace `<litellm-model-alias>` with a model name from your `litellm_config.yaml` (for example, `openai-tool-model`, `claude-sonnet-4`, or `gemini-2.5-flash`).
+Replace `<litellm-model-alias>` with a model name from your
+`litellm_config.yaml` (for example, `openai-tool-model`,
+`claude-tool-model`, or `gemini-2.5-flash`).
 
 ### Option B: Using /provider
 
@@ -91,9 +93,9 @@ model_list:
       model: openai/<current-openai-tool-model>
       api_key: os.environ/OPENAI_API_KEY
 
-  - model_name: claude-sonnet-4
+  - model_name: claude-tool-model
     litellm_params:
-      model: anthropic/claude-sonnet-4-5-20250929
+      model: anthropic/<current-anthropic-tool-model>
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: deepseek-chat

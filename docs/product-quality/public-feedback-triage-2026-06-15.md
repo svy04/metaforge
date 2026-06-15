@@ -126,7 +126,7 @@ Current response in this slice:
   quality scripts;
 - wire `bun run product:script-duplication-audit` into `product:quality`;
 - add duplicate-helper baseline caps so future clone growth fails locally;
-- make public setup docs avoid stale OpenAI model pins such as old hardcoded
-  example model names;
+- make public setup docs avoid stale model pins such as old hardcoded OpenAI or
+  local Ollama example model names;
 - keep the proof boundary explicit: this is public hygiene and regression
   prevention, not production readiness or external validation.

@@ -51,13 +51,15 @@ model-specific claim.
 
 If you use the in-app provider wizard, choose `Codex OAuth` to open ChatGPT sign-in in your browser and let OpenClaude store Codex credentials securely.
 
-If you already use the Codex CLI, OpenClaude reads `~/.codex/auth.json` automatically. You can also point it elsewhere with `CODEX_AUTH_JSON_PATH` or override the token directly with `CODEX_API_KEY`.
+If you already use the Codex CLI, OpenClaude can read your existing Codex CLI
+auth file automatically. You can also point it elsewhere with
+`CODEX_AUTH_JSON_PATH` or override the token directly with `CODEX_API_KEY`.
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_MODEL=codexplan
 
-# optional if you do not already have ~/.codex/auth.json
+# optional if you do not already have Codex CLI auth
 export CODEX_API_KEY=...
 
 openclaude
@@ -223,14 +225,14 @@ bun run profile:recommend -- --goal coding --benchmark
 # auto-apply a local/openai provider/model suggestion for your goal
 bun run profile:auto -- --goal latency
 
-# codex bootstrap (defaults to codexplan and ~/.codex/auth.json)
+# codex bootstrap (defaults to codexplan and existing Codex CLI auth)
 bun run profile:codex
 
 # openai bootstrap with explicit key
 bun run profile:init -- --provider openai --api-key <openai-api-key>
 
 # ollama bootstrap with custom model
-bun run profile:init -- --provider ollama --model llama3.1:8b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 
 # ollama bootstrap with goal-based model auto-selection
 bun run profile:init -- --provider ollama --goal coding
@@ -244,13 +246,13 @@ bun run profile:init -- --provider codex --model codexspark
 # launch using persisted profile (.openclaude-profile.json)
 bun run dev:profile
 
-# codex profile (uses CODEX_API_KEY or ~/.codex/auth.json)
+# codex profile (uses CODEX_API_KEY or existing Codex CLI auth)
 bun run dev:codex
 
 # OpenAI profile (requires OPENAI_API_KEY in your shell)
 bun run dev:openai
 
-# Ollama profile (defaults: localhost:11434, llama3.1:8b)
+# Ollama profile (defaults to localhost:11434 and the configured local model)
 bun run dev:ollama
 
 # Atomic Chat profile (Apple Silicon local LLMs at 127.0.0.1:1337)

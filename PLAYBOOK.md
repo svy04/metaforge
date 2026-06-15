@@ -7,7 +7,7 @@ This playbook is a practical guide to run the OpenClaude runtime substrate used 
 - A CLI agent loop that can read/write files, run terminal commands, and help with coding workflows.
 - A local provider profile system (`profile:init` and `dev:profile`).
 - Runtime checks (`doctor:runtime`) and reporting (`doctor:report`).
-- A local model profile currently set to `llama3.1:8b`.
+- A local model profile set by your own provider selection.
 
 ## 2. Daily Start (Fast Path)
 
@@ -34,7 +34,7 @@ If everything is healthy, OpenClaude starts directly.
 ### 3.1 Initialize a local profile
 
 ```powershell
-bun run profile:init -- --provider ollama --model llama3.1:8b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 ```
 
 Or let OpenClaude suggest a local model for your goal:
@@ -100,7 +100,7 @@ bun run hardening:strict
 ## 5.1 Local mode (Ollama)
 
 ```powershell
-bun run profile:init -- --provider ollama --model llama3.1:8b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 bun run dev:profile
 ```
 
@@ -180,7 +180,7 @@ Fix:
 - Re-initialize profile for ollama:
 
 ```powershell
-bun run profile:init -- --provider ollama --model llama3.1:8b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 ```
 
 Or pick a local Ollama profile automatically by goal:
@@ -200,24 +200,28 @@ Fix:
 - For OpenAI: use a real key.
 - For Ollama: no key needed; keep localhost base URL.
 
-## 7. Recommended Local Models
+## 7. Choosing Local Models
 
-- Fast/general: `llama3.1:8b`
-- Coding-oriented (if hardware supports): `qwen2.5-coder:14b`
-- Low-resource fallback: smaller instruct model
+Metaforge does not publish local model rankings. Pick a model that is already
+available in your Ollama or LM Studio runtime, then verify it with a small
+tool-calling task before using it for longer work.
+
+- Fast/general: choose a small instruct model your machine can run comfortably.
+- Coding-oriented: choose a coding-tuned local model if your hardware supports it.
+- Low-resource fallback: choose a smaller local instruct model and keep tasks short.
 
 Switch model quickly:
 
 ```powershell
-bun run profile:init -- --provider ollama --model qwen2.5-coder:14b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 bun run dev:profile
 ```
 
 Preset shortcuts already configured:
 
 ```powershell
-bun run profile:fast   # llama3.2:3b
-bun run profile:code   # qwen2.5-coder:7b
+bun run profile:fast   # low-latency local profile from package scripts
+bun run profile:code   # coding-oriented local profile from package scripts
 ```
 
 Goal-based local auto-selection:
@@ -294,7 +298,7 @@ bun run dev:profile
 
 ```powershell
 # profile
-bun run profile:init -- --provider ollama --model llama3.1:8b
+bun run profile:init -- --provider ollama --model <local-ollama-model>
 bun run profile:init -- --provider openai --api-key <openai-api-key> --model <current-openai-tool-model>
 
 # launch
