@@ -1,0 +1,306 @@
+{
+  "generatedAt": "2026-06-15T11:42:13.540Z",
+  "mode": "github_hosted_trust_posture_readonly",
+  "repository": "svy04/metaforge",
+  "defaultBranch": "main",
+  "status": "hosted_trust_risks_detected",
+  "primarySourceInputs": [
+    {
+      "sourceType": "github_doc",
+      "sourceProject": "GitHub Code Scanning REST API",
+      "sourceUrl": "https://docs.github.com/rest/code-scanning",
+      "observedPattern": "Hosted code scanning alerts are first-class repository security evidence and can be inventoried through the GitHub API.",
+      "localAbsorption": "This report records open alert backlog counts without claiming the alerts are resolved."
+    },
+    {
+      "sourceType": "github_doc",
+      "sourceProject": "GitHub Secret Scanning REST API",
+      "sourceUrl": "https://docs.github.com/en/rest/secret-scanning/secret-scanning",
+      "observedPattern": "Secret scanning alert status is hosted evidence with repository permission boundaries.",
+      "localAbsorption": "This report separates current-tree hygiene scans from hosted secret scanning and push-protection configuration."
+    },
+    {
+      "sourceType": "github_doc",
+      "sourceProject": "GitHub Push Protection",
+      "sourceUrl": "https://docs.github.com/en/code-security/concepts/secret-security/push-protection",
+      "observedPattern": "Push protection blocks supported hardcoded credentials before they reach the repository.",
+      "localAbsorption": "Disabled push protection is recorded as a trust risk, not silently hidden behind local grep scans."
+    },
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "OpenSSF Scorecard",
+      "sourceUrl": "https://github.com/ossf/scorecard",
+      "observedPattern": "Open-source security posture is stronger when branch protection, token permissions, SAST, dependency updates, and security policy are explicit checks.",
+      "localAbsorption": "Hosted posture is split from local OpenSSF file evidence and tracked as a separate read-only report."
+    },
+    {
+      "sourceType": "standard",
+      "sourceProject": "SLSA Source Requirements",
+      "sourceUrl": "https://slsa.dev/spec/v1.2/source-requirements",
+      "observedPattern": "Protected source branches and source provenance are separate requirements from local source files.",
+      "localAbsorption": "Branch protection gaps block stronger supply-chain claims until hosted settings are verified."
+    },
+    {
+      "sourceType": "paper",
+      "sourceProject": "OpenSSF Scorecard paper",
+      "sourceUrl": "https://arxiv.org/pdf/2208.03412",
+      "observedPattern": "Security-policy, code-review, maintained status, and token-permission checks are useful ecosystem-scale posture signals with limitations.",
+      "localAbsorption": "This report records signals and limitations instead of reducing posture to a single score."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US11463478B2 DevSecOps remediation optimization",
+      "sourceUrl": "https://patents.google.com/patent/US11463478B2/en",
+      "observedPattern": "DevSecOps systems prioritize remediation across security findings rather than treating scan output as a finished state.",
+      "localAbsorption": "Code scanning backlog is a remediation input and not a public security-readiness claim."
+    }
+  ],
+  "branchProtection": {
+    "status": "disabled",
+    "detail": "branch protection endpoint returned not found"
+  },
+  "rulesets": {
+    "status": "absent",
+    "count": 0,
+    "detail": "0 repository rulesets returned"
+  },
+  "securityAndAnalysis": {
+    "secretScanning": "disabled",
+    "pushProtection": "disabled",
+    "dependabotSecurityUpdates": "disabled"
+  },
+  "vulnerabilityAlerts": {
+    "status": "disabled_or_unavailable",
+    "detail": "vulnerability alerts endpoint returned not found or disabled"
+  },
+  "codeScanning": {
+    "status": "available",
+    "openAlertCount": 436,
+    "byRuleSeverity": {
+      "note": 202,
+      "warning": 226,
+      "error": 8
+    },
+    "bySecuritySeverity": {
+      "unknown": 270,
+      "medium": 116,
+      "high": 50
+    },
+    "topRules": [
+      {
+        "ruleId": "js/unused-local-variable",
+        "count": 184
+      },
+      {
+        "ruleId": "js/file-access-to-http",
+        "count": 74
+      },
+      {
+        "ruleId": "js/http-to-file-access",
+        "count": 33
+      },
+      {
+        "ruleId": "js/insecure-temporary-file",
+        "count": 23
+      },
+      {
+        "ruleId": "js/file-system-race",
+        "count": 22
+      },
+      {
+        "ruleId": "js/trivial-conditional",
+        "count": 21
+      },
+      {
+        "ruleId": "js/automatic-semicolon-insertion",
+        "count": 17
+      },
+      {
+        "ruleId": "js/useless-expression",
+        "count": 17
+      },
+      {
+        "ruleId": "js/useless-assignment-to-local",
+        "count": 8
+      },
+      {
+        "ruleId": "js/indirect-command-line-injection",
+        "count": 6
+      }
+    ]
+  },
+  "latestMainRuns": [
+    {
+      "conclusion": "",
+      "headSha": "7491d6092ed93007a9b5782ca004c548b0403e99",
+      "name": "CodeQL",
+      "status": "in_progress",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27543187715"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7491d6092ed93007a9b5782ca004c548b0403e99",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27543187719"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7491d6092ed93007a9b5782ca004c548b0403e99",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27543187727"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "9ec9da1b8d9ddd75fa3ea2aae7d257471a6e8ff4",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27532173463"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "9ec9da1b8d9ddd75fa3ea2aae7d257471a6e8ff4",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27532173454"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "9ec9da1b8d9ddd75fa3ea2aae7d257471a6e8ff4",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27532173444"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "e54cc8a0aa9a5a5bc71bcdf6e61ff90d8e584ef5",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27526510274"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "e54cc8a0aa9a5a5bc71bcdf6e61ff90d8e584ef5",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27526510269"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "e54cc8a0aa9a5a5bc71bcdf6e61ff90d8e584ef5",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27526510275"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "0009509bece0ea6ef46517889c486f680ebd4f56",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27525455013"
+    }
+  ],
+  "risks": [
+    {
+      "category": "branch_protection_disabled",
+      "severity": "high",
+      "detail": "branch protection endpoint returned not found"
+    },
+    {
+      "category": "rulesets_absent",
+      "severity": "medium",
+      "detail": "0 repository rulesets returned"
+    },
+    {
+      "category": "secret_scanning_disabled",
+      "severity": "high",
+      "detail": "GitHub secret scanning is disabled."
+    },
+    {
+      "category": "push_protection_disabled",
+      "severity": "high",
+      "detail": "GitHub secret scanning push protection is disabled."
+    },
+    {
+      "category": "dependabot_security_updates_disabled",
+      "severity": "medium",
+      "detail": "Dependabot security updates are disabled."
+    },
+    {
+      "category": "vulnerability_alerts_disabled_or_unavailable",
+      "severity": "high",
+      "detail": "vulnerability alerts endpoint returned not found or disabled"
+    },
+    {
+      "category": "code_scanning_alert_backlog",
+      "severity": "high",
+      "detail": "436 open code scanning alerts."
+    },
+    {
+      "category": "main_workflow_not_green",
+      "severity": "medium",
+      "detail": "CodeQL is in_progress/: https://github.com/svy04/metaforge/actions/runs/27543187715"
+    }
+  ],
+  "riskCount": 8,
+  "discovery": {
+    "repositoryDiscovery": "gh_repo_view",
+    "branchProtectionDiscovery": "github_branch_protection_api",
+    "rulesetDiscovery": "github_rulesets_api",
+    "securityAndAnalysisDiscovery": "github_repository_api",
+    "vulnerabilityAlertDiscovery": "github_vulnerability_alerts_api",
+    "codeScanningDiscovery": "github_code_scanning_api",
+    "workflowRunDiscovery": "gh_run_list"
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [
+    "gh_repo_view",
+    "github_branch_protection_api",
+    "github_rulesets_api",
+    "github_repository_api",
+    "github_vulnerability_alerts_api",
+    "github_code_scanning_api",
+    "gh_run_list"
+  ],
+  "protectedActionsExecuted": [],
+  "settingsMutationsPerformed": [],
+  "publicSecurityPostureClaimAllowed": false,
+  "releaseReadinessClaimAllowed": false,
+  "productionReadinessClaimAllowed": false,
+  "externalValidationClaimAllowed": false,
+  "evidenceChecks": [
+    {
+      "label": "hosted settings were read only",
+      "ok": true,
+      "detail": "no settings mutation or protected action recorded"
+    },
+    {
+      "label": "primary sources include GitHub docs, OSS, standard, paper, and patent inputs",
+      "ok": true,
+      "detail": "github_doc,oss_tool,standard,paper,patent"
+    },
+    {
+      "label": "code scanning alert inventory was classified",
+      "ok": true,
+      "detail": "available"
+    },
+    {
+      "label": "branch protection status was classified",
+      "ok": true,
+      "detail": "disabled"
+    },
+    {
+      "label": "secret scanning status was classified",
+      "ok": true,
+      "detail": "disabled"
+    },
+    {
+      "label": "hosted trust risks do not unlock readiness claims",
+      "ok": true,
+      "detail": "all claim booleans false"
+    }
+  ],
+  "claimBoundary": "This hosted GitHub trust posture report is read-only evidence. It does not enable repository settings, resolve alerts, claim public security posture, release readiness, production readiness, external validation, or autonomous reliability."
+}
