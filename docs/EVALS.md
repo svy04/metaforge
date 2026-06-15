@@ -187,10 +187,11 @@ Harness command:
 python meta\scripts\source_reconciler.py
 ```
 
-Run from:
+Owner-side status:
 
 ```text
-<private-workspace>/status.md` says `awaiting user adjudication`.
+awaiting user adjudication
+```
 
 Pass condition:
 
@@ -207,7 +208,7 @@ Question: Does a completed milestone have ledger evidence, not just a completed 
 Harness source:
 
 ```text
-<private-workspace>\mfh\bench\closure_reality_check.py
+owner-side closure reality check, not a public proof artifact
 ```
 
 Method:

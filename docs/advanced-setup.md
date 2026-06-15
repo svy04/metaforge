@@ -159,9 +159,9 @@ export MISTRAL_MODEL=mistral-large-latest
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
-export OPENAI_API_KEY=your-azure-key
-export OPENAI_BASE_URL=https://your-resource.openai.azure.com/openai/deployments/your-deployment/v1
-export OPENAI_MODEL=your-azure-deployment-name
+export OPENAI_API_KEY=<azure-openai-api-key>
+export OPENAI_BASE_URL=https://<azure-openai-resource>.openai.azure.com/openai/deployments/<azure-openai-deployment>/v1
+export OPENAI_MODEL=<azure-openai-deployment>
 ```
 
 ## Environment Variables
@@ -217,22 +217,22 @@ Use profile launchers to avoid repeated environment setup:
 # one-time profile bootstrap (prefer viable local Ollama, otherwise OpenAI)
 bun run profile:init
 
-# preview the best provider/model for your goal
+# preview provider/model suggestions for your goal
 bun run profile:recommend -- --goal coding --benchmark
 
-# auto-apply the best available local/openai provider/model for your goal
+# auto-apply a local/openai provider/model suggestion for your goal
 bun run profile:auto -- --goal latency
 
 # codex bootstrap (defaults to codexplan and ~/.codex/auth.json)
 bun run profile:codex
 
 # openai bootstrap with explicit key
-bun run profile:init -- --provider openai --api-key sk-...
+bun run profile:init -- --provider openai --api-key <openai-api-key>
 
 # ollama bootstrap with custom model
 bun run profile:init -- --provider ollama --model llama3.1:8b
 
-# ollama bootstrap with intelligent model auto-selection
+# ollama bootstrap with goal-based model auto-selection
 bun run profile:init -- --provider ollama --goal coding
 
 # atomic-chat bootstrap (auto-detects running model)

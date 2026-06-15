@@ -89,11 +89,24 @@ def fail(message: str) -> None:
     sys.exit(1)
 
 
+def skip(message: str) -> None:
+    print("AVF first real user goal influence factory validation")
+    print("RESULT: SKIP")
+    print(message)
+    sys.exit(0)
+
+
 def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
 def main() -> None:
+    if not TRACK_DIR.is_dir():
+        skip(
+            "Generated AVF active track is absent from the public checkout; "
+            "regenerate local AVF run outputs before running this legacy validator."
+        )
+
     missing = [path for path in REQUIRED_FILES if not (ROOT / path).is_file()]
     if missing:
         fail("Missing required files:\n" + "\n".join(missing))

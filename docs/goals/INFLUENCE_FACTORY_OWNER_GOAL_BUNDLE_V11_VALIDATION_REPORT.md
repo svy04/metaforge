@@ -1,5 +1,10 @@
 # Influence Factory Owner Goal Bundle v11 Validation Report
 
+Historical local artifact boundary: this report records a prior local AVF run.
+The `avf/influence_factory/owner_goal_runs/` paths are generated owner-review
+artifacts and are no longer tracked in the public checkout. Regenerate local AVF
+run outputs before using those paths as current evidence.
+
 ## Result
 
 RESULT: PASS

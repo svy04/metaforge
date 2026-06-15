@@ -23,7 +23,7 @@ For quick switches:
 # low latency preset
 bun run dev:fast
 
-# better coding quality preset
+# coding-oriented preset
 bun run dev:code
 ```
 
@@ -37,7 +37,7 @@ If everything is healthy, OpenClaude starts directly.
 bun run profile:init -- --provider ollama --model llama3.1:8b
 ```
 
-Or let OpenClaude recommend the best local model for your goal:
+Or let OpenClaude suggest a local model for your goal:
 
 ```powershell
 bun run profile:init -- --provider ollama --goal coding
@@ -112,7 +112,7 @@ Expected behavior:
 ## 5.2 OpenAI mode
 
 ```powershell
-bun run profile:init -- --provider openai --api-key sk-... --model gpt-4o
+bun run profile:init -- --provider openai --api-key <openai-api-key> --model <current-openai-tool-model>
 bun run dev:profile
 ```
 
@@ -203,7 +203,7 @@ Fix:
 ## 7. Recommended Local Models
 
 - Fast/general: `llama3.1:8b`
-- Better coding quality (if hardware supports): `qwen2.5-coder:14b`
+- Coding-oriented (if hardware supports): `qwen2.5-coder:14b`
 - Low-resource fallback: smaller instruct model
 
 Switch model quickly:
@@ -228,7 +228,7 @@ bun run profile:init -- --provider ollama --goal balanced
 bun run profile:init -- --provider ollama --goal coding
 ```
 
-`profile:auto` is a best-available provider picker, not a local-only command. Use `--provider ollama` when you want to stay on a local model.
+`profile:auto` is a provider/model auto-selection command, not a local-only command. Use `--provider ollama` when you want to stay on a local model.
 
 ## 8. Practical Prompt Playbook (Copy/Paste)
 
@@ -295,7 +295,7 @@ bun run dev:profile
 ```powershell
 # profile
 bun run profile:init -- --provider ollama --model llama3.1:8b
-bun run profile:init -- --provider openai --api-key sk-... --model gpt-4o
+bun run profile:init -- --provider openai --api-key <openai-api-key> --model <current-openai-tool-model>
 
 # launch
 bun run dev:profile

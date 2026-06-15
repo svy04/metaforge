@@ -1,7 +1,7 @@
 # Local Operator Run Artifacts
 
-`operator_package_v*` directories are local generated outputs, not source
-artifacts for the public repository.
+`operator_package_v*`, `owner_goal_runs/`, and `active/` directories are local
+generated outputs, not source artifacts for the public repository.
 
 They are ignored because the generated run chain can include internal
 owner-review state and deeply nested paths that are not portable for default

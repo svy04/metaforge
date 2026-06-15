@@ -1,5 +1,10 @@
 # First Real User Goal Completion Audit
 
+Historical local artifact boundary: this audit records a prior local AVF run.
+The `avf/influence_factory/active/` evidence paths are generated owner-review
+artifacts and are no longer tracked in the public checkout. Regenerate local AVF
+run outputs before using those paths as current evidence.
+
 ## Requirement 1
 requirement: first real user goal was imported
 status: PROVEN
