@@ -66,6 +66,41 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('rejects pasted internal runtime context in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      [
+        '<codex_internal_context source="goal">',
+        '<environment_context>',
+        '<workspace_roots><root><repo></root></workspace_roots>',
+        '<permissions instructions>',
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+  })
+
+  test('rejects raw public-comment UI dumps in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      [
+        '갤로그로 이동합니다.',
+        '댓글돌이',
+        '삭제',
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+  })
+
   test('scans the root license for local path disclosure', () => {
     const repo = makeTempRepo()
     writeFileSync(
