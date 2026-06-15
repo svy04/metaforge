@@ -483,7 +483,7 @@ async function checkProviderGenerationReadiness(): Promise<CheckResult> {
   if (readiness.state === 'no_models') {
     return fail(
       'Provider generation readiness',
-      'Ollama is reachable, but no installed models were found. Pull a model first (for example: ollama pull qwen2.5-coder:7b).',
+      'Ollama is reachable, but no installed models were found. Pull a local model first (for example: ollama pull <local-ollama-model>).',
     )
   }
 
