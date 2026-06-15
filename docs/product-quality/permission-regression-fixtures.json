@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:03:49.526Z",
+  "generatedAt": "2026-06-15T18:54:18.199Z",
   "mode": "local_no_provider_permission_regression",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -21,6 +21,64 @@
     "src/tools/BashTool/shouldUseSandbox.test.ts",
     "src/utils/settings/allowBypassPermissionsMode.test.ts",
     "src/utils/permissions/yoloClassifier.test.ts"
+  ],
+  "behavioralTestCommands": [
+    {
+      "name": "targeted_permission_security_tests",
+      "command": [
+        "bun",
+        "test",
+        "src/__tests__/security-hardening.test.ts",
+        "src/tools/BashTool/bashPermissions.test.ts",
+        "src/tools/BashTool/shouldUseSandbox.test.ts",
+        "src/utils/settings/allowBypassPermissionsMode.test.ts",
+        "src/utils/permissions/yoloClassifier.test.ts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "requiredSubstrings": [
+        "pass",
+        "0 fail"
+      ],
+      "missingSubstrings": [],
+      "stdoutPreview": [
+        "bun test v1.3.13 (bf2e2cec)"
+      ],
+      "stderrPreview": [
+        "src\\__tests__\\security-hardening.test.ts:",
+        "(pass) MCP tool result sanitization > transformResultContent sanitizes text content",
+        "(pass) MCP tool result sanitization > resource text content is also sanitized",
+        "(pass) Sandbox settings trust boundary > getSandboxEnabledSetting does not use getSettings_DEPRECATED",
+        "(pass) Plugin git operations disable hooks > gitClone includes core.hooksPath=/dev/null",
+        "(pass) Plugin git operations disable hooks > gitPull includes core.hooksPath=/dev/null",
+        "(pass) Plugin git operations disable hooks > gitSubmoduleUpdate includes core.hooksPath=/dev/null",
+        "(pass) SAFE_ENV_VARS excludes credentials > ANTHROPIC_FOUNDRY_API_KEY is not in SAFE_ENV_VARS",
+        "(pass) WebFetch SSRF guard > getWithPermittedRedirects uses ssrfGuardedLookup",
+        "(pass) Swarm permission file polling removed > useSwarmPermissionPoller hook no longer exists",
+        "(pass) Swarm permission file polling removed > poller does not import from permissionSync",
+        "(pass) Swarm permission file polling removed > file-based permission functions are marked deprecated",
+        "(pass) Swarm permission file polling removed > mailbox-based functions are NOT deprecated",
+        "src\\tools\\BashTool\\bashPermissions.test.ts:",
+        "(pass) sandbox auto-allow still enforces Bash path constraints [63.00ms]",
+        "src\\tools\\BashTool\\shouldUseSandbox.test.ts:",
+        "(pass) model-facing Bash schema rejects dangerouslyDisableSandbox",
+        "(pass) model-facing PowerShell schema rejects dangerouslyDisableSandbox",
+        "(pass) model-controlled dangerouslyDisableSandbox does not bypass sandbox",
+        "(pass) trusted internal approval can disable sandbox when policy allows it",
+        "(pass) trusted internal approval cannot disable sandbox when policy forbids it",
+        "src\\utils\\permissions\\yoloClassifier.test.ts:",
+        "(pass) buildTranscriptForClassifier > keeps the most recent transcript entries within budget",
+        "(pass) buildTranscriptForClassifier > truncates oversized user blocks before serialization",
+        "src\\utils\\settings\\allowBypassPermissionsMode.test.ts:",
+        "(pass) SettingsSchema allowBypassPermissionsMode > accepts allowBypassPermissionsMode: true",
+        "(pass) SettingsSchema allowBypassPermissionsMode > accepts allowBypassPermissionsMode: false",
+        "(pass) SettingsSchema allowBypassPermissionsMode > rejects non-boolean allowBypassPermissionsMode",
+        " 23 pass",
+        " 0 fail",
+        " 44 expect() calls",
+        "Ran 23 tests across 5 files. [1243.00ms]"
+      ]
+    }
   ],
   "regressionFixtures": [
     {
@@ -183,5 +241,5 @@
       ]
     }
   ],
-  "claimBoundary": "Permission regression fixtures are local source and test-surface checks only, not external security validation or release readiness."
+  "claimBoundary": "Permission regression fixtures and behavioral command evidence are local no-provider permission/security checks only, not external security validation or release readiness."
 }

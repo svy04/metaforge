@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
@@ -18,8 +19,20 @@ type PermissionRegressionReport = {
   externalCallsPerformed: []
   protectedPermissionSurfaces: string[]
   targetedTestFiles: string[]
+  behavioralTestCommands: BehavioralTestCommand[]
   regressionFixtures: RegressionFixture[]
   claimBoundary: string
+}
+
+type BehavioralTestCommand = {
+  name: string
+  command: string[]
+  exitCode: number | null
+  passed: boolean
+  requiredSubstrings: string[]
+  missingSubstrings: string[]
+  stdoutPreview: string[]
+  stderrPreview: string[]
 }
 
 const root = process.cwd()
@@ -31,6 +44,67 @@ function readText(path: string): string {
 
 function sourceExists(path: string): boolean {
   return existsSync(resolve(root, path))
+}
+
+function normalize(text: string | Buffer | null | undefined): string {
+  return String(text ?? '').replace(/\r\n/g, '\n')
+}
+
+function preview(text: string): string[] {
+  return text
+    .split('\n')
+    .map((line) => line.trimEnd())
+    .filter((line) => line.length > 0)
+    .slice(0, 80)
+}
+
+function noProviderEnv(): NodeJS.ProcessEnv {
+  return {
+    ...process.env,
+    CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST: '1',
+    CLAUDE_CODE_USE_OPENAI: '0',
+    CLAUDE_CODE_USE_GEMINI: '0',
+    CLAUDE_CODE_USE_GITHUB: '0',
+    CLAUDE_CODE_USE_MISTRAL: '0',
+    OPENAI_API_KEY: '',
+    CODEX_API_KEY: '',
+    GEMINI_API_KEY: '',
+    GOOGLE_API_KEY: '',
+    MISTRAL_API_KEY: '',
+    GITHUB_TOKEN: '',
+    GH_TOKEN: '',
+    ANTHROPIC_API_KEY: '',
+    OPENCLAUDE_PRODUCT_PERMISSION_REGRESSION_NO_PROVIDER: '1',
+  }
+}
+
+function runBehavioralTestCommand(
+  name: string,
+  files: string[],
+  requiredSubstrings: string[],
+): BehavioralTestCommand {
+  const command = ['bun', 'test', ...files]
+  const result = spawnSync(process.execPath, ['test', ...files], {
+    cwd: root,
+    encoding: 'utf8',
+    env: noProviderEnv(),
+    shell: false,
+  })
+  const stdout = normalize(result.stdout)
+  const stderr = normalize(result.stderr)
+  const combined = `${stdout}\n${stderr}`
+  const missingSubstrings = requiredSubstrings.filter((substring) => !combined.includes(substring))
+
+  return {
+    name,
+    command,
+    exitCode: result.status,
+    passed: result.status === 0 && missingSubstrings.length === 0,
+    requiredSubstrings,
+    missingSubstrings,
+    stdoutPreview: preview(stdout),
+    stderrPreview: preview(stderr),
+  }
 }
 
 function containsAll(path: string, snippets: string[]): boolean {
@@ -85,6 +159,8 @@ function writeReports(report: PermissionRegressionReport): void {
     `- all_regression_fixtures_passed: \`${report.regressionFixtures.every((item) => item.ok)}\``,
     `- protected_permission_surfaces: \`${report.protectedPermissionSurfaces.length}\``,
     `- targeted_test_files: \`${report.targetedTestFiles.length}\``,
+    `- behavioral_test_commands: \`${report.behavioralTestCommands.length}\``,
+    `- behavioral_test_commands_passed: \`${report.behavioralTestCommands.every((item) => item.passed)}\``,
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
     `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
     `- external_calls_performed: \`${report.externalCallsPerformed.length}\``,
@@ -96,6 +172,14 @@ function writeReports(report: PermissionRegressionReport): void {
     '## Targeted Test Files',
     '',
     ...report.targetedTestFiles.map((path) => `- \`${path}\``),
+    '',
+    '## Behavioral Test Commands',
+    '',
+    '| Command | Result | Exit | Missing Substrings |',
+    '| --- | --- | ---: | --- |',
+    ...report.behavioralTestCommands.map((item) => (
+      `| \`${item.command.join(' ')}\` | \`${item.passed}\` | \`${item.exitCode ?? 'null'}\` | ${item.missingSubstrings.length === 0 ? 'none' : item.missingSubstrings.map((value) => `\`${value}\``).join('<br>')} |`
+    )),
     '',
     '## Fixtures',
     '',
@@ -298,6 +382,13 @@ function main(): void {
     'auto-mode classifier transcript bounds',
   ]
   const regressionFixtures = buildFixtures()
+  const behavioralTestCommands = [
+    runBehavioralTestCommand(
+      'targeted_permission_security_tests',
+      targetedTestFiles,
+      ['pass', '0 fail'],
+    ),
+  ]
   const report: PermissionRegressionReport = {
     generatedAt: new Date().toISOString(),
     mode: 'local_no_provider_permission_regression',
@@ -306,8 +397,9 @@ function main(): void {
     externalCallsPerformed: [],
     protectedPermissionSurfaces,
     targetedTestFiles,
+    behavioralTestCommands,
     regressionFixtures,
-    claimBoundary: 'Permission regression fixtures are local source and test-surface checks only, not external security validation or release readiness.',
+    claimBoundary: 'Permission regression fixtures and behavioral command evidence are local no-provider permission/security checks only, not external security validation or release readiness.',
   }
 
   writeReports(report)
@@ -317,13 +409,14 @@ function main(): void {
   }
 
   console.log('')
-  if (!regressionFixtures.every((item) => item.ok)) {
+  if (!regressionFixtures.every((item) => item.ok) || !behavioralTestCommands.every((item) => item.passed)) {
     console.error('RESULT: FAIL')
     process.exit(1)
   }
 
   console.log('RESULT: PASS')
   console.log(`regression_fixture_count=${regressionFixtures.length}`)
+  console.log(`behavioral_test_commands=${behavioralTestCommands.length}`)
   console.log(`protected_permission_surfaces=${protectedPermissionSurfaces.length}`)
   console.log(`targeted_test_files=${targetedTestFiles.length}`)
   console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)

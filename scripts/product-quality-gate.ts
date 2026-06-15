@@ -1396,6 +1396,13 @@ type PermissionRegressionReport = {
     id: string
     ok: boolean
   }>
+  behavioralTestCommands: Array<{
+    name: string
+    command: string[]
+    exitCode: number | null
+    passed: boolean
+    missingSubstrings: string[]
+  }>
   protectedPermissionSurfaces: string[]
   targetedTestFiles: string[]
 }
@@ -4212,6 +4219,8 @@ function main(): void {
   checks.push(check('permission regression includes protected surfaces', permissionRegression.protectedPermissionSurfaces.length >= 5))
   checks.push(check('permission regression includes targeted test files', permissionRegression.targetedTestFiles.length >= 4))
   checks.push(check('permission regression fixtures pass', permissionRegression.regressionFixtures.every((item) => item.ok)))
+  checks.push(check('permission regression includes behavioral test command evidence', permissionRegression.behavioralTestCommands.length >= 1))
+  checks.push(check('permission regression behavioral commands pass', permissionRegression.behavioralTestCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
   checks.push(check('runtime doctor fixtures are local no-provider checks', runtimeDoctorRegression.mode === 'local_no_provider_runtime_doctor_regression'))
   checks.push(check('runtime doctor regression performed no provider calls', runtimeDoctorRegression.providerCallsPerformed.length === 0))
   checks.push(check('runtime doctor regression performed no live model calls', runtimeDoctorRegression.liveModelCallsPerformed.length === 0))
@@ -4908,6 +4917,7 @@ function main(): void {
   console.log(`provider_capability_rows=${providerCapabilityMatrix.capabilityRowCount}`)
   console.log(`provider_failure_modes=${providerCapabilityMatrix.failureModeCount}`)
   console.log(`permission_regression_fixtures=${permissionRegression.regressionFixtures.length}`)
+  console.log(`permission_regression_behavioral_commands=${permissionRegression.behavioralTestCommands.length}`)
   console.log(`runtime_doctor_checks=${runtimeDoctorRegression.doctorChecks.length}`)
   console.log(`git_release_hygiene_status=${gitReleaseHygiene.workspaceGitStatus}`)
   console.log(`ide_extension_surface_status=${ideExtensionSurface.workspaceIdeExtensionStatus}`)
