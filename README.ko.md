@@ -44,15 +44,18 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 ## 빠른 시작
 
 ```bash
-npm install -g @gitlawb/openclaude
-openclaude
-```
-
-개발 checkout에서는:
-
-```bash
 bun install
 bun run build
+node dist/cli.mjs
+```
+
+`npm install -g @gitlawb/openclaude` 명령은 external OpenClaude npm package를
+설치하는 경로입니다. 즉 이 checkout에서 만든 배포물이 아니라는 의미에서
+`not a Metaforge release artifact`입니다.
+
+검증은:
+
+```bash
 bun run verify:privacy
 ```
 

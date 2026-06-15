@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-06-15T03:06:07.631Z",
+  "mode": "local_no_provider_origin_license_provenance_boundary",
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Docs licensing a repository",
+      "sourceUrl": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "observedPattern": "GitHub treats repository licensing as an explicit public surface and separates repository license metadata from legal advice.",
+      "localAbsorption": "The local gate checks that public package/readme/license surfaces preserve the actual origin and license boundary instead of overclaiming open-source readiness."
+    },
+    {
+      "sourceProject": "REUSE Specification 3.3",
+      "sourceUrl": "https://reuse.software/spec-3.3/",
+      "observedPattern": "REUSE defines comprehensive, unambiguous, human- and machine-readable licensing information for each file.",
+      "localAbsorption": "The local gate consumes the existing source-license metadata report as evidence and keeps REUSE/source-compliance claims blocked until stronger file-level metadata exists."
+    },
+    {
+      "sourceProject": "SPDX License List",
+      "sourceUrl": "https://spdx.org/licenses/",
+      "observedPattern": "SPDX publishes standardized license identifiers, names, texts, and canonical URLs for license identification.",
+      "localAbsorption": "The local gate requires SEE LICENSE FILE for this derived-runtime package boundary instead of collapsing the project into a blanket SPDX MIT claim."
+    },
+    {
+      "sourceProject": "OpenSSF Scorecard checks",
+      "sourceUrl": "https://github.com/ossf/scorecard/blob/main/docs/checks.md",
+      "observedPattern": "OpenSSF Scorecard treats branch protection, CI tests, dependency update tooling, and security policy as separate quality signals.",
+      "localAbsorption": "The local gate composes existing remote-surface, release-provenance, and license evidence without converting them into external validation or production readiness."
+    }
+  ],
+  "packageName": "@gitlawb/openclaude",
+  "packageLicenseField": "SEE LICENSE FILE",
+  "packageRepositoryUrl": "https://github.com/svy04/metaforge.git",
+  "originRemoteUrl": "https://github.com/svy04/metaforge.git",
+  "sourceReportHashes": {
+    "sourceLicenseMetadataReport": "48fd36d1b1687fafceedd6cab63abb38015109069882dc250c947467f0295d67",
+    "thirdPartyLicenseReport": "1c3ddd77b4ef38a3a224a5e968c35b5fc2afef25d9e380dd8b148a32ec43b255",
+    "licenseBoundaryAuthorizationReport": "7b7c9b4f752e4ed2f772fd43609a656a8811b16b38e4c581415fd7e30a558f40",
+    "githubRemoteSurfaceAuditReport": "ea22fbcc80c25fb7531922a9387db3cefce4d1d7113781f70e49991c374effcb",
+    "releaseArtifactProvenanceReport": "a2e17292cb9e9f1a2f729dda41509cbfa2a4e0a7ab1e72c3a1118f6d0121d262"
+  },
+  "blockers": [],
+  "blockerCount": 0,
+  "status": "no_origin_license_provenance_boundary_findings",
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "publishAttempted": false,
+  "deployAttempted": false,
+  "launchAttempted": false,
+  "evidenceChecks": [
+    {
+      "label": "package repository matches current public origin",
+      "ok": true,
+      "detail": "https://github.com/svy04/metaforge.git"
+    },
+    {
+      "label": "package license preserves SEE LICENSE FILE boundary",
+      "ok": true,
+      "detail": "SEE LICENSE FILE"
+    },
+    {
+      "label": "public surfaces state derived runtime boundary",
+      "ok": true,
+      "detail": "README.md, README.ko.md, LICENSE"
+    },
+    {
+      "label": "public surfaces keep Metaforge as Meta + MFH + Orchestra OS",
+      "ok": true,
+      "detail": "README.md and README.ko.md"
+    },
+    {
+      "label": "blanket MIT and fully-original CLI claims are absent",
+      "ok": true,
+      "detail": "public text scan"
+    },
+    {
+      "label": "external npm install command is provenance-bounded when present",
+      "ok": true,
+      "detail": "@gitlawb/openclaude install copy"
+    },
+    {
+      "label": "source and third-party license reports keep compliance/readiness claims blocked",
+      "ok": true,
+      "detail": "claim flags false"
+    },
+    {
+      "label": "license boundary authorization report does not claim legal review",
+      "ok": true,
+      "detail": "legal and authorization flags false"
+    },
+    {
+      "label": "GitHub remote surface audit has no blockers",
+      "ok": true,
+      "detail": "no_public_github_surface_findings_detected"
+    },
+    {
+      "label": "release provenance report did not publish, deploy, or launch",
+      "ok": true,
+      "detail": "protected release action flags false"
+    },
+    {
+      "label": "provider and live model calls remain absent in source evidence",
+      "ok": true,
+      "detail": "0 calls"
+    }
+  ],
+  "claimBoundary": "Origin/license provenance boundary evidence is a local no-provider consistency gate across package metadata, README/LICENSE copy, source-license reports, GitHub remote-surface evidence, and release-provenance reports. It does not perform legal review, claim license compliance, claim open-source readiness, claim release/public/production readiness, publish, deploy, launch, or call providers/live models."
+}
