@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T12:38:18.381Z",
+  "generatedAt": "2026-06-15T13:06:30.690Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,13 +20,13 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "2e6d6e68be25a5db71a52c46d3bb182ab477b00f40d0d5520c8bea35461bb82c",
-  "evidenceRecordCount": 256,
-  "evidenceTotalSizeBytes": 9290876,
+  "manifestJsonlSha256": "a4503214cfed52b2a58dadd3251b5c347330e512a4b680f8adb74aa437e49888",
+  "evidenceRecordCount": 259,
+  "evidenceTotalSizeBytes": 9336817,
   "evidenceRoles": {
     "source": 2,
-    "evidence_report": 186,
-    "evidence_artifact": 60,
+    "evidence_report": 188,
+    "evidence_artifact": 61,
     "quality_gate": 1,
     "workflow": 7
   },
@@ -141,6 +141,12 @@
     "docs/product-quality/github-remote-surface-audit-report.json",
     "docs/product-quality/github-remote-surface-audit-report.md",
     "reports/openclaude-github-remote-surface-audit.jsonl",
+    "docs/product-quality/github-hosted-trust-posture-report.json",
+    "docs/product-quality/github-hosted-trust-posture-report.md",
+    "reports/openclaude-github-hosted-trust-posture.jsonl",
+    "docs/product-quality/code-scanning-remediation-queue-report.json",
+    "docs/product-quality/code-scanning-remediation-queue-report.md",
+    "reports/openclaude-code-scanning-remediation-queue.jsonl",
     "docs/product-quality/origin-license-provenance-boundary-report.json",
     "docs/product-quality/origin-license-provenance-boundary-report.md",
     "reports/openclaude-origin-license-provenance-boundary.jsonl",
@@ -327,6 +333,18 @@
       "role": "evidence_report"
     },
     {
+      "path": "docs/product-quality/code-scanning-remediation-queue-report.json",
+      "sha256": "72c031e7b897a9d942875cf6cdbf0aab2ddf3f2ecb8555807c51b70a783b5bd3",
+      "sizeBytes": 23550,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/code-scanning-remediation-queue-report.md",
+      "sha256": "39a565791957a8236633c034f085cf75d8f913b64737e29d3452a1edf8efe269",
+      "sizeBytes": 8024,
+      "role": "evidence_report"
+    },
+    {
       "path": "docs/product-quality/community-intake-quality-report.json",
       "sha256": "88d556999fd04d5c9f291e6c3aecf09a571ea0c64f1c225ea05e233f0480b502",
       "sizeBytes": 7158,
@@ -412,14 +430,14 @@
     },
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.json",
-      "sha256": "38a19b84411deb18b30647e188d14f158b2656086b6e57da80cd0b9c39d78a99",
-      "sizeBytes": 10679,
+      "sha256": "48728234906f4562bdc17dffd19e01b38f9219437d038e0bb7eb7126bdc79121",
+      "sizeBytes": 10677,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.md",
-      "sha256": "02f4a94a937a767c9c968eefcc49e6c5aab3fd359c7a82df993ac3365f40b01f",
-      "sizeBytes": 5779,
+      "sha256": "2a93b57da727fd0f0c9791458deec549673a7ba41d82c16e427b0e2d4f8fab15",
+      "sizeBytes": 5777,
       "role": "evidence_report"
     },
     {
@@ -988,14 +1006,14 @@
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.json",
-      "sha256": "bc17ca2755dafca1832da9081b668256a3890923826e6b938d610944bff91959",
-      "sizeBytes": 20043,
+      "sha256": "a3771852226a30247eab64fd6d7ca289cf0adec4644a4cfa291870ffe557c078",
+      "sizeBytes": 20718,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
-      "sha256": "a9dbdcc4ed8fc2d8b7902fc07ac15016205358f141d9e596501214de919a9596",
-      "sizeBytes": 8247,
+      "sha256": "1aa3eed8980de29397dea177cbb4e1830cabf4f16ad9c33801138bd9248caa82",
+      "sizeBytes": 8507,
       "role": "evidence_report"
     },
     {
@@ -1162,13 +1180,13 @@
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.json",
-      "sha256": "aa0a162a0fa88b8639c7d698c4574fdd1acf6de86576ffd654aa33b94ba85373",
+      "sha256": "91ab6a483f18684c0097f5afabb6ee93a8bd5fa70ae1fd153646ff249be20293",
       "sizeBytes": 19599,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
-      "sha256": "c5510b532a41cc359f2de7bf71856b6fd698d810a3df670f944dee1442164c81",
+      "sha256": "ffdc85119a60a6fe1395045a1ee607449969fdba3df2b8d42cba422de4dd0c07",
       "sizeBytes": 5532,
       "role": "evidence_report"
     },
@@ -1354,13 +1372,13 @@
     },
     {
       "path": "package.json",
-      "sha256": "3b96cd7ecbe026e9e0d43a4721e06171d40562f8007d2e9dd636c67ae0da57a0",
-      "sizeBytes": 19544,
+      "sha256": "850210708787d31ef86628741d4890cee6b4e6164bab254c5ac024640b816405",
+      "sizeBytes": 19751,
       "role": "source"
     },
     {
       "path": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-      "sha256": "f9eafb2f5b0170581bc9c1bd7c3587bee3c0d53203b573a42bc3bd0b0c66bdf2",
+      "sha256": "42dd9e9ee3ab11d17d01ed773a79583efe13f2179fcfb191a13710969d0dd3b1",
       "sizeBytes": 14963,
       "role": "evidence_artifact"
     },
@@ -1372,19 +1390,25 @@
     },
     {
       "path": "reports/openclaude-benchmark-submission-assets.jsonl",
-      "sha256": "06e665c64f57ac2e55a66117397996007db0dc2a03ab2f25780c824a18c33f38",
+      "sha256": "58a3278b12ac2c44fe8d479d2b7848db68ea1e4fd524a197da42bb083f6f234e",
       "sizeBytes": 5870,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-benchmark-task-manifest.jsonl",
-      "sha256": "b939a541b676e2378913e3250a60b2ebe23bca6c73c3d57743321a4f1a34824d",
+      "sha256": "cba4d20d9077823eb7b3310ba62344aa788bf86a58131d1d215205cd00f35404",
       "sizeBytes": 12552,
       "role": "evidence_artifact"
     },
     {
+      "path": "reports/openclaude-code-scanning-remediation-queue.jsonl",
+      "sha256": "06214f1e97c1de970e05cdd34f86af1db5376b440eb61d9a9b4c999b1abda532",
+      "sizeBytes": 5303,
+      "role": "evidence_artifact"
+    },
+    {
       "path": "reports/openclaude-github-hosted-trust-posture.jsonl",
-      "sha256": "aaae263f4e0205cc5cbb6a4813563d76435919d8ed0eae22bee179d093bed918",
+      "sha256": "71667c5f2f8bc9c85dc94eb11a4126b62321d16ab7a6d49c59c8eec2e11e949c",
       "sizeBytes": 1488,
       "role": "evidence_artifact"
     },
@@ -1396,13 +1420,13 @@
     },
     {
       "path": "reports/openclaude-license-boundary-authorization-items.jsonl",
-      "sha256": "5610bdfcc699f6ce438a8c942f7d870b7a64dd41e69ca6aa6ca61cad243988b3",
+      "sha256": "26b97ba51023142fb39c6eb3492a2ef427aa0057a8768e3e8616548d921c413c",
       "sizeBytes": 7196,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-local-benchmark-results.jsonl",
-      "sha256": "0978bca4ac1e7cc86cef6acfeb6946388170d7fb7ad74c96e13a50f86823b762",
+      "sha256": "cc0f002764042709452b0edf90df50310062f8ffc4b82bbecda4876ff1f300e3",
       "sizeBytes": 12257,
       "role": "evidence_artifact"
     },
@@ -1414,7 +1438,7 @@
     },
     {
       "path": "reports/openclaude-model-system-card.jsonl",
-      "sha256": "2b81dab5d8823765962a55a524ad06ae7b26ce521215019528cb2902877e26d4",
+      "sha256": "ff5f4578316025e814c8160138931bb4e7c6080984d0800e68c592651bd040b3",
       "sizeBytes": 7452,
       "role": "evidence_artifact"
     },
@@ -1426,7 +1450,7 @@
     },
     {
       "path": "reports/openclaude-oss-architecture-absorption-targets.jsonl",
-      "sha256": "51fa85b0f88fa9b7409b0917186f7930ef237713ec3c167d5ecf13220d3c7b3d",
+      "sha256": "ec471df65b839673c359f32622a647397a7f52e3b2a1d4a97e1bef43ca862941",
       "sizeBytes": 18053,
       "role": "evidence_artifact"
     },
@@ -1450,19 +1474,19 @@
     },
     {
       "path": "reports/openclaude-oss-baseline-provenance.jsonl",
-      "sha256": "a67000f6d5054476e3e3f2af0a75811a8dea4ffd132666bf11b3d671673c5ca5",
+      "sha256": "3b52e22cd1cadc55a5497d480fc53ffbc7a2666204272d77d3b56dd337d45c78",
       "sizeBytes": 7235,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-baseline-refresh-provenance.jsonl",
-      "sha256": "9dfdeadba69725a5b9f8d42a19c3e25fd0a32444d1ec867368dd6fc7c059369d",
+      "sha256": "83da4e8c2952597ff73f547d839bdad191308811f4f04bd0f9c921b138887a60",
       "sizeBytes": 7094,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-oss-benchmark-comparison-matrix.jsonl",
-      "sha256": "f0bdbcc3c15f90e993e8a321dc074b3faf5640cdbeb774b79e8ce553286c608f",
+      "sha256": "6b97dec6787c70e6641209562f46f413532e581d551ef0263e2825ef8ef21cf6",
       "sizeBytes": 199169,
       "role": "evidence_artifact"
     },
@@ -1498,7 +1522,7 @@
     },
     {
       "path": "reports/openclaude-oss-provider-breadth-evidence.jsonl",
-      "sha256": "acdb791ea6c977b161b456de37b082988fbf2e00ba0646132d00ae1bbb112ec6",
+      "sha256": "912a49fc8518962e70833a7de4beab8eb76f1fed718b8eb3014e79fceb990b68",
       "sizeBytes": 14482,
       "role": "evidence_artifact"
     },
@@ -1516,7 +1540,7 @@
     },
     {
       "path": "reports/openclaude-oss-safe-backlog-closure.jsonl",
-      "sha256": "f9f380dd5bd1739b090089feb6b66d438102adcd0cd40daac472225528f47d89",
+      "sha256": "f2333f0b1ebdd76de86a4b1bdfca46f2dc5e51dfe5c207609ea9f007c931b8ff",
       "sizeBytes": 8058,
       "role": "evidence_artifact"
     },
@@ -1534,7 +1558,7 @@
     },
     {
       "path": "reports/openclaude-oss-source-review-provenance.jsonl",
-      "sha256": "0e54e97685c3bc39f708db5ee9268af3081dbc90391374048d556f65deb156be",
+      "sha256": "926c725c073bdca3398acf0b94875b179945df6b0f2d4c05c16f85f89f07e3e2",
       "sizeBytes": 12104,
       "role": "evidence_artifact"
     },
@@ -1558,14 +1582,14 @@
     },
     {
       "path": "reports/openclaude-primary-source-registry.jsonl",
-      "sha256": "23e81b27176264a693c791c343caf17dc6ec38d366994e4873d074be618650d0",
-      "sizeBytes": 148695,
+      "sha256": "6f416725cdd5d041c31234358b715957dcdb1e545eebb910736da5de7d25c4c8",
+      "sizeBytes": 154480,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-protected-action-authorization-packet.jsonl",
-      "sha256": "2e26dad58c23e5e0c65f1080bcb7dbee6d38ed8c078dbcce22bc4caaa1fbc661",
-      "sizeBytes": 10358,
+      "sha256": "b54af6bc2a696110ebec85faae77ed601f40a77d6da3ce978d684414a09b7306",
+      "sizeBytes": 10634,
       "role": "evidence_artifact"
     },
     {
@@ -1582,13 +1606,13 @@
     },
     {
       "path": "reports/openclaude-source-license-metadata-inventory.jsonl",
-      "sha256": "10cbb629654045dde6ab602cb523d790866ef1c7c8635a063ae82c11f1e512b4",
-      "sizeBytes": 1477872,
+      "sha256": "f8a1209485177fab55c97ff01010facd5534c1751c3f22b10ef419c4e30ef59e",
+      "sizeBytes": 1479737,
       "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-terminal-bench-task-map.jsonl",
-      "sha256": "023d7d3cf0c9e162bf5955ed71aefb41c6b22a0c0d9fce079fbd2183587c9bc6",
+      "sha256": "7eca5868f5f0f9a6d05629d228e82518d1f48aeae1d4c72f69474135b7e2a5bd",
       "sizeBytes": 5906,
       "role": "evidence_artifact"
     },
@@ -1728,17 +1752,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "256 records"
+      "detail": "259 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "9290876 total bytes"
+      "detail": "9336817 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "256 lines"
+      "detail": "259 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1753,7 +1777,7 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":186,\"evidence_artifact\":60,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":188,\"evidence_artifact\":61,\"quality_gate\":1,\"workflow\":7}"
     },
     {
       "label": "manifest contains no credential patterns",

@@ -127,6 +127,19 @@ function writeFixtureReports(rootDir: string): void {
     productionReadinessClaimAllowed: false,
     externalValidationClaimAllowed: false,
   })
+  writeJson(rootDir, 'docs/product-quality/code-scanning-remediation-queue-report.json', {
+    status: 'remediation_queue_required',
+    providerCallsPerformed: [],
+    liveModelCallsPerformed: [],
+    externalCallsPerformed: ['github_code_scanning_alert_sample_discovery'],
+    protectedActionsExecuted: [],
+    settingsMutationsPerformed: [],
+    publicSecurityPostureClaimAllowed: false,
+    releaseReadinessClaimAllowed: false,
+    productionReadinessClaimAllowed: false,
+    externalValidationClaimAllowed: false,
+    alertResolutionClaimAllowed: false,
+  })
 }
 
 function runPacket(cwd: string): void {
@@ -160,6 +173,7 @@ describe('protected action authorization packet', () => {
     const sourceBindings = packet.sourceReportBindings as Array<Record<string, any>>
 
     expect(sourceBindings.map((source) => source.path)).toContain('docs/product-quality/github-hosted-trust-posture-report.json')
+    expect(sourceBindings.map((source) => source.path)).toContain('docs/product-quality/code-scanning-remediation-queue-report.json')
 
     const hostedAuthorization = authorizations.find((item) => item.id === 'authorize_hosted_github_security_controls')
     expect(hostedAuthorization).toBeDefined()
@@ -167,9 +181,11 @@ describe('protected action authorization packet', () => {
     expect(hostedAuthorization?.authorized).toBe(false)
     expect(hostedAuthorization?.executed).toBe(false)
     expect(hostedAuthorization?.sourceReports).toContain('docs/product-quality/github-hosted-trust-posture-report.json')
+    expect(hostedAuthorization?.sourceReports).toContain('docs/product-quality/code-scanning-remediation-queue-report.json')
     expect(hostedAuthorization?.currentEvidence).toContain('branch protection')
     expect(hostedAuthorization?.currentEvidence).toContain('secret scanning')
     expect(hostedAuthorization?.currentEvidence).toContain('code scanning')
     expect(hostedAuthorization?.validationMethod).toContain('product:github-hosted-trust-posture')
+    expect(hostedAuthorization?.validationMethod).toContain('product:code-scanning-remediation-queue')
   })
 })

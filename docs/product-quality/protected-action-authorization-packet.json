@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T12:38:09.877Z",
+  "generatedAt": "2026-06-15T13:05:19.444Z",
   "mode": "local_no_provider_protected_action_authorization_packet",
   "terminalCondition": "PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY",
   "packetStatus": "owner_authorization_required_before_protected_actions",
@@ -109,11 +109,17 @@
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.json",
       "exists": true,
-      "sha256": "38a19b84411deb18b30647e188d14f158b2656086b6e57da80cd0b9c39d78a99",
-      "sizeBytes": 10679
+      "sha256": "48728234906f4562bdc17dffd19e01b38f9219437d038e0bb7eb7126bdc79121",
+      "sizeBytes": 10677
+    },
+    {
+      "path": "docs/product-quality/code-scanning-remediation-queue-report.json",
+      "exists": true,
+      "sha256": "72c031e7b897a9d942875cf6cdbf0aab2ddf3f2ecb8555807c51b70a783b5bd3",
+      "sizeBytes": 23550
     }
   ],
-  "sourceReportCount": 18,
+  "sourceReportCount": 19,
   "authorizationItemCount": 9,
   "allSafeBacklogEvidenceGatesCreated": true,
   "protectedActionExecutionAllowed": false,
@@ -275,16 +281,18 @@
       "authorized": false,
       "executed": false,
       "sourceReports": [
-        "docs/product-quality/github-hosted-trust-posture-report.json"
+        "docs/product-quality/github-hosted-trust-posture-report.json",
+        "docs/product-quality/code-scanning-remediation-queue-report.json"
       ],
-      "currentEvidence": "Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, and main workflow status as read-only evidence.",
+      "currentEvidence": "Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, main workflow status, and claim-safe CodeQL remediation queue status as read-only evidence.",
       "requiredOwnerDecision": "Authorize or deny hosted GitHub security setting changes, including branch protection or rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, and code scanning remediation workflow.",
       "forbiddenShortcuts": [
         "Do not enable, disable, or mutate GitHub repository settings without explicit owner authorization.",
         "Do not claim hosted security posture, public readiness, or release readiness while hosted trust risks remain recorded.",
-        "Do not treat local privacy scans as a substitute for hosted secret scanning or push protection."
+        "Do not treat local privacy scans as a substitute for hosted secret scanning or push protection.",
+        "Do not claim CodeQL alerts are resolved from a remediation queue; require hosted CodeQL closure evidence."
       ],
-      "validationMethod": "After authorization and hosted setting changes, rerun product:github-hosted-trust-posture, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks."
+      "validationMethod": "After authorization and hosted setting changes or CodeQL fixes, rerun product:github-hosted-trust-posture, product:code-scanning-remediation-queue, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks."
     },
     {
       "id": "authorize_release_public_production_external_or_autonomous_claims",
@@ -316,7 +324,7 @@
     {
       "label": "all source reports are present and hash-bound",
       "ok": true,
-      "detail": "18/18"
+      "detail": "19/19"
     },
     {
       "label": "local source reports performed no provider live external or protected calls",
@@ -332,6 +340,11 @@
       "label": "hosted GitHub trust posture remains read-only and claim-blocked",
       "ok": true,
       "detail": "hosted_trust_risks_detected"
+    },
+    {
+      "label": "CodeQL remediation queue remains read-only and claim-blocked",
+      "ok": true,
+      "detail": "remediation_queue_required"
     },
     {
       "label": "VS Code CLI/PATH/install-state boundary remains protected",
