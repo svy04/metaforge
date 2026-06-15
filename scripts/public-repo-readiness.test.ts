@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test'
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdtempSync, rmSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -19,6 +20,30 @@ function privateLocalPathNeedles(): string[] {
 
 function readTextFrom(basePath: string, relativePath: string): string {
   return readFileSync(join(basePath, relativePath), 'utf8')
+}
+
+function runPublicArtifactHygiene(basePath: string, args: string[] = []) {
+  return spawnSync(
+    process.execPath,
+    [join(root, 'scripts/public-artifact-hygiene.ts'), ...args],
+    {
+      cwd: basePath,
+      encoding: 'utf8',
+    },
+  )
+}
+
+function trackedRepoPaths(basePath: string): string[] {
+  const result = spawnSync('git', ['ls-files'], {
+    cwd: basePath,
+    encoding: 'utf8',
+  })
+
+  if (result.status !== 0) {
+    throw new Error(`git ls-files failed: ${result.stderr}`)
+  }
+
+  return result.stdout.split(/\r?\n/).filter(Boolean)
 }
 
 function validateKoreanReadmeRoute(basePath: string): string[] {
@@ -106,6 +131,31 @@ describe('public repository readiness surfaces', () => {
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true })
     }
+  })
+
+  test('public artifact hygiene rejects private agent-memory breadcrumbs in fixtures', () => {
+    const fixtureRoot = mkdtempSync(join(tmpdir(), 'metaforge-public-hygiene-'))
+    try {
+      writeFileSync(
+        join(fixtureRoot, 'README.md'),
+        'Internal handoff: .codex/memories and .agents/skills are not public docs.\n',
+      )
+
+      const result = runPublicArtifactHygiene(fixtureRoot)
+      const output = `${result.stdout}${result.stderr}`
+
+      expect(result.status).toBe(1)
+      expect(output).toContain('RESULT: FAIL')
+      expect(output).toContain('README.md')
+    } finally {
+      rmSync(fixtureRoot, { recursive: true, force: true })
+    }
+  })
+
+  test('tracked public paths stay portable for default Windows checkouts', () => {
+    const longPaths = trackedRepoPaths(root).filter((path) => path.length > 240)
+
+    expect(longPaths).toEqual([])
   })
 
   test('advanced setup uses the current public repository source URL', () => {

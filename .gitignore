@@ -21,3 +21,7 @@ __pycache__/
 **/.openclaude/settings.local.json
 **/.playwright-mcp/
 self-test-v*-dom.html
+
+# Local AVF operator run outputs are generated artifacts and can create very
+# deep path chains that are not portable for default Windows checkouts.
+avf/influence_factory/operator_package_v*/
