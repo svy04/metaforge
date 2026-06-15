@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T12:38:02.556Z",
+  "generatedAt": "2026-06-15T14:58:42.182Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -22,9 +22,30 @@
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "1542756f5323d99fa9cedac9e370a98a9296f6a6c7cc4a3ada819e53a77bdae6",
-      "sizeBytes": 18648,
+      "sha256": "92c257265ecdd410118168335372101de30ba1c56e6c55256fffcc3e5221d385",
+      "sizeBytes": 18654,
       "lineCount": 415
+    },
+    {
+      "path": "README.ko.md",
+      "exists": true,
+      "sha256": "8e9cda1aaca9927897a325a9e5ce4b05d2be22f1a2b51f8370eca3eec162850c",
+      "sizeBytes": 6009,
+      "lineCount": 146
+    },
+    {
+      "path": "ANDROID_INSTALL.md",
+      "exists": true,
+      "sha256": "0f1706a96b2c819d29a6b193d6253a53af397d7b31dbfa02701be84d79d8f471",
+      "sizeBytes": 2452,
+      "lineCount": 73
+    },
+    {
+      "path": "PLAYBOOK.md",
+      "exists": true,
+      "sha256": "ad9ab8d435f555dfb1629fb82752816fc696a2e747a202cc37b2638fcb63cf8d",
+      "sizeBytes": 6679,
+      "lineCount": 323
     },
     {
       "path": "CHANGELOG.md",
@@ -57,9 +78,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "3b96cd7ecbe026e9e0d43a4721e06171d40562f8007d2e9dd636c67ae0da57a0",
-      "sizeBytes": 19544,
-      "lineCount": 275
+      "sha256": "850210708787d31ef86628741d4890cee6b4e6164bab254c5ac024640b816405",
+      "sizeBytes": 19751,
+      "lineCount": 276
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -92,9 +113,9 @@
     {
       "path": "docs/EVALS.md",
       "exists": true,
-      "sha256": "9d891755075e4f026b21dc25eb02c606b165781834f723cdb4676589127c8e45",
-      "sizeBytes": 8219,
-      "lineCount": 253
+      "sha256": "319a6ebb74d241225713931586d3efda138a55a92eb91c98b602a1cabc1d29d1",
+      "sizeBytes": 8200,
+      "lineCount": 254
     },
     {
       "path": "docs/ROADMAP.md",
@@ -125,6 +146,20 @@
       "lineCount": 146
     },
     {
+      "path": "docs/advanced-setup.md",
+      "exists": true,
+      "sha256": "629270f6dd98689e8ce6cba421e06786d2c1d9b955a21ec7a54c168fad140f6b",
+      "sizeBytes": 8113,
+      "lineCount": 275
+    },
+    {
+      "path": "docs/litellm-setup.md",
+      "exists": true,
+      "sha256": "a6fe67feef40c7e96077ca35d9d78954e162d9c98071a92c2f454f77afd08159",
+      "sizeBytes": 4999,
+      "lineCount": 145
+    },
+    {
       "path": "docs/product-quality/product-quality-gate.md",
       "exists": true,
       "sha256": "7dfe51f01776b15b6c33060ddd41c27f3732f2f207fd15e4c85abd17ff90d254",
@@ -148,9 +183,9 @@
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
       "exists": true,
-      "sha256": "89c0426bef29817997114270979bf4b3308691f8932a4c1986d073c3828fcb46",
-      "sizeBytes": 8247,
-      "lineCount": 78
+      "sha256": "1aa3eed8980de29397dea177cbb4e1830cabf4f16ad9c33801138bd9248caa82",
+      "sizeBytes": 8507,
+      "lineCount": 80
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
@@ -162,8 +197,8 @@
     {
       "path": "docs/MIMESIS_ENGINEERING.md",
       "exists": true,
-      "sha256": "46a9c6e4d38da07a263d868b412a2b0ab68390cf8d7d560dc518e0efb86582d3",
-      "sizeBytes": 5051,
+      "sha256": "39a2c72ef913e985da1e80b65d31a35e0ecc5d1ec47884ebfd780e1ca9493a91",
+      "sizeBytes": 5002,
       "lineCount": 110
     },
     {
@@ -176,19 +211,57 @@
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
       "exists": true,
-      "sha256": "b57c776b75daad81c1e645849aaa43ba92ac8e45ee3c49f1267bacb669927e89",
-      "sizeBytes": 6583,
+      "sha256": "b6cbf8739881792226d6b8da7eea719ed44628423ac20a7c03c55a6a1c9b1f8d",
+      "sizeBytes": 6559,
       "lineCount": 50
+    },
+    {
+      "path": "packages/openclaude-vscode/README.md",
+      "exists": true,
+      "sha256": "6022c84eefaa1e38775b321959b981b15bbc26333ddf179bf2f1b52901eed3b1",
+      "sizeBytes": 1234,
+      "lineCount": 17
+    },
+    {
+      "path": "vscode-extension/openclaude-vscode/README.md",
+      "exists": true,
+      "sha256": "41efe03849a68187f5df726927fd4b6ae22a84805192706287caf15cbdc98236",
+      "sizeBytes": 899,
+      "lineCount": 28
     }
   ],
-  "publicSurfaceCount": 23,
-  "scannedLineCount": 3731,
-  "blockedContextClaimMentionCount": 13,
+  "publicSurfaceCount": 30,
+  "scannedLineCount": 4742,
+  "blockedContextClaimMentionCount": 17,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
+      "path": "README.ko.md",
+      "line": 126,
+      "phrase": "production ready",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "- not production-ready"
+    },
+    {
+      "path": "README.ko.md",
+      "line": 128,
+      "phrase": "external validation completed",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- not externally validated"
+    },
+    {
+      "path": "README.ko.md",
+      "line": 130,
+      "phrase": "autonomous reliability proven",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "- not autonomous reliability proven"
+    },
+    {
       "path": "docs/EVALS.md",
-      "line": 201,
+      "line": 202,
       "phrase": "release ready",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -289,13 +362,21 @@
       "category": "external_validation",
       "status": "blocked_context",
       "text": "- Do not say it is externally validated."
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
+      "line": 125,
+      "phrase": "benchmark or model superiority",
+      "category": "superiority",
+      "status": "blocked_context",
+      "text": "- Do not claim it beats other agent systems."
     }
   ],
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "5401e0209d5b0f355a86ef79238eb92a634b8f84de863e8a61d12e785eb8da86",
-  "scanJsonlRecordCount": 13,
+  "scanJsonlSha256": "c3bb64abc92ad4224e20cc0a3f4479513e14a5dd27693f3741ca9d4b735ffecf",
+  "scanJsonlRecordCount": 17,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -321,12 +402,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "23 surfaces"
+      "detail": "30 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "3731 lines"
+      "detail": "4742 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -336,12 +417,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "13 findings"
+      "detail": "17 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "13/13"
+      "detail": "17/17"
     },
     {
       "label": "claim JSONL hash is recorded",

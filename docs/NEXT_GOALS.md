@@ -115,7 +115,7 @@ Requirements:
 
 Validation:
 - Run bun run scripts/orchestra-experiment-runner.ts.
-- From <private-workspace>\scripts\source_reconciler.py and record pass/drift without editing that workspace.
+- Record owner-side source reconciliation pass/drift without editing any private harness workspace.
 - Run bun run build.
 - If tests are practical, run focused Orchestra tests for experimentMetrics and promotion gates.
 

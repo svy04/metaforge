@@ -52,4 +52,17 @@ describe('public artifact hygiene scanner', () => {
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('.env.example')
   })
+
+  test('rejects private workspace placeholders in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      'Use <private-workspace>/meta/CLAUDE.md as the authority file.\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+  })
 })

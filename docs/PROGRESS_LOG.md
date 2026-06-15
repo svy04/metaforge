@@ -61,13 +61,9 @@ Status: active
 
 ## 2026-05-10 Checkpoint 7 - Harness Engineering Replan
 
-- User pointed out that `<private-workspace>/CLAUDE.md`, `meta/SPEC.md`, Decision 2388; `mfh/.mfh/spec.md`, `plan.md`, `status.md`, `cascade_log.txt`; Candidate M closure report.
-- Checked `git status --short` in actual repo roots:
-  - `mfh`: dirty, with 9 modified tracked files and 3 untracked paths.
-  - `meta`: dirty, with `CLAUDE.md` modified and 2 untracked decision files.
-- Ran harness source reconciliation:
-  - command: `python meta\scripts\source_reconciler.py`
-  - cwd: `<private-workspace>/MFH_META_SYNTHESIS.md`.
+- User corrected the planning source: MFH/Meta evidence supersedes the provisional `mth` assumption.
+- Reviewed private owner-side harness material and imported only the public-safe synthesis into this repository.
+- Recorded that private harness state is not public proof of cleanliness, release readiness, or external validation.
 - Updated `AGENTS.md`, `docs/PROJECT_SPEC.md`, `docs/GOAL_SCHEMA.md`, `docs/AGENT_REGISTRY.md`, `docs/RESEARCH_PIPELINE.md`, `docs/EVALS.md`, `docs/SECURITY_AND_GUARDRAILS.md`, `docs/ROADMAP.md`, `docs/DECISION_LOG.md`, and `docs/NEXT_GOALS.md`.
 - Planning correction: provisional `mth` assumption is superseded by canonical MFH evidence unless the owner later defines a separate `mth`.
 - Re-ran docs consistency check:

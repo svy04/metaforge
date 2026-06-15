@@ -82,11 +82,25 @@ def fail(message: str) -> None:
     sys.exit(1)
 
 
+def skip(message: str) -> None:
+    print("AVF Influence Factory product workbench v13 validation")
+    print("RESULT: SKIP")
+    print(message)
+    sys.exit(0)
+
+
 def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
 def main() -> None:
+    generated_review_record = ROOT / "avf" / "influence_factory" / "owner_goal_runs" / "transparent-ai-creator-collective-001" / "review_v12" / "owner_bundle_review_v12_record.json"
+    if not generated_review_record.is_file():
+        skip(
+            "Generated owner bundle review record is absent from the public checkout; "
+            "regenerate local AVF run outputs before running this legacy validator."
+        )
+
     missing = [str(path.relative_to(ROOT)) for path in REQUIRED_FILES if not path.is_file()]
     if missing:
         fail("Missing required files:\n" + "\n".join(missing))

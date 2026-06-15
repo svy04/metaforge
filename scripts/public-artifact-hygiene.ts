@@ -19,8 +19,10 @@ const targetRoots = [
   'reports',
   'README.md',
   'README.ko.md',
+  'ANDROID_INSTALL.md',
   'AGENTS.md',
   'PLAYBOOK.md',
+  'vscode-extension/openclaude-vscode/README.md',
   '.env.example',
   'package.json',
   'scripts/public-artifact-hygiene.ts',
@@ -45,6 +47,7 @@ type Replacement = {
 const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
 const userSegment = String.raw`[^\\/"]+`
+const privateWorkspacePlaceholder = '<private' + '-workspace>'
 const replacements: Replacement[] = [
   {
     pattern: new RegExp(
@@ -58,7 +61,7 @@ const replacements: Replacement[] = [
       String.raw`C:${sep}Users${sep}${userSegment}${sep}Desktop${sep}${segment}${sep}${segment}`,
       'g',
     ),
-    replacement: '<private-workspace>',
+    replacement: privateWorkspacePlaceholder,
   },
   {
     pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}${sep}\.claude`, 'g'),
@@ -98,11 +101,16 @@ const forbiddenPatterns = [
   /Users\/[^/\s"']+/,
   new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`),
   new RegExp('Digital ' + 'Factory'),
-  new RegExp(String.raw`\.` + 'codex' + String.raw`(?:\\+|/)+` + 'memories', 'i'),
-  new RegExp(String.raw`\.` + 'agents' + String.raw`(?:\\+|/)+` + 'skills', 'i'),
+  new RegExp(String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories', 'i'),
+  new RegExp(String.raw`\.` + 'agents' + String.raw`[\\/]+` + 'skills', 'i'),
+  new RegExp(privateWorkspacePlaceholder, 'i'),
+  /(?:^|[\s`"'])meta[\\/]+CLAUDE\.md\b/i,
+  /(?:^|[\s`"'])mfh[\\/]+\.mfh[\\/]+spec\.md\b/i,
   new RegExp('OpenClaude Orchestrator ' + 'Memory'),
   new RegExp('AGENTS\\.md instructions for C' + ':'),
   new RegExp('Token: ' + 'gho_'),
+  /\bsk-\.\.\./i,
+  /\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i,
   /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i,
   new RegExp('session' + '_id'),
 ]

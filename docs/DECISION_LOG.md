@@ -137,13 +137,14 @@ Status: accepted revision
 
 Decision:
 
-After reading `<private-workspace>/spelling unless the owner defines a separate `mth` project.
+The provisional `mth` assumption is superseded by canonical MFH evidence unless
+the owner defines a separate `mth` project.
 
 Evidence:
 
-- Harness root contains `mfh` and `meta` directories, plus `MASTER_SPEC.md`, `NARROW_SPEC.md`, and `POSITIONING_BRIEF.md`.
-- `mfh/.mfh/spec.md` defines MFH as a Claude Code Operating Gate.
-- `meta/CLAUDE.md` and `meta/SPEC.md` define Meta as the operator OS and Constitution layer.
+- `docs/MFH_META_SYNTHESIS.md` records the public-safe synthesis.
+- `docs/PROJECT_SPEC.md` defines the public Meta/MFH/Orchestra product frame.
+- `docs/GOAL_SCHEMA.md` records the public evidence-gated closure schema.
 
 Consequence:
 
@@ -161,9 +162,9 @@ Autonomous Goal OS inherits the governed-code framing from MFH/Meta. The system 
 
 Evidence:
 
-- `meta/decisions/2026-05-05-2388-governed-code-problem-definition.md`.
-- `POSITIONING_BRIEF.md`.
-- `mfh/.mfh/spec.md` problem-definition section.
+- `docs/MFH_META_SYNTHESIS.md`.
+- `docs/PROJECT_SPEC.md`.
+- `docs/SECURITY_AND_GUARDRAILS.md`.
 
 Consequence:
 
@@ -187,9 +188,9 @@ Pending -> Active -> Verifying -> Closed
 
 Evidence:
 
-- `mfh/.mfh/spec.md` Candidate M state-machine invariant.
-- `mfh/.mfh/plan.md` Candidate M closure and guardrails.
-- `mfh/docs/reports/2026-05-09-candidate-m-closure.md`.
+- `docs/MFH_META_SYNTHESIS.md` state-machine synthesis.
+- `docs/GOAL_SCHEMA.md` closure and rollback schema.
+- `docs/EVALS.md` verification gate import.
 
 Consequence:
 
@@ -207,7 +208,9 @@ The OpenClaude plan may import MFH/Meta concepts, but it must not claim the harn
 
 Evidence:
 
-- `python meta\scripts\source_reconciler.py` from `<private-workspace>/status.md` says `Current Milestone: awaiting user adjudication` and `Last Verification: not run`.
+- Private owner-side harness state was not re-verified as a public artifact.
+- `docs/MFH_META_SYNTHESIS.md` records the import as evidence-aware rather than
+  green-complete.
 
 Consequence:
 
@@ -228,4 +231,3 @@ Evidence:
 - `docs/RESEARCH_PIPELINE.md` already requires local-first, primary-source research.
 - `docs/avf/OSS_ASSIMILATION_PIPELINE.md` defines governed acquisition instead of copy-paste adoption.
 - `docs/research/mimesis-engineering-source-ledger-2026-06-14.md` records current product, OSS, paper, patent, and standards sources.
-- `<private-workspace>

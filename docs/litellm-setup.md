@@ -62,12 +62,12 @@ The proxy will start at `http://localhost:4000` by default.
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_BASE_URL=http://localhost:4000
-export OPENAI_API_KEY=<your-master-key-or-placeholder>
-export OPENAI_MODEL=<your-litellm-model-alias>
+export OPENAI_API_KEY=<litellm-master-key-or-placeholder>
+export OPENAI_MODEL=<litellm-model-alias>
 openclaude
 ```
 
-Replace `<your-litellm-model-alias>` with a model name from your `litellm_config.yaml` (for example, `openai-tool-model`, `claude-sonnet-4`, or `gemini-2.5-flash`).
+Replace `<litellm-model-alias>` with a model name from your `litellm_config.yaml` (for example, `openai-tool-model`, `claude-sonnet-4`, or `gemini-2.5-flash`).
 
 ### Option B: Using /provider
 
