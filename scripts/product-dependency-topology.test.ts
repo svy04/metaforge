@@ -8,6 +8,8 @@ const reportPath = join(root, 'docs/product-quality/dependency-topology-report.j
 const packageJsonPath = join(root, 'package.json')
 const qualityGatePath = join(root, 'scripts/product-quality-gate.ts')
 const evidenceManifestPath = join(root, 'scripts/product-evidence-manifest.ts')
+const dependencyCruiserConfigPath = join(root, '.dependency-cruiser.mjs')
+const knownViolationsPath = join(root, '.dependency-cruiser-known-violations.json')
 
 type DependencyTopologyReport = {
   mode: string
@@ -18,6 +20,11 @@ type DependencyTopologyReport = {
   protectedActionsExecuted: unknown[]
   circularDependencyCount: number
   circularDependencyBaseline: number
+  configuredRatchetMode: string
+  knownViolationBaselinePath: string
+  configuredRatchetKnownViolationCount: number
+  configuredRatchetNewViolationCount: number
+  configuredRatchetClaimAllowed: boolean
   topologyCommands: Array<{
     name: string
     command: string[]
@@ -78,6 +85,38 @@ describe('product dependency topology gate', () => {
     expect(report.topologyChecks.every((item) => item.ok)).toBe(true)
   }, 120000)
 
+  test('records configured dependency-cruiser known-violation ratchet without cleanup claims', () => {
+    const report = runTopologyGate()
+
+    expect(readFileSync(dependencyCruiserConfigPath, 'utf8')).toContain('not-to-unresolvable')
+    expect(readFileSync(dependencyCruiserConfigPath, 'utf8')).toContain('no-circular')
+    expect(readFileSync(dependencyCruiserConfigPath, 'utf8')).toContain('not-src-to-scripts')
+    const knownViolations = JSON.parse(readFileSync(knownViolationsPath, 'utf8')) as Array<{
+      rule?: { name?: string }
+    }>
+    expect(knownViolations.length).toBeGreaterThan(0)
+    expect(knownViolations.some((violation) => violation.rule?.name === 'no-circular')).toBe(true)
+    expect(knownViolations.some((violation) => violation.rule?.name === 'not-to-unresolvable')).toBe(true)
+    expect(report.configuredRatchetMode).toBe('dependency_cruiser_known_violation_ratchet')
+    expect(report.knownViolationBaselinePath).toBe('.dependency-cruiser-known-violations.json')
+    expect(report.configuredRatchetKnownViolationCount).toBeGreaterThan(0)
+    expect(report.configuredRatchetNewViolationCount).toBe(0)
+    expect(report.configuredRatchetClaimAllowed).toBe(false)
+
+    const command = report.topologyCommands.find((item) => item.name === 'dependency_cruiser_known_violation_ratchet')
+    expect(command?.command).toContain('depcruise')
+    expect(command?.command).toContain('--config')
+    expect(command?.command).toContain('.dependency-cruiser.mjs')
+    expect(command?.command).toContain('--ignore-known')
+    expect(command?.command).toContain('.dependency-cruiser-known-violations.json')
+    expect(command?.command).toContain('--output-type')
+    expect(command?.command).toContain('err')
+    expect(command?.exitCode).toBe(0)
+    expect(command?.passed).toBe(true)
+    expect(command?.missingSubstrings).toEqual([])
+    expect(report.topologyChecks.some((item) => item.label === 'configured dependency-cruiser ratchet has no new violations' && item.ok)).toBe(true)
+  }, 120000)
+
   test('wires dependency topology evidence into the public quality surface', () => {
     const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8')) as {
       scripts: Record<string, string>
@@ -91,8 +130,12 @@ describe('product dependency topology gate', () => {
     expect(packageJson.scripts['product:quality']).toContain('bun run product:dependency-topology')
     expect(qualityGate).toContain('DependencyTopologyReport')
     expect(qualityGate).toContain('dependency topology commands pass')
+    expect(qualityGate).toContain('configured dependency topology ratchet has no new violations')
     expect(qualityGate).toContain('dependency_topology_cycles=')
+    expect(qualityGate).toContain('dependency_topology_ratchet_new_violations=')
     expect(evidenceManifest).toContain('docs/product-quality/dependency-topology-report.json')
     expect(evidenceManifest).toContain('docs/product-quality/dependency-topology-report.md')
+    expect(evidenceManifest).toContain('.dependency-cruiser.mjs')
+    expect(evidenceManifest).toContain('.dependency-cruiser-known-violations.json')
   })
 })
