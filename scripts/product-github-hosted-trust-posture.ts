@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { spawnSync } from 'node:child_process'
+import { check } from './quality-report-helpers'
 
 type SourceInput = {
   sourceType: 'github_doc' | 'oss_tool' | 'standard' | 'paper' | 'patent'
@@ -139,10 +140,6 @@ const reportJsonlPath = 'reports/openclaude-github-hosted-trust-posture.jsonl'
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
-}
-
-function check(label: string, ok: boolean, detail: string): EvidenceCheck {
-  return { label, ok, detail }
 }
 
 function countBy(items: string[]): Record<string, number> {
