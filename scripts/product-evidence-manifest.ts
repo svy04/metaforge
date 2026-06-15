@@ -72,6 +72,8 @@ const credentialPatterns = [
 const requiredEvidencePaths = [
   'package.json',
   'bun.lock',
+  '.dependency-cruiser.mjs',
+  '.dependency-cruiser-known-violations.json',
   '.github/CODEOWNERS',
   '.github/workflows/pr-checks.yml',
   '.github/workflows/codeql.yml',
@@ -262,6 +264,8 @@ function buildEvidenceRecords(): EvidenceRecord[] {
   const candidatePaths = [
     'package.json',
     'bun.lock',
+    '.dependency-cruiser.mjs',
+    '.dependency-cruiser-known-violations.json',
     ...listFiles('docs/product-quality'),
     ...listFiles('reports').filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path)),
     ...listFiles('.github').filter((path) => /\.(ya?ml)$/.test(path) || path === '.github/CODEOWNERS'),
