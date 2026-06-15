@@ -162,6 +162,8 @@ const requiredEvidencePaths = [
   'docs/product-quality/agent-instructions-quality-report.json',
   'docs/product-quality/community-intake-quality-report.json',
   'docs/product-quality/community-profile-quality-report.json',
+  'docs/product-quality/dependency-topology-report.json',
+  'docs/product-quality/dependency-topology-report.md',
   'docs/product-quality/maintainer-ownership-quality-report.json',
   'docs/product-quality/dependency-governance-quality-report.json',
   'docs/product-quality/lockfile-sbom-quality-report.json',

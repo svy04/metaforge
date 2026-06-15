@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:03:48.037Z",
+  "generatedAt": "2026-06-15T19:59:44.191Z",
   "mode": "local_no_provider_third_party_license_quality",
   "inventoryFormat": "openclaude_third_party_license_inventory_v1",
   "primarySourceInputs": [
@@ -29,24 +29,24 @@
     }
   ],
   "sourceLockfileSbomReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-  "sourceLockfileSbomReportSha256": "ac9de91a46497a5441aae6378b3fa1167510c200115d507931b0c1ac15f4fa46",
+  "sourceLockfileSbomReportSha256": "ddc05ea606f9d930b56efa66b1a503ffaba510030d8b527c049360aac4dc7a41",
   "sourceLockfileInventoryJsonlPath": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-  "sourceLockfileInventoryJsonlSha256": "026df626ea745009070a7ffcee665eeeaafbfc5107a60b000ed71d4c67a9bdc8",
-  "sourceLockfilePackageCount": 757,
+  "sourceLockfileInventoryJsonlSha256": "d81344a0ce0c251a87d7608df6e3a750cbc4ff8874346cfd67c732792403d7d5",
+  "sourceLockfilePackageCount": 791,
   "rootLicensePath": "LICENSE",
   "rootLicenseSha256": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061",
   "nodeModulesPath": "node_modules",
   "nodeModulesPresent": true,
-  "directManifestDependencyCount": 94,
+  "directManifestDependencyCount": 95,
   "directManifestDependenciesCoveredByMetadata": true,
   "missingDirectManifestDependencyMetadata": [],
-  "installedMetadataPackageCount": 428,
-  "missingMetadataPackageCount": 329,
-  "licenseFieldPresentCount": 428,
+  "installedMetadataPackageCount": 457,
+  "missingMetadataPackageCount": 334,
+  "licenseFieldPresentCount": 457,
   "licenseFieldMissingPackages": [],
-  "directLicenseFieldPresentCount": 94,
+  "directLicenseFieldPresentCount": 95,
   "directLicenseFieldMissingPackages": [],
-  "licenseFilePresentCount": 416,
+  "licenseFilePresentCount": 445,
   "directLicenseFileMissingPackages": [
     "@growthbook/growthbook",
     "emoji-regex",
@@ -55,10 +55,10 @@
     "type-fest"
   ],
   "noticeFilePresentCount": 0,
-  "installedRepositoryUrlCount": 423,
+  "installedRepositoryUrlCount": 452,
   "inventoryJsonlPath": "reports/openclaude-third-party-license-inventory.jsonl",
-  "inventoryJsonlSha256": "e8c8715f00f7a2f403adeb3a360ac637d6e0b9c69257240abd339226a7d071e0",
-  "inventoryJsonlRecordCount": 757,
+  "inventoryJsonlSha256": "416a4101097bf3ba58899ecf4c6ba1497fa47de2d97e41fdcc114faa28bac4a8",
+  "inventoryJsonlRecordCount": 791,
   "inventoryJsonlParseable": true,
   "licenseMetadataRecords": [
     {
@@ -8821,6 +8821,111 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "acorn",
+      "name": "acorn",
+      "version": "8.16.0",
+      "packageRef": "acorn@8.16.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/acorn/package.json",
+      "packageJsonSha256": "705aa08b7b4fee1112244952b4843c40c381a3c7a9fc77101f369a172865bfac",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/acorn/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/acornjs/acorn.git",
+      "recordDigest": "175196d6160ac773ef07bedfc814fe054bae8ef07c2410462c1c9434ec3544ae"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "acorn-jsx",
+      "name": "acorn-jsx",
+      "version": "5.3.2",
+      "packageRef": "acorn-jsx@5.3.2",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/acorn-jsx/package.json",
+      "packageJsonSha256": "5e123a5ee3b16fd10fe4b44ef70ff7885f05117fb9ae75f72a0d821f919d423d",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/acorn-jsx/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/acornjs/acorn-jsx",
+      "recordDigest": "0e169a95ebc90c2abf575e6b0283b129db606c4ee1652a84a1da6e68440d7b5f"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "acorn-jsx-walk",
+      "name": "acorn-jsx-walk",
+      "version": "2.0.0",
+      "packageRef": "acorn-jsx-walk@2.0.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/acorn-jsx-walk/package.json",
+      "packageJsonSha256": "1243e7d64f08d761ff4d455624f0ee19550b6e176155a67856f723876ae93798",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/acorn-jsx-walk/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/sderosiaux/acorn-jsx-walk.git",
+      "recordDigest": "ad1c0184ff3eb0e4dbdebb46ae9a199036c0b112ba31bfa619e71c827b637883"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "acorn-loose",
+      "name": "acorn-loose",
+      "version": "8.5.2",
+      "packageRef": "acorn-loose@8.5.2",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/acorn-loose/package.json",
+      "packageJsonSha256": "101551d7b21b8e2c9b5f2d9d3830104764e2c6fd0da1f8ede99e6e7a6656b72c",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/acorn-loose/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/acornjs/acorn.git",
+      "recordDigest": "c4fe88f5c80ffcc5d4503e6380c996fb9d516801b513cdd76b25b4c536c5923c"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "acorn-walk",
+      "name": "acorn-walk",
+      "version": "8.3.5",
+      "packageRef": "acorn-walk@8.3.5",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/acorn-walk/package.json",
+      "packageJsonSha256": "73c77feaf1224859bc6995cefe976d51cfd2abcd1edc0362df3149d8bd3633e3",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/acorn-walk/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/acornjs/acorn.git",
+      "recordDigest": "5ce726ec17754b6b6386c32a8d0cb8da62698e271aff90e81fb5d05ecb14e2d7"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "agent-base",
       "name": "agent-base",
       "version": "7.1.4",
@@ -10203,6 +10308,65 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "dependency-cruiser",
+      "name": "dependency-cruiser",
+      "version": "17.4.3",
+      "packageRef": "dependency-cruiser@17.4.3",
+      "directManifestDependency": true,
+      "packageJsonPath": "node_modules/dependency-cruiser/package.json",
+      "packageJsonSha256": "e9ae8dbcf7a9012221b7a74b0abee7682f9eea796dd3d8776220d70b37f22985",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/dependency-cruiser/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/sverweij/dependency-cruiser.git",
+      "recordDigest": "93deef9d9661365ee69a4f4a41668c222a6abcb4c860dd26034a936031dbb0da"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "dependency-cruiser/commander",
+      "name": "dependency-cruiser/commander",
+      "version": "14.0.3",
+      "packageRef": "commander@14.0.3",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "ae5cf3d05736626cc348917aba554d8b23596aa36d8d0da751387459501d4ce5"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "dependency-cruiser/semver",
+      "name": "dependency-cruiser/semver",
+      "version": "7.8.1",
+      "packageRef": "semver@7.8.1",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "a48dfb98b51d8cf72ee1885f472033217cdfd5e9bf045954dce1827e79a8a12e"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "detect-libc",
       "name": "detect-libc",
       "version": "2.1.2",
@@ -10408,6 +10572,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "pillarjs/encodeurl",
       "recordDigest": "a1c3dca121c655884e696b9d9e5c7aa316904de0bb7bceebe8136042d06aa210"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "enhanced-resolve",
+      "name": "enhanced-resolve",
+      "version": "5.22.1",
+      "packageRef": "enhanced-resolve@5.22.1",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/enhanced-resolve/package.json",
+      "packageJsonSha256": "fa0882f50865c1599f7b6da6a6762da28d213b1082dde8024edcfb6af096b1ac",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/enhanced-resolve/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git://github.com/webpack/enhanced-resolve.git",
+      "recordDigest": "adcf73dd0800d22a64d3df0a07c2c47d375a85208dad32439e3a8429b0933b33"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -11426,6 +11611,27 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "global-directory",
+      "name": "global-directory",
+      "version": "4.0.1",
+      "packageRef": "global-directory@4.0.1",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/global-directory/package.json",
+      "packageJsonSha256": "6d65a3ffaf7e0a770b4019af76afb8db9352a70d3d03bc6d10016482503641de",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/global-directory/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "sindresorhus/global-directory",
+      "recordDigest": "1555e96a7824fa0da9134d8e8d170c08a74db76154247535e52c5486febaa096"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "google-auth-library",
       "name": "google-auth-library",
       "version": "9.15.1",
@@ -11823,6 +12029,48 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "ini",
+      "name": "ini",
+      "version": "4.1.1",
+      "packageRef": "ini@4.1.1",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/ini/package.json",
+      "packageJsonSha256": "3e55ea7dce37dba86a201249851cb24ffdd2e821c7f585501e462cf19c99198d",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "ISC",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/ini/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/npm/ini.git",
+      "recordDigest": "a9fa457aa17b797349a7239843a6563a7808bd29f11650f6ae3ec6fd02120b0b"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "interpret",
+      "name": "interpret",
+      "version": "3.1.1",
+      "packageRef": "interpret@3.1.1",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/interpret/package.json",
+      "packageJsonSha256": "4ebc10f8d227e12b1458b8ece7b830794176dca1f3d92401366ddfe95ff314d8",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/interpret/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "gulpjs/interpret",
+      "recordDigest": "db2b74d61d013edd162c0b9c43935e43785c203873ed744efdcab268f5b73500"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "ip-address",
       "name": "ip-address",
       "version": "10.1.0",
@@ -11865,6 +12113,46 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "is-core-module",
+      "name": "is-core-module",
+      "version": "2.16.2",
+      "packageRef": "is-core-module@2.16.2",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/is-core-module/package.json",
+      "packageJsonSha256": "49d7841f3d48b2a09473b294a720b857d4450b10f4858d509edacb443555312e",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/is-core-module/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/inspect-js/is-core-module.git",
+      "recordDigest": "c521c003c3357b9cfaac79952d2e15154ba10b5d5eb4d0e3d208d04a7acadfa6"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "is-core-module/hasown",
+      "name": "is-core-module/hasown",
+      "version": "2.0.4",
+      "packageRef": "hasown@2.0.4",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "2ba8bb4cc67a2457de80480b8d1f636a9edd590970ea286eab10e62c94e4cd6a"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "is-fullwidth-code-point",
       "name": "is-fullwidth-code-point",
       "version": "5.1.0",
@@ -11883,6 +12171,48 @@
       "noticeFilePaths": [],
       "repositoryUrl": "sindresorhus/is-fullwidth-code-point",
       "recordDigest": "3acee308e67f7428d5a603d7f8c6e1fdb4a4a9671bf7c1e8152cc077cb534934"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "is-installed-globally",
+      "name": "is-installed-globally",
+      "version": "1.0.0",
+      "packageRef": "is-installed-globally@1.0.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/is-installed-globally/package.json",
+      "packageJsonSha256": "31ea7ee377ae2c74ceef785a0c1fde55e0ff79112793b12ef377a12117756989",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/is-installed-globally/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "sindresorhus/is-installed-globally",
+      "recordDigest": "f86e00986b4a4e245d8f722b4c32e0164c5af1680ca2ae7c0322fa44e85bcc36"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "is-path-inside",
+      "name": "is-path-inside",
+      "version": "4.0.0",
+      "packageRef": "is-path-inside@4.0.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/is-path-inside/package.json",
+      "packageJsonSha256": "a7a0d67c13c25e2c03fa9777bdca2f25ff37ac04834484ae588dfef20ed46403",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/is-path-inside/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "sindresorhus/is-path-inside",
+      "recordDigest": "03b56c66dd22fa3681b6974076c53668ba948841d5ab017ed04ed495b63eb4b1"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -12096,6 +12426,27 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "json5",
+      "name": "json5",
+      "version": "2.2.3",
+      "packageRef": "json5@2.2.3",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/json5/package.json",
+      "packageJsonSha256": "1927c4592e3811cf9b8c86e568df1c41a373b628b4b322f88872395ef87e2ba5",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/json5/LICENSE.md"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/json5/json5.git",
+      "recordDigest": "2ff14a262b038680a77a5dd120b52aea08ab92e4eb6157fda8d8d35e51ee4b42"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "jsonc-parser",
       "name": "jsonc-parser",
       "version": "3.3.1",
@@ -12177,6 +12528,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "git://github.com/brianloveswords/node-jws.git",
       "recordDigest": "7dd8bc9466e33ca7566545fb96bad6d95a7a74514747056b6674e0fe43d10373"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "kleur",
+      "name": "kleur",
+      "version": "3.0.3",
+      "packageRef": "kleur@3.0.3",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/kleur/package.json",
+      "packageJsonSha256": "5c7939426d07a99f10f9c8786d5db4d8bcdaf2098cf8a1a9dbb20e69cd4940e8",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/kleur/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "lukeed/kleur",
+      "recordDigest": "8c3133aaf91cb037ed43cf29ce0b959e6148b39f619a4a98597cf33f7768041d"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -12429,6 +12801,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "jshttp/mime-types",
       "recordDigest": "4304987be1dcc86fcbf204d120d9bdd6cc1832c1eaf583fa9426595302eb97e9"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "minimist",
+      "name": "minimist",
+      "version": "1.2.8",
+      "packageRef": "minimist@1.2.8",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/minimist/package.json",
+      "packageJsonSha256": "252881f6a068a3e70386706d88a694b5e8e9e053b6d9f309fd9a329e651bbf81",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/minimist/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git://github.com/minimistjs/minimist.git",
+      "recordDigest": "36433836d0867c7ea1cbba97add30b5df88703b7b6e4a523eb60266185d473f7"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -12993,6 +13386,27 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "path-parse",
+      "name": "path-parse",
+      "version": "1.0.7",
+      "packageRef": "path-parse@1.0.7",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/path-parse/package.json",
+      "packageJsonSha256": "9c680ecfd322afe056b4ccbfdb6c7043342276903f017c0a29b77c3926790d13",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/path-parse/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/jbgutierrez/path-parse.git",
+      "recordDigest": "b3a3d44302f27b22a8916c799884afed85403d445ad9e87cce6390e6f7132825"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "path-to-regexp",
       "name": "path-to-regexp",
       "version": "8.4.1",
@@ -13116,6 +13530,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "sindresorhus/pretty-ms",
       "recordDigest": "ffa6a71ce2e1b34e12f033cb5b703c767a5f684d306f7c5ee3da5879630b9113"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "prompts",
+      "name": "prompts",
+      "version": "2.4.2",
+      "packageRef": "prompts@2.4.2",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/prompts/package.json",
+      "packageJsonSha256": "b202c7dc77601bd31d38f3e999baf2e74a863041cd635b8860ddf0f657acf53b",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/prompts/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "terkelg/prompts",
+      "recordDigest": "7b1c1ca1effd7a3c68b7a1eb77ea36ba292d99799a71dc5002291025bcab4f33"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -13635,6 +14070,48 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "rechoir",
+      "name": "rechoir",
+      "version": "0.8.0",
+      "packageRef": "rechoir@0.8.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/rechoir/package.json",
+      "packageJsonSha256": "cddeb04ac0fac95cf02640fd81993e46fa283a15ba074f97bcbe03c705c6b22f",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/rechoir/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "gulpjs/rechoir",
+      "recordDigest": "ce46e59bea6091cd8891fa582781e15e4b9e0dc0ccea7760054eb1cc60a1acb4"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "regexp-tree",
+      "name": "regexp-tree",
+      "version": "0.1.27",
+      "packageRef": "regexp-tree@0.1.27",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/regexp-tree/package.json",
+      "packageJsonSha256": "151d1fdd1c94b432427ea4fe20b31f092210739ab94bf43bca4b4cddce35b916",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/regexp-tree/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "DmitrySoshnikov/regexp-tree",
+      "recordDigest": "5d8ed92e318a8e7ade84cdb6d6993a1a5e6383b70c076d804a18ec9217758e2f"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "require-directory",
       "name": "require-directory",
       "version": "2.1.1",
@@ -13695,6 +14172,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "git+ssh://git@github.com/yargs/require-main-filename.git",
       "recordDigest": "09fba4cd6ee174c940134dfba23c115c9b0bccae969768555167a4bc585259b9"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "resolve",
+      "name": "resolve",
+      "version": "1.22.12",
+      "packageRef": "resolve@1.22.12",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/resolve/package.json",
+      "packageJsonSha256": "e4f9221a50e017b41b7c5c286f257108b2496327d10ccaf2a460592849e756dc",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/resolve/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "ssh://github.com/browserify/resolve.git",
+      "recordDigest": "6d211813d118812770673aa5bbede155b0589a10723a411dfcc6ca89bccbdedd"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -13779,6 +14277,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "git://github.com/feross/safe-buffer.git",
       "recordDigest": "ffe184aacdca6758d054b6a4ae76a3ab2fef1481159f8f287e2021ef8fc1ad15"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "safe-regex",
+      "name": "safe-regex",
+      "version": "2.1.1",
+      "packageRef": "safe-regex@2.1.1",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/safe-regex/package.json",
+      "packageJsonSha256": "0870f399604ba1b31b217be4f8d324dd1fff75b195674dc4e927112bb3113c5d",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/safe-regex/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git://github.com/davisjam/safe-regex.git",
+      "recordDigest": "43e36c153fb68761300edf4669ba541baf1e31cd123ce191bc12cf373719e5c5"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -14139,6 +14658,27 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "sisteransi",
+      "name": "sisteransi",
+      "version": "1.0.5",
+      "packageRef": "sisteransi@1.0.5",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/sisteransi/package.json",
+      "packageJsonSha256": "4a17bc5c93db1b8f01d84708031339f3a22f39e60e1a92e089cde82f0bb48633",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/sisteransi/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/terkelg/sisteransi",
+      "recordDigest": "dd49575175d9626209beae48f41f8bfa37544e9ec313e7607f8c8ec1810fae13"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "stack-utils",
       "name": "stack-utils",
       "version": "2.0.6",
@@ -14223,6 +14763,27 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "strip-bom",
+      "name": "strip-bom",
+      "version": "3.0.0",
+      "packageRef": "strip-bom@3.0.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/strip-bom/package.json",
+      "packageJsonSha256": "3165a2242ce2f930e841df38ea2383a6bb1e18758b782a392af63eb32facb93d",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/strip-bom/license"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "sindresorhus/strip-bom",
+      "recordDigest": "2c8218d0868ad03b0103e5a8ecc6ab6b160ef4d67319b665ff0030c25ef535c4"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "strip-final-newline",
       "name": "strip-final-newline",
       "version": "4.0.0",
@@ -14304,6 +14865,48 @@
       "noticeFilePaths": [],
       "repositoryUrl": "chalk/supports-hyperlinks",
       "recordDigest": "e0e0e90e394c996dcbe48cc430ed99e429262bf77096bcc50d75b06159f1f507"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "supports-preserve-symlinks-flag",
+      "name": "supports-preserve-symlinks-flag",
+      "version": "1.0.0",
+      "packageRef": "supports-preserve-symlinks-flag@1.0.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/supports-preserve-symlinks-flag/package.json",
+      "packageJsonSha256": "aef0ae2d21ae9181d8702c2063ce0ee274ba1063e5312e4baab5673aa6d4d5db",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/supports-preserve-symlinks-flag/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/inspect-js/node-supports-preserve-symlinks-flag.git",
+      "recordDigest": "d267ad31aa18bc88264995837ed21f396c13b5d5a7c25fc91111ae88dd3ad217"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "tapable",
+      "name": "tapable",
+      "version": "2.3.3",
+      "packageRef": "tapable@2.3.3",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/tapable/package.json",
+      "packageJsonSha256": "82d5903b3a6f9d6e41868f405176da8122799e8c71a51f5507087091862a2a3d",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/tapable/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "http://github.com/webpack/tapable.git",
+      "recordDigest": "6fb51c89f33238d40c24799a501b997d53e45cf819cbd580d69bb5a8a6fde481"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -14449,6 +15052,86 @@
       "noticeFilePaths": [],
       "repositoryUrl": "git+https://github.com/ThomasAribart/ts-algebra.git",
       "recordDigest": "a5463989a0e1247e701caf583f6ecfc0e1dda65cee5bec90d4def6627f0e6f85"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "tsconfig-paths",
+      "name": "tsconfig-paths",
+      "version": "4.2.0",
+      "packageRef": "tsconfig-paths@4.2.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/tsconfig-paths/package.json",
+      "packageJsonSha256": "534782c3658c87fcab9d541e8ac4d28df5d1f2b09ffa57d4f438d65c5e052421",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/tsconfig-paths/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/dividab/tsconfig-paths",
+      "recordDigest": "8fcec493aeef2b00365461649b83c71f0229b30c0e3ec87550b14370446f79ec"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "tsconfig-paths-webpack-plugin",
+      "name": "tsconfig-paths-webpack-plugin",
+      "version": "4.2.0",
+      "packageRef": "tsconfig-paths-webpack-plugin@4.2.0",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/tsconfig-paths-webpack-plugin/package.json",
+      "packageJsonSha256": "bdfd1fb6a60e50789c5e4250234ef54176c9d6a22e78cb8454363fe7a01c7e5f",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/tsconfig-paths-webpack-plugin/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "https://github.com/dividab/tsconfig-paths-webpack-plugin",
+      "recordDigest": "dfdc9bed1de28bf890f8db80058bb11ab8e2e2a7fc524e519772d3b47358d872"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "tsconfig-paths-webpack-plugin/chalk",
+      "name": "tsconfig-paths-webpack-plugin/chalk",
+      "version": "4.1.2",
+      "packageRef": "chalk@4.1.2",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "9c3a9ee07970af31fde7bbb417199c50bcf79e09d12ee9a7d358aaecee5f38b1"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "tsconfig-paths-webpack-plugin/chalk/ansi-styles",
+      "name": "tsconfig-paths-webpack-plugin/chalk/ansi-styles",
+      "version": "4.3.0",
+      "packageRef": "ansi-styles@4.3.0",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "1b5fcb2cdea7119aa0c8306baa3adee6bf95d5ddbc60fadea9d3a0fdd78ee59f"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -14825,6 +15508,27 @@
       "noticeFilePaths": [],
       "repositoryUrl": "https://github.com/Microsoft/vscode-languageserver-node.git",
       "recordDigest": "e47210e79a49bccb243c8fa5f7f5ea25087fe66199b3c153bb05c79e6f33c0b6"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "watskeburt",
+      "name": "watskeburt",
+      "version": "5.0.3",
+      "packageRef": "watskeburt@5.0.3",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/watskeburt/package.json",
+      "packageJsonSha256": "af5daf3f81c38aa701af9c7a846d521cbf49211e54e870345ef4f2afa4d0259b",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/watskeburt/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/sverweij/watskeburt.git",
+      "recordDigest": "b64eeead5a190f90f655e270db18f827088f179f83bdfd0b15b098bad8c377c5"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -15307,7 +16011,7 @@
     {
       "label": "source lockfile inventory is parseable",
       "ok": true,
-      "detail": "757 records"
+      "detail": "791 records"
     },
     {
       "label": "root project license file is present",
@@ -15322,17 +16026,17 @@
     {
       "label": "every direct manifest dependency has local package metadata",
       "ok": true,
-      "detail": "94/94"
+      "detail": "95/95"
     },
     {
       "label": "installed package metadata includes license fields",
       "ok": true,
-      "detail": "428/428"
+      "detail": "457/457"
     },
     {
       "label": "direct dependency license fields are complete",
       "ok": true,
-      "detail": "94/94"
+      "detail": "95/95"
     },
     {
       "label": "license and notice file gaps are classified without claiming readiness",
@@ -15342,7 +16046,7 @@
     {
       "label": "inventory JSONL has one record per lockfile package",
       "ok": true,
-      "detail": "757 records"
+      "detail": "791 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",

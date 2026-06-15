@@ -1,0 +1,323 @@
+{
+  "generatedAt": "2026-06-15T20:04:50.672Z",
+  "mode": "local_no_provider_dependency_topology_gate",
+  "scannerTargetRoots": [
+    "src",
+    "scripts"
+  ],
+  "dependencyCruiserVersion": "17.4.3",
+  "topologyCommands": [
+    {
+      "name": "dependency_cruiser_src_scripts",
+      "command": [
+        "depcruise",
+        "--no-config",
+        "--output-type",
+        "json",
+        "--include-only",
+        "^src|^scripts",
+        "--exclude",
+        "(^node_modules|\\.test\\.ts$|^scripts/_fixtures)",
+        "src",
+        "scripts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "requiredSubstrings": [
+        "\"modules\"",
+        "\"summary\""
+      ],
+      "missingSubstrings": [],
+      "stdoutPreview": [
+        "{",
+        "  \"modules\": [",
+        "    {",
+        "      \"source\": \"scripts/build.ts\",",
+        "      \"dependencies\": [",
+        "        {",
+        "          \"module\": \"./no-telemetry-plugin\",",
+        "          \"moduleSystem\": \"es6\",",
+        "          \"dynamic\": false,",
+        "          \"exoticallyRequired\": false,",
+        "          \"dependencyTypes\": [",
+        "            \"local\",",
+        "            \"import\"",
+        "          ],",
+        "          \"resolved\": \"scripts/no-telemetry-plugin.ts\",",
+        "          \"coreModule\": false,",
+        "          \"followable\": true,",
+        "          \"couldNotResolve\": false,",
+        "          \"matchesDoNotFollow\": false,",
+        "          \"circular\": false,",
+        "          \"valid\": true",
+        "        }",
+        "      ],",
+        "      \"dependents\": [],",
+        "      \"orphan\": false,",
+        "      \"valid\": true",
+        "    },",
+        "    {",
+        "      \"source\": \"scripts/no-telemetry-plugin.ts\",",
+        "      \"dependencies\": [],",
+        "      \"dependents\": [",
+        "        \"scripts/build.ts\"",
+        "      ],",
+        "      \"orphan\": false,",
+        "      \"valid\": true",
+        "    },",
+        "    {",
+        "      \"source\": \"scripts/grpc-cli.ts\",",
+        "      \"dependencies\": [],",
+        "      \"dependents\": [],"
+      ],
+      "stderrPreview": []
+    }
+  ],
+  "moduleCount": 2621,
+  "dependencyEdgeCount": 11954,
+  "circularDependencyCount": 1737,
+  "circularDependencyBaseline": 1737,
+  "unresolvedDependencyCount": 863,
+  "unresolvedDependencyBaseline": 863,
+  "sampleCircularEdges": [
+    {
+      "source": "src/utils/slowOperations.ts",
+      "resolved": "src/utils/debug.ts"
+    },
+    {
+      "source": "src/utils/debug.ts",
+      "resolved": "src/utils/fsOperations.ts"
+    },
+    {
+      "source": "src/utils/debug.ts",
+      "resolved": "src/utils/slowOperations.ts"
+    },
+    {
+      "source": "src/utils/fsOperations.ts",
+      "resolved": "src/utils/slowOperations.ts"
+    },
+    {
+      "source": "src/utils/providerProfile.ts",
+      "resolved": "src/utils/providerValidation.ts"
+    },
+    {
+      "source": "src/utils/providerValidation.ts",
+      "resolved": "src/utils/providerProfile.ts"
+    },
+    {
+      "source": "src/utils/config.ts",
+      "resolved": "src/bridge/bridgeEnabled.ts"
+    },
+    {
+      "source": "src/utils/config.ts",
+      "resolved": "src/memdir/paths.ts"
+    },
+    {
+      "source": "src/utils/config.ts",
+      "resolved": "src/memdir/teamMemPaths.ts"
+    },
+    {
+      "source": "src/utils/config.ts",
+      "resolved": "src/utils/file.ts"
+    },
+    {
+      "source": "src/bridge/bridgeEnabled.ts",
+      "resolved": "src/services/analytics/growthbook.ts"
+    },
+    {
+      "source": "src/bridge/bridgeEnabled.ts",
+      "resolved": "src/utils/auth.ts"
+    },
+    {
+      "source": "src/services/analytics/growthbook.ts",
+      "resolved": "src/utils/config.ts"
+    },
+    {
+      "source": "src/services/analytics/growthbook.ts",
+      "resolved": "src/utils/http.ts"
+    },
+    {
+      "source": "src/services/analytics/growthbook.ts",
+      "resolved": "src/utils/user.ts"
+    },
+    {
+      "source": "src/services/analytics/growthbook.ts",
+      "resolved": "src/services/analytics/firstPartyEventLogger.ts"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "resolved": "src/services/mockRateLimits.ts"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "resolved": "src/services/oauth/client.ts"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "resolved": "src/utils/betas.ts"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "resolved": "src/utils/config.ts"
+    }
+  ],
+  "sampleUnresolvedEdges": [
+    {
+      "source": "src/services/api/providerConfig.ts",
+      "module": "src/utils/providerProfile.js"
+    },
+    {
+      "source": "src/bootstrap/state.ts",
+      "module": "src/utils/crypto.js"
+    },
+    {
+      "source": "src/bootstrap/state.ts",
+      "module": "src/utils/settings/settingsCache.js"
+    },
+    {
+      "source": "src/bootstrap/state.ts",
+      "module": "src/utils/signal.js"
+    },
+    {
+      "source": "src/utils/debug.ts",
+      "module": "src/bootstrap/state.js"
+    },
+    {
+      "source": "src/utils/secureStorage/macOsKeychainHelpers.ts",
+      "module": "src/constants/oauth.js"
+    },
+    {
+      "source": "src/constants/oauth.ts",
+      "module": "src/utils/envUtils.js"
+    },
+    {
+      "source": "src/entrypoints/init.ts",
+      "module": "src/bootstrap/state.js"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "module": "src/constants/oauth.js"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "module": "src/services/analytics/index.js"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "module": "src/utils/model/modelStrings.js"
+    },
+    {
+      "source": "src/utils/auth.ts",
+      "module": "src/utils/model/providers.js"
+    },
+    {
+      "source": "src/services/oauth/client.ts",
+      "module": "src/services/analytics/index.js"
+    },
+    {
+      "source": "src/services/oauth/getOauthProfile.ts",
+      "module": "src/constants/oauth.js"
+    },
+    {
+      "source": "src/services/oauth/getOauthProfile.ts",
+      "module": "src/utils/auth.js"
+    },
+    {
+      "source": "src/services/oauth/getOauthProfile.ts",
+      "module": "src/utils/config.js"
+    },
+    {
+      "source": "src/services/oauth/getOauthProfile.ts",
+      "module": "src/utils/log.js"
+    },
+    {
+      "source": "src/utils/authPortable.ts",
+      "module": "src/utils/secureStorage/macOsKeychainHelpers.js"
+    },
+    {
+      "source": "src/utils/betas.ts",
+      "module": "src/services/analytics/growthbook.js"
+    },
+    {
+      "source": "src/utils/model/antModels.ts",
+      "module": "src/services/analytics/growthbook.js"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "dependency-cruiser",
+      "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
+      "observedPattern": "dependency-cruiser extracts dependency graphs and can report cycles/rules as an explicit architecture topology surface.",
+      "localAbsorption": "Metaforge records current src/scripts dependency graph counts first and uses them as a ratchet baseline before claiming topology cleanup."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US7904892B2 dependency graph cycle patent",
+      "sourceUrl": "https://patents.google.com/patent/US7904892B2/en",
+      "observedPattern": "Dependency graph systems model directed component relationships to identify levels, cycles, and structural dependencies.",
+      "localAbsorption": "OpenClaude keeps dependency topology evidence separate from clone detection and dead-export cleanup."
+    }
+  ],
+  "dependencyInstallPerformed": false,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "topologyCleanClaimAllowed": false,
+  "refactorCompletionClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "topologyChecks": [
+    {
+      "label": "dependency-cruiser version command passes",
+      "ok": true,
+      "detail": "17.4.3"
+    },
+    {
+      "label": "dependency-cruiser topology command passes",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "label": "modules are discovered",
+      "ok": true,
+      "detail": "2621 modules"
+    },
+    {
+      "label": "dependency edges are discovered",
+      "ok": true,
+      "detail": "11954 edges"
+    },
+    {
+      "label": "circular dependencies do not exceed baseline",
+      "ok": true,
+      "detail": "1737/1737"
+    },
+    {
+      "label": "unresolved dependencies do not exceed baseline",
+      "ok": true,
+      "detail": "863/863"
+    },
+    {
+      "label": "primary sources include official tool and patent sources",
+      "ok": true,
+      "detail": "dependency-cruiser,US7904892B2 dependency graph cycle patent"
+    },
+    {
+      "label": "provider/live/external calls remain absent",
+      "ok": true,
+      "detail": "all call arrays empty"
+    },
+    {
+      "label": "protected actions remain absent",
+      "ok": true,
+      "detail": "zero"
+    },
+    {
+      "label": "topology cleanup and public readiness claims remain blocked",
+      "ok": true,
+      "detail": "all false"
+    }
+  ],
+  "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline only. It does not prove clean architecture, public readiness, or refactor completion."
+}

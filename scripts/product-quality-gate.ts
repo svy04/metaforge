@@ -1407,6 +1407,39 @@ type PermissionRegressionReport = {
   targetedTestFiles: string[]
 }
 
+type DependencyTopologyReport = {
+  mode: string
+  dependencyCruiserVersion: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  protectedActionsExecuted: unknown[]
+  moduleCount: number
+  dependencyEdgeCount: number
+  circularDependencyCount: number
+  circularDependencyBaseline: number
+  unresolvedDependencyCount: number
+  unresolvedDependencyBaseline: number
+  topologyCleanClaimAllowed: boolean
+  refactorCompletionClaimAllowed: boolean
+  publicReadinessClaimAllowed: boolean
+  topologyCommands: Array<{
+    name: string
+    command: string[]
+    exitCode: number | null
+    passed: boolean
+    missingSubstrings: string[]
+  }>
+  primarySourceInputs: Array<{
+    sourceProject: string
+    sourceUrl: string
+  }>
+  topologyChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
 type RuntimeDoctorRegressionReport = {
   mode: string
   providerCallsPerformed: unknown[]
@@ -3299,6 +3332,8 @@ function main(): void {
   const communityIntakeQualityMdPath = 'docs/product-quality/community-intake-quality-report.md'
   const communityProfileQualityJsonPath = 'docs/product-quality/community-profile-quality-report.json'
   const communityProfileQualityMdPath = 'docs/product-quality/community-profile-quality-report.md'
+  const dependencyTopologyJsonPath = 'docs/product-quality/dependency-topology-report.json'
+  const dependencyTopologyMdPath = 'docs/product-quality/dependency-topology-report.md'
   const maintainerOwnershipQualityJsonPath = 'docs/product-quality/maintainer-ownership-quality-report.json'
   const maintainerOwnershipQualityMdPath = 'docs/product-quality/maintainer-ownership-quality-report.md'
   const dependencyGovernanceQualityJsonPath = 'docs/product-quality/dependency-governance-quality-report.json'
@@ -3419,6 +3454,8 @@ function main(): void {
     communityIntakeQualityMdPath,
     communityProfileQualityJsonPath,
     communityProfileQualityMdPath,
+    dependencyTopologyJsonPath,
+    dependencyTopologyMdPath,
     maintainerOwnershipQualityJsonPath,
     maintainerOwnershipQualityMdPath,
     dependencyGovernanceQualityJsonPath,
@@ -3747,6 +3784,7 @@ function main(): void {
   const agentInstructionsQuality = readJson<AgentInstructionsQualityReport>(agentInstructionsQualityJsonPath)
   const communityIntakeQuality = readJson<CommunityIntakeQualityReport>(communityIntakeQualityJsonPath)
   const communityProfileQuality = readJson<CommunityProfileQualityReport>(communityProfileQualityJsonPath)
+  const dependencyTopology = readJson<DependencyTopologyReport>(dependencyTopologyJsonPath)
   const maintainerOwnershipQuality = readJson<MaintainerOwnershipQualityReport>(maintainerOwnershipQualityJsonPath)
   const dependencyGovernanceQuality = readJson<DependencyGovernanceQualityReport>(dependencyGovernanceQualityJsonPath)
   const lockfileSbomQuality = readJson<LockfileSbomQualityReport>(lockfileSbomQualityJsonPath)
@@ -4131,6 +4169,16 @@ function main(): void {
   checks.push(check('community profile quality verifies contributing support conduct security and license terms', communityProfileQuality.contributing.requiredTermsPresent.length >= 8 && communityProfileQuality.support.requiredTermsPresent.length >= 9 && communityProfileQuality.codeOfConduct.requiredTermsPresent.length >= 6 && communityProfileQuality.security.requiredTermsPresent.length >= 6 && communityProfileQuality.license.requiredTermsPresent.length >= 5, `${communityProfileQuality.contributing.requiredTermsPresent.length}/${communityProfileQuality.support.requiredTermsPresent.length}/${communityProfileQuality.codeOfConduct.requiredTermsPresent.length}/${communityProfileQuality.security.requiredTermsPresent.length}/${communityProfileQuality.license.requiredTermsPresent.length}`))
   checks.push(check('community profile quality keeps readiness claims blocked', communityProfileQuality.releaseReadinessClaimAllowed === false && communityProfileQuality.productionReadinessClaimAllowed === false && communityProfileQuality.publicReadinessClaimAllowed === false && communityProfileQuality.externalValidationClaimAllowed === false && communityProfileQuality.autonomousReliabilityClaimAllowed === false))
   checks.push(check('community profile quality checks pass', communityProfileQuality.communityProfileChecks.every((item) => item.ok)))
+  checks.push(check('dependency topology gate is local no-provider evidence', dependencyTopology.mode === 'local_no_provider_dependency_topology_gate'))
+  checks.push(check('dependency topology performed no provider live external or protected calls', dependencyTopology.providerCallsPerformed.length === 0 && dependencyTopology.liveModelCallsPerformed.length === 0 && dependencyTopology.externalCallsPerformed.length === 0 && dependencyTopology.protectedActionsExecuted.length === 0))
+  checks.push(check('dependency topology records dependency-cruiser command evidence', dependencyTopology.dependencyCruiserVersion.length > 0 && dependencyTopology.topologyCommands.some((item) => item.name === 'dependency_cruiser_src_scripts' && item.command.includes('depcruise') && item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0), dependencyTopology.dependencyCruiserVersion))
+  checks.push(check('dependency topology discovers modules and edges', dependencyTopology.moduleCount > 0 && dependencyTopology.dependencyEdgeCount > 0, `${dependencyTopology.moduleCount}/${dependencyTopology.dependencyEdgeCount}`))
+  checks.push(check('dependency topology circular dependencies do not exceed baseline', dependencyTopology.circularDependencyCount <= dependencyTopology.circularDependencyBaseline, `${dependencyTopology.circularDependencyCount}/${dependencyTopology.circularDependencyBaseline}`))
+  checks.push(check('dependency topology unresolved dependencies do not exceed baseline', dependencyTopology.unresolvedDependencyCount <= dependencyTopology.unresolvedDependencyBaseline, `${dependencyTopology.unresolvedDependencyCount}/${dependencyTopology.unresolvedDependencyBaseline}`))
+  checks.push(check('dependency topology records official primary sources', ['dependency-cruiser', 'US7904892B2 dependency graph cycle patent'].every((source) => dependencyTopology.primarySourceInputs.some((item) => item.sourceProject === source)) && dependencyTopology.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://patents.google.com/')), dependencyTopology.primarySourceInputs.map((item) => item.sourceProject).join(',')))
+  checks.push(check('dependency topology keeps cleanup and readiness claims blocked', dependencyTopology.topologyCleanClaimAllowed === false && dependencyTopology.refactorCompletionClaimAllowed === false && dependencyTopology.publicReadinessClaimAllowed === false))
+  checks.push(check('dependency topology commands pass', dependencyTopology.topologyCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
+  checks.push(check('dependency topology checks pass', dependencyTopology.topologyChecks.every((item) => item.ok)))
   checks.push(check('maintainer ownership quality is local no-provider check', maintainerOwnershipQuality.mode === 'local_no_provider_maintainer_ownership_quality'))
   checks.push(check('maintainer ownership quality performed no provider calls', maintainerOwnershipQuality.providerCallsPerformed.length === 0))
   checks.push(check('maintainer ownership quality performed no live model calls', maintainerOwnershipQuality.liveModelCallsPerformed.length === 0))
@@ -4907,6 +4955,8 @@ function main(): void {
   console.log(`agent_instruction_setup_commands=${agentInstructionsQuality.setupVerificationCommandsPresent.length}`)
   console.log(`community_intake_template_count=${communityIntakeQuality.sourceTemplatePaths.length}`)
   console.log(`community_profile_file_count=${communityProfileQuality.sourceProfilePaths.length}`)
+  console.log(`dependency_topology_cycles=${dependencyTopology.circularDependencyCount}`)
+  console.log(`dependency_topology_unresolved=${dependencyTopology.unresolvedDependencyCount}`)
   console.log(`maintainer_ownership_rule_count=${maintainerOwnershipQuality.codeownerRules.length}`)
   console.log(`dependency_governance_direct_dependency_count=${dependencyGovernanceQuality.dependencyEntries.length}`)
   console.log(`lockfile_sbom_package_count=${lockfileSbomQuality.lockfilePackageCount}`)
