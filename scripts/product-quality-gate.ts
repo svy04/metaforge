@@ -1447,6 +1447,52 @@ type DependencyTopologyReport = {
   }>
 }
 
+type ScriptDuplicationAuditReport = {
+  mode: string
+  scannerTargetGlob: string
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  externalCallsPerformed: unknown[]
+  protectedActionsExecuted: unknown[]
+  helperOccurrenceCounts: Record<string, number>
+  helperOccurrenceBaselines: Record<string, number>
+  duplicateHelperClusterCount: number
+  duplicateHelperClusterBaseline: number
+  jscpdEnabled: boolean
+  jscpdVersion: string
+  jscpdConfigPath: string
+  jscpdCommand: {
+    name: string
+    command: string[]
+    exitCode: number | null
+    passed: boolean
+    missingSubstrings: string[]
+  }
+  jscpdReportSha256: string
+  jscpdCloneCount: number
+  jscpdCloneBaseline: number
+  jscpdDuplicatedLines: number
+  jscpdDuplicatedLinesBaseline: number
+  jscpdDuplicatedTokens: number
+  jscpdDuplicatedTokensBaseline: number
+  jscpdDuplicatedPercentage: number
+  jscpdDuplicatedPercentageBaseline: number
+  jscpdTopClonePairs: Array<{
+    firstFile: string
+    secondFile: string
+  }>
+  primarySourceInputs: Array<{
+    sourceProject: string
+    sourceUrl: string
+  }>
+  publicReadinessClaimAllowed: boolean
+  refactorCompletionClaimAllowed: boolean
+  auditChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
 type DeadExportCandidatesReport = {
   mode: string
   knipVersion: string
@@ -3376,6 +3422,8 @@ function main(): void {
   const communityProfileQualityMdPath = 'docs/product-quality/community-profile-quality-report.md'
   const dependencyTopologyJsonPath = 'docs/product-quality/dependency-topology-report.json'
   const dependencyTopologyMdPath = 'docs/product-quality/dependency-topology-report.md'
+  const scriptDuplicationAuditJsonPath = 'docs/product-quality/script-duplication-audit-report.json'
+  const scriptDuplicationAuditMdPath = 'docs/product-quality/script-duplication-audit-report.md'
   const deadExportCandidatesJsonPath = 'docs/product-quality/dead-export-candidates-report.json'
   const deadExportCandidatesMdPath = 'docs/product-quality/dead-export-candidates-report.md'
   const maintainerOwnershipQualityJsonPath = 'docs/product-quality/maintainer-ownership-quality-report.json'
@@ -3500,6 +3548,8 @@ function main(): void {
     communityProfileQualityMdPath,
     dependencyTopologyJsonPath,
     dependencyTopologyMdPath,
+    scriptDuplicationAuditJsonPath,
+    scriptDuplicationAuditMdPath,
     deadExportCandidatesJsonPath,
     deadExportCandidatesMdPath,
     maintainerOwnershipQualityJsonPath,
@@ -3831,6 +3881,7 @@ function main(): void {
   const communityIntakeQuality = readJson<CommunityIntakeQualityReport>(communityIntakeQualityJsonPath)
   const communityProfileQuality = readJson<CommunityProfileQualityReport>(communityProfileQualityJsonPath)
   const dependencyTopology = readJson<DependencyTopologyReport>(dependencyTopologyJsonPath)
+  const scriptDuplicationAudit = readJson<ScriptDuplicationAuditReport>(scriptDuplicationAuditJsonPath)
   const deadExportCandidates = readJson<DeadExportCandidatesReport>(deadExportCandidatesJsonPath)
   const maintainerOwnershipQuality = readJson<MaintainerOwnershipQualityReport>(maintainerOwnershipQualityJsonPath)
   const dependencyGovernanceQuality = readJson<DependencyGovernanceQualityReport>(dependencyGovernanceQualityJsonPath)
@@ -4228,6 +4279,15 @@ function main(): void {
   checks.push(check('dependency topology keeps cleanup and readiness claims blocked', dependencyTopology.topologyCleanClaimAllowed === false && dependencyTopology.refactorCompletionClaimAllowed === false && dependencyTopology.publicReadinessClaimAllowed === false))
   checks.push(check('dependency topology commands pass', dependencyTopology.topologyCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
   checks.push(check('dependency topology checks pass', dependencyTopology.topologyChecks.every((item) => item.ok)))
+  checks.push(check('script duplication audit is local no-provider evidence', scriptDuplicationAudit.mode === 'local_no_provider_product_script_duplication_audit' && scriptDuplicationAudit.scannerTargetGlob === 'scripts/product-*.ts'))
+  checks.push(check('script duplication audit performed no provider live external or protected calls', scriptDuplicationAudit.providerCallsPerformed.length === 0 && scriptDuplicationAudit.liveModelCallsPerformed.length === 0 && scriptDuplicationAudit.externalCallsPerformed.length === 0 && scriptDuplicationAudit.protectedActionsExecuted.length === 0))
+  checks.push(check('script duplication helper clusters do not exceed baseline', scriptDuplicationAudit.duplicateHelperClusterCount <= scriptDuplicationAudit.duplicateHelperClusterBaseline && Object.keys(scriptDuplicationAudit.helperOccurrenceBaselines).every((helperName) => (scriptDuplicationAudit.helperOccurrenceCounts[helperName] ?? 0) <= scriptDuplicationAudit.helperOccurrenceBaselines[helperName]), `${scriptDuplicationAudit.duplicateHelperClusterCount}/${scriptDuplicationAudit.duplicateHelperClusterBaseline}`))
+  checks.push(check('script duplication jscpd command records configured JSON evidence', scriptDuplicationAudit.jscpdEnabled === true && scriptDuplicationAudit.jscpdVersion.includes('5.0.9') && scriptDuplicationAudit.jscpdConfigPath === '.jscpd.json' && scriptDuplicationAudit.jscpdCommand.name === 'jscpd_product_scripts_json' && scriptDuplicationAudit.jscpdCommand.command.includes('jscpd') && scriptDuplicationAudit.jscpdCommand.command.includes('--config') && scriptDuplicationAudit.jscpdCommand.command.includes('.jscpd.json') && scriptDuplicationAudit.jscpdCommand.command.includes('--reporters') && scriptDuplicationAudit.jscpdCommand.command.includes('json') && scriptDuplicationAudit.jscpdCommand.exitCode === 0 && scriptDuplicationAudit.jscpdCommand.passed && scriptDuplicationAudit.jscpdCommand.missingSubstrings.length === 0 && scriptDuplicationAudit.jscpdReportSha256.length === 64, scriptDuplicationAudit.jscpdVersion))
+  checks.push(check('script duplication jscpd ratchet does not exceed baseline', scriptDuplicationAudit.jscpdCloneCount <= scriptDuplicationAudit.jscpdCloneBaseline && scriptDuplicationAudit.jscpdDuplicatedLines <= scriptDuplicationAudit.jscpdDuplicatedLinesBaseline && scriptDuplicationAudit.jscpdDuplicatedTokens <= scriptDuplicationAudit.jscpdDuplicatedTokensBaseline && scriptDuplicationAudit.jscpdDuplicatedPercentage <= scriptDuplicationAudit.jscpdDuplicatedPercentageBaseline, `${scriptDuplicationAudit.jscpdCloneCount}/${scriptDuplicationAudit.jscpdCloneBaseline}; ${scriptDuplicationAudit.jscpdDuplicatedLines}/${scriptDuplicationAudit.jscpdDuplicatedLinesBaseline}; ${scriptDuplicationAudit.jscpdDuplicatedTokens}/${scriptDuplicationAudit.jscpdDuplicatedTokensBaseline}; ${scriptDuplicationAudit.jscpdDuplicatedPercentage}/${scriptDuplicationAudit.jscpdDuplicatedPercentageBaseline}`))
+  checks.push(check('script duplication jscpd paths are normalized candidates', scriptDuplicationAudit.jscpdTopClonePairs.length > 0 && scriptDuplicationAudit.jscpdTopClonePairs.every((pair) => !pair.firstFile.includes('\\') && !pair.secondFile.includes('\\')), `${scriptDuplicationAudit.jscpdTopClonePairs.length} pairs`))
+  checks.push(check('script duplication audit records official primary sources', ['jscpd', 'Roy and Cordy clone detection survey', 'US11662998B2 duplicate code pattern patent'].every((source) => scriptDuplicationAudit.primarySourceInputs.some((item) => item.sourceProject === source)) && scriptDuplicationAudit.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://knip.dev/') || item.sourceUrl.startsWith('https://research.cs.queensu.ca/') || item.sourceUrl.startsWith('https://patents.google.com/')), scriptDuplicationAudit.primarySourceInputs.map((item) => item.sourceProject).join(',')))
+  checks.push(check('script duplication audit keeps refactor and readiness claims blocked', scriptDuplicationAudit.refactorCompletionClaimAllowed === false && scriptDuplicationAudit.publicReadinessClaimAllowed === false))
+  checks.push(check('script duplication audit checks pass', scriptDuplicationAudit.auditChecks.every((item) => item.ok)))
   checks.push(check('dead export candidate gate is local no-provider evidence', deadExportCandidates.mode === 'local_no_provider_dead_export_candidate_gate'))
   checks.push(check('dead export candidate gate performed no provider live external or protected calls', deadExportCandidates.providerCallsPerformed.length === 0 && deadExportCandidates.liveModelCallsPerformed.length === 0 && deadExportCandidates.externalCallsPerformed.length === 0 && deadExportCandidates.protectedActionsExecuted.length === 0))
   checks.push(check('dead export candidate gate records Knip config command evidence', deadExportCandidates.knipVersion.length > 0 && deadExportCandidates.knipCommands.some((item) => item.name === 'knip_exports_json' && item.command.includes('knip') && item.command.includes('--config') && item.command.includes('knip.jsonc') && item.command.includes('--exports') && item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0), deadExportCandidates.knipVersion))
@@ -4950,7 +5010,7 @@ function main(): void {
   checks.push(check('product evidence manifest executed no protected actions', productEvidenceManifest.protectedActionsExecuted.length === 0))
   checks.push(check('product evidence manifest writes expected JSONL', productEvidenceManifest.manifestJsonlPath === productEvidenceManifestJsonlPath && productEvidenceManifest.manifestJsonlSha256.length === 64, productEvidenceManifest.manifestJsonlPath))
   checks.push(check('product evidence manifest has required format', productEvidenceManifest.manifestFormat === 'openclaude_product_evidence_manifest_v1', productEvidenceManifest.manifestFormat))
-  checks.push(check('product evidence manifest covers required evidence', productEvidenceManifest.missingRequiredEvidencePaths.length === 0 && ['.github/CODEOWNERS', '.github/workflows/dependency-review.yml', 'bun.lock', '.dependency-cruiser.mjs', '.dependency-cruiser-known-violations.json', previousBaselinePath, baselinePath, ossBaselineRefreshJsonPath, ossBaselineRefreshMdPath, ossBaselineRefreshProvenanceJsonlPath, ossBaselineFreshnessJsonPath, ossBaselineFreshnessMdPath, ossBaselineProvenanceJsonlPath, ossSourceReviewJsonPath, ossSourceReviewMdPath, ossSourceReviewProvenanceJsonlPath, ossArchitectureTargetsJsonPath, ossArchitectureTargetsMdPath, ossArchitectureTargetsProvenanceJsonlPath, ossArchitectureGapReviewJsonPath, ossArchitectureGapReviewMdPath, ossArchitectureGapReviewProvenanceJsonlPath, ossAxisArchitectureReviewJsonPath, ossAxisArchitectureReviewMdPath, ossAxisArchitectureReviewProvenanceJsonlPath, ossSafeBacklogPlanJsonPath, ossSafeBacklogPlanMdPath, ossSafeBacklogPlanProvenanceJsonlPath, ossSafeBacklogClosureJsonPath, ossSafeBacklogClosureMdPath, ossSafeBacklogClosureJsonlPath, ossBaselineDriftClosureJsonPath, ossBaselineDriftClosureMdPath, ossBaselineDriftClosureJsonlPath, ossBenchmarkComparisonMatrixJsonPath, ossBenchmarkComparisonMatrixMdPath, ossBenchmarkComparisonMatrixJsonlPath, ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath, ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath, ossEvalQualityGateChecklistJsonPath, ossEvalQualityGateChecklistMdPath, ossEvalQualityGateChecklistProvenanceJsonlPath, ossTerminalWorkflowEvidenceJsonPath, ossTerminalWorkflowEvidenceMdPath, ossTerminalWorkflowEvidenceProvenanceJsonlPath, ossOnboardingDocsEvidenceJsonPath, ossOnboardingDocsEvidenceMdPath, ossOnboardingDocsEvidenceProvenanceJsonlPath, ossRuntimeDoctoringEvidenceJsonPath, ossRuntimeDoctoringEvidenceMdPath, ossRuntimeDoctoringEvidenceProvenanceJsonlPath, ossSecurityPermissionsEvidenceJsonPath, ossSecurityPermissionsEvidenceMdPath, ossSecurityPermissionsEvidenceProvenanceJsonlPath, ossToolLoopReliabilityEvidenceJsonPath, ossToolLoopReliabilityEvidenceMdPath, ossToolLoopReliabilityEvidenceProvenanceJsonlPath, ossProviderBreadthEvidenceJsonPath, ossProviderBreadthEvidenceMdPath, ossProviderBreadthEvidenceProvenanceJsonlPath, ossReleaseHygieneEvidenceJsonPath, ossReleaseHygieneEvidenceMdPath, ossReleaseHygieneEvidenceProvenanceJsonlPath, providerCapabilityMatrixJsonPath, providerCapabilityMatrixMdPath, providerCapabilityMatrixJsonlPath, terminalFailureRecoveryTranscriptsJsonPath, terminalFailureRecoveryTranscriptsMdPath, toolInterruptionRecoveryTraceJsonPath, toolInterruptionRecoveryTraceMdPath, toolInterruptionRecoveryTracePath, protectedActionDenialTraceJsonPath, protectedActionDenialTraceMdPath, protectedActionDenialTracePath, gatePath, terminalPath, verificationPath, agentInstructionsQualityJsonPath, primarySourceRegistryJsonPath, primarySourceRegistryMdPath, primarySourceRegistryJsonlPath, communityIntakeQualityJsonPath, communityProfileQualityJsonPath, maintainerOwnershipQualityJsonPath, dependencyGovernanceQualityJsonPath, lockfileSbomQualityJsonPath, lockfileSbomInventoryJsonlPath, thirdPartyLicenseQualityJsonPath, thirdPartyLicenseInventoryJsonlPath, sourceLicenseMetadataQualityJsonPath, sourceLicenseMetadataInventoryJsonlPath, licenseBoundaryAuthorizationJsonPath, licenseBoundaryAuthorizationRequestPath, licenseBoundaryAuthorizationItemsJsonlPath, qualityBlockerTaxonomyJsonPath, publicClaimBoundaryJsonPath, publicClaimBoundaryMdPath, publicClaimBoundaryJsonlPath, githubRemoteSurfaceAuditJsonPath, githubRemoteSurfaceAuditMdPath, githubRemoteSurfaceAuditJsonlPath, originLicenseProvenanceBoundaryJsonPath, originLicenseProvenanceBoundaryMdPath, originLicenseProvenanceBoundaryJsonlPath, protectedActionAuthorizationPacketJsonPath, protectedActionAuthorizationPacketMdPath, protectedActionAuthorizationPacketJsonlPath, tracePortabilityExportJsonPath, benchmarkReadinessJsonPath, vscodeStartupDiagnosticsJsonPath, localBenchmarkHarnessJsonPath, benchmarkEfficiencyMetricsJsonPath, benchmarkSubmissionReadinessJsonPath, benchmarkPolicyComplianceJsonPath, terminalBenchReadinessJsonPath, openSsfSecurityPostureJsonPath, portableTraceEventsPath, benchmarkTaskManifestPath, localBenchmarkResultsPath, benchmarkEfficiencyMetricsJsonlPath, benchmarkSubmissionAssetsJsonlPath, benchmarkPolicyComplianceJsonlPath, terminalBenchTaskMapJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), productEvidenceManifest.missingRequiredEvidencePaths.join(',') || 'all present'))
+  checks.push(check('product evidence manifest covers required evidence', productEvidenceManifest.missingRequiredEvidencePaths.length === 0 && ['.github/CODEOWNERS', '.github/workflows/dependency-review.yml', 'bun.lock', '.jscpd.json', '.dependency-cruiser.mjs', '.dependency-cruiser-known-violations.json', previousBaselinePath, baselinePath, ossBaselineRefreshJsonPath, ossBaselineRefreshMdPath, ossBaselineRefreshProvenanceJsonlPath, ossBaselineFreshnessJsonPath, ossBaselineFreshnessMdPath, ossBaselineProvenanceJsonlPath, ossSourceReviewJsonPath, ossSourceReviewMdPath, ossSourceReviewProvenanceJsonlPath, ossArchitectureTargetsJsonPath, ossArchitectureTargetsMdPath, ossArchitectureTargetsProvenanceJsonlPath, ossArchitectureGapReviewJsonPath, ossArchitectureGapReviewMdPath, ossArchitectureGapReviewProvenanceJsonlPath, ossAxisArchitectureReviewJsonPath, ossAxisArchitectureReviewMdPath, ossAxisArchitectureReviewProvenanceJsonlPath, ossSafeBacklogPlanJsonPath, ossSafeBacklogPlanMdPath, ossSafeBacklogPlanProvenanceJsonlPath, ossSafeBacklogClosureJsonPath, ossSafeBacklogClosureMdPath, ossSafeBacklogClosureJsonlPath, ossBaselineDriftClosureJsonPath, ossBaselineDriftClosureMdPath, ossBaselineDriftClosureJsonlPath, ossBenchmarkComparisonMatrixJsonPath, ossBenchmarkComparisonMatrixMdPath, ossBenchmarkComparisonMatrixJsonlPath, ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath, ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath, ossEvalQualityGateChecklistJsonPath, ossEvalQualityGateChecklistMdPath, ossEvalQualityGateChecklistProvenanceJsonlPath, ossTerminalWorkflowEvidenceJsonPath, ossTerminalWorkflowEvidenceMdPath, ossTerminalWorkflowEvidenceProvenanceJsonlPath, ossOnboardingDocsEvidenceJsonPath, ossOnboardingDocsEvidenceMdPath, ossOnboardingDocsEvidenceProvenanceJsonlPath, ossRuntimeDoctoringEvidenceJsonPath, ossRuntimeDoctoringEvidenceMdPath, ossRuntimeDoctoringEvidenceProvenanceJsonlPath, ossSecurityPermissionsEvidenceJsonPath, ossSecurityPermissionsEvidenceMdPath, ossSecurityPermissionsEvidenceProvenanceJsonlPath, ossToolLoopReliabilityEvidenceJsonPath, ossToolLoopReliabilityEvidenceMdPath, ossToolLoopReliabilityEvidenceProvenanceJsonlPath, ossProviderBreadthEvidenceJsonPath, ossProviderBreadthEvidenceMdPath, ossProviderBreadthEvidenceProvenanceJsonlPath, ossReleaseHygieneEvidenceJsonPath, ossReleaseHygieneEvidenceMdPath, ossReleaseHygieneEvidenceProvenanceJsonlPath, providerCapabilityMatrixJsonPath, providerCapabilityMatrixMdPath, providerCapabilityMatrixJsonlPath, terminalFailureRecoveryTranscriptsJsonPath, terminalFailureRecoveryTranscriptsMdPath, toolInterruptionRecoveryTraceJsonPath, toolInterruptionRecoveryTraceMdPath, toolInterruptionRecoveryTracePath, protectedActionDenialTraceJsonPath, protectedActionDenialTraceMdPath, protectedActionDenialTracePath, gatePath, terminalPath, verificationPath, agentInstructionsQualityJsonPath, primarySourceRegistryJsonPath, primarySourceRegistryMdPath, primarySourceRegistryJsonlPath, communityIntakeQualityJsonPath, communityProfileQualityJsonPath, dependencyTopologyJsonPath, dependencyTopologyMdPath, scriptDuplicationAuditJsonPath, scriptDuplicationAuditMdPath, maintainerOwnershipQualityJsonPath, dependencyGovernanceQualityJsonPath, lockfileSbomQualityJsonPath, lockfileSbomInventoryJsonlPath, thirdPartyLicenseQualityJsonPath, thirdPartyLicenseInventoryJsonlPath, sourceLicenseMetadataQualityJsonPath, sourceLicenseMetadataInventoryJsonlPath, licenseBoundaryAuthorizationJsonPath, licenseBoundaryAuthorizationRequestPath, licenseBoundaryAuthorizationItemsJsonlPath, qualityBlockerTaxonomyJsonPath, publicClaimBoundaryJsonPath, publicClaimBoundaryMdPath, publicClaimBoundaryJsonlPath, githubRemoteSurfaceAuditJsonPath, githubRemoteSurfaceAuditMdPath, githubRemoteSurfaceAuditJsonlPath, originLicenseProvenanceBoundaryJsonPath, originLicenseProvenanceBoundaryMdPath, originLicenseProvenanceBoundaryJsonlPath, protectedActionAuthorizationPacketJsonPath, protectedActionAuthorizationPacketMdPath, protectedActionAuthorizationPacketJsonlPath, tracePortabilityExportJsonPath, benchmarkReadinessJsonPath, vscodeStartupDiagnosticsJsonPath, localBenchmarkHarnessJsonPath, benchmarkEfficiencyMetricsJsonPath, benchmarkSubmissionReadinessJsonPath, benchmarkPolicyComplianceJsonPath, terminalBenchReadinessJsonPath, openSsfSecurityPostureJsonPath, portableTraceEventsPath, benchmarkTaskManifestPath, localBenchmarkResultsPath, benchmarkEfficiencyMetricsJsonlPath, benchmarkSubmissionAssetsJsonlPath, benchmarkPolicyComplianceJsonlPath, terminalBenchTaskMapJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), productEvidenceManifest.missingRequiredEvidencePaths.join(',') || 'all present'))
   checks.push(check('product evidence manifest covers OSS comparison readiness index evidence', [ossComparisonReadinessIndexJsonPath, ossComparisonReadinessIndexMdPath, ossComparisonReadinessIndexJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'readiness index JSON/MD/JSONL present'))
   checks.push(check('product evidence manifest covers OSS IDE/editor surface evidence', [ossIdeOrEditorSurfaceEvidenceJsonPath, ossIdeOrEditorSurfaceEvidenceMdPath, ossIdeOrEditorSurfaceEvidenceJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'IDE/editor JSON/MD/JSONL present'))
   checks.push(check('product evidence manifest covers OSS privacy no-phone-home evidence', [ossPrivacyNoPhoneHomeEvidenceJsonPath, ossPrivacyNoPhoneHomeEvidenceMdPath, ossPrivacyNoPhoneHomeEvidenceJsonlPath].every((path) => productEvidenceManifest.requiredEvidencePaths.includes(path)), 'privacy JSON/MD/JSONL present'))
@@ -5020,6 +5080,9 @@ function main(): void {
   console.log(`dependency_topology_unresolved=${dependencyTopology.unresolvedDependencyCount}`)
   console.log(`dependency_topology_ratchet_known_violations=${dependencyTopology.configuredRatchetKnownViolationCount}`)
   console.log(`dependency_topology_ratchet_new_violations=${dependencyTopology.configuredRatchetNewViolationCount}`)
+  console.log(`script_duplication_helper_clusters=${scriptDuplicationAudit.duplicateHelperClusterCount}`)
+  console.log(`script_duplication_jscpd_clones=${scriptDuplicationAudit.jscpdCloneCount}`)
+  console.log(`script_duplication_jscpd_duplicated_lines=${scriptDuplicationAudit.jscpdDuplicatedLines}`)
   console.log(`dead_export_candidate_unused_exports=${deadExportCandidates.candidateUnusedExportCount}`)
   console.log(`dead_export_candidate_unused_types=${deadExportCandidates.candidateUnusedTypeCount}`)
   console.log(`maintainer_ownership_rule_count=${maintainerOwnershipQuality.codeownerRules.length}`)

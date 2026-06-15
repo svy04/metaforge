@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { spawnSync } from 'node:child_process'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join, resolve } from 'node:path'
 
 type HelperOccurrence = {
   helperName: string
@@ -27,6 +29,61 @@ type Check = {
   detail: string
 }
 
+type AuditCommand = {
+  name: string
+  command: string[]
+  exitCode: number | null
+  passed: boolean
+  requiredSubstrings: string[]
+  missingSubstrings: string[]
+  stdoutPreview: string
+  stderrPreview: string
+}
+
+type JscpdFileRange = {
+  name?: string
+  start?: number
+  end?: number
+  startLoc?: {
+    line?: number
+  }
+  endLoc?: {
+    line?: number
+  }
+}
+
+type JscpdRawReport = {
+  duplicates?: Array<{
+    firstFile?: JscpdFileRange
+    secondFile?: JscpdFileRange
+    lines?: number
+    tokens?: number
+  }>
+  statistics?: {
+    total?: {
+      clones?: number
+      duplicatedLines?: number
+      duplicatedTokens?: number
+      lines?: number
+      percentage?: number
+      percentageTokens?: number
+      sources?: number
+      tokens?: number
+    }
+  }
+}
+
+type JscpdTopClonePair = {
+  firstFile: string
+  secondFile: string
+  firstStartLine: number
+  firstEndLine: number
+  secondStartLine: number
+  secondEndLine: number
+  lines: number
+  tokens: number
+}
+
 type ScriptDuplicationAuditReport = {
   generatedAt: string
   mode: 'local_no_provider_product_script_duplication_audit'
@@ -38,6 +95,22 @@ type ScriptDuplicationAuditReport = {
   duplicateHelperClusterCount: number
   duplicateHelperClusterBaseline: number
   duplicateHelperClusters: DuplicateHelperCluster[]
+  jscpdEnabled: boolean
+  jscpdVersion: string
+  jscpdConfigPath: string
+  jscpdCommand: AuditCommand
+  jscpdReportSha256: string
+  jscpdCloneCount: number
+  jscpdCloneBaseline: number
+  jscpdDuplicatedLines: number
+  jscpdDuplicatedLinesBaseline: number
+  jscpdDuplicatedTokens: number
+  jscpdDuplicatedTokensBaseline: number
+  jscpdDuplicatedPercentage: number
+  jscpdDuplicatedPercentageBaseline: number
+  jscpdDuplicatedTokenPercentage: number
+  jscpdSourceCount: number
+  jscpdTopClonePairs: JscpdTopClonePair[]
   primarySourceInputs: Array<{
     sourceType: 'oss_tool' | 'research_survey' | 'patent'
     sourceProject: string
@@ -58,6 +131,7 @@ type ScriptDuplicationAuditReport = {
 const root = process.cwd()
 const docsDir = resolve(root, 'docs/product-quality')
 const scriptsDir = resolve(root, 'scripts')
+const jscpdConfigPath = '.jscpd.json'
 const reportJsonPath = 'docs/product-quality/script-duplication-audit-report.json'
 const reportMdPath = 'docs/product-quality/script-duplication-audit-report.md'
 const helperNames = ['check', 'readText', 'sha256Text']
@@ -67,6 +141,10 @@ const helperOccurrenceBaselines: Record<string, number> = {
   sha256Text: 1,
 }
 const duplicateHelperClusterBaseline = 2
+const jscpdCloneBaseline = 30
+const jscpdDuplicatedLinesBaseline = 857
+const jscpdDuplicatedTokensBaseline = 5308
+const jscpdDuplicatedPercentageBaseline = 2.11
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
@@ -74,6 +152,197 @@ function sha256(input: string | Buffer): string {
 
 function check(label: string, ok: boolean, detail: string): Check {
   return { label, ok, detail }
+}
+
+function stripAnsi(input: string): string {
+  return input.replace(/\u001b\[[0-9;]*m/g, '')
+}
+
+function normalizeOutput(input: unknown): string {
+  if (typeof input !== 'string') return ''
+  return stripAnsi(input).replace(/\r\n/g, '\n')
+}
+
+function scrubLocalPaths(input: string): string {
+  return input
+    .replace(new RegExp(root.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), '<repo-root>')
+    .replace(/[A-Za-z]:\\[^\r\n]+/g, '<local-path>')
+}
+
+function preview(input: string): string {
+  return scrubLocalPaths(input).slice(0, 800)
+}
+
+function localJscpdBinaryExists(): boolean {
+  const binNames = process.platform === 'win32'
+    ? ['jscpd.cmd', 'jscpd.exe', 'jscpd.bunx']
+    : ['jscpd']
+  return binNames.some((binName) => existsSync(resolve(root, 'node_modules/.bin', binName)))
+}
+
+function sanitizedEnv(): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = { ...process.env }
+  for (const key of Object.keys(env)) {
+    if (/OPENAI|ANTHROPIC|CLAUDE|CODEX|GEMINI|API[_-]?KEY|TOKEN|SECRET|PASSWORD|CREDENTIAL/i.test(key)) {
+      delete env[key]
+    }
+  }
+  return env
+}
+
+function runAuditCommand(
+  name: string,
+  command: string[],
+  actualCommand: string,
+  actualArgs: string[],
+  requiredSubstrings: string[],
+): AuditCommand {
+  const result = spawnSync(actualCommand, actualArgs, {
+    cwd: root,
+    encoding: 'utf8',
+    env: sanitizedEnv(),
+    maxBuffer: 128 * 1024 * 1024,
+    shell: false,
+  })
+  const stdout = normalizeOutput(result.stdout)
+  const stderr = normalizeOutput(result.stderr)
+  const combined = `${stdout}\n${stderr}`
+  const missingSubstrings = requiredSubstrings.filter((substring) => !combined.includes(substring))
+
+  return {
+    name,
+    command,
+    exitCode: result.status,
+    passed: result.status === 0 && missingSubstrings.length === 0,
+    requiredSubstrings,
+    missingSubstrings,
+    stdoutPreview: preview(stdout),
+    stderrPreview: preview(result.error?.message ? `${stderr}\n${result.error.message}` : stderr),
+  }
+}
+
+function disabledCommand(name: string, detail: string): AuditCommand {
+  return {
+    name,
+    command: [],
+    exitCode: null,
+    passed: true,
+    requiredSubstrings: [],
+    missingSubstrings: [],
+    stdoutPreview: detail,
+    stderrPreview: '',
+  }
+}
+
+function normalizeReportPath(path: string | undefined): string {
+  return (path ?? 'unknown').replace(/\\/g, '/')
+}
+
+function lineFromRange(range: JscpdFileRange | undefined, edge: 'start' | 'end'): number {
+  const locLine = edge === 'start' ? range?.startLoc?.line : range?.endLoc?.line
+  const offsetLine = edge === 'start' ? range?.start : range?.end
+  return Number(locLine ?? offsetLine ?? 0)
+}
+
+function parseJscpdVersion(output: string): string {
+  const normalized = output.trim()
+  const match = normalized.match(/\d+\.\d+\.\d+/)
+  return match?.[0] ?? normalized
+}
+
+function emptyJscpdEvidence(command: AuditCommand, enabled = false) {
+  return {
+    jscpdEnabled: enabled,
+    jscpdVersion: enabled ? 'unknown' : 'disabled',
+    jscpdConfigPath,
+    jscpdCommand: command,
+    jscpdReportSha256: '0'.repeat(64),
+    jscpdCloneCount: 0,
+    jscpdCloneBaseline,
+    jscpdDuplicatedLines: 0,
+    jscpdDuplicatedLinesBaseline,
+    jscpdDuplicatedTokens: 0,
+    jscpdDuplicatedTokensBaseline,
+    jscpdDuplicatedPercentage: 0,
+    jscpdDuplicatedPercentageBaseline,
+    jscpdDuplicatedTokenPercentage: 0,
+    jscpdSourceCount: 0,
+    jscpdTopClonePairs: [] as JscpdTopClonePair[],
+  }
+}
+
+function buildJscpdEvidence() {
+  if (!existsSync(resolve(root, jscpdConfigPath))) {
+    return emptyJscpdEvidence(disabledCommand('jscpd_product_scripts_json', 'jscpd config absent in this test fixture'))
+  }
+  if (!localJscpdBinaryExists()) {
+    return emptyJscpdEvidence(disabledCommand('jscpd_product_scripts_json', 'local jscpd binary missing'), true)
+  }
+
+  const versionResult = spawnSync(process.execPath, ['run', 'jscpd', '--version'], {
+    cwd: root,
+    encoding: 'utf8',
+    env: sanitizedEnv(),
+    maxBuffer: 1024 * 1024,
+    shell: false,
+  })
+  const jscpdVersion = parseJscpdVersion(`${normalizeOutput(versionResult.stdout)}\n${normalizeOutput(versionResult.stderr)}`)
+  const outputDir = mkdtempSync(join(tmpdir(), 'openclaude-jscpd-'))
+
+  try {
+    const reportPath = join(outputDir, 'jscpd-report.json')
+    const command = runAuditCommand(
+      'jscpd_product_scripts_json',
+      ['jscpd', '--config', jscpdConfigPath, '--reporters', 'json', '--output', '<temp-jscpd-output>', '--no-tips'],
+      process.execPath,
+      ['run', 'jscpd', '--config', jscpdConfigPath, '--reporters', 'json', '--output', outputDir, '--no-tips'],
+      ['Using config from .jscpd.json', 'JSON report saved'],
+    )
+
+    if (!command.passed || !existsSync(reportPath)) {
+      return {
+        ...emptyJscpdEvidence(command, true),
+        jscpdVersion,
+      }
+    }
+
+    const rawReportText = readFileSync(reportPath, 'utf8')
+    const rawReport = JSON.parse(rawReportText) as JscpdRawReport
+    const total = rawReport.statistics?.total ?? {}
+    const topClonePairs = (rawReport.duplicates ?? [])
+      .slice(0, 20)
+      .map((duplicate) => ({
+        firstFile: normalizeReportPath(duplicate.firstFile?.name),
+        secondFile: normalizeReportPath(duplicate.secondFile?.name),
+        firstStartLine: lineFromRange(duplicate.firstFile, 'start'),
+        firstEndLine: lineFromRange(duplicate.firstFile, 'end'),
+        secondStartLine: lineFromRange(duplicate.secondFile, 'start'),
+        secondEndLine: lineFromRange(duplicate.secondFile, 'end'),
+        lines: Number(duplicate.lines ?? 0),
+        tokens: Number(duplicate.tokens ?? 0),
+      }))
+
+    return {
+      jscpdEnabled: true,
+      jscpdVersion,
+      jscpdConfigPath,
+      jscpdCommand: command,
+      jscpdReportSha256: sha256(rawReportText),
+      jscpdCloneCount: Number(total.clones ?? 0),
+      jscpdCloneBaseline,
+      jscpdDuplicatedLines: Number(total.duplicatedLines ?? 0),
+      jscpdDuplicatedLinesBaseline,
+      jscpdDuplicatedTokens: Number(total.duplicatedTokens ?? 0),
+      jscpdDuplicatedTokensBaseline,
+      jscpdDuplicatedPercentage: Number(total.percentage ?? 0),
+      jscpdDuplicatedPercentageBaseline,
+      jscpdDuplicatedTokenPercentage: Number(total.percentageTokens ?? 0),
+      jscpdSourceCount: Number(total.sources ?? 0),
+      jscpdTopClonePairs: topClonePairs,
+    }
+  } finally {
+    rmSync(outputDir, { recursive: true, force: true })
+  }
 }
 
 function relativeScriptPath(fileName: string): string {
@@ -221,6 +490,10 @@ function writeMarkdown(report: ScriptDuplicationAuditReport): void {
       return `| ${cluster.helperName} | ${cluster.occurrenceCount} | \`${cluster.normalizedBodySha256}\` | ${files} |`
     })
     .join('\n')
+  const jscpdRows = report.jscpdTopClonePairs
+    .slice(0, 20)
+    .map((pair) => `| ${pair.firstFile}:${pair.firstStartLine}-${pair.firstEndLine} | ${pair.secondFile}:${pair.secondStartLine}-${pair.secondEndLine} | ${pair.lines} | ${pair.tokens} |`)
+    .join('\n')
   const checkRows = report.auditChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
     .join('\n')
@@ -243,6 +516,18 @@ Generated by: \`bun run product:script-duplication-audit\`
 - duplicate_helper_cluster_baseline: \`${report.duplicateHelperClusterBaseline}\`
 - helper_occurrence_counts: \`${JSON.stringify(report.helperOccurrenceCounts)}\`
 - helper_occurrence_baselines: \`${JSON.stringify(report.helperOccurrenceBaselines)}\`
+- jscpd_enabled: \`${report.jscpdEnabled}\`
+- jscpd_version: \`${report.jscpdVersion}\`
+- jscpd_config_path: \`${report.jscpdConfigPath}\`
+- jscpd_clone_count: \`${report.jscpdCloneCount}\`
+- jscpd_clone_baseline: \`${report.jscpdCloneBaseline}\`
+- jscpd_duplicated_lines: \`${report.jscpdDuplicatedLines}\`
+- jscpd_duplicated_lines_baseline: \`${report.jscpdDuplicatedLinesBaseline}\`
+- jscpd_duplicated_tokens: \`${report.jscpdDuplicatedTokens}\`
+- jscpd_duplicated_tokens_baseline: \`${report.jscpdDuplicatedTokensBaseline}\`
+- jscpd_duplicated_percentage: \`${report.jscpdDuplicatedPercentage}\`
+- jscpd_duplicated_percentage_baseline: \`${report.jscpdDuplicatedPercentageBaseline}\`
+- jscpd_report_sha256: \`${report.jscpdReportSha256}\`
 - dependency_install_performed: \`${report.dependencyInstallPerformed}\`
 - public_readiness_claim_allowed: \`${report.publicReadinessClaimAllowed}\`
 - refactor_completion_claim_allowed: \`${report.refactorCompletionClaimAllowed}\`
@@ -258,6 +543,12 @@ ${sourceRows}
 | Helper | Occurrences | Body SHA-256 | Files |
 | --- | ---: | --- | --- |
 ${clusterRows || '| none | 0 | `n/a` | n/a |'}
+
+## Top jscpd Token Clone Pairs
+
+| First File | Second File | Lines | Tokens |
+| --- | --- | ---: | ---: |
+${jscpdRows || '| none | none | 0 | 0 |'}
 
 ## Checks
 
@@ -281,6 +572,7 @@ function main(): void {
     ]),
   ) as Record<string, number>
   const duplicateHelperClusters = buildDuplicateClusters(occurrences)
+  const jscpdEvidence = buildJscpdEvidence()
 
   const report: ScriptDuplicationAuditReport = {
     generatedAt: new Date().toISOString(),
@@ -293,13 +585,14 @@ function main(): void {
     duplicateHelperClusterCount: duplicateHelperClusters.length,
     duplicateHelperClusterBaseline,
     duplicateHelperClusters,
+    ...jscpdEvidence,
     primarySourceInputs: [
       {
         sourceType: 'oss_tool',
         sourceProject: 'jscpd',
         sourceUrl: 'https://github.com/kucherenko/jscpd',
-        observedPattern: 'Copy/paste detection is a dedicated audit surface; clone findings are refactor candidates, not automatic defects.',
-        localAbsorption: 'This local audit records repeated helper shapes first, so later jscpd adoption can be compared against a stable project-specific baseline.',
+        observedPattern: 'Copy/paste detection is a dedicated audit surface with CLI configuration, JSON reporting, and threshold/ratchet-friendly metrics.',
+        localAbsorption: 'This local audit runs jscpd against product scripts, records clone/line/token/percentage evidence, and blocks new growth against a stable baseline.',
       },
       {
         sourceType: 'oss_tool',
@@ -347,6 +640,7 @@ function main(): void {
     auditChecks: [],
   }
 
+  const jscpdConfigPresent = existsSync(resolve(root, jscpdConfigPath))
   report.auditChecks = [
     check('product scripts are scanned', report.sourceProductScriptCount > 0, `${report.sourceProductScriptCount} files`),
     check('target helper occurrence surface is measured', Object.values(report.helperOccurrenceCounts).some((count) => count > 0), JSON.stringify(report.helperOccurrenceCounts)),
@@ -356,6 +650,31 @@ function main(): void {
       'helper occurrences do not exceed baseline',
       helperNames.every((helperName) => report.helperOccurrenceCounts[helperName] <= report.helperOccurrenceBaselines[helperName]),
       JSON.stringify({ current: report.helperOccurrenceCounts, baseline: report.helperOccurrenceBaselines }),
+    ),
+    check(
+      'jscpd token clone command is configured when config is present',
+      !jscpdConfigPresent || (report.jscpdEnabled && report.jscpdVersion.includes('5.0.9') && report.jscpdConfigPath === jscpdConfigPath && report.jscpdCommand.name === 'jscpd_product_scripts_json' && report.jscpdCommand.command.includes('jscpd') && report.jscpdCommand.command.includes('--config') && report.jscpdCommand.command.includes(jscpdConfigPath) && report.jscpdCommand.command.includes('--reporters') && report.jscpdCommand.command.includes('json') && report.jscpdCommand.exitCode === 0 && report.jscpdCommand.passed && report.jscpdCommand.missingSubstrings.length === 0 && report.jscpdReportSha256.length === 64),
+      `${report.jscpdVersion}/${report.jscpdCommand.exitCode}`,
+    ),
+    check(
+      'jscpd token clone count does not exceed baseline',
+      !jscpdConfigPresent || report.jscpdCloneCount <= report.jscpdCloneBaseline,
+      `${report.jscpdCloneCount}/${report.jscpdCloneBaseline}`,
+    ),
+    check(
+      'jscpd duplicated line and token counts do not exceed baseline',
+      !jscpdConfigPresent || (report.jscpdDuplicatedLines <= report.jscpdDuplicatedLinesBaseline && report.jscpdDuplicatedTokens <= report.jscpdDuplicatedTokensBaseline),
+      `${report.jscpdDuplicatedLines}/${report.jscpdDuplicatedLinesBaseline}; ${report.jscpdDuplicatedTokens}/${report.jscpdDuplicatedTokensBaseline}`,
+    ),
+    check(
+      'jscpd duplicated percentage does not exceed baseline',
+      !jscpdConfigPresent || report.jscpdDuplicatedPercentage <= report.jscpdDuplicatedPercentageBaseline,
+      `${report.jscpdDuplicatedPercentage}/${report.jscpdDuplicatedPercentageBaseline}`,
+    ),
+    check(
+      'jscpd clone pair paths are relative and normalized',
+      report.jscpdTopClonePairs.every((pair) => !pair.firstFile.includes('\\') && !pair.secondFile.includes('\\') && !pair.firstFile.includes(root) && !pair.secondFile.includes(root)),
+      `${report.jscpdTopClonePairs.length} pairs`,
     ),
     check(
       'primary sources include OSS, research, and patent inputs',
@@ -390,6 +709,9 @@ function main(): void {
   console.log(`source_product_script_count=${report.sourceProductScriptCount}`)
   console.log(`duplicate_helper_cluster_count=${report.duplicateHelperClusterCount}`)
   console.log(`helper_occurrence_counts=${JSON.stringify(report.helperOccurrenceCounts)}`)
+  console.log(`script_duplication_jscpd_clones=${report.jscpdCloneCount}`)
+  console.log(`script_duplication_jscpd_duplicated_lines=${report.jscpdDuplicatedLines}`)
+  console.log(`script_duplication_jscpd_duplicated_percentage=${report.jscpdDuplicatedPercentage}`)
 }
 
 main()
