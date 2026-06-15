@@ -29,7 +29,7 @@ Generated after public/community feedback on the Metaforge/OpenClaude repository
 | Local folder names hurt trust. | `verify:privacy` now includes public repo readiness, and `public-artifact-hygiene` scans `README.ko.md` too. |
 | README should support Korean readers. | Added `README.ko.md` and linked it from `README.md`. |
 | Marker-only checks are not enough. | Recorded as backlog: add happy-path, edge-case, and side-effect tests per product gate. |
-| Product scripts look heavily cloned. | Confirmed with local heuristic counts and jscpd. |
+| Product scripts look heavily cloned. | Confirmed with local heuristic counts and jscpd; `product:script-duplication-audit` now has baseline caps and is wired into `product:quality`. |
 | Dead exports may exist. | Confirmed as knip candidates only; manual review required before deletion. |
 
 ## Local Heuristic Counts
@@ -144,9 +144,10 @@ pass likely includes entrypoint, generated, test-only, and compatibility exports
 
 ## Recommended Next Refactor Order
 
-1. Extract a tiny product-quality report helper for `Check`, `check`, `sha256`,
-   and `readText` only after two or three representative scripts are covered by
-   behavior tests.
+1. Continue extracting tiny product-quality report helpers only after
+   representative scripts are covered by behavior tests. The first ratchet now
+   blocks increases in duplicate `check`, `readText`, and `sha256Text` helper
+   occurrences.
 2. Start with sibling duplicate pairs, especially IDE extension smoke scripts
    and OSS evidence scripts.
 3. Add happy-path, edge-case, and side-effect assertions to each product gate

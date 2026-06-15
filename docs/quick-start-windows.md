@@ -25,12 +25,14 @@ npm install -g @gitlawb/openclaude
 
 ### Option A: OpenAI
 
-Replace `<openai-api-key>` with your real key.
+Replace `<openai-api-key>` with your real key and
+`<current-openai-tool-model>` with a current OpenAI model you have enabled for
+tool/function calling.
 
 ```powershell
 $env:CLAUDE_CODE_USE_OPENAI="1"
 $env:OPENAI_API_KEY="<openai-api-key>"
-$env:OPENAI_MODEL="gpt-4o"
+$env:OPENAI_MODEL="<current-openai-tool-model>"
 
 openclaude
 ```

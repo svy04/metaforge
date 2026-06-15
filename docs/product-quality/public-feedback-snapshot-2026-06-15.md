@@ -59,11 +59,14 @@ that the feedback identified.
 
 ## Current Response
 
-The first response slice extracts a tiny shared helper surface from
-community/public product-quality scripts and refreshes the local duplication
-audit report. This converts the clone-pressure feedback into measured code
-movement without claiming that all duplication, dead exports, or wiring gaps are
-resolved.
+The first response slice extracts tiny shared helper surfaces from
+community/public and origin/license product-quality scripts, refreshes the local
+duplication audit report, and wires the audit into `product:quality` as a
+ratchet. Future helper-clone increases above the current baseline now fail the
+local gate. Public setup docs also avoid pinning stale OpenAI model examples.
+This converts the clone-pressure and stale-public-doc feedback into measured
+code movement without claiming that all duplication, dead exports, or wiring
+gaps are resolved.
 
 Boundary: this snapshot is not production readiness, release readiness,
 external validation, hosted workflow proof, or autonomous reliability evidence.

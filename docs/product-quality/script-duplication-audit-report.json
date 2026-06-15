@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T02:03:34.344Z",
+  "generatedAt": "2026-06-15T05:34:41.196Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -7,13 +7,19 @@
     "readText",
     "sha256Text"
   ],
-  "sourceProductScriptCount": 85,
+  "sourceProductScriptCount": 86,
   "helperOccurrenceCounts": {
     "check": 76,
     "readText": 39,
     "sha256Text": 7
   },
+  "helperOccurrenceBaselines": {
+    "check": 76,
+    "readText": 39,
+    "sha256Text": 7
+  },
   "duplicateHelperClusterCount": 3,
+  "duplicateHelperClusterBaseline": 3,
   "duplicateHelperClusters": [
     {
       "helperName": "check",
@@ -50,7 +56,7 @@
         },
         {
           "path": "scripts/product-evidence-manifest.ts",
-          "line": 211
+          "line": 214
         },
         {
           "path": "scripts/product-external-benchmark-boundary.ts",
@@ -246,7 +252,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3033
+          "line": 3058
         },
         {
           "path": "scripts/product-real-session-capture.ts",
@@ -466,7 +472,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3029
+          "line": 3054
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
@@ -514,7 +520,7 @@
         },
         {
           "path": "scripts/product-evidence-manifest.ts",
-          "line": 207
+          "line": 210
         },
         {
           "path": "scripts/product-terminal-bench-readiness.ts",
@@ -555,7 +561,7 @@
     {
       "label": "product scripts are scanned",
       "ok": true,
-      "detail": "85 files"
+      "detail": "86 files"
     },
     {
       "label": "target helper occurrence surface is measured",
@@ -566,6 +572,16 @@
       "label": "duplicate helper clusters are reported as candidates",
       "ok": true,
       "detail": "3 clusters"
+    },
+    {
+      "label": "duplicate helper clusters do not exceed baseline",
+      "ok": true,
+      "detail": "3/3"
+    },
+    {
+      "label": "helper occurrences do not exceed baseline",
+      "ok": true,
+      "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":7},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":7}}"
     },
     {
       "label": "primary sources are official project sources",
