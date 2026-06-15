@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:06:07.943Z",
+  "generatedAt": "2026-06-15T12:24:37.878Z",
   "mode": "local_no_provider_protected_action_authorization_packet",
   "terminalCondition": "PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY",
   "packetStatus": "owner_authorization_required_before_protected_actions",
@@ -13,20 +13,20 @@
     {
       "path": "docs/product-quality/vscode-update-boundary-report.json",
       "exists": true,
-      "sha256": "f84dbb576e52be5af8e307b43cb771dd3b2e9d28ce26234a61d5492b9b0537f7",
-      "sizeBytes": 4319
+      "sha256": "3266e0d0d3443771f0b7da7d667d3a649b947fa61bd38b2b450b799ed4f8b924",
+      "sizeBytes": 4248
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
       "exists": true,
-      "sha256": "52feead40a93171407e109ea8ba31269350304748306f16b9607d959350ff0ac",
-      "sizeBytes": 7164
+      "sha256": "7457b1f9a873a4aafad08acedbce3ce3752a0ab3ed9ad3c2b46d538c906415e9",
+      "sizeBytes": 6981
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.json",
       "exists": true,
-      "sha256": "f0ac480d3b7c54b74f414f2afacc6c2d3507b94e96c526a0ffb8bbbd9a12afd2",
-      "sizeBytes": 6019
+      "sha256": "99c78348debfa22ca8bcd47f474486908d3d9b8896b66aea942f02dd2d1c22ef",
+      "sizeBytes": 5917
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.json",
@@ -103,12 +103,18 @@
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
       "exists": true,
-      "sha256": "a49518e3c6713ba6c40ab2036bf65134327cb94522e127f2ce902418c36a6873",
+      "sha256": "19edff6ab410e7137cb92fca059570ba534043a6673d4828516c440b5c1c55f6",
       "sizeBytes": 14070
+    },
+    {
+      "path": "docs/product-quality/github-hosted-trust-posture-report.json",
+      "exists": true,
+      "sha256": "38a19b84411deb18b30647e188d14f158b2656086b6e57da80cd0b9c39d78a99",
+      "sizeBytes": 10679
     }
   ],
-  "sourceReportCount": 17,
-  "authorizationItemCount": 8,
+  "sourceReportCount": 18,
+  "authorizationItemCount": 9,
   "allSafeBacklogEvidenceGatesCreated": true,
   "protectedActionExecutionAllowed": false,
   "protectedActionExecuted": false,
@@ -263,6 +269,24 @@
       "validationMethod": "Run a separate external benchmark execution/submission gate with dataset provenance, runtime transcript, provider usage record, official assets, and claim review."
     },
     {
+      "id": "authorize_hosted_github_security_controls",
+      "category": "hosted_security",
+      "protectedActionRequired": true,
+      "authorized": false,
+      "executed": false,
+      "sourceReports": [
+        "docs/product-quality/github-hosted-trust-posture-report.json"
+      ],
+      "currentEvidence": "Hosted GitHub trust posture records branch protection, rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, code scanning backlog, and main workflow status as read-only evidence.",
+      "requiredOwnerDecision": "Authorize or deny hosted GitHub security setting changes, including branch protection or rulesets, secret scanning, push protection, Dependabot security updates, vulnerability alerts, and code scanning remediation workflow.",
+      "forbiddenShortcuts": [
+        "Do not enable, disable, or mutate GitHub repository settings without explicit owner authorization.",
+        "Do not claim hosted security posture, public readiness, or release readiness while hosted trust risks remain recorded.",
+        "Do not treat local privacy scans as a substitute for hosted secret scanning or push protection."
+      ],
+      "validationMethod": "After authorization and hosted setting changes, rerun product:github-hosted-trust-posture, product:github-remote-surface-audit, product:openssf-security-posture, product:public-claim-boundary, verify:privacy, and hosted GitHub Actions checks."
+    },
+    {
       "id": "authorize_release_public_production_external_or_autonomous_claims",
       "category": "claim_boundary",
       "protectedActionRequired": true,
@@ -292,12 +316,22 @@
     {
       "label": "all source reports are present and hash-bound",
       "ok": true,
-      "detail": "17/17"
+      "detail": "18/18"
     },
     {
-      "label": "source reports performed no provider live external or protected calls",
+      "label": "local source reports performed no provider live external or protected calls",
       "ok": true,
-      "detail": "all call/action arrays empty"
+      "detail": "local no-provider source reports keep call/action arrays empty"
+    },
+    {
+      "label": "all source reports performed no provider live or protected actions",
+      "ok": true,
+      "detail": "hosted GitHub report may record read-only discovery only"
+    },
+    {
+      "label": "hosted GitHub trust posture remains read-only and claim-blocked",
+      "ok": true,
+      "detail": "hosted_trust_risks_detected"
     },
     {
       "label": "VS Code CLI/PATH/install-state boundary remains protected",
@@ -347,12 +381,12 @@
     {
       "label": "every protected authorization item defaults false and unexecuted",
       "ok": true,
-      "detail": "8 authorizations"
+      "detail": "9 authorizations"
     },
     {
       "label": "authorization JSONL is parseable and complete",
       "ok": true,
-      "detail": "8/8"
+      "detail": "9/9"
     },
     {
       "label": "verification report consistency preserves current terminal condition",
