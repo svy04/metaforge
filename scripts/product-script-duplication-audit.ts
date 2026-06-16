@@ -140,7 +140,7 @@ const helperNames = ['check', 'readText', 'sha256Text']
 const helperOccurrenceBaselines: Record<string, number> = {
   check: 70,
   readText: 34,
-  sha256Text: 1,
+  sha256Text: 0,
 }
 const duplicateHelperClusterBaseline = 2
 const jscpdCloneBaseline = 26

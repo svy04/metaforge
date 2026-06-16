@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T06:53:55.615Z",
+  "generatedAt": "2026-06-16T07:11:54.379Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -11,12 +11,12 @@
   "helperOccurrenceCounts": {
     "check": 70,
     "readText": 34,
-    "sha256Text": 1
+    "sha256Text": 0
   },
   "helperOccurrenceBaselines": {
     "check": 70,
     "readText": 34,
-    "sha256Text": 1
+    "sha256Text": 0
   },
   "duplicateHelperClusterCount": 2,
   "duplicateHelperClusterBaseline": 2,
@@ -76,7 +76,7 @@
         },
         {
           "path": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
-          "line": 100
+          "line": 101
         },
         {
           "path": "scripts/product-ide-extension-runtime-smoke.ts",
@@ -476,19 +476,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 44.825ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 51.852ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "5f233ec5061cbf8a0e27777176802e6f68b0b5b1ed3bf867a990bf8a7112bf08",
+  "jscpdReportSha256": "d5d09dd8895bdee015d122e846c8f8700e7c8a19027efb02b4a7c84dac1522bf",
   "jscpdCloneCount": 26,
   "jscpdCloneBaseline": 26,
   "jscpdDuplicatedLines": 774,
   "jscpdDuplicatedLinesBaseline": 774,
   "jscpdDuplicatedTokens": 4790,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.892189218921892,
+  "jscpdDuplicatedPercentage": 1.8927444794952681,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.8830614884441352,
+  "jscpdDuplicatedTokenPercentage": 1.8837724214144418,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
@@ -524,8 +524,8 @@
     {
       "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
       "secondFile": "scripts/product-ide-extension-webview-render-smoke.ts",
-      "firstStartLine": 145,
-      "firstEndLine": 181,
+      "firstStartLine": 142,
+      "firstEndLine": 178,
       "secondStartLine": 102,
       "secondEndLine": 138,
       "lines": 37,
@@ -752,7 +752,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":70,\"readText\":34,\"sha256Text\":1}"
+      "detail": "{\"check\":70,\"readText\":34,\"sha256Text\":0}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -767,7 +767,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":70,\"readText\":34,\"sha256Text\":1},\"baseline\":{\"check\":70,\"readText\":34,\"sha256Text\":1}}"
+      "detail": "{\"current\":{\"check\":70,\"readText\":34,\"sha256Text\":0},\"baseline\":{\"check\":70,\"readText\":34,\"sha256Text\":0}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -787,7 +787,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.892189218921892/1.9"
+      "detail": "1.8927444794952681/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
