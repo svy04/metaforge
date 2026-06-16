@@ -3,20 +3,20 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { join, resolve } from 'node:path'
 import { sha256 as sha256Text } from './quality-report-helpers'
 
-type EvidenceCheck = {
+export type EvidenceCheck = {
   label: string
   ok: boolean
   detail: string
 }
 
-type EvidenceRecord = {
+export type EvidenceRecord = {
   path: string
   sha256: string
   sizeBytes: number
   role: 'source' | 'evidence_report' | 'evidence_artifact' | 'quality_gate' | 'workflow'
 }
 
-type ProductEvidenceManifestReport = {
+export type ProductEvidenceManifestReport = {
   generatedAt: string
   mode: 'local_no_provider_product_evidence_manifest'
   manifestFormat: 'openclaude_product_evidence_manifest_v1'
@@ -53,7 +53,7 @@ const root = process.cwd()
 const docsDir = resolve(root, 'docs/product-quality')
 const reportsDir = resolve(root, 'reports')
 const manifestJsonlPath = 'reports/openclaude-product-evidence-manifest.jsonl'
-const selfReportPaths = [
+export const selfReportPaths = [
   'docs/product-quality/product-evidence-manifest.json',
   'docs/product-quality/product-evidence-manifest.md',
   manifestJsonlPath,
@@ -69,7 +69,7 @@ const credentialPatterns = [
   /-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----/,
 ]
 
-const requiredEvidencePaths = [
+export const requiredEvidencePaths = [
   'package.json',
   'bun.lock',
   '.jscpd.json',
@@ -228,7 +228,7 @@ function check(label: string, ok: boolean, detail: string): EvidenceCheck {
   return { label, ok, detail }
 }
 
-function hasCredentialPattern(text: string): boolean {
+export function hasCredentialPattern(text: string): boolean {
   return credentialPatterns.some((pattern) => pattern.test(text))
 }
 
@@ -255,7 +255,7 @@ function listFiles(prefix: string): string[] {
   return files.sort((left, right) => left.localeCompare(right))
 }
 
-function roleFor(path: string): EvidenceRecord['role'] {
+export function roleFor(path: string): EvidenceRecord['role'] {
   if (path === 'package.json') return 'source'
   if (path === 'bun.lock') return 'source'
   if (path.startsWith('.github/')) return 'workflow'
@@ -292,7 +292,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
   })
 }
 
-function countRoles(records: EvidenceRecord[]): Record<EvidenceRecord['role'], number> {
+export function countRoles(records: EvidenceRecord[]): Record<EvidenceRecord['role'], number> {
   return {
     source: records.filter((record) => record.role === 'source').length,
     evidence_report: records.filter((record) => record.role === 'evidence_report').length,
@@ -300,6 +300,92 @@ function countRoles(records: EvidenceRecord[]): Record<EvidenceRecord['role'], n
     quality_gate: records.filter((record) => record.role === 'quality_gate').length,
     workflow: records.filter((record) => record.role === 'workflow').length,
   }
+}
+
+export function buildEvidenceManifestJsonl(evidenceRecords: EvidenceRecord[]): string {
+  return `${evidenceRecords.map((record) => JSON.stringify(record)).join('\n')}\n`
+}
+
+export function buildProductEvidenceManifestReport({
+  evidenceRecords,
+  generatedAt = new Date().toISOString(),
+  requiredPaths = requiredEvidencePaths,
+  recursiveSelfInputs = selfReportPaths,
+  outputManifestJsonlPath = manifestJsonlPath,
+}: {
+  evidenceRecords: EvidenceRecord[]
+  generatedAt?: string
+  requiredPaths?: string[]
+  recursiveSelfInputs?: string[]
+  outputManifestJsonlPath?: string
+}): { report: ProductEvidenceManifestReport, manifestText: string } {
+  const manifestText = buildEvidenceManifestJsonl(evidenceRecords)
+  const manifestJsonlSha256 = sha256Text(manifestText)
+  const missingRequiredEvidencePaths = requiredPaths.filter((path) => !evidenceRecords.some((record) => record.path === path))
+  const evidenceRoles = countRoles(evidenceRecords)
+  const evidenceTotalSizeBytes = evidenceRecords.reduce((total, record) => total + record.sizeBytes, 0)
+  const manifestHasCredentialPattern = hasCredentialPattern(manifestText)
+
+  const evidenceChecks = [
+    check('required evidence paths are present', missingRequiredEvidencePaths.length === 0, missingRequiredEvidencePaths.join(',') || 'all present'),
+    check('evidence records have SHA-256 digests', evidenceRecords.every((record) => /^[a-f0-9]{64}$/.test(record.sha256)), `${evidenceRecords.length} records`),
+    check('evidence records have nonzero sizes', evidenceRecords.every((record) => record.sizeBytes > 0), `${evidenceTotalSizeBytes} total bytes`),
+    check('manifest JSONL has one line per evidence record', manifestText.trim().split(/\r?\n/).length === evidenceRecords.length, `${evidenceRecords.length} lines`),
+    check('manifest JSONL hash is recorded', manifestJsonlSha256.length === 64, outputManifestJsonlPath),
+    check('recursive self inputs are excluded', recursiveSelfInputs.every((path) => !evidenceRecords.some((record) => record.path === path)), recursiveSelfInputs.join(',')),
+    check('evidence roles cover reports, artifacts, workflows, source, and gate', Object.values(evidenceRoles).every((count) => count > 0), JSON.stringify(evidenceRoles)),
+    check('manifest contains no credential patterns', !manifestHasCredentialPattern, 'known key/token/private-key patterns absent'),
+    check('primary source patterns are recorded', true, 'SLSA provenance, in-toto Statement, OpenSSF Scorecard'),
+    check('protected actions are not executed', true, 'protectedActionsExecuted=[]'),
+    check('release and external claims remain blocked', true, 'all claim flags false'),
+  ]
+
+  const report: ProductEvidenceManifestReport = {
+    generatedAt,
+    mode: 'local_no_provider_product_evidence_manifest',
+    manifestFormat: 'openclaude_product_evidence_manifest_v1',
+    primarySourceInputs: [
+      {
+        sourceProject: 'SLSA Build Provenance',
+        sourceUrl: 'https://slsa.dev/spec/v1.2/build-provenance',
+        observedPattern: 'Provenance records identify subjects, build definitions, run details, and dependencies so artifacts can be traced back to how they were produced.',
+      },
+      {
+        sourceProject: 'in-toto Attestation Framework',
+        sourceUrl: 'https://github.com/in-toto/attestation',
+        observedPattern: 'A Statement binds subjects to a typed predicate, making evidence packages machine-checkable instead of narrative-only.',
+      },
+      {
+        sourceProject: 'OpenSSF Scorecard',
+        sourceUrl: 'https://github.com/ossf/scorecard',
+        observedPattern: 'Open-source security posture is stronger when checks, evidence, and remediation boundaries are explicit and repeatable.',
+      },
+    ],
+    manifestJsonlPath: outputManifestJsonlPath,
+    manifestJsonlSha256,
+    evidenceRecordCount: evidenceRecords.length,
+    evidenceTotalSizeBytes,
+    evidenceRoles,
+    requiredEvidencePaths: requiredPaths,
+    missingRequiredEvidencePaths,
+    recursiveSelfInputsExcluded: recursiveSelfInputs,
+    providerCallsPerformed: [],
+    liveModelCallsPerformed: [],
+    externalCallsPerformed: [],
+    protectedActionsExecuted: [],
+    externalAttestationGenerated: false,
+    signedProvenanceGenerated: false,
+    releaseReadinessClaimAllowed: false,
+    productionReadinessClaimAllowed: false,
+    publicReadinessClaimAllowed: false,
+    externalValidationClaimAllowed: false,
+    autonomousReliabilityClaimAllowed: false,
+    evidenceRecords,
+    evidenceChecks,
+    claimBoundary: 'Product evidence manifest is local no-provider evidence packaging only. It is not a signed attestation and does not authorize release, production, public, external-validation, or autonomous-reliability claims.',
+  }
+
+  return { report, manifestText }
 }
 
 function writeMarkdown(report: ProductEvidenceManifestReport): void {
@@ -371,82 +457,18 @@ function main(): void {
   mkdirSync(reportsDir, { recursive: true })
 
   const evidenceRecords = buildEvidenceRecords()
-  const manifestText = evidenceRecords.map((record) => JSON.stringify(record)).join('\n') + '\n'
+  const { report, manifestText } = buildProductEvidenceManifestReport({ evidenceRecords })
   writeFileSync(resolve(root, manifestJsonlPath), manifestText)
-  const manifestJsonlSha256 = sha256Text(manifestText)
-  const missingRequiredEvidencePaths = requiredEvidencePaths.filter((path) => !evidenceRecords.some((record) => record.path === path))
-  const evidenceRoles = countRoles(evidenceRecords)
-  const evidenceTotalSizeBytes = evidenceRecords.reduce((total, record) => total + record.sizeBytes, 0)
-  const manifestHasCredentialPattern = hasCredentialPattern(manifestText)
-
-  const evidenceChecks = [
-    check('required evidence paths are present', missingRequiredEvidencePaths.length === 0, missingRequiredEvidencePaths.join(',') || 'all present'),
-    check('evidence records have SHA-256 digests', evidenceRecords.every((record) => /^[a-f0-9]{64}$/.test(record.sha256)), `${evidenceRecords.length} records`),
-    check('evidence records have nonzero sizes', evidenceRecords.every((record) => record.sizeBytes > 0), `${evidenceTotalSizeBytes} total bytes`),
-    check('manifest JSONL has one line per evidence record', manifestText.trim().split(/\r?\n/).length === evidenceRecords.length, `${evidenceRecords.length} lines`),
-    check('manifest JSONL hash is recorded', manifestJsonlSha256.length === 64, manifestJsonlPath),
-    check('recursive self inputs are excluded', selfReportPaths.every((path) => !evidenceRecords.some((record) => record.path === path)), selfReportPaths.join(',')),
-    check('evidence roles cover reports, artifacts, workflows, source, and gate', Object.values(evidenceRoles).every((count) => count > 0), JSON.stringify(evidenceRoles)),
-    check('manifest contains no credential patterns', !manifestHasCredentialPattern, 'known key/token/private-key patterns absent'),
-    check('primary source patterns are recorded', true, 'SLSA provenance, in-toto Statement, OpenSSF Scorecard'),
-    check('protected actions are not executed', true, 'protectedActionsExecuted=[]'),
-    check('release and external claims remain blocked', true, 'all claim flags false'),
-  ]
-
-  const report: ProductEvidenceManifestReport = {
-    generatedAt: new Date().toISOString(),
-    mode: 'local_no_provider_product_evidence_manifest',
-    manifestFormat: 'openclaude_product_evidence_manifest_v1',
-    primarySourceInputs: [
-      {
-        sourceProject: 'SLSA Build Provenance',
-        sourceUrl: 'https://slsa.dev/spec/v1.2/build-provenance',
-        observedPattern: 'Provenance records identify subjects, build definitions, run details, and dependencies so artifacts can be traced back to how they were produced.',
-      },
-      {
-        sourceProject: 'in-toto Attestation Framework',
-        sourceUrl: 'https://github.com/in-toto/attestation',
-        observedPattern: 'A Statement binds subjects to a typed predicate, making evidence packages machine-checkable instead of narrative-only.',
-      },
-      {
-        sourceProject: 'OpenSSF Scorecard',
-        sourceUrl: 'https://github.com/ossf/scorecard',
-        observedPattern: 'Open-source security posture is stronger when checks, evidence, and remediation boundaries are explicit and repeatable.',
-      },
-    ],
-    manifestJsonlPath,
-    manifestJsonlSha256,
-    evidenceRecordCount: evidenceRecords.length,
-    evidenceTotalSizeBytes,
-    evidenceRoles,
-    requiredEvidencePaths,
-    missingRequiredEvidencePaths,
-    recursiveSelfInputsExcluded: selfReportPaths,
-    providerCallsPerformed: [],
-    liveModelCallsPerformed: [],
-    externalCallsPerformed: [],
-    protectedActionsExecuted: [],
-    externalAttestationGenerated: false,
-    signedProvenanceGenerated: false,
-    releaseReadinessClaimAllowed: false,
-    productionReadinessClaimAllowed: false,
-    publicReadinessClaimAllowed: false,
-    externalValidationClaimAllowed: false,
-    autonomousReliabilityClaimAllowed: false,
-    evidenceRecords,
-    evidenceChecks,
-    claimBoundary: 'Product evidence manifest is local no-provider evidence packaging only. It is not a signed attestation and does not authorize release, production, public, external-validation, or autonomous-reliability claims.',
-  }
 
   writeFileSync(resolve(docsDir, 'product-evidence-manifest.json'), `${JSON.stringify(report, null, 2)}\n`)
   writeMarkdown(report)
 
-  for (const item of evidenceChecks) {
+  for (const item of report.evidenceChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
   }
 
   console.log('')
-  if (!evidenceChecks.every((item) => item.ok)) {
+  if (!report.evidenceChecks.every((item) => item.ok)) {
     console.error('RESULT: FAIL')
     process.exit(1)
   }
@@ -454,7 +476,7 @@ function main(): void {
   console.log('RESULT: PASS')
   console.log(`manifest_jsonl_path=${manifestJsonlPath}`)
   console.log(`evidence_record_count=${evidenceRecords.length}`)
-  console.log(`evidence_total_size_bytes=${evidenceTotalSizeBytes}`)
+  console.log(`evidence_total_size_bytes=${report.evidenceTotalSizeBytes}`)
   console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)
   console.log(`live_model_calls_performed=${report.liveModelCallsPerformed.length}`)
   console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)
@@ -462,4 +484,6 @@ function main(): void {
   console.log(`release_readiness_claim_allowed=${report.releaseReadinessClaimAllowed}`)
 }
 
-main()
+if (import.meta.main) {
+  main()
+}
