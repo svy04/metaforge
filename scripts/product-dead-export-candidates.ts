@@ -73,6 +73,14 @@ type DeadExportTriageReportRecord = DeadExportTriageRecord & {
   currentCandidate: boolean
 }
 
+type RemovedCandidateRatchet = {
+  file: string
+  symbol: string
+  kind: DeadExportTriageKind
+  guardrail: string
+  currentCandidate: boolean
+}
+
 type DeadExportCandidatesReport = {
   generatedAt: string
   mode: 'local_no_provider_dead_export_candidate_gate'
@@ -93,6 +101,7 @@ type DeadExportCandidatesReport = {
   triageCurrentCandidateCount: number
   triageActionCounts: Record<DeadExportTriageAction, number>
   triageRecords: DeadExportTriageReportRecord[]
+  removedCandidateRatchets: RemovedCandidateRatchet[]
   primarySourceInputs: Array<{
     sourceType: 'oss_tool' | 'project_docs'
     sourceProject: string
@@ -123,6 +132,32 @@ const candidateFileBaseline = 657
 const candidateUnusedExportBaseline = 1461
 const candidateUnusedTypeBaseline = 492
 const candidateDuplicateExportBaseline = 12
+const removedCandidateRatchets: Array<Omit<RemovedCandidateRatchet, 'currentCandidate'>> = [
+  {
+    file: 'src/utils/providerDiscovery.ts',
+    symbol: 'getOpenAICompatibleModelsBaseUrl',
+    kind: 'export',
+    guardrail: 'Keep this helper private; callers should use the public provider-discovery APIs instead.',
+  },
+  {
+    file: 'src/bridge/sessionRunner.ts',
+    symbol: 'PermissionRequest',
+    kind: 'type',
+    guardrail: 'Keep this request shape internal to the session runner bridge contract.',
+  },
+  {
+    file: 'src/utils/providerProfile.ts',
+    symbol: 'buildMiniMaxProfileEnv',
+    kind: 'export',
+    guardrail: 'Keep this provider profile helper private until an actual module boundary imports it.',
+  },
+  {
+    file: 'src/projectOnboardingState.ts',
+    symbol: 'isProjectOnboardingComplete',
+    kind: 'export',
+    guardrail: 'Keep onboarding completion checks exported from projectOnboardingSteps.ts, not re-exported from state.',
+  },
+]
 const knipArgs = [
   'knip',
   '--config',
@@ -265,6 +300,10 @@ function buildReport(): DeadExportCandidatesReport {
     ...record,
     currentCandidate: candidateKeys.has(triageKey(record.file, record.kind, record.symbol)),
   }))
+  const removedRatchets = removedCandidateRatchets.map<RemovedCandidateRatchet>((ratchet) => ({
+    ...ratchet,
+    currentCandidate: candidateKeys.has(triageKey(ratchet.file, ratchet.kind, ratchet.symbol)),
+  }))
 
   const report: DeadExportCandidatesReport = {
     generatedAt: new Date().toISOString(),
@@ -293,6 +332,7 @@ function buildReport(): DeadExportCandidatesReport {
     triageCurrentCandidateCount: triageRecords.filter((record) => record.currentCandidate).length,
     triageActionCounts: countTriageActions(triageRecords),
     triageRecords,
+    removedCandidateRatchets: removedRatchets,
     primarySourceInputs: [
       {
         sourceType: 'oss_tool',
@@ -343,6 +383,7 @@ function buildReport(): DeadExportCandidatesReport {
     check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
     check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
+    check('removed dead export ratchets remain absent', report.removedCandidateRatchets.every((ratchet) => !ratchet.currentCandidate), `${report.removedCandidateRatchets.filter((ratchet) => ratchet.currentCandidate).length}/${report.removedCandidateRatchets.length} regressed`),
     check('primary sources include Knip docs and fallow comparator', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => report.primarySourceInputs.some((item) => item.sourceProject === source))),
     check('provider/live/external calls remain absent', report.providerCallsPerformed.length === 0 && report.liveModelCallsPerformed.length === 0 && report.externalCallsPerformed.length === 0, 'all call arrays empty'),
     check('protected actions remain absent', report.protectedActionsExecuted.length === 0, 'zero'),
@@ -364,6 +405,9 @@ function writeMarkdown(report: DeadExportCandidatesReport): void {
     .join('\n')
   const triageRows = report.triageRecords
     .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.action}\` | \`${item.currentCandidate}\` | ${item.guardrail} |`)
+    .join('\n')
+  const ratchetRows = report.removedCandidateRatchets
+    .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.currentCandidate}\` | ${item.guardrail} |`)
     .join('\n')
   const checkRows = report.deadExportChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
@@ -423,6 +467,12 @@ ${sampleRows || '| none | 0 | 0 | 0 | none |'}
 | File | Kind | Symbol | Action | Current Candidate | Guardrail |
 | --- | --- | --- | --- | --- | --- |
 ${triageRows || '| none | none | none | none | none | none |'}
+
+## Removed Candidate Ratchets
+
+| File | Kind | Symbol | Current Candidate | Guardrail |
+| --- | --- | --- | --- | --- |
+${ratchetRows || '| none | none | none | none | none |'}
 
 ## Checks
 
