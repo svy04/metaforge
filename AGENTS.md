@@ -95,7 +95,7 @@ source: `docs/PROJECT_SPEC.md`, `docs/MFH_META_SYNTHESIS.md`,
 Use this hierarchy: North Star Goal -> Program Goals -> Sprint Goals -> Codex
 Goals -> Atomic Tasks.
 
-## Public Readiness Backlog
+## Public Feedback Backlog
 
 Community feedback is tracked in:
 

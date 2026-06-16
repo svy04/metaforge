@@ -87,7 +87,7 @@ function readText(path: string): string {
     expect(report.helperOccurrenceCounts.check).toBe(2)
     expect(report.helperOccurrenceCounts.readText).toBe(2)
     expect(report.helperOccurrenceBaselines.check).toBeGreaterThanOrEqual(report.helperOccurrenceCounts.check)
-    expect(report.helperOccurrenceBaselines.sha256Text).toBeLessThanOrEqual(1)
+    expect(report.helperOccurrenceBaselines.sha256Text).toBeLessThanOrEqual(0)
     expect(report.duplicateHelperClusterBaseline).toBeGreaterThanOrEqual(report.duplicateHelperClusterCount)
     expect(report.primarySourceInputs.map((source) => source.sourceType)).toEqual(
       expect.arrayContaining(['oss_tool', 'research_survey', 'patent']),
@@ -306,10 +306,12 @@ export function renderFixtureReport(input: string): string {
       }>
     }
 
-    expect(report.helperOccurrenceCounts.check).toBe(72)
-    expect(report.helperOccurrenceCounts.readText).toBe(35)
-    expect(report.helperOccurrenceBaselines.check).toBe(72)
-    expect(report.helperOccurrenceBaselines.readText).toBe(35)
+    expect(report.helperOccurrenceCounts.check).toBe(68)
+    expect(report.helperOccurrenceCounts.readText).toBe(33)
+    expect(report.helperOccurrenceCounts.sha256Text).toBe(0)
+    expect(report.helperOccurrenceBaselines.check).toBe(68)
+    expect(report.helperOccurrenceBaselines.readText).toBe(33)
+    expect(report.helperOccurrenceBaselines.sha256Text).toBe(0)
     expect(report.jscpdEnabled).toBe(true)
     expect(report.jscpdVersion).toContain('5.0.9')
     expect(report.jscpdConfigPath).toBe('.jscpd.json')

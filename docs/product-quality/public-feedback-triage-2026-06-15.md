@@ -114,12 +114,32 @@ quality docs; the durable signals are:
   and tiny TDD-backed fixes, then use hosted CodeQL feedback before claiming an
   alert class is closed.
 
+## 2026-06-16 Follow-Up Response
+
+The next community-feedback response slice converts two marker-only risks into
+fixture-backed gates:
+
+- `product-agent-instructions-quality` is now import-safe and exposes a pure
+  analyzer so AGENTS.md hygiene can be tested without rewriting repository
+  evidence.
+- `--check` mode for that gate no longer writes
+  `agent-instructions-quality-report.json` or `.md`.
+- The verification-standard check now requires marker text inside the real
+  `## Verification Standard` section, not unrelated prose or fenced examples.
+- `product-public-claim-boundary` now scans `docs/goals/*.md` and treats
+  `status: PROVEN`, `*_READY`, completion-candidate, and beta-candidate wording
+  as goal-artifact status language.
+- Older goal artifacts with strong local status language now state a historical
+  repo-local boundary at the top of the file, so local completion evidence is
+  not read as production, release, public-readiness, or external-validation
+  proof.
+
 Current response in this slice:
 
 - add a fixture-based regression test proving `public-artifact-hygiene` rejects
-  private agent-memory breadcrumbs such as `<private-codex-memory-dir>`,
-  `<private-agent-skill-dir>`, raw private memory headings, and pasted local
-  agent-instruction headers;
+  private Codex memory directory placeholders, private agent skill directory
+  placeholders, raw private memory headings, and pasted local agent-instruction
+  headers;
 - remove tracked generated AVF operator-run artifacts from the public checkout,
   add a path-portability regression test for tracked files over 240 characters,
   and keep `operator_package_v*` outputs ignored as local owner-review artifacts;

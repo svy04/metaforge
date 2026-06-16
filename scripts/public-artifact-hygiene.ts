@@ -14,6 +14,7 @@ const mode = argv.includes('--write') ? 'write' : 'check'
 const targetRoots = [
   '.github',
   '.planning',
+  'avf',
   'bin',
   'docs',
   'reports',
@@ -22,7 +23,14 @@ const targetRoots = [
   'ANDROID_INSTALL.md',
   'AGENTS.md',
   'PLAYBOOK.md',
+  'CHANGELOG.md',
+  'CONTRIBUTING.md',
+  'SECURITY.md',
+  'SUPPORT.md',
   'LICENSE',
+  'packages/openclaude-vscode/package.json',
+  'packages/openclaude-vscode/README.md',
+  'vscode-extension/openclaude-vscode/package.json',
   'vscode-extension/openclaude-vscode/README.md',
   '.env.example',
   'package.json',
@@ -45,10 +53,17 @@ type Replacement = {
   replacement: string
 }
 
+type PublicLeakPattern = {
+  label: string
+  pattern: RegExp
+}
+
 const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
 const userSegment = String.raw`[^\\/"]+`
 const privateWorkspacePlaceholder = '<private' + '-workspace>'
+const privateCodexMemoryPlaceholder = '<private' + '-codex-memory-dir>'
+const privateAgentSkillPlaceholder = '<private' + '-agent-skill-dir>'
 const replacements: Replacement[] = [
   {
     pattern: new RegExp(
@@ -87,6 +102,22 @@ const replacements: Replacement[] = [
     replacement: '<vscode-updating-sentinel>',
   },
   {
+    pattern: /<user-home>(?:\\+|\/)AppData(?:\\+|\/)Local(?:\\+|\/)Programs(?:\\+|\/)Microsoft VS Code(?:\\+|\/)[^\r\n`"']*updating/gi,
+    replacement: '<vscode-updating-sentinel>',
+  },
+  {
+    pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/gi,
+    replacement: '<local-selftest-url>',
+  },
+  {
+    pattern: /(^|[\s`"'])[^`\s"']*index\.html#selftest\b/gi,
+    replacement: '$1<local-selftest-target>',
+  },
+  {
+    pattern: /\b[A-Z]:(?:\\+|\/)Program Files(?:\\+|\/)[^\r\n`"']+\.(?:exe|cmd|bat)\b/gi,
+    replacement: '<local-executable>',
+  },
+  {
     pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}`, 'g'),
     replacement: '<user-home>',
   },
@@ -96,29 +127,42 @@ const replacements: Replacement[] = [
   },
 ]
 
-const forbiddenPatterns = [
-  /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)[^\\/\s"']+/,
-  /\/Users\/[^/\s"']+/,
-  /Users\/[^/\s"']+/,
-  new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`),
-  new RegExp('Digital ' + 'Factory'),
-  new RegExp(String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories', 'i'),
-  new RegExp(String.raw`\.` + 'agents' + String.raw`[\\/]+` + 'skills', 'i'),
-  new RegExp(privateWorkspacePlaceholder, 'i'),
-  /(?:^|[\s`"'])meta[\\/]+CLAUDE\.md\b/i,
-  /(?:^|[\s`"'])mfh[\\/]+\.mfh[\\/]+spec\.md\b/i,
-  new RegExp('OpenClaude Orchestrator ' + 'Memory'),
-  new RegExp('AGENTS\\.md instructions for C' + ':'),
-  new RegExp('<codex_' + 'internal_context\\b', 'i'),
-  new RegExp('<environment_' + 'context\\b', 'i'),
-  new RegExp('<workspace_' + 'roots\\b', 'i'),
-  new RegExp('<permissions ' + 'instructions\\b', 'i'),
-  new RegExp('갤로그로 ' + '이동합니다|댓글' + '돌이'),
-  new RegExp('Token: ' + 'gho_'),
-  /\bsk-\.\.\./i,
-  /\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i,
-  /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i,
-  new RegExp('session' + '_id'),
+const customPublicLeakPatterns: PublicLeakPattern[] = [
+  { label: 'windows-user-path', pattern: /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)[^\\/\s"']+/ },
+  { label: 'posix-user-path', pattern: /\/Users\/[^/\s"']+/ },
+  { label: 'relative-user-path', pattern: /Users\/[^/\s"']+/ },
+  { label: 'user-workspace-path', pattern: /(?:%USERPROFILE%|\$HOME|\$\{HOME\}|~)(?:\\+|\/)(?:Desktop|Documents)(?:\\+|\/)[^\r\n`"']+/i },
+  { label: 'private-workspace-korean-name', pattern: new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`) },
+  { label: 'private-workspace-name', pattern: new RegExp('Digital ' + 'Factory') },
+  { label: 'codex-memory-path', pattern: new RegExp(String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories', 'i') },
+  { label: 'agents-skill-path', pattern: new RegExp(String.raw`\.` + 'agents' + String.raw`[\\/]+` + 'skills', 'i') },
+  { label: 'private-workspace-placeholder', pattern: new RegExp(privateWorkspacePlaceholder, 'i') },
+  { label: 'private-codex-memory-placeholder', pattern: new RegExp(privateCodexMemoryPlaceholder, 'i') },
+  { label: 'private-agent-skill-placeholder', pattern: new RegExp(privateAgentSkillPlaceholder, 'i') },
+  { label: 'private-meta-authority-path', pattern: /(?:^|[\s`"'])meta[\\/]+CLAUDE\.md\b/i },
+  { label: 'private-mfh-spec-path', pattern: /(?:^|[\s`"'])mfh[\\/]+\.mfh[\\/]+spec\.md\b/i },
+  { label: 'private-memory-dump-title', pattern: new RegExp('OpenClaude Orchestrator ' + 'Memory') },
+  { label: 'pasted-agents-local-context', pattern: new RegExp('AGENTS\\.md instructions for C' + ':') },
+  { label: 'codex-internal-context', pattern: new RegExp('<codex_' + 'internal_context\\b', 'i') },
+  { label: 'environment-context', pattern: new RegExp('<environment_' + 'context\\b', 'i') },
+  { label: 'workspace-roots-context', pattern: new RegExp('<workspace_' + 'roots\\b', 'i') },
+  { label: 'permissions-instructions-context', pattern: new RegExp('<permissions ' + 'instructions\\b', 'i') },
+  { label: 'raw-public-comment-ui-dump', pattern: new RegExp('갤로그로 ' + '이동합니다|댓글' + '돌이') },
+  { label: 'github-oauth-token-label', pattern: new RegExp('Token: ' + 'gho_') },
+  { label: 'github-token', pattern: /\bgh[pousr]_[A-Za-z0-9_]{30,}\b/ },
+  { label: 'github-fine-grained-token', pattern: /\bgithub_pat_[A-Za-z0-9_]{30,}\b/ },
+  { label: 'aws-access-key', pattern: /\bAKIA[0-9A-Z]{16}\b/ },
+  { label: 'aws-session-access-key', pattern: /\bASIA[0-9A-Z]{16}\b/ },
+  { label: 'slack-token', pattern: /\bxox[baprs]-[A-Za-z0-9-]{10,}\b/ },
+  { label: 'private-key-block', pattern: /-----BEGIN (?:RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----/ },
+  { label: 'scanner-unfriendly-openai-key-placeholder', pattern: /\bsk-\.\.\./i },
+  { label: 'scanner-unfriendly-api-key-placeholder', pattern: /\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i },
+  { label: 'actual-looking-sk-token', pattern: /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i },
+  { label: 'local-file-url', pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/i },
+  { label: 'local-selftest-target', pattern: /(?:^|[\s`"'])[^`\s"']*index\.html#selftest\b/i },
+  { label: 'windows-local-executable-path', pattern: /\b[A-Z]:(?:\\+|\/)Program Files(?:\\+|\/)[^\r\n`"']+\.(?:exe|cmd|bat)\b/i },
+  { label: 'vscode-user-home-sentinel-path', pattern: /<user-home>(?:\\+|\/)AppData(?:\\+|\/)Local(?:\\+|\/)Programs(?:\\+|\/)Microsoft VS Code(?:\\+|\/)[^\r\n`"']*updating\b/i },
+  { label: 'session-id-marker', pattern: new RegExp('session' + '_id') },
 ]
 
 function walk(path: string): string[] {
@@ -171,9 +215,9 @@ for (const file of files) {
   }
 
   const inspect = mode === 'write' ? next : text
-  for (const pattern of forbiddenPatterns) {
+  for (const { label, pattern } of customPublicLeakPatterns) {
     if (pattern.test(inspect)) {
-      findings.push(`${relative(root, file).replace(/\\/g, '/')}: ${pattern}`)
+      findings.push(`${relative(root, file).replace(/\\/g, '/')}: ${label}`)
       break
     }
   }

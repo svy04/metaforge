@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-16T04:10:47.378Z",
+  "generatedAt": "2026-06-16T12:04:28.979Z",
   "mode": "local_no_provider_agent_instructions_quality",
   "sourceAgentInstructionsPath": "AGENTS.md",
-  "sourceAgentInstructionsSha256": "53ac9297b4c17ba1a1f4485d95c79f4a3a8177931fdecd6fdf0fc4bb544c88af",
+  "sourceAgentInstructionsSha256": "fdcfd6ad8a694d6f0e935335d03725f68828dcd23cade44929b8affc9c115dcb",
   "sourcePackageJsonPath": "package.json",
-  "sourcePackageJsonSha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc",
+  "sourcePackageJsonSha256": "7cb9fd1e1e5c51a31903e37921638f75eddc67bb3b6be0311990f6cd04aae805",
   "sourceWorkflowPaths": [
     ".github/workflows/pr-checks.yml",
     ".github/workflows/codeql.yml",
@@ -17,16 +17,16 @@
   },
   "primarySourceInputs": [
     {
-      "sourceProject": "OpenHands Repository Agent guidance",
-      "sourceUrl": "https://docs.openhands.dev/overview/skills/repo",
-      "observedPattern": "Repository-wide agent instructions are stronger when they summarize repository purpose, setup, structure, and CI workflow context.",
-      "localAbsorption": "AGENTS.md now includes a Repository Orientation section, and this report verifies that orientation as product-quality evidence."
+      "sourceProject": "AGENTS.md open format",
+      "sourceUrl": "https://agents.md/",
+      "observedPattern": "Repository agent instructions should act as a concise README for agents with setup, tests, and project-specific guidance.",
+      "localAbsorption": "AGENTS.md is kept concise and checked for public-safe repository orientation instead of private session memory."
     },
     {
-      "sourceProject": "OpenHands Skills overview",
-      "sourceUrl": "https://docs.openhands.dev/overview/skills",
-      "observedPattern": "Always-on repository context and on-demand skills should be separated so agents can load durable instructions without wasting context.",
-      "localAbsorption": "AGENTS.md preserves always-on GStack/GSD/Superpowers routing while this gate keeps those boundaries checkable."
+      "sourceProject": "OpenAI Codex AGENTS.md guidance",
+      "sourceUrl": "https://developers.openai.com/codex/guides/agents-md",
+      "observedPattern": "Codex uses layered AGENTS.md instructions before work starts, so repository guidance needs predictable scope and precedence.",
+      "localAbsorption": "This report verifies root AGENTS.md scope, setup commands, verification boundaries, and public hygiene as a local quality gate."
     }
   ],
   "providerCallsPerformed": [],
@@ -82,7 +82,7 @@
     {
       "label": "primary-source inputs are official project sources",
       "ok": true,
-      "detail": "https://docs.openhands.dev/overview/skills/repo,https://docs.openhands.dev/overview/skills"
+      "detail": "https://agents.md/,https://developers.openai.com/codex/guides/agents-md"
     },
     {
       "label": "repository purpose is explicit",

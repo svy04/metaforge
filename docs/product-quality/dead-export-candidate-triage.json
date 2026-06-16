@@ -3,26 +3,6 @@
   "claimBoundary": "This ledger records manually reviewed Knip dead-export candidates. It does not authorize deletion, autofix, cleanup completion, release readiness, public readiness, or external validation claims.",
   "records": [
     {
-      "file": "src/commands.ts",
-      "symbol": "meetsAvailabilityRequirement",
-      "kind": "export",
-      "action": "needs_runtime_guard",
-      "rationale": "Command availability affects runtime command routing and can be reached indirectly through registry behavior rather than direct imports.",
-      "guardrail": "Before removal, add a command-registry happy-path test and an unavailable-command edge-case test.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage"
-    },
-    {
-      "file": "src/commands.ts",
-      "symbol": "BRIDGE_SAFE_COMMANDS",
-      "kind": "export",
-      "action": "needs_runtime_guard",
-      "rationale": "Bridge allowlist exports are security-sensitive even when static imports are absent, because host integrations can depend on stable command policy.",
-      "guardrail": "Before removal, run or add bridge command policy tests that prove safe command filtering still blocks protected actions.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage"
-    },
-    {
       "file": "src/services/api/providerConfig.ts",
       "symbol": "resolveStoredCodexCredentials",
       "kind": "export",

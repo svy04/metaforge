@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-16T00:00:02.661Z",
+  "generatedAt": "2026-06-16T09:04:10.128Z",
   "mode": "local_no_provider_vscode_startup_diagnostics",
   "sourceHostSmokeReportPath": "docs/product-quality/ide-extension-host-smoke-report.json",
-  "sourceHostSmokeReportSha256": "e402364c04808d9db84742266dd9782531c4e4de60f119338a35f23709d03f7d",
+  "sourceHostSmokeReportSha256": "0a082b97cd630fd4d808f66a63b280fc1cc859331309bf718f84da7878add7a9",
   "sourceWorkbenchSmokeReportPath": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-  "sourceWorkbenchSmokeReportSha256": "c16947070945e7bc0d37507d72d0ef6af2fd1919dd0be5811ce9860ff90318cf",
+  "sourceWorkbenchSmokeReportSha256": "7c1f1650e8d5decb30aaac77f63cb82ec9fbcb912b93d06fcd49d1c14cac1a3e",
   "sourceVscodeUpdateBoundaryReportPath": "docs/product-quality/vscode-update-boundary-report.json",
-  "sourceVscodeUpdateBoundaryReportSha256": "6c1a7d0ba4665d0ceff5c3e4b8173caa489f559064c47e54487f0da55096583e",
+  "sourceVscodeUpdateBoundaryReportSha256": "9b5a06ff7e8a8a5f92c63c2c569d2816db04954e65c3332a78918527a912ba82",
   "primarySourceInputs": [
     {
       "sourceProject": "VS Code Workspace Trust",
@@ -24,8 +24,8 @@
       "observedPattern": "CLI options such as user-data-dir and extensions-dir isolate VS Code instances for reproducible local diagnostics."
     }
   ],
-  "vscodeCliVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
-  "parsedVscodeCommit": "1b50d58d73426c9171299ec4037d01365d995b78",
+  "vscodeCliVersion": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64",
+  "parsedVscodeCommit": "6928394f91b684055b873eecb8bc281365131f1c",
   "isolatedExecutionArgumentsObserved": [
     "--extensionDevelopmentPath",
     "--extensionTestsPath",
@@ -40,54 +40,23 @@
       "sha256": null
     },
     {
-      "path": "<user-home>\\AppData\\Local\\Programs\\Microsoft VS Code\\1b50d58d73\\resources\\app\\updating",
+      "path": "<vscode-updating-sentinel:2>",
       "exists": false,
       "sha256": null
     },
     {
-      "path": "<user-home>\\AppData\\Local\\Programs\\Microsoft VS Code\\1b50d58d73426c9171299ec4037d01365d995b78\\resources\\app\\updating",
+      "path": "<vscode-updating-sentinel:3>",
       "exists": false,
       "sha256": null
     }
   ],
   "codeSetupProcessEnumerationExitCode": 0,
-  "currentCodeSetupProcesses": [
-    {
-      "processName": "CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c",
-      "pid": 39088,
-      "path": "<user-home>\\AppData\\Local\\Temp\\vscode-stable-user-x64\\CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.exe"
-    },
-    {
-      "processName": "CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.tmp",
-      "pid": 42184,
-      "path": "<user-home>\\AppData\\Local\\Temp\\is-R6L9B.tmp\\CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.tmp"
-    }
-  ],
-  "updateLogEvidence": [
-    {
-      "source": "host",
-      "path": "<repo>/.tmp-product-ide-extension-host-smoke/run-1781567934755-60244/user-data/logs/20260616T085856/main.log",
-      "sha256": "7be0fb716919becee55029db47f206a27884fe1ed0491ef4f351881601fac9a5",
-      "sizeBytes": 620,
-      "updateGuardMessageFound": true,
-      "matchedMessage": "Code is currently being updated. Please wait for the update to complete before launching."
-    },
-    {
-      "source": "workbench",
-      "path": "<repo>/.tmp-product-ide-extension-workbench-smoke/run-1781567967731-35684/user-data/logs/20260616T085928/main.log",
-      "sha256": "59bba45d1f30287b441ea74f786338a06bad0b4f2153b1296c4e5c17989e8e3b",
-      "sizeBytes": 620,
-      "updateGuardMessageFound": true,
-      "matchedMessage": "Code is currently being updated. Please wait for the update to complete before launching."
-    }
-  ],
-  "updateGuardLogEvidenceCount": 2,
-  "diagnosisStatus": "vscode_core_update_guard_with_visible_codesetup_process",
+  "currentCodeSetupProcesses": [],
+  "updateLogEvidence": [],
+  "updateGuardLogEvidenceCount": 0,
+  "diagnosisStatus": "clear_no_current_update_guard_evidence",
   "protectedActionsRequiredToResolve": [
-    "wait_for_vscode_update_to_complete",
-    "obtain_explicit_owner_authorization_before_terminating_codesetup_process",
-    "obtain_explicit_owner_authorization_before_deleting_vscode_update_state",
-    "obtain_explicit_owner_authorization_before_reinstalling_or_repairing_vscode"
+    "rerun_real_host_workbench_and_replay_quality_gates"
   ],
   "protectedActionsExecuted": [],
   "processTerminationAttempted": false,
@@ -126,7 +95,7 @@
     {
       "label": "startup blocker log evidence is collected when source reports are update-blocked",
       "ok": true,
-      "detail": "2 update guard logs"
+      "detail": "0 update guard logs"
     },
     {
       "label": "sentinel candidates are enumerated or bounded without mutation",
@@ -136,12 +105,12 @@
     {
       "label": "current CodeSetup process list is local-only",
       "ok": true,
-      "detail": "2 processes"
+      "detail": "0 processes"
     },
     {
       "label": "diagnosis status is bounded",
       "ok": true,
-      "detail": "vscode_core_update_guard_with_visible_codesetup_process"
+      "detail": "clear_no_current_update_guard_evidence"
     },
     {
       "label": "protected actions are not executed",

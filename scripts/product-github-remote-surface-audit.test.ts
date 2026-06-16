@@ -2,6 +2,53 @@ import { describe, expect, test } from 'bun:test'
 import { analyzePublicGithubSurface, buildAuditJsonl } from './product-github-remote-surface-audit'
 
 describe('GitHub public surface analysis', () => {
+  test('remote forbidden-pattern matcher covers generic local paths and token shapes', async () => {
+    const audit = await import('./product-github-remote-surface-audit')
+    const matchesForbiddenPattern = audit.matchesRemoteForbiddenPattern as ((text: string) => boolean) | undefined
+
+    expect(typeof matchesForbiddenPattern).toBe('function')
+
+    const windowsHome = ['C:', 'Users', 'private-owner'].join('\\')
+    const forbiddenSamples = [
+      ['cd', `${windowsHome}\\Desktop\\private-run\\AGENTS.md`].join(' '),
+      ['cat', `${windowsHome}\\AppData\\Local\\hermes\\auth.json`].join(' '),
+      ['type', `${windowsHome}\\Documents\\private-run\\session.log`].join(' '),
+      ['GITHUB_TOKEN=', 'ghp_', 'A'.repeat(36)].join(''),
+      ['GITHUB_PAT=', 'github', '_pat_', 'A'.repeat(40)].join(''),
+      ['AWS_ACCESS_KEY_ID=', 'AKIA', 'A'.repeat(16)].join(''),
+      ['SLACK_BOT_TOKEN=', 'xoxb', '-', 'A'.repeat(16)].join(''),
+    ]
+
+    for (const sample of forbiddenSamples) {
+      expect(matchesForbiddenPattern?.(sample), sample).toBe(true)
+    }
+
+    expect(matchesForbiddenPattern?.(['e.g.', ['C:', 'Users', 'Example', 'Documents', 'fixture'].join('\\')].join(' '))).toBe(false)
+  })
+
+  test('remote forbidden-pattern matcher covers local-hygiene-only public breadcrumbs', async () => {
+    const audit = await import('./product-github-remote-surface-audit')
+    const matchesForbiddenPattern = audit.matchesRemoteForbiddenPattern as ((text: string) => boolean) | undefined
+    const forbiddenPatternId = audit.remoteForbiddenPatternId as ((text: string, path?: string) => string | null) | undefined
+
+    expect(typeof matchesForbiddenPattern).toBe('function')
+    expect(typeof forbiddenPatternId).toBe('function')
+
+    const forbiddenSamples = [
+      '<environment_context>',
+      '.codex/memories/session-note.md',
+      'AGENTS.md instructions for C:',
+      'OPENAI_API_KEY=sk-openai-placeholder',
+    ]
+
+    for (const sample of forbiddenSamples) {
+      expect(matchesForbiddenPattern?.(sample), sample).toBe(true)
+    }
+
+    expect(forbiddenPatternId?.('<environment_context>', 'docs/public-note.md')).toBe('public_artifact_hygiene_pattern')
+    expect(forbiddenPatternId?.('<environment_context>', 'scripts/public-artifact-hygiene.test.ts')).toBe(null)
+  })
+
   test('blocks stale remote branches and disclosure findings on public refs', () => {
     const report = analyzePublicGithubSurface({
       defaultBranch: 'main',
@@ -18,7 +65,7 @@ describe('GitHub public surface analysis', () => {
               path: 'PLAYBOOK.md',
               line: 135,
               patternId: 'local_windows_user_path',
-              text: 'cd C:\\Users\\Example\\Documents\\private-repo',
+              text: ['cd', ['C:', 'Users', 'Example', 'Documents', 'private-repo'].join('\\')].join(' '),
             },
           ],
           treeFindings: [

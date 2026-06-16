@@ -1,5 +1,7 @@
 # Influence Factory Internal User Trial v28 Validation Report
 
+Historical local artifact boundary: this goal artifact records repo-local evidence only; it is not externally validated and does not claim production, release, or public readiness.
+
 RESULT: PASS
 
 terminal_condition: LOCAL_INTERNAL_USER_TRIAL_V28_READY

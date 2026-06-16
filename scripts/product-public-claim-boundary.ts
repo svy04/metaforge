@@ -1,12 +1,7 @@
-import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
-}
+import { check, fileSha256, readText, sha256, type Check } from './quality-report-helpers'
 
 type PublicSurface = {
   path: string
@@ -16,13 +11,14 @@ type PublicSurface = {
   lineCount: number
 }
 
-type ClaimFinding = {
+export type ClaimFinding = {
   path: string
   line: number
   phrase: string
   category: string
   status: 'blocked_context' | 'unauthorized_positive_claim'
   text: string
+  contextText: string
 }
 
 type ClaimPattern = {
@@ -76,10 +72,12 @@ const reportsDir = resolve(root, 'reports')
 const reportJsonPath = 'docs/product-quality/public-claim-boundary-report.json'
 const reportMdPath = 'docs/product-quality/public-claim-boundary-report.md'
 const scanJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
+const checkOnly = process.argv.includes('--check')
 
-const publicSurfacePaths = [
+export const publicSurfacePaths = [
   'README.md',
   'README.ko.md',
+  'AGENTS.md',
   'ANDROID_INSTALL.md',
   'PLAYBOOK.md',
   'CHANGELOG.md',
@@ -106,22 +104,25 @@ const publicSurfacePaths = [
   'docs/MIMESIS_ENGINEERING.md',
   'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
   'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
+  'packages/openclaude-vscode/package.json',
   'packages/openclaude-vscode/README.md',
+  'vscode-extension/openclaude-vscode/package.json',
   'vscode-extension/openclaude-vscode/README.md',
+  ...publicGoalArtifactPaths(),
 ]
 
 const claimPatterns: ClaimPattern[] = [
   { category: 'launch', phrase: 'launch completed', pattern: /\blaunch completed\b|\bopenclaude (?:has )?launched\b/i },
   { category: 'deploy', phrase: 'deployed', pattern: /\bopenclaude (?:has been )?deployed\b|\bdeployment completed\b/i },
   { category: 'publish', phrase: 'published', pattern: /\bopenclaude (?:has been )?published\b|\bpublication completed\b|\bpackage release published\b/i },
-  { category: 'release_readiness', phrase: 'release ready', pattern: /\brelease[-\s]?ready\b|\brelease readiness (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'production_readiness', phrase: 'production ready', pattern: /\bproduction[-\s]?ready\b|\bproduction readiness (?:achieved|proven|complete|completed|passed)\b/i },
+  { category: 'release_readiness', phrase: 'release readiness', pattern: /\brelease[-\s]?ready\b|\brelease readiness\b/i },
+  { category: 'production_readiness', phrase: 'production readiness', pattern: /\bproduction[-\s]?ready\b|\bproduction readiness\b/i },
   { category: 'production_validation', phrase: 'production validated', pattern: /\bproduction (?:openclaude )?(?:validated|validation completed|proven)\b/i },
-  { category: 'public_readiness', phrase: 'public readiness', pattern: /\bpublic[-\s]?ready\b|\bpublic readiness (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'external_validation', phrase: 'external validation completed', pattern: /\bexternally validated\b|\bexternal validation (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'autonomous_reliability', phrase: 'autonomous reliability proven', pattern: /\bautonomous reliability (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'provider_backed_execution', phrase: 'provider-backed execution completed', pattern: /\bprovider[-\s]?backed execution (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'live_model_validation', phrase: 'live model validation completed', pattern: /\blive model validation (?:achieved|proven|complete|completed|passed)\b/i },
+  { category: 'public_readiness', phrase: 'public readiness', pattern: /\bpublic[-\s]?ready\b|\bpublic readiness\b/i },
+  { category: 'external_validation', phrase: 'external validation', pattern: /\bexternally validated\b|\bexternal validation\b/i },
+  { category: 'autonomous_reliability', phrase: 'autonomous reliability', pattern: /\bautonomous reliability\b/i },
+  { category: 'provider_backed_execution', phrase: 'provider-backed execution', pattern: /\bprovider[-\s]?backed execution\b/i },
+  { category: 'live_model_validation', phrase: 'live model validation', pattern: /\blive model validation\b/i },
   { category: 'superiority', phrase: 'superior to top 10', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,80}\btop[-\s]?10\b|\btop[-\s]?10\b.{0,80}\b(?:superior|better|beats?|outperforms?)\b|\btop[-\s]?10.{0,20}\uBCF4\uB2E4\b/i },
   { category: 'superiority', phrase: 'benchmark or model superiority', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,100}\b(?:agent|agents|benchmark|claude|gpt|model|openai|anthropic|terminal[-\s]?bench)\b/i },
   { category: 'superiority', phrase: 'current-best model or provider', pattern: /\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i },
@@ -132,13 +133,19 @@ const blockedContextTerms = [
   'no ',
   'without',
   'blocked',
+  'blocking',
   'scope',
   'policy applies',
   'before',
+  'unless',
   'forbidden',
   'disallowed',
   'unauthorized',
   'not authorized',
+  'authorization',
+  'authorization packet',
+  'not allowed',
+  'not allowed yet',
   'does not',
   'do not',
   'did not',
@@ -159,14 +166,45 @@ const blockedContextTerms = [
   'not ready',
   'not performed',
   'false',
+  '아닙니다',
+  '증명하지',
+  '증거가 아닙니다',
+]
+const blockedContextLookbackLines = 8
+const goalArtifactBoundaryLookaheadLines = 20
+
+const goalArtifactStatusPatterns: ClaimPattern[] = [
+  { category: 'goal_artifact_status', phrase: 'status: PROVEN', pattern: /^\s*status:\s*PROVEN\b/i },
+  { category: 'goal_artifact_status', phrase: 'terminal condition ready', pattern: /\b[A-Z0-9_]+_READY\b/i },
+  { category: 'goal_artifact_status', phrase: 'completion candidate', pattern: /\bcompletion candidate\b/i },
+  { category: 'goal_artifact_status', phrase: 'beta candidate', pattern: /\bbeta candidate\b/i },
 ]
 
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
+const goalArtifactBoundaryTerms = [
+  'Historical local artifact boundary',
+  'repo_local_internal_only',
+  'product_completion_claim_scope',
+  'claim-scope',
+  'claim scope',
+  'without external execution',
+  'not externally validated',
+  'repo-local',
+  'local no-provider',
+  'local/internal',
+  'does not',
+  'local only',
+]
 
-function readText(path: string): string {
-  return readFileSync(resolve(root, path), 'utf8')
+function publicGoalArtifactPaths(): string[] {
+  const goalDir = resolve(root, 'docs/goals')
+  if (!existsSync(goalDir)) {
+    return []
+  }
+
+  return readdirSync(goalDir)
+    .filter((name) => name.endsWith('.md'))
+    .sort()
+    .map((name) => `docs/goals/${name}`)
 }
 
 function fileSurface(path: string): PublicSurface {
@@ -174,19 +212,14 @@ function fileSurface(path: string): PublicSurface {
   if (!existsSync(absolutePath)) {
     return { path, exists: false, sha256: null, sizeBytes: 0, lineCount: 0 }
   }
-  const bytes = readFileSync(absolutePath)
-  const text = bytes.toString('utf8')
+  const text = readText(path, root)
   return {
     path,
     exists: true,
-    sha256: sha256(bytes),
-    sizeBytes: bytes.byteLength,
+    sha256: fileSha256(path, root),
+    sizeBytes: Buffer.byteLength(text, 'utf8'),
     lineCount: text.split(/\r?\n/).length,
   }
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
 }
 
 function isBlockedContext(context: string): boolean {
@@ -194,34 +227,207 @@ function isBlockedContext(context: string): boolean {
   return blockedContextTerms.some((term) => lower.includes(term))
 }
 
+function isGoalArtifactPath(path: string): boolean {
+  return path.startsWith('docs/goals/') && path.endsWith('.md')
+}
+
+function findGoalArtifactBoundaryLine(lines: string[]): string | null {
+  const header = lines.slice(0, goalArtifactBoundaryLookaheadLines)
+  return header.find((line) => (
+    goalArtifactBoundaryTerms.some((term) => line.toLowerCase().includes(term.toLowerCase()))
+  )) ?? null
+}
+
+function scanGoalArtifactStatus(path: string, text: string): ClaimFinding[] {
+  if (!isGoalArtifactPath(path)) {
+    return []
+  }
+
+  const lines = text.split(/\r?\n/)
+  const boundaryLine = findGoalArtifactBoundaryLine(lines)
+  const findings: ClaimFinding[] = []
+  for (const [index, line] of lines.entries()) {
+    const pattern = goalArtifactStatusPatterns.find((item) => item.pattern.test(line))
+    if (!pattern) {
+      continue
+    }
+
+    const reportedLine = redactLine(line)
+    const status = boundaryLine ? 'blocked_context' : 'unauthorized_positive_claim'
+    findings.push({
+      path,
+      line: index + 1,
+      phrase: pattern.phrase,
+      category: pattern.category,
+      status,
+      text: reportedLine,
+      contextText: status === 'blocked_context'
+        ? `Blocked context: ${redactBlockingLine(boundaryLine ?? reportedLine)} Claim mention: ${reportedLine}`
+        : reportedLine,
+    })
+    break
+  }
+
+  return findings
+}
+
 function redactLine(line: string): string {
   return line.trim().replace(/\s+/g, ' ').slice(0, 240)
 }
 
-function scanSurface(path: string): ClaimFinding[] {
-  if (!existsSync(resolve(root, path))) {
-    return []
+function compactLine(line: string): string {
+  return line.trim().replace(/\s+/g, ' ')
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function blockedTermMatchIndex(text: string, term: string): number {
+  const normalizedTerm = term.trim()
+  if (/^[a-z0-9 ]+$/i.test(normalizedTerm)) {
+    const pattern = new RegExp(`\\b${escapeRegExp(normalizedTerm).replace(/\s+/g, '\\s+')}\\b`, 'i')
+    const match = pattern.exec(text)
+    return match?.index ?? -1
   }
-  const lines = readText(path).split(/\r?\n/)
+
+  return text.toLowerCase().indexOf(term.toLowerCase())
+}
+
+function findBlockedTermIndex(text: string): number {
+  const prioritizedTerms = [...blockedContextTerms].sort((left, right) => right.trim().length - left.trim().length)
+  for (const term of prioritizedTerms) {
+    const index = blockedTermMatchIndex(text, term)
+    if (index >= 0) {
+      return index
+    }
+  }
+
+  return -1
+}
+
+function redactBlockingLine(line: string): string {
+  const compact = compactLine(line)
+  if (compact.length <= 240) {
+    return compact
+  }
+
+  const termIndex = findBlockedTermIndex(compact)
+  if (termIndex < 0) {
+    return redactLine(compact)
+  }
+
+  const start = Math.max(0, termIndex - 80)
+  const end = Math.min(compact.length, termIndex + 200)
+  const prefix = start > 0 ? '... ' : ''
+  const suffix = end < compact.length ? ' ...' : ''
+  return `${prefix}${compact.slice(start, end)}${suffix}`
+}
+
+function blockedContextText(contextLines: string[], rawClaimLine: string, reportedClaimLine: string): string {
+  const blockingLine = findBlockingContextLine(contextLines, rawClaimLine)
+
+  if (blockingLine && blockingLine !== rawClaimLine) {
+    return `Blocked context: ${redactBlockingLine(blockingLine)} Claim mention: ${reportedClaimLine}`
+  }
+
+  return `Blocked context: ${redactBlockingLine(blockingLine ?? reportedClaimLine)}`
+}
+
+function isListItem(line: string): boolean {
+  return /^\s*(?:[-*]|\d+[.)])\s+/.test(line)
+}
+
+function isIndentedContinuation(line: string): boolean {
+  return /^\s{2,}\S/.test(line) && !isListItem(line)
+}
+
+function isBoundaryHeader(line: string): boolean {
+  const compact = compactLine(line)
+  return isBlockedContext(compact) && /[:：]\s*$/.test(compact)
+}
+
+function findBlockingContextLine(contextLines: string[], claimLine: string): string | null {
+  const currentLine = contextLines.at(-1) ?? claimLine
+  if (isBlockedContext(currentLine)) {
+    return currentLine
+  }
+
+  if (!isListItem(claimLine)) {
+    if (!isIndentedContinuation(claimLine)) {
+      return null
+    }
+
+    for (let index = contextLines.length - 2; index >= 0; index -= 1) {
+      const candidate = contextLines[index]
+      if (candidate.trim().length === 0) {
+        return null
+      }
+      if (isBlockedContext(candidate)) {
+        return candidate
+      }
+    }
+    return null
+  }
+
+  for (let index = contextLines.length - 2; index >= 0; index -= 1) {
+    const candidate = contextLines[index]
+    if (candidate.trim().length === 0) {
+      continue
+    }
+    if (isListItem(candidate)) {
+      continue
+    }
+    return isBoundaryHeader(candidate) ? candidate : null
+  }
+
+  return null
+}
+
+function findingReportText(finding: ClaimFinding): string {
+  return finding.status === 'blocked_context' ? finding.contextText : finding.text
+}
+
+export function markdownCell(text: string): string {
+  return text.replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+}
+
+export function scanClaimText(path: string, text: string): ClaimFinding[] {
+  const lines = text.split(/\r?\n/)
   const findings: ClaimFinding[] = []
+  const goalArtifactBoundaryLine = isGoalArtifactPath(path) ? findGoalArtifactBoundaryLine(lines) : null
   for (const [index, line] of lines.entries()) {
-    const context = lines.slice(Math.max(0, index - 3), index + 1).join('\n')
+    const contextLines = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1)
     for (const claimPattern of claimPatterns) {
       if (!claimPattern.pattern.test(line)) {
         continue
       }
-      const status = isBlockedContext(context) ? 'blocked_context' : 'unauthorized_positive_claim'
+      const text = redactLine(line)
+      const blockingLine = findBlockingContextLine(contextLines, line) ?? goalArtifactBoundaryLine
+      const status = blockingLine ? 'blocked_context' : 'unauthorized_positive_claim'
       findings.push({
         path,
         line: index + 1,
         phrase: claimPattern.phrase,
         category: claimPattern.category,
         status,
-        text: redactLine(line),
+        text,
+        contextText: status === 'blocked_context'
+          ? (goalArtifactBoundaryLine && !findBlockingContextLine(contextLines, line)
+            ? `Blocked context: ${redactBlockingLine(goalArtifactBoundaryLine)} Claim mention: ${text}`
+            : blockedContextText(contextLines, line, text))
+          : text,
       })
     }
   }
-  return findings
+  return [...findings, ...scanGoalArtifactStatus(path, text)]
+}
+
+function scanSurface(path: string): ClaimFinding[] {
+  if (!existsSync(resolve(root, path))) {
+    return []
+  }
+  return scanClaimText(path, readText(path))
 }
 
 function writeMarkdown(report: PublicClaimBoundaryReport): void {
@@ -231,12 +437,12 @@ function writeMarkdown(report: PublicClaimBoundaryReport): void {
   const blockedRows = report.blockedContextClaimMentions.length === 0
     ? '| none | none | none | none |'
     : report.blockedContextClaimMentions
-      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${finding.text} |`)
+      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${markdownCell(findingReportText(finding))} |`)
       .join('\n')
   const unauthorizedRows = report.unauthorizedPositiveClaims.length === 0
     ? '| none | none | none | none |'
     : report.unauthorizedPositiveClaims
-      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${finding.text} |`)
+      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${markdownCell(findingReportText(finding))} |`)
       .join('\n')
   const checkRows = report.evidenceChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
@@ -307,15 +513,19 @@ ${checkRows}
 }
 
 function main(): void {
-  mkdirSync(docsDir, { recursive: true })
-  mkdirSync(reportsDir, { recursive: true })
+  if (!checkOnly) {
+    mkdirSync(docsDir, { recursive: true })
+    mkdirSync(reportsDir, { recursive: true })
+  }
 
   const scannedPublicSurfaces = publicSurfacePaths.map(fileSurface)
   const findings = publicSurfacePaths.flatMap(scanSurface)
   const blockedContextClaimMentions = findings.filter((finding) => finding.status === 'blocked_context')
   const unauthorizedPositiveClaims = findings.filter((finding) => finding.status === 'unauthorized_positive_claim')
   const scanJsonlText = findings.map((finding) => JSON.stringify(finding)).join('\n') + (findings.length > 0 ? '\n' : '')
-  writeFileSync(resolve(root, scanJsonlPath), scanJsonlText)
+  if (!checkOnly) {
+    writeFileSync(resolve(root, scanJsonlPath), scanJsonlText)
+  }
   const scanJsonlSha256 = sha256(scanJsonlText)
   const scanJsonlRecordCount = scanJsonlText.trim().length === 0 ? 0 : scanJsonlText.trim().split(/\r?\n/).length
 
@@ -384,8 +594,10 @@ function main(): void {
     check('mth and canonical memory boundaries remain preserved', report.mthResolutionStatus === 'unresolved' && report.canonicalMemoryWriteAllowed === false && report.allowedClaimLevel === 'internal_no_provider_product_quality_evidence_only', `${report.mthResolutionStatus}/${report.canonicalMemoryWriteAllowed}/${report.allowedClaimLevel}`),
   ]
 
-  writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
-  writeMarkdown(report)
+  if (!checkOnly) {
+    writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
+    writeMarkdown(report)
+  }
 
   for (const item of report.evidenceChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
@@ -394,6 +606,7 @@ function main(): void {
   const failed = report.evidenceChecks.filter((item) => !item.ok)
   console.log('')
   console.log(`RESULT: ${failed.length === 0 ? 'PASS' : 'FAIL'}`)
+  console.log(`mode=${checkOnly ? 'check' : 'write'}`)
   console.log(`public_surface_count=${report.publicSurfaceCount}`)
   console.log(`scanned_line_count=${report.scannedLineCount}`)
   console.log(`blocked_context_claim_mention_count=${report.blockedContextClaimMentionCount}`)
@@ -412,4 +625,6 @@ function main(): void {
   }
 }
 
-main()
+if (import.meta.main) {
+  main()
+}

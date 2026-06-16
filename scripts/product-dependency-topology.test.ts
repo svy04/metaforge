@@ -42,6 +42,8 @@ type DependencyTopologyReport = {
   }>
 }
 
+const currentDependencyEdgeCount = 11963
+
 function runTopologyGate(): DependencyTopologyReport {
   const result = spawnSync('bun', ['run', 'product:dependency-topology'], {
     cwd: root,
@@ -54,6 +56,18 @@ function runTopologyGate(): DependencyTopologyReport {
 }
 
 describe('product dependency topology gate', () => {
+  test('keeps checked-in topology evidence refreshed to the current dependency-cruiser edge count', () => {
+    const reportText = readFileSync(reportPath, 'utf8')
+    const report = JSON.parse(reportText) as DependencyTopologyReport
+    const ratchetPreview = report.topologyCommands
+      .find((command) => command.name === 'dependency_cruiser_known_violation_ratchet')
+      ?.stdoutPreview.join('\n') ?? ''
+
+    expect(report.dependencyEdgeCount).toBe(currentDependencyEdgeCount)
+    expect(ratchetPreview).toContain(`${report.moduleCount} modules, ${report.dependencyEdgeCount} dependencies cruised`)
+    expect(report.topologyChecks.some((item) => item.label === 'dependency edges are discovered' && item.ok)).toBe(true)
+  })
+
   test('records real dependency-cruiser no-provider topology evidence', () => {
     const report = runTopologyGate()
     const reportText = readFileSync(reportPath, 'utf8')

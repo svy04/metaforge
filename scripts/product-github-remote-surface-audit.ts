@@ -1,8 +1,8 @@
-import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { env, exit } from 'node:process'
 import { spawnSync } from 'node:child_process'
+import { check, sha256, type Check } from './quality-report-helpers'
 
 type RemoteHead = {
   name: string
@@ -40,12 +40,6 @@ type Discovery = {
   remoteHeadDiscovery: 'git_ls_remote'
   openPullRequestDiscovery: 'github_pr_api' | 'gh_cli' | 'unavailable'
   openPullRequestDiscoveryError?: string
-}
-
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
 }
 
 type Blocker = {
@@ -102,15 +96,97 @@ const reportJsonPath = 'docs/product-quality/github-remote-surface-audit-report.
 const reportMdPath = 'docs/product-quality/github-remote-surface-audit-report.md'
 const reportJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'
 const koreanLocalWorkspaceName = String.fromCharCode(0xb0b4, 0x20, 0xc21c, 0xc218, 0x20, 0xc7ac, 0xbbf8)
-const privatePattern = [
-  ['C:', String.raw`(\\+|/)`, 'Users', String.raw`(\\+|/)`, ['adm', 'in|Lucas[ _]Pedry'].join('')].join(''),
-  ['/', 'Users', '/', 'adm', 'in'].join(''),
-  ['Users', '/', 'adm', 'in'].join(''),
+const privateLocalOrTokenPatterns = [
+  String.raw`C:(\\+|/)Users(\\+|/)[^\\/"' ]+(\\+|/)(Desktop|Documents|AppData)(\\+|/)[^\\/"' ]+`,
+  String.raw`/Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
+  String.raw`Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
+  String.raw`(%USERPROFILE%|\$HOME|\$\{HOME\}|~)(\\+|/)(Desktop|Documents)(\\+|/)[^\\/"' ]+`,
   koreanLocalWorkspaceName,
   ['Digital', ' Factory'].join(''),
   ['Token: ', 'gho_'].join(''),
-  ['gho_', '[A-Za-z0-9_]+'].join(''),
+  String.raw`gh[pousr]_[A-Za-z0-9_]{30,}`,
+  String.raw`github_pat_[A-Za-z0-9_]{30,}`,
+  String.raw`AKIA[0-9A-Z]{16}`,
+  String.raw`ASIA[0-9A-Z]{16}`,
+  String.raw`xox[baprs]-[A-Za-z0-9-]{10,}`,
+  String.raw`-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----`,
+]
+const publicArtifactHygienePatterns = [
+  String.raw`<codex_internal_context`,
+  String.raw`<environment_context`,
+  String.raw`<workspace_roots`,
+  String.raw`<permissions instructions`,
+  String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories',
+  String.raw`\.` + 'agents' + String.raw`[\\/]+` + 'skills',
+  String.raw`AGENTS\.md instructions for C:`,
+  String.raw`sk-\.\.\.`,
+  String.raw`(api[-_ ]?key|token).{0,80}sk-[A-Za-z0-9_-]{8,}`,
+]
+const privateLocalOrTokenPattern = privateLocalOrTokenPatterns.join('|')
+const publicArtifactHygienePattern = publicArtifactHygienePatterns.join('|')
+const privatePattern = [
+  privateLocalOrTokenPattern,
+  publicArtifactHygienePattern,
 ].join('|')
+const tokenPattern = /(gh[pousr]_|github_pat_|AKIA|ASIA|xox[baprs]-|sk-[A-Za-z0-9_-]{8,})/i
+const documentedPlaceholderPattern = new RegExp(String.raw`(?:^|[\\/\s"'\x60])(?:Example|example|foo|me|fixture-owner|John[ _]Smith|\{user\}|\.\.\.)(?:[\\/\s"'\x60]|$)`)
+
+function isRemotePublicArtifactPath(path?: string): boolean {
+  if (!path) {
+    return true
+  }
+  const normalized = path.replace(/\\/g, '/')
+  return [
+    '.github/',
+    '.planning/',
+    'avf/',
+    'bin/',
+    'docs/',
+    'reports/',
+    'packages/openclaude-vscode/',
+    'vscode-extension/openclaude-vscode/',
+  ].some((prefix) => normalized.startsWith(prefix)) || [
+    '.env.example',
+    'AGENTS.md',
+    'ANDROID_INSTALL.md',
+    'CHANGELOG.md',
+    'CONTRIBUTING.md',
+    'LICENSE',
+    'PLAYBOOK.md',
+    'README.md',
+    'README.ko.md',
+    'SECURITY.md',
+    'SUPPORT.md',
+    'package.json',
+    'scripts/public-artifact-hygiene.ts',
+  ].includes(normalized)
+}
+
+export function remoteForbiddenPatternId(text: string, path?: string): string | null {
+  if (new RegExp(privateLocalOrTokenPattern, 'i').test(text)) {
+    if (documentedPlaceholderPattern.test(text) && !tokenPattern.test(text)) {
+      return null
+    }
+    return 'private_local_or_token_pattern'
+  }
+
+  if (isRemotePublicArtifactPath(path) && new RegExp(publicArtifactHygienePattern, 'i').test(text)) {
+    return 'public_artifact_hygiene_pattern'
+  }
+
+  return null
+}
+
+export function matchesRemoteForbiddenPattern(text: string): boolean {
+  return remoteForbiddenPatternId(text) !== null
+}
+
+function isIntentionalRemoteAuditFixture(finding: PatternFinding): boolean {
+  if (!/\.(?:test|spec)\.[jt]sx?$/.test(finding.path)) {
+    return false
+  }
+  return /(?:%USERPROFILE%|\$HOME|\$\{HOME\}|~)(?:\\+|\/)(?:Desktop|Documents)(?:\\+|\/)/i.test(finding.text)
+}
 
 const browserArtifactPatterns: Array<{ id: string; pattern: RegExp }> = [
   { id: 'playwright_mcp_capture', pattern: /(^|\/)\.playwright-mcp(\/|$)/i },
@@ -120,14 +196,6 @@ const browserArtifactPatterns: Array<{ id: string; pattern: RegExp }> = [
   { id: 'browser_network_har', pattern: /\.har$/i },
   { id: 'browser_video_capture', pattern: /\.webm$/i },
 ]
-
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
-}
 
 export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSurfaceReport {
   const allowedOpenPrHeadBranches = input.openPullRequests
@@ -392,22 +460,33 @@ async function discoverOpenPullRequests(repositoryFullName: string): Promise<{
   }
 }
 
-function parseGrepFindings(output: string, patternId: string): PatternFinding[] {
-  return output
+function parseGrepFindings(output: string): PatternFinding[] {
+  const findings: PatternFinding[] = []
+  for (const line of output
     .split(/\r?\n/)
-    .filter(Boolean)
-    .map((line) => {
-      const match = line.match(/^(?:[^:]+:)?(.+?):(\d+):(.*)$/)
-      if (!match) {
-        return { path: '<unknown>', line: 0, patternId, text: line.trim().slice(0, 240) }
-      }
-      return {
+    .filter(Boolean)) {
+    const match = line.match(/^(?:[^:]+:)?(.+?):(\d+):(.*)$/)
+    const finding = match
+      ? {
         path: match[1],
         line: Number(match[2]),
-        patternId,
         text: match[3].trim().replace(/\s+/g, ' ').slice(0, 240),
       }
-    })
+      : {
+        path: '<unknown>',
+        line: 0,
+        text: line.trim().slice(0, 240),
+      }
+    const patternId = remoteForbiddenPatternId(finding.text, finding.path)
+    if (!patternId) {
+      continue
+    }
+    const patternFinding = { ...finding, patternId }
+    if (!isIntentionalRemoteAuditFixture(patternFinding)) {
+      findings.push(patternFinding)
+    }
+  }
+  return findings
 }
 
 function scanRef(refName: string): RefScan {
@@ -442,7 +521,7 @@ function scanRef(refName: string): RefScan {
 
   return {
     refName,
-    patternFindings: grep.status === 0 ? parseGrepFindings(grep.stdout, 'private_local_or_token_pattern') : [],
+    patternFindings: grep.status === 0 ? parseGrepFindings(grep.stdout) : [],
     treeFindings,
   }
 }

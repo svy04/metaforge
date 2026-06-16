@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-15T23:59:59.961Z",
+  "generatedAt": "2026-06-16T08:12:33.239Z",
   "mode": "local_no_provider_real_vscode_workbench_tree_view_smoke",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
   "hostRuntime": "real_vscode_extension_development_host",
-  "vscodeCliVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
+  "vscodeCliVersion": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64",
   "manifestPath": "packages/openclaude-vscode/package.json",
   "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
   "extensionDevelopmentPath": "<repo>\\packages\\openclaude-vscode",
-  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\workbench-smoke-runner.cjs",
-  "workspacePath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\workspace",
+  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\workbench-smoke-runner.cjs",
+  "workspacePath": "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\workspace",
   "codeCommand": [
     "code",
     "--extensionDevelopmentPath=<repo>\\packages\\openclaude-vscode",
-    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\workbench-smoke-runner.cjs",
+    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\workbench-smoke-runner.cjs",
     "--user-data-dir",
-    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\user-data",
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\user-data",
     "--extensions-dir",
-    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\extensions",
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\extensions",
     "--disable-extensions",
     "--disable-gpu",
     "--skip-welcome",
     "--skip-release-notes",
     "--disable-workspace-trust",
     "--new-window",
-    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781567967731-35684\\workspace"
+    "<repo>\\.tmp-product-ide-extension-workbench-smoke\\run-1781597547418-56276\\workspace"
   ],
   "codeExitCode": 0,
   "codeTimedOut": false,
@@ -35,29 +35,43 @@
   "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdoutByteLength": 0,
   "stderrByteLength": 0,
-  "vscodeStartupBlocked": true,
-  "environmentBlockers": [
-    "vscode_update_in_progress"
-  ],
-  "realExtensionHostLaunched": false,
-  "extensionActivated": false,
+  "vscodeStartupBlocked": false,
+  "environmentBlockers": [],
+  "realExtensionHostLaunched": true,
+  "extensionActivated": true,
   "contributedViewIds": [
     "openclaude.chatView",
     "openclaude.traceEvidenceView"
   ],
-  "registeredTreeViewIds": [],
-  "treeProviderViewIds": [],
-  "focusedViewIds": [],
-  "failedFocusViewIds": [
+  "registeredTreeViewIds": [
     "openclaude.chatView",
     "openclaude.traceEvidenceView"
   ],
+  "treeProviderViewIds": [
+    "openclaude.chatView",
+    "openclaude.traceEvidenceView"
+  ],
+  "focusedViewIds": [
+    "openclaude.chatView",
+    "openclaude.traceEvidenceView"
+  ],
+  "failedFocusViewIds": [],
   "viewItemCounts": {
-    "openclaude.chatView": 0,
-    "openclaude.traceEvidenceView": 0
+    "openclaude.chatView": 2,
+    "openclaude.traceEvidenceView": 2
   },
-  "viewItemCommandIds": [],
-  "executedViewCommandIds": [],
+  "viewItemCommandIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.openRuntimeDoctor",
+    "openclaude.explainSelection"
+  ],
+  "executedViewCommandIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.openRuntimeDoctor",
+    "openclaude.explainSelection"
+  ],
   "failedViewCommandIds": [],
   "installAttempted": false,
   "publishAttempted": false,
@@ -73,7 +87,7 @@
     {
       "label": "VS Code CLI version is available",
       "ok": true,
-      "detail": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64"
+      "detail": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64"
     },
     {
       "label": "VS Code CLI command exited 0",
@@ -87,48 +101,48 @@
     },
     {
       "label": "VS Code startup was not blocked by local environment state",
-      "ok": false,
-      "detail": "vscode_update_in_progress"
+      "ok": true,
+      "detail": "none"
     },
     {
       "label": "real Extension Development Host test runner produced result",
-      "ok": false,
-      "detail": "result file missing"
+      "ok": true,
+      "detail": "result file present"
     },
     {
       "label": "extension activated in real host",
-      "ok": false,
-      "detail": "undefined"
+      "ok": true,
+      "detail": "true"
     },
     {
       "label": "all contributed tree views are registered",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
     },
     {
       "label": "all contributed tree views have providers",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
     },
     {
       "label": "all contributed tree views can be focused",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.chatView, openclaude.traceEvidenceView"
     },
     {
       "label": "all contributed tree views provide items",
-      "ok": false,
-      "detail": "{\"openclaude.chatView\":0,\"openclaude.traceEvidenceView\":0}"
+      "ok": true,
+      "detail": "{\"openclaude.chatView\":2,\"openclaude.traceEvidenceView\":2}"
     },
     {
       "label": "tree item commands are declared manifest commands",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection"
     },
     {
       "label": "all tree item commands execute in real host",
-      "ok": false,
-      "detail": "none / failed=none"
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.openRuntimeDoctor, openclaude.explainSelection / failed=none"
     },
     {
       "label": "protected actions were not attempted",

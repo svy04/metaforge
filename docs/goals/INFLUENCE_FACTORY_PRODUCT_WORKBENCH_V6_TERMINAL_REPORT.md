@@ -1,5 +1,7 @@
 # Influence Factory Product Workbench v6 Terminal Report
 
+Historical local artifact boundary: this goal artifact records repo-local evidence only; it is not externally validated and does not claim production, release, or public readiness.
+
 terminal_condition: LOCAL_PRODUCT_WORKBENCH_V6_READY
 
 Summary:

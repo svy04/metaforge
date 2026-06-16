@@ -188,4 +188,67 @@ describe('protected action authorization packet', () => {
     expect(hostedAuthorization?.validationMethod).toContain('product:github-hosted-trust-posture')
     expect(hostedAuthorization?.validationMethod).toContain('product:code-scanning-remediation-queue')
   })
+
+  test('accepts a clear current VS Code environment while keeping claim boundaries blocked', () => {
+    const repo = makeTempRepo()
+    writeFixtureReports(repo)
+    writeJson(repo, 'docs/product-quality/quality-blocker-taxonomy-report.json', {
+      ...localNoProvider,
+      currentProductQualityGateStatus: 'clear_no_current_vscode_update_dependent_failures',
+      expectedProductQualityGateFailureCount: 0,
+    })
+    writeJson(repo, 'docs/product-quality/vscode-update-boundary-report.json', {
+      ...localNoProvider,
+      boundaryStatus: 'clear_no_current_vscode_update_boundary',
+    })
+    writeJson(repo, 'docs/product-quality/vscode-startup-diagnostics-report.json', {
+      ...localNoProvider,
+      diagnosisStatus: 'clear_no_current_update_guard_evidence',
+    })
+
+    runPacket(repo)
+    const packet = readPacket(repo)
+    const vscodeCheck = (packet.evidenceChecks as Array<Record<string, any>>).find(
+      (item) => item.label === 'VS Code CLI/PATH/install-state boundary is classified',
+    )
+    const localEnvironmentAuthorization = (packet.requiredOwnerAuthorizations as Array<Record<string, any>>).find(
+      (item) => item.id === 'authorize_local_vscode_cli_path_or_install_state_repair',
+    )
+
+    expect(vscodeCheck).toBeDefined()
+    expect(vscodeCheck?.ok).toBe(true)
+    expect(vscodeCheck?.detail).toContain('clear_no_current_vscode_update_boundary')
+    expect(localEnvironmentAuthorization?.authorized).toBe(false)
+    expect(localEnvironmentAuthorization?.executed).toBe(false)
+    expect(packet.releaseReadinessClaimAllowed).toBe(false)
+    expect(packet.publicReadinessClaimAllowed).toBe(false)
+    expect(packet.externalValidationClaimAllowed).toBe(false)
+  })
+
+  test('accepts real IDE host and workbench evidence while keeping availability claims blocked', () => {
+    const repo = makeTempRepo()
+    writeFixtureReports(repo)
+    writeJson(repo, 'docs/product-quality/oss-ide-or-editor-surface-evidence-report.json', {
+      ...localNoProvider,
+      hostSmokePass: true,
+      hostSmokeRealHostBlockedByVscodeCli: false,
+      workbenchSmokePass: true,
+      reconciliationRecords: [{ workbenchSmokeStatus: 'local_real_workbench_smoke_passed_claim_blocked' }],
+      extensionAvailabilityClaimAllowed: false,
+      terminalCondition: 'PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY',
+    })
+
+    runPacket(repo)
+    const packet = readPacket(repo)
+    const ideCheck = (packet.evidenceChecks as Array<Record<string, any>>).find(
+      (item) => item.label === 'IDE/editor surface availability boundary remains protected',
+    )
+
+    expect(ideCheck).toBeDefined()
+    expect(ideCheck?.ok).toBe(true)
+    expect(packet.protectedActionExecutionAllowed).toBe(false)
+    expect(packet.releaseReadinessClaimAllowed).toBe(false)
+    expect(packet.publicReadinessClaimAllowed).toBe(false)
+    expect(packet.externalValidationClaimAllowed).toBe(false)
+  })
 })

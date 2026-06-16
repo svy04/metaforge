@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-15T23:59:27.335Z",
+  "generatedAt": "2026-06-16T08:12:27.268Z",
   "mode": "local_no_provider_real_vscode_extension_host_smoke",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
   "hostRuntime": "real_vscode_extension_development_host",
-  "vscodeCliVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
+  "vscodeCliVersion": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64",
   "manifestPath": "packages/openclaude-vscode/package.json",
   "entryPointPath": "packages/openclaude-vscode/dist/extension.js",
   "extensionDevelopmentPath": "<repo>\\packages\\openclaude-vscode",
-  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\host-smoke-runner.cjs",
-  "workspacePath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\workspace",
+  "extensionTestsPath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\host-smoke-runner.cjs",
+  "workspacePath": "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\workspace",
   "codeCommand": [
     "code",
     "--extensionDevelopmentPath=<repo>\\packages\\openclaude-vscode",
-    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\host-smoke-runner.cjs",
+    "--extensionTestsPath=<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\host-smoke-runner.cjs",
     "--user-data-dir",
-    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\user-data",
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\user-data",
     "--extensions-dir",
-    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\extensions",
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\extensions",
     "--disable-extensions",
     "--disable-gpu",
     "--skip-welcome",
     "--skip-release-notes",
     "--disable-workspace-trust",
     "--new-window",
-    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781567934755-60244\\workspace"
+    "<repo>\\.tmp-product-ide-extension-host-smoke\\run-1781597541585-60328\\workspace"
   ],
   "codeExitCode": 0,
   "codeTimedOut": false,
@@ -35,21 +35,45 @@
   "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdoutByteLength": 0,
   "stderrByteLength": 0,
-  "vscodeStartupBlocked": true,
-  "environmentBlockers": [
-    "vscode_update_in_progress"
-  ],
-  "realExtensionHostLaunched": false,
-  "extensionActivated": false,
-  "registeredCommandIds": [],
-  "executedCommandIds": [],
-  "failedCommandIds": [
+  "vscodeStartupBlocked": false,
+  "environmentBlockers": [],
+  "realExtensionHostLaunched": true,
+  "extensionActivated": true,
+  "registeredCommandIds": [
     "openclaude.openChat",
     "openclaude.runSelection",
     "openclaude.explainSelection",
     "openclaude.openRuntimeDoctor"
   ],
-  "commandResults": [],
+  "executedCommandIds": [
+    "openclaude.openChat",
+    "openclaude.runSelection",
+    "openclaude.explainSelection",
+    "openclaude.openRuntimeDoctor"
+  ],
+  "failedCommandIds": [],
+  "commandResults": [
+    {
+      "commandId": "openclaude.openChat",
+      "ok": true,
+      "resultStatus": "scoped"
+    },
+    {
+      "commandId": "openclaude.runSelection",
+      "ok": true,
+      "resultStatus": "scoped"
+    },
+    {
+      "commandId": "openclaude.explainSelection",
+      "ok": true,
+      "resultStatus": "scoped"
+    },
+    {
+      "commandId": "openclaude.openRuntimeDoctor",
+      "ok": true,
+      "resultStatus": "scoped"
+    }
+  ],
   "installAttempted": false,
   "publishAttempted": false,
   "deployAttempted": false,
@@ -64,7 +88,7 @@
     {
       "label": "VS Code CLI version is available",
       "ok": true,
-      "detail": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64"
+      "detail": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64"
     },
     {
       "label": "VS Code CLI command exited 0",
@@ -78,28 +102,28 @@
     },
     {
       "label": "VS Code startup was not blocked by local environment state",
-      "ok": false,
-      "detail": "vscode_update_in_progress"
+      "ok": true,
+      "detail": "none"
     },
     {
       "label": "real Extension Development Host test runner produced result",
-      "ok": false,
-      "detail": "result file missing"
+      "ok": true,
+      "detail": "result file present"
     },
     {
       "label": "extension activated in real host",
-      "ok": false,
-      "detail": "undefined"
+      "ok": true,
+      "detail": "true"
     },
     {
       "label": "all manifest commands are registered in real host",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
     },
     {
       "label": "all manifest commands execute in real host",
-      "ok": false,
-      "detail": ""
+      "ok": true,
+      "detail": "openclaude.openChat, openclaude.runSelection, openclaude.explainSelection, openclaude.openRuntimeDoctor"
     },
     {
       "label": "protected actions were not attempted",

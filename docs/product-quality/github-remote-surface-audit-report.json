@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T00:01:21.843Z",
+  "generatedAt": "2026-06-16T23:02:08.921Z",
   "mode": "github_public_remote_surface_audit",
   "primarySourceInputs": [
     {
@@ -36,15 +36,102 @@
   "defaultBranch": "main",
   "remoteHeads": [
     {
-      "oid": "a2a4b38e79f7b01553d4a9ac4256c241e941afd0",
+      "oid": "029c8c78abf46164008c67c4d53e5873e421db88",
+      "name": "dependabot/github_actions/actions/checkout-6.0.3"
+    },
+    {
+      "oid": "7250350fb78d2fccd7d5c58ed04d4e0bace6d693",
+      "name": "dependabot/github_actions/actions/setup-node-6.4.0"
+    },
+    {
+      "oid": "c6f36884edf967bc96eefe9b6f34198396b21eec",
+      "name": "dependabot/github_actions/actions/setup-python-6.2.0"
+    },
+    {
+      "oid": "0811dd333637a9cf63b3a8aec0f4df54e0f36980",
+      "name": "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433"
+    },
+    {
+      "oid": "28f9e1e96e3adfdc124403e790281c60bd2a13cc",
+      "name": "dependabot/pip/python/pytest-9.1.0"
+    },
+    {
+      "oid": "cb24c7210f83b078d7d745ecb2338e3597c61c68",
       "name": "main"
     }
   ],
-  "remoteHeadCount": 1,
-  "openPullRequests": [],
-  "openPullRequestCount": 0,
-  "allowedOpenPrHeadBranches": [],
+  "remoteHeadCount": 6,
+  "openPullRequests": [
+    {
+      "number": 61,
+      "title": "Bump the npm-runtime-and-dev group with 50 updates",
+      "url": "https://github.com/svy04/metaforge/pull/61",
+      "headRefName": "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433",
+      "isSameRepository": true
+    },
+    {
+      "number": 60,
+      "title": "Bump actions/checkout from 4.2.2 to 6.0.3",
+      "url": "https://github.com/svy04/metaforge/pull/60",
+      "headRefName": "dependabot/github_actions/actions/checkout-6.0.3",
+      "isSameRepository": true
+    },
+    {
+      "number": 59,
+      "title": "Bump actions/setup-python from 5.0.0 to 6.2.0",
+      "url": "https://github.com/svy04/metaforge/pull/59",
+      "headRefName": "dependabot/github_actions/actions/setup-python-6.2.0",
+      "isSameRepository": true
+    },
+    {
+      "number": 58,
+      "title": "Bump pytest from 7.4.4 to 9.1.0 in /python",
+      "url": "https://github.com/svy04/metaforge/pull/58",
+      "headRefName": "dependabot/pip/python/pytest-9.1.0",
+      "isSameRepository": true
+    },
+    {
+      "number": 57,
+      "title": "Bump actions/setup-node from 4.4.0 to 6.4.0",
+      "url": "https://github.com/svy04/metaforge/pull/57",
+      "headRefName": "dependabot/github_actions/actions/setup-node-6.4.0",
+      "isSameRepository": true
+    }
+  ],
+  "openPullRequestCount": 5,
+  "allowedOpenPrHeadBranches": [
+    "dependabot/github_actions/actions/checkout-6.0.3",
+    "dependabot/github_actions/actions/setup-node-6.4.0",
+    "dependabot/github_actions/actions/setup-python-6.2.0",
+    "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433",
+    "dependabot/pip/python/pytest-9.1.0"
+  ],
   "refScans": [
+    {
+      "refName": "dependabot/github_actions/actions/checkout-6.0.3",
+      "patternFindings": [],
+      "treeFindings": []
+    },
+    {
+      "refName": "dependabot/github_actions/actions/setup-node-6.4.0",
+      "patternFindings": [],
+      "treeFindings": []
+    },
+    {
+      "refName": "dependabot/github_actions/actions/setup-python-6.2.0",
+      "patternFindings": [],
+      "treeFindings": []
+    },
+    {
+      "refName": "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433",
+      "patternFindings": [],
+      "treeFindings": []
+    },
+    {
+      "refName": "dependabot/pip/python/pytest-9.1.0",
+      "patternFindings": [],
+      "treeFindings": []
+    },
     {
       "refName": "main",
       "patternFindings": [],
@@ -57,14 +144,14 @@
   "discovery": {
     "gitFetchPerformed": true,
     "remoteHeadDiscovery": "git_ls_remote",
-    "openPullRequestDiscovery": "github_pr_api"
+    "openPullRequestDiscovery": "gh_cli"
   },
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "protectedActionsExecuted": [],
   "externalCallsPerformed": [
     "git_ls_remote",
-    "github_pr_api"
+    "gh_cli"
   ],
   "evidenceChecks": [
     {
@@ -75,12 +162,12 @@
     {
       "label": "remote heads were inventoried",
       "ok": true,
-      "detail": "1 heads"
+      "detail": "6 heads"
     },
     {
       "label": "open PR discovery is usable when non-default branches exist",
       "ok": true,
-      "detail": "github_pr_api"
+      "detail": "gh_cli"
     },
     {
       "label": "unexpected stale remote branches are absent",
