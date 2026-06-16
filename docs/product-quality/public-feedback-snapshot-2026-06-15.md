@@ -94,3 +94,24 @@ public-readiness priorities and added two sharper trust signals:
 - The positive signal remains the workflow shape: generate evidence, verify it,
   record versions, and keep CodeQL in CI. The next work should turn that shape
   into behavioral tests and smaller security/refactor patches.
+
+## Third-Wave Follow-Up Signals
+
+A later owner-provided community thread on 2026-06-16 sharpened the same
+feedback into two immediate hardening requirements:
+
+- AGENTS.md quality gates should not pass because required words appear
+  somewhere in the file. Repository purpose and verification standards need
+  structure-aware checks, and `--check` mode should not rewrite generated
+  evidence.
+- Public `docs/goals/*.md` artifacts carry strong local status language such as
+  `status: PROVEN` and `*_READY`. Those artifacts need explicit top-of-file
+  repo-local/historical boundaries before they are included in public claim
+  boundary scans.
+
+Current response in this slice: `product-agent-instructions-quality` now has a
+fixture-tested analyzer, import-safe entrypoint, and no-write `--check` mode.
+`product-public-claim-boundary` now includes `docs/goals/*.md` and classifies
+goal-artifact status language as blocked only when a same-file top boundary is
+present. Older goal artifacts with strong local status language now carry an
+explicit historical local artifact boundary.

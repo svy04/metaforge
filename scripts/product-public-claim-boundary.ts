@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 import { check, fileSha256, readText, sha256, type Check } from './quality-report-helpers'
@@ -108,6 +108,7 @@ export const publicSurfacePaths = [
   'packages/openclaude-vscode/README.md',
   'vscode-extension/openclaude-vscode/package.json',
   'vscode-extension/openclaude-vscode/README.md',
+  ...publicGoalArtifactPaths(),
 ]
 
 const claimPatterns: ClaimPattern[] = [
@@ -141,6 +142,8 @@ const blockedContextTerms = [
   'disallowed',
   'unauthorized',
   'not authorized',
+  'authorization',
+  'authorization packet',
   'not allowed',
   'not allowed yet',
   'does not',
@@ -168,6 +171,41 @@ const blockedContextTerms = [
   '증거가 아닙니다',
 ]
 const blockedContextLookbackLines = 8
+const goalArtifactBoundaryLookaheadLines = 20
+
+const goalArtifactStatusPatterns: ClaimPattern[] = [
+  { category: 'goal_artifact_status', phrase: 'status: PROVEN', pattern: /^\s*status:\s*PROVEN\b/i },
+  { category: 'goal_artifact_status', phrase: 'terminal condition ready', pattern: /\b[A-Z0-9_]+_READY\b/i },
+  { category: 'goal_artifact_status', phrase: 'completion candidate', pattern: /\bcompletion candidate\b/i },
+  { category: 'goal_artifact_status', phrase: 'beta candidate', pattern: /\bbeta candidate\b/i },
+]
+
+const goalArtifactBoundaryTerms = [
+  'Historical local artifact boundary',
+  'repo_local_internal_only',
+  'product_completion_claim_scope',
+  'claim-scope',
+  'claim scope',
+  'without external execution',
+  'not externally validated',
+  'repo-local',
+  'local no-provider',
+  'local/internal',
+  'does not',
+  'local only',
+]
+
+function publicGoalArtifactPaths(): string[] {
+  const goalDir = resolve(root, 'docs/goals')
+  if (!existsSync(goalDir)) {
+    return []
+  }
+
+  return readdirSync(goalDir)
+    .filter((name) => name.endsWith('.md'))
+    .sort()
+    .map((name) => `docs/goals/${name}`)
+}
 
 function fileSurface(path: string): PublicSurface {
   const absolutePath = resolve(root, path)
@@ -187,6 +225,50 @@ function fileSurface(path: string): PublicSurface {
 function isBlockedContext(context: string): boolean {
   const lower = context.toLowerCase()
   return blockedContextTerms.some((term) => lower.includes(term))
+}
+
+function isGoalArtifactPath(path: string): boolean {
+  return path.startsWith('docs/goals/') && path.endsWith('.md')
+}
+
+function findGoalArtifactBoundaryLine(lines: string[]): string | null {
+  const header = lines.slice(0, goalArtifactBoundaryLookaheadLines)
+  return header.find((line) => (
+    goalArtifactBoundaryTerms.some((term) => line.toLowerCase().includes(term.toLowerCase()))
+  )) ?? null
+}
+
+function scanGoalArtifactStatus(path: string, text: string): ClaimFinding[] {
+  if (!isGoalArtifactPath(path)) {
+    return []
+  }
+
+  const lines = text.split(/\r?\n/)
+  const boundaryLine = findGoalArtifactBoundaryLine(lines)
+  const findings: ClaimFinding[] = []
+  for (const [index, line] of lines.entries()) {
+    const pattern = goalArtifactStatusPatterns.find((item) => item.pattern.test(line))
+    if (!pattern) {
+      continue
+    }
+
+    const reportedLine = redactLine(line)
+    const status = boundaryLine ? 'blocked_context' : 'unauthorized_positive_claim'
+    findings.push({
+      path,
+      line: index + 1,
+      phrase: pattern.phrase,
+      category: pattern.category,
+      status,
+      text: reportedLine,
+      contextText: status === 'blocked_context'
+        ? `Blocked context: ${redactBlockingLine(boundaryLine ?? reportedLine)} Claim mention: ${reportedLine}`
+        : reportedLine,
+    })
+    break
+  }
+
+  return findings
 }
 
 function redactLine(line: string): string {
@@ -313,6 +395,7 @@ export function markdownCell(text: string): string {
 export function scanClaimText(path: string, text: string): ClaimFinding[] {
   const lines = text.split(/\r?\n/)
   const findings: ClaimFinding[] = []
+  const goalArtifactBoundaryLine = isGoalArtifactPath(path) ? findGoalArtifactBoundaryLine(lines) : null
   for (const [index, line] of lines.entries()) {
     const contextLines = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1)
     for (const claimPattern of claimPatterns) {
@@ -320,7 +403,8 @@ export function scanClaimText(path: string, text: string): ClaimFinding[] {
         continue
       }
       const text = redactLine(line)
-      const status = findBlockingContextLine(contextLines, line) ? 'blocked_context' : 'unauthorized_positive_claim'
+      const blockingLine = findBlockingContextLine(contextLines, line) ?? goalArtifactBoundaryLine
+      const status = blockingLine ? 'blocked_context' : 'unauthorized_positive_claim'
       findings.push({
         path,
         line: index + 1,
@@ -328,11 +412,15 @@ export function scanClaimText(path: string, text: string): ClaimFinding[] {
         category: claimPattern.category,
         status,
         text,
-        contextText: status === 'blocked_context' ? blockedContextText(contextLines, line, text) : text,
+        contextText: status === 'blocked_context'
+          ? (goalArtifactBoundaryLine && !findBlockingContextLine(contextLines, line)
+            ? `Blocked context: ${redactBlockingLine(goalArtifactBoundaryLine)} Claim mention: ${text}`
+            : blockedContextText(contextLines, line, text))
+          : text,
       })
     }
   }
-  return findings
+  return [...findings, ...scanGoalArtifactStatus(path, text)]
 }
 
 function scanSurface(path: string): ClaimFinding[] {

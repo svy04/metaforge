@@ -1,5 +1,7 @@
 # Influence Factory Owner Review Console v16 Validation Report
 
+Historical local artifact boundary: this goal artifact records repo-local evidence only; it is not externally validated and does not claim production, release, or public readiness.
+
 ## Result
 
 RESULT: PASS
