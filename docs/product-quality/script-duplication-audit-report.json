@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T07:11:54.379Z",
+  "generatedAt": "2026-06-16T08:14:02.075Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,12 +9,12 @@
   ],
   "sourceProductScriptCount": 90,
   "helperOccurrenceCounts": {
-    "check": 70,
+    "check": 69,
     "readText": 34,
     "sha256Text": 0
   },
   "helperOccurrenceBaselines": {
-    "check": 70,
+    "check": 69,
     "readText": 34,
     "sha256Text": 0
   },
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 70,
+      "occurrenceCount": 69,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -61,10 +61,6 @@
         {
           "path": "scripts/product-git-release-hygiene.ts",
           "line": 81
-        },
-        {
-          "path": "scripts/product-github-remote-surface-audit.ts",
-          "line": 128
         },
         {
           "path": "scripts/product-ide-extension-host-smoke.ts",
@@ -160,7 +156,7 @@
         },
         {
           "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
-          "line": 186
+          "line": 191
         },
         {
           "path": "scripts/product-oss-onboarding-docs-evidence.ts",
@@ -368,7 +364,7 @@
         },
         {
           "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
-          "line": 169
+          "line": 174
         },
         {
           "path": "scripts/product-oss-onboarding-docs-evidence.ts",
@@ -476,19 +472,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 51.852ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 53.770ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "d5d09dd8895bdee015d122e846c8f8700e7c8a19027efb02b4a7c84dac1522bf",
+  "jscpdReportSha256": "dfa861bad9a4e55d713b2d6ba9ae5e6281e345a405465a0aa0c0484d19925efa",
   "jscpdCloneCount": 26,
   "jscpdCloneBaseline": 26,
   "jscpdDuplicatedLines": 774,
   "jscpdDuplicatedLinesBaseline": 774,
   "jscpdDuplicatedTokens": 4790,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.8927444794952681,
+  "jscpdDuplicatedPercentage": 1.892189218921892,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.8837724214144418,
+  "jscpdDuplicatedTokenPercentage": 1.883187343722971,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
@@ -564,8 +560,8 @@
     {
       "firstFile": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
       "secondFile": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
-      "firstStartLine": 162,
-      "firstEndLine": 190,
+      "firstStartLine": 167,
+      "firstEndLine": 195,
       "secondStartLine": 136,
       "secondEndLine": 164,
       "lines": 29,
@@ -752,7 +748,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":70,\"readText\":34,\"sha256Text\":0}"
+      "detail": "{\"check\":69,\"readText\":34,\"sha256Text\":0}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -767,7 +763,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":70,\"readText\":34,\"sha256Text\":0},\"baseline\":{\"check\":70,\"readText\":34,\"sha256Text\":0}}"
+      "detail": "{\"current\":{\"check\":69,\"readText\":34,\"sha256Text\":0},\"baseline\":{\"check\":69,\"readText\":34,\"sha256Text\":0}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -787,7 +783,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.8927444794952681/1.9"
+      "detail": "1.892189218921892/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

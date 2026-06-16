@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T00:01:36.491Z",
+  "generatedAt": "2026-06-16T08:13:11.236Z",
   "mode": "local_no_provider_protected_action_authorization_packet",
   "terminalCondition": "PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY",
   "packetStatus": "owner_authorization_required_before_protected_actions",
@@ -7,26 +7,26 @@
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.json",
       "exists": true,
-      "sha256": "688b47c9381b7689a80034942620b7b9638c8ab4a9f3e10a61bfd349ad1444a4",
-      "sizeBytes": 6104
+      "sha256": "75c64ff3be14d81e597debc3575e1eec05c548b4190bb083da04bce2f622262e",
+      "sizeBytes": 3654
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.json",
       "exists": true,
-      "sha256": "6c1a7d0ba4665d0ceff5c3e4b8173caa489f559064c47e54487f0da55096583e",
-      "sizeBytes": 4319
+      "sha256": "5fb08ec1ca6cc180c3d365185263108b12748e7e3b6754b18f8dccb1249bb512",
+      "sizeBytes": 3572
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
       "exists": true,
-      "sha256": "d2ccfe2fc7dc4ac30b08c0decb369e834dfcdd78bcb07df8020190d3646bcc4c",
-      "sizeBytes": 7164
+      "sha256": "0c023cb194b42e85200aacf60b92cedf1c4510c8a06e08403da895764819e011",
+      "sizeBytes": 5428
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.json",
       "exists": true,
-      "sha256": "c4d23221b6b360468e5f21ee8f07db40baba930b821de5f58f638014a31a041f",
-      "sizeBytes": 6071
+      "sha256": "2592de671cfc541d624e40041032648b9c9128608b0d4aa54fa0abd5d34086ef",
+      "sizeBytes": 5969
     },
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.json",
@@ -67,8 +67,8 @@
     {
       "path": "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
       "exists": true,
-      "sha256": "d5e15a60d3147df5927f4a7661964d755e4fcac8bb801944eec35d4279e85f04",
-      "sizeBytes": 22444
+      "sha256": "54485dddf55d7fea1a7dd6357844ddb4b610a5c852df9e5efcf59dfa2cc83e25",
+      "sizeBytes": 22658
     },
     {
       "path": "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
@@ -79,7 +79,7 @@
     {
       "path": "docs/product-quality/license-boundary-authorization-report.json",
       "exists": true,
-      "sha256": "42cb5ae0bc447c6e31442d6475bd441dbe34dec5bb55147d53da74d400c63c77",
+      "sha256": "ccea068922fa8f7a938d3ca7a0762acc636e8f48cf8ccfa5cb2fd02e6e985822",
       "sizeBytes": 15553
     },
     {
@@ -103,8 +103,8 @@
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
       "exists": true,
-      "sha256": "e194e489531f17cced92fd869605e07ff1b02d690f8aa331bdf010d44f7f384f",
-      "sizeBytes": 16496
+      "sha256": "6f6c2465b09ec391ee65419828f3f749c229879c8acad9d27fd3e7b080e84502",
+      "sizeBytes": 72707
     },
     {
       "path": "docs/product-quality/github-hosted-trust-posture-report.json",
@@ -155,8 +155,8 @@
         "docs/product-quality/vscode-startup-diagnostics-report.json",
         "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json"
       ],
-      "currentEvidence": "Product-quality gate remains blocked by a protected local VS Code boundary (vscode_cli_unavailable or vscode_update_in_progress), with real Extension Host evidence requiring explicit owner authorization before VS Code/PATH/install-state/update intervention.",
-      "requiredOwnerDecision": "Authorize or deny local VS Code CLI/PATH/install-state/update intervention, then rerun the real host/workbench/replay gates if authorized.",
+      "currentEvidence": "Product-quality gate classifies the local VS Code/PATH/install-state boundary. When VS Code is unavailable or update-blocked, intervention requires explicit owner authorization; when the boundary is currently clear, stronger availability/readiness claims still require the real host/workbench/replay gates to remain current and claim-bounded.",
+      "requiredOwnerDecision": "Authorize or deny local VS Code CLI/PATH/install-state/update intervention if the boundary is blocked, then rerun the real host/workbench/replay gates when intervention is authorized or fresh clear evidence is required.",
       "forbiddenShortcuts": [
         "Do not install or repair VS Code without explicit owner authorization.",
         "Do not modify user PATH or VS Code install state without explicit owner authorization.",
@@ -347,14 +347,14 @@
       "detail": "remediation_queue_required"
     },
     {
-      "label": "VS Code CLI/PATH/install-state boundary remains protected",
+      "label": "VS Code CLI/PATH/install-state boundary is classified",
       "ok": true,
-      "detail": "blocked_by_known_vscode_update_dependent_failures/blocked_wait_for_local_vscode_update_or_explicit_owner_process_action/vscode_core_update_guard_with_visible_codesetup_process"
+      "detail": "clear_no_current_vscode_update_dependent_failures/clear_no_current_vscode_update_boundary/clear_no_current_update_guard_evidence"
     },
     {
       "label": "IDE/editor surface availability boundary remains protected",
       "ok": true,
-      "detail": "true/false/false"
+      "detail": "true/false/true/false"
     },
     {
       "label": "Git repository commit/push boundary remains protected",
