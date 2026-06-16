@@ -114,6 +114,40 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('LICENSE')
   })
 
+  test('scans root support docs for local path disclosure', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'SUPPORT.md'),
+      `Support packet copied from ${windowsPrivatePath}\n`,
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('SUPPORT.md')
+  })
+
+  test('rejects actual-looking public credential tokens', () => {
+    const repo = makeTempRepo()
+    const githubToken = 'ghp_' + 'A'.repeat(36)
+    const awsKey = 'AKIA' + 'A'.repeat(16)
+    const slackToken = 'xoxb-' + 'A'.repeat(12)
+    writeFileSync(
+      join(repo, 'README.md'),
+      [
+        `GITHUB_TOKEN=${githubToken}`,
+        `AWS_ACCESS_KEY_ID=${awsKey}`,
+        `SLACK_BOT_TOKEN=${slackToken}`,
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('github-token')
+  })
+
   test('scans the canonical VS Code extension README for local path disclosure', () => {
     const repo = makeTempRepo()
     const extensionDir = join(repo, 'packages', 'openclaude-vscode')
@@ -127,5 +161,35 @@ describe('public artifact hygiene scanner', () => {
 
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('packages/openclaude-vscode/README.md')
+  })
+
+  test('scans the canonical VS Code extension package manifest for local path disclosure', () => {
+    const repo = makeTempRepo()
+    const extensionDir = join(repo, 'packages', 'openclaude-vscode')
+    mkdirSync(extensionDir, { recursive: true })
+    writeFileSync(
+      join(extensionDir, 'package.json'),
+      JSON.stringify({ description: `Derived runtime note copied from ${windowsPrivatePath}` }),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('packages/openclaude-vscode/package.json')
+  })
+
+  test('scans the legacy VS Code extension package manifest for local path disclosure', () => {
+    const repo = makeTempRepo()
+    const extensionDir = join(repo, 'vscode-extension', 'openclaude-vscode')
+    mkdirSync(extensionDir, { recursive: true })
+    writeFileSync(
+      join(extensionDir, 'package.json'),
+      JSON.stringify({ description: `Derived runtime note copied from ${windowsPrivatePath}` }),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('vscode-extension/openclaude-vscode/package.json')
   })
 })
