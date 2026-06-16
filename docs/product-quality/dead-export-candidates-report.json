@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T23:58:22.516Z",
+  "generatedAt": "2026-06-16T01:47:07.207Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -153,20 +153,6 @@
       ]
     },
     {
-      "file": "src/constants/prompts.ts",
-      "unusedExports": 5,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "CLAUDE_CODE_DOCS_MAP_URL",
-        "computeEnvInfo",
-        "computeSimpleEnvInfo",
-        "getUnameSR",
-        "getScratchpadInstructions"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/state/AppState.tsx",
       "unusedExports": 2,
       "unusedTypes": 3,
@@ -219,6 +205,20 @@
         "canYankPop",
         "VIM_WORD_CHAR_REGEX",
         "WHITESPACE_REGEX"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/constants/prompts.ts",
+      "unusedExports": 5,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "CLAUDE_CODE_DOCS_MAP_URL",
+        "computeEnvInfo",
+        "computeSimpleEnvInfo",
+        "getUnameSR",
+        "getScratchpadInstructions"
       ],
       "sampleTypes": []
     },
@@ -342,6 +342,83 @@
       "sampleTypes": []
     }
   ],
+  "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
+  "triageRecordCount": 6,
+  "triageCurrentCandidateCount": 6,
+  "triageActionCounts": {
+    "needs_runtime_guard": 4,
+    "review_for_removal": 2,
+    "defer_public_api": 0,
+    "keep_until_entrypoint_proven": 0
+  },
+  "triageRecords": [
+    {
+      "file": "src/commands.ts",
+      "symbol": "meetsAvailabilityRequirement",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Command availability affects runtime command routing and can be reached indirectly through registry behavior rather than direct imports.",
+      "guardrail": "Before removal, add a command-registry happy-path test and an unavailable-command edge-case test.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/commands.ts",
+      "symbol": "BRIDGE_SAFE_COMMANDS",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Bridge allowlist exports are security-sensitive even when static imports are absent, because host integrations can depend on stable command policy.",
+      "guardrail": "Before removal, run or add bridge command policy tests that prove safe command filtering still blocks protected actions.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/services/api/providerConfig.ts",
+      "symbol": "resolveStoredCodexCredentials",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
+      "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/utils/providerProfile.ts",
+      "symbol": "buildNvidiaNimProfileEnv",
+      "kind": "export",
+      "action": "review_for_removal",
+      "rationale": "Provider-profile env builders are likely ordinary module exports, but each provider preset may still be referenced by docs or profile bootstrap flows.",
+      "guardrail": "Before removal, run provider profile tests and search docs/bootstrap scripts for provider preset references.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/utils/geminiCredentials.ts",
+      "symbol": "clearGeminiAccessToken",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
+      "guardrail": "Before removal, add credential lifecycle tests that prove stored-token clear, missing-token no-op, and no secret logging behavior.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/bridge/sessionRunner.ts",
+      "symbol": "_extractActivitiesForTesting",
+      "kind": "export",
+      "action": "review_for_removal",
+      "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
+      "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    }
+  ],
   "primarySourceInputs": [
     {
       "sourceType": "oss_tool",
@@ -415,6 +492,26 @@
       "label": "duplicate export candidates do not exceed baseline",
       "ok": true,
       "detail": "12/12"
+    },
+    {
+      "label": "dead export triage ledger records reviewed candidates",
+      "ok": true,
+      "detail": "6 records"
+    },
+    {
+      "label": "dead export triage entries remain current",
+      "ok": true,
+      "detail": "6/6"
+    },
+    {
+      "label": "dead export triage has runtime guard and removal-review actions",
+      "ok": true,
+      "detail": "{\"needs_runtime_guard\":4,\"review_for_removal\":2,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+    },
+    {
+      "label": "dead export triage records guardrails and rationales",
+      "ok": true,
+      "detail": "6 records"
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",

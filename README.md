@@ -14,6 +14,8 @@ Orchestra is the runtime-wired layer in this package today. Meta and MFH are gov
 
 Origin and license boundary: this repository contains runtime code derived from Anthropic's Claude Code CLI. OpenClaude contributor modifications are offered under MIT where legally permissible; this is not a blanket MIT license over the derived runtime. See [LICENSE](LICENSE) before reusing or redistributing code from this repository.
 
+Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; public claims must come from source-controlled tests, reports, and claim-boundary records.
+
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-see_LICENSE-2563eb)](LICENSE)
