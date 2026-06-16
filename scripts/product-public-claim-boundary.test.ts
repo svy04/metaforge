@@ -109,6 +109,47 @@ describe('product public claim boundary classifier', () => {
     expect(findings[0]?.contextText).toContain('Claim mention: - The system is production-ready.')
   })
 
+  test('does not let prior unrelated negative context hide a later positive claim', () => {
+    const findings = scanClaimText(
+      'README.md',
+      [
+        'Boundary: this does not prove production readiness.',
+        '',
+        'Metaforge is production-ready for public customers.',
+      ].join('\n'),
+    )
+
+    expect(findings.map((finding) => finding.status)).toEqual([
+      'blocked_context',
+      'unauthorized_positive_claim',
+    ])
+    expect(findings[1]?.text).toBe('Metaforge is production-ready for public customers.')
+  })
+
+  test('keeps markdown-wrapped boundary continuations blocked', () => {
+    const findings = scanClaimText(
+      'AGENTS.md',
+      [
+        '- Benchmarks need command, input, output, and claim-boundary evidence before',
+        '  public readiness wording.',
+      ].join('\n'),
+    )
+
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.status).toBe('blocked_context')
+    expect(findings[0]?.contextText).toContain('Benchmarks need command')
+  })
+
+  test('treats unless clauses as conditional claim boundaries', () => {
+    const findings = scanClaimText(
+      'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
+      'Public proof routes remain bounded unless external validation actually happens.',
+    )
+
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.status).toBe('blocked_context')
+  })
+
   test('keeps same-line blocking language when long excerpts are shortened', () => {
     const longEvidenceList = [
       ...Array.from({ length: 24 }, (_, index) => `local evidence item ${index + 1}`),
