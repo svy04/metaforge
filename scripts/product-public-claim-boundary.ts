@@ -1,12 +1,7 @@
-import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
-}
+import { check, fileSha256, readText, sha256, type Check } from './quality-report-helpers'
 
 type PublicSurface = {
   path: string
@@ -171,32 +166,19 @@ const blockedContextTerms = [
 ]
 const blockedContextLookbackLines = 8
 
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function readText(path: string): string {
-  return readFileSync(resolve(root, path), 'utf8')
-}
-
 function fileSurface(path: string): PublicSurface {
   const absolutePath = resolve(root, path)
   if (!existsSync(absolutePath)) {
     return { path, exists: false, sha256: null, sizeBytes: 0, lineCount: 0 }
   }
-  const bytes = readFileSync(absolutePath)
-  const text = bytes.toString('utf8')
+  const text = readText(path, root)
   return {
     path,
     exists: true,
-    sha256: sha256(bytes),
-    sizeBytes: bytes.byteLength,
+    sha256: fileSha256(path, root),
+    sizeBytes: Buffer.byteLength(text, 'utf8'),
     lineCount: text.split(/\r?\n/).length,
   }
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
 }
 
 function isBlockedContext(context: string): boolean {
