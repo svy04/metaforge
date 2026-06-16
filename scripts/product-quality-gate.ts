@@ -4830,6 +4830,7 @@ function main(): void {
   checks.push(check('trace redaction policy defines redaction rules', traceRedactionPolicy.redactionRules.length >= 5 && ['credentials_and_tokens', 'provider_request_identifiers', 'raw_prompt_and_completion_payloads', 'local_path_and_environment_details', 'raw_trace_identity'].every((id) => traceRedactionPolicy.redactionRules.some((rule) => rule.id === id))))
   checks.push(check('trace redaction policy has explicit capture workflow', traceRedactionPolicy.captureWorkflow.length >= 5 && traceRedactionPolicy.captureWorkflow.some((step) => step.includes('explicit operator')) && traceRedactionPolicy.captureWorkflow.some((step) => step.includes('quarantine'))))
   checks.push(check('trace redaction policy finds no raw credential patterns', traceRedactionPolicy.scannedRawTraceFiles.every((trace) => !trace.credentialPatternFound)))
+  checks.push(check('trace redaction policy finds no raw provider request id patterns', traceRedactionPolicy.scannedRawTraceFiles.every((trace) => !trace.providerRequestIdPatternFound)))
   checks.push(check('trace redaction policy checks pass', traceRedactionPolicy.policyChecks.every((item) => item.ok)))
   checks.push(check('benchmark readiness is local no-provider check', benchmarkReadiness.mode === 'local_no_provider_benchmark_readiness_matrix'))
   checks.push(check('benchmark readiness performed no provider calls', benchmarkReadiness.providerCallsPerformed.length === 0))

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T13:04:03.830Z",
+  "generatedAt": "2026-06-16T00:01:32.696Z",
   "mode": "github_hosted_trust_posture_readonly",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
@@ -75,16 +75,16 @@
   },
   "codeScanning": {
     "status": "available",
-    "openAlertCount": 436,
+    "openAlertCount": 433,
     "byRuleSeverity": {
       "note": 202,
-      "warning": 226,
+      "warning": 223,
       "error": 8
     },
     "bySecuritySeverity": {
       "unknown": 270,
       "medium": 116,
-      "high": 50
+      "high": 47
     },
     "topRules": [
       {
@@ -100,12 +100,12 @@
         "count": 33
       },
       {
-        "ruleId": "js/insecure-temporary-file",
-        "count": 23
+        "ruleId": "js/file-system-race",
+        "count": 21
       },
       {
-        "ruleId": "js/file-system-race",
-        "count": 22
+        "ruleId": "js/insecure-temporary-file",
+        "count": 21
       },
       {
         "ruleId": "js/trivial-conditional",
@@ -131,74 +131,74 @@
   },
   "latestMainRuns": [
     {
-      "conclusion": "success",
-      "headSha": "d6878b6a420355a2e54334109cd0beb9f60969d9",
-      "name": "PR Checks",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27547135209"
+      "conclusion": "",
+      "headSha": "a2a4b38e79f7b01553d4a9ac4256c241e941afd0",
+      "name": "CodeQL",
+      "status": "in_progress",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583537947"
     },
     {
       "conclusion": "success",
-      "headSha": "d6878b6a420355a2e54334109cd0beb9f60969d9",
+      "headSha": "a2a4b38e79f7b01553d4a9ac4256c241e941afd0",
       "name": "Release Boundary",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27547135164"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583537959"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "a2a4b38e79f7b01553d4a9ac4256c241e941afd0",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583537942"
     },
     {
       "conclusion": "",
-      "headSha": "d6878b6a420355a2e54334109cd0beb9f60969d9",
+      "headSha": "1cd4819d39ba405e2b1f40a0ef8fe1ae1502dce2",
       "name": "CodeQL",
       "status": "in_progress",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27547134907"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583200499"
     },
     {
       "conclusion": "success",
-      "headSha": "df80cf2ca95d00522e1b7554be6b09479e90566d",
-      "name": "PR Checks",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27546476667"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "df80cf2ca95d00522e1b7554be6b09479e90566d",
+      "headSha": "1cd4819d39ba405e2b1f40a0ef8fe1ae1502dce2",
       "name": "Release Boundary",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27546476650"
-    },
-    {
-      "conclusion": "",
-      "headSha": "df80cf2ca95d00522e1b7554be6b09479e90566d",
-      "name": "CodeQL",
-      "status": "in_progress",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27546476648"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583200424"
     },
     {
       "conclusion": "success",
-      "headSha": "d6316ef96b64f154115f52191bd9c599d269ea0b",
+      "headSha": "1cd4819d39ba405e2b1f40a0ef8fe1ae1502dce2",
       "name": "PR Checks",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27544755993"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27583200419"
     },
     {
       "conclusion": "success",
-      "headSha": "d6316ef96b64f154115f52191bd9c599d269ea0b",
+      "headSha": "747bb0974e2579007106c8bb5e4a5ddccdeb15c6",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27581980214"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "747bb0974e2579007106c8bb5e4a5ddccdeb15c6",
       "name": "Release Boundary",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27544755958"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27581980212"
     },
     {
       "conclusion": "success",
-      "headSha": "d6316ef96b64f154115f52191bd9c599d269ea0b",
-      "name": "CodeQL",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27544755967"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "7491d6092ed93007a9b5782ca004c548b0403e99",
+      "headSha": "747bb0974e2579007106c8bb5e4a5ddccdeb15c6",
       "name": "PR Checks",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27543187727"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27581980218"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "1e293e4ce21b4ffd93d9c1bd0c3c5ba15359e371",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27577935429"
     }
   ],
   "risks": [
@@ -235,12 +235,12 @@
     {
       "category": "code_scanning_alert_backlog",
       "severity": "high",
-      "detail": "436 open code scanning alerts."
+      "detail": "433 open code scanning alerts."
     },
     {
       "category": "main_workflow_not_green",
       "severity": "medium",
-      "detail": "CodeQL is in_progress/: https://github.com/svy04/metaforge/actions/runs/27547134907"
+      "detail": "CodeQL is in_progress/: https://github.com/svy04/metaforge/actions/runs/27583537947"
     }
   ],
   "riskCount": 8,
