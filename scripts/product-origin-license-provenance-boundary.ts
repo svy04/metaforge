@@ -1,10 +1,9 @@
-import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { argv, exit } from 'node:process'
 import { spawnSync } from 'node:child_process'
 
-import { check, readText, type Check } from './quality-report-helpers'
+import { check, fileSha256, readText, type Check } from './quality-report-helpers'
 
 type PackageJson = {
   name?: string
@@ -92,16 +91,8 @@ export function originLicenseProvenanceMode(args = argv): 'check' | 'write' {
   return args.includes('--check') ? 'check' : 'write'
 }
 
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
 function readJson<T>(path: string): T {
   return JSON.parse(readText(path)) as T
-}
-
-function fileSha256(path: string): string {
-  return sha256(readFileSync(resolve(root, path)))
 }
 
 function packageRepositoryUrl(pkg: PackageJson): string | null {
