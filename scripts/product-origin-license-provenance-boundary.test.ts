@@ -1,7 +1,9 @@
+import { readFileSync } from 'node:fs'
 import { describe, expect, test } from 'bun:test'
 import {
   analyzeOriginLicenseProvenanceBoundary,
   buildOriginLicenseProvenanceJsonl,
+  originLicenseProvenanceMode,
 } from './product-origin-license-provenance-boundary'
 
 const cleanInput = {
@@ -152,5 +154,20 @@ describe('origin/license provenance boundary', () => {
       status: 'no_origin_license_provenance_boundary_findings',
       blockerCount: 0,
     })
+  })
+
+  test('exposes no-write check mode and wires privacy verification to it', () => {
+    const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    expect(originLicenseProvenanceMode(['bun', 'script'])).toBe('write')
+    expect(originLicenseProvenanceMode(['bun', 'script', '--check'])).toBe('check')
+    expect(packageJson.scripts['product:origin-license-provenance-boundary:check']).toBe(
+      'bun run scripts/product-origin-license-provenance-boundary.ts --check',
+    )
+    expect(packageJson.scripts['verify:privacy']).toContain(
+      'product:origin-license-provenance-boundary:check',
+    )
   })
 })
