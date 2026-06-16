@@ -18,6 +18,7 @@ export type ClaimFinding = {
   category: string
   status: 'blocked_context' | 'unauthorized_positive_claim'
   text: string
+  contextText: string
 }
 
 type ClaimPattern = {
@@ -190,15 +191,84 @@ function redactLine(line: string): string {
   return line.trim().replace(/\s+/g, ' ').slice(0, 240)
 }
 
+function compactLine(line: string): string {
+  return line.trim().replace(/\s+/g, ' ')
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function blockedTermMatchIndex(text: string, term: string): number {
+  const normalizedTerm = term.trim()
+  if (/^[a-z0-9 ]+$/i.test(normalizedTerm)) {
+    const pattern = new RegExp(`\\b${escapeRegExp(normalizedTerm).replace(/\s+/g, '\\s+')}\\b`, 'i')
+    const match = pattern.exec(text)
+    return match?.index ?? -1
+  }
+
+  return text.toLowerCase().indexOf(term.toLowerCase())
+}
+
+function findBlockedTermIndex(text: string): number {
+  const prioritizedTerms = [...blockedContextTerms].sort((left, right) => right.trim().length - left.trim().length)
+  for (const term of prioritizedTerms) {
+    const index = blockedTermMatchIndex(text, term)
+    if (index >= 0) {
+      return index
+    }
+  }
+
+  return -1
+}
+
+function redactBlockingLine(line: string): string {
+  const compact = compactLine(line)
+  if (compact.length <= 240) {
+    return compact
+  }
+
+  const termIndex = findBlockedTermIndex(compact)
+  if (termIndex < 0) {
+    return redactLine(compact)
+  }
+
+  const start = Math.max(0, termIndex - 80)
+  const end = Math.min(compact.length, termIndex + 200)
+  const prefix = start > 0 ? '... ' : ''
+  const suffix = end < compact.length ? ' ...' : ''
+  return `${prefix}${compact.slice(start, end)}${suffix}`
+}
+
+function blockedContextText(contextLines: string[], claimLine: string): string {
+  const blockingLine = [...contextLines].reverse().find((candidate) => isBlockedContext(candidate))
+
+  if (blockingLine && blockingLine !== claimLine) {
+    return `Blocked context: ${redactBlockingLine(blockingLine)} Claim mention: ${claimLine}`
+  }
+
+  return `Blocked context: ${redactBlockingLine(blockingLine ?? claimLine)}`
+}
+
+function findingReportText(finding: ClaimFinding): string {
+  return finding.status === 'blocked_context' ? finding.contextText : finding.text
+}
+
+export function markdownCell(text: string): string {
+  return text.replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+}
+
 export function scanClaimText(path: string, text: string): ClaimFinding[] {
   const lines = text.split(/\r?\n/)
   const findings: ClaimFinding[] = []
   for (const [index, line] of lines.entries()) {
-    const context = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1).join('\n')
+    const contextLines = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1)
+    const context = contextLines.join('\n')
     for (const claimPattern of claimPatterns) {
       if (!claimPattern.pattern.test(line)) {
         continue
       }
+      const text = redactLine(line)
       const status = isBlockedContext(context) ? 'blocked_context' : 'unauthorized_positive_claim'
       findings.push({
         path,
@@ -206,7 +276,8 @@ export function scanClaimText(path: string, text: string): ClaimFinding[] {
         phrase: claimPattern.phrase,
         category: claimPattern.category,
         status,
-        text: redactLine(line),
+        text,
+        contextText: status === 'blocked_context' ? blockedContextText(contextLines, text) : text,
       })
     }
   }
@@ -227,12 +298,12 @@ function writeMarkdown(report: PublicClaimBoundaryReport): void {
   const blockedRows = report.blockedContextClaimMentions.length === 0
     ? '| none | none | none | none |'
     : report.blockedContextClaimMentions
-      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${finding.text} |`)
+      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${markdownCell(findingReportText(finding))} |`)
       .join('\n')
   const unauthorizedRows = report.unauthorizedPositiveClaims.length === 0
     ? '| none | none | none | none |'
     : report.unauthorizedPositiveClaims
-      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${finding.text} |`)
+      .map((finding) => `| \`${finding.path}:${finding.line}\` | \`${finding.category}\` | \`${finding.phrase}\` | ${markdownCell(findingReportText(finding))} |`)
       .join('\n')
   const checkRows = report.evidenceChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
