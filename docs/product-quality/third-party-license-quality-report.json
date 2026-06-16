@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:22:10.114Z",
+  "generatedAt": "2026-06-15T23:58:26.212Z",
   "mode": "local_no_provider_third_party_license_quality",
   "inventoryFormat": "openclaude_third_party_license_inventory_v1",
   "primarySourceInputs": [
@@ -29,36 +29,37 @@
     }
   ],
   "sourceLockfileSbomReportPath": "docs/product-quality/lockfile-sbom-quality-report.json",
-  "sourceLockfileSbomReportSha256": "6cf0b3dbb8f4c63c577ce0bffe30f6b442da8e4b35827abe711f4fc3e544c676",
+  "sourceLockfileSbomReportSha256": "b58f330eb5ad3822026d14456c75feca2bff9e20c62fb97e147ba2cd423b1873",
   "sourceLockfileInventoryJsonlPath": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-  "sourceLockfileInventoryJsonlSha256": "94bc39a037e70ba3204972e268eb6294229e66fcbf8146623261ef43e7e2af43",
-  "sourceLockfilePackageCount": 852,
+  "sourceLockfileInventoryJsonlSha256": "90c95abd913c22a8bebdb927253bc260b021bc40a998970897be6fe48470fb5c",
+  "sourceLockfilePackageCount": 859,
   "rootLicensePath": "LICENSE",
   "rootLicenseSha256": "18790f1e116de407d01c740fea14832d3569870212e506cc3b6290fc92e2b061",
   "nodeModulesPath": "node_modules",
   "nodeModulesPresent": true,
-  "directManifestDependencyCount": 96,
+  "directManifestDependencyCount": 97,
   "directManifestDependenciesCoveredByMetadata": true,
   "missingDirectManifestDependencyMetadata": [],
-  "installedMetadataPackageCount": 472,
-  "missingMetadataPackageCount": 380,
-  "licenseFieldPresentCount": 472,
+  "installedMetadataPackageCount": 474,
+  "missingMetadataPackageCount": 385,
+  "licenseFieldPresentCount": 474,
   "licenseFieldMissingPackages": [],
-  "directLicenseFieldPresentCount": 96,
+  "directLicenseFieldPresentCount": 97,
   "directLicenseFieldMissingPackages": [],
-  "licenseFilePresentCount": 457,
+  "licenseFilePresentCount": 458,
   "directLicenseFileMissingPackages": [
     "@growthbook/growthbook",
     "emoji-regex",
     "ignore",
+    "jscpd",
     "react-compiler-runtime",
     "type-fest"
   ],
   "noticeFilePresentCount": 0,
-  "installedRepositoryUrlCount": 467,
+  "installedRepositoryUrlCount": 469,
   "inventoryJsonlPath": "reports/openclaude-third-party-license-inventory.jsonl",
-  "inventoryJsonlSha256": "77c9a3dca857afd70003b1378e3b77c6b9d76dbe53229ad239fbddb2d78fa677",
-  "inventoryJsonlRecordCount": 852,
+  "inventoryJsonlSha256": "ab96a3e57a091098b7abee9536df0aad18d1957890754efa50912b6fc4d085a0",
+  "inventoryJsonlRecordCount": 859,
   "inventoryJsonlParseable": true,
   "licenseMetadataRecords": [
     {
@@ -11037,6 +11038,122 @@
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-darwin-arm64",
+      "name": "cpd-darwin-arm64",
+      "version": "5.0.9",
+      "packageRef": "cpd-darwin-arm64@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "d1eb5a751a397b2cf9d6eadb8d79d7ac487fcea46c77249e7a459e5f14a49ced"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-darwin-x64",
+      "name": "cpd-darwin-x64",
+      "version": "5.0.9",
+      "packageRef": "cpd-darwin-x64@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "cdd7458c116e213f266a93f68a01621b8bede54aefede6871334f05c3f1228c6"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-linux-arm64-gnu",
+      "name": "cpd-linux-arm64-gnu",
+      "version": "5.0.9",
+      "packageRef": "cpd-linux-arm64-gnu@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "55b78014bf89b0ade4a468b5f31a078ecc9d4a6275cd64eec88bdf48f1ad3eea"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-linux-x64-gnu",
+      "name": "cpd-linux-x64-gnu",
+      "version": "5.0.9",
+      "packageRef": "cpd-linux-x64-gnu@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "0ef26c86b9301d041bcfa92fa56f7ac76d10f4224115b958a2b9ec4ad613d84a"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-linux-x64-musl",
+      "name": "cpd-linux-x64-musl",
+      "version": "5.0.9",
+      "packageRef": "cpd-linux-x64-musl@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": null,
+      "packageJsonSha256": null,
+      "metadataStatus": "missing_from_node_modules",
+      "licenseFieldPresent": false,
+      "licenseFieldKind": "missing",
+      "licenseExpression": null,
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": null,
+      "recordDigest": "16ea3a26bb1c3f18e055e7c0edda8b6971c139b45c1625f8f5a4772ee7d11bbd"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "cpd-windows-x64-msvc",
+      "name": "cpd-windows-x64-msvc",
+      "version": "5.0.9",
+      "packageRef": "cpd-windows-x64-msvc@5.0.9",
+      "directManifestDependency": false,
+      "packageJsonPath": "node_modules/cpd-windows-x64-msvc/package.json",
+      "packageJsonSha256": "54a680ae24893a213616cdabb696cba805926724924430afb5d588008ce57dd8",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": true,
+      "licenseFilePaths": [
+        "node_modules/cpd-windows-x64-msvc/LICENSE"
+      ],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/kucherenko/jscpd.git",
+      "recordDigest": "d6a5e6ace1e8d4422bee6fe758a3ad4891c30d2ea0dc19bd33eb56d5c83a80d2"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
       "packageKey": "cross-spawn",
       "name": "cross-spawn",
       "version": "7.0.6",
@@ -13299,6 +13416,25 @@
       "noticeFilePaths": [],
       "repositoryUrl": "panva/jose",
       "recordDigest": "87b73e22b64ffaefa4bb69ada4118111be5eaa763862f61f32ac879a9bc8f0ee"
+    },
+    {
+      "schemaVersion": "openclaude_third_party_license_inventory_v1",
+      "packageKey": "jscpd",
+      "name": "jscpd",
+      "version": "5.0.9",
+      "packageRef": "jscpd@5.0.9",
+      "directManifestDependency": true,
+      "packageJsonPath": "node_modules/jscpd/package.json",
+      "packageJsonSha256": "24fb545bb1c8948ca8c8dbaa4ae3641742703634e34ed8afb30349ee85fcf187",
+      "metadataStatus": "metadata_found",
+      "licenseFieldPresent": true,
+      "licenseFieldKind": "spdx_string",
+      "licenseExpression": "MIT",
+      "hasLicenseFile": false,
+      "licenseFilePaths": [],
+      "noticeFilePaths": [],
+      "repositoryUrl": "git+https://github.com/kucherenko/jscpd.git",
+      "recordDigest": "97abd9d451a18cde707e8d0b9f99d765daeb8104dbd4addd83d3c02fb089b27f"
     },
     {
       "schemaVersion": "openclaude_third_party_license_inventory_v1",
@@ -17194,7 +17330,7 @@
     {
       "label": "source lockfile inventory is parseable",
       "ok": true,
-      "detail": "852 records"
+      "detail": "859 records"
     },
     {
       "label": "root project license file is present",
@@ -17209,27 +17345,27 @@
     {
       "label": "every direct manifest dependency has local package metadata",
       "ok": true,
-      "detail": "96/96"
+      "detail": "97/97"
     },
     {
       "label": "installed package metadata includes license fields",
       "ok": true,
-      "detail": "472/472"
+      "detail": "474/474"
     },
     {
       "label": "direct dependency license fields are complete",
       "ok": true,
-      "detail": "96/96"
+      "detail": "97/97"
     },
     {
       "label": "license and notice file gaps are classified without claiming readiness",
       "ok": true,
-      "detail": "5 direct license-file gaps; 0 installed notice-file records"
+      "detail": "6 direct license-file gaps; 0 installed notice-file records"
     },
     {
       "label": "inventory JSONL has one record per lockfile package",
       "ok": true,
-      "detail": "852 records"
+      "detail": "859 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",

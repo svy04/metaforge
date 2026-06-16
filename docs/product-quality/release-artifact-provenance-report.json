@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:23:32.056Z",
+  "generatedAt": "2026-06-16T00:00:08.170Z",
   "mode": "local_no_provider_release_artifact_hash_sbom_provenance",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -27,7 +27,7 @@
       "path": "dist/cli.mjs",
       "exists": true,
       "sizeBytes": 21038494,
-      "sha256": "c2735ba308346e45276d85f633b45a834f94f6b96208d6b6fe994398337a26d8"
+      "sha256": "d211897bff7756f8f1f5d72212348114a28708bf6aea2efee4e4709be68fdb98"
     },
     {
       "path": "LICENSE",
@@ -38,8 +38,8 @@
     {
       "path": "package.json",
       "exists": true,
-      "sizeBytes": 20066,
-      "sha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16"
+      "sizeBytes": 20088,
+      "sha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc"
     },
     {
       "path": "README.ko.md",
@@ -131,6 +131,12 @@
     {
       "name": "dependency-cruiser",
       "versionRange": "17.4.3",
+      "scope": "development",
+      "source": "package.json.devDependencies"
+    },
+    {
+      "name": "jscpd",
+      "versionRange": "5.0.9",
       "scope": "development",
       "source": "package.json.devDependencies"
     },
@@ -685,7 +691,7 @@
     {
       "label": "SBOM inventory includes development components",
       "ok": true,
-      "detail": "16"
+      "detail": "17"
     },
     {
       "label": "provider calls were not performed",

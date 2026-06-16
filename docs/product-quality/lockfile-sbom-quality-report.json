@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:22:09.805Z",
+  "generatedAt": "2026-06-15T23:58:25.370Z",
   "mode": "local_no_provider_lockfile_sbom_quality",
   "inventoryFormat": "openclaude_lockfile_inventory_v1",
   "primarySourceInputs": [
@@ -29,26 +29,26 @@
     }
   ],
   "packageJsonPath": "package.json",
-  "packageJsonSha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16",
+  "packageJsonSha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc",
   "bunLockPath": "bun.lock",
-  "bunLockSha256": "c439d05b423f930e0345e314ff229ba680ab9790e058c885dbf0c844de499114",
-  "bunLockSizeBytes": 223511,
+  "bunLockSha256": "6c799f62f98cc6d8c7ed9ffdef1e4938017841de44da04702baa5dfa72ab8d34",
+  "bunLockSizeBytes": 225100,
   "bunLockTextStructureRecognized": true,
   "bunLockfileVersion": 1,
   "rootWorkspaceDependencyCount": 80,
-  "rootWorkspaceDevDependencyCount": 16,
-  "directManifestDependencyCount": 96,
-  "lockfilePackageCount": 852,
+  "rootWorkspaceDevDependencyCount": 17,
+  "directManifestDependencyCount": 97,
+  "lockfilePackageCount": 859,
   "lockfilePackageCountExceedsDirectDependencies": true,
-  "packagesWithIntegrityCount": 852,
+  "packagesWithIntegrityCount": 859,
   "packagesMissingIntegrity": [],
-  "packagesWithDependencyMetadataCount": 523,
-  "lockfileRelationshipCount": 1780,
+  "packagesWithDependencyMetadataCount": 524,
+  "lockfileRelationshipCount": 1786,
   "directManifestDependenciesCovered": true,
   "missingDirectManifestDependencies": [],
   "inventoryJsonlPath": "reports/openclaude-lockfile-sbom-inventory.jsonl",
-  "inventoryJsonlSha256": "94bc39a037e70ba3204972e268eb6294229e66fcbf8146623261ef43e7e2af43",
-  "inventoryJsonlRecordCount": 852,
+  "inventoryJsonlSha256": "90c95abd913c22a8bebdb927253bc260b021bc40a998970897be6fe48470fb5c",
+  "inventoryJsonlRecordCount": 859,
   "inventoryJsonlParseable": true,
   "lockfilePackageRecords": [
     {
@@ -7889,6 +7889,72 @@
       "recordDigest": "32823891529a2c57c54b471452c8fb80632a25a99d2b1df465057678625e2e57"
     },
     {
+      "packageKey": "cpd-darwin-arm64",
+      "packageRef": "cpd-darwin-arm64@5.0.9",
+      "name": "cpd-darwin-arm64",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "e9c243e02c949eaa58c94c485969d8cb8a2e19e58074c12d3e53be73a7775b99",
+      "recordDigest": "80a465263660d79082e096df8539e67e6a3a5d7eb11c47d42e8253f69ce0a1ca"
+    },
+    {
+      "packageKey": "cpd-darwin-x64",
+      "packageRef": "cpd-darwin-x64@5.0.9",
+      "name": "cpd-darwin-x64",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "fd28faf160bd6b59b6c7b4d0846b6175ca1e61859b691b77911941bc31e9fd4f",
+      "recordDigest": "719dc3d1432b3048c367e1f2f9993f8801a8abb095498bacf0356b3cde996092"
+    },
+    {
+      "packageKey": "cpd-linux-arm64-gnu",
+      "packageRef": "cpd-linux-arm64-gnu@5.0.9",
+      "name": "cpd-linux-arm64-gnu",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "bdb51fa0b2055fdb815d1c1e5b5b2354244c4b9f9ccaa8fe4ad98458c1e525a8",
+      "recordDigest": "e6c5e6f9b43528f9da47e2be47668b59e401822416c8baaefea6ac1df794f860"
+    },
+    {
+      "packageKey": "cpd-linux-x64-gnu",
+      "packageRef": "cpd-linux-x64-gnu@5.0.9",
+      "name": "cpd-linux-x64-gnu",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "08b03381d801f09654169a2bf724a38a6c93343f26a747d9ed1f5ec556728edf"
+    },
+    {
+      "packageKey": "cpd-linux-x64-musl",
+      "packageRef": "cpd-linux-x64-musl@5.0.9",
+      "name": "cpd-linux-x64-musl",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "88aa919082aa9a3cccf291a8e2437f44f754a9dfab9daa6c14b0a75ab126a3aa",
+      "recordDigest": "2ba67e4e2671f02b3ed4a2b5962e4d59166b64fb3e4352304d977a6fe9569362"
+    },
+    {
+      "packageKey": "cpd-windows-x64-msvc",
+      "packageRef": "cpd-windows-x64-msvc@5.0.9",
+      "name": "cpd-windows-x64-msvc",
+      "version": "5.0.9",
+      "dependencyNames": [],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "85ca15ace84a8d24e4c1b4e9198a595be8d384e164e9dc09a5aacf064e1ed9c9",
+      "recordDigest": "b4ba89ba21862c29b5cd744a4712b49dc6582275a8bf16e87e3237985740fb4d"
+    },
+    {
       "packageKey": "cross-spawn",
       "packageRef": "cross-spawn@7.0.6",
       "name": "cross-spawn",
@@ -9327,6 +9393,24 @@
       "integrityPresent": true,
       "metadataDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "recordDigest": "b67ea4dd9e7d745e3d20f6c05382af5d08c39875d544ded2609635077034b3a2"
+    },
+    {
+      "packageKey": "jscpd",
+      "packageRef": "jscpd@5.0.9",
+      "name": "jscpd",
+      "version": "5.0.9",
+      "dependencyNames": [
+        "cpd-darwin-arm64",
+        "cpd-darwin-x64",
+        "cpd-linux-arm64-gnu",
+        "cpd-linux-x64-gnu",
+        "cpd-linux-x64-musl",
+        "cpd-windows-x64-msvc"
+      ],
+      "integrityAlgorithm": "sha512",
+      "integrityPresent": true,
+      "metadataDigest": "879f9c8e6188738260f162de04c19c96ec0da326a7a8cf44fe794855d2e0706f",
+      "recordDigest": "c30b2e42fdbec7447912805551fdb776936cc127c38538fb4660ec73e44eb2a7"
     },
     {
       "packageKey": "json-bigint",
@@ -19314,6 +19398,36 @@
       "relationshipType": "declares_dependency"
     },
     {
+      "from": "jscpd",
+      "to": "cpd-darwin-arm64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "jscpd",
+      "to": "cpd-darwin-x64",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "jscpd",
+      "to": "cpd-linux-arm64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "jscpd",
+      "to": "cpd-linux-x64-gnu",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "jscpd",
+      "to": "cpd-linux-x64-musl",
+      "relationshipType": "declares_dependency"
+    },
+    {
+      "from": "jscpd",
+      "to": "cpd-windows-x64-msvc",
+      "relationshipType": "declares_dependency"
+    },
+    {
       "from": "json-bigint",
       "to": "bignumber.js",
       "relationshipType": "declares_dependency"
@@ -20653,7 +20767,7 @@
     {
       "label": "Bun text lockfile structure is recognized",
       "ok": true,
-      "detail": "852 package entries"
+      "detail": "859 package entries"
     },
     {
       "label": "lockfile version is current expected local format",
@@ -20663,7 +20777,7 @@
     {
       "label": "root workspace dependencies match package manifest count",
       "ok": true,
-      "detail": "80+16/96"
+      "detail": "80+17/97"
     },
     {
       "label": "lockfile inventory covers every direct manifest dependency",
@@ -20673,22 +20787,22 @@
     {
       "label": "lockfile inventory captures transitive package surface",
       "ok": true,
-      "detail": "852 packages > 96 direct"
+      "detail": "859 packages > 97 direct"
     },
     {
       "label": "lockfile package records include version and integrity metadata",
       "ok": true,
-      "detail": "852/852 with integrity"
+      "detail": "859/859 with integrity"
     },
     {
       "label": "lockfile dependency relationships are extracted",
       "ok": true,
-      "detail": "1780 relationships"
+      "detail": "1786 relationships"
     },
     {
       "label": "inventory JSONL has one record per lockfile package",
       "ok": true,
-      "detail": "852 records"
+      "detail": "859 records"
     },
     {
       "label": "inventory JSONL is parseable and hash-addressed",

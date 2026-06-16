@@ -90,7 +90,7 @@ const credentialPatterns = [
   /gh[pousr]_[A-Za-z0-9_]{30,}/,
   /-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----/,
 ]
-const providerRequestIdPattern = /\b(req|request|run|msg)_[A-Za-z0-9_-]{10,}\b/
+const providerRequestIdPattern = /(?:\\?"(?:request_id|providerRequestId|message_id|run_id|id)\\?"\s*:\s*\\?"(?:req|msg|run)_[A-Za-z0-9_-]{10,}\\?"|\breq_[A-Za-z0-9_-]{10,}\b)/
 
 function readText(path: string): string {
   return readFileSync(resolve(root, path), 'utf8')
@@ -270,7 +270,7 @@ function main(): void {
     'Run bun run product:real-trace-evals to produce structured summaries with hashes, counts, roles, models, query sources, and status transitions.',
     'Run bun run product:trace-redaction-policy to scan raw traces for credential and provider-request-id patterns before any report is treated as publishable evidence.',
     'Publish only docs/product-quality summary reports; keep raw provider payloads, raw prompt/completion text, authorization data, and local environment details out of reports.',
-    'If any credential pattern is detected, stop the product-quality gate and quarantine the trace outside publishable evidence until the operator resolves it.',
+    'If any credential or provider request-id pattern is detected, stop the product-quality gate and quarantine the trace outside publishable evidence until the operator resolves it.',
   ]
   const nonSyntheticRealSessionCapture: TraceCaptureRedactionPolicyReport['nonSyntheticRealSessionCapture'] = {
     performed: false,
@@ -286,6 +286,7 @@ function main(): void {
     check('raw trace files match source report count', rawTraceFiles.length === traceReport.traceFileCount, `${rawTraceFiles.length}/${traceReport.traceFileCount}`),
     check('raw trace hashes match source report', traceReport.traces.every((trace) => scannedRawTraceFiles.some((raw) => raw.path === trace.path && raw.sha256 === trace.sha256)), `${traceReport.traces.length} summarized traces`),
     check('raw trace credential patterns absent', scannedRawTraceFiles.every((trace) => !trace.credentialPatternFound), `${scannedRawTraceFiles.filter((trace) => trace.credentialPatternFound).length} matches`),
+    check('raw trace provider request id patterns absent', scannedRawTraceFiles.every((trace) => !trace.providerRequestIdPatternFound), `${scannedRawTraceFiles.filter((trace) => trace.providerRequestIdPatternFound).length} matches`),
     check('publishable fields are summary-only', publishableSummaryFields.every((field) => !forbiddenRawFields.includes(field)), publishableSummaryFields.join(', ')),
     check('forbidden raw fields cover credentials and provider payloads', ['api_key', 'authorization', 'rawPrompt', 'rawCompletion', 'rawProviderPayload', 'providerRequestId'].every((field) => forbiddenRawFields.includes(field)), forbiddenRawFields.join(', ')),
     check('redaction rules cover credential, provider id, raw payload, path, and trace identity', redactionRules.length >= 5, `${redactionRules.length} rules`),
