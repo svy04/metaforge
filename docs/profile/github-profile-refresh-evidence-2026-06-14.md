@@ -39,25 +39,13 @@ Observed through GitHub metadata:
 | `svy04/svy04` | public | AI 결과물을 검증 가능한 판단으로 바꾸는 사람 | Profile surface |
 | `svy04/leaderboard-data` | public | Data storage for Rust server leaderboard | Older/supporting, not central |
 
-Current private/internal work that should not be marketed as public access:
-
-- `svy04/mimesis-source-packet`
-- `svy04/mimesis-plugin`
-- `svy04/harness-meta`
-- `svy04/mfh`
-
 ## Private Workbench Evidence
 
-Owner-side private workbench summary. This is not public proof and should not be
-used as a public source path.
-
-Nested repo status:
-
-| Local repo | Remote | Status |
-| --- | --- | --- |
-| `mimesis-plugin` | `https://github.com/svy04/mimesis-plugin.git` | private repo, `master`, HEAD `1cbc7a4`, dirty working tree with modified claim/module files and new case/expert artifacts |
-| `mimesis-source-packet` | `https://github.com/svy04/mimesis-source-packet.git` | private repo, `master`, HEAD `cfaae0e`, dirty working tree with modified paradigm/findings/paper draft files |
-| `testbed/svy04.github.io` | `https://github.com/svy04/svy04.github.io.git` | private repo, untracked hero preview files |
+private workbench repos were checked locally and are not public proof.
+This public packet intentionally omits private repository names, private remote
+URLs, branch names, revision identifiers, worktree cleanliness details, and
+local file inventory. Those details are internal operating context, not public
+marketing evidence.
 
 Profile implication:
 
@@ -69,7 +57,7 @@ Profile implication:
 ## Recommended Profile Positioning
 
 ```text
-오영웅 / svy04
+svy04
 Building Metaforge: a Meta/MFH/Orchestra operating system for governed-code execution.
 
 I work on Mimesis Engineering: importing proven product, paper, patent, OSS, and standard structures into AI-native work, then keeping only what survives evidence gates.
@@ -81,6 +69,6 @@ I work on Mimesis Engineering: importing proven product, paper, patent, OSS, and
 - Done: replaced old project list with current repository evidence.
 - Done: avoided private repository links in the public profile README.
 - Done: GitHub contents API update returned commit SHA `9ff27401ca4c38ed1b55ea4c8480c72496b3bd03`.
-- Done: GitHub API readback confirmed `# 오영웅 · svy04`, `Building **Metaforge**...`, and `## Current Focus`.
+- Done: GitHub API readback confirmed the public handle, `Building **Metaforge**...`, and `## Current Focus`.
 - Done: second profile update linked the Metaforge public proof pack from `## Start Here`.
 - Done: GitHub contents API update returned commit SHA `7c4672a3a4797729d98a6ae161004fef49f0529b`.
