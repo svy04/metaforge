@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { exit } from 'node:process'
+import { argv, exit } from 'node:process'
 import { spawnSync } from 'node:child_process'
 
 import { check, readText, type Check } from './quality-report-helpers'
@@ -87,6 +87,10 @@ const reportJsonPath = 'docs/product-quality/origin-license-provenance-boundary-
 const reportMdPath = 'docs/product-quality/origin-license-provenance-boundary-report.md'
 const reportJsonlPath = 'reports/openclaude-origin-license-provenance-boundary.jsonl'
 const expectedRepositorySlug = 'svy04/metaforge'
+
+export function originLicenseProvenanceMode(args = argv): 'check' | 'write' {
+  return args.includes('--check') ? 'check' : 'write'
+}
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
@@ -475,8 +479,12 @@ function currentOriginRemoteUrl(): string {
 }
 
 function main(): void {
-  mkdirSync(docsDir, { recursive: true })
-  mkdirSync(reportsDir, { recursive: true })
+  const mode = originLicenseProvenanceMode()
+
+  if (mode === 'write') {
+    mkdirSync(docsDir, { recursive: true })
+    mkdirSync(reportsDir, { recursive: true })
+  }
 
   const requiredReportPaths = {
     sourceLicenseMetadataReport: 'docs/product-quality/source-license-metadata-quality-report.json',
@@ -506,10 +514,13 @@ function main(): void {
     }
     report.blockerCount = report.blockers.length
     report.status = 'blocked_origin_license_provenance_boundary'
-    writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
-    writeMarkdown(report)
-    writeFileSync(resolve(root, reportJsonlPath), buildOriginLicenseProvenanceJsonl(report))
+    if (mode === 'write') {
+      writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
+      writeMarkdown(report)
+      writeFileSync(resolve(root, reportJsonlPath), buildOriginLicenseProvenanceJsonl(report))
+    }
     console.error(`RESULT: FAIL (${missingReports.length} required reports missing)`)
+    console.error(`mode=${mode}`)
     exit(1)
   }
 
@@ -531,9 +542,11 @@ function main(): void {
     sourceReportHashes,
   })
 
-  writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
-  writeMarkdown(report)
-  writeFileSync(resolve(root, reportJsonlPath), buildOriginLicenseProvenanceJsonl(report))
+  if (mode === 'write') {
+    writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
+    writeMarkdown(report)
+    writeFileSync(resolve(root, reportJsonlPath), buildOriginLicenseProvenanceJsonl(report))
+  }
 
   for (const item of report.evidenceChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
@@ -541,6 +554,7 @@ function main(): void {
 
   console.log('')
   console.log(`RESULT: ${report.blockerCount === 0 && report.evidenceChecks.every((item) => item.ok) ? 'PASS' : 'FAIL'}`)
+  console.log(`mode=${mode}`)
   console.log(`status=${report.status}`)
   console.log(`blocker_count=${report.blockerCount}`)
   console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)
