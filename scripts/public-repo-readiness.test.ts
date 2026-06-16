@@ -103,8 +103,12 @@ describe('public repository readiness surfaces', () => {
   test('AGENTS.md is public-facing guidance, not a private memory dump', () => {
     const agents = readRepoText('AGENTS.md')
     const lineCount = agents.split(/\r?\n/).length
+    const bulletCount = agents.split(/\r?\n/).filter((line) => /^\s*[-*]\s+/.test(line)).length
+    const directiveWordCount = agents.match(/\bmust\b|\bMUST\b|해야|하지 마|Do not|Never/g)?.length ?? 0
 
-    expect(lineCount).toBeLessThanOrEqual(220)
+    expect(lineCount).toBeLessThanOrEqual(110)
+    expect(bulletCount).toBeLessThanOrEqual(35)
+    expect(directiveWordCount).toBeLessThanOrEqual(12)
     expect(agents).toContain('Meta/MFH/Orchestra')
     expect(agents).toContain('OpenClaude runtime')
     expect(agents).toContain('docs/product-quality/public-feedback-snapshot-2026-06-15.md')
