@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { sha256 as sha256Text } from './quality-report-helpers'
+import { check, sha256 as sha256Text } from './quality-report-helpers'
 
 export type EvidenceCheck = {
   label: string
@@ -222,10 +222,6 @@ export const requiredEvidencePaths = [
 
 function sha256Buffer(buffer: Buffer): string {
   return createHash('sha256').update(buffer).digest('hex')
-}
-
-function check(label: string, ok: boolean, detail: string): EvidenceCheck {
-  return { label, ok, detail }
 }
 
 export function hasCredentialPattern(text: string): boolean {
