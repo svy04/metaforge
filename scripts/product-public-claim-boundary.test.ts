@@ -1,6 +1,27 @@
 import { describe, expect, test } from 'bun:test'
+import { spawnSync } from 'node:child_process'
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 import { publicSurfacePaths, scanClaimText } from './product-public-claim-boundary'
+
+const root = join(__dirname, '..')
+const scriptPath = join(__dirname, 'product-public-claim-boundary.ts')
+const generatedEvidencePaths = [
+  'docs/product-quality/public-claim-boundary-report.json',
+  'docs/product-quality/public-claim-boundary-report.md',
+  'reports/openclaude-public-claim-boundary.jsonl',
+]
+
+function readOptionalEvidence(path: string) {
+  const absolutePath = join(root, path)
+
+  if (!existsSync(absolutePath)) {
+    return { exists: false, content: '' }
+  }
+
+  return { exists: true, content: readFileSync(absolutePath, 'utf8') }
+}
 
 describe('product public claim boundary classifier', () => {
   test('includes AGENTS.md in public claim-boundary surfaces', () => {
@@ -72,5 +93,21 @@ describe('product public claim boundary classifier', () => {
       'public_readiness',
       'release_readiness',
     ])
+  })
+
+  test('check mode does not rewrite generated claim-boundary evidence', () => {
+    const before = generatedEvidencePaths.map(readOptionalEvidence)
+
+    const result = spawnSync('bun', [scriptPath, '--check'], {
+      cwd: root,
+      encoding: 'utf8',
+      shell: false,
+    })
+
+    const after = generatedEvidencePaths.map(readOptionalEvidence)
+
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0)
+    expect(result.stdout).toContain('RESULT: PASS')
+    expect(after).toEqual(before)
   })
 })
