@@ -25,6 +25,11 @@ type DeadExportCandidatesReport = {
   candidateUnusedExportBaseline: number
   candidateUnusedTypeBaseline: number
   candidateDuplicateExportBaseline: number
+  sampleCandidateFiles: Array<{
+    file: string
+    sampleExports: string[]
+    sampleTypes: string[]
+  }>
   triageLedgerPath: string
   triageRecordCount: number
   triageCurrentCandidateCount: number
@@ -84,6 +89,14 @@ describe('product dead export candidate gate', () => {
     expect(report.protectedActionsExecuted).toEqual([])
     expect(report.candidateFileCount).toBeGreaterThan(0)
     expect(report.candidateUnusedExportCount).toBeGreaterThan(0)
+    expect(report.candidateUnusedTypeCount).toBeLessThanOrEqual(364)
+    expect(report.candidateUnusedExportCount).toBeLessThanOrEqual(1401)
+    expect(
+      report.sampleCandidateFiles.find((item) => item.file === 'src/utils/providerDiscovery.ts')?.sampleExports ?? [],
+    ).not.toContain('getOpenAICompatibleModelsBaseUrl')
+    expect(
+      report.sampleCandidateFiles.find((item) => item.file === 'src/bridge/sessionRunner.ts')?.sampleTypes ?? [],
+    ).not.toContain('PermissionRequest')
     expect(report.candidateFileBaseline).toBeGreaterThanOrEqual(report.candidateFileCount)
     expect(report.candidateUnusedExportBaseline).toBeGreaterThanOrEqual(report.candidateUnusedExportCount)
     expect(report.candidateUnusedTypeBaseline).toBeGreaterThanOrEqual(report.candidateUnusedTypeCount)
