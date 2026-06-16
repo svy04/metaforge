@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { publicSurfacePaths, scanClaimText } from './product-public-claim-boundary'
+import { markdownCell, publicSurfacePaths, scanClaimText } from './product-public-claim-boundary'
 
 const root = join(__dirname, '..')
 const scriptPath = join(__dirname, 'product-public-claim-boundary.ts')
@@ -90,6 +90,44 @@ describe('product public claim boundary classifier', () => {
       'external_validation',
       'production_readiness',
     ])
+  })
+
+  test('records self-contained blocked context for list item claim mentions', () => {
+    const findings = scanClaimText(
+      'docs/SECURITY_AND_GUARDRAILS.md',
+      [
+        'Not allowed without stronger evidence:',
+        '',
+        '- The system is production-ready.',
+      ].join('\n'),
+    )
+
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.status).toBe('blocked_context')
+    expect(findings[0]?.text).toBe('- The system is production-ready.')
+    expect(findings[0]?.contextText).toContain('Blocked context: Not allowed without stronger evidence:')
+    expect(findings[0]?.contextText).toContain('Claim mention: - The system is production-ready.')
+  })
+
+  test('keeps same-line blocking language when long excerpts are shortened', () => {
+    const longEvidenceList = [
+      ...Array.from({ length: 24 }, (_, index) => `local evidence item ${index + 1}`),
+      'NOTICE-gap inventory evidence',
+      ...Array.from({ length: 24 }, (_, index) => `post-notice evidence item ${index + 1}`),
+    ].join(', ')
+    const findings = scanClaimText(
+      'docs/product-quality/product-quality-gate.md',
+      `PRODUCT_QUALITY_GATE_READY means ${longEvidenceList}. It does not mean the product is externally validated, superior to the top 10 projects, or release-ready.`,
+    )
+
+    expect(findings.length).toBeGreaterThan(0)
+    expect(findings.every((finding) => finding.status === 'blocked_context')).toBe(true)
+    expect(findings[0]?.text).not.toContain('It does not mean')
+    expect(findings[0]?.contextText).toContain('It does not mean the product is externally validated')
+  })
+
+  test('escapes markdown table cells without leaving backslashes ambiguous', () => {
+    expect(markdownCell('C:\\path|claim')).toBe('C:\\\\path\\|claim')
   })
 
   test('recognizes Korean and list-style boundary contexts', () => {

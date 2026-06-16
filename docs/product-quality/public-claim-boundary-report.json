@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T06:52:49.369Z",
+  "generatedAt": "2026-06-16T09:37:32.073Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -85,9 +85,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "148185951e2c07f3e36387095788f6956b4dce51bff9141487acd7185777a068",
-      "sizeBytes": 20423,
-      "lineCount": 283
+      "sha256": "7cb9fd1e1e5c51a31903e37921638f75eddc67bb3b6be0311990f6cd04aae805",
+      "sizeBytes": 20538,
+      "lineCount": 284
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -190,16 +190,16 @@
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
       "exists": true,
-      "sha256": "f7d46018ca63f04c0328265146067e5ebea8c5600770d6b5d79ab04e6c75c1d0",
-      "sizeBytes": 8507,
+      "sha256": "bdb4430996fb1b6f197cdaba47abe78efa5f0c1ed358edc8562fe8fb2b9291e2",
+      "sizeBytes": 8543,
       "lineCount": 80
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
       "exists": true,
-      "sha256": "bff80759a2168553d1e0386a69c5c7a05dce8c6b29a71e5b50f5ac641d047fa4",
-      "sizeBytes": 3158,
-      "lineCount": 64
+      "sha256": "477b85621c3630cebd868e0b105d35b261220a128199a918042cdf9b434b1d23",
+      "sizeBytes": 4434,
+      "lineCount": 73
     },
     {
       "path": "docs/MIMESIS_ENGINEERING.md",
@@ -252,7 +252,7 @@
     }
   ],
   "publicSurfaceCount": 33,
-  "scannedLineCount": 5170,
+  "scannedLineCount": 5180,
   "blockedContextClaimMentionCount": 148,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -262,7 +262,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p"
+      "text": "Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p",
+      "contextText": "Blocked context: ... heckout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; public claims must come from source-controlled tests, reports, and claim-boundary records. Claim mention: Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p"
     },
     {
       "path": "README.md",
@@ -270,7 +271,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p"
+      "text": "Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p",
+      "contextText": "Blocked context: ... heckout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; public claims must come from source-controlled tests, reports, and claim-boundary records. Claim mention: Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; p"
     },
     {
       "path": "README.md",
@@ -278,7 +280,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
+      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |",
+      "contextText": "Blocked context: | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
     },
     {
       "path": "README.md",
@@ -286,7 +289,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
+      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |",
+      "contextText": "Blocked context: | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
     },
     {
       "path": "README.md",
@@ -294,7 +298,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
+      "text": "| What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |",
+      "contextText": "Blocked context: | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |"
     },
     {
       "path": "README.ko.md",
@@ -302,7 +307,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은"
+      "text": "이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은",
+      "contextText": "Blocked context: 이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은"
     },
     {
       "path": "README.ko.md",
@@ -310,7 +316,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
+      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |",
+      "contextText": "Blocked context: | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
     },
     {
       "path": "README.ko.md",
@@ -318,7 +325,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
+      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |",
+      "contextText": "Blocked context: | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
     },
     {
       "path": "README.ko.md",
@@ -326,7 +334,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
+      "text": "| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |",
+      "contextText": "Blocked context: | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |"
     },
     {
       "path": "README.ko.md",
@@ -334,7 +343,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- not production-ready"
+      "text": "- not production-ready",
+      "contextText": "Blocked context: - not production-ready"
     },
     {
       "path": "README.ko.md",
@@ -342,7 +352,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- not externally validated"
+      "text": "- not externally validated",
+      "contextText": "Blocked context: - not externally validated"
     },
     {
       "path": "README.ko.md",
@@ -350,7 +361,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- not autonomous reliability proven"
+      "text": "- not autonomous reliability proven",
+      "contextText": "Blocked context: - not autonomous reliability proven"
     },
     {
       "path": "AGENTS.md",
@@ -358,7 +370,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- Public repo polish is not production readiness."
+      "text": "- Public repo polish is not production readiness.",
+      "contextText": "Blocked context: - Public repo polish is not production readiness."
     },
     {
       "path": "AGENTS.md",
@@ -366,7 +379,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- Local proof artifacts are not external validation."
+      "text": "- Local proof artifacts are not external validation.",
+      "contextText": "Blocked context: - Local proof artifacts are not external validation."
     },
     {
       "path": "AGENTS.md",
@@ -374,7 +388,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "public readiness wording."
+      "text": "public readiness wording.",
+      "contextText": "Blocked context: - Benchmarks need command, input, output, and claim-boundary evidence before Claim mention: public readiness wording."
     },
     {
       "path": "ANDROID_INSTALL.md",
@@ -382,7 +397,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- This document is not installation support, release readiness, hosted"
+      "text": "- This document is not installation support, release readiness, hosted",
+      "contextText": "Blocked context: - This document is not installation support, release readiness, hosted"
     },
     {
       "path": "ANDROID_INSTALL.md",
@@ -390,7 +406,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "deployment evidence, benchmark evidence, or external validation."
+      "text": "deployment evidence, benchmark evidence, or external validation.",
+      "contextText": "Blocked context: - This document is not installation support, release readiness, hosted Claim mention: deployment evidence, benchmark evidence, or external validation."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -398,7 +415,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -406,7 +424,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -414,7 +433,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -422,7 +442,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -430,7 +451,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -438,7 +460,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "CONTRIBUTING.md",
@@ -446,7 +469,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
+      "text": "- Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists.",
+      "contextText": "Blocked context: - Do not claim release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation unless a separate evidence and authorization packet exists."
     },
     {
       "path": "SUPPORT.md",
@@ -454,7 +478,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -462,7 +487,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -470,7 +496,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -478,7 +505,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -486,7 +514,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -494,7 +523,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": "SUPPORT.md",
@@ -502,7 +532,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
+      "text": "Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l",
+      "contextText": "Blocked context: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision ledger write, mth re ... Claim mention: Support responses are best-effort community guidance. They do not authorize deploy, publish, launch, production Metaforge/OpenClaude mutation, MFH mutation, real product repo mutation, canonical memory/governance write, canonical decision l"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -510,7 +541,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim."
+      "text": "- [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim.",
+      "contextText": "Blocked context: - [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim."
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -518,7 +550,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim."
+      "text": "- [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim.",
+      "contextText": "Blocked context: - [ ] This report does not request deploy, publish, launch, production mutation, MFH mutation, protected systems mutation, canonical memory/governance write, external validation claim, or release/public/production readiness claim."
     },
     {
       "path": ".github/ISSUE_TEMPLATE/feature_request.md",
@@ -526,7 +559,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- [ ] I understand this request does not itself authorize provider calls, live model calls, external service calls, dependency installs, deploy, publish, launch, production mutation, MFH mutation, real product repo mutation, canonical memor"
+      "text": "- [ ] I understand this request does not itself authorize provider calls, live model calls, external service calls, dependency installs, deploy, publish, launch, production mutation, MFH mutation, real product repo mutation, canonical memor",
+      "contextText": "Blocked context: - [ ] I understand this request does not itself authorize provider calls, live model calls, external service calls, dependency installs, deploy, publish, launch, production mutation, MFH mutation, real product repo mutation, canonic ... Claim mention: - [ ] I understand this request does not itself authorize provider calls, live model calls, external service calls, dependency installs, deploy, publish, launch, production mutation, MFH mutation, real product repo mutation, canonical memor"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -534,7 +568,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -542,7 +577,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -550,7 +586,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -558,7 +595,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -566,7 +604,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -574,7 +613,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": ".github/pull_request_template.md",
@@ -582,7 +622,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
+      "text": "- [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis",
+      "contextText": "Blocked context: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate author ... Claim mention: - [ ] I did not make release readiness, production readiness, public readiness, external validation, autonomous reliability, provider-backed execution, or live model validation claims unless a separate authorization and evidence packet exis"
     },
     {
       "path": "docs/EVALS.md",
@@ -590,7 +631,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- This OpenClaude package may import MFH/Meta concepts, but it must not claim the harness workspace is clean or release-ready."
+      "text": "- This OpenClaude package may import MFH/Meta concepts, but it must not claim the harness workspace is clean or release-ready.",
+      "contextText": "Blocked context: - This OpenClaude package may import MFH/Meta concepts, but it must not claim the harness workspace is clean or release-ready."
     },
     {
       "path": "docs/EVALS.md",
@@ -598,7 +640,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- External user success, production readiness, CTO replacement, and security-sandbox claims are blocked unless separately validated."
+      "text": "- External user success, production readiness, CTO replacement, and security-sandbox claims are blocked unless separately validated.",
+      "contextText": "Blocked context: - External user success, production readiness, CTO replacement, and security-sandbox claims are blocked unless separately validated."
     },
     {
       "path": "docs/SECURITY_AND_GUARDRAILS.md",
@@ -606,7 +649,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- The system is production-ready."
+      "text": "- The system is production-ready.",
+      "contextText": "Blocked context: Not allowed without stronger evidence: Claim mention: - The system is production-ready."
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -614,7 +658,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact"
+      "text": "- OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact",
+      "contextText": "Blocked context: ... otected-action denial, trace schema, portability, and redaction-policy evidence before any real product repo mutation, provider-backed execution, external benchmark, or autonomous reliability claim; Claim mention: - OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -622,7 +667,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact"
+      "text": "- OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact",
+      "contextText": "Blocked context: ... otected-action denial, trace schema, portability, and redaction-policy evidence before any real product repo mutation, provider-backed execution, external benchmark, or autonomous reliability claim; Claim mention: - OSS tool-loop reliability evidence fixtures convert the `tool_loop_reliability` backlog into hash-bound prompted tool-loop, disposable code-editing, interrupted-tool recovery, protected-action denial, trace schema, portability, and redact"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -630,7 +676,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,"
+      "text": "- OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,",
+      "contextText": "Blocked context: ... ailure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call, live provider validation, compatibility claim, model-behavior claim, external validation, or autonomous reliability claim; Claim mention: - OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -638,7 +685,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,"
+      "text": "- OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,",
+      "contextText": "Blocked context: ... ailure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call, live provider validation, compatibility claim, model-behavior claim, external validation, or autonomous reliability claim; Claim mention: - OSS provider-breadth evidence fixtures convert the `provider_breadth` backlog into hash-bound provider capability, failure-mode, runtime-doctor, fallback, and live-authorization boundary evidence before any provider call, live model call,"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -646,7 +694,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- provider capability matrix fixtures convert provider compatibility, runtime doctor, and OSS axis-review backlog evidence into 21 per-surface capability rows plus 5 explicit failure-mode rows while keeping provider-backed execution, provid"
+      "text": "- provider capability matrix fixtures convert provider compatibility, runtime doctor, and OSS axis-review backlog evidence into 21 per-surface capability rows plus 5 explicit failure-mode rows while keeping provider-backed execution, provid",
+      "contextText": "Blocked context: ... ase, production, public, external-validation, and autonomous-reliability claims blocked; Claim mention: - provider capability matrix fixtures convert provider compatibility, runtime doctor, and OSS axis-review backlog evidence into 21 per-surface capability rows plus 5 explicit failure-mode rows while keeping provider-backed execution, provid"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -654,7 +703,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- protected-action authorization packet fixtures consolidate VS Code/PATH/install-state repair, real Git commit/push, release execution, signed provenance, legal/NOTICE/REUSE, provider/live model validation, external benchmark execution/sub"
+      "text": "- protected-action authorization packet fixtures consolidate VS Code/PATH/install-state repair, real Git commit/push, release execution, signed provenance, legal/NOTICE/REUSE, provider/live model validation, external benchmark execution/sub",
+      "contextText": "Blocked context: ... al/autonomous claim boundaries into explicit default-false owner decision items without executing protected actions; Claim mention: - protected-action authorization packet fixtures consolidate VS Code/PATH/install-state repair, real Git commit/push, release execution, signed provenance, legal/NOTICE/REUSE, provider/live model validation, external benchmark execution/sub"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -662,7 +712,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
+      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo",
+      "contextText": "Blocked context: ... , source-hash-addressed product evidence manifest, and privacy verification. It does not mean the product is finished, topology-clean, free of dead exports, REUSE-compliant, license-compliant, NOTICE-ready, externally validated, superior to the top 10 projects, or release-ready. Claim mention: `PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -670,7 +721,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
+      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo",
+      "contextText": "Blocked context: ... , source-hash-addressed product evidence manifest, and privacy verification. It does not mean the product is finished, topology-clean, free of dead exports, REUSE-compliant, license-compliant, NOTICE-ready, externally validated, superior to the top 10 projects, or release-ready. Claim mention: `PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
     },
     {
       "path": "docs/product-quality/product-quality-gate.md",
@@ -678,7 +730,8 @@
       "phrase": "superior to top 10",
       "category": "superiority",
       "status": "blocked_context",
-      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
+      "text": "`PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo",
+      "contextText": "Blocked context: ... , source-hash-addressed product evidence manifest, and privacy verification. It does not mean the product is finished, topology-clean, free of dead exports, REUSE-compliant, license-compliant, NOTICE-ready, externally validated, superior to the top 10 projects, or release-ready. Claim mention: `PRODUCT_QUALITY_GATE_READY` means the project now has a reproducible product-quality gate for the competitive productization baseline, explicit GitHub REST OSS baseline refresh evidence, OSS baseline freshness/provenance, GitHub README/roo"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -686,7 +739,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed"
+      "text": "- Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed",
+      "contextText": "Blocked context: ... n policy, writing `reports/openclaude-oss-tool-loop-reliability-evidence.jsonl` without real product repo mutation, provider-backed execution, live model validation, external benchmark execution, or protected actions. Claim mention: - Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -694,7 +748,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed"
+      "text": "- Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed",
+      "contextText": "Blocked context: ... n policy, writing `reports/openclaude-oss-tool-loop-reliability-evidence.jsonl` without real product repo mutation, provider-backed execution, live model validation, external benchmark execution, or protected actions. Claim mention: - Added a local no-provider OSS tool-loop reliability evidence report that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local evidence bindings for prompted tool loops, disposable code-ed"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -702,7 +757,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- Added a local no-provider provider capability matrix that reads provider compatibility, runtime doctor, and high-priority OSS axis review evidence, writes 21 capability rows plus 5 failure-mode rows to `reports/openclaude-provider-capabil"
+      "text": "- Added a local no-provider provider capability matrix that reads provider compatibility, runtime doctor, and high-priority OSS axis review evidence, writes 21 capability rows plus 5 failure-mode rows to `reports/openclaude-provider-capabil",
+      "contextText": "Blocked context: ... ase, production, public, external-validation, and autonomous-reliability claims blocked. Claim mention: - Added a local no-provider provider capability matrix that reads provider compatibility, runtime doctor, and high-priority OSS axis review evidence, writes 21 capability rows plus 5 failure-mode rows to `reports/openclaude-provider-capabil"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -710,7 +766,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai"
+      "text": "- Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai",
+      "contextText": "Blocked context: ... ction readiness claims as protected actions with authorization defaults set to `false`. Claim mention: - Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -718,7 +775,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai"
+      "text": "- Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai",
+      "contextText": "Blocked context: ... ction readiness claims as protected actions with authorization defaults set to `false`. Claim mention: - Added an external benchmark boundary report and authorization request that classify external datasets, container/runtime setup, provider/live-model validation, remote runtime access, hosted CI, public result claims, release readiness clai"
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -726,7 +784,8 @@
       "phrase": "launch completed",
       "category": "launch",
       "status": "blocked_context",
-      "text": "- No launch completed claim."
+      "text": "- No launch completed claim.",
+      "contextText": "Blocked context: - No launch completed claim."
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -734,7 +793,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- No release readiness claim."
+      "text": "- No release readiness claim.",
+      "contextText": "Blocked context: - No release readiness claim."
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -742,7 +802,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- No production readiness claim."
+      "text": "- No production readiness claim.",
+      "contextText": "Blocked context: - No production readiness claim."
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -750,7 +811,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- No external validation claim."
+      "text": "- No external validation claim.",
+      "contextText": "Blocked context: - No external validation claim."
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -758,7 +820,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- No public readiness claim."
+      "text": "- No public readiness claim.",
+      "contextText": "Blocked context: - No public readiness claim."
     },
     {
       "path": "docs/product-quality/terminal-report.md",
@@ -766,7 +829,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- No autonomous reliability claim."
+      "text": "- No autonomous reliability claim.",
+      "contextText": "Blocked context: - No autonomous reliability claim."
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -774,7 +838,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
+      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on",
+      "contextText": "Blocked context: ... s, production readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -782,7 +847,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
+      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on",
+      "contextText": "Blocked context: ... s, production readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -790,7 +856,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
+      "text": "- `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on",
+      "contextText": "Blocked context: ... s, production readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-onboarding-docs-evidence` exits `0` and writes local no-provider onboarding docs evidence that converts the `onboarding_docs` backlog into 6 source-bound evidence items and 18 hash-bound local evidence bindings for on"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -798,7 +865,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
+      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings ",
+      "contextText": "Blocked context: ... cal evidence bindings for protected install/PATH blocker fixtures and diagnosis-without-repair boundaries, writes `reports/openclaude-oss-runtime-doctoring-evidence.jsonl`, and keeps repair, reinstall, dependency install, provider probes, external diagnostics, protected actions,  ... Claim mention: - `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -806,7 +874,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
+      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings ",
+      "contextText": "Blocked context: ... cal evidence bindings for protected install/PATH blocker fixtures and diagnosis-without-repair boundaries, writes `reports/openclaude-oss-runtime-doctoring-evidence.jsonl`, and keeps repair, reinstall, dependency install, provider probes, external diagnostics, protected actions,  ... Claim mention: - `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -814,7 +883,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
+      "text": "- `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings ",
+      "contextText": "Blocked context: ... cal evidence bindings for protected install/PATH blocker fixtures and diagnosis-without-repair boundaries, writes `reports/openclaude-oss-runtime-doctoring-evidence.jsonl`, and keeps repair, reinstall, dependency install, provider probes, external diagnostics, protected actions,  ... Claim mention: - `bun run product:oss-runtime-doctoring-evidence` exits `0` and writes local no-provider runtime doctoring evidence that converts the `runtime_doctoring` backlog into 6 source-bound evidence items and 12 hash-bound local evidence bindings "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -822,7 +892,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
+      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -830,7 +901,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
+      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -838,7 +910,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
+      "text": "- `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-security-permissions-evidence` exits `0` and writes local no-provider security and permissions evidence that converts the `security_and_permissions` backlog into 6 source-bound evidence items and 18 hash-bound local e"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -846,7 +919,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
+      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -854,7 +928,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
+      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -862,7 +937,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
+      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -870,7 +946,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
+      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -878,7 +955,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
+      "text": "- `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-tool-loop-reliability-evidence` exits `0` and writes local no-provider tool-loop reliability evidence that converts the `tool_loop_reliability` backlog into 6 source-bound evidence items and 57 hash-bound local eviden"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -886,7 +964,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
+      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -894,7 +973,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
+      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -902,7 +982,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
+      "text": "- `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-provider-breadth-evidence` exits `0` and writes local no-provider provider-breadth evidence that converts the `provider_breadth` backlog into 6 source-bound evidence items and 36 hash-bound local evidence bindings for"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -910,7 +991,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
+      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -918,7 +1000,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
+      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -926,7 +1009,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
+      "text": "- `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar",
+      "contextText": "Blocked context: ... iness, public readiness, external-validation, and autonomous-reliability claims blocked. Claim mention: - `bun run product:oss-release-hygiene-evidence` exits `0` and writes local no-provider release hygiene evidence that converts the `release_hygiene` backlog into 4 source-bound evidence items and 46 hash-bound local evidence bindings for ar"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -934,7 +1018,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- `bun run product:provider-capability-matrix` exits `0` and writes local no-provider provider capability/failure-mode evidence, including 21 provider capability rows, 4 local no-key candidates, 15 OpenAI-compatible profile surfaces, 5 expl"
+      "text": "- `bun run product:provider-capability-matrix` exits `0` and writes local no-provider provider capability/failure-mode evidence, including 21 provider capability rows, 4 local no-key candidates, 15 OpenAI-compatible profile surfaces, 5 expl",
+      "contextText": "Blocked context: ...  `reports/openclaude-license-boundary-authorization-items.jsonl` with 9 default-false protected authorization items, while blocking legal review, NOTICE generation, REUSE artifact creation, source-file rewrites, dependency installs, npm/GitHub lookups, external license resolution ... Claim mention: - `bun run product:provider-capability-matrix` exits `0` and writes local no-provider provider capability/failure-mode evidence, including 21 provider capability rows, 4 local no-key candidates, 15 OpenAI-compatible profile surfaces, 5 expl"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -942,7 +1027,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
+      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness ",
+      "contextText": "Blocked context: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release  ... Claim mention: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -950,7 +1036,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
+      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness ",
+      "contextText": "Blocked context: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release  ... Claim mention: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -958,7 +1045,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
+      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness ",
+      "contextText": "Blocked context: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release  ... Claim mention: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -966,7 +1054,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
+      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness ",
+      "contextText": "Blocked context: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release  ... Claim mention: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -974,7 +1063,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
+      "text": "- No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness ",
+      "contextText": "Blocked context: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release  ... Claim mention: - No external Scorecard run, hosted CodeQL run, hosted CI run, registry attestation verification, global install, publish, deploy, launch, provider call, live model call, external service call, release readiness claim, production readiness "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -982,7 +1072,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
+      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c",
+      "contextText": "Blocked context: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validat ... Claim mention: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -990,7 +1081,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
+      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c",
+      "contextText": "Blocked context: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validat ... Claim mention: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -998,7 +1090,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
+      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c",
+      "contextText": "Blocked context: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validat ... Claim mention: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1006,7 +1099,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
+      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c",
+      "contextText": "Blocked context: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validat ... Claim mention: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1014,7 +1108,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
+      "text": "- No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c",
+      "contextText": "Blocked context: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validat ... Claim mention: - No install, publish, deploy, product launch, provider call, live model call, extension availability claim, release readiness claim, production readiness claim, public readiness claim, external validation claim, or autonomous reliability c"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1022,7 +1117,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "| `bun run product:oss-onboarding-docs-evidence` | 0 | PASS, converted 6 `onboarding_docs` backlog items into 18 hash-bound local evidence bindings for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic fi"
+      "text": "| `bun run product:oss-onboarding-docs-evidence` | 0 | PASS, converted 6 `onboarding_docs` backlog items into 18 hash-bound local evidence bindings for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic fi",
+      "contextText": "Blocked context: ... rnal/protected actions, public readiness, and release/readiness claim expansion blocked | Claim mention: | `bun run product:oss-onboarding-docs-evidence` | 0 | PASS, converted 6 `onboarding_docs` backlog items into 18 hash-bound local evidence bindings for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic fi"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1030,7 +1126,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "| `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, "
+      "text": "| `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, ",
+      "contextText": "Blocked context: ... ider/live/external/protected actions, and reliability/readiness claim expansion blocked | Claim mention: | `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1038,7 +1135,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "| `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, "
+      "text": "| `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, ",
+      "contextText": "Blocked context: ... ider/live/external/protected actions, and reliability/readiness claim expansion blocked | Claim mention: | `bun run product:oss-tool-loop-reliability-evidence` | 0 | PASS, converted 6 `tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings for prompted tool loops, disposable code-editing traces, interruption recovery, "
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1046,7 +1144,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "| `bun run product:provider-capability-matrix` | 0 | PASS, wrote 21 provider capability rows, 5 failure-mode rows, and `reports/openclaude-provider-capability-matrix.jsonl` with no provider/live/external/protected actions and no provider-ba"
+      "text": "| `bun run product:provider-capability-matrix` | 0 | PASS, wrote 21 provider capability rows, 5 failure-mode rows, and `reports/openclaude-provider-capability-matrix.jsonl` with no provider/live/external/protected actions and no provider-ba",
+      "contextText": "Blocked context: ... ilure-mode rows, and `reports/openclaude-provider-capability-matrix.jsonl` with no provider/live/external/protected actions and no provider-backed execution/readiness claims | Claim mention: | `bun run product:provider-capability-matrix` | 0 | PASS, wrote 21 provider capability rows, 5 failure-mode rows, and `reports/openclaude-provider-capability-matrix.jsonl` with no provider/live/external/protected actions and no provider-ba"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1054,7 +1153,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
+      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea",
+      "contextText": "Blocked context: ... otected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-ready, externally validated, or superior to the top 10 projects. Claim mention: This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1062,7 +1162,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
+      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea",
+      "contextText": "Blocked context: ... otected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-ready, externally validated, or superior to the top 10 projects. Claim mention: This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1070,7 +1171,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
+      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea",
+      "contextText": "Blocked context: ... otected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-ready, externally validated, or superior to the top 10 projects. Claim mention: This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1078,7 +1180,8 @@
       "phrase": "superior to top 10",
       "category": "superiority",
       "status": "blocked_context",
-      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
+      "text": "This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea",
+      "contextText": "Blocked context: ... otected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-ready, externally validated, or superior to the top 10 projects. Claim mention: This means OpenClaude has a reproducible local no-provider product-quality baseline with the current protected local VS Code CLI/PATH/install-state boundary explicitly classified. It does not mean OpenClaude is release-ready, production-rea"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1086,7 +1189,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- Local release artifact reproducibility now runs two `npm pack --json --ignore-scripts` passes, confirms the same 6 packed files, npm shasum, npm integrity value, and tarball SHA-256, and removes temporary tarballs without publishing, depl"
+      "text": "- Local release artifact reproducibility now runs two `npm pack --json --ignore-scripts` passes, confirms the same 6 packed files, npm shasum, npm integrity value, and tarball SHA-256, and removes temporary tarballs without publishing, depl",
+      "contextText": "Blocked context: ... hasum, npm integrity value, and tarball SHA-256, and removes temporary tarballs without publishing, deploying, launching, or claiming release readiness. Claim mention: - Local release artifact reproducibility now runs two `npm pack --json --ignore-scripts` passes, confirms the same 6 packed files, npm shasum, npm integrity value, and tarball SHA-256, and removes temporary tarballs without publishing, depl"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1094,7 +1198,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques"
+      "text": "- External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques",
+      "contextText": "Blocked context: ... ic result claims, release readiness claims, and production readiness claims all blocked until explicit owner authorization. Claim mention: - External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1102,7 +1207,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques"
+      "text": "- External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques",
+      "contextText": "Blocked context: ... ic result claims, release readiness claims, and production readiness claims all blocked until explicit owner authorization. Claim mention: - External benchmark boundary mapping now writes `docs/product-quality/external-benchmark-boundary-report.json`, `docs/product-quality/external-benchmark-boundary-report.md`, and `docs/product-quality/external-benchmark-authorization-reques"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1110,7 +1216,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev"
+      "text": "- OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev",
+      "contextText": "Blocked context: ... tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings without real product repo mutation, provider-backed execution, live model validation, external benchmark execution, provider/live/external calls, protected actions, or claim expansion. Claim mention: - OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1118,7 +1225,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev"
+      "text": "- OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev",
+      "contextText": "Blocked context: ... tool_loop_reliability` backlog items into 57 hash-bound local evidence bindings without real product repo mutation, provider-backed execution, live model validation, external benchmark execution, provider/live/external calls, protected actions, or claim expansion. Claim mention: - OSS tool-loop reliability evidence now writes `docs/product-quality/oss-tool-loop-reliability-evidence-report.json`, `docs/product-quality/oss-tool-loop-reliability-evidence-report.md`, and `reports/openclaude-oss-tool-loop-reliability-ev"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1126,7 +1234,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- OSS onboarding docs evidence exists for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic first-run boundary, and cross-platform claim blocking, with no non-synthetic capture, provider/live/external cal"
+      "text": "- OSS onboarding docs evidence exists for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic first-run boundary, and cross-platform claim blocking, with no non-synthetic capture, provider/live/external cal",
+      "contextText": "Blocked context: ... file, non-synthetic first-run boundary, and cross-platform claim blocking, with no non-synthetic capture, provider/live/external call, public readiness claim, or protected action performed. Claim mention: - OSS onboarding docs evidence exists for onboarding smoke, README/quick-start link integrity, community profile, non-synthetic first-run boundary, and cross-platform claim blocking, with no non-synthetic capture, provider/live/external cal"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1134,7 +1243,8 @@
       "phrase": "provider-backed execution",
       "category": "provider_backed_execution",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r"
+      "text": "- OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r",
+      "contextText": "Blocked context: ... nial, trace schema contracts, portable trace export, and redaction policy, with no real product repo mutation, provider-backed execution, live model validation, external benchmark execution, provider/live/external call, reliability/readiness claim, or protected action performed. Claim mention: - OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1142,7 +1252,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "- OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r"
+      "text": "- OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r",
+      "contextText": "Blocked context: ... nial, trace schema contracts, portable trace export, and redaction policy, with no real product repo mutation, provider-backed execution, live model validation, external benchmark execution, provider/live/external call, reliability/readiness claim, or protected action performed. Claim mention: - OSS tool-loop reliability evidence exists for prompted tool loops, disposable code-editing traces, interruption recovery, protected-action denial, trace schema contracts, portable trace export, and redaction policy, with no real product r"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1150,7 +1261,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
+      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re",
+      "contextText": "Blocked context: ... for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production readiness claim, or external validation claim. Claim mention: - External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1158,7 +1270,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
+      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re",
+      "contextText": "Blocked context: ... for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production readiness claim, or external validation claim. Claim mention: - External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1166,7 +1279,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
+      "text": "- External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re",
+      "contextText": "Blocked context: ... for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production readiness claim, or external validation claim. Claim mention: - External benchmark boundary evidence exists for protected-action authorization defaults and an owner decision request, with no external benchmark execution, provider/live/external call, public claim, release readiness claim, production re"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1174,7 +1288,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- release readiness claim"
+      "text": "- release readiness claim",
+      "contextText": "Blocked context: Not allowed: Claim mention: - release readiness claim"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1182,7 +1297,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- production readiness claim"
+      "text": "- production readiness claim",
+      "contextText": "Blocked context: Not allowed: Claim mention: - production readiness claim"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1190,7 +1306,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- external validation claim"
+      "text": "- external validation claim",
+      "contextText": "Blocked context: Not allowed: Claim mention: - external validation claim"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1198,7 +1315,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "- public readiness claim"
+      "text": "- public readiness claim",
+      "contextText": "Blocked context: Not allowed: Claim mention: - public readiness claim"
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
@@ -1206,7 +1324,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- autonomous reliability claim"
+      "text": "- autonomous reliability claim",
+      "contextText": "Blocked context: Not allowed: Claim mention: - autonomous reliability claim"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1214,7 +1333,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
+      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or ",
+      "contextText": "Blocked context: ... _release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim only after the relevant ... Claim mention: | `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1222,7 +1342,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
+      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or ",
+      "contextText": "Blocked context: ... _release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim only after the relevant ... Claim mention: | `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1230,7 +1351,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
+      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or ",
+      "contextText": "Blocked context: ... _release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim only after the relevant ... Claim mention: | `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1238,7 +1360,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
+      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or ",
+      "contextText": "Blocked context: ... _release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim only after the relevant ... Claim mention: | `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1246,7 +1369,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
+      "text": "| `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or ",
+      "contextText": "Blocked context: ... _release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim only after the relevant ... Claim mention: | `authorize_release_public_production_external_or_autonomous_claims` | `claim_boundary` | `false` | `false` | Authorize any public comparison, superiority, release readiness, production readiness, public readiness, external validation, or "
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1254,7 +1378,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |"
+      "text": "| provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |",
+      "contextText": "Blocked context: | provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |"
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.md",
@@ -1262,7 +1387,8 @@
       "phrase": "live model validation",
       "category": "live_model_validation",
       "status": "blocked_context",
-      "text": "| provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |"
+      "text": "| provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |",
+      "contextText": "Blocked context: | provider and live model validation boundary remains protected | `true` | provider/live/external validation flags false |"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
@@ -1270,7 +1396,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
+      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation.",
+      "contextText": "Blocked context: - It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
@@ -1278,7 +1405,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
+      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation.",
+      "contextText": "Blocked context: - It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
@@ -1286,7 +1414,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
+      "text": "- It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation.",
+      "contextText": "Blocked context: - It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation."
     },
     {
       "path": "docs/MIMESIS_ENGINEERING.md",
@@ -1294,7 +1423,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- External validation claim."
+      "text": "- External validation claim.",
+      "contextText": "Blocked context: Not allowed yet: Claim mention: - External validation claim."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1302,7 +1432,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
+      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority.",
+      "contextText": "Blocked context: This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1310,7 +1441,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
+      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority.",
+      "contextText": "Blocked context: This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1318,7 +1450,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
+      "text": "This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority.",
+      "contextText": "Blocked context: This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1326,7 +1459,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/pub"
+      "text": "| Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/pub",
+      "contextText": "Blocked context: | Metaforge is centered on Meta/MFH/Orchestra, not OpenClaude alone. | [README.md](../../README.md), [docs/PROJECT_SPEC.md](../PROJECT_SPEC.md), [docs/MFH_META_SYNTHESIS.md](../MFH_META_SYNTHESIS.md), [docs/AGENT_REGISTRY.md](../AGENT_REGISTRY.md) ... Claim mention: | Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/pub"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1334,7 +1468,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "| GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc"
+      "text": "| GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc",
+      "contextText": "Blocked context: ... heck, claim-boundary phrases, current public repo links | A profile README does not prove adoption, production readiness, or external validation. | Claim mention: | GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1342,7 +1477,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc"
+      "text": "| GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc",
+      "contextText": "Blocked context: ... heck, claim-boundary phrases, current public repo links | A profile README does not prove adoption, production readiness, or external validation. | Claim mention: | GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, produc"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1350,7 +1486,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| Proof routes | Link only artifacts that carry explicit claim boundaries. | Source ledger, proof pack, model/system card, public claim boundary report | Public proof routes remain bounded unless external validation actually happens. |"
+      "text": "| Proof routes | Link only artifacts that carry explicit claim boundaries. | Source ledger, proof pack, model/system card, public claim boundary report | Public proof routes remain bounded unless external validation actually happens. |",
+      "contextText": "Blocked context: ... l paths, private workbench names, and token-shaped strings | Branch presence is not proof that the branch should be marketed. | Claim mention: | Proof routes | Link only artifacts that carry explicit claim boundaries. | Source ledger, proof pack, model/system card, public claim boundary report | Public proof routes remain bounded unless external validation actually happens. |"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1358,7 +1495,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "- Do not say Metaforge is production-ready."
+      "text": "- Do not say Metaforge is production-ready.",
+      "contextText": "Blocked context: - Do not say Metaforge is production-ready."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1366,7 +1504,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "- Do not say it is externally validated."
+      "text": "- Do not say it is externally validated.",
+      "contextText": "Blocked context: - Do not say it is externally validated."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1374,7 +1513,8 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "- Do not claim autonomous reliability."
+      "text": "- Do not claim autonomous reliability.",
+      "contextText": "Blocked context: - Do not claim autonomous reliability."
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1382,7 +1522,8 @@
       "phrase": "benchmark or model superiority",
       "category": "superiority",
       "status": "blocked_context",
-      "text": "- Do not claim it beats other agent systems."
+      "text": "- Do not claim it beats other agent systems.",
+      "contextText": "Blocked context: - Do not claim it beats other agent systems."
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
@@ -1390,7 +1531,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?"
+      "text": "How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?",
+      "contextText": "Blocked context: How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?"
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
@@ -1398,7 +1540,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?"
+      "text": "How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?",
+      "contextText": "Blocked context: How should Metaforge make a public marketing surface that is strong, discoverable, and credible without claiming production readiness, external validation, compliance, or benchmark superiority?"
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1406,7 +1549,8 @@
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
-      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
+      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous ",
+      "contextText": "Blocked context: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, productio ... Claim mention: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1414,7 +1558,8 @@
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
-      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
+      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous ",
+      "contextText": "Blocked context: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, productio ... Claim mention: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1422,7 +1567,8 @@
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
-      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
+      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous ",
+      "contextText": "Blocked context: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, productio ... Claim mention: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1430,7 +1576,8 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
+      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous ",
+      "contextText": "Blocked context: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, productio ... Claim mention: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1438,13 +1585,14 @@
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
-      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
+      "text": "This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous ",
+      "contextText": "Blocked context: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, productio ... Claim mention: This package does not authorize provider calls, live model calls, external service calls, marketplace publishing, extension installation, launch, release readiness, public readiness, external validation, production readiness, or autonomous "
     }
   ],
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "02dcbdab4e0b587a9879236ba4d94fe1d1397d9f5d9c4784812b61fe3a125aa3",
+  "scanJsonlSha256": "182ec5dd916fcf795ac65e81744d39452a8feb50814aa4390cdcff8273da4d84",
   "scanJsonlRecordCount": 148,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -1476,7 +1624,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "5170 lines"
+      "detail": "5180 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
