@@ -206,7 +206,7 @@ export function buildNvidiaNimProfileEnv(options: {
   }
 }
 
-export function buildMiniMaxProfileEnv(options: {
+function buildMiniMaxProfileEnv(options: {
   model?: string | null
   baseUrl?: string | null
   apiKey?: string | null
