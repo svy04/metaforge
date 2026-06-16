@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T02:42:11.400Z",
+  "generatedAt": "2026-06-16T04:47:06.718Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -24,13 +24,13 @@
       ],
       "missingSubstrings": [],
       "stdoutPreview": [
-        "{\"issues\":[{\"file\":\"src/commands.ts\",\"owners\":[{\"name\":\"@Gitlawb\"}],\"duplicates\":[],\"enumMembers\":[],\"exports\":[{\"name\":\"meetsAvailabilityRequirement\",\"line\":436,\"col\":17,\"pos\":14584},{\"name\":\"BRIDGE_SAFE_COMMANDS\",\"line\":670,\"col\":14,\"pos\":22459}],\"namespa..."
+        "{\"issues\":[{\"file\":\"src/services/api/providerConfig.ts\",\"owners\":[{\"name\":\"@Gitlawb\"}],\"duplicates\":[],\"enumMembers\":[],\"exports\":[{\"name\":\"DEFAULT_MISTRAL_BASE_URL\",\"line\":21,\"col\":14,\"pos\":712},{\"name\":\"isCodexAlias\",\"line\":238,\"col\":17,\"pos\":6435},{\"name..."
       ],
       "stderrPreview": []
     }
   ],
-  "candidateFileCount": 639,
-  "candidateUnusedExportCount": 1399,
+  "candidateFileCount": 638,
+  "candidateUnusedExportCount": 1397,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -38,17 +38,6 @@
   "candidateUnusedTypeBaseline": 492,
   "candidateDuplicateExportBaseline": 12,
   "sampleCandidateFiles": [
-    {
-      "file": "src/commands.ts",
-      "unusedExports": 2,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "meetsAvailabilityRequirement",
-        "BRIDGE_SAFE_COMMANDS"
-      ],
-      "sampleTypes": []
-    },
     {
       "file": "src/services/api/providerConfig.ts",
       "unusedExports": 7,
@@ -236,23 +225,6 @@
       ]
     },
     {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/ink/frame.ts",
       "unusedExports": 1,
       "unusedTypes": 1,
@@ -299,6 +271,23 @@
       "sampleTypes": []
     },
     {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/utils/messages.ts",
       "unusedExports": 16,
       "unusedTypes": 0,
@@ -329,49 +318,37 @@
       "sampleTypes": []
     },
     {
-      "file": "src/upstreamproxy/upstreamproxy.ts",
+      "file": "src/tools/BashTool/BashTool.tsx",
       "unusedExports": 2,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
-        "SESSION_TOKEN_PATH",
-        "resetUpstreamProxyForTests"
+        "isSearchOrReadBashCommand",
+        "detectBlockedSleepPattern"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/tools/PowerShellTool/PowerShellTool.tsx",
+      "unusedExports": 1,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "detectBlockedSleepPattern"
       ],
       "sampleTypes": []
     }
   ],
   "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
-  "triageRecordCount": 6,
-  "triageCurrentCandidateCount": 6,
+  "triageRecordCount": 4,
+  "triageCurrentCandidateCount": 4,
   "triageActionCounts": {
-    "needs_runtime_guard": 4,
+    "needs_runtime_guard": 2,
     "review_for_removal": 2,
     "defer_public_api": 0,
     "keep_until_entrypoint_proven": 0
   },
   "triageRecords": [
-    {
-      "file": "src/commands.ts",
-      "symbol": "meetsAvailabilityRequirement",
-      "kind": "export",
-      "action": "needs_runtime_guard",
-      "rationale": "Command availability affects runtime command routing and can be reached indirectly through registry behavior rather than direct imports.",
-      "guardrail": "Before removal, add a command-registry happy-path test and an unavailable-command edge-case test.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage",
-      "currentCandidate": true
-    },
-    {
-      "file": "src/commands.ts",
-      "symbol": "BRIDGE_SAFE_COMMANDS",
-      "kind": "export",
-      "action": "needs_runtime_guard",
-      "rationale": "Bridge allowlist exports are security-sensitive even when static imports are absent, because host integrations can depend on stable command policy.",
-      "guardrail": "Before removal, run or add bridge command policy tests that prove safe command filtering still blocks protected actions.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage",
-      "currentCandidate": true
-    },
     {
       "file": "src/services/api/providerConfig.ts",
       "symbol": "resolveStoredCodexCredentials",
@@ -445,6 +422,20 @@
       "kind": "export",
       "guardrail": "Keep onboarding completion checks exported from projectOnboardingSteps.ts, not re-exported from state.",
       "currentCandidate": false
+    },
+    {
+      "file": "src/commands.ts",
+      "symbol": "meetsAvailabilityRequirement",
+      "kind": "export",
+      "guardrail": "Keep command availability covered by src/commands.policy.test.ts happy-path and unavailable-command edge-case checks.",
+      "currentCandidate": false
+    },
+    {
+      "file": "src/commands.ts",
+      "symbol": "BRIDGE_SAFE_COMMANDS",
+      "kind": "export",
+      "guardrail": "Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.",
+      "currentCandidate": false
     }
   ],
   "primarySourceInputs": [
@@ -494,22 +485,22 @@
     {
       "label": "candidate files are discovered",
       "ok": true,
-      "detail": "639 files"
+      "detail": "638 files"
     },
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1399 exports"
+      "detail": "1397 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
       "ok": true,
-      "detail": "639/657"
+      "detail": "638/657"
     },
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1399/1461"
+      "detail": "1397/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",
@@ -524,27 +515,27 @@
     {
       "label": "dead export triage ledger records reviewed candidates",
       "ok": true,
-      "detail": "6 records"
+      "detail": "4 records"
     },
     {
       "label": "dead export triage entries remain current",
       "ok": true,
-      "detail": "6/6"
+      "detail": "4/4"
     },
     {
       "label": "dead export triage has runtime guard and removal-review actions",
       "ok": true,
-      "detail": "{\"needs_runtime_guard\":4,\"review_for_removal\":2,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+      "detail": "{\"needs_runtime_guard\":2,\"review_for_removal\":2,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
     },
     {
       "label": "dead export triage records guardrails and rationales",
       "ok": true,
-      "detail": "6 records"
+      "detail": "4 records"
     },
     {
       "label": "removed dead export ratchets remain absent",
       "ok": true,
-      "detail": "0/4 regressed"
+      "detail": "0/6 regressed"
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",
