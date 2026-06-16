@@ -138,7 +138,7 @@ export function getAtomicChatChatBaseUrl(baseUrl?: string): string {
   return `${getAtomicChatApiBaseUrl(baseUrl)}/v1`
 }
 
-export function getOpenAICompatibleModelsBaseUrl(baseUrl?: string): string {
+function getOpenAICompatibleModelsBaseUrl(baseUrl?: string): string {
   return (
     baseUrl || process.env.OPENAI_BASE_URL || DEFAULT_OPENAI_BASE_URL
   ).replace(/\/+$/, '')

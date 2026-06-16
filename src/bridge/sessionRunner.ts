@@ -93,7 +93,7 @@ export function safeFilenameId(id: string): string {
  * execute a **specific** tool invocation (not a general capability check).
  * The bridge forwards this to the server so the user can approve/deny.
  */
-export type PermissionRequest = {
+type PermissionRequest = {
   type: 'control_request'
   request_id: string
   request: {
