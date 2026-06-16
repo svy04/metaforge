@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T04:29:43.146Z",
+  "generatedAt": "2026-06-16T06:52:49.369Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -85,9 +85,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc",
-      "sizeBytes": 20088,
-      "lineCount": 281
+      "sha256": "148185951e2c07f3e36387095788f6956b4dce51bff9141487acd7185777a068",
+      "sizeBytes": 20423,
+      "lineCount": 283
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -223,11 +223,25 @@
       "lineCount": 50
     },
     {
+      "path": "packages/openclaude-vscode/package.json",
+      "exists": true,
+      "sha256": "4c718775e642ff1f66c3beee33fa656e504a689f332eaa8bc6ea7b61fb4175b4",
+      "sizeBytes": 2772,
+      "lineCount": 108
+    },
+    {
       "path": "packages/openclaude-vscode/README.md",
       "exists": true,
       "sha256": "6022c84eefaa1e38775b321959b981b15bbc26333ddf179bf2f1b52901eed3b1",
       "sizeBytes": 1234,
       "lineCount": 17
+    },
+    {
+      "path": "vscode-extension/openclaude-vscode/package.json",
+      "exists": true,
+      "sha256": "87c5a7908b15ba83f18191cf3344a145e510c56b82e90195671600c6239f5f7f",
+      "sizeBytes": 5081,
+      "lineCount": 181
     },
     {
       "path": "vscode-extension/openclaude-vscode/README.md",
@@ -237,8 +251,8 @@
       "lineCount": 28
     }
   ],
-  "publicSurfaceCount": 31,
-  "scannedLineCount": 4879,
+  "publicSurfaceCount": 33,
+  "scannedLineCount": 5170,
   "blockedContextClaimMentionCount": 148,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -1457,12 +1471,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "31 surfaces"
+      "detail": "33 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "4879 lines"
+      "detail": "5170 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
