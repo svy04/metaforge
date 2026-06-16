@@ -1,12 +1,6 @@
-import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
-}
+import { check, fileSha256, readText, sha256, type Check } from './quality-report-helpers'
 
 type SourceInput = {
   sourceProject: string
@@ -114,24 +108,8 @@ const packageJsonPath = 'package.json'
 const bunLockPath = 'bun.lock'
 const inventoryJsonlPath = 'reports/openclaude-lockfile-sbom-inventory.jsonl'
 
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function readText(path: string): string {
-  return readFileSync(resolve(root, path), 'utf8')
-}
-
 function readJson<T>(path: string): T {
   return JSON.parse(readText(path)) as T
-}
-
-function fileSha256(path: string): string {
-  return sha256(readFileSync(resolve(root, path)))
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
 }
 
 function lockfileVersion(lockText: string): number | null {
