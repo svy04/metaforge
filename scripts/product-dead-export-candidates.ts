@@ -157,6 +157,18 @@ const removedCandidateRatchets: Array<Omit<RemovedCandidateRatchet, 'currentCand
     kind: 'export',
     guardrail: 'Keep onboarding completion checks exported from projectOnboardingSteps.ts, not re-exported from state.',
   },
+  {
+    file: 'src/commands.ts',
+    symbol: 'meetsAvailabilityRequirement',
+    kind: 'export',
+    guardrail: 'Keep command availability covered by src/commands.policy.test.ts happy-path and unavailable-command edge-case checks.',
+  },
+  {
+    file: 'src/commands.ts',
+    symbol: 'BRIDGE_SAFE_COMMANDS',
+    kind: 'export',
+    guardrail: 'Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.',
+  },
 ]
 const knipArgs = [
   'knip',
@@ -379,7 +391,7 @@ function buildReport(): DeadExportCandidatesReport {
     check('unused export candidates do not exceed baseline', report.candidateUnusedExportCount <= report.candidateUnusedExportBaseline, `${report.candidateUnusedExportCount}/${report.candidateUnusedExportBaseline}`),
     check('unused type candidates do not exceed baseline', report.candidateUnusedTypeCount <= report.candidateUnusedTypeBaseline, `${report.candidateUnusedTypeCount}/${report.candidateUnusedTypeBaseline}`),
     check('duplicate export candidates do not exceed baseline', report.candidateDuplicateExportCount <= report.candidateDuplicateExportBaseline, `${report.candidateDuplicateExportCount}/${report.candidateDuplicateExportBaseline}`),
-    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 5, `${report.triageRecordCount} records`),
+    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 4, `${report.triageRecordCount} records`),
     check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
     check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
