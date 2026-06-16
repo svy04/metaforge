@@ -7,18 +7,29 @@ type SourceControlledCheck = {
   detail: string
 }
 
+type SourceInput = {
+  sourceProject: string
+  sourceUrl: string
+  observedPattern: string
+}
+
 type SourceControlledChecksReport = {
   generatedAt: string
   mode: 'local_no_provider_source_controlled_product_checks'
   workflowPath: string
+  workflowPaths: string[]
   providerCallsPerformed: []
   liveModelCallsPerformed: []
   externalCallsPerformed: []
+  primarySourceInputs: SourceInput[]
   productQualityCommandPresent: boolean
   pullRequestTriggerPresent: boolean
   pushMainTriggerPresent: boolean
   releaseActionsAbsent: boolean
   actionReferencesPinned: boolean
+  node24ActionRuntimeOptInPresent: boolean
+  node24ActionRuntimeOptInWorkflowPaths: string[]
+  knownNode20ActionReferencesAbsent: boolean
   sourceControlledChecks: SourceControlledCheck[]
   claimBoundary: string
 }
@@ -26,6 +37,12 @@ type SourceControlledChecksReport = {
 const root = process.cwd()
 const docsDir = resolve(root, 'docs/product-quality')
 const workflowPath = '.github/workflows/pr-checks.yml'
+const workflowPaths = [
+  '.github/workflows/pr-checks.yml',
+  '.github/workflows/codeql.yml',
+  '.github/workflows/dependency-review.yml',
+  '.github/workflows/release.yml',
+]
 
 function check(label: string, ok: boolean, detail: string): SourceControlledCheck {
   return { label, ok, detail }
@@ -42,6 +59,45 @@ function actionReferencesArePinned(text: string): boolean {
     .filter((line) => line.startsWith('uses: '))
 
   return usesLines.length > 0 && usesLines.every((line) => /@[a-f0-9]{40}(?:\s|$)/i.test(line))
+}
+
+function node24ActionRuntimeOptInPresent(text: string): boolean {
+  return hasLine(text, /^\s*FORCE_JAVASCRIPT_ACTIONS_TO_NODE24:\s*["']?true["']?\s*$/)
+}
+
+function primarySourceInputs(): SourceInput[] {
+  return [
+    {
+      sourceProject: 'GitHub Actions Node 20 deprecation',
+      sourceUrl: 'https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/',
+      observedPattern: 'GitHub-hosted JavaScript actions are moving from Node 20 to Node 24, with FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 available to test workflows before default enforcement.',
+    },
+    {
+      sourceProject: 'actions/checkout',
+      sourceUrl: 'https://github.com/actions/checkout',
+      observedPattern: 'Current checkout major releases run on Node 24 and require a recent GitHub Actions runner.',
+    },
+    {
+      sourceProject: 'actions/setup-node',
+      sourceUrl: 'https://github.com/actions/setup-node',
+      observedPattern: 'Current setup-node major releases run on Node 24 and require runner v2.327.1 or newer.',
+    },
+    {
+      sourceProject: 'actions/setup-python',
+      sourceUrl: 'https://github.com/actions/setup-python',
+      observedPattern: 'Current setup-python major releases should be pinned by SHA and tested under the repository runtime policy.',
+    },
+    {
+      sourceProject: 'actions/dependency-review-action',
+      sourceUrl: 'https://github.com/actions/dependency-review-action',
+      observedPattern: 'Dependency review is part of the public trust surface and should be included in shared workflow runtime checks.',
+    },
+    {
+      sourceProject: 'oven-sh/setup-bun',
+      sourceUrl: 'https://github.com/oven-sh/setup-bun',
+      observedPattern: 'The Bun setup action runtime declaration should be checked before treating a pinned action update as Node 24-capable.',
+    },
+  ]
 }
 
 function writeReports(report: SourceControlledChecksReport): void {
@@ -65,14 +121,24 @@ function writeReports(report: SourceControlledChecksReport): void {
     '## Summary',
     '',
     `- workflow_path: \`${report.workflowPath}\``,
+    `- workflow_paths: \`${report.workflowPaths.join(',')}\``,
     `- product_quality_command_present: \`${report.productQualityCommandPresent}\``,
     `- pull_request_trigger_present: \`${report.pullRequestTriggerPresent}\``,
     `- push_main_trigger_present: \`${report.pushMainTriggerPresent}\``,
     `- release_actions_absent: \`${report.releaseActionsAbsent}\``,
     `- action_references_pinned: \`${report.actionReferencesPinned}\``,
+    `- node24_action_runtime_opt_in_present: \`${report.node24ActionRuntimeOptInPresent}\``,
+    `- node24_action_runtime_opt_in_workflow_paths: \`${report.node24ActionRuntimeOptInWorkflowPaths.join(',') || 'none'}\``,
+    `- known_node20_action_references_absent: \`${report.knownNode20ActionReferencesAbsent}\``,
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
     `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
     `- external_calls_performed: \`${report.externalCallsPerformed.length}\``,
+    '',
+    '## Primary Source Inputs',
+    '',
+    '| Source | URL | Pattern |',
+    '| --- | --- | --- |',
+    ...report.primarySourceInputs.map((source) => `| ${source.sourceProject} | ${source.sourceUrl} | ${source.observedPattern} |`),
     '',
     '## Checks',
     '',
@@ -86,14 +152,26 @@ function writeReports(report: SourceControlledChecksReport): void {
 }
 
 function main(): void {
-  const workflow = readFileSync(resolve(root, workflowPath), 'utf8')
+  const workflows = workflowPaths.map((path) => ({
+    path,
+    text: readFileSync(resolve(root, path), 'utf8'),
+  }))
+  const workflow = workflows.find((item) => item.path === workflowPath)?.text ?? ''
   const productQualityCommandPresent = workflow.includes('bun run product:quality')
   const pullRequestTriggerPresent = hasLine(workflow, /^\s*pull_request:\s*$/)
   const pushMainTriggerPresent =
     hasLine(workflow, /^\s*push:\s*$/) &&
     hasLine(workflow, /^\s*-\s*main\s*$/)
   const releaseActionsAbsent = !/(npm\s+publish|docker\/build-push-action|release-please|deploy|launch)/i.test(workflow)
-  const actionReferencesPinned = actionReferencesArePinned(workflow)
+  const actionReferencesPinned = workflows.every((item) => actionReferencesArePinned(item.text))
+  const node24ActionRuntimeOptInWorkflowPaths = workflows
+    .filter((item) => node24ActionRuntimeOptInPresent(item.text))
+    .map((item) => item.path)
+  const node24ActionRuntimeOptInPresentForAll =
+    node24ActionRuntimeOptInWorkflowPaths.length === workflowPaths.length
+  const knownNode20ActionReferencesAbsent = workflows.every(
+    (item) => !/oven-sh\/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5|oven-sh\/setup-bun@[^\s#]+(?:\s+#\s+v2\.0\.1\b)/i.test(item.text),
+  )
 
   const sourceControlledChecks = [
     check('workflow exists in source control path', workflow.trim().length > 0, workflowPath),
@@ -101,23 +179,30 @@ function main(): void {
     check('pull request trigger is present', pullRequestTriggerPresent, 'pull_request'),
     check('main push trigger is present', pushMainTriggerPresent, 'push branches main'),
     check('release actions are absent from PR checks', releaseActionsAbsent, 'no publish/deploy/launch/release action in pr-checks workflow'),
-    check('GitHub action references are pinned by SHA', actionReferencesPinned, 'uses: entries must pin 40-character SHAs'),
+    check('GitHub action references are pinned by SHA', actionReferencesPinned, `uses: entries must pin 40-character SHAs in ${workflowPaths.join(',')}`),
+    check('Node 24 JavaScript action runtime opt-in is present', node24ActionRuntimeOptInPresentForAll, `${node24ActionRuntimeOptInWorkflowPaths.length}/${workflowPaths.length} workflows`),
+    check('known Node 20 JavaScript action references are absent', knownNode20ActionReferencesAbsent, 'setup-bun v2.0.1 must not remain pinned'),
   ]
 
   const report: SourceControlledChecksReport = {
     generatedAt: new Date().toISOString(),
     mode: 'local_no_provider_source_controlled_product_checks',
     workflowPath,
+    workflowPaths,
     providerCallsPerformed: [],
     liveModelCallsPerformed: [],
     externalCallsPerformed: [],
+    primarySourceInputs: primarySourceInputs(),
     productQualityCommandPresent,
     pullRequestTriggerPresent,
     pushMainTriggerPresent,
     releaseActionsAbsent,
     actionReferencesPinned,
+    node24ActionRuntimeOptInPresent: node24ActionRuntimeOptInPresentForAll,
+    node24ActionRuntimeOptInWorkflowPaths,
+    knownNode20ActionReferencesAbsent,
     sourceControlledChecks,
-    claimBoundary: 'Source-controlled product checks prove local workflow wiring only. They do not prove GitHub-hosted execution, release readiness, production readiness, public readiness, external validation, or autonomous reliability.',
+    claimBoundary: 'Source-controlled product checks prove local workflow wiring and checked runtime policy only. They do not prove GitHub-hosted execution, release readiness, production readiness, public readiness, external validation, or autonomous reliability.',
   }
 
   writeReports(report)
@@ -139,6 +224,8 @@ function main(): void {
   console.log(`push_main_trigger_present=${pushMainTriggerPresent}`)
   console.log(`release_actions_absent=${releaseActionsAbsent}`)
   console.log(`action_references_pinned=${actionReferencesPinned}`)
+  console.log(`node24_action_runtime_opt_in_present=${node24ActionRuntimeOptInPresentForAll}`)
+  console.log(`known_node20_action_references_absent=${knownNode20ActionReferencesAbsent}`)
   console.log(`provider_calls_performed=${report.providerCallsPerformed.length}`)
   console.log(`live_model_calls_performed=${report.liveModelCallsPerformed.length}`)
   console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)

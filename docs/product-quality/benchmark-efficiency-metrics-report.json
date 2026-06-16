@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-16T00:01:10.637Z",
+  "generatedAt": "2026-06-16T23:53:54.230Z",
   "mode": "local_no_provider_benchmark_efficiency_metrics",
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "02fa36bf0d7c57b797e0dce6bbe9e788d02b12f4283469b26d1f2eecce85f9fd",
+  "sourceLocalBenchmarkResultsSha256": "bf4292a350bb1b95301509385a5869fd9e80a7eba6944edf9431c191e5ceef5e",
   "primarySourceInputs": [
     {
       "sourceProject": "Vexp-ai/vexp-swe-bench",
@@ -34,7 +34,7 @@
     "sourceEvidenceSha256"
   ],
   "metricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-  "metricsJsonlSha256": "18bc4b6a1748124f00f8d4a6d13ad1066fdb24041f9d3b4ca44f3bd9a1a32026",
+  "metricsJsonlSha256": "93ac14b8ad01f0acab679d54def87450a4914b5c2311a9f89338c063c051ba02",
   "benchmarkEfficiencyRecords": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
@@ -42,7 +42,7 @@
       "localHarnessStatus": "valid_local_evidence",
       "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sourceEvidenceSha256": "cd1491d39e305c0f62347b04c82fb0082d50f092fc97968e36c5f6659c9a3d3f",
+      "sourceEvidenceSha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
       "sourceEvidenceSizeBytes": 5630,
       "sourceEvidenceLineCount": 155,
       "comparableMetricFields": {
@@ -489,11 +489,11 @@
     {
       "benchmarkTaskId": "openclaude.local.agent_replay_eval_summary",
       "benchmarkFamily": "local_no_provider_replay_eval",
-      "localHarnessStatus": "classified_environment_blocked",
-      "localOutcomeForReplayOnly": "classified_environment_blocked",
+      "localHarnessStatus": "valid_local_evidence",
+      "localOutcomeForReplayOnly": "succeeded",
       "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
-      "sourceEvidenceSha256": "046e9108e04dfba8608252b84d2afde28457e82cb948c97d96fe23658f5543ef",
-      "sourceEvidenceSizeBytes": 22836,
+      "sourceEvidenceSha256": "389ab1758966df74584415f0e5a659bbc9e519c6d82fcc1e711cbe12cd63d6b5",
+      "sourceEvidenceSizeBytes": 23166,
       "sourceEvidenceLineCount": 702,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",

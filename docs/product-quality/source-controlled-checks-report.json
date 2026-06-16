@@ -1,15 +1,61 @@
 {
-  "generatedAt": "2026-06-16T00:00:16.773Z",
+  "generatedAt": "2026-06-16T23:53:18.753Z",
   "mode": "local_no_provider_source_controlled_product_checks",
   "workflowPath": ".github/workflows/pr-checks.yml",
+  "workflowPaths": [
+    ".github/workflows/pr-checks.yml",
+    ".github/workflows/codeql.yml",
+    ".github/workflows/dependency-review.yml",
+    ".github/workflows/release.yml"
+  ],
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "GitHub Actions Node 20 deprecation",
+      "sourceUrl": "https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "observedPattern": "GitHub-hosted JavaScript actions are moving from Node 20 to Node 24, with FORCE_JAVASCRIPT_ACTIONS_TO_NODE24 available to test workflows before default enforcement."
+    },
+    {
+      "sourceProject": "actions/checkout",
+      "sourceUrl": "https://github.com/actions/checkout",
+      "observedPattern": "Current checkout major releases run on Node 24 and require a recent GitHub Actions runner."
+    },
+    {
+      "sourceProject": "actions/setup-node",
+      "sourceUrl": "https://github.com/actions/setup-node",
+      "observedPattern": "Current setup-node major releases run on Node 24 and require runner v2.327.1 or newer."
+    },
+    {
+      "sourceProject": "actions/setup-python",
+      "sourceUrl": "https://github.com/actions/setup-python",
+      "observedPattern": "Current setup-python major releases should be pinned by SHA and tested under the repository runtime policy."
+    },
+    {
+      "sourceProject": "actions/dependency-review-action",
+      "sourceUrl": "https://github.com/actions/dependency-review-action",
+      "observedPattern": "Dependency review is part of the public trust surface and should be included in shared workflow runtime checks."
+    },
+    {
+      "sourceProject": "oven-sh/setup-bun",
+      "sourceUrl": "https://github.com/oven-sh/setup-bun",
+      "observedPattern": "The Bun setup action runtime declaration should be checked before treating a pinned action update as Node 24-capable."
+    }
+  ],
   "productQualityCommandPresent": true,
   "pullRequestTriggerPresent": true,
   "pushMainTriggerPresent": true,
   "releaseActionsAbsent": true,
   "actionReferencesPinned": true,
+  "node24ActionRuntimeOptInPresent": true,
+  "node24ActionRuntimeOptInWorkflowPaths": [
+    ".github/workflows/pr-checks.yml",
+    ".github/workflows/codeql.yml",
+    ".github/workflows/dependency-review.yml",
+    ".github/workflows/release.yml"
+  ],
+  "knownNode20ActionReferencesAbsent": true,
   "sourceControlledChecks": [
     {
       "label": "workflow exists in source control path",
@@ -39,8 +85,18 @@
     {
       "label": "GitHub action references are pinned by SHA",
       "ok": true,
-      "detail": "uses: entries must pin 40-character SHAs"
+      "detail": "uses: entries must pin 40-character SHAs in .github/workflows/pr-checks.yml,.github/workflows/codeql.yml,.github/workflows/dependency-review.yml,.github/workflows/release.yml"
+    },
+    {
+      "label": "Node 24 JavaScript action runtime opt-in is present",
+      "ok": true,
+      "detail": "4/4 workflows"
+    },
+    {
+      "label": "known Node 20 JavaScript action references are absent",
+      "ok": true,
+      "detail": "setup-bun v2.0.1 must not remain pinned"
     }
   ],
-  "claimBoundary": "Source-controlled product checks prove local workflow wiring only. They do not prove GitHub-hosted execution, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
+  "claimBoundary": "Source-controlled product checks prove local workflow wiring and checked runtime policy only. They do not prove GitHub-hosted execution, release readiness, production readiness, public readiness, external validation, or autonomous reliability."
 }

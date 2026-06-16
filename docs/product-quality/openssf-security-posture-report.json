@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T00:00:17.139Z",
+  "generatedAt": "2026-06-16T23:53:18.914Z",
   "mode": "local_no_provider_openssf_security_posture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -8,11 +8,11 @@
   "securityPolicyPath": "SECURITY.md",
   "securityPolicySha256": "617f9f41b7aa92d15809e8db798ef602faef36a66f691ac7833bfb83c67e9588",
   "prWorkflowPath": ".github/workflows/pr-checks.yml",
-  "prWorkflowSha256": "34e94f5415debbedc8d9215c71ab2448cacb8fdbfef88d2058f8ff695435cb06",
+  "prWorkflowSha256": "46201af56413a72e1e7c24e8cdeb837b8bb2ec257a2f178b8be99d0fa9b0be0e",
   "releaseWorkflowPath": ".github/workflows/release.yml",
-  "releaseWorkflowSha256": "f30ca3e230842738e536eb836214026afcd0d685ae74a728ede15a8216d1c710",
+  "releaseWorkflowSha256": "a16b475b114fb945edc979e8cd82de4c3ba15af97e271c0bc7c4e64a66ae8730",
   "codeqlWorkflowPath": ".github/workflows/codeql.yml",
-  "codeqlWorkflowSha256": "f21c6e3a7cf09a01b2afad10c171e35763e192f0c4f587fbd81a7a292734f8a2",
+  "codeqlWorkflowSha256": "f816e44746bdde5ac4ff040eabf44b52e277cffa104c14bea5e8d0f220918c53",
   "dependabotConfigPath": ".github/dependabot.yml",
   "dependabotConfigSha256": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61",
   "primarySourceInputs": [
@@ -114,7 +114,7 @@
     {
       "label": "workflow action references are pinned by full SHA",
       "ok": true,
-      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5 # v2.0.1, uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, uses: oven-sh/setup-bun@4bc047ad259df6fc24a6c9b0f9a0cb08cf17fbe5, uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
+      "detail": "uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3, uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0, uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0, uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0, uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3, uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0, uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0, uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3, uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0, uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
     },
     {
       "label": "PR workflow token permissions are read-only",
@@ -159,7 +159,7 @@
     {
       "label": "CodeQL workflow actions are pinned by full SHA",
       "ok": true,
-      "detail": "uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
+      "detail": "uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3, uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/autobuild@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4, uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4"
     },
     {
       "label": "CodeQL workflow permissions are scoped",
