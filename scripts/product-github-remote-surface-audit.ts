@@ -1,8 +1,8 @@
-import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { env, exit } from 'node:process'
 import { spawnSync } from 'node:child_process'
+import { check, sha256, type Check } from './quality-report-helpers'
 
 type RemoteHead = {
   name: string
@@ -40,12 +40,6 @@ type Discovery = {
   remoteHeadDiscovery: 'git_ls_remote'
   openPullRequestDiscovery: 'github_pr_api' | 'gh_cli' | 'unavailable'
   openPullRequestDiscoveryError?: string
-}
-
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
 }
 
 type Blocker = {
@@ -120,14 +114,6 @@ const browserArtifactPatterns: Array<{ id: string; pattern: RegExp }> = [
   { id: 'browser_network_har', pattern: /\.har$/i },
   { id: 'browser_video_capture', pattern: /\.webm$/i },
 ]
-
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
-}
 
 export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSurfaceReport {
   const allowedOpenPrHeadBranches = input.openPullRequests

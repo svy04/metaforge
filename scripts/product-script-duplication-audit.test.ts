@@ -306,10 +306,10 @@ export function renderFixtureReport(input: string): string {
       }>
     }
 
-    expect(report.helperOccurrenceCounts.check).toBe(70)
+    expect(report.helperOccurrenceCounts.check).toBe(69)
     expect(report.helperOccurrenceCounts.readText).toBe(34)
     expect(report.helperOccurrenceCounts.sha256Text).toBe(0)
-    expect(report.helperOccurrenceBaselines.check).toBe(70)
+    expect(report.helperOccurrenceBaselines.check).toBe(69)
     expect(report.helperOccurrenceBaselines.readText).toBe(34)
     expect(report.helperOccurrenceBaselines.sha256Text).toBe(0)
     expect(report.jscpdEnabled).toBe(true)

@@ -1,69 +1,24 @@
 {
-  "generatedAt": "2026-06-16T00:01:16.348Z",
+  "generatedAt": "2026-06-16T08:13:11.111Z",
   "mode": "local_no_provider_quality_blocker_taxonomy",
   "sourceHostSmokeReportPath": "docs/product-quality/ide-extension-host-smoke-report.json",
-  "sourceHostSmokeReportSha256": "e402364c04808d9db84742266dd9782531c4e4de60f119338a35f23709d03f7d",
+  "sourceHostSmokeReportSha256": "2b85feeaf31384e6989b73f67b00f86a17bcfab371f1238c23f22fde2af6d4c6",
   "sourceWorkbenchSmokeReportPath": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-  "sourceWorkbenchSmokeReportSha256": "c16947070945e7bc0d37507d72d0ef6af2fd1919dd0be5811ce9860ff90318cf",
+  "sourceWorkbenchSmokeReportSha256": "1bd32e2433ea097de994b9a8aea6a688a84c103c875f77ce165fe395b1824bf7",
   "sourceAgentReplayReportPath": "docs/product-quality/agent-replay-evals-report.json",
-  "sourceAgentReplayReportSha256": "046e9108e04dfba8608252b84d2afde28457e82cb948c97d96fe23658f5543ef",
+  "sourceAgentReplayReportSha256": "520537bea229527bad84dda2645472c7868d5b2e02a4221d765372b0d645b490",
   "sourceVscodeUpdateBoundaryReportPath": "docs/product-quality/vscode-update-boundary-report.json",
-  "sourceVscodeUpdateBoundaryReportSha256": "6c1a7d0ba4665d0ceff5c3e4b8173caa489f559064c47e54487f0da55096583e",
+  "sourceVscodeUpdateBoundaryReportSha256": "5fb08ec1ca6cc180c3d365185263108b12748e7e3b6754b18f8dccb1249bb512",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
   "protectedActionsExecuted": [],
-  "currentProductQualityGateStatus": "blocked_by_known_vscode_update_dependent_failures",
-  "blockerStatus": "classified_known_environment_boundary",
-  "expectedProductQualityGateFailureCount": 19,
-  "knownFailureGroups": [
-    {
-      "id": "ide_extension_host_smoke_vscode_update_blocked",
-      "expectedFailureCount": 6,
-      "source": "docs/product-quality/ide-extension-host-smoke-report.json",
-      "blockingReason": "vscode_update_in_progress prevented a current real Extension Development Host result file, activation, command registration, and command execution evidence.",
-      "protectedActionRequired": true,
-      "evidence": [
-        "VS Code startup was not blocked by local environment state",
-        "real Extension Development Host test runner produced result",
-        "extension activated in real host",
-        "all manifest commands are registered in real host",
-        "all manifest commands execute in real host"
-      ]
-    },
-    {
-      "id": "ide_extension_workbench_smoke_vscode_update_blocked",
-      "expectedFailureCount": 9,
-      "source": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-      "blockingReason": "vscode_update_in_progress prevented a current real workbench result file, activation, tree-view provider, focus, item, and TreeItem command execution evidence.",
-      "protectedActionRequired": true,
-      "evidence": [
-        "VS Code startup was not blocked by local environment state",
-        "real Extension Development Host test runner produced result",
-        "extension activated in real host",
-        "all contributed tree views are registered",
-        "all contributed tree views have providers",
-        "all contributed tree views can be focused",
-        "all contributed tree views provide items",
-        "tree item commands are declared manifest commands",
-        "all tree item commands execute in real host"
-      ]
-    },
-    {
-      "id": "agent_replay_vscode_update_dependent_failures",
-      "expectedFailureCount": 4,
-      "source": "docs/product-quality/agent-replay-evals-report.json",
-      "blockingReason": "The replay gate correctly fails the host and workbench replay scenarios while their source evidence remains blocked by the local VS Code update boundary.",
-      "protectedActionRequired": false,
-      "evidence": [
-        "ide_extension_host_smoke_replay",
-        "ide_extension_workbench_smoke_replay",
-        "all replay scenarios passed threshold"
-      ]
-    }
-  ],
+  "currentProductQualityGateStatus": "clear_no_current_vscode_update_dependent_failures",
+  "blockerStatus": "resolved_environment_boundary",
+  "expectedProductQualityGateFailureCount": 0,
+  "knownFailureGroups": [],
   "unexpectedFailureGroups": [],
-  "nextUnblockedAction": "wait_for_local_vscode_update_or_obtain_explicit_owner_authorization_before_process_intervention_then_rerun_real_host_workbench_replay_quality_gates",
+  "nextUnblockedAction": "rerun_full_product_quality_gate_and_keep_release_readiness_claims_blocked_until_remaining_protected_boundaries_are_authorized",
   "processTerminationAttempted": false,
   "dependencyInstallAttempted": false,
   "releaseReadinessClaimAllowed": false,
@@ -100,22 +55,22 @@
     {
       "label": "host smoke is either clear or explained by VS Code boundary",
       "ok": true,
-      "detail": "vscode_update_in_progress / 5 source checks"
+      "detail": " / 0 source checks"
     },
     {
       "label": "workbench smoke is either clear or explained by VS Code boundary",
       "ok": true,
-      "detail": "vscode_update_in_progress / 9 source checks"
+      "detail": " / 0 source checks"
     },
     {
       "label": "agent replay is either clear or host/workbench dependent",
       "ok": true,
-      "detail": "ide_extension_host_smoke_replay,ide_extension_workbench_smoke_replay / all replay scenarios passed threshold"
+      "detail": " / "
     },
     {
       "label": "expected quality-gate failure envelope matches current blocker status",
       "ok": true,
-      "detail": "19"
+      "detail": "0"
     },
     {
       "label": "unexpected failure groups are absent",
