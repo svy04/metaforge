@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test } from 'bun:test'
 import { spawnSync } from 'node:child_process'
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 
@@ -112,5 +112,20 @@ describe('public artifact hygiene scanner', () => {
 
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('LICENSE')
+  })
+
+  test('scans the canonical VS Code extension README for local path disclosure', () => {
+    const repo = makeTempRepo()
+    const extensionDir = join(repo, 'packages', 'openclaude-vscode')
+    mkdirSync(extensionDir, { recursive: true })
+    writeFileSync(
+      join(extensionDir, 'README.md'),
+      `Derived runtime note copied from ${windowsPrivatePath}\n`,
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('packages/openclaude-vscode/README.md')
   })
 })
