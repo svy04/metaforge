@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T08:14:02.075Z",
+  "generatedAt": "2026-06-16T09:59:15.706Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,13 +9,13 @@
   ],
   "sourceProductScriptCount": 90,
   "helperOccurrenceCounts": {
-    "check": 69,
-    "readText": 34,
+    "check": 68,
+    "readText": 33,
     "sha256Text": 0
   },
   "helperOccurrenceBaselines": {
-    "check": 69,
-    "readText": 34,
+    "check": 68,
+    "readText": 33,
     "sha256Text": 0
   },
   "duplicateHelperClusterCount": 2,
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 69,
+      "occurrenceCount": 68,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -291,10 +291,6 @@
           "line": 137
         },
         {
-          "path": "scripts/product-verification-report-consistency.ts",
-          "line": 79
-        },
-        {
           "path": "scripts/product-vscode-startup-diagnostics.ts",
           "line": 131
         },
@@ -308,7 +304,7 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 34,
+      "occurrenceCount": 33,
       "files": [
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -441,10 +437,6 @@
         {
           "path": "scripts/product-trace-redaction-policy.ts",
           "line": 95
-        },
-        {
-          "path": "scripts/product-verification-report-consistency.ts",
-          "line": 67
         }
       ],
       "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
@@ -472,19 +464,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 53.770ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 50.127ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "dfa861bad9a4e55d713b2d6ba9ae5e6281e345a405465a0aa0c0484d19925efa",
+  "jscpdReportSha256": "b5b579b69eebc9a75ba8bbb593f1c2de7909ea3c177852d9e0c1564ac11dc257",
   "jscpdCloneCount": 26,
   "jscpdCloneBaseline": 26,
   "jscpdDuplicatedLines": 774,
   "jscpdDuplicatedLinesBaseline": 774,
   "jscpdDuplicatedTokens": 4790,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.892189218921892,
+  "jscpdDuplicatedPercentage": 1.889187210153771,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.883187343722971,
+  "jscpdDuplicatedTokenPercentage": 1.8797803914181548,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
@@ -748,7 +740,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":69,\"readText\":34,\"sha256Text\":0}"
+      "detail": "{\"check\":68,\"readText\":33,\"sha256Text\":0}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -763,7 +755,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":69,\"readText\":34,\"sha256Text\":0},\"baseline\":{\"check\":69,\"readText\":34,\"sha256Text\":0}}"
+      "detail": "{\"current\":{\"check\":68,\"readText\":33,\"sha256Text\":0},\"baseline\":{\"check\":68,\"readText\":33,\"sha256Text\":0}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -783,7 +775,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.892189218921892/1.9"
+      "detail": "1.889187210153771/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
