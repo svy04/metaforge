@@ -138,6 +138,10 @@ const reportJsonPath = 'docs/product-quality/github-hosted-trust-posture-report.
 const reportMdPath = 'docs/product-quality/github-hosted-trust-posture-report.md'
 const reportJsonlPath = 'reports/openclaude-github-hosted-trust-posture.jsonl'
 
+export function hostedTrustPostureMode(args = process.argv): 'check' | 'write' {
+  return args.includes('--check') ? 'check' : 'write'
+}
+
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
 }
@@ -602,6 +606,7 @@ function writeReports(report: HostedTrustPostureReport): void {
 }
 
 function main(): void {
+  const mode = hostedTrustPostureMode()
   const repo = discoverRepository()
   const security = readRepositorySecurity(repo.repository)
   const branch = readBranchProtection(repo.repository, repo.defaultBranch)
@@ -630,12 +635,15 @@ function main(): void {
     },
   })
 
-  writeReports(report)
+  if (mode === 'write') {
+    writeReports(report)
+  }
 
   for (const item of report.evidenceChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
   }
   console.log(`RESULT: ${report.status === 'hosted_trust_risks_detected' ? 'RISKS_RECORDED' : 'PASS'}`)
+  console.log(`mode=${mode}`)
   console.log(`repository=${report.repository}`)
   console.log(`risk_count=${report.riskCount}`)
   console.log(`code_scanning_open_alert_count=${report.codeScanning.openAlertCount}`)
