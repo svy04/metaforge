@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { check, type Check } from './quality-report-helpers'
 
@@ -44,6 +44,35 @@ type CandidateFileSummary = {
   sampleTypes: string[]
 }
 
+type DeadExportTriageAction =
+  | 'needs_runtime_guard'
+  | 'review_for_removal'
+  | 'defer_public_api'
+  | 'keep_until_entrypoint_proven'
+
+type DeadExportTriageKind = 'export' | 'type' | 'duplicate_export'
+
+type DeadExportTriageRecord = {
+  file: string
+  symbol: string
+  kind: DeadExportTriageKind
+  action: DeadExportTriageAction
+  rationale: string
+  guardrail: string
+  reviewedAt: string
+  reviewer: string
+}
+
+type DeadExportTriageLedger = {
+  schemaVersion: 1
+  claimBoundary: string
+  records: DeadExportTriageRecord[]
+}
+
+type DeadExportTriageReportRecord = DeadExportTriageRecord & {
+  currentCandidate: boolean
+}
+
 type DeadExportCandidatesReport = {
   generatedAt: string
   mode: 'local_no_provider_dead_export_candidate_gate'
@@ -59,6 +88,11 @@ type DeadExportCandidatesReport = {
   candidateUnusedTypeBaseline: number
   candidateDuplicateExportBaseline: number
   sampleCandidateFiles: CandidateFileSummary[]
+  triageLedgerPath: string
+  triageRecordCount: number
+  triageCurrentCandidateCount: number
+  triageActionCounts: Record<DeadExportTriageAction, number>
+  triageRecords: DeadExportTriageReportRecord[]
   primarySourceInputs: Array<{
     sourceType: 'oss_tool' | 'project_docs'
     sourceProject: string
@@ -84,6 +118,7 @@ const root = process.cwd()
 const docsDir = resolve(root, 'docs/product-quality')
 const reportJsonPath = 'docs/product-quality/dead-export-candidates-report.json'
 const reportMdPath = 'docs/product-quality/dead-export-candidates-report.md'
+const triageLedgerPath = 'docs/product-quality/dead-export-candidate-triage.json'
 const candidateFileBaseline = 657
 const candidateUnusedExportBaseline = 1461
 const candidateUnusedTypeBaseline = 492
@@ -168,6 +203,51 @@ function itemName(item: KnipIssueItem): string {
   return item.namespace ? `${item.namespace}.${item.name}` : item.name
 }
 
+function triageKey(file: string, kind: DeadExportTriageKind, symbol: string): string {
+  return `${file}\0${kind}\0${symbol}`
+}
+
+function buildCandidateKeySet(candidateIssues: KnipIssue[]): Set<string> {
+  const keys = new Set<string>()
+  for (const issue of candidateIssues) {
+    for (const item of issue.exports ?? []) {
+      keys.add(triageKey(issue.file, 'export', itemName(item)))
+    }
+    for (const item of issue.types ?? []) {
+      keys.add(triageKey(issue.file, 'type', itemName(item)))
+    }
+    for (const item of issue.duplicates ?? []) {
+      keys.add(triageKey(issue.file, 'duplicate_export', itemName(item)))
+    }
+  }
+  return keys
+}
+
+function readTriageLedger(): DeadExportTriageLedger {
+  const path = resolve(root, triageLedgerPath)
+  if (!existsSync(path)) {
+    return {
+      schemaVersion: 1,
+      claimBoundary: 'No dead-export triage ledger is present yet.',
+      records: [],
+    }
+  }
+
+  return JSON.parse(readFileSync(path, 'utf8')) as DeadExportTriageLedger
+}
+
+function countTriageActions(records: DeadExportTriageReportRecord[]): Record<DeadExportTriageAction, number> {
+  return records.reduce<Record<DeadExportTriageAction, number>>((counts, record) => ({
+    ...counts,
+    [record.action]: counts[record.action] + 1,
+  }), {
+    needs_runtime_guard: 0,
+    review_for_removal: 0,
+    defer_public_api: 0,
+    keep_until_entrypoint_proven: 0,
+  })
+}
+
 function buildReport(): DeadExportCandidatesReport {
   const versionCommand = runCommand('knip_version', ['knip', '--version'], ['6.16.1'])
   const knipCommand = runCommand('knip_exports_json', knipArgs, ['"issues"', '"exports"'])
@@ -179,6 +259,12 @@ function buildReport(): DeadExportCandidatesReport {
   const candidateUnusedExportCount = candidateIssues.reduce((count, issue) => count + (issue.exports?.length ?? 0), 0)
   const candidateUnusedTypeCount = candidateIssues.reduce((count, issue) => count + (issue.types?.length ?? 0), 0)
   const candidateDuplicateExportCount = candidateIssues.reduce((count, issue) => count + (issue.duplicates?.length ?? 0), 0)
+  const candidateKeys = buildCandidateKeySet(candidateIssues)
+  const triageLedger = readTriageLedger()
+  const triageRecords = triageLedger.records.map<DeadExportTriageReportRecord>((record) => ({
+    ...record,
+    currentCandidate: candidateKeys.has(triageKey(record.file, record.kind, record.symbol)),
+  }))
 
   const report: DeadExportCandidatesReport = {
     generatedAt: new Date().toISOString(),
@@ -202,6 +288,11 @@ function buildReport(): DeadExportCandidatesReport {
       sampleExports: (issue.exports ?? []).slice(0, 8).map(itemName),
       sampleTypes: (issue.types ?? []).slice(0, 8).map(itemName),
     })),
+    triageLedgerPath,
+    triageRecordCount: triageRecords.length,
+    triageCurrentCandidateCount: triageRecords.filter((record) => record.currentCandidate).length,
+    triageActionCounts: countTriageActions(triageRecords),
+    triageRecords,
     primarySourceInputs: [
       {
         sourceType: 'oss_tool',
@@ -248,6 +339,10 @@ function buildReport(): DeadExportCandidatesReport {
     check('unused export candidates do not exceed baseline', report.candidateUnusedExportCount <= report.candidateUnusedExportBaseline, `${report.candidateUnusedExportCount}/${report.candidateUnusedExportBaseline}`),
     check('unused type candidates do not exceed baseline', report.candidateUnusedTypeCount <= report.candidateUnusedTypeBaseline, `${report.candidateUnusedTypeCount}/${report.candidateUnusedTypeBaseline}`),
     check('duplicate export candidates do not exceed baseline', report.candidateDuplicateExportCount <= report.candidateDuplicateExportBaseline, `${report.candidateDuplicateExportCount}/${report.candidateDuplicateExportBaseline}`),
+    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 5, `${report.triageRecordCount} records`),
+    check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
+    check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
+    check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
     check('primary sources include Knip docs and fallow comparator', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => report.primarySourceInputs.some((item) => item.sourceProject === source))),
     check('provider/live/external calls remain absent', report.providerCallsPerformed.length === 0 && report.liveModelCallsPerformed.length === 0 && report.externalCallsPerformed.length === 0, 'all call arrays empty'),
     check('protected actions remain absent', report.protectedActionsExecuted.length === 0, 'zero'),
@@ -266,6 +361,9 @@ function writeMarkdown(report: DeadExportCandidatesReport): void {
     .join('\n')
   const sampleRows = report.sampleCandidateFiles
     .map((item) => `| \`${item.file}\` | ${item.unusedExports} | ${item.unusedTypes} | ${item.duplicateExports} | ${item.sampleExports.map((sample) => `\`${sample}\``).join('<br>') || 'none'} |`)
+    .join('\n')
+  const triageRows = report.triageRecords
+    .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.action}\` | \`${item.currentCandidate}\` | ${item.guardrail} |`)
     .join('\n')
   const checkRows = report.deadExportChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
@@ -294,6 +392,10 @@ Generated by: \`bun run product:dead-export-candidates\`
 - candidate_unused_type_baseline: \`${report.candidateUnusedTypeBaseline}\`
 - candidate_duplicate_export_count: \`${report.candidateDuplicateExportCount}\`
 - candidate_duplicate_export_baseline: \`${report.candidateDuplicateExportBaseline}\`
+- triage_ledger_path: \`${report.triageLedgerPath}\`
+- triage_record_count: \`${report.triageRecordCount}\`
+- triage_current_candidate_count: \`${report.triageCurrentCandidateCount}\`
+- triage_action_counts: \`${JSON.stringify(report.triageActionCounts)}\`
 - deletion_claim_allowed: \`${report.deletionClaimAllowed}\`
 - cleanup_completion_claim_allowed: \`${report.cleanupCompletionClaimAllowed}\`
 - public_readiness_claim_allowed: \`${report.publicReadinessClaimAllowed}\`
@@ -315,6 +417,12 @@ ${sourceRows}
 | File | Unused Exports | Unused Types | Duplicate Exports | Sample Exports |
 | --- | ---: | ---: | ---: | --- |
 ${sampleRows || '| none | 0 | 0 | 0 | none |'}
+
+## Triage Ledger
+
+| File | Kind | Symbol | Action | Current Candidate | Guardrail |
+| --- | --- | --- | --- | --- | --- |
+${triageRows || '| none | none | none | none | none | none |'}
 
 ## Checks
 

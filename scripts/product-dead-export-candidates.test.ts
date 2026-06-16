@@ -5,6 +5,7 @@ import { join } from 'node:path'
 
 const root = join(__dirname, '..')
 const reportPath = join(root, 'docs/product-quality/dead-export-candidates-report.json')
+const triagePath = join(root, 'docs/product-quality/dead-export-candidate-triage.json')
 const packageJsonPath = join(root, 'package.json')
 const qualityGatePath = join(root, 'scripts/product-quality-gate.ts')
 const evidenceManifestPath = join(root, 'scripts/product-evidence-manifest.ts')
@@ -24,6 +25,19 @@ type DeadExportCandidatesReport = {
   candidateUnusedExportBaseline: number
   candidateUnusedTypeBaseline: number
   candidateDuplicateExportBaseline: number
+  triageLedgerPath: string
+  triageRecordCount: number
+  triageCurrentCandidateCount: number
+  triageActionCounts: Record<string, number>
+  triageRecords: Array<{
+    file: string
+    symbol: string
+    kind: string
+    action: string
+    currentCandidate: boolean
+    rationale: string
+    guardrail: string
+  }>
   deletionClaimAllowed: boolean
   cleanupCompletionClaimAllowed: boolean
   publicReadinessClaimAllowed: boolean
@@ -74,6 +88,13 @@ describe('product dead export candidate gate', () => {
     expect(report.candidateUnusedExportBaseline).toBeGreaterThanOrEqual(report.candidateUnusedExportCount)
     expect(report.candidateUnusedTypeBaseline).toBeGreaterThanOrEqual(report.candidateUnusedTypeCount)
     expect(report.candidateDuplicateExportBaseline).toBeGreaterThanOrEqual(report.candidateDuplicateExportCount)
+    expect(report.triageLedgerPath).toBe('docs/product-quality/dead-export-candidate-triage.json')
+    expect(report.triageRecordCount).toBeGreaterThanOrEqual(5)
+    expect(report.triageCurrentCandidateCount).toBe(report.triageRecordCount)
+    expect(report.triageActionCounts['needs_runtime_guard']).toBeGreaterThanOrEqual(1)
+    expect(report.triageActionCounts['review_for_removal']).toBeGreaterThanOrEqual(1)
+    expect(report.triageRecords.every((item) => item.currentCandidate)).toBe(true)
+    expect(report.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20)).toBe(true)
     expect(report.deletionClaimAllowed).toBe(false)
     expect(report.cleanupCompletionClaimAllowed).toBe(false)
     expect(report.publicReadinessClaimAllowed).toBe(false)
@@ -108,8 +129,11 @@ describe('product dead export candidate gate', () => {
     expect(packageJson.scripts['product:quality']).toContain('bun run product:dead-export-candidates')
     expect(qualityGate).toContain('DeadExportCandidatesReport')
     expect(qualityGate).toContain('dead export candidate commands pass')
+    expect(qualityGate).toContain('dead export candidate triage entries remain current')
     expect(qualityGate).toContain('dead_export_candidate_unused_exports=')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.json')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.md')
+    expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidate-triage.json')
+    expect(readFileSync(triagePath, 'utf8')).toContain('needs_runtime_guard')
   })
 })

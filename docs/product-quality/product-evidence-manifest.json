@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T00:01:36.895Z",
+  "generatedAt": "2026-06-16T01:43:51.062Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,12 +20,12 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "f42e0bcb58f55b04ee7d74b68cca06e936b77dda7e56c86d9f40a11b5a1fae48",
-  "evidenceRecordCount": 266,
-  "evidenceTotalSizeBytes": 14499575,
+  "manifestJsonlSha256": "2d2b20060525c3ab2cf020aa1d6507f1fc4264fcdfb78e99f955fadfd4d112cf",
+  "evidenceRecordCount": 267,
+  "evidenceTotalSizeBytes": 14505468,
   "evidenceRoles": {
     "source": 2,
-    "evidence_report": 192,
+    "evidence_report": 193,
     "evidence_artifact": 64,
     "quality_gate": 1,
     "workflow": 7
@@ -132,6 +132,7 @@
     "docs/product-quality/script-duplication-audit-report.md",
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dead-export-candidates-report.md",
+    "docs/product-quality/dead-export-candidate-triage.json",
     "docs/product-quality/maintainer-ownership-quality-report.json",
     "docs/product-quality/dependency-governance-quality-report.json",
     "docs/product-quality/lockfile-sbom-quality-report.json",
@@ -402,15 +403,21 @@
       "role": "evidence_report"
     },
     {
+      "path": "docs/product-quality/dead-export-candidate-triage.json",
+      "sha256": "bd78a90a4e8718188f722c9e08c51fa7b65cd17ef4d8c3df9adeb817674a9386",
+      "sizeBytes": 3484,
+      "role": "evidence_report"
+    },
+    {
       "path": "docs/product-quality/dead-export-candidates-report.json",
-      "sha256": "9343c4c7b01b28bdafa114284afba4b67d89999afdef1f46255b8f8d281de43c",
-      "sizeBytes": 12327,
+      "sha256": "96b3b9bde12b445cd3b09541a60cbbf67d6ecf30638522398e4db3d3c8f4f013",
+      "sizeBytes": 16679,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
-      "sha256": "029443d9dbe71bc18fc61d989762ce3d3de08ffc900f833c3b4ea989571080b2",
-      "sizeBytes": 6062,
+      "sha256": "9c6bded8247e067f769bb95f3608ae79c6f53b3882415c78b3a47a9f3802c661",
+      "sizeBytes": 8196,
       "role": "evidence_report"
     },
     {
@@ -469,14 +476,14 @@
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.json",
-      "sha256": "c4d23221b6b360468e5f21ee8f07db40baba930b821de5f58f638014a31a041f",
-      "sizeBytes": 6071,
+      "sha256": "2592de671cfc541d624e40041032648b9c9128608b0d4aa54fa0abd5d34086ef",
+      "sizeBytes": 5969,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/git-release-hygiene-report.md",
-      "sha256": "57992c8817adfe7b113afe1b7549bdd0021844baefad7285f83cc4139fffe43f",
-      "sizeBytes": 4945,
+      "sha256": "97ba1448297ebfa9ede51715f5c7e02303839ce8683c15f2999da1c0349ade64",
+      "sizeBytes": 4843,
       "role": "evidence_report"
     },
     {
@@ -505,26 +512,26 @@
     },
     {
       "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-      "sha256": "1f8cc907153dd87d2fd37a6a76fb5b554ed70c6f8f04b38df0c9444c178fd8c6",
-      "sizeBytes": 10901,
+      "sha256": "01343c64c3e6ca20407ca0eba4a5b697c073e57ee6510354f981d8530d61e8c4",
+      "sizeBytes": 10655,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/golden-path-terminal-transcripts.md",
-      "sha256": "7fdd7e671f7b1b18f25874cdd401bacc3f71901e80795749076b7d6de753b5de",
-      "sizeBytes": 9792,
+      "sha256": "7840e2aee4fdd9f7becc021668e136dd9cd9553bd856b3470f59d87c8589ec95",
+      "sizeBytes": 9574,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-host-smoke-report.json",
-      "sha256": "e402364c04808d9db84742266dd9782531c4e4de60f119338a35f23709d03f7d",
-      "sizeBytes": 4646,
+      "sha256": "160769385d2ee66711c1f714b221c1666e87398f9f3eb0250aef739239ce11ca",
+      "sizeBytes": 4198,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-host-smoke-report.md",
-      "sha256": "3c87ceea40547f09e262a9ba61a677aa74a134bce092ec098fbaf8b196e99c14",
-      "sizeBytes": 4175,
+      "sha256": "9bc8aa834748faa08817a4d528639db1a46380727117d858a9471b022d05a84b",
+      "sizeBytes": 3767,
       "role": "evidence_report"
     },
     {
@@ -613,14 +620,14 @@
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-      "sha256": "c16947070945e7bc0d37507d72d0ef6af2fd1919dd0be5811ce9860ff90318cf",
-      "sizeBytes": 5399,
+      "sha256": "a2bb4d84e70559697933365af18621671d7b774aaa95e700a0cae40ab8188a28",
+      "sizeBytes": 4951,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/ide-extension-workbench-smoke-report.md",
-      "sha256": "d679f7e2117fb8731cf94ab0a95f9f6d1fc546f0e8f6c240faff736012104ce2",
-      "sizeBytes": 4330,
+      "sha256": "73cab48b00f1b45c1d72937f870f92f8b748df40582029fe971d5eaf085a289f",
+      "sizeBytes": 4075,
       "role": "evidence_report"
     },
     {
@@ -703,14 +710,14 @@
     },
     {
       "path": "docs/product-quality/onboarding-smoke-report.json",
-      "sha256": "9b517a173af165a6047b680d1343cbda7ca769a73d6c7ea602ac4688d4342805",
-      "sizeBytes": 15705,
+      "sha256": "9fb451c111f45e2e1f4cdf12aa00c3b97e9adb9f13e75494c251622805519c84",
+      "sizeBytes": 15336,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/onboarding-smoke-report.md",
-      "sha256": "b09263865e8407baf18d3d05717af03c50de34b3fc0255fb291b2caca4104ef8",
-      "sizeBytes": 12858,
+      "sha256": "264ab6ca48a64c861e3bc7f7dceb0541166fa2d727dbc8cbcce36e110306c520",
+      "sizeBytes": 12531,
       "role": "evidence_report"
     },
     {
@@ -1219,14 +1226,14 @@
     },
     {
       "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-      "sha256": "346bafda21a6c47a3b9a80cd78cb9d5275669e5b7147a500d34dadc321dfc038",
-      "sizeBytes": 8262,
+      "sha256": "98a79bc3fc5a81756bdcda0074fc93bc4c10af0836365d656eca43eb34a85783",
+      "sizeBytes": 7752,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/runtime-doctor-regression-fixtures.md",
-      "sha256": "0bda94031057b4e558e8f2c3bbb070ce3a24662b7ed60fea3a2f3e380150102b",
-      "sizeBytes": 3214,
+      "sha256": "7b9ef7fba04ffc74b6de423ebc5dff32a1dda99893bb6f8b4a57ea77e7c0cb33",
+      "sizeBytes": 2996,
       "role": "evidence_report"
     },
     {
@@ -1399,26 +1406,26 @@
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
-      "sha256": "d2ccfe2fc7dc4ac30b08c0decb369e834dfcdd78bcb07df8020190d3646bcc4c",
-      "sizeBytes": 7164,
+      "sha256": "cab4e58dac2cfa3fa5bc31a313b34be97e76dfedb1297b116cec61d422daea07",
+      "sizeBytes": 6981,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-startup-diagnostics-report.md",
-      "sha256": "6fece4f7481910115af38d6636074a27ead2a21c13c2c16a60569e4ee5864650",
-      "sizeBytes": 5175,
+      "sha256": "fb5d91b5e665fb64b8359cb913bfaefc162e11cbf1bdc5d20085cfb15ca35c6e",
+      "sizeBytes": 5009,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.json",
-      "sha256": "6c1a7d0ba4665d0ceff5c3e4b8173caa489f559064c47e54487f0da55096583e",
-      "sizeBytes": 4319,
+      "sha256": "d53533efca85b89b4ab0d00e39d2fbdbe18e5f290750d3b78112cf1a6b39b12a",
+      "sizeBytes": 4248,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/vscode-update-boundary-report.md",
-      "sha256": "3c4344d971def0ff5bb4b01ffb3c6df1443a429c583feccb9215af30e6d52355",
-      "sizeBytes": 3185,
+      "sha256": "46ed757290673259c5f35d0fc06e60ce4d2bdd68bac292a38b62d311083edd6e",
+      "sizeBytes": 3179,
       "role": "evidence_report"
     },
     {
@@ -1803,17 +1810,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "266 records"
+      "detail": "267 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "14499575 total bytes"
+      "detail": "14505468 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "266 lines"
+      "detail": "267 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1828,7 +1835,7 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":192,\"evidence_artifact\":64,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":193,\"evidence_artifact\":64,\"quality_gate\":1,\"workflow\":7}"
     },
     {
       "label": "manifest contains no credential patterns",

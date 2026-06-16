@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "claimBoundary": "This ledger records manually reviewed Knip dead-export candidates. It does not authorize deletion, autofix, cleanup completion, release readiness, public readiness, or external validation claims.",
+  "records": [
+    {
+      "file": "src/commands.ts",
+      "symbol": "meetsAvailabilityRequirement",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Command availability affects runtime command routing and can be reached indirectly through registry behavior rather than direct imports.",
+      "guardrail": "Before removal, add a command-registry happy-path test and an unavailable-command edge-case test.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    },
+    {
+      "file": "src/commands.ts",
+      "symbol": "BRIDGE_SAFE_COMMANDS",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Bridge allowlist exports are security-sensitive even when static imports are absent, because host integrations can depend on stable command policy.",
+      "guardrail": "Before removal, run or add bridge command policy tests that prove safe command filtering still blocks protected actions.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    },
+    {
+      "file": "src/services/api/providerConfig.ts",
+      "symbol": "resolveStoredCodexCredentials",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
+      "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    },
+    {
+      "file": "src/utils/providerProfile.ts",
+      "symbol": "buildNvidiaNimProfileEnv",
+      "kind": "export",
+      "action": "review_for_removal",
+      "rationale": "Provider-profile env builders are likely ordinary module exports, but each provider preset may still be referenced by docs or profile bootstrap flows.",
+      "guardrail": "Before removal, run provider profile tests and search docs/bootstrap scripts for provider preset references.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    },
+    {
+      "file": "src/utils/geminiCredentials.ts",
+      "symbol": "clearGeminiAccessToken",
+      "kind": "export",
+      "action": "needs_runtime_guard",
+      "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
+      "guardrail": "Before removal, add credential lifecycle tests that prove stored-token clear, missing-token no-op, and no secret logging behavior.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    },
+    {
+      "file": "src/bridge/sessionRunner.ts",
+      "symbol": "_extractActivitiesForTesting",
+      "kind": "export",
+      "action": "review_for_removal",
+      "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
+      "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
+      "reviewedAt": "2026-06-16",
+      "reviewer": "codex-local-triage"
+    }
+  ]
+}

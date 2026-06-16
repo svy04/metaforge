@@ -343,6 +343,40 @@ describe('public repository readiness surfaces', () => {
     expect(koreanReadme).toContain('전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다')
   })
 
+  test('README states public history boundary without adoption overclaims', () => {
+    const readme = readRepoText('README.md')
+    const koreanReadme = readRepoText('README.ko.md')
+    const forbiddenEnglishHistoryOverclaims = [
+      /\bwidely adopted\b/i,
+      /\b(?:is|was|has been)\s+externally validated\b/i,
+      /\b(?:is|was|has been)\s+production ready\b/i,
+      /\bstar history proves\b/i,
+      /\bstars prove\b/i,
+    ]
+    const forbiddenKoreanHistoryOverclaims = [
+      /널리\s*채택/,
+      /외부\s*검증\s*완료/,
+      /프로덕션\s*준비\s*완료/,
+      /스타가\s*증명/,
+    ]
+
+    expect(readme).toContain('Public history boundary')
+    expect(readme).toContain('private/local workbench')
+    expect(readme).toContain('public checkout')
+    expect(readme).toContain('not adoption evidence, external validation, or production readiness')
+    expect(koreanReadme).toContain('공개 히스토리 경계')
+    expect(koreanReadme).toContain('프라이빗/로컬 workbench')
+    expect(koreanReadme).toContain('공개 checkout')
+    expect(koreanReadme).toContain('채택, 외부 검증, production readiness 증거가 아닙니다')
+
+    for (const pattern of forbiddenEnglishHistoryOverclaims) {
+      expect(readme, String(pattern)).not.toMatch(pattern)
+    }
+    for (const pattern of forbiddenKoreanHistoryOverclaims) {
+      expect(koreanReadme, String(pattern)).not.toMatch(pattern)
+    }
+  })
+
   test('extension package metadata does not advertise stale origin or blanket MIT licensing', () => {
     const manifestPaths = [
       'packages/openclaude-vscode/package.json',

@@ -1508,6 +1508,15 @@ type DeadExportCandidatesReport = {
   candidateUnusedExportBaseline: number
   candidateUnusedTypeBaseline: number
   candidateDuplicateExportBaseline: number
+  triageLedgerPath: string
+  triageRecordCount: number
+  triageCurrentCandidateCount: number
+  triageActionCounts: Record<string, number>
+  triageRecords: Array<{
+    currentCandidate: boolean
+    rationale: string
+    guardrail: string
+  }>
   deletionClaimAllowed: boolean
   cleanupCompletionClaimAllowed: boolean
   publicReadinessClaimAllowed: boolean
@@ -3426,6 +3435,7 @@ function main(): void {
   const scriptDuplicationAuditMdPath = 'docs/product-quality/script-duplication-audit-report.md'
   const deadExportCandidatesJsonPath = 'docs/product-quality/dead-export-candidates-report.json'
   const deadExportCandidatesMdPath = 'docs/product-quality/dead-export-candidates-report.md'
+  const deadExportCandidateTriagePath = 'docs/product-quality/dead-export-candidate-triage.json'
   const maintainerOwnershipQualityJsonPath = 'docs/product-quality/maintainer-ownership-quality-report.json'
   const maintainerOwnershipQualityMdPath = 'docs/product-quality/maintainer-ownership-quality-report.md'
   const dependencyGovernanceQualityJsonPath = 'docs/product-quality/dependency-governance-quality-report.json'
@@ -3552,6 +3562,7 @@ function main(): void {
     scriptDuplicationAuditMdPath,
     deadExportCandidatesJsonPath,
     deadExportCandidatesMdPath,
+    deadExportCandidateTriagePath,
     maintainerOwnershipQualityJsonPath,
     maintainerOwnershipQualityMdPath,
     dependencyGovernanceQualityJsonPath,
@@ -4296,6 +4307,10 @@ function main(): void {
   checks.push(check('dead export unused exports do not exceed baseline', deadExportCandidates.candidateUnusedExportCount <= deadExportCandidates.candidateUnusedExportBaseline, `${deadExportCandidates.candidateUnusedExportCount}/${deadExportCandidates.candidateUnusedExportBaseline}`))
   checks.push(check('dead export unused types do not exceed baseline', deadExportCandidates.candidateUnusedTypeCount <= deadExportCandidates.candidateUnusedTypeBaseline, `${deadExportCandidates.candidateUnusedTypeCount}/${deadExportCandidates.candidateUnusedTypeBaseline}`))
   checks.push(check('dead export duplicate exports do not exceed baseline', deadExportCandidates.candidateDuplicateExportCount <= deadExportCandidates.candidateDuplicateExportBaseline, `${deadExportCandidates.candidateDuplicateExportCount}/${deadExportCandidates.candidateDuplicateExportBaseline}`))
+  checks.push(check('dead export candidate triage path is required evidence', deadExportCandidates.triageLedgerPath === deadExportCandidateTriagePath && existsSync(resolve(root, deadExportCandidateTriagePath)), deadExportCandidates.triageLedgerPath))
+  checks.push(check('dead export candidate triage entries remain current', deadExportCandidates.triageRecordCount >= 5 && deadExportCandidates.triageCurrentCandidateCount === deadExportCandidates.triageRecordCount && deadExportCandidates.triageRecords.every((item) => item.currentCandidate), `${deadExportCandidates.triageCurrentCandidateCount}/${deadExportCandidates.triageRecordCount}`))
+  checks.push(check('dead export candidate triage covers guarded and removal-review paths', (deadExportCandidates.triageActionCounts.needs_runtime_guard ?? 0) > 0 && (deadExportCandidates.triageActionCounts.review_for_removal ?? 0) > 0, JSON.stringify(deadExportCandidates.triageActionCounts)))
+  checks.push(check('dead export candidate triage records rationale and guardrails', deadExportCandidates.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20), `${deadExportCandidates.triageRecordCount} records`))
   checks.push(check('dead export candidate gate records official primary sources', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => deadExportCandidates.primarySourceInputs.some((item) => item.sourceProject === source)) && deadExportCandidates.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://knip.dev/')), deadExportCandidates.primarySourceInputs.map((item) => item.sourceProject).join(',')))
   checks.push(check('dead export candidate gate keeps deletion cleanup and readiness claims blocked', deadExportCandidates.deletionClaimAllowed === false && deadExportCandidates.cleanupCompletionClaimAllowed === false && deadExportCandidates.publicReadinessClaimAllowed === false))
   checks.push(check('dead export candidate commands pass', deadExportCandidates.knipCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))
