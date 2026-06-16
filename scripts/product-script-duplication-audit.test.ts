@@ -116,6 +116,130 @@ function readText(path: string): string {
     ])
   }, 30000)
 
+  test('runs local jscpd against a temp fixture without rewriting checked-in reports', () => {
+    const repo = makeTempRepo()
+    const rootReportBefore = readFileSync(
+      join(root, 'docs', 'product-quality', 'script-duplication-audit-report.json'),
+      'utf8',
+    )
+    const rootMarkdownBefore = readFileSync(
+      join(root, 'docs', 'product-quality', 'script-duplication-audit-report.md'),
+      'utf8',
+    )
+    const clonedSource = `
+type Check = { label: string; ok: boolean; detail: string }
+function check(label: string, ok: boolean, detail: string): Check {
+  return { label, ok, detail }
+}
+function readText(path: string): string {
+  return path.trim()
+}
+export function renderFixtureReport(input: string): string {
+  const rows = [
+    'alpha',
+    'beta',
+    'gamma',
+    'delta',
+    'epsilon',
+    'zeta',
+    'eta',
+    'theta',
+    'iota',
+    'kappa',
+  ]
+  return rows.map((row, index) => \`\${index}:\${row}:\${input}\`).join('\\n')
+}
+`
+    const uniqueSource = Array.from(
+      { length: 1400 },
+      (_, index) => `export const uniqueFixtureValue${index} = ${index} * ${index + 17}`,
+    ).join('\n')
+    writeFileSync(join(repo, '.jscpd.json'), JSON.stringify({
+      path: ['scripts'],
+      pattern: '**/product-*.ts',
+      format: ['typescript'],
+      reporters: ['json'],
+      minLines: 5,
+      minTokens: 20,
+      absolute: false,
+      gitignore: false,
+    }, null, 2))
+    writeFileSync(join(repo, 'scripts', 'product-alpha.ts'), clonedSource)
+    writeFileSync(join(repo, 'scripts', 'product-beta.ts'), clonedSource)
+    writeFileSync(join(repo, 'scripts', 'product-unique.ts'), uniqueSource)
+
+    const result = runAudit(repo)
+
+    expect(result.status, result.stderr || result.stdout).toBe(0)
+    expect(result.stdout).toContain('RESULT: PASS')
+
+    const tempReportText = readFileSync(
+      join(repo, 'docs', 'product-quality', 'script-duplication-audit-report.json'),
+      'utf8',
+    )
+    const tempReport = JSON.parse(tempReportText) as {
+      jscpdEnabled: boolean
+      jscpdVersion: string
+      jscpdCommand: {
+        name: string
+        command: string[]
+        exitCode: number | null
+        passed: boolean
+        missingSubstrings: string[]
+      }
+      jscpdReportSha256: string
+      jscpdCloneCount: number
+      jscpdCloneBaseline: number
+      jscpdDuplicatedLines: number
+      jscpdDuplicatedLinesBaseline: number
+      jscpdDuplicatedTokens: number
+      jscpdDuplicatedTokensBaseline: number
+      jscpdDuplicatedPercentage: number
+      jscpdDuplicatedPercentageBaseline: number
+      jscpdTopClonePairs: Array<{
+        firstFile: string
+        secondFile: string
+      }>
+    }
+    expect(tempReport.jscpdEnabled).toBe(true)
+    expect(tempReport.jscpdVersion).toContain('5.0.9')
+    expect(tempReport.jscpdCommand.name).toBe('jscpd_product_scripts_json')
+    expect(tempReport.jscpdCommand.command).toEqual(
+      expect.arrayContaining(['jscpd', '--config', '.jscpd.json', '--reporters', 'json']),
+    )
+    expect(tempReport.jscpdCommand.exitCode).toBe(0)
+    expect(tempReport.jscpdCommand.passed).toBe(true)
+    expect(tempReport.jscpdCommand.missingSubstrings).toEqual([])
+    expect(tempReport.jscpdReportSha256).toHaveLength(64)
+    expect(tempReport.jscpdReportSha256).not.toBe('0'.repeat(64))
+    expect(tempReport.jscpdCloneCount).toBeGreaterThan(0)
+    expect(tempReport.jscpdCloneCount).toBeLessThanOrEqual(tempReport.jscpdCloneBaseline)
+    expect(tempReport.jscpdDuplicatedLines).toBeGreaterThan(0)
+    expect(tempReport.jscpdDuplicatedLines).toBeLessThanOrEqual(tempReport.jscpdDuplicatedLinesBaseline)
+    expect(tempReport.jscpdDuplicatedTokens).toBeGreaterThan(0)
+    expect(tempReport.jscpdDuplicatedTokens).toBeLessThanOrEqual(tempReport.jscpdDuplicatedTokensBaseline)
+    expect(tempReport.jscpdDuplicatedPercentage).toBeGreaterThan(0)
+    expect(tempReport.jscpdDuplicatedPercentage).toBeLessThanOrEqual(tempReport.jscpdDuplicatedPercentageBaseline)
+    expect(tempReport.jscpdTopClonePairs.length).toBeGreaterThan(0)
+    expect(
+      tempReport.jscpdTopClonePairs.every(
+        (pair) =>
+          pair.firstFile.startsWith('scripts/') &&
+          pair.secondFile.startsWith('scripts/') &&
+          !pair.firstFile.includes('\\') &&
+          !pair.secondFile.includes('\\') &&
+          !pair.firstFile.includes(repo) &&
+          !pair.secondFile.includes(repo),
+      ),
+    ).toBe(true)
+    expect(readFileSync(join(root, 'docs', 'product-quality', 'script-duplication-audit-report.json'), 'utf8')).toBe(
+      rootReportBefore,
+    )
+    expect(readFileSync(join(root, 'docs', 'product-quality', 'script-duplication-audit-report.md'), 'utf8')).toBe(
+      rootMarkdownBefore,
+    )
+  }, 60000)
+
   test('records jscpd token-clone ratchet evidence for product scripts without cleanup claims', () => {
     const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8')) as {
       devDependencies: Record<string, string>
