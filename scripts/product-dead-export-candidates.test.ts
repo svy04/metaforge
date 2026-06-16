@@ -43,6 +43,13 @@ type DeadExportCandidatesReport = {
     rationale: string
     guardrail: string
   }>
+  removedCandidateRatchets: Array<{
+    file: string
+    symbol: string
+    kind: string
+    currentCandidate: boolean
+    guardrail: string
+  }>
   deletionClaimAllowed: boolean
   cleanupCompletionClaimAllowed: boolean
   publicReadinessClaimAllowed: boolean
@@ -90,7 +97,7 @@ describe('product dead export candidate gate', () => {
     expect(report.candidateFileCount).toBeGreaterThan(0)
     expect(report.candidateUnusedExportCount).toBeGreaterThan(0)
     expect(report.candidateUnusedTypeCount).toBeLessThanOrEqual(364)
-    expect(report.candidateUnusedExportCount).toBeLessThanOrEqual(1400)
+    expect(report.candidateUnusedExportCount).toBeLessThanOrEqual(1399)
     expect(
       report.sampleCandidateFiles.find((item) => item.file === 'src/utils/providerDiscovery.ts')?.sampleExports ?? [],
     ).not.toContain('getOpenAICompatibleModelsBaseUrl')
@@ -111,6 +118,15 @@ describe('product dead export candidate gate', () => {
     expect(report.triageActionCounts['review_for_removal']).toBeGreaterThanOrEqual(1)
     expect(report.triageRecords.every((item) => item.currentCandidate)).toBe(true)
     expect(report.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20)).toBe(true)
+    expect(report.removedCandidateRatchets.length).toBeGreaterThanOrEqual(4)
+    expect(report.removedCandidateRatchets.every((item) => item.currentCandidate)).toBe(false)
+    expect(
+      report.removedCandidateRatchets.find((item) => (
+        item.file === 'src/projectOnboardingState.ts' &&
+        item.kind === 'export' &&
+        item.symbol === 'isProjectOnboardingComplete'
+      ))?.currentCandidate,
+    ).toBe(false)
     expect(report.deletionClaimAllowed).toBe(false)
     expect(report.cleanupCompletionClaimAllowed).toBe(false)
     expect(report.publicReadinessClaimAllowed).toBe(false)
@@ -146,6 +162,7 @@ describe('product dead export candidate gate', () => {
     expect(qualityGate).toContain('DeadExportCandidatesReport')
     expect(qualityGate).toContain('dead export candidate commands pass')
     expect(qualityGate).toContain('dead export candidate triage entries remain current')
+    expect(qualityGate).toContain('dead export candidate removed ratchets remain absent')
     expect(qualityGate).toContain('dead_export_candidate_unused_exports=')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.json')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.md')

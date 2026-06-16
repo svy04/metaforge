@@ -1517,6 +1517,10 @@ type DeadExportCandidatesReport = {
     rationale: string
     guardrail: string
   }>
+  removedCandidateRatchets: Array<{
+    currentCandidate: boolean
+    guardrail: string
+  }>
   deletionClaimAllowed: boolean
   cleanupCompletionClaimAllowed: boolean
   publicReadinessClaimAllowed: boolean
@@ -4311,6 +4315,7 @@ function main(): void {
   checks.push(check('dead export candidate triage entries remain current', deadExportCandidates.triageRecordCount >= 5 && deadExportCandidates.triageCurrentCandidateCount === deadExportCandidates.triageRecordCount && deadExportCandidates.triageRecords.every((item) => item.currentCandidate), `${deadExportCandidates.triageCurrentCandidateCount}/${deadExportCandidates.triageRecordCount}`))
   checks.push(check('dead export candidate triage covers guarded and removal-review paths', (deadExportCandidates.triageActionCounts.needs_runtime_guard ?? 0) > 0 && (deadExportCandidates.triageActionCounts.review_for_removal ?? 0) > 0, JSON.stringify(deadExportCandidates.triageActionCounts)))
   checks.push(check('dead export candidate triage records rationale and guardrails', deadExportCandidates.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20), `${deadExportCandidates.triageRecordCount} records`))
+  checks.push(check('dead export candidate removed ratchets remain absent', deadExportCandidates.removedCandidateRatchets.length >= 4 && deadExportCandidates.removedCandidateRatchets.every((item) => !item.currentCandidate && item.guardrail.length > 20), `${deadExportCandidates.removedCandidateRatchets.filter((item) => item.currentCandidate).length}/${deadExportCandidates.removedCandidateRatchets.length} regressed`))
   checks.push(check('dead export candidate gate records official primary sources', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => deadExportCandidates.primarySourceInputs.some((item) => item.sourceProject === source)) && deadExportCandidates.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://knip.dev/')), deadExportCandidates.primarySourceInputs.map((item) => item.sourceProject).join(',')))
   checks.push(check('dead export candidate gate keeps deletion cleanup and readiness claims blocked', deadExportCandidates.deletionClaimAllowed === false && deadExportCandidates.cleanupCompletionClaimAllowed === false && deadExportCandidates.publicReadinessClaimAllowed === false))
   checks.push(check('dead export candidate commands pass', deadExportCandidates.knipCommands.every((item) => item.exitCode === 0 && item.passed && item.missingSubstrings.length === 0)))

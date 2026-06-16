@@ -5,7 +5,6 @@ import {
 } from './utils/config.js'
 export {
   getSteps,
-  isProjectOnboardingComplete,
   type Step,
 } from './projectOnboardingSteps.js'
 import { isProjectOnboardingComplete } from './projectOnboardingSteps.js'

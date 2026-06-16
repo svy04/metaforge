@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T02:25:36.359Z",
+  "generatedAt": "2026-06-16T02:42:11.400Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -29,8 +29,8 @@
       "stderrPreview": []
     }
   ],
-  "candidateFileCount": 640,
-  "candidateUnusedExportCount": 1400,
+  "candidateFileCount": 639,
+  "candidateUnusedExportCount": 1399,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -329,13 +329,13 @@
       "sampleTypes": []
     },
     {
-      "file": "src/tools/BashTool/BashTool.tsx",
+      "file": "src/upstreamproxy/upstreamproxy.ts",
       "unusedExports": 2,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
-        "isSearchOrReadBashCommand",
-        "detectBlockedSleepPattern"
+        "SESSION_TOKEN_PATH",
+        "resetUpstreamProxyForTests"
       ],
       "sampleTypes": []
     }
@@ -417,6 +417,36 @@
       "currentCandidate": true
     }
   ],
+  "removedCandidateRatchets": [
+    {
+      "file": "src/utils/providerDiscovery.ts",
+      "symbol": "getOpenAICompatibleModelsBaseUrl",
+      "kind": "export",
+      "guardrail": "Keep this helper private; callers should use the public provider-discovery APIs instead.",
+      "currentCandidate": false
+    },
+    {
+      "file": "src/bridge/sessionRunner.ts",
+      "symbol": "PermissionRequest",
+      "kind": "type",
+      "guardrail": "Keep this request shape internal to the session runner bridge contract.",
+      "currentCandidate": false
+    },
+    {
+      "file": "src/utils/providerProfile.ts",
+      "symbol": "buildMiniMaxProfileEnv",
+      "kind": "export",
+      "guardrail": "Keep this provider profile helper private until an actual module boundary imports it.",
+      "currentCandidate": false
+    },
+    {
+      "file": "src/projectOnboardingState.ts",
+      "symbol": "isProjectOnboardingComplete",
+      "kind": "export",
+      "guardrail": "Keep onboarding completion checks exported from projectOnboardingSteps.ts, not re-exported from state.",
+      "currentCandidate": false
+    }
+  ],
   "primarySourceInputs": [
     {
       "sourceType": "oss_tool",
@@ -464,22 +494,22 @@
     {
       "label": "candidate files are discovered",
       "ok": true,
-      "detail": "640 files"
+      "detail": "639 files"
     },
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1400 exports"
+      "detail": "1399 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
       "ok": true,
-      "detail": "640/657"
+      "detail": "639/657"
     },
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1400/1461"
+      "detail": "1399/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",
@@ -510,6 +540,11 @@
       "label": "dead export triage records guardrails and rationales",
       "ok": true,
       "detail": "6 records"
+    },
+    {
+      "label": "removed dead export ratchets remain absent",
+      "ok": true,
+      "detail": "0/4 regressed"
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",
