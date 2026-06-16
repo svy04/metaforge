@@ -108,7 +108,9 @@ export const publicSurfacePaths = [
   'docs/MIMESIS_ENGINEERING.md',
   'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
   'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
+  'packages/openclaude-vscode/package.json',
   'packages/openclaude-vscode/README.md',
+  'vscode-extension/openclaude-vscode/package.json',
   'vscode-extension/openclaude-vscode/README.md',
 ]
 
