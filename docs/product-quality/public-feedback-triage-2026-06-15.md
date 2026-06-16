@@ -137,9 +137,9 @@ fixture-backed gates:
 Current response in this slice:
 
 - add a fixture-based regression test proving `public-artifact-hygiene` rejects
-  private agent-memory breadcrumbs such as `<private-codex-memory-dir>`,
-  `<private-agent-skill-dir>`, raw private memory headings, and pasted local
-  agent-instruction headers;
+  private Codex memory directory placeholders, private agent skill directory
+  placeholders, raw private memory headings, and pasted local agent-instruction
+  headers;
 - remove tracked generated AVF operator-run artifacts from the public checkout,
   add a path-portability regression test for tracked files over 240 characters,
   and keep `operator_package_v*` outputs ignored as local owner-review artifacts;

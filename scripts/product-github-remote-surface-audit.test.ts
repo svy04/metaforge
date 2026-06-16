@@ -26,6 +26,29 @@ describe('GitHub public surface analysis', () => {
     expect(matchesForbiddenPattern?.(['e.g.', ['C:', 'Users', 'Example', 'Documents', 'fixture'].join('\\')].join(' '))).toBe(false)
   })
 
+  test('remote forbidden-pattern matcher covers local-hygiene-only public breadcrumbs', async () => {
+    const audit = await import('./product-github-remote-surface-audit')
+    const matchesForbiddenPattern = audit.matchesRemoteForbiddenPattern as ((text: string) => boolean) | undefined
+    const forbiddenPatternId = audit.remoteForbiddenPatternId as ((text: string, path?: string) => string | null) | undefined
+
+    expect(typeof matchesForbiddenPattern).toBe('function')
+    expect(typeof forbiddenPatternId).toBe('function')
+
+    const forbiddenSamples = [
+      '<environment_context>',
+      '.codex/memories/session-note.md',
+      'AGENTS.md instructions for C:',
+      'OPENAI_API_KEY=sk-openai-placeholder',
+    ]
+
+    for (const sample of forbiddenSamples) {
+      expect(matchesForbiddenPattern?.(sample), sample).toBe(true)
+    }
+
+    expect(forbiddenPatternId?.('<environment_context>', 'docs/public-note.md')).toBe('public_artifact_hygiene_pattern')
+    expect(forbiddenPatternId?.('<environment_context>', 'scripts/public-artifact-hygiene.test.ts')).toBe(null)
+  })
+
   test('blocks stale remote branches and disclosure findings on public refs', () => {
     const report = analyzePublicGithubSurface({
       defaultBranch: 'main',

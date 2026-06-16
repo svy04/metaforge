@@ -62,6 +62,8 @@ const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
 const userSegment = String.raw`[^\\/"]+`
 const privateWorkspacePlaceholder = '<private' + '-workspace>'
+const privateCodexMemoryPlaceholder = '<private' + '-codex-memory-dir>'
+const privateAgentSkillPlaceholder = '<private' + '-agent-skill-dir>'
 const replacements: Replacement[] = [
   {
     pattern: new RegExp(
@@ -135,6 +137,8 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   { label: 'codex-memory-path', pattern: new RegExp(String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories', 'i') },
   { label: 'agents-skill-path', pattern: new RegExp(String.raw`\.` + 'agents' + String.raw`[\\/]+` + 'skills', 'i') },
   { label: 'private-workspace-placeholder', pattern: new RegExp(privateWorkspacePlaceholder, 'i') },
+  { label: 'private-codex-memory-placeholder', pattern: new RegExp(privateCodexMemoryPlaceholder, 'i') },
+  { label: 'private-agent-skill-placeholder', pattern: new RegExp(privateAgentSkillPlaceholder, 'i') },
   { label: 'private-meta-authority-path', pattern: /(?:^|[\s`"'])meta[\\/]+CLAUDE\.md\b/i },
   { label: 'private-mfh-spec-path', pattern: /(?:^|[\s`"'])mfh[\\/]+\.mfh[\\/]+spec\.md\b/i },
   { label: 'private-memory-dump-title', pattern: new RegExp('OpenClaude Orchestrator ' + 'Memory') },
