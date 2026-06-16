@@ -25,6 +25,11 @@ runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 
 라이선스로 제공되지만, 전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다.
 재사용이나 재배포 전에는 반드시 [LICENSE](LICENSE)를 확인하세요.
 
+공개 히스토리 경계: Metaforge는 프라이빗/로컬 workbench에서 이 공개 checkout으로
+옮겨온 surface라서 public commit/star 숫자가 낮은 것은 예상 가능한 맥락입니다.
+이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은
+source-controlled test, report, claim-boundary record에서만 나와야 합니다.
+
 ## 한 줄 요약
 
 Metaforge는 사용자의 의도를 장기 목표로 고정하고, Meta에 운영 기억을 남기며,

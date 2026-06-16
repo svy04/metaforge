@@ -171,6 +171,7 @@ const requiredEvidencePaths = [
   'docs/product-quality/script-duplication-audit-report.md',
   'docs/product-quality/dead-export-candidates-report.json',
   'docs/product-quality/dead-export-candidates-report.md',
+  'docs/product-quality/dead-export-candidate-triage.json',
   'docs/product-quality/maintainer-ownership-quality-report.json',
   'docs/product-quality/dependency-governance-quality-report.json',
   'docs/product-quality/lockfile-sbom-quality-report.json',
