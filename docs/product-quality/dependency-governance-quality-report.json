@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T21:22:09.654Z",
+  "generatedAt": "2026-06-15T23:58:23.892Z",
   "mode": "local_no_provider_dependency_governance_quality",
   "primarySourceInputs": [
     {
@@ -34,7 +34,7 @@
     }
   ],
   "packageJsonPath": "package.json",
-  "packageJsonSha256": "133d6ad96a5d87d2be9135fc0c6ce02140dc1ad95db0a4910dbbfdd14be5ec16",
+  "packageJsonSha256": "e2f3bbe83d349ed9629d6516f989b1485cac46399a493f69c5c8c30447b1cecc",
   "packageManagerField": "bun@1.3.11",
   "packageManagerFieldPresent": true,
   "workflowBunVersions": [
@@ -42,8 +42,8 @@
   ],
   "packageManagerMatchesWorkflowBunVersion": true,
   "bunLockPath": "bun.lock",
-  "bunLockSha256": "c439d05b423f930e0345e314ff229ba680ab9790e058c885dbf0c844de499114",
-  "bunLockSizeBytes": 223511,
+  "bunLockSha256": "6c799f62f98cc6d8c7ed9ffdef1e4938017841de44da04702baa5dfa72ab8d34",
+  "bunLockSizeBytes": 225100,
   "bunLockTextStructureRecognized": true,
   "bunLockfileVersion": 1,
   "bunLockRootWorkspacePresent": true,
@@ -435,6 +435,12 @@
       "rangeKind": "exact"
     },
     {
+      "name": "jscpd",
+      "version": "5.0.9",
+      "scope": "development",
+      "rangeKind": "exact"
+    },
+    {
       "name": "jsonc-parser",
       "version": "3.3.1",
       "scope": "runtime",
@@ -628,8 +634,8 @@
     }
   ],
   "runtimeDependencyCount": 80,
-  "developmentDependencyCount": 16,
-  "exactVersionCount": 80,
+  "developmentDependencyCount": 17,
+  "exactVersionCount": 81,
   "semverRangeCount": 16,
   "otherVersionSpecifierCount": 0,
   "overridesPresent": true,
@@ -677,7 +683,7 @@
     {
       "label": "bun.lock exists and has recognized text structure",
       "ok": true,
-      "detail": "bun.lock/223511 bytes"
+      "detail": "bun.lock/225100 bytes"
     },
     {
       "label": "bun.lock root workspace is present",
@@ -692,12 +698,12 @@
     {
       "label": "dependency range inventory is explicit",
       "ok": true,
-      "detail": "96 direct entries"
+      "detail": "97 direct entries"
     },
     {
       "label": "runtime and development dependencies are both inventoried",
       "ok": true,
-      "detail": "80/16"
+      "detail": "80/17"
     },
     {
       "label": "override policy is present for constrained dependency drift",

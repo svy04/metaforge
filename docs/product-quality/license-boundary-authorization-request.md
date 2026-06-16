@@ -10,14 +10,14 @@ No authorization is granted by this file. Every protected authorization below de
 
 ## Current Evidence
 
-- third_party_source_lockfile_package_count: `852`
-- third_party_direct_manifest_dependency_count: `96`
+- third_party_source_lockfile_package_count: `859`
+- third_party_direct_manifest_dependency_count: `97`
 - third_party_direct_dependencies_covered_by_metadata: `true`
-- third_party_direct_license_file_missing_packages: `@growthbook/growthbook,emoji-regex,ignore,react-compiler-runtime,type-fest`
+- third_party_direct_license_file_missing_packages: `@growthbook/growthbook,emoji-regex,ignore,jscpd,react-compiler-runtime,type-fest`
 - third_party_notice_file_present_count: `0`
-- source_scanned_file_count: `2489`
+- source_scanned_file_count: `2490`
 - source_files_with_spdx_license_identifier_count: `1`
-- source_files_missing_file_level_metadata_count: `2488`
+- source_files_missing_file_level_metadata_count: `2489`
 - reuse_toml_present: `false`
 - licenses_directory_present: `false`
 - derived_code_boundary_recognized: `true`

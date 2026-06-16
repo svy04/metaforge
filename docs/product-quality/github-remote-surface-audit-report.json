@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T03:06:07.271Z",
+  "generatedAt": "2026-06-16T00:01:21.843Z",
   "mode": "github_public_remote_surface_audit",
   "primarySourceInputs": [
     {
@@ -36,7 +36,7 @@
   "defaultBranch": "main",
   "remoteHeads": [
     {
-      "oid": "c54b451bf42428f82065b634d440d46c5fa49fc8",
+      "oid": "a2a4b38e79f7b01553d4a9ac4256c241e941afd0",
       "name": "main"
     }
   ],
@@ -57,14 +57,14 @@
   "discovery": {
     "gitFetchPerformed": true,
     "remoteHeadDiscovery": "git_ls_remote",
-    "openPullRequestDiscovery": "gh_cli"
+    "openPullRequestDiscovery": "github_pr_api"
   },
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "protectedActionsExecuted": [],
   "externalCallsPerformed": [
     "git_ls_remote",
-    "gh_cli"
+    "github_pr_api"
   ],
   "evidenceChecks": [
     {
@@ -80,7 +80,7 @@
     {
       "label": "open PR discovery is usable when non-default branches exist",
       "ok": true,
-      "detail": "gh_cli"
+      "detail": "github_pr_api"
     },
     {
       "label": "unexpected stale remote branches are absent",

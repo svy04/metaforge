@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-15T03:02:45.655Z",
+  "generatedAt": "2026-06-15T23:56:57.741Z",
   "mode": "local_no_provider_oss_architecture_gap_review",
   "sourceTargetsReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-  "sourceTargetsReportSha256": "3eb45d8fe47ee8076d6876a6138a689bec2c3d5cc75156b4240991c76a7a08fb",
+  "sourceTargetsReportSha256": "abda93a9fe688073877983d686f458d6a2058d9818f624e53b1f276c4a9d63c7",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
   "baselineSnapshotDate": "2026-05-21",
   "targetRecordCount": 10,
@@ -22,9 +22,9 @@
     "tool_loop_reliability"
   ],
   "safeInternalActionCount": 29,
-  "protectedBoundaryGapCount": 88,
+  "protectedBoundaryGapCount": 89,
   "provenanceJsonlPath": "reports/openclaude-oss-architecture-gap-review.jsonl",
-  "provenanceJsonlSha256": "6cc357a80f7102b60f8b0e4d5f48be601d1f8aa83cdc725b4f8e7330488f269e",
+  "provenanceJsonlSha256": "bb6a86cca50b7d50fa8fe051e4e4c5867016fd8340ed3d1f8908bc40a4fcc4cb",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -81,7 +81,7 @@
     {
       "label": "protected boundary gaps remain explicit",
       "ok": true,
-      "detail": "88 protected gaps"
+      "detail": "89 protected gaps"
     },
     {
       "label": "every gap record blocks claims and shortcuts",
@@ -1203,6 +1203,7 @@
       "priority": "medium",
       "absorptionAxes": [
         "eval_and_quality_gates",
+        "ide_or_editor_surface",
         "onboarding_docs",
         "privacy_and_no_phone_home",
         "provider_breadth",
@@ -1214,6 +1215,7 @@
       ],
       "sourceSignals": [
         "coding-agent",
+        "ide-extension",
         "provider-model",
         "terminal-cli",
         "tool-use"
@@ -1233,6 +1235,24 @@
           ],
           "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
           "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
+        },
+        {
+          "axis": "ide_or_editor_surface",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
+            "docs/product-quality/ide-extension-surface-report.json",
+            "docs/product-quality/ide-extension-scope-report.json",
+            "docs/product-quality/ide-extension-manifest-smoke-report.json",
+            "docs/product-quality/ide-extension-runtime-smoke-report.json",
+            "docs/product-quality/ide-extension-host-smoke-report.json",
+            "docs/product-quality/ide-extension-workbench-smoke-report.json",
+            "docs/product-quality/vscode-startup-diagnostics-report.json",
+            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
+            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
+            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+          ],
+          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
+          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
         },
         {
           "axis": "onboarding_docs",
@@ -1336,6 +1356,7 @@
       ],
       "protectedActionsStillRequired": [
         "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
+        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
         "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
         "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
         "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
@@ -1353,7 +1374,7 @@
         "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
       ],
       "claimAllowed": false,
-      "recordDigest": "169ebdf51ebc4688dec623b8cc01f5200725884c93993f0ab527803d7ead23d1"
+      "recordDigest": "f0c96a66a7d47cd35730a516d8cadf9892c66986be0bb4979cf9b9670119d37a"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_gap_review_v1",

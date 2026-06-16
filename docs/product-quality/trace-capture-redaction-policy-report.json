@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-15T03:06:02.724Z",
+  "generatedAt": "2026-06-16T00:01:06.503Z",
   "mode": "local_no_provider_trace_capture_redaction_policy",
   "sourceTraceReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceTraceReportSha256": "28a521235791b981a84b393cd0ba42ab4c702f9434eeab32ad78703f5605521c",
+  "sourceTraceReportSha256": "54b3e553dc4e4701f8f3f8fdb850a46adfdba85c812e5065074056cc3138c453",
   "rawTraceDirectory": "reports",
   "rawTraceFileCount": 13,
   "providerCallsPerformed": [],
@@ -79,7 +79,7 @@
     "Run bun run product:real-trace-evals to produce structured summaries with hashes, counts, roles, models, query sources, and status transitions.",
     "Run bun run product:trace-redaction-policy to scan raw traces for credential and provider-request-id patterns before any report is treated as publishable evidence.",
     "Publish only docs/product-quality summary reports; keep raw provider payloads, raw prompt/completion text, authorization data, and local environment details out of reports.",
-    "If any credential pattern is detected, stop the product-quality gate and quarantine the trace outside publishable evidence until the operator resolves it."
+    "If any credential or provider request-id pattern is detected, stop the product-quality gate and quarantine the trace outside publishable evidence until the operator resolves it."
   ],
   "scannedRawTraceFiles": [
     {
@@ -87,7 +87,7 @@
       "sha256": "7ce801aa289062e161fa30676382b450b80ec12e73080741e25414697db97495",
       "lineCount": 10,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
@@ -98,17 +98,17 @@
     },
     {
       "path": "reports/orchestra-live-20260506-163448.jsonl",
-      "sha256": "3cebbd8762d8a60a64aa3f5a2ebd438c78fd88be87b91f7e1607e5d8c0b023e2",
+      "sha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
       "lineCount": 2,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sha256": "7ed6f91522b4c0adf68c3ca28a0a8e2cf888a2ded4ec9fe7610905b3b940aa26",
+      "sha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
       "lineCount": 2,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
@@ -122,7 +122,7 @@
       "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
       "lineCount": 10,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
@@ -150,7 +150,7 @@
       "sha256": "93d6c5d32defff6db9d794bb5977afa393c7c74a6657c362466f7359c9602203",
       "lineCount": 9,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
@@ -161,10 +161,10 @@
     },
     {
       "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "acc8215c75381d056dcdb467f5e9ca1d3190ecebf3629f2e9bedbfe6460a9839",
+      "sha256": "21c1b2e7fc2e7a7a26a3c60698f8f6f186e19a5cd749f7a051633ecd0b0b40f5",
       "lineCount": 2,
       "credentialPatternFound": false,
-      "providerRequestIdPatternFound": true
+      "providerRequestIdPatternFound": false
     },
     {
       "path": "reports/orchestra-usage-probe.jsonl",
@@ -207,6 +207,11 @@
     },
     {
       "label": "raw trace credential patterns absent",
+      "ok": true,
+      "detail": "0 matches"
+    },
+    {
+      "label": "raw trace provider request id patterns absent",
       "ok": true,
       "detail": "0 matches"
     },
