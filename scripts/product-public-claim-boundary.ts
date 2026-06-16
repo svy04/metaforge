@@ -76,6 +76,7 @@ const reportsDir = resolve(root, 'reports')
 const reportJsonPath = 'docs/product-quality/public-claim-boundary-report.json'
 const reportMdPath = 'docs/product-quality/public-claim-boundary-report.md'
 const scanJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
+const checkOnly = process.argv.includes('--check')
 
 export const publicSurfacePaths = [
   'README.md',
@@ -318,15 +319,19 @@ ${checkRows}
 }
 
 function main(): void {
-  mkdirSync(docsDir, { recursive: true })
-  mkdirSync(reportsDir, { recursive: true })
+  if (!checkOnly) {
+    mkdirSync(docsDir, { recursive: true })
+    mkdirSync(reportsDir, { recursive: true })
+  }
 
   const scannedPublicSurfaces = publicSurfacePaths.map(fileSurface)
   const findings = publicSurfacePaths.flatMap(scanSurface)
   const blockedContextClaimMentions = findings.filter((finding) => finding.status === 'blocked_context')
   const unauthorizedPositiveClaims = findings.filter((finding) => finding.status === 'unauthorized_positive_claim')
   const scanJsonlText = findings.map((finding) => JSON.stringify(finding)).join('\n') + (findings.length > 0 ? '\n' : '')
-  writeFileSync(resolve(root, scanJsonlPath), scanJsonlText)
+  if (!checkOnly) {
+    writeFileSync(resolve(root, scanJsonlPath), scanJsonlText)
+  }
   const scanJsonlSha256 = sha256(scanJsonlText)
   const scanJsonlRecordCount = scanJsonlText.trim().length === 0 ? 0 : scanJsonlText.trim().split(/\r?\n/).length
 
@@ -395,8 +400,10 @@ function main(): void {
     check('mth and canonical memory boundaries remain preserved', report.mthResolutionStatus === 'unresolved' && report.canonicalMemoryWriteAllowed === false && report.allowedClaimLevel === 'internal_no_provider_product_quality_evidence_only', `${report.mthResolutionStatus}/${report.canonicalMemoryWriteAllowed}/${report.allowedClaimLevel}`),
   ]
 
-  writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
-  writeMarkdown(report)
+  if (!checkOnly) {
+    writeFileSync(resolve(root, reportJsonPath), `${JSON.stringify(report, null, 2)}\n`)
+    writeMarkdown(report)
+  }
 
   for (const item of report.evidenceChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)
@@ -405,6 +412,7 @@ function main(): void {
   const failed = report.evidenceChecks.filter((item) => !item.ok)
   console.log('')
   console.log(`RESULT: ${failed.length === 0 ? 'PASS' : 'FAIL'}`)
+  console.log(`mode=${checkOnly ? 'check' : 'write'}`)
   console.log(`public_surface_count=${report.publicSurfaceCount}`)
   console.log(`scanned_line_count=${report.scannedLineCount}`)
   console.log(`blocked_context_claim_mention_count=${report.blockedContextClaimMentionCount}`)
