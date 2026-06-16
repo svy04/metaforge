@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T23:57:39.247Z",
+  "generatedAt": "2026-06-16T03:16:19.704Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,13 +9,13 @@
   ],
   "sourceProductScriptCount": 90,
   "helperOccurrenceCounts": {
-    "check": 76,
-    "readText": 39,
+    "check": 72,
+    "readText": 35,
     "sha256Text": 1
   },
   "helperOccurrenceBaselines": {
-    "check": 76,
-    "readText": 39,
+    "check": 72,
+    "readText": 35,
     "sha256Text": 1
   },
   "duplicateHelperClusterCount": 2,
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 76,
+      "occurrenceCount": 72,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -56,7 +56,7 @@
         },
         {
           "path": "scripts/product-evidence-manifest.ts",
-          "line": 226
+          "line": 227
         },
         {
           "path": "scripts/product-external-benchmark-boundary.ts",
@@ -107,16 +107,8 @@
           "line": 99
         },
         {
-          "path": "scripts/product-license-boundary-authorization.ts",
-          "line": 181
-        },
-        {
           "path": "scripts/product-local-benchmark-harness.ts",
           "line": 109
-        },
-        {
-          "path": "scripts/product-lockfile-sbom-quality.ts",
-          "line": 133
         },
         {
           "path": "scripts/product-model-system-card.ts",
@@ -252,7 +244,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3186
+          "line": 3199
         },
         {
           "path": "scripts/product-real-session-capture.ts",
@@ -287,16 +279,8 @@
           "line": 30
         },
         {
-          "path": "scripts/product-source-license-metadata-quality.ts",
-          "line": 132
-        },
-        {
           "path": "scripts/product-terminal-bench-readiness.ts",
           "line": 154
-        },
-        {
-          "path": "scripts/product-third-party-license-quality.ts",
-          "line": 143
         },
         {
           "path": "scripts/product-tool-interruption-recovery-trace.ts",
@@ -336,7 +320,7 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 39,
+      "occurrenceCount": 35,
       "files": [
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -345,14 +329,6 @@
         {
           "path": "scripts/product-doc-link-integrity.ts",
           "line": 61
-        },
-        {
-          "path": "scripts/product-license-boundary-authorization.ts",
-          "line": 169
-        },
-        {
-          "path": "scripts/product-lockfile-sbom-quality.ts",
-          "line": 121
         },
         {
           "path": "scripts/product-model-system-card.ts",
@@ -472,19 +448,11 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3182
+          "line": 3195
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
           "line": 62
-        },
-        {
-          "path": "scripts/product-source-license-metadata-quality.ts",
-          "line": 120
-        },
-        {
-          "path": "scripts/product-third-party-license-quality.ts",
-          "line": 131
         },
         {
           "path": "scripts/product-trace-redaction-policy.ts",
@@ -520,26 +488,26 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 50.137ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 66.394ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "6d52b92302aa6a98581638feb843bdff8eb7ffe232ed486e9ea2c33289d7d595",
-  "jscpdCloneCount": 30,
-  "jscpdCloneBaseline": 30,
-  "jscpdDuplicatedLines": 857,
-  "jscpdDuplicatedLinesBaseline": 857,
-  "jscpdDuplicatedTokens": 5308,
-  "jscpdDuplicatedTokensBaseline": 5308,
-  "jscpdDuplicatedPercentage": 2.1023967813948925,
-  "jscpdDuplicatedPercentageBaseline": 2.11,
-  "jscpdDuplicatedTokenPercentage": 2.0949682084232877,
+  "jscpdReportSha256": "dd8661d0e103d8f602b29f1c857ff26971ace404988098c084ea09122ae444cf",
+  "jscpdCloneCount": 26,
+  "jscpdCloneBaseline": 26,
+  "jscpdDuplicatedLines": 774,
+  "jscpdDuplicatedLinesBaseline": 774,
+  "jscpdDuplicatedTokens": 4790,
+  "jscpdDuplicatedTokensBaseline": 4790,
+  "jscpdDuplicatedPercentage": 1.8945513291232192,
+  "jscpdDuplicatedPercentageBaseline": 1.9,
+  "jscpdDuplicatedTokenPercentage": 1.884773079616907,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
       "firstFile": "scripts/product-dead-export-candidates.ts",
       "secondFile": "scripts/product-dependency-topology.ts",
-      "firstStartLine": 135,
-      "firstEndLine": 158,
+      "firstStartLine": 205,
+      "firstEndLine": 228,
       "secondStartLine": 160,
       "secondEndLine": 183,
       "lines": 24,
@@ -584,36 +552,6 @@
       "secondEndLine": 194,
       "lines": 25,
       "tokens": 126
-    },
-    {
-      "firstFile": "scripts/product-license-boundary-authorization.ts",
-      "secondFile": "scripts/product-lockfile-sbom-quality.ts",
-      "firstStartLine": 165,
-      "firstEndLine": 185,
-      "secondStartLine": 117,
-      "secondEndLine": 137,
-      "lines": 21,
-      "tokens": 129
-    },
-    {
-      "firstFile": "scripts/product-license-boundary-authorization.ts",
-      "secondFile": "scripts/product-source-license-metadata-quality.ts",
-      "firstStartLine": 165,
-      "firstEndLine": 185,
-      "secondStartLine": 116,
-      "secondEndLine": 136,
-      "lines": 21,
-      "tokens": 129
-    },
-    {
-      "firstFile": "scripts/product-license-boundary-authorization.ts",
-      "secondFile": "scripts/product-third-party-license-quality.ts",
-      "firstStartLine": 165,
-      "firstEndLine": 185,
-      "secondStartLine": 127,
-      "secondEndLine": 147,
-      "lines": 21,
-      "tokens": 129
     },
     {
       "firstFile": "scripts/product-oss-baseline-drift-closure.ts",
@@ -734,6 +672,36 @@
       "secondEndLine": 362,
       "lines": 22,
       "tokens": 189
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+      "firstStartLine": 307,
+      "firstEndLine": 333,
+      "secondStartLine": 304,
+      "secondEndLine": 330,
+      "lines": 27,
+      "tokens": 205
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+      "firstStartLine": 307,
+      "firstEndLine": 333,
+      "secondStartLine": 322,
+      "secondEndLine": 348,
+      "lines": 27,
+      "tokens": 205
+    },
+    {
+      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+      "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+      "firstStartLine": 307,
+      "firstEndLine": 333,
+      "secondStartLine": 327,
+      "secondEndLine": 353,
+      "lines": 27,
+      "tokens": 205
     }
   ],
   "primarySourceInputs": [
@@ -796,7 +764,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":76,\"readText\":39,\"sha256Text\":1}"
+      "detail": "{\"check\":72,\"readText\":35,\"sha256Text\":1}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -811,7 +779,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":76,\"readText\":39,\"sha256Text\":1},\"baseline\":{\"check\":76,\"readText\":39,\"sha256Text\":1}}"
+      "detail": "{\"current\":{\"check\":72,\"readText\":35,\"sha256Text\":1},\"baseline\":{\"check\":72,\"readText\":35,\"sha256Text\":1}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -821,17 +789,17 @@
     {
       "label": "jscpd token clone count does not exceed baseline",
       "ok": true,
-      "detail": "30/30"
+      "detail": "26/26"
     },
     {
       "label": "jscpd duplicated line and token counts do not exceed baseline",
       "ok": true,
-      "detail": "857/857; 5308/5308"
+      "detail": "774/774; 4790/4790"
     },
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "2.1023967813948925/2.11"
+      "detail": "1.8945513291232192/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

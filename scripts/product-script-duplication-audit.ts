@@ -136,15 +136,15 @@ const reportJsonPath = 'docs/product-quality/script-duplication-audit-report.jso
 const reportMdPath = 'docs/product-quality/script-duplication-audit-report.md'
 const helperNames = ['check', 'readText', 'sha256Text']
 const helperOccurrenceBaselines: Record<string, number> = {
-  check: 76,
-  readText: 39,
+  check: 72,
+  readText: 35,
   sha256Text: 1,
 }
 const duplicateHelperClusterBaseline = 2
-const jscpdCloneBaseline = 30
-const jscpdDuplicatedLinesBaseline = 857
-const jscpdDuplicatedTokensBaseline = 5308
-const jscpdDuplicatedPercentageBaseline = 2.11
+const jscpdCloneBaseline = 26
+const jscpdDuplicatedLinesBaseline = 774
+const jscpdDuplicatedTokensBaseline = 4790
+const jscpdDuplicatedPercentageBaseline = 1.9
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')

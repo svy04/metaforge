@@ -147,6 +147,8 @@ function readText(path: string): string {
     expect(reportText).not.toContain(root)
 
     const report = JSON.parse(reportText) as {
+      helperOccurrenceCounts: Record<string, number>
+      helperOccurrenceBaselines: Record<string, number>
       jscpdEnabled: boolean
       jscpdVersion: string
       jscpdConfigPath: string
@@ -180,6 +182,10 @@ function readText(path: string): string {
       }>
     }
 
+    expect(report.helperOccurrenceCounts.check).toBe(72)
+    expect(report.helperOccurrenceCounts.readText).toBe(35)
+    expect(report.helperOccurrenceBaselines.check).toBe(72)
+    expect(report.helperOccurrenceBaselines.readText).toBe(35)
     expect(report.jscpdEnabled).toBe(true)
     expect(report.jscpdVersion).toContain('5.0.9')
     expect(report.jscpdConfigPath).toBe('.jscpd.json')
@@ -193,6 +199,10 @@ function readText(path: string): string {
     expect(report.jscpdCommand.passed).toBe(true)
     expect(report.jscpdCommand.missingSubstrings).toEqual([])
     expect(report.jscpdCloneCount).toBeGreaterThan(0)
+    expect(report.jscpdCloneBaseline).toBe(26)
+    expect(report.jscpdDuplicatedLinesBaseline).toBe(774)
+    expect(report.jscpdDuplicatedTokensBaseline).toBe(4790)
+    expect(report.jscpdDuplicatedPercentageBaseline).toBe(1.9)
     expect(report.jscpdCloneCount).toBeLessThanOrEqual(report.jscpdCloneBaseline)
     expect(report.jscpdDuplicatedLines).toBeLessThanOrEqual(report.jscpdDuplicatedLinesBaseline)
     expect(report.jscpdDuplicatedTokens).toBeLessThanOrEqual(report.jscpdDuplicatedTokensBaseline)
