@@ -2,7 +2,8 @@ import { createHash } from 'node:crypto'
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 type HelperOccurrence = {
   helperName: string
@@ -129,6 +130,7 @@ type ScriptDuplicationAuditReport = {
 }
 
 const root = process.cwd()
+const toolPackageRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const docsDir = resolve(root, 'docs/product-quality')
 const scriptsDir = resolve(root, 'scripts')
 const jscpdConfigPath = '.jscpd.json'
@@ -173,11 +175,20 @@ function preview(input: string): string {
   return scrubLocalPaths(input).slice(0, 800)
 }
 
-function localJscpdBinaryExists(): boolean {
+function localJscpdBinaryPath(): string | null {
   const binNames = process.platform === 'win32'
-    ? ['jscpd.cmd', 'jscpd.exe', 'jscpd.bunx']
+    ? ['jscpd.exe', 'jscpd.cmd', 'jscpd.bunx']
     : ['jscpd']
-  return binNames.some((binName) => existsSync(resolve(root, 'node_modules/.bin', binName)))
+  const searchRoots = [...new Set([root, toolPackageRoot])]
+  for (const searchRoot of searchRoots) {
+    for (const binName of binNames) {
+      const candidate = resolve(searchRoot, 'node_modules/.bin', binName)
+      if (existsSync(candidate)) {
+        return candidate
+      }
+    }
+  }
+  return null
 }
 
 function sanitizedEnv(): NodeJS.ProcessEnv {
@@ -275,11 +286,12 @@ function buildJscpdEvidence() {
   if (!existsSync(resolve(root, jscpdConfigPath))) {
     return emptyJscpdEvidence(disabledCommand('jscpd_product_scripts_json', 'jscpd config absent in this test fixture'))
   }
-  if (!localJscpdBinaryExists()) {
+  const jscpdBinaryPath = localJscpdBinaryPath()
+  if (!jscpdBinaryPath) {
     return emptyJscpdEvidence(disabledCommand('jscpd_product_scripts_json', 'local jscpd binary missing'), true)
   }
 
-  const versionResult = spawnSync(process.execPath, ['run', 'jscpd', '--version'], {
+  const versionResult = spawnSync(jscpdBinaryPath, ['--version'], {
     cwd: root,
     encoding: 'utf8',
     env: sanitizedEnv(),
@@ -294,8 +306,8 @@ function buildJscpdEvidence() {
     const command = runAuditCommand(
       'jscpd_product_scripts_json',
       ['jscpd', '--config', jscpdConfigPath, '--reporters', 'json', '--output', '<temp-jscpd-output>', '--no-tips'],
-      process.execPath,
-      ['run', 'jscpd', '--config', jscpdConfigPath, '--reporters', 'json', '--output', outputDir, '--no-tips'],
+      jscpdBinaryPath,
+      ['--config', jscpdConfigPath, '--reporters', 'json', '--output', outputDir, '--no-tips'],
       ['Using config from .jscpd.json', 'JSON report saved'],
     )
 
