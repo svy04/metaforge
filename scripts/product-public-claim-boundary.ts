@@ -132,9 +132,11 @@ const blockedContextTerms = [
   'no ',
   'without',
   'blocked',
+  'blocking',
   'scope',
   'policy applies',
   'before',
+  'unless',
   'forbidden',
   'disallowed',
   'unauthorized',
@@ -240,14 +242,64 @@ function redactBlockingLine(line: string): string {
   return `${prefix}${compact.slice(start, end)}${suffix}`
 }
 
-function blockedContextText(contextLines: string[], claimLine: string): string {
-  const blockingLine = [...contextLines].reverse().find((candidate) => isBlockedContext(candidate))
+function blockedContextText(contextLines: string[], rawClaimLine: string, reportedClaimLine: string): string {
+  const blockingLine = findBlockingContextLine(contextLines, rawClaimLine)
 
-  if (blockingLine && blockingLine !== claimLine) {
-    return `Blocked context: ${redactBlockingLine(blockingLine)} Claim mention: ${claimLine}`
+  if (blockingLine && blockingLine !== rawClaimLine) {
+    return `Blocked context: ${redactBlockingLine(blockingLine)} Claim mention: ${reportedClaimLine}`
   }
 
-  return `Blocked context: ${redactBlockingLine(blockingLine ?? claimLine)}`
+  return `Blocked context: ${redactBlockingLine(blockingLine ?? reportedClaimLine)}`
+}
+
+function isListItem(line: string): boolean {
+  return /^\s*(?:[-*]|\d+[.)])\s+/.test(line)
+}
+
+function isIndentedContinuation(line: string): boolean {
+  return /^\s{2,}\S/.test(line) && !isListItem(line)
+}
+
+function isBoundaryHeader(line: string): boolean {
+  const compact = compactLine(line)
+  return isBlockedContext(compact) && /[:：]\s*$/.test(compact)
+}
+
+function findBlockingContextLine(contextLines: string[], claimLine: string): string | null {
+  const currentLine = contextLines.at(-1) ?? claimLine
+  if (isBlockedContext(currentLine)) {
+    return currentLine
+  }
+
+  if (!isListItem(claimLine)) {
+    if (!isIndentedContinuation(claimLine)) {
+      return null
+    }
+
+    for (let index = contextLines.length - 2; index >= 0; index -= 1) {
+      const candidate = contextLines[index]
+      if (candidate.trim().length === 0) {
+        return null
+      }
+      if (isBlockedContext(candidate)) {
+        return candidate
+      }
+    }
+    return null
+  }
+
+  for (let index = contextLines.length - 2; index >= 0; index -= 1) {
+    const candidate = contextLines[index]
+    if (candidate.trim().length === 0) {
+      continue
+    }
+    if (isListItem(candidate)) {
+      continue
+    }
+    return isBoundaryHeader(candidate) ? candidate : null
+  }
+
+  return null
 }
 
 function findingReportText(finding: ClaimFinding): string {
@@ -263,13 +315,12 @@ export function scanClaimText(path: string, text: string): ClaimFinding[] {
   const findings: ClaimFinding[] = []
   for (const [index, line] of lines.entries()) {
     const contextLines = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1)
-    const context = contextLines.join('\n')
     for (const claimPattern of claimPatterns) {
       if (!claimPattern.pattern.test(line)) {
         continue
       }
       const text = redactLine(line)
-      const status = isBlockedContext(context) ? 'blocked_context' : 'unauthorized_positive_claim'
+      const status = findBlockingContextLine(contextLines, line) ? 'blocked_context' : 'unauthorized_positive_claim'
       findings.push({
         path,
         line: index + 1,
@@ -277,7 +328,7 @@ export function scanClaimText(path: string, text: string): ClaimFinding[] {
         category: claimPattern.category,
         status,
         text,
-        contextText: status === 'blocked_context' ? blockedContextText(contextLines, text) : text,
+        contextText: status === 'blocked_context' ? blockedContextText(contextLines, line, text) : text,
       })
     }
   }
