@@ -97,14 +97,38 @@ const reportMdPath = 'docs/product-quality/github-remote-surface-audit-report.md
 const reportJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'
 const koreanLocalWorkspaceName = String.fromCharCode(0xb0b4, 0x20, 0xc21c, 0xc218, 0x20, 0xc7ac, 0xbbf8)
 const privatePattern = [
-  ['C:', String.raw`(\\+|/)`, 'Users', String.raw`(\\+|/)`, ['adm', 'in|Lucas[ _]Pedry'].join('')].join(''),
-  ['/', 'Users', '/', 'adm', 'in'].join(''),
-  ['Users', '/', 'adm', 'in'].join(''),
+  String.raw`C:(\\+|/)Users(\\+|/)[^\\/"' ]+(\\+|/)(Desktop|Documents|AppData)(\\+|/)[^\\/"' ]+`,
+  String.raw`/Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
+  String.raw`Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
+  String.raw`(%USERPROFILE%|\$HOME|\$\{HOME\}|~)(\\+|/)(Desktop|Documents)(\\+|/)[^\\/"' ]+`,
   koreanLocalWorkspaceName,
   ['Digital', ' Factory'].join(''),
   ['Token: ', 'gho_'].join(''),
-  ['gho_', '[A-Za-z0-9_]+'].join(''),
+  String.raw`gh[pousr]_[A-Za-z0-9_]{30,}`,
+  String.raw`github_pat_[A-Za-z0-9_]{30,}`,
+  String.raw`AKIA[0-9A-Z]{16}`,
+  String.raw`ASIA[0-9A-Z]{16}`,
+  String.raw`xox[baprs]-[A-Za-z0-9-]{10,}`,
+  String.raw`-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----`,
 ].join('|')
+const documentedPlaceholderPattern = new RegExp(String.raw`(?:^|[\\/\s"'\x60])(?:Example|example|foo|me|fixture-owner|John[ _]Smith|\{user\}|\.\.\.)(?:[\\/\s"'\x60]|$)`)
+
+export function matchesRemoteForbiddenPattern(text: string): boolean {
+  if (!new RegExp(privatePattern, 'i').test(text)) {
+    return false
+  }
+  if (documentedPlaceholderPattern.test(text) && !/(gh[pousr]_|github_pat_|AKIA|ASIA|xox[baprs]-)/i.test(text)) {
+    return false
+  }
+  return true
+}
+
+function isIntentionalRemoteAuditFixture(finding: PatternFinding): boolean {
+  if (!/\.(?:test|spec)\.[jt]sx?$/.test(finding.path)) {
+    return false
+  }
+  return /(?:%USERPROFILE%|\$HOME|\$\{HOME\}|~)(?:\\+|\/)(?:Desktop|Documents)(?:\\+|\/)/i.test(finding.text)
+}
 
 const browserArtifactPatterns: Array<{ id: string; pattern: RegExp }> = [
   { id: 'playwright_mcp_capture', pattern: /(^|\/)\.playwright-mcp(\/|$)/i },
@@ -394,6 +418,8 @@ function parseGrepFindings(output: string, patternId: string): PatternFinding[] 
         text: match[3].trim().replace(/\s+/g, ' ').slice(0, 240),
       }
     })
+    .filter((finding) => matchesRemoteForbiddenPattern(finding.text))
+    .filter((finding) => !isIntentionalRemoteAuditFixture(finding))
 }
 
 function scanRef(refName: string): RefScan {
