@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-16T00:00:01.324Z",
+  "generatedAt": "2026-06-16T08:12:33.858Z",
   "mode": "local_no_provider_vscode_update_boundary",
   "sourceHostSmokeReportPath": "docs/product-quality/ide-extension-host-smoke-report.json",
-  "sourceHostSmokeReportSha256": "e402364c04808d9db84742266dd9782531c4e4de60f119338a35f23709d03f7d",
+  "sourceHostSmokeReportSha256": "2b85feeaf31384e6989b73f67b00f86a17bcfab371f1238c23f22fde2af6d4c6",
   "sourceWorkbenchSmokeReportPath": "docs/product-quality/ide-extension-workbench-smoke-report.json",
-  "sourceWorkbenchSmokeReportSha256": "c16947070945e7bc0d37507d72d0ef6af2fd1919dd0be5811ce9860ff90318cf",
+  "sourceWorkbenchSmokeReportSha256": "1bd32e2433ea097de994b9a8aea6a688a84c103c875f77ce165fe395b1824bf7",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -14,38 +14,22 @@
     "--version"
   ],
   "codeVersionExitCode": 0,
-  "codeVersion": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64",
+  "codeVersion": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64",
   "updatingSentinelPath": "<vscode-updating-sentinel>",
   "updatingSentinelExists": false,
   "updatingSentinelValueSha256": null,
   "processEnumerationCommand": "powershell -NoProfile -NonInteractive -Command <CodeSetup process listing>",
   "processEnumerationExitCode": 0,
-  "codeSetupProcesses": [
-    {
-      "processName": "CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c",
-      "pid": 39088,
-      "path": "<user-home>\\AppData\\Local\\Temp\\vscode-stable-user-x64\\CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.exe"
-    },
-    {
-      "processName": "CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.tmp",
-      "pid": 42184,
-      "path": "<user-home>\\AppData\\Local\\Temp\\is-R6L9B.tmp\\CodeSetup-stable-6928394f91b684055b873eecb8bc281365131f1c.tmp"
-    }
-  ],
-  "sourceHostEnvironmentBlockers": [
-    "vscode_update_in_progress"
-  ],
-  "sourceWorkbenchEnvironmentBlockers": [
-    "vscode_update_in_progress"
-  ],
-  "sourceHostVscodeStartupBlocked": true,
-  "sourceWorkbenchVscodeStartupBlocked": true,
-  "sourceHostRealExtensionHostLaunched": false,
-  "sourceWorkbenchRealExtensionHostLaunched": false,
-  "boundaryStatus": "blocked_wait_for_local_vscode_update_or_explicit_owner_process_action",
+  "codeSetupProcesses": [],
+  "sourceHostEnvironmentBlockers": [],
+  "sourceWorkbenchEnvironmentBlockers": [],
+  "sourceHostVscodeStartupBlocked": false,
+  "sourceWorkbenchVscodeStartupBlocked": false,
+  "sourceHostRealExtensionHostLaunched": true,
+  "sourceWorkbenchRealExtensionHostLaunched": true,
+  "boundaryStatus": "clear_no_current_vscode_update_boundary",
   "requiredOwnerActions": [
-    "wait_for_local_vscode_update_to_finish_before_rerunning_real_host_smokes",
-    "obtain_explicit_owner_authorization_before_any_process_termination_or_vs_code_repair_action"
+    "rerun_real_host_and_workbench_smokes_to_refresh_current_evidence"
   ],
   "blockedActions": [
     "terminate_codesetup_process_without_explicit_owner_authorization",
@@ -79,7 +63,7 @@
     {
       "label": "VS Code CLI version probe is local only or classified as protected boundary",
       "ok": true,
-      "detail": "1.124.0 / 1b50d58d73426c9171299ec4037d01365d995b78 / x64"
+      "detail": "1.124.2 / 6928394f91b684055b873eecb8bc281365131f1c / x64"
     },
     {
       "label": "CodeSetup process listing did not require provider or external calls",
@@ -89,7 +73,7 @@
     {
       "label": "observed update boundary is classified without mutation",
       "ok": true,
-      "detail": "blocked_wait_for_local_vscode_update_or_explicit_owner_process_action"
+      "detail": "clear_no_current_vscode_update_boundary"
     },
     {
       "label": "readiness and availability claims remain blocked",
