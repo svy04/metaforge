@@ -1,8 +1,9 @@
-import { createHash } from 'node:crypto'
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, resolve } from 'node:path'
 import sharp from 'sharp'
+
+import { fileSha256, sha256 as sha256Text } from './quality-report-helpers'
 
 type Manifest = {
   contributes?: {
@@ -101,12 +102,8 @@ function check(label: string, ok: boolean, detail: string): BasicCheck {
   return { label, ok, detail }
 }
 
-function sha256Text(value: string): string {
-  return createHash('sha256').update(value).digest('hex')
-}
-
 function sha256File(path: string): string {
-  return createHash('sha256').update(readFileSync(resolve(root, path))).digest('hex')
+  return fileSha256(path, root)
 }
 
 function xml(value: string): string {
