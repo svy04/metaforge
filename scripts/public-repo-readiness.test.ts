@@ -296,6 +296,24 @@ describe('public repository readiness surfaces', () => {
     }
   })
 
+  test('profile refresh evidence does not expose private workbench repo breadcrumbs', () => {
+    const evidence = readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
+    const forbiddenEvidence = [
+      'mimesis-plugin',
+      'mimesis-source-packet',
+      'harness-meta',
+      'https://github.com/svy04/mimesis-plugin.git',
+      'https://github.com/svy04/mimesis-source-packet.git',
+      'dirty working tree',
+      'untracked hero preview files',
+    ]
+
+    expect(evidence).toContain('private workbench repos were checked locally and are not public proof')
+    for (const marker of forbiddenEvidence) {
+      expect(evidence, marker).not.toContain(marker)
+    }
+  })
+
   test('legacy VS Code extension README points to the canonical Metaforge extension surface', () => {
     const legacyReadme = readRepoText('vscode-extension/openclaude-vscode/README.md')
 
