@@ -28,6 +28,10 @@ describe('product public claim boundary classifier', () => {
     expect(publicSurfacePaths).toContain('AGENTS.md')
   })
 
+  test('includes public goal artifacts in claim-boundary surfaces', () => {
+    expect(publicSurfacePaths).toContain('docs/goals/INFLUENCE_FACTORY_PRODUCT_MVP_COMPLETION_AUDIT.md')
+  })
+
   test('includes extension package manifests in public claim-boundary surfaces', () => {
     expect(publicSurfacePaths).toContain('packages/openclaude-vscode/package.json')
     expect(publicSurfacePaths).toContain('vscode-extension/openclaude-vscode/package.json')
@@ -71,6 +75,40 @@ describe('product public claim boundary classifier', () => {
       'external_validation',
       'production_readiness',
     ])
+  })
+
+  test('classifies unbounded public goal artifact status as unauthorized', () => {
+    const findings = scanClaimText(
+      'docs/goals/example.md',
+      [
+        '# Example Completion Audit',
+        '',
+        'status: PROVEN',
+      ].join('\n'),
+    )
+
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.status).toBe('unauthorized_positive_claim')
+    expect(findings[0]?.category).toBe('goal_artifact_status')
+  })
+
+  test('keeps public goal artifact status bounded when a top boundary is present', () => {
+    const findings = scanClaimText(
+      'docs/goals/example.md',
+      [
+        '# Example Completion Audit',
+        '',
+        'Historical local artifact boundary: this audit records a repo-local run without external execution.',
+        '',
+        'Many lines later, the local audit says:',
+        '',
+        'status: PROVEN',
+      ].join('\n'),
+    )
+
+    expect(findings).toHaveLength(1)
+    expect(findings[0]?.status).toBe('blocked_context')
+    expect(findings[0]?.contextText).toContain('Historical local artifact boundary')
   })
 
   test('keeps explicit non-claims in blocked context instead of overclaim findings', () => {

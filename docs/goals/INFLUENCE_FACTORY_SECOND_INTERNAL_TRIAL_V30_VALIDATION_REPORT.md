@@ -1,5 +1,7 @@
 # Influence Factory Second Internal Trial v30 Validation Report
 
+Historical local artifact boundary: this goal artifact records repo-local evidence only; it is not externally validated and does not claim production, release, or public readiness.
+
 RESULT: PASS
 
 terminal_condition=SECOND_INTERNAL_TRIAL_V30_READY
