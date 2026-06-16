@@ -66,6 +66,20 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('rejects private agent-memory placeholder breadcrumbs in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(join(repo, 'README.md'), 'Memory root: <private-codex-memory-dir>\n')
+    writeFileSync(join(repo, 'SUPPORT.md'), 'Skill root: <private-agent-skill-dir>\n')
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('SUPPORT.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('private-codex-memory-placeholder')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('private-agent-skill-placeholder')
+  })
+
   test('rejects environment-expanded user workspace paths in public docs', () => {
     const repo = makeTempRepo()
     writeFileSync(
