@@ -23,6 +23,7 @@ const targetRoots = [
   'AGENTS.md',
   'PLAYBOOK.md',
   'LICENSE',
+  'packages/openclaude-vscode/README.md',
   'vscode-extension/openclaude-vscode/README.md',
   '.env.example',
   'package.json',
