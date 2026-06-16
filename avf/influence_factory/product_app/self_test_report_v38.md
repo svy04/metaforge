@@ -8,8 +8,8 @@ product_completion_claim_scope: repo_local_internal_only
 ## Commands
 
 - JavaScript syntax check PASS: `node --check avf\influence_factory\product_app\app.js`
-- Chrome headless screenshot PASS: `chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v38.png file:///.../index.html#selftest`
-- Chrome headless DOM dump PASS: `chrome --headless --disable-gpu --dump-dom file:///.../index.html#selftest`
+- Chrome headless screenshot PASS: `chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v38.png <local-selftest-url>`
+- Chrome headless DOM dump PASS: `chrome --headless --disable-gpu --dump-dom <local-selftest-url>`
 
 ## Evidence
 
