@@ -16,7 +16,7 @@ type PublicSurface = {
   lineCount: number
 }
 
-type ClaimFinding = {
+export type ClaimFinding = {
   path: string
   line: number
   phrase: string
@@ -77,9 +77,10 @@ const reportJsonPath = 'docs/product-quality/public-claim-boundary-report.json'
 const reportMdPath = 'docs/product-quality/public-claim-boundary-report.md'
 const scanJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
 
-const publicSurfacePaths = [
+export const publicSurfacePaths = [
   'README.md',
   'README.ko.md',
+  'AGENTS.md',
   'ANDROID_INSTALL.md',
   'PLAYBOOK.md',
   'CHANGELOG.md',
@@ -114,14 +115,14 @@ const claimPatterns: ClaimPattern[] = [
   { category: 'launch', phrase: 'launch completed', pattern: /\blaunch completed\b|\bopenclaude (?:has )?launched\b/i },
   { category: 'deploy', phrase: 'deployed', pattern: /\bopenclaude (?:has been )?deployed\b|\bdeployment completed\b/i },
   { category: 'publish', phrase: 'published', pattern: /\bopenclaude (?:has been )?published\b|\bpublication completed\b|\bpackage release published\b/i },
-  { category: 'release_readiness', phrase: 'release ready', pattern: /\brelease[-\s]?ready\b|\brelease readiness (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'production_readiness', phrase: 'production ready', pattern: /\bproduction[-\s]?ready\b|\bproduction readiness (?:achieved|proven|complete|completed|passed)\b/i },
+  { category: 'release_readiness', phrase: 'release readiness', pattern: /\brelease[-\s]?ready\b|\brelease readiness\b/i },
+  { category: 'production_readiness', phrase: 'production readiness', pattern: /\bproduction[-\s]?ready\b|\bproduction readiness\b/i },
   { category: 'production_validation', phrase: 'production validated', pattern: /\bproduction (?:openclaude )?(?:validated|validation completed|proven)\b/i },
-  { category: 'public_readiness', phrase: 'public readiness', pattern: /\bpublic[-\s]?ready\b|\bpublic readiness (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'external_validation', phrase: 'external validation completed', pattern: /\bexternally validated\b|\bexternal validation (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'autonomous_reliability', phrase: 'autonomous reliability proven', pattern: /\bautonomous reliability (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'provider_backed_execution', phrase: 'provider-backed execution completed', pattern: /\bprovider[-\s]?backed execution (?:achieved|proven|complete|completed|passed)\b/i },
-  { category: 'live_model_validation', phrase: 'live model validation completed', pattern: /\blive model validation (?:achieved|proven|complete|completed|passed)\b/i },
+  { category: 'public_readiness', phrase: 'public readiness', pattern: /\bpublic[-\s]?ready\b|\bpublic readiness\b/i },
+  { category: 'external_validation', phrase: 'external validation', pattern: /\bexternally validated\b|\bexternal validation\b/i },
+  { category: 'autonomous_reliability', phrase: 'autonomous reliability', pattern: /\bautonomous reliability\b/i },
+  { category: 'provider_backed_execution', phrase: 'provider-backed execution', pattern: /\bprovider[-\s]?backed execution\b/i },
+  { category: 'live_model_validation', phrase: 'live model validation', pattern: /\blive model validation\b/i },
   { category: 'superiority', phrase: 'superior to top 10', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,80}\btop[-\s]?10\b|\btop[-\s]?10\b.{0,80}\b(?:superior|better|beats?|outperforms?)\b|\btop[-\s]?10.{0,20}\uBCF4\uB2E4\b/i },
   { category: 'superiority', phrase: 'benchmark or model superiority', pattern: /\b(?:superior to|better than|beats?|outperforms?)\b.{0,100}\b(?:agent|agents|benchmark|claude|gpt|model|openai|anthropic|terminal[-\s]?bench)\b/i },
   { category: 'superiority', phrase: 'current-best model or provider', pattern: /\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i },
@@ -139,6 +140,8 @@ const blockedContextTerms = [
   'disallowed',
   'unauthorized',
   'not authorized',
+  'not allowed',
+  'not allowed yet',
   'does not',
   'do not',
   'did not',
@@ -159,7 +162,11 @@ const blockedContextTerms = [
   'not ready',
   'not performed',
   'false',
+  '아닙니다',
+  '증명하지',
+  '증거가 아닙니다',
 ]
+const blockedContextLookbackLines = 8
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
@@ -198,14 +205,11 @@ function redactLine(line: string): string {
   return line.trim().replace(/\s+/g, ' ').slice(0, 240)
 }
 
-function scanSurface(path: string): ClaimFinding[] {
-  if (!existsSync(resolve(root, path))) {
-    return []
-  }
-  const lines = readText(path).split(/\r?\n/)
+export function scanClaimText(path: string, text: string): ClaimFinding[] {
+  const lines = text.split(/\r?\n/)
   const findings: ClaimFinding[] = []
   for (const [index, line] of lines.entries()) {
-    const context = lines.slice(Math.max(0, index - 3), index + 1).join('\n')
+    const context = lines.slice(Math.max(0, index - blockedContextLookbackLines), index + 1).join('\n')
     for (const claimPattern of claimPatterns) {
       if (!claimPattern.pattern.test(line)) {
         continue
@@ -222,6 +226,13 @@ function scanSurface(path: string): ClaimFinding[] {
     }
   }
   return findings
+}
+
+function scanSurface(path: string): ClaimFinding[] {
+  if (!existsSync(resolve(root, path))) {
+    return []
+  }
+  return scanClaimText(path, readText(path))
 }
 
 function writeMarkdown(report: PublicClaimBoundaryReport): void {
@@ -412,4 +423,6 @@ function main(): void {
   }
 }
 
-main()
+if (import.meta.main) {
+  main()
+}
