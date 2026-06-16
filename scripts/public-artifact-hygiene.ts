@@ -14,6 +14,7 @@ const mode = argv.includes('--write') ? 'write' : 'check'
 const targetRoots = [
   '.github',
   '.planning',
+  'avf',
   'bin',
   'docs',
   'reports',
@@ -99,6 +100,22 @@ const replacements: Replacement[] = [
     replacement: '<vscode-updating-sentinel>',
   },
   {
+    pattern: /<user-home>(?:\\+|\/)AppData(?:\\+|\/)Local(?:\\+|\/)Programs(?:\\+|\/)Microsoft VS Code(?:\\+|\/)[^\r\n`"']*updating/gi,
+    replacement: '<vscode-updating-sentinel>',
+  },
+  {
+    pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/gi,
+    replacement: '<local-selftest-url>',
+  },
+  {
+    pattern: /(^|[\s`"'])[^`\s"']*index\.html#selftest\b/gi,
+    replacement: '$1<local-selftest-target>',
+  },
+  {
+    pattern: /\b[A-Z]:(?:\\+|\/)Program Files(?:\\+|\/)[^\r\n`"']+\.(?:exe|cmd|bat)\b/gi,
+    replacement: '<local-executable>',
+  },
+  {
     pattern: new RegExp(String.raw`C:${sep}Users${sep}${userSegment}`, 'g'),
     replacement: '<user-home>',
   },
@@ -136,6 +153,10 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   { label: 'scanner-unfriendly-openai-key-placeholder', pattern: /\bsk-\.\.\./i },
   { label: 'scanner-unfriendly-api-key-placeholder', pattern: /\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i },
   { label: 'actual-looking-sk-token', pattern: /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i },
+  { label: 'local-file-url', pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/i },
+  { label: 'local-selftest-target', pattern: /(?:^|[\s`"'])[^`\s"']*index\.html#selftest\b/i },
+  { label: 'windows-local-executable-path', pattern: /\b[A-Z]:(?:\\+|\/)Program Files(?:\\+|\/)[^\r\n`"']+\.(?:exe|cmd|bat)\b/i },
+  { label: 'vscode-user-home-sentinel-path', pattern: /<user-home>(?:\\+|\/)AppData(?:\\+|\/)Local(?:\\+|\/)Programs(?:\\+|\/)Microsoft VS Code(?:\\+|\/)[^\r\n`"']*updating\b/i },
   { label: 'session-id-marker', pattern: new RegExp('session' + '_id') },
 ]
 

@@ -69,8 +69,8 @@ exit=0
 Command:
 
 ```text
-chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v42.png index.html#selftest
-chrome --headless --disable-gpu --dump-dom index.html#selftest
+chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v42.png <local-selftest-target>
+chrome --headless --disable-gpu --dump-dom <local-selftest-target>
 ```
 
 Result:
