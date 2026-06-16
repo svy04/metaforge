@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T06:35:41.860Z",
+  "generatedAt": "2026-06-16T06:53:55.615Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,13 +9,13 @@
   ],
   "sourceProductScriptCount": 90,
   "helperOccurrenceCounts": {
-    "check": 71,
-    "readText": 35,
+    "check": 70,
+    "readText": 34,
     "sha256Text": 1
   },
   "helperOccurrenceBaselines": {
-    "check": 71,
-    "readText": 35,
+    "check": 70,
+    "readText": 34,
     "sha256Text": 1
   },
   "duplicateHelperClusterCount": 2,
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 71,
+      "occurrenceCount": 70,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -231,10 +231,6 @@
           "line": 89
         },
         {
-          "path": "scripts/product-public-claim-boundary.ts",
-          "line": 198
-        },
-        {
           "path": "scripts/product-quality-blocker-taxonomy.ts",
           "line": 161
         },
@@ -316,7 +312,7 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 35,
+      "occurrenceCount": 34,
       "files": [
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -439,10 +435,6 @@
           "line": 45
         },
         {
-          "path": "scripts/product-public-claim-boundary.ts",
-          "line": 178
-        },
-        {
           "path": "scripts/product-quality-gate.ts",
           "line": 3195
         },
@@ -484,19 +476,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 49.538ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 44.825ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "64861b1765d43ba66fc6becb0490777b18fa87ec89bc6024b37e0129054f3136",
+  "jscpdReportSha256": "5f233ec5061cbf8a0e27777176802e6f68b0b5b1ed3bf867a990bf8a7112bf08",
   "jscpdCloneCount": 26,
   "jscpdCloneBaseline": 26,
   "jscpdDuplicatedLines": 774,
   "jscpdDuplicatedLinesBaseline": 774,
   "jscpdDuplicatedTokens": 4790,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.8913569386408622,
+  "jscpdDuplicatedPercentage": 1.892189218921892,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.8824324642966621,
+  "jscpdDuplicatedTokenPercentage": 1.8830614884441352,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
@@ -760,7 +752,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":71,\"readText\":35,\"sha256Text\":1}"
+      "detail": "{\"check\":70,\"readText\":34,\"sha256Text\":1}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -775,7 +767,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":71,\"readText\":35,\"sha256Text\":1},\"baseline\":{\"check\":71,\"readText\":35,\"sha256Text\":1}}"
+      "detail": "{\"current\":{\"check\":70,\"readText\":34,\"sha256Text\":1},\"baseline\":{\"check\":70,\"readText\":34,\"sha256Text\":1}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -795,7 +787,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.8913569386408622/1.9"
+      "detail": "1.892189218921892/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

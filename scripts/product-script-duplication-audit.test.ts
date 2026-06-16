@@ -306,10 +306,10 @@ export function renderFixtureReport(input: string): string {
       }>
     }
 
-    expect(report.helperOccurrenceCounts.check).toBe(71)
-    expect(report.helperOccurrenceCounts.readText).toBe(35)
-    expect(report.helperOccurrenceBaselines.check).toBe(71)
-    expect(report.helperOccurrenceBaselines.readText).toBe(35)
+    expect(report.helperOccurrenceCounts.check).toBe(70)
+    expect(report.helperOccurrenceCounts.readText).toBe(34)
+    expect(report.helperOccurrenceBaselines.check).toBe(70)
+    expect(report.helperOccurrenceBaselines.readText).toBe(34)
     expect(report.jscpdEnabled).toBe(true)
     expect(report.jscpdVersion).toContain('5.0.9')
     expect(report.jscpdConfigPath).toBe('.jscpd.json')

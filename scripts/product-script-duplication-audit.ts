@@ -138,8 +138,8 @@ const reportJsonPath = 'docs/product-quality/script-duplication-audit-report.jso
 const reportMdPath = 'docs/product-quality/script-duplication-audit-report.md'
 const helperNames = ['check', 'readText', 'sha256Text']
 const helperOccurrenceBaselines: Record<string, number> = {
-  check: 71,
-  readText: 35,
+  check: 70,
+  readText: 34,
   sha256Text: 1,
 }
 const duplicateHelperClusterBaseline = 2
