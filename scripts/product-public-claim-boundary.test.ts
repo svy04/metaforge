@@ -28,6 +28,11 @@ describe('product public claim boundary classifier', () => {
     expect(publicSurfacePaths).toContain('AGENTS.md')
   })
 
+  test('includes extension package manifests in public claim-boundary surfaces', () => {
+    expect(publicSurfacePaths).toContain('packages/openclaude-vscode/package.json')
+    expect(publicSurfacePaths).toContain('vscode-extension/openclaude-vscode/package.json')
+  })
+
   test('classifies unsupported public-readiness claims as unauthorized positives', () => {
     const findings = scanClaimText(
       'README.md',
@@ -43,6 +48,28 @@ describe('product public claim boundary classifier', () => {
     expect(findings.map((finding) => finding.category).sort()).toEqual([
       'production_readiness',
       'public_readiness',
+    ])
+  })
+
+  test('classifies unsupported package manifest claims as unauthorized positives', () => {
+    const manifestText = JSON.stringify(
+      {
+        description: 'OpenClaude extension package is production-ready and externally validated.',
+      },
+      null,
+      2,
+    )
+    const findings = scanClaimText('packages/openclaude-vscode/package.json', manifestText)
+
+    expect(findings.map((finding) => finding.status)).toEqual(
+      expect.arrayContaining([
+        'unauthorized_positive_claim',
+        'unauthorized_positive_claim',
+      ]),
+    )
+    expect(findings.map((finding) => finding.category).sort()).toEqual([
+      'external_validation',
+      'production_readiness',
     ])
   })
 
