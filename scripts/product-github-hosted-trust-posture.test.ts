@@ -1,10 +1,22 @@
 import { describe, expect, test } from 'bun:test'
+import { readFileSync } from 'node:fs'
 import {
   analyzeHostedTrustPosture,
   buildHostedTrustPostureJsonl,
+  hostedTrustPostureMode,
 } from './product-github-hosted-trust-posture'
 
 describe('GitHub hosted trust posture analysis', () => {
+  test('supports a read-only check mode command surface', () => {
+    expect(hostedTrustPostureMode(['bun', 'scripts/product-github-hosted-trust-posture.ts', '--check'])).toBe('check')
+    expect(hostedTrustPostureMode(['bun', 'scripts/product-github-hosted-trust-posture.ts'])).toBe('write')
+
+    const pkg = JSON.parse(readFileSync('package.json', 'utf8')) as { scripts: Record<string, string> }
+    expect(pkg.scripts['product:github-hosted-trust-posture:check']).toBe(
+      'bun run scripts/product-github-hosted-trust-posture.ts --check',
+    )
+  })
+
   test('classifies hosted security gaps without enabling readiness claims', () => {
     const report = analyzeHostedTrustPosture({
       repository: 'svy04/metaforge',
