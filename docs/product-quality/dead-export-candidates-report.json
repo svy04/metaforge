@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T02:00:29.837Z",
+  "generatedAt": "2026-06-16T02:25:36.359Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -30,7 +30,7 @@
     }
   ],
   "candidateFileCount": 640,
-  "candidateUnusedExportCount": 1401,
+  "candidateUnusedExportCount": 1400,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -69,13 +69,12 @@
     },
     {
       "file": "src/utils/providerProfile.ts",
-      "unusedExports": 4,
+      "unusedExports": 3,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
         "isProviderProfile",
         "buildNvidiaNimProfileEnv",
-        "buildMiniMaxProfileEnv",
         "hasExplicitProviderSelection"
       ],
       "sampleTypes": []
@@ -237,6 +236,23 @@
       ]
     },
     {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/ink/frame.ts",
       "unusedExports": 1,
       "unusedTypes": 1,
@@ -279,23 +295,6 @@
       "duplicateExports": 0,
       "sampleExports": [
         "renderSync"
-      ],
-      "sampleTypes": []
-    },
-    {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
       ],
       "sampleTypes": []
     },
@@ -470,7 +469,7 @@
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1401 exports"
+      "detail": "1400 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
@@ -480,7 +479,7 @@
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1401/1461"
+      "detail": "1400/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",
