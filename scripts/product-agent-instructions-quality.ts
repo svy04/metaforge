@@ -210,7 +210,7 @@ function main(): void {
     verificationStandardPresent: /Verification Standard/.test(agentInstructions) && /file presence/i.test(agentInstructions) && /Verify by running/i.test(agentInstructions),
     protectedBoundaryLanguagePresent: /protected/i.test(agentInstructions) && /readiness claim/i.test(agentInstructions),
     publicInstructionLineCount,
-    publicInstructionMaxLines: 220,
+    publicInstructionMaxLines: 110,
     privateMemoryDumpPresent,
     stalePublicModelLockPresent,
     localPathLeakPresent,
