@@ -136,6 +136,14 @@ function normalizePath(path: string): string {
   return path.replace(/\\/g, '/')
 }
 
+function publicSentinelPath(path: string, index: number): string {
+  const normalizedPath = normalizePath(path)
+  if (/Microsoft VS Code\/resources\/app\/updating$/i.test(normalizedPath)) {
+    return '<vscode-updating-sentinel>'
+  }
+  return `<vscode-updating-sentinel:${index + 1}>`
+}
+
 function parseVscodeCommit(versionText: string): string | null {
   const match = versionText.match(/\b([0-9a-f]{40})\b/i)
   return match ? match[1] : null
@@ -154,10 +162,10 @@ function candidateSentinelPaths(commit: string | null): string[] {
 }
 
 function collectSentinelCandidates(commit: string | null): SentinelCandidate[] {
-  return candidateSentinelPaths(commit).map((path) => {
+  return candidateSentinelPaths(commit).map((path, index) => {
     const exists = existsSync(path)
     return {
-      path,
+      path: publicSentinelPath(path, index),
       exists,
       sha256: exists ? sha256Buffer(readFileSync(path)) : null,
     }

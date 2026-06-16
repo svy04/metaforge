@@ -117,7 +117,7 @@ SOURCE_RECONCILER=not_present
 ## Browser Evidence
 
 ```text
-HEADLESS_BROWSER=C:\Program Files\Google\Chrome\Application\chrome.exe
+HEADLESS_BROWSER=<local-executable>
 RENDER_CHECK_V18_SIZE=136064
 JS_SYNTAX_EXIT=0
 DOM_SELF_TEST_MARKER=PASS

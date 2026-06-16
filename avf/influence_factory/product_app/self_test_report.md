@@ -3,7 +3,7 @@
 ## Method
 
 - Runner: Chrome headless
-- Target: `avf/influence_factory/product_app/index.html#selftest`
+- Target: `<local-selftest-target>`
 - Screenshot: `render-check-v3.png`
 - DOM capture: `self-test-dom.html`
 

@@ -192,4 +192,84 @@ describe('public artifact hygiene scanner', () => {
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('vscode-extension/openclaude-vscode/package.json')
   })
+
+  test('scans AVF evidence reports for local file URL self-test disclosure', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'avf', 'influence_factory', 'product_app')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'self_test_report_v35.md'),
+      'chrome --headless --dump-dom file:///.../index.html#selftest\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('avf/influence_factory/product_app/self_test_report_v35.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('local-file-url')
+  })
+
+  test('rejects placeholder user-home VS Code update sentinel paths in public reports', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'docs', 'product-quality')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'vscode-startup-diagnostics-report.md'),
+      '| `<user-home>\\AppData\\Local\\Programs\\Microsoft VS Code\\commit\\resources\\app\\updating` | `false` | `null` |\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('docs/product-quality/vscode-startup-diagnostics-report.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('vscode-user-home-sentinel-path')
+  })
+
+  test('rejects bare local self-test targets in goal evidence reports', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'docs', 'goals')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'INFLUENCE_FACTORY_COMPLETION_CANDIDATE_V42_VALIDATION_REPORT.md'),
+      'chrome --headless --dump-dom index.html#selftest\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('docs/goals/INFLUENCE_FACTORY_COMPLETION_CANDIDATE_V42_VALIDATION_REPORT.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('local-selftest-target')
+  })
+
+  test('rejects repo-relative local self-test targets in AVF reports', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'avf', 'influence_factory', 'product_app')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'self_test_report.md'),
+      '- Target: `avf/influence_factory/product_app/index.html#selftest`\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('avf/influence_factory/product_app/self_test_report.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('local-selftest-target')
+  })
+
+  test('rejects generated evidence references to local executable paths', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'docs', 'goals')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'INFLUENCE_FACTORY_LOCAL_ITERATION_EXECUTION_V18_VALIDATION_REPORT.md'),
+      'HEADLESS_BROWSER=C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('docs/goals/INFLUENCE_FACTORY_LOCAL_ITERATION_EXECUTION_V18_VALIDATION_REPORT.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('windows-local-executable-path')
+  })
 })

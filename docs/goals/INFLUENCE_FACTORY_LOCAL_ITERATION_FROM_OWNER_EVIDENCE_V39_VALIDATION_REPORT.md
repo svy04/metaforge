@@ -76,8 +76,8 @@ JavaScript syntax check PASS
 Command:
 
 ```text
-chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v39.png file:///.../index.html#selftest
-chrome --headless --disable-gpu --dump-dom file:///.../index.html#selftest
+chrome --headless --disable-gpu --window-size=1440,1200 --screenshot=render-check-v39.png <local-selftest-url>
+chrome --headless --disable-gpu --dump-dom <local-selftest-url>
 ```
 
 Exit status: 0
