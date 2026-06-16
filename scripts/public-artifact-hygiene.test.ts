@@ -66,6 +66,24 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('rejects environment-expanded user workspace paths in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      [
+        String.raw`Internal capture: %USERPROFILE%\Desktop\client-lab\trace.json`,
+        String.raw`Local proof: $HOME/Documents/private-research/session.md`,
+        String.raw`Operator note: ~/Desktop/private-run/output.log`,
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('user-workspace-path')
+  })
+
   test('rejects pasted internal runtime context in public docs', () => {
     const repo = makeTempRepo()
     writeFileSync(

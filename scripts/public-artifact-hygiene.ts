@@ -129,6 +129,7 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   { label: 'windows-user-path', pattern: /C:(?:\\{1,2}|\/)Users(?:\\{1,2}|\/)[^\\/\s"']+/ },
   { label: 'posix-user-path', pattern: /\/Users\/[^/\s"']+/ },
   { label: 'relative-user-path', pattern: /Users\/[^/\s"']+/ },
+  { label: 'user-workspace-path', pattern: /(?:%USERPROFILE%|\$HOME|\$\{HOME\}|~)(?:\\+|\/)(?:Desktop|Documents)(?:\\+|\/)[^\r\n`"']+/i },
   { label: 'private-workspace-korean-name', pattern: new RegExp(String.raw`\uB0B4\u0020\uC21C\uC218\u0020\uC7AC\uBBF8`) },
   { label: 'private-workspace-name', pattern: new RegExp('Digital ' + 'Factory') },
   { label: 'codex-memory-path', pattern: new RegExp(String.raw`\.` + 'codex' + String.raw`[\\/]+` + 'memories', 'i') },
