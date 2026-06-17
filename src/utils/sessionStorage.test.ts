@@ -1,13 +1,17 @@
 import { afterEach, expect, test } from 'bun:test'
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/messages.mjs'
 import type { UUID } from 'crypto'
-import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import {
   buildConversationChain,
+  flushSessionStorage,
   loadTranscriptFile,
+  removeTranscriptMessage,
+  resetProjectForTesting,
+  setSessionFileForTesting,
   stripPersistedToolUseResultsFromJSONLBuffer,
 } from './sessionStorage.ts'
 
@@ -128,7 +132,28 @@ async function writeJsonl(entries: unknown[]): Promise<string> {
 }
 
 afterEach(async () => {
+  resetProjectForTesting()
   await Promise.all(tempDirs.splice(0).map(dir => rm(dir, { recursive: true, force: true })))
+})
+
+test('removeTranscriptMessage rewrites a tombstoned entry outside the tail window', async () => {
+  const target = user(id(101), null, 'remove me from the slow path')
+  const child = assistant(id(102), id(101), 'keep child even though parent is removed')
+  const filler = user(id(103), id(102), 'x'.repeat(70 * 1024))
+  const tail = assistant(id(104), id(103), 'keep tail')
+  const filePath = await writeJsonl([target, child, filler, tail])
+
+  resetProjectForTesting()
+  setSessionFileForTesting(filePath)
+  await removeTranscriptMessage(id(101))
+  await flushSessionStorage()
+
+  const content = await readFile(filePath, 'utf8')
+  expect(content).not.toContain(`"uuid":"${id(101)}"`)
+  expect(content).not.toContain('remove me from the slow path')
+  expect(content).toContain(`"uuid":"${id(102)}"`)
+  expect(content).toContain(`"parentUuid":"${id(101)}"`)
+  expect(content).toContain(`"uuid":"${id(104)}"`)
 })
 
 test('loadTranscriptFile fails closed when preserved-segment tail is missing', async () => {
