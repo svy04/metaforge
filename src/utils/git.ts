@@ -1,6 +1,6 @@
 import { createHash } from 'crypto'
 import { readFileSync, realpathSync, statSync } from 'fs'
-import { open, readFile, realpath, stat } from 'fs/promises'
+import { open, realpath } from 'fs/promises'
 import memoize from 'lodash-es/memoize.js'
 import { basename, dirname, join, resolve, sep } from 'path'
 import { hasBinaryExtension, isBinaryContent } from '../constants/files.js'
@@ -646,39 +646,43 @@ async function captureUntrackedFiles(): Promise<
     }
 
     try {
-      const stats = await stat(filePath)
-      const fileSize = stats.size
-
-      // Skip files exceeding per-file limit
-      if (fileSize > MAX_FILE_SIZE_BYTES) {
-        logForDebugging(
-          `Untracked file capture: skipping ${filePath} (exceeds ${MAX_FILE_SIZE_BYTES} bytes)`,
-        )
-        continue
-      }
-
-      // Check total size limit
-      if (totalSize + fileSize > MAX_TOTAL_SIZE_BYTES) {
-        logForDebugging(
-          `Untracked file capture: reached total size limit (${MAX_TOTAL_SIZE_BYTES} bytes)`,
-        )
-        break
-      }
-
-      // Empty file - no need to open
-      if (fileSize === 0) {
-        result.push({ path: filePath, content: '' })
-        continue
-      }
-
-      // Binary sniff on up to SNIFF_BUFFER_SIZE bytes. Caps binary-file reads
-      // at SNIFF_BUFFER_SIZE even though MAX_FILE_SIZE_BYTES allows up to 500MB.
-      // If the file fits in the sniff buffer we reuse it as the content; for
-      // larger text files we fall back to readFile with encoding so the runtime
-      // decodes to a string without materializing a full-size Buffer in JS.
-      const sniffSize = Math.min(SNIFF_BUFFER_SIZE, fileSize)
       const fd = await open(filePath, 'r')
       try {
+        const stats = await fd.stat()
+        if (!stats.isFile()) {
+          continue
+        }
+
+        const fileSize = stats.size
+
+        // Skip files exceeding per-file limit
+        if (fileSize > MAX_FILE_SIZE_BYTES) {
+          logForDebugging(
+            `Untracked file capture: skipping ${filePath} (exceeds ${MAX_FILE_SIZE_BYTES} bytes)`,
+          )
+          continue
+        }
+
+        // Check total size limit
+        if (totalSize + fileSize > MAX_TOTAL_SIZE_BYTES) {
+          logForDebugging(
+            `Untracked file capture: reached total size limit (${MAX_TOTAL_SIZE_BYTES} bytes)`,
+          )
+          break
+        }
+
+        // Empty file - no need to open
+        if (fileSize === 0) {
+          result.push({ path: filePath, content: '' })
+          continue
+        }
+
+        // Binary sniff on up to SNIFF_BUFFER_SIZE bytes. Caps binary-file reads
+        // at SNIFF_BUFFER_SIZE even though MAX_FILE_SIZE_BYTES allows up to 500MB.
+        // If the file fits in the sniff buffer we reuse it as the content; for
+        // larger text files we fall back to readFile with encoding so the runtime
+        // decodes to a string without materializing a full-size Buffer in JS.
+        const sniffSize = Math.min(SNIFF_BUFFER_SIZE, fileSize)
         const sniffBuf = Buffer.alloc(sniffSize)
         const { bytesRead } = await fd.read(sniffBuf, 0, sniffSize, 0)
         const sniff = sniffBuf.subarray(0, bytesRead)
@@ -692,10 +696,9 @@ async function captureUntrackedFiles(): Promise<
           // Sniff already covers the whole file
           content = sniff.toString('utf-8')
         } else {
-          // readFile with encoding decodes to string directly, avoiding a
-          // full-size Buffer living alongside the decoded string. The extra
-          // open/close is cheaper than doubling peak memory for large files.
-          content = await readFile(filePath, 'utf-8')
+          // FileHandle.readFile with encoding decodes to string directly,
+          // avoiding a full-size Buffer living alongside the decoded string.
+          content = await fd.readFile({ encoding: 'utf-8' })
         }
 
         result.push({ path: filePath, content })
