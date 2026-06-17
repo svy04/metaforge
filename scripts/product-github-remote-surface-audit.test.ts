@@ -37,6 +37,9 @@ describe('GitHub public surface analysis', () => {
     const forbiddenSamples = [
       '<environment_context>',
       '.codex/memories/session-note.md',
+      '<private-codex-memory-dir>',
+      '<private-agent-skill-dir>',
+      'OpenClaude Orchestrator Memory',
       'AGENTS.md instructions for C:',
       'OPENAI_API_KEY=sk-openai-placeholder',
     ]
@@ -46,6 +49,9 @@ describe('GitHub public surface analysis', () => {
     }
 
     expect(forbiddenPatternId?.('<environment_context>', 'docs/public-note.md')).toBe('public_artifact_hygiene_pattern')
+    expect(forbiddenPatternId?.('<private-codex-memory-dir>', 'README.md')).toBe('public_artifact_hygiene_pattern')
+    expect(forbiddenPatternId?.('<private-agent-skill-dir>', 'SUPPORT.md')).toBe('public_artifact_hygiene_pattern')
+    expect(forbiddenPatternId?.('OpenClaude Orchestrator Memory', 'AGENTS.md')).toBe('public_artifact_hygiene_pattern')
     expect(forbiddenPatternId?.('<environment_context>', 'scripts/public-artifact-hygiene.test.ts')).toBe(null)
   })
 

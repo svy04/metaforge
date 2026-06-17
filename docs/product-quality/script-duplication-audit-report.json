@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T09:59:15.706Z",
+  "generatedAt": "2026-06-16T23:51:56.306Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -264,7 +264,7 @@
         },
         {
           "path": "scripts/product-source-controlled-checks.ts",
-          "line": 30
+          "line": 47
         },
         {
           "path": "scripts/product-terminal-bench-readiness.ts",
@@ -464,19 +464,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 50.127ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 54.115ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "b5b579b69eebc9a75ba8bbb593f1c2de7909ea3c177852d9e0c1564ac11dc257",
+  "jscpdReportSha256": "85c915e07d14687363502a97b2c59fe37e94c0e38f6bbdba6c54ec4f9b27ad7c",
   "jscpdCloneCount": 26,
   "jscpdCloneBaseline": 26,
   "jscpdDuplicatedLines": 774,
   "jscpdDuplicatedLinesBaseline": 774,
   "jscpdDuplicatedTokens": 4790,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.889187210153771,
+  "jscpdDuplicatedPercentage": 1.8694749045939811,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.8797803914181548,
+  "jscpdDuplicatedTokenPercentage": 1.8643500463168383,
   "jscpdSourceCount": 90,
   "jscpdTopClonePairs": [
     {
@@ -775,7 +775,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.889187210153771/1.9"
+      "detail": "1.8694749045939811/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-15T23:56:57.741Z",
+  "generatedAt": "2026-06-16T23:51:10.492Z",
   "mode": "local_no_provider_oss_architecture_gap_review",
   "sourceTargetsReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
-  "sourceTargetsReportSha256": "abda93a9fe688073877983d686f458d6a2058d9818f624e53b1f276c4a9d63c7",
+  "sourceTargetsReportSha256": "65ea5e6a59e0a08f611c1dbc9d85f41e65c383616af1fc3dabe804484f2406c0",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
   "baselineSnapshotDate": "2026-05-21",
   "targetRecordCount": 10,
@@ -22,9 +22,9 @@
     "tool_loop_reliability"
   ],
   "safeInternalActionCount": 29,
-  "protectedBoundaryGapCount": 89,
+  "protectedBoundaryGapCount": 91,
   "provenanceJsonlPath": "reports/openclaude-oss-architecture-gap-review.jsonl",
-  "provenanceJsonlSha256": "bb6a86cca50b7d50fa8fe051e4e4c5867016fd8340ed3d1f8908bc40a4fcc4cb",
+  "provenanceJsonlSha256": "ded2900635c668019079aec4bad4fa2da69be779d28088a3ba30abe658c9211d",
   "provenanceJsonlRecordCount": 10,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -81,7 +81,7 @@
     {
       "label": "protected boundary gaps remain explicit",
       "ok": true,
-      "detail": "89 protected gaps"
+      "detail": "91 protected gaps"
     },
     {
       "label": "every gap record blocks claims and shortcuts",
@@ -889,37 +889,38 @@
       "targetStatus": "prioritized_source_supported_target",
       "priority": "medium",
       "absorptionAxes": [
-        "ide_or_editor_surface",
+        "eval_and_quality_gates",
         "onboarding_docs",
         "privacy_and_no_phone_home",
         "provider_breadth",
         "release_hygiene",
         "runtime_doctoring",
-        "terminal_workflow"
+        "security_and_permissions",
+        "terminal_workflow",
+        "tool_loop_reliability"
       ],
       "sourceSignals": [
-        "ide-extension",
+        "codebase-workflow",
+        "coding-agent",
         "provider-model",
-        "terminal-cli"
+        "terminal-cli",
+        "tool-use"
       ],
       "openClaudeEvidence": [
         {
-          "axis": "ide_or_editor_surface",
+          "axis": "eval_and_quality_gates",
           "currentLocalEvidence": [
-            "docs/product-quality/oss-ide-or-editor-surface-evidence-report.json",
-            "docs/product-quality/ide-extension-surface-report.json",
-            "docs/product-quality/ide-extension-scope-report.json",
-            "docs/product-quality/ide-extension-manifest-smoke-report.json",
-            "docs/product-quality/ide-extension-runtime-smoke-report.json",
-            "docs/product-quality/ide-extension-host-smoke-report.json",
-            "docs/product-quality/ide-extension-workbench-smoke-report.json",
-            "docs/product-quality/vscode-startup-diagnostics-report.json",
-            "docs/product-quality/ide-extension-webview-render-smoke-report.json",
-            "docs/product-quality/ide-extension-rendered-workbench-screenshot-report.json",
-            "docs/product-quality/ide-extension-webview-interaction-smoke-report.json"
+            "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
+            "docs/product-quality/product-quality-gate.md",
+            "docs/product-quality/benchmark-readiness-matrix.json",
+            "docs/product-quality/local-benchmark-harness-report.json",
+            "docs/product-quality/benchmark-submission-readiness-report.json",
+            "docs/product-quality/terminal-bench-readiness-report.json",
+            "docs/product-quality/verification-report-consistency-report.json",
+            "docs/product-quality/quality-blocker-taxonomy-report.json"
           ],
-          "unresolvedGap": "IDE surface, manifest, mock-host runtime, workbench, webview, screenshot, interaction, and startup-boundary evidence exists, but current real host command smoke remains blocked by unavailable code CLI.",
-          "protectedBoundary": "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action."
+          "unresolvedGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
+          "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization."
         },
         {
           "axis": "onboarding_docs",
@@ -977,6 +978,18 @@
           "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked."
         },
         {
+          "axis": "security_and_permissions",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-security-permissions-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/openssf-security-posture-report.json",
+            "docs/product-quality/dependency-governance-quality-report.json",
+            "docs/product-quality/source-controlled-checks-report.json"
+          ],
+          "unresolvedGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
+          "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization."
+        },
+        {
           "axis": "terminal_workflow",
           "currentLocalEvidence": [
             "docs/product-quality/oss-terminal-workflow-evidence-report.json",
@@ -987,6 +1000,21 @@
           ],
           "unresolvedGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
           "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        },
+        {
+          "axis": "tool_loop_reliability",
+          "currentLocalEvidence": [
+            "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
+            "docs/product-quality/permission-regression-fixtures.json",
+            "docs/product-quality/prompted-tool-loop-capture-report.json",
+            "docs/product-quality/code-editing-trace-capture-report.json",
+            "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
+            "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
+            "docs/product-quality/tool-interruption-recovery-trace-report.json",
+            "docs/product-quality/protected-action-denial-trace-report.json"
+          ],
+          "unresolvedGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
+          "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
         }
       ],
       "safeInternalNextActions": [
@@ -995,13 +1023,15 @@
         "Create protected-action authorization requests for any live provider, external benchmark, install, publish, deploy, or public claim step."
       ],
       "protectedActionsStillRequired": [
-        "VS Code repair, reinstall, PATH/install-state mutation, extension availability claims, publish, deploy, and public comparison require explicit owner action.",
+        "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
         "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
         "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
         "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
         "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
         "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization."
+        "hosted CI/security service calls and public security posture claims require explicit authorization.",
+        "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
+        "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked."
       ],
       "forbiddenShortcuts": [
         "do not treat GitHub stars as superiority evidence",
@@ -1011,7 +1041,7 @@
         "do not install dependencies, publish, deploy, launch, or make release/public/production/autonomous reliability claims"
       ],
       "claimAllowed": false,
-      "recordDigest": "5b53610961069b08b4beb95ebb9135cc796446582dfc2af2c9a292b5d5de69e9"
+      "recordDigest": "70f73ed5f3b7ee5a8971e5f1114cc32d72c8f06f08d9b466a9558d963a577742"
     },
     {
       "schemaVersion": "openclaude_oss_architecture_gap_review_v1",
