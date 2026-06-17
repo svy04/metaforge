@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type PackageJson = {
   version: string
@@ -71,9 +72,10 @@ function runTranscript(name: string, args: string[], requiredSubstrings: string[
 
 function writeReports(report: GoldenTranscriptReport): void {
   mkdirSync(docsDir, { recursive: true })
+  const publicReport = scrubPublicArtifactValue(report)
   writeFileSync(
     resolve(docsDir, 'golden-path-terminal-transcripts.json'),
-    `${JSON.stringify(report, null, 2)}\n`,
+    `${JSON.stringify(publicReport, null, 2)}\n`,
   )
 
   const lines = [
@@ -119,7 +121,7 @@ function writeReports(report: GoldenTranscriptReport): void {
     lines.push('')
   }
 
-  writeFileSync(resolve(docsDir, 'golden-path-terminal-transcripts.md'), `${lines.join('\n')}\n`)
+  writeFileSync(resolve(docsDir, 'golden-path-terminal-transcripts.md'), `${scrubPublicArtifactText(lines.join('\n'))}\n`)
 }
 
 function main(): void {
