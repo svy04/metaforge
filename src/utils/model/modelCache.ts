@@ -5,8 +5,7 @@
  * Uses async fs operations to avoid blocking the event loop.
  */
 
-import { access, readFile, writeFile, mkdir, unlink } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
+import { readFile, writeFile, mkdir, unlink } from 'node:fs/promises'
 import { join } from 'node:path'
 import { homedir } from 'node:os'
 import { getAPIProvider } from './providers.js'
@@ -23,16 +22,31 @@ interface ModelCache {
 }
 
 function getCacheDir(): string {
-  const home = homedir()
-  const cacheDir = join(home, CACHE_DIR_NAME)
-  if (!existsSync(cacheDir)) {
-    mkdir(cacheDir, { recursive: true })
-  }
-  return cacheDir
+  return join(homedir(), CACHE_DIR_NAME)
 }
 
 function getCacheFilePath(provider: string): string {
   return join(getCacheDir(), `${provider}.json`)
+}
+
+async function readModelCache(provider: string): Promise<ModelCache | null> {
+  try {
+    return JSON.parse(await readFile(getCacheFilePath(provider), 'utf-8')) as ModelCache
+  } catch {
+    return null
+  }
+}
+
+function isFreshModelCache(data: ModelCache, provider: string): boolean {
+  if (data.version !== CACHE_VERSION) {
+    return false
+  }
+  if (data.provider !== provider) {
+    return false
+  }
+
+  const ageHours = (Date.now() - data.timestamp) / (1000 * 60 * 60)
+  return ageHours < CACHE_TTL_HOURS
 }
 
 function isOpenAICompatibleProvider(): boolean {
@@ -41,28 +55,8 @@ function isOpenAICompatibleProvider(): boolean {
 }
 
 export async function isModelCacheValid(provider: string): Promise<boolean> {
-  const cachePath = getCacheFilePath(provider)
-  
-  try {
-    await access(cachePath)
-  } catch {
-    return false
-  }
-
-  try {
-    const data = JSON.parse(await readFile(cachePath, 'utf-8')) as ModelCache
-    if (data.version !== CACHE_VERSION) {
-      return false
-    }
-    if (data.provider !== provider) {
-      return false
-    }
-
-    const ageHours = (Date.now() - data.timestamp) / (1000 * 60 * 60)
-    return ageHours < CACHE_TTL_HOURS
-  } catch {
-    return false
-  }
+  const data = await readModelCache(provider)
+  return data !== null && isFreshModelCache(data, provider)
 }
 
 export async function getCachedModelsFromDisk<T>(): Promise<T[] | null> {
@@ -76,18 +70,12 @@ export async function getCachedModelsFromDisk<T>(): Promise<T[] | null> {
     return null
   }
 
-  const cachePath = getCacheFilePath(provider)
-  
-  if (!(await isModelCacheValid(provider))) {
+  const data = await readModelCache(provider)
+  if (!data || !isFreshModelCache(data, provider)) {
     return null
   }
 
-  try {
-    const data = JSON.parse(await readFile(cachePath, 'utf-8')) as ModelCache
-    return data.models as T[]
-  } catch {
-    return null
-  }
+  return data.models as T[]
 }
 
 export async function saveModelsToCache(
@@ -105,6 +93,7 @@ export async function saveModelsToCache(
   }
   
   try {
+    await mkdir(getCacheDir(), { recursive: true })
     await writeFile(cachePath, JSON.stringify(cacheData, null, 2), 'utf-8')
   } catch (error) {
     console.warn('[ModelCache] Failed to save cache:', error)
@@ -133,26 +122,19 @@ export async function clearModelCache(provider?: string): Promise<void> {
 
 export async function getModelCacheInfo(): Promise<{ provider: string; age: string } | null> {
   const provider = getAPIProvider()
-  const cachePath = getCacheFilePath(provider)
-  
-  try {
-    await access(cachePath)
-  } catch {
+  const data = await readModelCache(provider)
+
+  if (!data) {
     return null
   }
 
-  try {
-    const data = JSON.parse(await readFile(cachePath, 'utf-8')) as ModelCache
-    const ageMs = Date.now() - data.timestamp
-    const ageHours = Math.floor(ageMs / (1000 * 60 * 60))
-    const ageMins = Math.floor((ageMs % (1000 * 60 * 60)) / (1000 * 60))
-    
-    return {
-      provider: data.provider,
-      age: ageHours > 0 ? `${ageHours}h ${ageMins}m` : `${ageMins}m`,
-    }
-  } catch {
-    return null
+  const ageMs = Date.now() - data.timestamp
+  const ageHours = Math.floor(ageMs / (1000 * 60 * 60))
+  const ageMins = Math.floor((ageMs % (1000 * 60 * 60)) / (1000 * 60))
+
+  return {
+    provider: data.provider,
+    age: ageHours > 0 ? `${ageHours}h ${ageMins}m` : `${ageMins}m`,
   }
 }
 
