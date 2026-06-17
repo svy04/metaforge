@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { env, exit } from 'node:process'
 import { spawnSync } from 'node:child_process'
@@ -38,7 +38,7 @@ type RefScan = {
 type Discovery = {
   gitFetchPerformed: boolean
   remoteHeadDiscovery: 'git_ls_remote'
-  openPullRequestDiscovery: 'github_pr_api' | 'gh_cli' | 'unavailable'
+  openPullRequestDiscovery: 'gh_cli' | 'unavailable'
   openPullRequestDiscoveryError?: string
 }
 
@@ -258,8 +258,8 @@ export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSur
     mode: 'github_public_remote_surface_audit',
     primarySourceInputs: [
       {
-        sourceProject: 'GitHub REST Pull Requests API',
-        sourceUrl: 'https://docs.github.com/en/rest/pulls/pulls',
+        sourceProject: 'GitHub CLI gh pr list',
+        sourceUrl: 'https://cli.github.com/manual/gh_pr_list',
         observedPattern: 'Open pull requests and their head branches are public review surfaces and should be inventoried before claiming a repository is clean.',
       },
       {
@@ -396,42 +396,6 @@ async function discoverOpenPullRequests(repositoryFullName: string): Promise<{
   discovery: Discovery['openPullRequestDiscovery']
   error?: string
 }> {
-  const token = env.GITHUB_TOKEN ?? env.GH_TOKEN
-  if (token) {
-    const pullRequests: OpenPullRequest[] = []
-    for (let page = 1; page <= 10; page += 1) {
-      const response = await fetch(`https://api.github.com/repos/${repositoryFullName}/pulls?state=open&per_page=100&page=${page}`, {
-        headers: {
-          accept: 'application/vnd.github+json',
-          authorization: `Bearer ${token}`,
-          'x-github-api-version': '2022-11-28',
-        },
-      })
-      if (!response.ok) {
-        return { pullRequests: [], discovery: 'unavailable', error: `GitHub PR API HTTP ${response.status}` }
-      }
-      const pageItems = await response.json() as Array<{
-        number: number
-        title: string
-        html_url: string
-        head: { ref: string; repo: { full_name: string } | null }
-      }>
-      for (const item of pageItems) {
-        pullRequests.push({
-          number: item.number,
-          title: item.title,
-          url: item.html_url,
-          headRefName: item.head.ref,
-          isSameRepository: item.head.repo?.full_name?.toLowerCase() === repositoryFullName.toLowerCase(),
-        })
-      }
-      if (pageItems.length < 100) {
-        break
-      }
-    }
-    return { pullRequests, discovery: 'github_pr_api' }
-  }
-
   const result = spawnSync('gh', [
     'pr',
     'list',
