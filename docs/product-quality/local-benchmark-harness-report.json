@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-16T00:01:09.871Z",
+  "generatedAt": "2026-06-16T23:53:53.915Z",
   "mode": "local_no_provider_benchmark_replay_harness",
   "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
   "sourceBenchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
   "sourceBenchmarkTaskCount": 16,
-  "sourceBenchmarkManifestSha256": "3675298a89593100bdca144ea4e610b9540d8896fa2b160407bfd278a0e80fa6",
+  "sourceBenchmarkManifestSha256": "26c2472f452f986683989f1c15b366a045c9bcf5e7ac44085a9cc0f7884e6775",
   "sourceExternalBenchmarkBoundaryPath": "docs/product-quality/external-benchmark-boundary-report.json",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,15 +13,15 @@
   "externalBenchmarkExecutionPerformed": false,
   "externalBenchmarkResultClaimed": false,
   "localBenchmarkResultPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "localBenchmarkResultSha256": "02fa36bf0d7c57b797e0dce6bbe9e788d02b12f4283469b26d1f2eecce85f9fd",
+  "localBenchmarkResultSha256": "bf4292a350bb1b95301509385a5869fd9e80a7eba6944edf9431c191e5ceef5e",
   "localBenchmarkTaskResults": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
       "benchmarkFamily": "local_no_provider_product_quality",
       "sourceEvidencePath": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "cd1491d39e305c0f62347b04c82fb0082d50f092fc97968e36c5f6659c9a3d3f",
-      "actualSourceEvidenceSha256": "cd1491d39e305c0f62347b04c82fb0082d50f092fc97968e36c5f6659c9a3d3f",
+      "expectedSourceEvidenceSha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
+      "actualSourceEvidenceSha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 5,
       "terminalOutcomeClass": "succeeded",
@@ -290,12 +290,12 @@
       "benchmarkFamily": "local_no_provider_replay_eval",
       "sourceEvidencePath": "docs/product-quality/agent-replay-evals-report.json",
       "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "046e9108e04dfba8608252b84d2afde28457e82cb948c97d96fe23658f5543ef",
-      "actualSourceEvidenceSha256": "046e9108e04dfba8608252b84d2afde28457e82cb948c97d96fe23658f5543ef",
+      "expectedSourceEvidenceSha256": "389ab1758966df74584415f0e5a659bbc9e519c6d82fcc1e711cbe12cd63d6b5",
+      "actualSourceEvidenceSha256": "389ab1758966df74584415f0e5a659bbc9e519c6d82fcc1e711cbe12cd63d6b5",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 4,
-      "terminalOutcomeClass": "classified_environment_blocked",
-      "localHarnessStatus": "classified_environment_blocked",
+      "terminalOutcomeClass": "succeeded",
+      "localHarnessStatus": "valid_local_evidence",
       "protectedActionRequired": false,
       "protectedActionExecuted": false,
       "externalBenchmarkResultClaimed": false,
@@ -305,8 +305,8 @@
     }
   ],
   "statusSummary": {
-    "validLocalEvidenceTasks": 15,
-    "classifiedBlockedTasks": 1,
+    "validLocalEvidenceTasks": 16,
+    "classifiedBlockedTasks": 0,
     "failedTasks": 0
   },
   "harnessChecks": [
@@ -363,7 +363,7 @@
     {
       "label": "blocked or unknown outcomes are classified instead of hidden",
       "ok": true,
-      "detail": "1/1 classified blocked"
+      "detail": "0/0 classified blocked"
     },
     {
       "label": "local harness has no failed task evidence",
@@ -373,7 +373,7 @@
     {
       "label": "result JSONL hash is recorded",
       "ok": true,
-      "detail": "02fa36bf0d7c57b797e0dce6bbe9e788d02b12f4283469b26d1f2eecce85f9fd"
+      "detail": "bf4292a350bb1b95301509385a5869fd9e80a7eba6944edf9431c191e5ceef5e"
     }
   ],
   "claimBoundary": "Local benchmark harness evidence is internal no-provider replay evidence only. It does not execute external benchmarks, providers, live models, external services, containers, hosted CI, deploy, publish, launch, or make release/public/production/external/autonomous reliability claims."

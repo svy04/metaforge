@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T04:47:06.718Z",
+  "generatedAt": "2026-06-16T23:52:40.429Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -225,6 +225,23 @@
       ]
     },
     {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/ink/frame.ts",
       "unusedExports": 1,
       "unusedTypes": 1,
@@ -267,23 +284,6 @@
       "duplicateExports": 0,
       "sampleExports": [
         "renderSync"
-      ],
-      "sampleTypes": []
-    },
-    {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
       ],
       "sampleTypes": []
     },
