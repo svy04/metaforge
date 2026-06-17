@@ -10,6 +10,13 @@ function readRepoText(path: string): string {
   return readFileSync(join(root, path), 'utf8')
 }
 
+function readPackageScripts(): Record<string, string> {
+  const packageJson = JSON.parse(readRepoText('package.json')) as {
+    scripts?: Record<string, string>
+  }
+  return packageJson.scripts ?? {}
+}
+
 function privateLocalPathNeedles(): string[] {
   return [
     `C:${'\\\\'}Users`,
@@ -160,6 +167,16 @@ describe('public repository readiness surfaces', () => {
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true })
     }
+  })
+
+  test('product quality uses public artifact hygiene as a check gate, not an auto-fixer', () => {
+    const scripts = readPackageScripts()
+
+    expect(scripts['product:public-artifact-hygiene:write']).toContain('--write')
+    expect(scripts['product:quality']).not.toContain('product:public-artifact-hygiene:write')
+    expect(scripts['product:quality']).toContain('bun run verify:privacy')
+    expect(scripts['verify:privacy']).toContain('bun run product:public-artifact-hygiene')
+    expect(scripts['verify:privacy']).not.toContain('product:public-artifact-hygiene:write')
   })
 
   test('tracked public paths stay portable for default Windows checkouts', () => {
