@@ -108,8 +108,9 @@ export const publicSurfacePaths = [
   'packages/openclaude-vscode/README.md',
   'vscode-extension/openclaude-vscode/package.json',
   'vscode-extension/openclaude-vscode/README.md',
+  ...publicMarkdownReportPaths(),
   ...publicGoalArtifactPaths(),
-]
+].filter((path, index, paths) => paths.indexOf(path) === index).sort()
 
 const claimPatterns: ClaimPattern[] = [
   { category: 'launch', phrase: 'launch completed', pattern: /\blaunch completed\b|\bopenclaude (?:has )?launched\b/i },
@@ -159,6 +160,7 @@ const blockedContextTerms = [
   'allowed: `false`',
   'defaults false',
   'defaulting to `false`',
+  'required terms present',
   'explicitly blocked',
   'not claimed',
   'not prove',
@@ -194,6 +196,35 @@ const goalArtifactBoundaryTerms = [
   'does not',
   'local only',
 ]
+
+function publicMarkdownReportPaths(): string[] {
+  return [
+    ...markdownPathsUnder('docs/product-quality', new Set([
+      reportMdPath,
+    ])),
+    ...markdownPathsUnder('docs/marketing'),
+  ]
+}
+
+function markdownPathsUnder(relativeDir: string, excludedPaths = new Set<string>()): string[] {
+  const dir = resolve(root, relativeDir)
+  if (!existsSync(dir)) {
+    return []
+  }
+
+  const paths: string[] = []
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const relativePath = `${relativeDir}/${entry.name}`
+    if (entry.isDirectory()) {
+      paths.push(...markdownPathsUnder(relativePath, excludedPaths))
+      continue
+    }
+    if (entry.isFile() && entry.name.endsWith('.md') && !excludedPaths.has(relativePath)) {
+      paths.push(relativePath)
+    }
+  }
+  return paths.sort()
+}
 
 function publicGoalArtifactPaths(): string[] {
   const goalDir = resolve(root, 'docs/goals')
@@ -344,7 +375,28 @@ function isIndentedContinuation(line: string): boolean {
 
 function isBoundaryHeader(line: string): boolean {
   const compact = compactLine(line)
-  return isBlockedContext(compact) && /[:：]\s*$/.test(compact)
+  return isBlockedContext(compact) && (/[:：]\s*$/.test(compact) || /^#{1,6}\s+/.test(compact))
+}
+
+function isMarkdownTableRow(line: string): boolean {
+  return /^\s*\|.*\|\s*$/.test(line)
+}
+
+function findTableBlockingContextLine(contextLines: string[]): string | null {
+  for (let index = contextLines.length - 2; index >= 0; index -= 1) {
+    const candidate = contextLines[index]
+    if (candidate.trim().length === 0) {
+      return null
+    }
+    if (!isMarkdownTableRow(candidate)) {
+      return null
+    }
+    if (isBlockedContext(candidate)) {
+      return candidate
+    }
+  }
+
+  return null
 }
 
 function findBlockingContextLine(contextLines: string[], claimLine: string): string | null {
@@ -353,8 +405,16 @@ function findBlockingContextLine(contextLines: string[], claimLine: string): str
     return currentLine
   }
 
+  if (isMarkdownTableRow(claimLine)) {
+    return findTableBlockingContextLine(contextLines)
+  }
+
   if (!isListItem(claimLine)) {
     if (!isIndentedContinuation(claimLine)) {
+      const previousLine = contextLines.at(-2)
+      if (previousLine?.trim() && isBlockedContext(previousLine)) {
+        return previousLine
+      }
       return null
     }
 
@@ -374,6 +434,9 @@ function findBlockingContextLine(contextLines: string[], claimLine: string): str
     const candidate = contextLines[index]
     if (candidate.trim().length === 0) {
       continue
+    }
+    if (isListItem(candidate) && isBlockedContext(candidate)) {
+      return candidate
     }
     if (isListItem(candidate)) {
       continue

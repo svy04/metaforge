@@ -37,6 +37,14 @@ describe('product public claim boundary classifier', () => {
     expect(publicSurfacePaths).toContain('vscode-extension/openclaude-vscode/package.json')
   })
 
+  test('includes generated public markdown reports while avoiding recursive self-report scans', () => {
+    expect(publicSurfacePaths).toContain('docs/product-quality/community-profile-quality-report.md')
+    expect(publicSurfacePaths).toContain('docs/product-quality/github-hosted-trust-posture-report.md')
+    expect(publicSurfacePaths).toContain('docs/marketing/metaforge-public-proof-pack-2026-06-14.md')
+    expect(publicSurfacePaths).toContain('docs/marketing/README.md')
+    expect(publicSurfacePaths).not.toContain('docs/product-quality/public-claim-boundary-report.md')
+  })
+
   test('classifies unsupported public-readiness claims as unauthorized positives', () => {
     const findings = scanClaimText(
       'README.md',
@@ -147,6 +155,51 @@ describe('product public claim boundary classifier', () => {
     expect(findings[0]?.contextText).toContain('Claim mention: - The system is production-ready.')
   })
 
+  test('keeps list items under markdown blocked-claim headings bounded', () => {
+    const findings = scanClaimText(
+      'docs/product-quality/license-boundary-authorization-request.md',
+      [
+        '## Blocked Claims',
+        '',
+        '- release readiness',
+        '- production readiness',
+        '- public readiness',
+        '- external validation',
+        '- autonomous reliability',
+      ].join('\n'),
+    )
+
+    expect(findings.map((finding) => finding.status)).toEqual([
+      'blocked_context',
+      'blocked_context',
+      'blocked_context',
+      'blocked_context',
+      'blocked_context',
+    ])
+    expect(findings.every((finding) => (
+      finding.contextText.includes('Blocked Claims') ||
+      finding.contextText.includes('readiness') ||
+      finding.contextText.includes('validation')
+    ))).toBe(true)
+  })
+
+  test('keeps generated required-term inventory table rows bounded', () => {
+    const findings = scanClaimText(
+      'docs/product-quality/community-profile-quality-report.md',
+      [
+        '| File | SHA-256 | Required Terms Present |',
+        '| --- | --- | --- |',
+        '| `SUPPORT.md` | `abc` | release readiness, provider-backed execution claims |',
+      ].join('\n'),
+    )
+
+    expect(findings.map((finding) => finding.status)).toEqual([
+      'blocked_context',
+      'blocked_context',
+    ])
+    expect(findings.every((finding) => finding.contextText.includes('Required Terms Present'))).toBe(true)
+  })
+
   test('does not let prior unrelated negative context hide a later positive claim', () => {
     const findings = scanClaimText(
       'README.md',
@@ -162,6 +215,24 @@ describe('product public claim boundary classifier', () => {
       'unauthorized_positive_claim',
     ])
     expect(findings[1]?.text).toBe('Metaforge is production-ready for public customers.')
+  })
+
+  test('keeps wrapped boundary paragraph continuations blocked', () => {
+    const findings = scanClaimText(
+      'docs/product-quality/public-feedback-snapshot-2026-06-15.md',
+      [
+        'Boundary: this snapshot is not production readiness, release readiness,',
+        'external validation, hosted workflow proof, or autonomous reliability evidence.',
+      ].join('\n'),
+    )
+
+    expect(findings.map((finding) => finding.status)).toEqual([
+      'blocked_context',
+      'blocked_context',
+      'blocked_context',
+      'blocked_context',
+    ])
+    expect(findings.every((finding) => finding.contextText.includes('Boundary:'))).toBe(true)
   })
 
   test('keeps markdown-wrapped boundary continuations blocked', () => {

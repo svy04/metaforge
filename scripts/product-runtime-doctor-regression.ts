@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type PackageJson = {
   scripts: Record<string, string>
@@ -155,9 +156,10 @@ function resultDetail(payload: DoctorPayload | null, label: string): string {
 
 function writeReports(report: RuntimeDoctorRegressionReport): void {
   mkdirSync(docsDir, { recursive: true })
+  const publicReport = scrubPublicArtifactValue(report)
   writeFileSync(
     resolve(docsDir, 'runtime-doctor-regression-fixtures.json'),
-    `${JSON.stringify(report, null, 2)}\n`,
+    `${JSON.stringify(publicReport, null, 2)}\n`,
   )
 
   const lines = [
@@ -203,7 +205,7 @@ function writeReports(report: RuntimeDoctorRegressionReport): void {
     '',
   ]
 
-  writeFileSync(resolve(docsDir, 'runtime-doctor-regression-fixtures.md'), `${lines.join('\n')}\n`)
+  writeFileSync(resolve(docsDir, 'runtime-doctor-regression-fixtures.md'), `${scrubPublicArtifactText(lines.join('\n'))}\n`)
 }
 
 function main(): void {

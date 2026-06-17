@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type Manifest = {
   publisher?: string
@@ -389,7 +390,8 @@ function withCliEnvironmentBlockers(blockers: string[], result: ReturnType<typeo
 
 function writeReports(report: WorkbenchReport): void {
   mkdirSync(docsDir, { recursive: true })
-  writeFileSync(resolve(docsDir, 'ide-extension-workbench-smoke-report.json'), `${JSON.stringify(report, null, 2)}\n`)
+  const publicReport = scrubPublicArtifactValue(report)
+  writeFileSync(resolve(docsDir, 'ide-extension-workbench-smoke-report.json'), `${JSON.stringify(publicReport, null, 2)}\n`)
 
   const formatList = (items: string[]): string => items.length === 0 ? '`none`' : items.map((item) => `\`${item}\``).join(', ')
   const lines = [
@@ -455,7 +457,7 @@ function writeReports(report: WorkbenchReport): void {
     '',
   ]
 
-  writeFileSync(resolve(docsDir, 'ide-extension-workbench-smoke-report.md'), `${lines.join('\n')}\n`)
+  writeFileSync(resolve(docsDir, 'ide-extension-workbench-smoke-report.md'), `${scrubPublicArtifactText(lines.join('\n'))}\n`)
 }
 
 function main(): void {
