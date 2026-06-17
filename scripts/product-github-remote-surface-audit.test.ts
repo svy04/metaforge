@@ -95,7 +95,7 @@ describe('GitHub public surface analysis', () => {
       discovery: {
         gitFetchPerformed: true,
         remoteHeadDiscovery: 'git_ls_remote',
-        openPullRequestDiscovery: 'github_pr_api',
+        openPullRequestDiscovery: 'gh_cli',
       },
     })
 
@@ -136,7 +136,7 @@ describe('GitHub public surface analysis', () => {
       discovery: {
         gitFetchPerformed: true,
         remoteHeadDiscovery: 'git_ls_remote',
-        openPullRequestDiscovery: 'github_pr_api',
+        openPullRequestDiscovery: 'gh_cli',
       },
     })
 
