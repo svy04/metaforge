@@ -872,11 +872,9 @@ class Project {
     return this.trackWrite(async () => {
       if (this.sessionFile === null) return
       try {
-        let fileSize = 0
         const fh = await fsOpen(this.sessionFile, 'r+')
         try {
           const { size } = await fh.stat()
-          fileSize = size
           if (size === 0) return
 
           const chunkLen = Math.min(size, LITE_READ_BUF_SIZE)
@@ -918,32 +916,46 @@ class Project {
               return
             }
           }
+
+          // Slow path: target was not in the last 64KB. Rare - requires many
+          // large entries to have landed between the write and the tombstone.
+          // Keep all operations on the already-open handle so the rewrite does
+          // not reintroduce a filename-based TOCTOU window.
+          if (size > MAX_TOMBSTONE_REWRITE_BYTES) {
+            logForDebugging(
+              `Skipping tombstone removal: session file too large (${formatFileSize(size)})`,
+              { level: 'warn' },
+            )
+            return
+          }
+          const fullBuffer = Buffer.allocUnsafe(size)
+          const { bytesRead: fullBytesRead } = await fh.read(
+            fullBuffer,
+            0,
+            size,
+            0,
+          )
+          const content = fullBuffer
+            .subarray(0, fullBytesRead)
+            .toString('utf8')
+          const lines = content.split('\n').filter((line: string) => {
+            if (!line.trim()) return true
+            try {
+              const entry = jsonParse(line)
+              return entry.uuid !== targetUuid
+            } catch {
+              return true // Keep malformed lines
+            }
+          })
+          const nextContent = lines.join('\n')
+          const nextBuffer = Buffer.from(nextContent, 'utf8')
+          await fh.truncate(0)
+          if (nextBuffer.length > 0) {
+            await fh.write(nextBuffer, 0, nextBuffer.length, 0)
+          }
         } finally {
           await fh.close()
         }
-
-        // Slow path: target was not in the last 64KB. Rare - requires many
-        // large entries to have landed between the write and the tombstone.
-        if (fileSize > MAX_TOMBSTONE_REWRITE_BYTES) {
-          logForDebugging(
-            `Skipping tombstone removal: session file too large (${formatFileSize(fileSize)})`,
-            { level: 'warn' },
-          )
-          return
-        }
-        const content = await readFile(this.sessionFile, { encoding: 'utf-8' })
-        const lines = content.split('\n').filter((line: string) => {
-          if (!line.trim()) return true
-          try {
-            const entry = jsonParse(line)
-            return entry.uuid !== targetUuid
-          } catch {
-            return true // Keep malformed lines
-          }
-        })
-        await writeFile(this.sessionFile, lines.join('\n'), {
-          encoding: 'utf8',
-        })
       } catch {
         // Silently ignore errors - the file might not exist yet
       }
