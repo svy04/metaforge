@@ -96,10 +96,18 @@ const reportJsonPath = 'docs/product-quality/github-remote-surface-audit-report.
 const reportMdPath = 'docs/product-quality/github-remote-surface-audit-report.md'
 const reportJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'
 const koreanLocalWorkspaceName = String.fromCharCode(0xb0b4, 0x20, 0xc21c, 0xc218, 0x20, 0xc7ac, 0xbbf8)
+const windowsUserSegmentPattern = String.raw`[^\\/"']+`
+const pathTailPattern = String.raw`[^"']+`
+const placeholderUserPattern = String.raw`(?:Example(?:[ _-]User)?|example|foo|me|fixture-owner|John[ _]Smith|\{user\}|\.\.\.)`
+const documentedPlaceholderLocalPathPattern = new RegExp([
+  String.raw`C:(?:\\+|/)Users(?:\\+|/)${placeholderUserPattern}(?:\\+|/)(?:Desktop|Documents|AppData)(?:\\+|/)`,
+  String.raw`/Users/${placeholderUserPattern}/(?:Desktop|Documents)/`,
+  String.raw`Users/${placeholderUserPattern}/(?:Desktop|Documents)/`,
+].join('|'), 'i')
 const privateLocalOrTokenPatterns = [
-  String.raw`C:(\\+|/)Users(\\+|/)[^\\/"' ]+(\\+|/)(Desktop|Documents|AppData)(\\+|/)[^\\/"' ]+`,
-  String.raw`/Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
-  String.raw`Users/[^/"' ]+/(Desktop|Documents)/[^/"' ]+`,
+  String.raw`C:(\\+|/)Users(\\+|/)${windowsUserSegmentPattern}(\\+|/)(Desktop|Documents|AppData)(\\+|/)${pathTailPattern}`,
+  String.raw`/Users/${windowsUserSegmentPattern}/(Desktop|Documents)/${pathTailPattern}`,
+  String.raw`Users/${windowsUserSegmentPattern}/(Desktop|Documents)/${pathTailPattern}`,
   String.raw`(%USERPROFILE%|\$HOME|\$\{HOME\}|~)(\\+|/)(Desktop|Documents)(\\+|/)[^\\/"' ]+`,
   koreanLocalWorkspaceName,
   ['Digital', ' Factory'].join(''),
@@ -132,7 +140,6 @@ const privatePattern = [
   publicArtifactHygienePattern,
 ].join('|')
 const tokenPattern = /(gh[pousr]_|github_pat_|AKIA|ASIA|xox[baprs]-|sk-[A-Za-z0-9_-]{8,})/i
-const documentedPlaceholderPattern = new RegExp(String.raw`(?:^|[\\/\s"'\x60])(?:Example|example|foo|me|fixture-owner|John[ _]Smith|\{user\}|\.\.\.)(?:[\\/\s"'\x60]|$)`)
 
 function isRemotePublicArtifactPath(path?: string): boolean {
   if (!path) {
@@ -167,7 +174,7 @@ function isRemotePublicArtifactPath(path?: string): boolean {
 
 export function remoteForbiddenPatternId(text: string, path?: string): string | null {
   if (new RegExp(privateLocalOrTokenPattern, 'i').test(text)) {
-    if (documentedPlaceholderPattern.test(text) && !tokenPattern.test(text)) {
+    if (documentedPlaceholderLocalPathPattern.test(text) && !tokenPattern.test(text)) {
       return null
     }
     return 'private_local_or_token_pattern'

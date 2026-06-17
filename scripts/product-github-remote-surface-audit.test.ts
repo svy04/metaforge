@@ -9,10 +9,19 @@ describe('GitHub public surface analysis', () => {
     expect(typeof matchesForbiddenPattern).toBe('function')
 
     const windowsHome = ['C:', 'Users', 'private-owner'].join('\\')
+    const windowsHomeWithSpaces = ['C:', 'Users', 'private owner'].join('\\')
+    const posixHomeWithSpaces = ['', 'Users', 'private owner'].join('/')
+    const relativeHomeWithSpaces = ['Users', 'private owner'].join('/')
     const forbiddenSamples = [
       ['cd', `${windowsHome}\\Desktop\\private-run\\AGENTS.md`].join(' '),
+      ['cd', `${windowsHomeWithSpaces}\\Desktop\\private run\\AGENTS.md`].join(' '),
+      ['type', `${windowsHome}\\Documents\\private run\\session.log`].join(' '),
       ['cat', `${windowsHome}\\AppData\\Local\\hermes\\auth.json`].join(' '),
       ['type', `${windowsHome}\\Documents\\private-run\\session.log`].join(' '),
+      `Example leak: ${windowsHome}\\Desktop\\private-run\\trace.md`,
+      ['cat', `${posixHomeWithSpaces}/Desktop/private run/trace.json`].join(' '),
+      ['Example leak:', `${['', 'Users', 'real owner'].join('/')}/Desktop/private run/trace.json`].join(' '),
+      ['cat', `${relativeHomeWithSpaces}/Documents/private run/notes.md`].join(' '),
       ['GITHUB_TOKEN=', 'ghp_', 'A'.repeat(36)].join(''),
       ['GITHUB_PAT=', 'github', '_pat_', 'A'.repeat(40)].join(''),
       ['AWS_ACCESS_KEY_ID=', 'AKIA', 'A'.repeat(16)].join(''),
@@ -24,6 +33,7 @@ describe('GitHub public surface analysis', () => {
     }
 
     expect(matchesForbiddenPattern?.(['e.g.', ['C:', 'Users', 'Example', 'Documents', 'fixture'].join('\\')].join(' '))).toBe(false)
+    expect(matchesForbiddenPattern?.(['e.g.', ['C:', 'Users', 'Example User', 'Documents', 'fixture with spaces'].join('\\')].join(' '))).toBe(false)
   })
 
   test('remote forbidden-pattern matcher covers local-hygiene-only public breadcrumbs', async () => {
