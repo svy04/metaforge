@@ -41,7 +41,7 @@ describe('GitHub public surface analysis', () => {
       '<private-agent-skill-dir>',
       'OpenClaude Orchestrator Memory',
       'AGENTS.md instructions for C:',
-      'OPENAI_API_KEY=sk-openai-placeholder',
+      ['OPENAI_API_KEY=', 'sk', '-openai-placeholder'].join(''),
     ]
 
     for (const sample of forbiddenSamples) {
