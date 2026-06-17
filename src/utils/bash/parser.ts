@@ -65,8 +65,7 @@ export async function parseCommand(
   if (feature('TREE_SITTER_BASH')) {
     await ensureParserInitialized()
     const mod = getParserModule()
-    logLoadOnce(mod !== null)
-    if (!mod) return null
+    logLoadOnce(true)
 
     try {
       const rootNode = mod.parse(command)
@@ -98,7 +97,7 @@ export const PARSE_ABORTED = Symbol('parse-aborted')
  *
  * Returns:
  *   - Node: parse succeeded
- *   - null: module not loaded / feature off / empty / over-length
+ *   - null: feature off / empty / over-length
  *   - PARSE_ABORTED: module loaded but parse failed (timeout/panic)
  */
 export async function parseCommandRaw(
@@ -108,8 +107,7 @@ export async function parseCommandRaw(
   if (feature('TREE_SITTER_BASH') || feature('TREE_SITTER_BASH_SHADOW')) {
     await ensureParserInitialized()
     const mod = getParserModule()
-    logLoadOnce(mod !== null)
-    if (!mod) return null
+    logLoadOnce(true)
     try {
       const result = mod.parse(command)
       // SECURITY: Module loaded; null here = timeout/node-budget abort in

@@ -41,7 +41,7 @@ export function ensureParserInitialized(): Promise<void> {
 }
 
 /** Always succeeds — pure-TS needs no init. */
-export function getParserModule(): ParserModule | null {
+export function getParserModule(): ParserModule {
   return MODULE
 }
 
