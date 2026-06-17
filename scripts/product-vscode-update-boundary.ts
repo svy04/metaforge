@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type Check = {
   label: string
@@ -212,7 +213,7 @@ ${report.blockedActions.map((item) => `- ${item}`).join('\n')}
 ${checkRows}
 `
 
-  writeFileSync(resolve(docsDir, 'vscode-update-boundary-report.md'), markdown)
+  writeFileSync(resolve(docsDir, 'vscode-update-boundary-report.md'), scrubPublicArtifactText(markdown))
 }
 
 function main(): void {
@@ -307,8 +308,9 @@ function main(): void {
     check('readiness and availability claims remain blocked', report.releaseReadinessClaimAllowed === false && report.productionReadinessClaimAllowed === false && report.publicReadinessClaimAllowed === false && report.externalValidationClaimAllowed === false && report.autonomousReliabilityClaimAllowed === false, 'all false'),
   ]
 
-  writeFileSync(resolve(docsDir, 'vscode-update-boundary-report.json'), `${JSON.stringify(report, null, 2)}\n`)
-  writeMarkdown(report)
+  const publicReport = scrubPublicArtifactValue(report)
+  writeFileSync(resolve(docsDir, 'vscode-update-boundary-report.json'), `${JSON.stringify(publicReport, null, 2)}\n`)
+  writeMarkdown(publicReport)
 
   for (const item of report.boundaryChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)

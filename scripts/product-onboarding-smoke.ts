@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type SourceInput = {
   sourceProject: string
@@ -135,7 +136,8 @@ function hasAll(text: string, needles: string[]): boolean {
 
 function writeReports(report: OnboardingSmokeReport): void {
   mkdirSync(docsDir, { recursive: true })
-  writeFileSync(resolve(docsDir, 'onboarding-smoke-report.json'), `${JSON.stringify(report, null, 2)}\n`)
+  const publicReport = scrubPublicArtifactValue(report)
+  writeFileSync(resolve(docsDir, 'onboarding-smoke-report.json'), `${JSON.stringify(publicReport, null, 2)}\n`)
 
   const lines = [
     '# Onboarding Smoke Report',
@@ -204,7 +206,7 @@ function writeReports(report: OnboardingSmokeReport): void {
     lines.push('')
   }
 
-  writeFileSync(resolve(docsDir, 'onboarding-smoke-report.md'), `${lines.join('\n')}\n`)
+  writeFileSync(resolve(docsDir, 'onboarding-smoke-report.md'), `${scrubPublicArtifactText(lines.join('\n'))}\n`)
 }
 
 function main(): void {

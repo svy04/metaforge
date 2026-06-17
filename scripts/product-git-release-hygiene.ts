@@ -1,6 +1,7 @@
 import { spawnSync } from 'node:child_process'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type PackageJson = {
   name: string
@@ -95,9 +96,10 @@ function classifyGitStatus(revParse: GitCommand): GitReleaseHygieneReport['works
 
 function writeReports(report: GitReleaseHygieneReport): void {
   mkdirSync(docsDir, { recursive: true })
+  const publicReport = scrubPublicArtifactValue(report)
   writeFileSync(
     resolve(docsDir, 'git-release-hygiene-report.json'),
-    `${JSON.stringify(report, null, 2)}\n`,
+    `${JSON.stringify(publicReport, null, 2)}\n`,
   )
 
   const lines = [
@@ -139,7 +141,7 @@ function writeReports(report: GitReleaseHygieneReport): void {
     '',
   ]
 
-  writeFileSync(resolve(docsDir, 'git-release-hygiene-report.md'), `${lines.join('\n')}\n`)
+  writeFileSync(resolve(docsDir, 'git-release-hygiene-report.md'), `${scrubPublicArtifactText(lines.join('\n'))}\n`)
 }
 
 function main(): void {
