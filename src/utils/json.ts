@@ -1,4 +1,4 @@
-import { open, readFile, stat } from 'fs/promises'
+import { open } from 'fs/promises'
 import {
   applyEdits,
   modify,
@@ -199,11 +199,11 @@ const MAX_JSONL_READ_BYTES = 100 * 1024 * 1024
  * is ~2M tokens, which is well under 100 MB of JSONL.
  */
 export async function readJSONLFile<T>(filePath: string): Promise<T[]> {
-  const { size } = await stat(filePath)
-  if (size <= MAX_JSONL_READ_BYTES) {
-    return parseJSONL<T>(await readFile(filePath))
-  }
   await using fd = await open(filePath, 'r')
+  const { size } = await fd.stat()
+  if (size <= MAX_JSONL_READ_BYTES) {
+    return parseJSONL<T>(await fd.readFile())
+  }
   const buf = Buffer.allocUnsafe(MAX_JSONL_READ_BYTES)
   let totalRead = 0
   const fileOffset = size - MAX_JSONL_READ_BYTES
