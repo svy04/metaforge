@@ -13,7 +13,7 @@
  */
 
 import { unwatchFile, watchFile } from 'fs'
-import { readdir, readFile, stat } from 'fs/promises'
+import { open, readdir, readFile, stat } from 'fs/promises'
 import { join, resolve } from 'path'
 import { waitForScrollIdle } from '../../bootstrap/state.js'
 import { registerCleanup } from '../cleanupRegistry.js'
@@ -54,21 +54,27 @@ export async function resolveGitDir(
 
   const gitPath = join(root, '.git')
   try {
-    const st = await stat(gitPath)
-    if (st.isFile()) {
-      // Worktree or submodule: .git is a file with `gitdir: <path>`
-      // Git strips trailing \n and \r (setup.c read_gitfile_gently).
-      const content = (await readFile(gitPath, 'utf-8')).trim()
-      if (content.startsWith('gitdir:')) {
-        const rawDir = content.slice('gitdir:'.length).trim()
-        const resolved = resolve(root, rawDir)
-        resolveGitDirCache.set(cwd, resolved)
-        return resolved
+    const fd = await open(gitPath, 'r')
+    try {
+      const st = await fd.stat()
+      if (st.isFile()) {
+        // Worktree or submodule: .git is a file with `gitdir: <path>`
+        // Git strips trailing \n and \r (setup.c read_gitfile_gently).
+        const content = (await fd.readFile({ encoding: 'utf-8' })).trim()
+        if (content.startsWith('gitdir:')) {
+          const rawDir = content.slice('gitdir:'.length).trim()
+          const resolved = resolve(root, rawDir)
+          resolveGitDirCache.set(cwd, resolved)
+          return resolved
+        }
       }
+
+      // Regular repo: .git is a directory
+      resolveGitDirCache.set(cwd, gitPath)
+      return gitPath
+    } finally {
+      await fd.close()
     }
-    // Regular repo: .git is a directory
-    resolveGitDirCache.set(cwd, gitPath)
-    return gitPath
   } catch {
     resolveGitDirCache.set(cwd, null)
     return null
