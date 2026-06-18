@@ -6,7 +6,7 @@ export type TraceDiscoveryOptions = {
   traceDirectory?: string
 }
 
-const historicalLiveProbeTracePattern = /^orchestra-live(?:-|$).*\.jsonl$/
+const historicalLiveProbeTracePattern = /^orchestra-live(?:-.*)?\.jsonl$/
 
 function traceBasename(path: string): string {
   return path.replace(/\\/g, '/').split('/').pop() ?? path
