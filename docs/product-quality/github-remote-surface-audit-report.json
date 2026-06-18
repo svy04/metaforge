@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:14:21.951Z",
+  "generatedAt": "2026-06-18T15:46:28.320Z",
   "mode": "github_public_remote_surface_audit",
   "primarySourceInputs": [
     {
@@ -10,7 +10,7 @@
     {
       "sourceProject": "Git git-ls-remote",
       "sourceUrl": "https://git-scm.com/docs/git-ls-remote",
-      "observedPattern": "Remote refs should be listed by ref name and object ID as the public branch inventory, not inferred from the local default branch only."
+      "observedPattern": "Remote refs should be listed by ref name and object ID as the public branch and tag inventory, not inferred from the local default branch only."
     },
     {
       "sourceProject": "GitHub Secret Scanning",
@@ -56,11 +56,13 @@
       "name": "dependabot/pip/python/pytest-9.1.0"
     },
     {
-      "oid": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "oid": "a08127c0ef2fc71c765f1134a0e4a20b01dddd31",
       "name": "main"
     }
   ],
   "remoteHeadCount": 6,
+  "remoteTags": [],
+  "remoteTagCount": 0,
   "openPullRequests": [
     {
       "number": 61,
@@ -138,18 +140,21 @@
       "treeFindings": []
     }
   ],
+  "tagScans": [],
   "blockers": [],
   "blockerCount": 0,
   "status": "no_public_github_surface_findings_detected",
   "discovery": {
     "gitFetchPerformed": true,
     "remoteHeadDiscovery": "git_ls_remote",
+    "remoteTagDiscovery": "git_ls_remote",
     "openPullRequestDiscovery": "gh_cli"
   },
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "protectedActionsExecuted": [],
   "externalCallsPerformed": [
+    "git_ls_remote",
     "git_ls_remote",
     "gh_cli"
   ],
@@ -163,6 +168,11 @@
       "label": "remote heads were inventoried",
       "ok": true,
       "detail": "6 heads"
+    },
+    {
+      "label": "remote tags were inventoried",
+      "ok": true,
+      "detail": "0 tags"
     },
     {
       "label": "open PR discovery is usable when non-default branches exist",
@@ -195,5 +205,5 @@
       "detail": "zero protected actions"
     }
   ],
-  "claimBoundary": "This public GitHub surface audit inventories remote refs and open PR heads for privacy/security blockers only. It does not claim full GitHub secret-scanning alert status, full-history credential cleanliness, release readiness, production readiness, or external validation."
+  "claimBoundary": "This public GitHub surface audit inventories remote branch refs, tag refs, and open PR heads for privacy/security blockers only. It does not claim full GitHub secret-scanning alert status, full-history credential cleanliness, release readiness, production readiness, or external validation."
 }
