@@ -127,22 +127,25 @@ export const publicClaimEvidenceMap: PublicClaimEvidenceMapRow[] = [
   {
     symbol: 'MFH',
     publicRole: 'Metaforge evidence-gated closure layer for claim boundaries, validation commands, and rollback-aware completion.',
-    evidenceClass: 'governance/evidence-gate docs',
+    evidenceClass: 'governance/evidence-gate behavior docs',
     evidencePaths: [
       'docs/MFH_META_SYNTHESIS.md',
       'docs/EVALS.md',
       'docs/GOAL_SCHEMA.md',
+      'docs/product-quality/goal-trace-validation-report.md',
+      'docs/product-quality/goal-trace-validation-report.json',
       'docs/product-quality/public-claim-boundary-report.md',
       'docs/product-quality/product-evidence-manifest.md',
+      'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
     ],
-    verificationCommand: 'bun run product:public-claim-boundary',
-    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, and product-quality reports.',
+    verificationCommand: 'bun run goals:validate && bun run product:public-claim-boundary',
+    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, and trace-validation evidence.',
     nonClaims: [
       'MFH is not a formal certification system.',
       'MFH is not external validation.',
       'MFH does not prove production, release, public, or autonomous reliability readiness.',
     ],
-    unresolvedGap: 'More gates still need happy-path, edge-case, and side-effect behavior tests before MFH can carry broader reliability claims.',
+    unresolvedGap: 'More representative traces, happy-path tests, edge-case tests, and side-effect behavior tests are still needed before MFH can carry broader reliability claims.',
   },
   {
     symbol: 'Orchestra',
@@ -816,6 +819,26 @@ function main(): void {
         sourceUrl: 'https://csrc.nist.gov/pubs/sp/800/218/final',
         observedPattern: 'Secure-development practices and evidence records reduce communication and vulnerability risk without implying compliance from local reports alone.',
       },
+      {
+        sourceProject: 'W3C PROV',
+        sourceUrl: 'https://www.w3.org/TR/prov-overview/',
+        observedPattern: 'Provenance should bind produced artifacts to activities and responsible actors so reliability and trustworthiness assessments do not depend on narrative alone.',
+      },
+      {
+        sourceProject: 'NIST AI RMF Core',
+        sourceUrl: 'https://airc.nist.gov/airmf-resources/airmf/5-sec-core/',
+        observedPattern: 'AI risk work should be governed, mapped, measured, and managed continuously rather than reduced to a one-time checklist.',
+      },
+      {
+        sourceProject: 'OpenAI Evals',
+        sourceUrl: 'https://github.com/openai/evals',
+        observedPattern: 'LLM-system quality claims should be tied to explicit evals or private workflow evals instead of broad model or agent assertions.',
+      },
+      {
+        sourceProject: 'GitHub CodeQL code scanning',
+        sourceUrl: 'https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning',
+        observedPattern: 'CodeQL-backed public security signals should distinguish configured analysis and alerts from stronger hosted-execution or remediation claims.',
+      },
     ],
     scannedPublicSurfaces,
     publicSurfaceCount: scannedPublicSurfaces.length,
@@ -854,6 +877,16 @@ function main(): void {
     check('public claim evidence map covers expected symbols', publicClaimSymbolsMatchExpectedOrder(), publicClaimEvidenceMap.map((row) => row.symbol).join(',')),
     check('public claim evidence paths exist', publicClaimEvidenceMissingPaths().length === 0, publicClaimEvidenceMissingPaths().join(',') || 'all present'),
     check('public claim evidence rows include allowed claims non-claims and gaps', publicClaimEvidenceMap.every((row) => row.allowedClaim.length > 0 && row.nonClaims.length > 0 && row.unresolvedGap.length > 0), `${publicClaimEvidenceMap.length} rows`),
+    check('MFH behavior evidence is bound to trace validation', publicClaimEvidenceMap.some((row) => (
+      row.symbol === 'MFH' &&
+      row.evidenceClass.includes('behavior') &&
+      row.evidencePaths.includes('docs/product-quality/goal-trace-validation-report.md') &&
+      row.evidencePaths.includes('docs/product-quality/goal-trace-validation-report.json') &&
+      row.evidencePaths.includes('docs/goals/traces/CG-001-goal-kernel-mvp.trace.json') &&
+      row.verificationCommand.includes('goals:validate') &&
+      row.allowedClaim.includes('trace-validation evidence') &&
+      row.unresolvedGap.includes('representative traces')
+    )), 'MFH row includes trace report, trace fixture, goals validation, and remaining trace gap'),
     check('OpenClaude remains substrate rather than thesis', publicClaimEvidenceMap.some((row) => row.symbol === 'OpenClaude runtime' && row.publicRole.includes('substrate') && row.allowedClaim.includes('local CLI substrate') && row.nonClaims.some((item) => item.includes('not the product thesis'))), 'substrate boundary present'),
     check('AVF remains manual artifact lane not default runtime', publicClaimEvidenceMap.some((row) => row.symbol === 'AVF Influence Factory' && row.evidenceClass.includes('manual artifact') && row.nonClaims.some((item) => item.includes('not a default CLI runtime import'))), 'AVF manual lane boundary present'),
     check('all configured public surfaces exist', scannedPublicSurfaces.every((surface) => surface.exists), scannedPublicSurfaces.filter((surface) => !surface.exists).map((surface) => surface.path).join(',') || 'all present'),
