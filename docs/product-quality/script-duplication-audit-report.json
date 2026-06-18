@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T11:44:01.940Z",
+  "generatedAt": "2026-06-18T11:56:23.966Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,13 +9,13 @@
   ],
   "sourceProductScriptCount": 93,
   "helperOccurrenceCounts": {
-    "check": 66,
-    "readText": 31,
+    "check": 64,
+    "readText": 29,
     "sha256Text": 0
   },
   "helperOccurrenceBaselines": {
-    "check": 66,
-    "readText": 31,
+    "check": 64,
+    "readText": 29,
     "sha256Text": 0
   },
   "duplicateHelperClusterCount": 2,
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 66,
+      "occurrenceCount": 64,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -159,10 +159,6 @@
           "line": 191
         },
         {
-          "path": "scripts/product-oss-onboarding-docs-evidence.ts",
-          "line": 131
-        },
-        {
           "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
           "line": 160
         },
@@ -185,10 +181,6 @@
         {
           "path": "scripts/product-oss-source-review.ts",
           "line": 163
-        },
-        {
-          "path": "scripts/product-oss-terminal-workflow-evidence.ts",
-          "line": 140
         },
         {
           "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
@@ -296,7 +288,7 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 31,
+      "occurrenceCount": 29,
       "files": [
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -355,10 +347,6 @@
           "line": 174
         },
         {
-          "path": "scripts/product-oss-onboarding-docs-evidence.ts",
-          "line": 127
-        },
-        {
           "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
           "line": 143
         },
@@ -381,10 +369,6 @@
         {
           "path": "scripts/product-oss-source-review.ts",
           "line": 167
-        },
-        {
-          "path": "scripts/product-oss-terminal-workflow-evidence.ts",
-          "line": 136
         },
         {
           "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
@@ -448,19 +432,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 54.327ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 58.723ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "8a280062e4d7ec693d6b588b30c723376ddfeca7a574ce918a5e8ec12c14e356",
-  "jscpdCloneCount": 21,
-  "jscpdCloneBaseline": 24,
-  "jscpdDuplicatedLines": 563,
-  "jscpdDuplicatedLinesBaseline": 657,
-  "jscpdDuplicatedTokens": 3720,
-  "jscpdDuplicatedTokensBaseline": 4257,
-  "jscpdDuplicatedPercentage": 1.3480832315686133,
-  "jscpdDuplicatedPercentageBaseline": 1.59,
-  "jscpdDuplicatedTokenPercentage": 1.4394000951861352,
+  "jscpdReportSha256": "c9a3de69a1a6f3a719089851bbf06c167e7537345d98f48188d13043dc9a67e2",
+  "jscpdCloneCount": 19,
+  "jscpdCloneBaseline": 19,
+  "jscpdDuplicatedLines": 507,
+  "jscpdDuplicatedLinesBaseline": 507,
+  "jscpdDuplicatedTokens": 3320,
+  "jscpdDuplicatedTokensBaseline": 3320,
+  "jscpdDuplicatedPercentage": 1.2150406211805307,
+  "jscpdDuplicatedPercentageBaseline": 1.2150406211805307,
+  "jscpdDuplicatedTokenPercentage": 1.28547146214635,
   "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
@@ -506,12 +490,12 @@
     {
       "firstFile": "scripts/product-oss-eval-quality-gate-checklist.ts",
       "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
-      "firstStartLine": 2,
+      "firstStartLine": 11,
       "firstEndLine": 53,
-      "secondStartLine": 2,
-      "secondEndLine": 53,
-      "lines": 52,
-      "tokens": 162
+      "secondStartLine": 5,
+      "secondEndLine": 47,
+      "lines": 43,
+      "tokens": 134
     },
     {
       "firstFile": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
@@ -526,28 +510,8 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
-      "firstStartLine": 123,
-      "firstEndLine": 148,
-      "secondStartLine": 141,
-      "secondEndLine": 166,
-      "lines": 26,
-      "tokens": 191
-    },
-    {
-      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
-      "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
-      "firstStartLine": 123,
-      "firstEndLine": 145,
-      "secondStartLine": 132,
-      "secondEndLine": 158,
-      "lines": 23,
-      "tokens": 181
-    },
-    {
-      "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
-      "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
-      "firstStartLine": 239,
-      "firstEndLine": 260,
+      "firstStartLine": 221,
+      "firstEndLine": 242,
       "secondStartLine": 272,
       "secondEndLine": 291,
       "lines": 22,
@@ -556,8 +520,8 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-runtime-doctoring-evidence.ts",
-      "firstStartLine": 239,
-      "firstEndLine": 261,
+      "firstStartLine": 221,
+      "firstEndLine": 243,
       "secondStartLine": 229,
       "secondEndLine": 251,
       "lines": 23,
@@ -566,8 +530,8 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
-      "firstStartLine": 239,
-      "firstEndLine": 261,
+      "firstStartLine": 221,
+      "firstEndLine": 243,
       "secondStartLine": 223,
       "secondEndLine": 245,
       "lines": 23,
@@ -576,18 +540,18 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
-      "firstStartLine": 239,
-      "firstEndLine": 261,
-      "secondStartLine": 254,
-      "secondEndLine": 276,
+      "firstStartLine": 221,
+      "firstEndLine": 243,
+      "secondStartLine": 236,
+      "secondEndLine": 258,
       "lines": 23,
       "tokens": 220
     },
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-      "firstStartLine": 239,
-      "firstEndLine": 259,
+      "firstStartLine": 221,
+      "firstEndLine": 241,
       "secondStartLine": 257,
       "secondEndLine": 276,
       "lines": 21,
@@ -596,8 +560,8 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
-      "firstStartLine": 307,
-      "firstEndLine": 328,
+      "firstStartLine": 289,
+      "firstEndLine": 310,
       "secondStartLine": 346,
       "secondEndLine": 366,
       "lines": 22,
@@ -606,8 +570,8 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
-      "firstStartLine": 307,
-      "firstEndLine": 333,
+      "firstStartLine": 289,
+      "firstEndLine": 315,
       "secondStartLine": 291,
       "secondEndLine": 317,
       "lines": 27,
@@ -616,18 +580,18 @@
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
-      "firstStartLine": 307,
-      "firstEndLine": 333,
-      "secondStartLine": 322,
-      "secondEndLine": 348,
+      "firstStartLine": 289,
+      "firstEndLine": 315,
+      "secondStartLine": 304,
+      "secondEndLine": 330,
       "lines": 27,
       "tokens": 205
     },
     {
       "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
       "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-      "firstStartLine": 307,
-      "firstEndLine": 333,
+      "firstStartLine": 289,
+      "firstEndLine": 315,
       "secondStartLine": 327,
       "secondEndLine": 353,
       "lines": 27,
@@ -662,6 +626,16 @@
       "secondEndLine": 159,
       "lines": 29,
       "tokens": 193
+    },
+    {
+      "firstFile": "scripts/product-real-trace-evals.ts",
+      "secondFile": "scripts/product-trajectory-process-quality.ts",
+      "firstStartLine": 125,
+      "firstEndLine": 145,
+      "secondStartLine": 144,
+      "secondEndLine": 164,
+      "lines": 21,
+      "tokens": 165
     }
   ],
   "primarySourceInputs": [
@@ -724,7 +698,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":66,\"readText\":31,\"sha256Text\":0}"
+      "detail": "{\"check\":64,\"readText\":29,\"sha256Text\":0}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -739,7 +713,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":66,\"readText\":31,\"sha256Text\":0},\"baseline\":{\"check\":66,\"readText\":31,\"sha256Text\":0}}"
+      "detail": "{\"current\":{\"check\":64,\"readText\":29,\"sha256Text\":0},\"baseline\":{\"check\":64,\"readText\":29,\"sha256Text\":0}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -749,22 +723,22 @@
     {
       "label": "jscpd token clone count does not exceed baseline",
       "ok": true,
-      "detail": "21/24"
+      "detail": "19/19"
     },
     {
       "label": "jscpd duplicated line and token counts do not exceed baseline",
       "ok": true,
-      "detail": "563/657; 3720/4257"
+      "detail": "507/507; 3320/3320"
     },
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.3480832315686133/1.59"
+      "detail": "1.2150406211805307/1.2150406211805307"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
       "ok": true,
-      "detail": "20 pairs"
+      "detail": "19 pairs"
     },
     {
       "label": "primary sources include OSS, research, and patent inputs",
