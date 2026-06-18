@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { analyzePublicGithubSurface, buildAuditJsonl } from './product-github-remote-surface-audit'
+import { analyzePublicGithubSurface, buildAuditJsonl, buildAuditMarkdown } from './product-github-remote-surface-audit'
 
 describe('GitHub public surface analysis', () => {
   test('remote forbidden-pattern matcher covers generic local paths and token shapes', async () => {
@@ -226,5 +226,29 @@ describe('GitHub public surface analysis', () => {
       status: 'no_public_github_surface_findings_detected',
       blockerCount: 0,
     })
+  })
+
+  test('markdown report exposes generated time and freshness boundary', () => {
+    const report = analyzePublicGithubSurface({
+      defaultBranch: 'main',
+      remoteHeads: [{ name: 'main', oid: 'a'.repeat(40) }],
+      remoteTags: [],
+      openPullRequests: [],
+      refScans: [{ refName: 'main', patternFindings: [], treeFindings: [] }],
+      tagScans: [],
+      discovery: {
+        gitFetchPerformed: true,
+        remoteHeadDiscovery: 'git_ls_remote',
+        remoteTagDiscovery: 'git_ls_remote',
+        openPullRequestDiscovery: 'gh_cli',
+      },
+    })
+
+    const markdown = buildAuditMarkdown(report, 'f'.repeat(64))
+
+    expect(markdown).toContain(`- generated_at: \`${report.generatedAt}\``)
+    expect(markdown).toContain('- freshness_boundary: `current at generated_at only`')
+    expect(markdown).toContain('Rerun `bun run product:github-remote-surface-audit` before using this artifact as current evidence.')
+    expect(markdown).toContain('- blocker_jsonl_sha256: `ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`')
   })
 })

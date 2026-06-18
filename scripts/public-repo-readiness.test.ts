@@ -195,6 +195,28 @@ describe('public repository readiness surfaces', () => {
     expect(koreanReadme).toContain('behavioral happy path, edge case, side-effect guard')
   })
 
+  test('OpenSSF Scorecard workflow is source-controlled but claim-bounded', () => {
+    const workflowPath = '.github/workflows/scorecard.yml'
+    expect(existsSync(join(root, workflowPath))).toBe(true)
+
+    const workflow = readRepoText(workflowPath)
+    const postureGate = readRepoText('scripts/product-openssf-security-posture.ts')
+
+    expect(workflow).toContain('name: OpenSSF Scorecard')
+    expect(workflow).toContain('ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3')
+    expect(workflow).toContain('results_file: results.sarif')
+    expect(workflow).toContain('results_format: sarif')
+    expect(workflow).toContain('publish_results: true')
+    expect(workflow).toMatch(/permissions:\s*\r?\n\s+contents:\s+read\s*\r?\n\s+security-events:\s+write\s*\r?\n\s+id-token:\s+write/)
+    expect(workflow).not.toContain('pull_request_target')
+
+    expect(postureGate).toContain("scorecardWorkflowPath = '.github/workflows/scorecard.yml'")
+    expect(postureGate).toContain('scorecardWorkflowPresent')
+    expect(postureGate).toContain('scorecardWorkflowActionsPinned')
+    expect(postureGate).toContain('scorecardHostedExecutionPerformed: false')
+    expect(postureGate).toContain('scorecardExternalClaimAllowed: false')
+  })
+
   test('Korean README route contract rejects broken public navigation fixtures', () => {
     const fixtureRoot = mkdtempSync(join(tmpdir(), 'metaforge-readme-route-'))
     try {
