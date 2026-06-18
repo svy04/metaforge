@@ -59,10 +59,28 @@ type PublicLeakPattern = {
   appliesTo?: (relativePath: string) => boolean
 }
 
-const ignoredSensitiveRootFiles = readdirSync(root, { withFileTypes: true })
+const ignoredSensitiveRootFileNames = new Set([
+  '.mcp.json',
+  '.npmrc',
+  '.yarnrc.yml',
+  '.bunfig.toml',
+  '.windsurfrules',
+  '.clinerules',
+])
+
+const ignoredSensitiveRootDirectoryNames = new Set([
+  '.claude',
+  '.cursor',
+  '.windsurf',
+])
+
+const ignoredSensitiveRootTargets = readdirSync(root, { withFileTypes: true })
   .filter((entry) => (
-    entry.isFile() &&
-    entry.name.startsWith('.openclaude-profile.json')
+    (entry.isFile() && (
+      entry.name.startsWith('.openclaude-profile.json') ||
+      ignoredSensitiveRootFileNames.has(entry.name)
+    )) ||
+    (entry.isDirectory() && ignoredSensitiveRootDirectoryNames.has(entry.name))
   ))
   .map((entry) => entry.name)
 
@@ -208,7 +226,7 @@ function sanitize(text: string): string {
   )
 }
 
-const files = [...targetRoots, ...ignoredSensitiveRootFiles]
+const files = [...targetRoots, ...ignoredSensitiveRootTargets]
   .map((target) => resolve(root, target))
   .filter((target) => existsSync(target))
   .flatMap(walk)

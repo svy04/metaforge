@@ -317,6 +317,21 @@ describe('public repository readiness surfaces', () => {
     }
   })
 
+  test('public operating docs do not cite removed planning artifacts as current authority', () => {
+    const trackedPlanningArtifacts = trackedRepoPaths(root).filter((path) => path.startsWith('.planning/'))
+    const docs = [
+      'docs/DECISION_LOG.md',
+      'docs/PROJECT_SPEC.md',
+      'docs/EVALS.md',
+    ]
+
+    expect(trackedPlanningArtifacts).toEqual([])
+    for (const path of docs) {
+      const text = readRepoText(path)
+      expect(text, path).not.toMatch(/\.planning\/(?:PROJECT|ROADMAP|phase-)/)
+    }
+  })
+
   test('profile refresh evidence does not expose private workbench repo breadcrumbs', () => {
     const evidence = readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
     const forbiddenEvidence = [

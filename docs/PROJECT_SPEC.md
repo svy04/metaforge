@@ -28,9 +28,11 @@ Observed local anchors:
 - `README.md` defines Metaforge as Meta + MFH + Orchestra OS with OpenClaude as
   the local CLI/runtime substrate.
 - `AGENTS.md` already defines the GStack -> GSD -> Superpowers workflow hierarchy and the primary-source research rule.
-- `.planning/PROJECT.md` defines the existing Orchestra vision: a visible
-  lead/evidence arbiter, private planner/skeptic/shadow opposition, tests as
-  law, and the human as final judge, without making public model-lock claims.
+- Legacy planning artifacts and `src/services/orchestra/` define the existing
+  Orchestra vision: a visible lead/evidence arbiter, private
+  planner/skeptic/shadow opposition, tests as law, and the human as final
+  judge, without making public model-lock claims. The legacy planning artifacts
+  are no longer tracked public authority after the public hygiene cleanup.
 - `src/services/orchestra/` already contains implementation surfaces for planner routing, skeptic, shadow executor contract, cross-review, evidence arbiter, human gate, promotion store, worktree manager, and experiment metrics.
 - `package.json` exposes verification commands: `bun run build`, `bun test`, `bun run typecheck`, `bun run smoke`, `bun run doctor:runtime`, `bun run verify:privacy`.
 - `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` and its plan document establish the existing GStack/GSD/Superpowers role split.
@@ -125,7 +127,7 @@ Governed-code version: preserve Claude Code/OpenClaude freedom, but turn intent,
 | --- | --- | --- | --- | --- |
 | North Star Goal | Durable strategic direction | Human owner | months | `docs/PROJECT_SPEC.md` |
 | Program Goals | Major capability tracks | Orchestrator + human gate | weeks | `docs/ROADMAP.md` |
-| Sprint Goals | Narrow verifiable increments | Orchestrator | days | `docs/PROGRESS_LOG.md`, `.planning/` phase plans |
+| Sprint Goals | Narrow verifiable increments | Orchestrator | days | `docs/PROGRESS_LOG.md`, `docs/NEXT_GOALS.md`, product-quality reports |
 | Codex Goals | Executable `/goal` prompts | Codex lead | one session | `docs/NEXT_GOALS.md` |
 | Atomic Tasks | Small testable actions | assigned agent role | minutes-hours | diffs, tests, evidence entries |
 

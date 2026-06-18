@@ -85,10 +85,11 @@ Pass condition:
 
 Question: Can Orchestra OS run planner/skeptic/shadow/evidence gates without collapsing role boundaries?
 
-Current local evidence:
+Current public evidence:
 
-- `.planning/PROJECT.md` records Phase 2 skeptic and Phase 3-5 infrastructure.
 - `src/services/orchestra/` has tests for config, orchestrator, skeptic, shadow executor, cross-review, evidence arbiter, human gate, promote, promotion store, experiment metrics, and worktree manager.
+- Product-quality reports record current no-provider evidence boundaries without
+  treating removed private planning artifacts as public authority.
 
 Suggested command set:
 
@@ -164,7 +165,7 @@ Current implementation:
 
 - `src/services/orchestra/experimentMetrics.ts`
 - `scripts/orchestra-experiment-runner.ts`
-- `.planning/phase-5/summary-2026-05-07T12-40-41-319Z.md`
+- Product-quality reports and replay fixtures carry current public evidence.
 
 Suggested command:
 
@@ -175,7 +176,8 @@ bun run scripts/orchestra-experiment-runner.ts
 Pass condition:
 
 - Real task set has 20 outcomes, not only mock data.
-- Recommendation follows UVD/FPR/SDC thresholds in code and `.planning/phase-5/SPEC.md`.
+- Recommendation follows UVD/FPR/SDC thresholds in code and current public
+  product-quality evidence, not removed private planning artifacts.
 
 ### EVAL-008 MFH Source Reconciliation Import
 
