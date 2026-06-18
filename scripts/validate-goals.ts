@@ -227,6 +227,35 @@ export function validateGoalDocument(path: string, markdown: string): Validation
     })
   }
 
+  const testResults = getPath(goal, 'evidence.testResults')
+  if (Array.isArray(testResults)) {
+    testResults.forEach((testResult, index) => {
+      for (const field of ['command', 'status', 'outputSummary']) {
+        if (!isRecord(testResult) || !hasNonEmptyString(testResult[field])) {
+          errors.push(`evidence.testResults.${index}.${field} must be a non-empty string`)
+        }
+      }
+    })
+  }
+
+  const status = getPath(goal, 'status')
+  const requiresClosureEvidence = status === 'validated' || status === 'closed'
+  if (requiresClosureEvidence && Array.isArray(commands)) {
+    for (const command of commands) {
+      if (!isRecord(command) || command.required !== true || !hasNonEmptyString(command.command)) {
+        continue
+      }
+      const hasPassingTestResult = Array.isArray(testResults) && testResults.some((testResult) => (
+        isRecord(testResult) &&
+        testResult.command === command.command &&
+        String(testResult.status).toLowerCase() === 'pass'
+      ))
+      if (!hasPassingTestResult) {
+        errors.push(`validated or closed goals require passing evidence.testResults for required validation command: ${command.command}`)
+      }
+    }
+  }
+
   const externalSources = getPath(goal, 'context.externalPrimarySources')
   if (Array.isArray(externalSources)) {
     externalSources.forEach((source, index) => {
@@ -242,6 +271,7 @@ export function validateGoalDocument(path: string, markdown: string): Validation
   }
 
   requireLocalPathArray(goal, 'context.localSourcesRead', errors)
+  requireLocalPathArray(goal, 'evidence.artifacts', errors)
   requireLocalPathArray(goal, 'governedCode.authoritySources', errors)
   requireLocalPathArray(goal, 'governedCode.metaRecords.rawSources', errors)
   requireLocalPathArray(goal, 'governedCode.metaRecords.decisionLedgerEntries', errors)

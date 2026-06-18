@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-06-18T09:53:02.529Z",
+  "mode": "local_no_provider_goal_trace_validation",
+  "traceDirectory": "docs/goals/traces",
+  "traceFileCount": 1,
+  "validTraceCount": 1,
+  "invalidTraceCount": 0,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "validationResults": [
+    {
+      "path": "docs/goals/traces/CG-001-goal-kernel-mvp.trace.json",
+      "goalId": "CG-001",
+      "traceId": "c0010000000000000000000000000001",
+      "ok": true,
+      "errors": [],
+      "eventSequence": [
+        "goal.loaded",
+        "checkpoint.completed",
+        "validation.ran",
+        "claim.reviewed",
+        "goal.validated"
+      ],
+      "sha256": "01b04a7a79cb14899bc760551eb9b4b980da301a4824e6cfcd261d1fbc315b3e"
+    }
+  ],
+  "traceChecks": [
+    {
+      "label": "goal trace files discovered",
+      "ok": true,
+      "detail": "1 trace files"
+    },
+    {
+      "label": "all goal traces pass MFH closure policy",
+      "ok": true,
+      "detail": "1/1 valid"
+    },
+    {
+      "label": "no provider/live/external/protected side effects recorded",
+      "ok": true,
+      "detail": "side-effect arrays are empty in all valid traces"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenTelemetry",
+      "sourceUrl": "https://opentelemetry.io/",
+      "observedPattern": "Trace-style evidence should preserve ordered events and no-provider boundaries before stronger observability claims."
+    },
+    {
+      "sourceProject": "Open Policy Agent",
+      "sourceUrl": "https://www.openpolicyagent.org/docs",
+      "observedPattern": "Policy decisions should be evaluated against structured input rather than prose-only claims."
+    },
+    {
+      "sourceProject": "OpenAI Agent Evals",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "observedPattern": "Agent workflow quality improves when traces, graders, datasets, and eval runs are separated by evidence level."
+    },
+    {
+      "sourceProject": "NIST AI RMF Playbook",
+      "sourceUrl": "https://airc.nist.gov/airmf-resources/playbook/",
+      "observedPattern": "Govern, Map, Measure, and Manage actions should be selected proportionally and recorded as voluntary risk-management evidence."
+    }
+  ],
+  "claimBoundary": "Goal trace validation is local no-provider behavioral governance evidence only. It does not prove production readiness, release readiness, public readiness, external validation, benchmark superiority, or autonomous reliability."
+}
