@@ -251,7 +251,9 @@ function main(): void {
   const scorecardWorkflowPresent = scorecardWorkflowExists && /ossf\/scorecard-action@/i.test(scorecardWorkflow)
   const scorecardWorkflowActionsPinned = scorecardWorkflowPresent && allActionsPinned([scorecardWorkflow])
   const scorecardWorkflowPermissionsScoped =
-    /permissions:\s*\r?\n\s+contents:\s+read\s*\r?\n\s+security-events:\s+write\s*\r?\n\s+id-token:\s+write/i.test(scorecardWorkflow) &&
+    /^permissions:\s*\r?\n[^\S\r\n]+contents:\s+read\s*$/m.test(scorecardWorkflow) &&
+    !/^permissions:\s*\r?\n(?:[^\S\r\n]+[^\r\n]+\r?\n)*[^\S\r\n]+(security-events|id-token|contents):\s+write\s*$/m.test(scorecardWorkflow) &&
+    /scorecard:\s*\r?\n(?:[^\S\r\n]+[^\r\n]*\r?\n)*[^\S\r\n]+permissions:\s*\r?\n[^\S\r\n]+contents:\s+read\s*\r?\n[^\S\r\n]+security-events:\s+write\s*\r?\n[^\S\r\n]+id-token:\s+write/i.test(scorecardWorkflow) &&
     !/\b(write-all|contents:\s+write|pull-requests:\s+write|packages:\s+write)\b/i.test(scorecardWorkflow)
   const scorecardScheduledScanConfigured = /schedule:/.test(scorecardWorkflow) && /cron:/.test(scorecardWorkflow)
   const scorecardSarifUploadConfigured =
@@ -316,7 +318,7 @@ function main(): void {
     check('CodeQL workflow has scheduled scanning', codeqlScheduledScanConfigured, 'schedule cron'),
     check('Scorecard workflow exists', scorecardWorkflowPresent, scorecardWorkflowPath),
     check('Scorecard workflow action is pinned by full SHA', scorecardWorkflowActionsPinned, usesLines(scorecardWorkflow).join(', ')),
-    check('Scorecard workflow permissions are scoped', scorecardWorkflowPermissionsScoped, 'contents: read, security-events: write, id-token: write'),
+    check('Scorecard workflow permissions are scoped', scorecardWorkflowPermissionsScoped, 'top-level contents: read; job-level security-events/id-token write'),
     check('Scorecard workflow has scheduled scanning', scorecardScheduledScanConfigured, 'schedule cron'),
     check('Scorecard workflow publishes SARIF results', scorecardSarifUploadConfigured, 'results.sarif / sarif / publish_results'),
     check('Scorecard workflow follows publish_results restrictions', scorecardWorkflowPublishRestrictionsCompliant, 'no env/defaults in Scorecard workflow'),
