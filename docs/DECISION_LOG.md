@@ -237,3 +237,29 @@ Evidence:
 - `docs/RESEARCH_PIPELINE.md` already requires local-first, primary-source research.
 - `docs/avf/OSS_ASSIMILATION_PIPELINE.md` defines governed acquisition instead of copy-paste adoption.
 - `docs/research/mimesis-engineering-source-ledger-2026-06-14.md` records current product, OSS, paper, patent, and standards sources.
+
+## D-013 - Validate current Codex Goals before migrating historical goal artifacts
+
+Date: 2026-06-18
+Status: accepted
+
+Decision:
+
+The Goal Kernel MVP validates current structured Codex Goal files named
+`CG-*.md` before attempting to migrate older AVF or Influence Factory local
+goal artifacts.
+
+Evidence:
+
+- `docs/GOAL_SCHEMA.md` defines the required Goal OS object.
+- `docs/NEXT_GOALS.md` asks for one real goal file and a narrow validator.
+- `docs/goals/` already contains many historical local artifacts that are
+  useful evidence but were not authored against the new schema.
+
+Consequence:
+
+- `scripts/validate-goals.ts` treats `docs/goals/CG-*.md` as the current
+  machine-checkable registry.
+- Historical goal artifacts remain public-surface-scanned evidence, but they
+  are not rewritten or treated as schema-valid Goal Kernel records in this
+  slice.
