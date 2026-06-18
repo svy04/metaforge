@@ -332,3 +332,40 @@ Consequence:
 - This is research governance evidence only; it does not claim production
   readiness, hosted deployment, external validation, benchmark superiority,
   standards compliance, patent clearance, or autonomous reliability.
+
+## D-016 - Treat the first Eval Flywheel as local proposal evidence
+
+Date: 2026-06-18
+Status: accepted
+
+Decision:
+
+The first Autonomous Goal OS Eval Flywheel records local no-provider evidence
+only. Automation candidates are proposed-only, owner-side MFH/Meta drift is
+carried forward until owner adjudication, and the Orchestra experiment runner
+result is recorded as mock fallback unless a real source-controlled task set is
+present.
+
+Evidence:
+
+- `docs/EVALS.md` defines L0-L5 and EVAL-008 through EVAL-010.
+- `docs/SECURITY_AND_GUARDRAILS.md` defines automation tiers and approval
+  gates.
+- `scripts/orchestra-experiment-runner.ts` used its one-task mock fallback
+  because a source-controlled 20-task experiment task set was absent.
+- `docs/evals/autonomous-goal-os-minimal-checklist.md` records the mock
+  fallback run and real 20-task non-run status.
+- `docs/reports/automation-candidates-2026-06-18.md` keeps every candidate
+  proposed-only and blocks external-call candidates until owner approval.
+- `scripts/validate-eval-flywheel.ts` validates eval levels, required eval
+  imports, automation proposal boundaries, and MFH/Meta drift boundary.
+
+Consequence:
+
+- `bun run evals:validate` is now the local gate for the first eval flywheel
+  artifact set.
+- `product:quality` runs `evals:validate` before
+  `product:primary-source-registry`.
+- This slice does not create automations, schedule jobs, call providers, call
+  live models, call external services, execute protected actions, claim a real
+  20-task experiment, or claim production/external/autonomous readiness.
