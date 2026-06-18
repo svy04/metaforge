@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a reproducible problem in OpenClaude
+about: Report a reproducible problem in Metaforge or its OpenClaude runtime substrate
 title: "[Bug]: "
 labels: "bug, triage"
 assignees: ""
@@ -26,7 +26,7 @@ What happened instead?
 
 ## Environment
 
-- OpenClaude version:
+- Metaforge commit or OpenClaude runtime version:
 - OS:
 - Terminal:
 - Provider:
