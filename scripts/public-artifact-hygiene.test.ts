@@ -53,6 +53,42 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('.env.example')
   })
 
+  test('rejects stale model locks in tracked planning artifacts', () => {
+    const repo = makeTempRepo()
+    const planningDir = join(repo, '.planning')
+    mkdirSync(planningDir, { recursive: true })
+    writeFileSync(
+      join(planningDir, 'PROJECT.md'),
+      'Always call GPT 5.5 + Opus 4.7; fallback must not use gpt-4o.\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('.planning/PROJECT.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('stale-model-lock')
+  })
+
+  test('rejects ignored local OpenClaude profiles with secret-shaped placeholders', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, '.openclaude-profile.json'),
+      JSON.stringify({
+        profile: 'openai',
+        env: {
+          OPENAI_MODEL: 'gpt-4o',
+          OPENAI_API_KEY: 'sk-openai-key',
+        },
+      }),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('.openclaude-profile.json')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('actual-looking-sk-token')
+  })
+
   test('rejects private workspace placeholders in public docs', () => {
     const repo = makeTempRepo()
     writeFileSync(

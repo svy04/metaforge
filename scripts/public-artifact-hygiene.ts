@@ -56,7 +56,15 @@ type Replacement = {
 type PublicLeakPattern = {
   label: string
   pattern: RegExp
+  appliesTo?: (relativePath: string) => boolean
 }
+
+const ignoredSensitiveRootFiles = readdirSync(root, { withFileTypes: true })
+  .filter((entry) => (
+    entry.isFile() &&
+    entry.name.startsWith('.openclaude-profile.json')
+  ))
+  .map((entry) => entry.name)
 
 const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
@@ -158,6 +166,15 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   { label: 'scanner-unfriendly-openai-key-placeholder', pattern: /\bsk-\.\.\./i },
   { label: 'scanner-unfriendly-api-key-placeholder', pattern: /\byour[_-]?[a-z0-9_-]*key[a-z0-9_-]*\b/i },
   { label: 'actual-looking-sk-token', pattern: /(?:api[-_\s]?key|token)[^\r\n]{0,80}\bsk-[A-Za-z0-9_-]{8,}\b/i },
+  {
+    label: 'stale-model-lock',
+    pattern: /\b(?:gpt-4o|gpt-5\.1|gpt-5\.5|claude-sonnet-4-5|sonnet 4\.5|claude-opus-4-7|opus-4-7|Opus 4\.7)\b/i,
+    appliesTo: (path) => (
+      path === '.env.example' ||
+      path.startsWith('.planning/') ||
+      path.startsWith('.openclaude-profile.json')
+    ),
+  },
   { label: 'local-file-url', pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/i },
   { label: 'local-selftest-target', pattern: /(?:^|[\s`"'])[^`\s"']*index\.html#selftest\b/i },
   { label: 'windows-local-executable-path', pattern: /\b[A-Z]:(?:\\+|\/)Program Files(?:\\+|\/)[^\r\n`"']+\.(?:exe|cmd|bat)\b/i },
@@ -191,7 +208,7 @@ function sanitize(text: string): string {
   )
 }
 
-const files = targetRoots
+const files = [...targetRoots, ...ignoredSensitiveRootFiles]
   .map((target) => resolve(root, target))
   .filter((target) => existsSync(target))
   .flatMap(walk)
@@ -201,6 +218,7 @@ const findings: string[] = []
 let changed = 0
 
 for (const file of files) {
+  const relativePath = relative(root, file).replace(/\\/g, '/')
   let text: string
   try {
     text = readFileSync(file, 'utf8')
@@ -215,9 +233,12 @@ for (const file of files) {
   }
 
   const inspect = mode === 'write' ? next : text
-  for (const { label, pattern } of customPublicLeakPatterns) {
+  for (const { label, pattern, appliesTo } of customPublicLeakPatterns) {
+    if (appliesTo && !appliesTo(relativePath)) {
+      continue
+    }
     if (pattern.test(inspect)) {
-      findings.push(`${relative(root, file).replace(/\\/g, '/')}: ${label}`)
+      findings.push(`${relativePath}: ${label}`)
       break
     }
   }

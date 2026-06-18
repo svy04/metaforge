@@ -326,7 +326,7 @@ function main(): void {
   }
 
   report.closureChecks = [
-    check('safe backlog plan candidates imported', report.sourceCandidateCount === Object.keys(gateEvidenceMap).length, `${report.sourceCandidateCount}/${Object.keys(gateEvidenceMap).length} candidates`),
+    check('safe backlog plan candidates imported', report.sourceCandidateCount === closureRecords.length, `${report.sourceCandidateCount}/${closureRecords.length} candidates`),
     check('every candidate has a mapped evidence gate', closureRecords.every((record) => record.reportJsonPath !== 'missing'), `${closureRecords.length} records`),
     check('every mapped package script exists', closureRecords.every((record) => record.packageScriptExists), closureRecords.filter((record) => !record.packageScriptExists).map((record) => record.packageScript).join(',') || 'all present'),
     check('every mapped evidence gate has JSON MD and JSONL artifacts', closureRecords.every((record) => record.implementedEvidenceExists), closureRecords.filter((record) => !record.implementedEvidenceExists).map((record) => record.gateId).join(',') || 'all present'),
