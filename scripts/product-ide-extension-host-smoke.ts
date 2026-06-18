@@ -1,7 +1,14 @@
 import { spawnSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import {
+  buildSanitizedIdeSmokeEnv,
+  collectVscodeEnvironmentBlockers,
+  getVscodeCliVersion,
+  waitForJsonResult,
+  withCliEnvironmentBlockers,
+} from './product-ide-smoke-helpers'
 import { scrubPublicArtifactText, scrubPublicArtifactValue } from './product-report-sanitizer'
 
 type Manifest = {
@@ -100,69 +107,13 @@ function getManifestCommandIds(manifest: Manifest): string[] {
     .filter((command): command is string => typeof command === 'string') ?? []
 }
 
-function getVscodeCliVersion(): string {
-  const result = spawnSync('code', ['--version'], {
-    cwd: root,
-    encoding: 'utf8',
-    shell: false,
-  })
-
-  if (result.status !== 0) {
-    return 'not_available'
-  }
-
-  return (result.stdout ?? '').trim().split(/\r?\n/).filter(Boolean).join(' / ')
-}
-
 function sanitizedEnv(): NodeJS.ProcessEnv {
-  const allowedNames = new Set([
-    'APPDATA',
-    'COMSPEC',
-    'HOMEDRIVE',
-    'HOMEPATH',
-    'LOCALAPPDATA',
-    'NUMBER_OF_PROCESSORS',
-    'OS',
-    'PATH',
-    'PATHEXT',
-    'PROCESSOR_ARCHITECTURE',
-    'PROCESSOR_IDENTIFIER',
-    'PROCESSOR_LEVEL',
-    'PROCESSOR_REVISION',
-    'PROGRAMDATA',
-    'PROGRAMFILES',
-    'PROGRAMFILES(X86)',
-    'PROGRAMW6432',
-    'PSMODULEPATH',
-    'PUBLIC',
-    'SYSTEMDRIVE',
-    'SYSTEMROOT',
-    'TEMP',
-    'TMP',
-    'USERDOMAIN',
-    'USERNAME',
-    'USERPROFILE',
-    'WINDIR',
-  ])
-  const env: NodeJS.ProcessEnv = {}
-
-  for (const [key, value] of Object.entries(process.env)) {
-    if (allowedNames.has(key.toUpperCase()) && typeof value === 'string') {
-      env[key] = value
-    }
-  }
-
-  const pathValue = process.env.PATH ?? process.env.Path
-  if (typeof pathValue === 'string') {
-    env.PATH = pathValue
-    env.Path = pathValue
-  }
-
-  env.OPENCLAUDE_EXTENSION_HOST_COMMAND_IDS = JSON.stringify(getManifestCommandIds(readJson<Manifest>(manifestPath)))
-  env.OPENCLAUDE_EXTENSION_HOST_EXTENSION_ID = `${readJson<Manifest>(manifestPath).publisher}.${readJson<Manifest>(manifestPath).name}`
-  env.OPENCLAUDE_EXTENSION_HOST_RESULT_PATH = resultPath
-
-  return env
+  const manifest = readJson<Manifest>(manifestPath)
+  return buildSanitizedIdeSmokeEnv({
+    OPENCLAUDE_EXTENSION_HOST_COMMAND_IDS: JSON.stringify(getManifestCommandIds(manifest)),
+    OPENCLAUDE_EXTENSION_HOST_EXTENSION_ID: `${manifest.publisher}.${manifest.name}`,
+    OPENCLAUDE_EXTENSION_HOST_RESULT_PATH: resultPath,
+  })
 }
 
 function writeRunner(commandIds: string[], extensionId: string): void {
@@ -242,91 +193,6 @@ module.exports = { run }
   }
 
   writeFileSync(extensionTestsPath, source)
-}
-
-function readRunnerResult(): HostRunnerResult | null {
-  try {
-    return JSON.parse(readFileSync(resultPath, 'utf8')) as HostRunnerResult
-  } catch {
-    return null
-  }
-}
-
-function sleep(ms: number): void {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
-}
-
-function waitForRunnerResult(timeoutMs: number): HostRunnerResult | null {
-  const deadline = Date.now() + timeoutMs
-
-  while (Date.now() < deadline) {
-    if (existsSync(resultPath)) {
-      const result = readRunnerResult()
-      if (result) {
-        return result
-      }
-    }
-
-    sleep(250)
-  }
-
-  return null
-}
-
-function scanEnvironmentBlockers(): string[] {
-  const blockers = new Set<string>()
-  const logsDir = resolve(tempDir, 'user-data', 'logs')
-
-  if (!existsSync(logsDir)) {
-    return []
-  }
-
-  const pendingDirs = [logsDir]
-  while (pendingDirs.length > 0) {
-    const dir = pendingDirs.pop()
-    if (!dir) {
-      continue
-    }
-
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      const entryPath = resolve(dir, entry.name)
-      if (entry.isDirectory()) {
-        pendingDirs.push(entryPath)
-        continue
-      }
-      if (!entry.isFile() || !entry.name.endsWith('.log')) {
-        continue
-      }
-
-      const logText = readFileSync(entryPath, 'utf8')
-      if (logText.includes('Code is currently being updated') || logText.includes('vscode-updating still held')) {
-        blockers.add('vscode_update_in_progress')
-      }
-    }
-  }
-
-  return [...blockers]
-}
-
-function collectEnvironmentBlockers(timeoutMs = 2000): string[] {
-  const deadline = Date.now() + timeoutMs
-  while (Date.now() < deadline) {
-    const blockers = scanEnvironmentBlockers()
-    if (blockers.length > 0) {
-      return blockers
-    }
-    sleep(250)
-  }
-  return scanEnvironmentBlockers()
-}
-
-function withCliEnvironmentBlockers(blockers: string[], result: ReturnType<typeof spawnSync>, vscodeCliVersion: string): string[] {
-  const next = new Set(blockers)
-  const errorMessage = result.error?.message ?? ''
-  if (vscodeCliVersion === 'not_available' || errorMessage.includes('Executable not found')) {
-    next.add('vscode_cli_unavailable')
-  }
-  return [...next]
 }
 
 function writeReports(report: HostReport): void {
@@ -431,15 +297,19 @@ function main(): void {
     shell: false,
     timeout: 90000,
   })
-  const hostResult = waitForRunnerResult(30000)
+  const hostResult = waitForJsonResult<HostRunnerResult>(resultPath, 30000)
   const stdout = result.stdout ?? ''
   const stderr = result.stderr ?? ''
-  const vscodeCliVersion = getVscodeCliVersion()
+  const vscodeCliVersion = getVscodeCliVersion(root)
   const codeTimedOut = result.error?.message.includes('ETIMEDOUT') === true
   const registeredCommandIds = hostResult?.registeredCommandIds ?? []
   const executedCommandIds = hostResult?.executedCommandIds ?? []
   const failedCommandIds = hostResult?.failedCommandIds ?? commandIds
-  const environmentBlockers = withCliEnvironmentBlockers(collectEnvironmentBlockers(), result, vscodeCliVersion)
+  const environmentBlockers = withCliEnvironmentBlockers(
+    collectVscodeEnvironmentBlockers(resolve(tempDir, 'user-data', 'logs')),
+    result,
+    vscodeCliVersion,
+  )
   const vscodeStartupBlocked = environmentBlockers.length > 0
   const realExtensionHostLaunched = hostResult !== null && !vscodeStartupBlocked
   const knownEnvironmentBlocked = vscodeStartupBlocked || environmentBlockers.includes('vscode_cli_unavailable')
