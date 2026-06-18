@@ -7,6 +7,13 @@ type Check = {
   detail: string
 }
 
+type AutomationCandidate = {
+  id: string
+  externalCallsRequired: string
+  requiresExternalCall: boolean
+  status: string
+}
+
 export type EvalFlywheelValidationResult = {
   ok: boolean
   errors: string[]
@@ -68,25 +75,30 @@ function check(label: string, ok: boolean, detail: string): Check {
 }
 
 function tableRowCount(markdown: string): number {
-  return markdown
-    .split(/\r?\n/)
-    .filter((line) => line.trim().startsWith('| AUTO-'))
-    .length
+  return parseAutomationCandidates(markdown).length
 }
 
-function hasExternalCandidateNotBlocked(markdown: string): boolean {
+function parseAutomationCandidates(markdown: string): AutomationCandidate[] {
   return markdown
     .split(/\r?\n/)
     .filter((line) => line.trim().startsWith('| AUTO-'))
-    .some((line) => {
+    .map((line) => {
       const cells = line.trim().slice(1, -1).split('|').map((cell) => cell.trim().toLowerCase())
       if (cells.length >= 17) {
-        const externalCallsRequired = cells[10] ?? ''
-        const status = cells[12] ?? ''
-        return externalCallsRequired === 'yes' && !status.includes('blocked_until_owner_approval')
+        return {
+          id: cells[0] ?? '',
+          externalCallsRequired: cells[10] ?? '',
+          requiresExternalCall: (cells[10] ?? '') === 'yes',
+          status: cells[12] ?? '',
+        }
       }
-      const externalCalls = cells[9] ?? ''
-      return externalCalls !== 'none' && !externalCalls.includes('blocked_until_owner_approval')
+      const legacyExternalCalls = cells[9] ?? ''
+      return {
+        id: cells[0] ?? '',
+        externalCallsRequired: legacyExternalCalls,
+        requiresExternalCall: legacyExternalCalls !== 'none',
+        status: cells[10] ?? '',
+      }
     })
 }
 
@@ -123,17 +135,25 @@ export function evaluateEvalFlywheelDocs(docs: Map<string, string>): EvalFlywhee
   }
 
   const automation = docs.get('docs/reports/automation-candidates-2026-06-18.md') ?? ''
-  const automationCandidateCount = tableRowCount(automation)
+  const automationCandidates = parseAutomationCandidates(automation)
+  const automationCandidateCount = automationCandidates.length
   if (!/No automations were scheduled or created\./i.test(automation)) {
     errors.push('automation report must state that no automations were scheduled or created')
   }
   if (automationCandidateCount === 0) {
     errors.push('automation report must include at least one AUTO-* candidate row')
   }
-  if (!automation.includes('proposed_only')) {
+  if (!automationCandidates.every((candidate) =>
+    candidate.status.includes('proposed_only') ||
+    candidate.status.includes('blocked_until_owner_approval')
+  )) {
     errors.push('automation report must mark candidates as proposed_only')
   }
-  if (hasExternalCandidateNotBlocked(automation)) {
+  if (automationCandidates.some((candidate) =>
+    candidate.requiresExternalCall &&
+    !candidate.status.includes('blocked_until_owner_approval') &&
+    !candidate.externalCallsRequired.includes('blocked_until_owner_approval')
+  )) {
     errors.push('external-call automation candidates must be blocked until owner approval')
   }
 
@@ -163,7 +183,7 @@ export function buildEvalFlywheelReport(docs: Map<string, string>): EvalFlywheel
     check('required eval flywheel docs exist', requiredPaths.every((path) => docs.has(path)), requiredPaths.filter((path) => !docs.has(path)).join(', ') || 'all present'),
     check('eval levels L0-L5 are present', result.evalLevelsPresent.length === evalLevels.length, result.evalLevelsPresent.join(', ')),
     check('EVAL-008 through EVAL-010 are present', result.requiredEvalIdsPresent.length === requiredEvalIds.length, result.requiredEvalIdsPresent.join(', ')),
-    check('automation candidates remain proposed-only', result.automationCandidateCount > 0 && !result.errors.includes('automation report must state that no automations were scheduled or created'), `${result.automationCandidateCount} candidates`),
+    check('automation candidates remain proposed-only', result.automationCandidateCount > 0 && !result.errors.includes('automation report must state that no automations were scheduled or created') && !result.errors.includes('automation report must mark candidates as proposed_only'), `${result.automationCandidateCount} candidates`),
     check('external-call candidates are blocked pending owner approval', !result.errors.includes('external-call automation candidates must be blocked until owner approval'), 'blocked_until_owner_approval enforced'),
     check('owner-side MFH/Meta drift boundary is preserved', !result.errors.includes('source reconciliation report must carry forward owner-side drift status'), 'drift_carried_forward_awaiting_user_adjudication'),
     check('no provider/live/external/protected side effects recorded', true, 'side-effect arrays are empty'),
