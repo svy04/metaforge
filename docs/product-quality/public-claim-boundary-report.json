@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T12:50:07.851Z",
+  "generatedAt": "2026-06-18T16:50:17.028Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -26,6 +26,26 @@
       "sourceProject": "NIST SSDF SP 800-218",
       "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
       "observedPattern": "Secure-development practices and evidence records reduce communication and vulnerability risk without implying compliance from local reports alone."
+    },
+    {
+      "sourceProject": "W3C PROV",
+      "sourceUrl": "https://www.w3.org/TR/prov-overview/",
+      "observedPattern": "Provenance should bind produced artifacts to activities and responsible actors so reliability and trustworthiness assessments do not depend on narrative alone."
+    },
+    {
+      "sourceProject": "NIST AI RMF Core",
+      "sourceUrl": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "observedPattern": "AI risk work should be governed, mapped, measured, and managed continuously rather than reduced to a one-time checklist."
+    },
+    {
+      "sourceProject": "OpenAI Evals",
+      "sourceUrl": "https://github.com/openai/evals",
+      "observedPattern": "LLM-system quality claims should be tied to explicit evals or private workflow evals instead of broad model or agent assertions."
+    },
+    {
+      "sourceProject": "GitHub CodeQL code scanning",
+      "sourceUrl": "https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning",
+      "observedPattern": "CodeQL-backed public security signals should distinguish configured analysis and alerts from stronger hosted-execution or remediation claims."
     }
   ],
   "scannedPublicSurfaces": [
@@ -53,9 +73,9 @@
     {
       "path": "AGENTS.md",
       "exists": true,
-      "sha256": "fdcfd6ad8a694d6f0e935335d03725f68828dcd23cade44929b8affc9c115dcb",
-      "sizeBytes": 4383,
-      "lineCount": 108
+      "sha256": "c77e1147604a1be510dc1c50bca8f7db26f17b44b92f6c4a938d79f27b550c2f",
+      "sizeBytes": 4509,
+      "lineCount": 110
     },
     {
       "path": "ANDROID_INSTALL.md",
@@ -1110,8 +1130,8 @@
     {
       "path": "docs/product-quality/benchmark-readiness-matrix.md",
       "exists": true,
-      "sha256": "756ce1f2b5681f808de6bea9a5d211c9b79cda926f857ce4c46078552a366876",
-      "sizeBytes": 7929,
+      "sha256": "2c1b45bbf83b8ca0cff2d18c7313a3e22260db49454c6345cdf8bd24ca0052ac",
+      "sizeBytes": 7960,
       "lineCount": 83
     },
     {
@@ -1222,9 +1242,9 @@
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
       "exists": true,
-      "sha256": "0289a0e8f2440fc80583ee56b45114e188d76b22a97599f1e0f68c1379cbdb40",
-      "sizeBytes": 4423,
-      "lineCount": 73
+      "sha256": "25756875193c522e363d646d8296f3ad088308ded9b002f3058ec49a247d1c3c",
+      "sizeBytes": 4614,
+      "lineCount": 82
     },
     {
       "path": "docs/product-quality/goal-trace-validation-report.md",
@@ -1530,8 +1550,8 @@
     {
       "path": "docs/product-quality/primary-source-learning-loop.md",
       "exists": true,
-      "sha256": "d7f2137676bb78785f9630a6677bc35f466fc135d1fc905b9adbe08312ffa2ee",
-      "sizeBytes": 24826,
+      "sha256": "8ffd904f74ac38e10170f8841625e5cf76300aa5c34ee5c11e9b349d271fb875",
+      "sizeBytes": 24989,
       "lineCount": 82
     },
     {
@@ -1544,8 +1564,8 @@
     {
       "path": "docs/product-quality/product-evidence-manifest.md",
       "exists": true,
-      "sha256": "2dbacd59e7db1814db3f84387fe052ff6b241716a3907a1efb043b1c3deacf27",
-      "sizeBytes": 11693,
+      "sha256": "37f022f558176fdb6c56dba60342e03bc3f2aec005c6e2789131978cc456eec3",
+      "sizeBytes": 11724,
       "lineCount": 189
     },
     {
@@ -1593,9 +1613,16 @@
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-15.md",
       "exists": true,
-      "sha256": "e2c81bb39ef4ca3deb7f2657b0878a976170fa85548c6ee66756a3d4846c5ec0",
-      "sizeBytes": 5951,
-      "lineCount": 118
+      "sha256": "375210247180a4bc7d313412ef02386acd3dc198e3f97b337aee89fd1111dcdb",
+      "sizeBytes": 7645,
+      "lineCount": 148
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
+      "exists": true,
+      "sha256": "a090f39fb0fef76277d96c50d98b5226caab878ba4b2a0940aa1c76d8dd73fc8",
+      "sizeBytes": 3091,
+      "lineCount": 64
     },
     {
       "path": "docs/product-quality/public-feedback-structure-audit-2026-06-15.md",
@@ -1607,9 +1634,16 @@
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-15.md",
       "exists": true,
-      "sha256": "b5765a4910909e31fce8e7b049faf9eabfc389e688456d96028e63fd91881951",
-      "sizeBytes": 8385,
-      "lineCount": 175
+      "sha256": "45772d4b1a11cf8aee397c8f4dc479a8b3a48e2bb406a53a172d3a717babf124",
+      "sizeBytes": 9482,
+      "lineCount": 197
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "exists": true,
+      "sha256": "e9568b4c6b9e4a2b0548a61780a57adb99e4f255193a5572502adda71376f28f",
+      "sizeBytes": 2842,
+      "lineCount": 68
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.md",
@@ -1857,9 +1891,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 261,
-  "scannedLineCount": 23363,
-  "blockedContextClaimMentionCount": 1010,
+  "publicSurfaceCount": 263,
+  "scannedLineCount": 23558,
+  "blockedContextClaimMentionCount": 1021,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -9117,6 +9151,51 @@
       "contextText": "Blocked context: Boundary: this snapshot is not production readiness, release readiness, Claim mention: external validation, hosted workflow proof, or autonomous reliability evidence."
     },
     {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-15.md",
+      "line": 146,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "hygiene evidence. It is not production readiness, hosted workflow proof,",
+      "contextText": "Blocked context: hygiene evidence. It is not production readiness, hosted workflow proof,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-15.md",
+      "line": 147,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "external validation, benchmark superiority, or legal clearance.",
+      "contextText": "Blocked context: hygiene evidence. It is not production readiness, hosted workflow proof, Claim mention: external validation, benchmark superiority, or legal clearance."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
+      "line": 61,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "public hygiene evidence. They are not production readiness, hosted workflow",
+      "contextText": "Blocked context: public hygiene evidence. They are not production readiness, hosted workflow"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
+      "line": 62,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "proof, external validation, benchmark superiority, or legal clearance.",
+      "contextText": "Blocked context: public hygiene evidence. They are not production readiness, hosted workflow Claim mention: proof, external validation, benchmark superiority, or legal clearance."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
+      "line": 63,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "Autonomous reliability claims remain blocked.",
+      "contextText": "Blocked context: Autonomous reliability claims remain blocked."
+    },
+    {
       "path": "docs/product-quality/public-feedback-structure-audit-2026-06-15.md",
       "line": 9,
       "phrase": "production readiness",
@@ -9223,6 +9302,60 @@
       "status": "blocked_context",
       "text": "Blocked context: this is still local no-provider evidence and does not prove production readiness, hosted deployment, external validation, benchmark superiority, or autonomous reliability.",
       "contextText": "Blocked context: Blocked context: this is still local no-provider evidence and does not prove production readiness, hosted deployment, external validation, benchmark superiority, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-15.md",
+      "line": 194,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "evidence alignment. It does not prove production readiness, hosted deployment,",
+      "contextText": "Blocked context: evidence alignment. It does not prove production readiness, hosted deployment,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-15.md",
+      "line": 195,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "external validation, benchmark superiority, legal clearance, or autonomous",
+      "contextText": "Blocked context: evidence alignment. It does not prove production readiness, hosted deployment, Claim mention: external validation, benchmark superiority, legal clearance, or autonomous"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 3,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "Status: local no-provider triage, not an external validation claim.",
+      "contextText": "Blocked context: Status: local no-provider triage, not an external validation claim."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 65,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "narrow MFH trace-evidence binding. It does not prove production readiness,",
+      "contextText": "Blocked context: narrow MFH trace-evidence binding. It does not prove production readiness,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 66,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "hosted workflow health, external validation, benchmark superiority, or legal",
+      "contextText": "Blocked context: narrow MFH trace-evidence binding. It does not prove production readiness, Claim mention: hosted workflow health, external validation, benchmark superiority, or legal"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 67,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "clearance. Autonomous reliability claims remain blocked.",
+      "contextText": "Blocked context: clearance. Autonomous reliability claims remain blocked."
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.md",
@@ -10956,8 +11089,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "266491d51ee57f6c8b82feed2b04102faba1be7634f70ad419050a632568ab19",
-  "scanJsonlRecordCount": 1010,
+  "scanJsonlSha256": "e3adaf0fdbc8931c13529b4864e499b768fb0420a74a7000183d47b7c487d130",
+  "scanJsonlRecordCount": 1021,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -10982,22 +11115,25 @@
     {
       "symbol": "MFH",
       "publicRole": "Metaforge evidence-gated closure layer for claim boundaries, validation commands, and rollback-aware completion.",
-      "evidenceClass": "governance/evidence-gate docs",
+      "evidenceClass": "governance/evidence-gate behavior docs",
       "evidencePaths": [
         "docs/MFH_META_SYNTHESIS.md",
         "docs/EVALS.md",
         "docs/GOAL_SCHEMA.md",
+        "docs/product-quality/goal-trace-validation-report.md",
+        "docs/product-quality/goal-trace-validation-report.json",
         "docs/product-quality/public-claim-boundary-report.md",
-        "docs/product-quality/product-evidence-manifest.md"
+        "docs/product-quality/product-evidence-manifest.md",
+        "docs/goals/traces/CG-001-goal-kernel-mvp.trace.json"
       ],
-      "verificationCommand": "bun run product:public-claim-boundary",
-      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, and product-quality reports.",
+      "verificationCommand": "bun run goals:validate && bun run product:public-claim-boundary",
+      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, and trace-validation evidence.",
       "nonClaims": [
         "MFH is not a formal certification system.",
         "MFH is not external validation.",
         "MFH does not prove production, release, public, or autonomous reliability readiness."
       ],
-      "unresolvedGap": "More gates still need happy-path, edge-case, and side-effect behavior tests before MFH can carry broader reliability claims."
+      "unresolvedGap": "More representative traces, happy-path tests, edge-case tests, and side-effect behavior tests are still needed before MFH can carry broader reliability claims."
     },
     {
       "symbol": "Orchestra",
@@ -11119,6 +11255,11 @@
       "detail": "6 rows"
     },
     {
+      "label": "MFH behavior evidence is bound to trace validation",
+      "ok": true,
+      "detail": "MFH row includes trace report, trace fixture, goals validation, and remaining trace gap"
+    },
+    {
       "label": "OpenClaude remains substrate rather than thesis",
       "ok": true,
       "detail": "substrate boundary present"
@@ -11136,12 +11277,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "261 surfaces"
+      "detail": "263 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "23363 lines"
+      "detail": "23558 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11151,12 +11292,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1010 findings"
+      "detail": "1021 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1010/1010"
+      "detail": "1021/1021"
     },
     {
       "label": "claim JSONL hash is recorded",

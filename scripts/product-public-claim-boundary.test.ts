@@ -78,6 +78,31 @@ describe('product public claim boundary classifier', () => {
     expect(bySymbol['AVF Influence Factory']?.nonClaims.join(' ')).toContain('not a default CLI runtime import')
   })
 
+  test('binds MFH public claims to validated goal-trace evidence', () => {
+    const mfh = publicClaimEvidenceMap.find((row) => row.symbol === 'MFH')
+
+    expect(mfh?.evidenceClass).toContain('behavior')
+    expect(mfh?.evidencePaths).toEqual(expect.arrayContaining([
+      'docs/product-quality/goal-trace-validation-report.md',
+      'docs/product-quality/goal-trace-validation-report.json',
+      'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
+    ]))
+    expect(mfh?.verificationCommand).toContain('goals:validate')
+    expect(mfh?.allowedClaim).toContain('trace-validation evidence')
+    expect(mfh?.unresolvedGap).toContain('representative traces')
+  })
+
+  test('check mode reports the MFH trace-evidence binding check', () => {
+    const result = spawnSync('bun', [scriptPath, '--check'], {
+      cwd: root,
+      encoding: 'utf8',
+      shell: false,
+    })
+
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0)
+    expect(result.stdout).toContain('MFH behavior evidence is bound to trace validation')
+  })
+
   test('points English and Korean READMEs to the generated public claim evidence map', () => {
     const readme = readFileSync(join(root, 'README.md'), 'utf8')
     const koreanReadme = readFileSync(join(root, 'README.ko.md'), 'utf8')
