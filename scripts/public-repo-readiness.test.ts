@@ -21,8 +21,14 @@ function privateLocalPathNeedles(): string[] {
   return [
     `C:${'\\\\'}Users`,
     `C:${'/'}Users`,
-    ['내 순수', ' 재미'].join(''),
+    `/Users${'/'}`,
   ]
+}
+
+function privateLocalPathNeedleFunctionBody(relativePath: string): string {
+  const match = readRepoText(relativePath).match(/function privateLocalPathNeedles\(\): string\[\] \{([\s\S]*?)\n\}/)
+  expect(match).not.toBeNull()
+  return match?.[1] ?? ''
 }
 
 function readTextFrom(basePath: string, relativePath: string): string {
@@ -108,6 +114,16 @@ function listFilesUnder(relativePath: string): string[] {
 }
 
 describe('public repository readiness surfaces', () => {
+  test('private-path sentinels stay generic instead of embedding local folder names', () => {
+    const sentinelBodies = [
+      privateLocalPathNeedleFunctionBody('scripts/product-agent-instructions-quality.ts'),
+      privateLocalPathNeedleFunctionBody('scripts/public-repo-readiness.test.ts'),
+    ].join('\n')
+
+    expect(sentinelBodies).toContain('Users')
+    expect(sentinelBodies).not.toMatch(/\p{Script=Hangul}/u)
+  })
+
   test('AGENTS.md is public-facing guidance, not a private memory dump', () => {
     const agents = readRepoText('AGENTS.md')
     const lineCount = agents.split(/\r?\n/).length

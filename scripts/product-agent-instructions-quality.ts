@@ -60,7 +60,7 @@ function privateLocalPathNeedles(): string[] {
   return [
     ['C:', 'Users'].join('\\'),
     ['C:', 'Users'].join('/'),
-    ['내 순수', ' 재미'].join(''),
+    ['/Users', '/'].join(''),
   ]
 }
 
