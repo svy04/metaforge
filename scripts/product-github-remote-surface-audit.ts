@@ -9,6 +9,11 @@ type RemoteHead = {
   oid: string
 }
 
+type RemoteTag = {
+  name: string
+  oid: string
+}
+
 type OpenPullRequest = {
   number: number
   title: string
@@ -38,6 +43,7 @@ type RefScan = {
 type Discovery = {
   gitFetchPerformed: boolean
   remoteHeadDiscovery: 'git_ls_remote'
+  remoteTagDiscovery: 'git_ls_remote'
   openPullRequestDiscovery: 'gh_cli' | 'unavailable'
   openPullRequestDiscoveryError?: string
 }
@@ -57,8 +63,10 @@ type Blocker = {
 type AnalyzeInput = {
   defaultBranch: string
   remoteHeads: RemoteHead[]
+  remoteTags: RemoteTag[]
   openPullRequests: OpenPullRequest[]
   refScans: RefScan[]
+  tagScans: RefScan[]
   discovery: Discovery
 }
 
@@ -73,10 +81,13 @@ type PublicGithubSurfaceReport = {
   defaultBranch: string
   remoteHeads: RemoteHead[]
   remoteHeadCount: number
+  remoteTags: RemoteTag[]
+  remoteTagCount: number
   openPullRequests: OpenPullRequest[]
   openPullRequestCount: number
   allowedOpenPrHeadBranches: string[]
   refScans: RefScan[]
+  tagScans: RefScan[]
   blockers: Blocker[]
   blockerCount: number
   status: 'no_public_github_surface_findings_detected' | 'blocked_public_github_surface_findings'
@@ -253,6 +264,27 @@ export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSur
     }
   }
 
+  for (const tagScan of input.tagScans) {
+    const tagRefName = `tag:${tagScan.refName}`
+    for (const finding of tagScan.patternFindings) {
+      blockers.push({
+        category: 'forbidden_pattern',
+        refName: tagRefName,
+        path: finding.path,
+        line: finding.line,
+        detail: `${finding.patternId}: ${finding.text}`,
+      })
+    }
+    for (const finding of tagScan.treeFindings) {
+      blockers.push({
+        category: 'browser_capture_artifact',
+        refName: tagRefName,
+        path: finding.path,
+        detail: finding.patternId,
+      })
+    }
+  }
+
   const report: PublicGithubSurfaceReport = {
     generatedAt: new Date().toISOString(),
     mode: 'github_public_remote_surface_audit',
@@ -265,7 +297,7 @@ export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSur
       {
         sourceProject: 'Git git-ls-remote',
         sourceUrl: 'https://git-scm.com/docs/git-ls-remote',
-        observedPattern: 'Remote refs should be listed by ref name and object ID as the public branch inventory, not inferred from the local default branch only.',
+        observedPattern: 'Remote refs should be listed by ref name and object ID as the public branch and tag inventory, not inferred from the local default branch only.',
       },
       {
         sourceProject: 'GitHub Secret Scanning',
@@ -291,10 +323,13 @@ export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSur
     defaultBranch: input.defaultBranch,
     remoteHeads: input.remoteHeads,
     remoteHeadCount: input.remoteHeads.length,
+    remoteTags: input.remoteTags,
+    remoteTagCount: input.remoteTags.length,
     openPullRequests: input.openPullRequests,
     openPullRequestCount: input.openPullRequests.length,
     allowedOpenPrHeadBranches,
     refScans: input.refScans,
+    tagScans: input.tagScans,
     blockers,
     blockerCount: blockers.length,
     status: blockers.length === 0
@@ -306,15 +341,17 @@ export function analyzePublicGithubSurface(input: AnalyzeInput): PublicGithubSur
     protectedActionsExecuted: [],
     externalCallsPerformed: [
       input.discovery.remoteHeadDiscovery,
+      input.discovery.remoteTagDiscovery,
       input.discovery.openPullRequestDiscovery,
     ],
     evidenceChecks: [],
-    claimBoundary: 'This public GitHub surface audit inventories remote refs and open PR heads for privacy/security blockers only. It does not claim full GitHub secret-scanning alert status, full-history credential cleanliness, release readiness, production readiness, or external validation.',
+    claimBoundary: 'This public GitHub surface audit inventories remote branch refs, tag refs, and open PR heads for privacy/security blockers only. It does not claim full GitHub secret-scanning alert status, full-history credential cleanliness, release readiness, production readiness, or external validation.',
   }
 
   report.evidenceChecks = [
     check('default branch is present in remote heads', input.remoteHeads.some((head) => head.name === input.defaultBranch), input.defaultBranch),
     check('remote heads were inventoried', input.remoteHeads.length > 0, `${input.remoteHeads.length} heads`),
+    check('remote tags were inventoried', Array.isArray(input.remoteTags), `${input.remoteTags.length} tags`),
     check('open PR discovery is usable when non-default branches exist', input.discovery.openPullRequestDiscovery !== 'unavailable' || nonDefaultRemoteHeads.length === 0, input.discovery.openPullRequestDiscovery),
     check('unexpected stale remote branches are absent', !blockers.some((blocker) => blocker.category === 'unexpected_remote_branch'), `${blockers.filter((blocker) => blocker.category === 'unexpected_remote_branch').length} findings`),
     check('private local path and token patterns are absent from scanned public refs', !blockers.some((blocker) => blocker.category === 'forbidden_pattern'), `${blockers.filter((blocker) => blocker.category === 'forbidden_pattern').length} findings`),
@@ -337,6 +374,7 @@ export function buildAuditJsonl(report: PublicGithubSurfaceReport): string {
       status: report.status,
       defaultBranch: report.defaultBranch,
       remoteHeadCount: report.remoteHeadCount,
+      remoteTagCount: report.remoteTagCount,
       openPullRequestCount: report.openPullRequestCount,
       blockerCount: report.blockerCount,
     }]
@@ -356,7 +394,7 @@ function runGit(args: string[]): string {
 }
 
 function fetchRemoteTrackingRefs(): void {
-  runGit(['fetch', '--prune', 'origin', '+refs/heads/*:refs/remotes/origin/*'])
+  runGit(['fetch', '--prune', 'origin', '+refs/heads/*:refs/remotes/origin/*', '+refs/tags/*:refs/tags/*'])
 }
 
 function discoverDefaultBranch(): string {
@@ -380,6 +418,21 @@ function discoverRemoteHeads(): RemoteHead[] {
       }
     })
     .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+function discoverRemoteTags(): RemoteTag[] {
+  const tagsByName = new Map<string, RemoteTag>()
+  for (const line of runGit(['ls-remote', '--tags', 'origin'])
+    .split(/\r?\n/)
+    .filter(Boolean)) {
+    const [oid, ref] = line.split(/\s+/)
+    if (!oid || !ref || ref.endsWith('^{}')) {
+      continue
+    }
+    const name = ref.replace(/^refs\/tags\//, '')
+    tagsByName.set(name, { oid, name })
+  }
+  return [...tagsByName.values()].sort((a, b) => a.name.localeCompare(b.name))
 }
 
 function repositoryFullNameFromRemote(): string | null {
@@ -464,7 +517,14 @@ function parseGrepFindings(output: string): PatternFinding[] {
 }
 
 function scanRef(refName: string): RefScan {
-  const ref = `refs/remotes/origin/${refName}`
+  return scanGitRef(refName, `refs/remotes/origin/${refName}`)
+}
+
+function scanTag(tagName: string): RefScan {
+  return scanGitRef(tagName, `refs/tags/${tagName}`)
+}
+
+function scanGitRef(refName: string, ref: string): RefScan {
   const grep = spawnSync('git', [
     'grep',
     '-n',
@@ -507,6 +567,9 @@ function writeReports(report: PublicGithubSurfaceReport): void {
   writeFileSync(resolve(root, reportJsonlPath), buildAuditJsonl(report))
 
   const refRows = report.remoteHeads.map((head) => `| \`${head.name}\` | \`${head.oid}\` |`).join('\n')
+  const tagRows = report.remoteTags.length === 0
+    ? '| none | none |'
+    : report.remoteTags.map((tag) => `| \`${tag.name}\` | \`${tag.oid}\` |`).join('\n')
   const prRows = report.openPullRequests.length === 0
     ? '| none | none | none | none |'
     : report.openPullRequests.map((pullRequest) => `| #${pullRequest.number} | ${pullRequest.title} | \`${pullRequest.headRefName}\` | \`${pullRequest.isSameRepository}\` |`).join('\n')
@@ -521,19 +584,21 @@ Generated by: \`bun run product:github-remote-surface-audit\`
 
 ## Claim Boundary
 
-- This report inventories GitHub remote branches and open pull request heads for public privacy/security blockers.
+- This report inventories GitHub remote branches, tags, and open pull request heads for public privacy/security blockers.
 - It does not claim full-history secret cleanliness, GitHub secret-scanning alert status, release readiness, production readiness, or external validation.
 
 ## Summary
 
 - default_branch: \`${report.defaultBranch}\`
 - remote_head_count: \`${report.remoteHeadCount}\`
+- remote_tag_count: \`${report.remoteTagCount}\`
 - open_pull_request_count: \`${report.openPullRequestCount}\`
 - allowed_open_pr_head_branches: \`${report.allowedOpenPrHeadBranches.join(',') || 'none'}\`
 - blocker_count: \`${report.blockerCount}\`
 - status: \`${report.status}\`
 - git_fetch_performed: \`${report.discovery.gitFetchPerformed}\`
 - remote_head_discovery: \`${report.discovery.remoteHeadDiscovery}\`
+- remote_tag_discovery: \`${report.discovery.remoteTagDiscovery}\`
 - open_pull_request_discovery: \`${report.discovery.openPullRequestDiscovery}\`
 - blocker_jsonl_sha256: \`${sha256(readFileSync(resolve(root, reportJsonlPath)))}\`
 
@@ -548,6 +613,12 @@ ${report.primarySourceInputs.map((source) => `| ${source.sourceProject} | ${sour
 | Branch | OID |
 | --- | --- |
 ${refRows}
+
+## Remote Tags
+
+| Tag | OID |
+| --- | --- |
+${tagRows}
 
 ## Open Pull Requests
 
@@ -582,16 +653,21 @@ async function main(): Promise<void> {
 
   const defaultBranch = discoverDefaultBranch()
   const remoteHeads = discoverRemoteHeads()
+  const remoteTags = discoverRemoteTags()
   const pullRequestDiscovery = await discoverOpenPullRequests(repositoryFullName)
   const refScans = remoteHeads.map((head) => scanRef(head.name))
+  const tagScans = remoteTags.map((tag) => scanTag(tag.name))
   const report = analyzePublicGithubSurface({
     defaultBranch,
     remoteHeads,
+    remoteTags,
     openPullRequests: pullRequestDiscovery.pullRequests,
     refScans,
+    tagScans,
     discovery: {
       gitFetchPerformed,
       remoteHeadDiscovery: 'git_ls_remote',
+      remoteTagDiscovery: 'git_ls_remote',
       openPullRequestDiscovery: pullRequestDiscovery.discovery,
       openPullRequestDiscoveryError: pullRequestDiscovery.error,
     },
@@ -604,6 +680,7 @@ async function main(): Promise<void> {
   console.log('')
   console.log(`RESULT: ${report.blockerCount === 0 ? 'PASS' : 'FAIL'}`)
   console.log(`remote_head_count=${report.remoteHeadCount}`)
+  console.log(`remote_tag_count=${report.remoteTagCount}`)
   console.log(`open_pull_request_count=${report.openPullRequestCount}`)
   console.log(`blocker_count=${report.blockerCount}`)
   console.log(`status=${report.status}`)

@@ -72,6 +72,7 @@ describe('GitHub public surface analysis', () => {
         { name: 'main', oid: 'a'.repeat(40) },
         { name: 'codex/stale-proof-branch', oid: 'b'.repeat(40) },
       ],
+      remoteTags: [],
       openPullRequests: [],
       refScans: [
         {
@@ -92,9 +93,11 @@ describe('GitHub public surface analysis', () => {
           ],
         },
       ],
+      tagScans: [],
       discovery: {
         gitFetchPerformed: true,
         remoteHeadDiscovery: 'git_ls_remote',
+        remoteTagDiscovery: 'git_ls_remote',
         openPullRequestDiscovery: 'gh_cli',
       },
     })
@@ -110,6 +113,57 @@ describe('GitHub public surface analysis', () => {
     ])
   })
 
+  test('scans public tag refs for disclosure findings without treating tags as stale branches', () => {
+    const report = analyzePublicGithubSurface({
+      defaultBranch: 'main',
+      remoteHeads: [
+        { name: 'main', oid: 'a'.repeat(40) },
+      ],
+      remoteTags: [
+        { name: 'v0.6.0', oid: 'd'.repeat(40) },
+      ],
+      openPullRequests: [],
+      refScans: [
+        {
+          refName: 'main',
+          patternFindings: [],
+          treeFindings: [],
+        },
+      ],
+      tagScans: [
+        {
+          refName: 'v0.6.0',
+          patternFindings: [
+            {
+              path: 'README.md',
+              line: 12,
+              patternId: 'private_local_or_token_pattern',
+              text: ['cd', ['C:', 'Users', 'private-owner', 'Desktop', 'private-run'].join('\\')].join(' '),
+            },
+          ],
+          treeFindings: [],
+        },
+      ],
+      discovery: {
+        gitFetchPerformed: true,
+        remoteHeadDiscovery: 'git_ls_remote',
+        remoteTagDiscovery: 'git_ls_remote',
+        openPullRequestDiscovery: 'gh_cli',
+      },
+    })
+
+    expect(report.remoteTagCount).toBe(1)
+    expect(report.blockerCount).toBe(1)
+    expect(report.blockers).toEqual([
+      expect.objectContaining({
+        category: 'forbidden_pattern',
+        refName: 'tag:v0.6.0',
+        path: 'README.md',
+        line: 12,
+      }),
+    ])
+  })
+
   test('allows clean non-default branches that are attached to open same-repo PRs', () => {
     const report = analyzePublicGithubSurface({
       defaultBranch: 'main',
@@ -117,6 +171,7 @@ describe('GitHub public surface analysis', () => {
         { name: 'main', oid: 'a'.repeat(40) },
         { name: 'codex/clean-public-surface', oid: 'c'.repeat(40) },
       ],
+      remoteTags: [],
       openPullRequests: [
         {
           number: 42,
@@ -133,9 +188,11 @@ describe('GitHub public surface analysis', () => {
           treeFindings: [],
         },
       ],
+      tagScans: [],
       discovery: {
         gitFetchPerformed: true,
         remoteHeadDiscovery: 'git_ls_remote',
+        remoteTagDiscovery: 'git_ls_remote',
         openPullRequestDiscovery: 'gh_cli',
       },
     })
@@ -149,11 +206,14 @@ describe('GitHub public surface analysis', () => {
     const report = analyzePublicGithubSurface({
       defaultBranch: 'main',
       remoteHeads: [{ name: 'main', oid: 'a'.repeat(40) }],
+      remoteTags: [],
       openPullRequests: [],
       refScans: [{ refName: 'main', patternFindings: [], treeFindings: [] }],
+      tagScans: [],
       discovery: {
         gitFetchPerformed: true,
         remoteHeadDiscovery: 'git_ls_remote',
+        remoteTagDiscovery: 'git_ls_remote',
         openPullRequestDiscovery: 'gh_cli',
       },
     })
