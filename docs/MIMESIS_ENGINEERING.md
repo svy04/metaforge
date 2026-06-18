@@ -103,7 +103,7 @@ Completed:
 
 Current:
 
-1. Keep a public proof pack in `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`.
+1. Keep a public proof pack in `docs/marketing/metaforge-public-proof-pack-2026-06-18.md`.
 2. Bind each copy block to a source ledger and local no-provider evidence.
 3. Add the proof pack to local claim-boundary and link-integrity checks.
 4. Use the proof pack as the only source for external Metaforge marketing copy until stronger evidence exists.

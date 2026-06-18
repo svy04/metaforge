@@ -25,7 +25,8 @@ Blog posts, search snippets, community comments, and marketing summaries may rou
 
 - `goal-os-governed-code-prior-art-2026-06-18.md` maps Goal OS governed-code prior art to the local Meta/MFH/Orchestra operating system.
 - `mimesis-engineering-source-ledger-2026-06-14.md` records the broader source-first improvement loop.
-- `public-proof-pack-source-ledger-2026-06-14.md` records public-proof and claim-boundary source absorption.
+- `public-proof-pack-source-ledger-2026-06-18.md` records the current public-proof and claim-boundary source absorption.
+- `public-proof-pack-source-ledger-2026-06-14.md` records the historical baseline public-proof source absorption.
 
 ## Validation
 

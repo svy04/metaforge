@@ -28,7 +28,7 @@ Public history boundary: Metaforge moved from a private/local workbench into thi
 | --- | --- |
 | What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
 | Fastest verification | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
-| Strongest public evidence | [Goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), [evidence manifest](docs/product-quality/product-evidence-manifest.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
+| Strongest public evidence | [Goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
 | Evidence class map | The evidence manifest now separates behavioral runtime evidence from static analysis, governance-boundary, source-control, and structural-inventory evidence before public claims are upgraded. |
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
@@ -71,8 +71,8 @@ Start here: [docs/MIMESIS_ENGINEERING.md](docs/MIMESIS_ENGINEERING.md). Current 
 
 Use the public proof pack when describing Metaforge outside the repo. It gives the strongest current copy blocks, but binds each claim to local evidence and explicit non-claims.
 
-- [Metaforge Public Proof Pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md)
-- [Public proof-pack source ledger](docs/research/public-proof-pack-source-ledger-2026-06-14.md)
+- [Metaforge Public Proof Pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md)
+- [Public proof-pack source ledger](docs/research/public-proof-pack-source-ledger-2026-06-18.md)
 - [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-14.md)
 
 ## Operating Layers
