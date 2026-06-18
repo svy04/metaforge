@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T20:13:46.287Z",
+  "generatedAt": "2026-06-18T20:36:32.078Z",
   "mode": "local_no_provider_openssf_security_posture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -14,7 +14,7 @@
   "codeqlWorkflowPath": ".github/workflows/codeql.yml",
   "codeqlWorkflowSha256": "f816e44746bdde5ac4ff040eabf44b52e277cffa104c14bea5e8d0f220918c53",
   "scorecardWorkflowPath": ".github/workflows/scorecard.yml",
-  "scorecardWorkflowSha256": "8996eef1f582b2acfba3ba243dc60cac663b97ddb370a71556f57da3938a4047",
+  "scorecardWorkflowSha256": "4d886843abdcef9406b52f051da25c97f264218ee578f713b41de585ae3c943a",
   "dependabotConfigPath": ".github/dependabot.yml",
   "dependabotConfigSha256": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61",
   "primarySourceInputs": [
@@ -63,6 +63,7 @@
   "scorecardWorkflowPermissionsScoped": true,
   "scorecardScheduledScanConfigured": true,
   "scorecardSarifUploadConfigured": true,
+  "scorecardWorkflowPublishRestrictionsCompliant": true,
   "scorecardHostedExecutionPerformed": false,
   "productQualityWorkflowPresent": true,
   "frozenDependencyInstallPresent": true,
@@ -213,6 +214,11 @@
       "label": "Scorecard workflow publishes SARIF results",
       "ok": true,
       "detail": "results.sarif / sarif / publish_results"
+    },
+    {
+      "label": "Scorecard workflow follows publish_results restrictions",
+      "ok": true,
+      "detail": "no env/defaults in Scorecard workflow"
     },
     {
       "label": "product-quality workflow is present",

@@ -63,6 +63,7 @@ type OpenSsfSecurityPostureReport = {
   scorecardWorkflowPermissionsScoped: boolean
   scorecardScheduledScanConfigured: boolean
   scorecardSarifUploadConfigured: boolean
+  scorecardWorkflowPublishRestrictionsCompliant: boolean
   scorecardHostedExecutionPerformed: false
   productQualityWorkflowPresent: boolean
   frozenDependencyInstallPresent: boolean
@@ -168,6 +169,7 @@ function writeReports(report: OpenSsfSecurityPostureReport): void {
     `- scorecard_workflow_permissions_scoped: \`${report.scorecardWorkflowPermissionsScoped}\``,
     `- scorecard_scheduled_scan_configured: \`${report.scorecardScheduledScanConfigured}\``,
     `- scorecard_sarif_upload_configured: \`${report.scorecardSarifUploadConfigured}\``,
+    `- scorecard_workflow_publish_restrictions_compliant: \`${report.scorecardWorkflowPublishRestrictionsCompliant}\``,
     `- scorecard_hosted_execution_performed: \`${report.scorecardHostedExecutionPerformed}\``,
     `- product_quality_workflow_present: \`${report.productQualityWorkflowPresent}\``,
     `- frozen_dependency_install_present: \`${report.frozenDependencyInstallPresent}\``,
@@ -256,6 +258,10 @@ function main(): void {
     /results_file:\s+results\.sarif/.test(scorecardWorkflow) &&
     /results_format:\s+sarif/.test(scorecardWorkflow) &&
     /publish_results:\s+true/.test(scorecardWorkflow)
+  const scorecardWorkflowPublishRestrictionsCompliant =
+    scorecardWorkflowPresent &&
+    !/^\s*env:\s*$/m.test(scorecardWorkflow) &&
+    !/^\s*defaults:\s*$/m.test(scorecardWorkflow)
   const productQualityWorkflowPresent = /bun run product:quality/.test(prWorkflow)
   const frozenDependencyInstallPresent = /bun install --frozen-lockfile/.test(prWorkflow) && /bun install --frozen-lockfile/.test(releaseWorkflow)
   const npmProvenanceConfigured = /npm publish --access public --provenance/.test(releaseWorkflow)
@@ -313,6 +319,7 @@ function main(): void {
     check('Scorecard workflow permissions are scoped', scorecardWorkflowPermissionsScoped, 'contents: read, security-events: write, id-token: write'),
     check('Scorecard workflow has scheduled scanning', scorecardScheduledScanConfigured, 'schedule cron'),
     check('Scorecard workflow publishes SARIF results', scorecardSarifUploadConfigured, 'results.sarif / sarif / publish_results'),
+    check('Scorecard workflow follows publish_results restrictions', scorecardWorkflowPublishRestrictionsCompliant, 'no env/defaults in Scorecard workflow'),
     check('product-quality workflow is present', productQualityWorkflowPresent, 'bun run product:quality'),
     check('dependency install uses frozen lockfile', frozenDependencyInstallPresent, 'bun install --frozen-lockfile'),
     check('npm provenance publish flag is configured or release is boundary-only', releaseWorkflowBoundaryOnly || npmProvenanceConfigured, releaseWorkflowBoundaryOnly ? 'release boundary disables npm publish' : 'npm publish --access public --provenance'),
@@ -389,6 +396,7 @@ function main(): void {
     scorecardWorkflowPermissionsScoped,
     scorecardScheduledScanConfigured,
     scorecardSarifUploadConfigured,
+    scorecardWorkflowPublishRestrictionsCompliant,
     scorecardHostedExecutionPerformed: false,
     productQualityWorkflowPresent,
     frozenDependencyInstallPresent,
