@@ -1,0 +1,29 @@
+name: OpenSSF Scorecard
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "41 4 * * 2"
+
+permissions:
+  contents: read
+  security-events: write
+  id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  scorecard:
+    name: OpenSSF Scorecard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Scorecard
+        uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
