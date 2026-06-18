@@ -55,6 +55,15 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | MFH | drift, state, evidence, closure, release claim을 막는 governed-code gate |
 | OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route |
 
+### 배선 증거 맵
+
+| 심볼 | 공개 역할 | 증거 등급 | 런타임 경계 |
+| --- | --- | --- | --- |
+| Orchestra | Claude/Codex route 위에서 planner, skeptic, implementer, reviewer, evidence arbiter, promotion 역할을 분배합니다. | runtime-wired import path; unit/product-quality evidence | Runtime code는 `src/services/orchestra/`에 있고 CLI query surface에서 호출됩니다. |
+| Meta/MFH | 운영 기억, goal contract, evidence gate, closure rule을 정직하게 유지합니다. | governance/docs/gates | `docs/`, schema, report, product-quality gate로 표현됩니다. 이 checkout의 별도 runtime module이 아닙니다. |
+| Mimesis Engineering | OSS, 논문, 특허, 표준, 제품 패턴에서 load-bearing structure를 흡수하는 source-first loop입니다. | source-ledger loop이며 기본 runtime module이 아닙니다 | 공개 증거는 docs/source ledger와 local verification입니다. private/local workbench material은 public proof 밖에 둡니다. |
+| AVF Influence Factory | venture/factory packet을 만드는 operator artifact flow입니다. | manual artifact lane이며 기본 CLI runtime import가 아닙니다 | `avf/`와 validator script에 있으며 generated operator output은 ignored local artifact로 남깁니다. |
+
 ## 빠른 시작
 
 ```bash
