@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-18T09:14:33.217Z",
+  "generatedAt": "2026-06-18T21:56:34.656Z",
   "mode": "code_scanning_remediation_queue_claim_safe",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "sourceCommit": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+  "sourceCommit": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
   "generatedFrom": "docs/product-quality/github-hosted-trust-posture-report.json",
   "status": "remediation_queue_required",
   "primarySourceInputs": [
@@ -59,21 +59,21 @@
   ],
   "codeScanning": {
     "status": "available",
-    "openAlertCount": 414,
+    "openAlertCount": 416,
     "byRuleSeverity": {
-      "note": 199,
-      "warning": 207,
+      "note": 200,
+      "warning": 208,
       "error": 8
     },
     "bySecuritySeverity": {
-      "unknown": 263,
-      "medium": 113,
+      "unknown": 264,
+      "medium": 114,
       "high": 38
     },
     "topRules": [
       {
         "ruleId": "js/unused-local-variable",
-        "count": 181
+        "count": 182
       },
       {
         "ruleId": "js/file-access-to-http",
@@ -116,73 +116,73 @@
   "latestMainRuns": [
     {
       "conclusion": "success",
-      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
       "name": "Release Boundary",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27747476143"
-    },
-    {
-      "conclusion": "",
-      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
-      "name": "CodeQL",
-      "status": "in_progress",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27747476192"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27789373264"
     },
     {
       "conclusion": "success",
-      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "name": "OpenSSF Scorecard",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27789373242"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
       "name": "PR Checks",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27747476240"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27789373230"
     },
     {
       "conclusion": "success",
-      "headSha": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
-      "name": "Release Boundary",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27743588914"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
-      "name": "PR Checks",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27743588933"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
+      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
       "name": "CodeQL",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27743588937"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27789373290"
     },
     {
       "conclusion": "success",
-      "headSha": "c5d8bc24fda1e6d5588f7eae9a2d753322ec17b1",
-      "name": "Release Boundary",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27741904386"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "c5d8bc24fda1e6d5588f7eae9a2d753322ec17b1",
+      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
       "name": "PR Checks",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27741904379"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27788252073"
     },
     {
-      "conclusion": "success",
-      "headSha": "c5d8bc24fda1e6d5588f7eae9a2d753322ec17b1",
+      "conclusion": "cancelled",
+      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
       "name": "CodeQL",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27741904372"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27788252024"
     },
     {
       "conclusion": "success",
-      "headSha": "778c86c841cb88e9e3e576521a9e93c07fa78a67",
+      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
       "name": "Release Boundary",
       "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27739981752"
+      "url": "https://github.com/svy04/metaforge/actions/runs/27788252014"
+    },
+    {
+      "conclusion": "failure",
+      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
+      "name": "OpenSSF Scorecard",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27788252017"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "e009589e69050d447d43ac497e37250d3a3e1018",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27787129357"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "e009589e69050d447d43ac497e37250d3a3e1018",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27787129265"
     }
   ],
   "queueItems": [
@@ -294,16 +294,16 @@
       "openAlertCount": 32,
       "sampleLocations": [
         {
+          "path": "src/utils/providerProfile.ts",
+          "startLine": 518
+        },
+        {
           "path": "src/utils/telemetry/perfettoTracing.ts",
           "startLine": 1062
         },
         {
           "path": "src/utils/telemetry/perfettoTracing.ts",
           "startLine": 1028
-        },
-        {
-          "path": "src/utils/telemetry/perfettoTracing.ts",
-          "startLine": 995
         }
       ],
       "priority": "P1",
@@ -359,19 +359,19 @@
     {
       "queueId": "codeql-js-unused-local-variable",
       "ruleId": "js/unused-local-variable",
-      "openAlertCount": 181,
+      "openAlertCount": 182,
       "sampleLocations": [
+        {
+          "path": "scripts/product-github-remote-surface-audit.ts",
+          "startLine": 1
+        },
+        {
+          "path": "scripts/validate-eval-flywheel.ts",
+          "startLine": 77
+        },
         {
           "path": "scripts/product-trace-schema-contract.ts",
           "startLine": 3
-        },
-        {
-          "path": "scripts/product-trace-redaction-policy.ts",
-          "startLine": 3
-        },
-        {
-          "path": "src/utils/providerProfile.ts",
-          "startLine": 209
         }
       ],
       "priority": "P3",
@@ -530,7 +530,7 @@
   ],
   "queueItemCount": 10,
   "sampleDiscoveryStatus": "available",
-  "sampleDiscoveryDetail": "26 rules sampled",
+  "sampleDiscoveryDetail": "27 rules sampled",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [
