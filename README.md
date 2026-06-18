@@ -29,6 +29,7 @@ Public history boundary: Metaforge moved from a private/local workbench into thi
 | What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
 | Fastest verification | `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
 | Strongest public evidence | [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), and [evidence manifest](docs/product-quality/product-evidence-manifest.md). |
+| Evidence class map | The evidence manifest now separates behavioral runtime evidence from static analysis, governance-boundary, source-control, and structural-inventory evidence before public claims are upgraded. |
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
 

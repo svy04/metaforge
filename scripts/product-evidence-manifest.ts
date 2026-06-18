@@ -17,6 +17,13 @@ export type EvidenceRecord = {
   role: 'source' | 'evidence_report' | 'evidence_artifact' | 'quality_gate' | 'workflow'
 }
 
+export type EvidenceProofClass =
+  | 'behavioral_runtime'
+  | 'static_analysis'
+  | 'governance_boundary'
+  | 'source_control'
+  | 'structural_inventory'
+
 export type ProductEvidenceManifestReport = {
   generatedAt: string
   mode: 'local_no_provider_product_evidence_manifest'
@@ -31,6 +38,7 @@ export type ProductEvidenceManifestReport = {
   evidenceRecordCount: number
   evidenceTotalSizeBytes: number
   evidenceRoles: Record<EvidenceRecord['role'], number>
+  evidenceProofClasses: Record<EvidenceProofClass, number>
   requiredEvidencePaths: string[]
   missingRequiredEvidencePaths: string[]
   recursiveSelfInputsExcluded: string[]
@@ -261,6 +269,61 @@ export function roleFor(path: string): EvidenceRecord['role'] {
   return 'evidence_artifact'
 }
 
+export function proofClassFor(path: string): EvidenceProofClass {
+  const normalized = normalizePath(path).toLowerCase()
+  if (
+    normalized.includes('transcript') ||
+    normalized.includes('trace') ||
+    normalized.includes('smoke') ||
+    normalized.includes('runtime-doctor') ||
+    normalized.includes('permission-regression') ||
+    normalized.includes('provider-compatibility') ||
+    normalized.includes('local-benchmark') ||
+    normalized.includes('agent-replay') ||
+    normalized.includes('real-session') ||
+    normalized.includes('tool-interruption') ||
+    normalized.includes('protected-action-denial') ||
+    normalized.includes('prompted-tool-loop') ||
+    normalized.includes('code-editing-trace')
+  ) {
+    return 'behavioral_runtime'
+  }
+  if (
+    normalized.includes('jscpd') ||
+    normalized.includes('dependency-cruiser') ||
+    normalized.includes('dependency-topology') ||
+    normalized.includes('dead-export') ||
+    normalized.includes('script-duplication') ||
+    normalized.includes('knip')
+  ) {
+    return 'static_analysis'
+  }
+  if (
+    normalized.includes('claim') ||
+    normalized.includes('license') ||
+    normalized.includes('authorization') ||
+    normalized.includes('openssf') ||
+    normalized.includes('governance') ||
+    normalized.includes('policy') ||
+    normalized.includes('readiness') ||
+    normalized.includes('quality-blocker') ||
+    normalized.includes('public-feedback') ||
+    normalized.includes('agent-instructions') ||
+    normalized.includes('community')
+  ) {
+    return 'governance_boundary'
+  }
+  if (
+    normalized === 'package.json' ||
+    normalized === 'bun.lock' ||
+    normalized.startsWith('.github/') ||
+    normalized.endsWith('product-quality-gate.md')
+  ) {
+    return 'source_control'
+  }
+  return 'structural_inventory'
+}
+
 function buildEvidenceRecords(): EvidenceRecord[] {
   const candidatePaths = [
     'package.json',
@@ -301,6 +364,16 @@ export function countRoles(records: EvidenceRecord[]): Record<EvidenceRecord['ro
   }
 }
 
+export function countProofClasses(records: EvidenceRecord[]): Record<EvidenceProofClass, number> {
+  return {
+    behavioral_runtime: records.filter((record) => proofClassFor(record.path) === 'behavioral_runtime').length,
+    static_analysis: records.filter((record) => proofClassFor(record.path) === 'static_analysis').length,
+    governance_boundary: records.filter((record) => proofClassFor(record.path) === 'governance_boundary').length,
+    source_control: records.filter((record) => proofClassFor(record.path) === 'source_control').length,
+    structural_inventory: records.filter((record) => proofClassFor(record.path) === 'structural_inventory').length,
+  }
+}
+
 export function buildEvidenceManifestJsonl(evidenceRecords: EvidenceRecord[]): string {
   return `${evidenceRecords.map((record) => JSON.stringify(record)).join('\n')}\n`
 }
@@ -322,6 +395,7 @@ export function buildProductEvidenceManifestReport({
   const manifestJsonlSha256 = sha256Text(manifestText)
   const missingRequiredEvidencePaths = requiredPaths.filter((path) => !evidenceRecords.some((record) => record.path === path))
   const evidenceRoles = countRoles(evidenceRecords)
+  const evidenceProofClasses = countProofClasses(evidenceRecords)
   const evidenceTotalSizeBytes = evidenceRecords.reduce((total, record) => total + record.sizeBytes, 0)
   const manifestHasCredentialPattern = hasCredentialPattern(manifestText)
 
@@ -333,6 +407,11 @@ export function buildProductEvidenceManifestReport({
     check('manifest JSONL hash is recorded', manifestJsonlSha256.length === 64, outputManifestJsonlPath),
     check('recursive self inputs are excluded', recursiveSelfInputs.every((path) => !evidenceRecords.some((record) => record.path === path)), recursiveSelfInputs.join(',')),
     check('evidence roles cover reports, artifacts, workflows, source, and gate', Object.values(evidenceRoles).every((count) => count > 0), JSON.stringify(evidenceRoles)),
+    check(
+      'behavioral evidence is separated from structural audit evidence',
+      evidenceProofClasses.behavioral_runtime > 0 && evidenceProofClasses.static_analysis > 0,
+      JSON.stringify(evidenceProofClasses),
+    ),
     check('manifest contains no credential patterns', !manifestHasCredentialPattern, 'known key/token/private-key patterns absent'),
     check('primary source patterns are recorded', true, 'SLSA provenance, in-toto Statement, OpenSSF Scorecard'),
     check('protected actions are not executed', true, 'protectedActionsExecuted=[]'),
@@ -365,6 +444,7 @@ export function buildProductEvidenceManifestReport({
     evidenceRecordCount: evidenceRecords.length,
     evidenceTotalSizeBytes,
     evidenceRoles,
+    evidenceProofClasses,
     requiredEvidencePaths: requiredPaths,
     missingRequiredEvidencePaths,
     recursiveSelfInputsExcluded: recursiveSelfInputs,
@@ -381,7 +461,7 @@ export function buildProductEvidenceManifestReport({
     autonomousReliabilityClaimAllowed: false,
     evidenceRecords,
     evidenceChecks,
-    claimBoundary: 'Product evidence manifest is local no-provider evidence packaging only. It is not a signed attestation and does not authorize release, production, public, external-validation, or autonomous-reliability claims.',
+    claimBoundary: 'Product evidence manifest is local no-provider evidence packaging only. Proof classes are path-derived evidence buckets for claim hygiene, not external validation. The manifest is not a signed attestation and does not authorize release, production, public, external-validation, or autonomous-reliability claims.',
   }
 
   return { report, manifestText }
@@ -393,6 +473,9 @@ function writeMarkdown(report: ProductEvidenceManifestReport): void {
     .join('\n')
   const roleRows = Object.entries(report.evidenceRoles)
     .map(([role, count]) => `| \`${role}\` | ${count} |`)
+    .join('\n')
+  const proofClassRows = Object.entries(report.evidenceProofClasses)
+    .map(([proofClass, count]) => `| \`${proofClass}\` | ${count} |`)
     .join('\n')
   const checkRows = report.evidenceChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
@@ -430,6 +513,14 @@ ${report.primarySourceInputs.map((source) => `| ${source.sourceProject} | ${sour
 | Role | Count |
 | --- | ---: |
 ${roleRows}
+
+## Evidence Proof Classes
+
+Proof classes are local path-derived buckets for claim hygiene. They distinguish behavior-level evidence from structural/static/governance evidence; they are not external validation.
+
+| Proof Class | Count |
+| --- | ---: |
+${proofClassRows}
 
 ## Required Evidence Coverage
 
