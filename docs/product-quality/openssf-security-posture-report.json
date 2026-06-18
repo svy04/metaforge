@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T20:58:23.371Z",
+  "generatedAt": "2026-06-18T21:56:01.823Z",
   "mode": "local_no_provider_openssf_security_posture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -89,7 +89,7 @@
       "id": "hosted_ci_scorecard_evidence",
       "status": "classified_unresolved",
       "protectedActionRequired": true,
-      "reason": "Hosted CI evidence requires a real GitHub repository/remote workflow run; this workspace is not currently a Git repository root."
+      "reason": "Hosted CI evidence requires a real GitHub Actions run; local Git workspace detection is not hosted-run evidence."
     },
     {
       "id": "hosted_codeql_analysis_evidence",

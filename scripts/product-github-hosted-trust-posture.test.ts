@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test'
 import { readFileSync } from 'node:fs'
 import {
   analyzeHostedTrustPosture,
+  buildHostedTrustPostureMarkdown,
   buildHostedTrustPostureJsonl,
   hostedTrustPostureMode,
 } from './product-github-hosted-trust-posture'
@@ -82,10 +83,89 @@ describe('GitHub hosted trust posture analysis', () => {
         'main_workflow_not_green',
       ]),
     )
+    expect(report.risks.some((risk) => risk.detail.includes('OpenSSF Scorecard'))).toBe(true)
     expect(report.primarySourceInputs.map((source) => source.sourceType)).toEqual(
       expect.arrayContaining(['github_doc', 'oss_tool', 'standard', 'paper', 'patent']),
     )
     expect(report.evidenceChecks.some((check) => check.label === 'hosted settings were read only' && check.ok)).toBe(true)
+  })
+
+  test('requires a hosted OpenSSF Scorecard main run before workflow posture is green', () => {
+    const baseInput = {
+      repository: 'svy04/metaforge',
+      defaultBranch: 'main',
+      branchProtection: { status: 'enabled' as const, detail: 'protected' },
+      rulesets: { status: 'present' as const, count: 1, detail: '1 ruleset' },
+      securityAndAnalysis: {
+        secretScanning: 'enabled' as const,
+        pushProtection: 'enabled' as const,
+        dependabotSecurityUpdates: 'enabled' as const,
+      },
+      vulnerabilityAlerts: { status: 'enabled' as const, detail: '204' },
+      codeScanning: {
+        status: 'available' as const,
+        openAlertCount: 0,
+        byRuleSeverity: {},
+        bySecuritySeverity: {},
+        topRules: [],
+      },
+      discovery: {
+        repositoryDiscovery: 'gh_repo_view' as const,
+        branchProtectionDiscovery: 'github_branch_protection_api' as const,
+        rulesetDiscovery: 'github_rulesets_api' as const,
+        securityAndAnalysisDiscovery: 'github_repository_api' as const,
+        vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api' as const,
+        codeScanningDiscovery: 'github_code_scanning_api' as const,
+        workflowRunDiscovery: 'gh_run_list' as const,
+      },
+    }
+    const greenCoreRuns = [
+      {
+        name: 'PR Checks',
+        status: 'completed',
+        conclusion: 'success',
+        headSha: 'a'.repeat(40),
+        url: 'https://github.com/svy04/metaforge/actions/runs/1',
+      },
+      {
+        name: 'Release Boundary',
+        status: 'completed',
+        conclusion: 'success',
+        headSha: 'a'.repeat(40),
+        url: 'https://github.com/svy04/metaforge/actions/runs/2',
+      },
+      {
+        name: 'CodeQL',
+        status: 'completed',
+        conclusion: 'success',
+        headSha: 'a'.repeat(40),
+        url: 'https://github.com/svy04/metaforge/actions/runs/3',
+      },
+    ]
+
+    const missingScorecard = analyzeHostedTrustPosture({
+      ...baseInput,
+      latestMainRuns: greenCoreRuns,
+    })
+    expect(missingScorecard.risks.some((risk) => risk.detail.includes('OpenSSF Scorecard'))).toBe(true)
+    expect(missingScorecard.status).toBe('hosted_trust_risks_detected')
+
+    const withScorecard = analyzeHostedTrustPosture({
+      ...baseInput,
+      latestMainRuns: [
+        {
+          name: 'OpenSSF Scorecard',
+          status: 'completed',
+          conclusion: 'success',
+          headSha: 'a'.repeat(40),
+          url: 'https://github.com/svy04/metaforge/actions/runs/4',
+        },
+        ...greenCoreRuns,
+      ],
+    })
+    expect(withScorecard.risks.some((risk) => risk.category === 'main_workflow_not_green')).toBe(false)
+    expect(withScorecard.status).toBe('hosted_trust_no_risks_detected')
+    expect(withScorecard.releaseReadinessClaimAllowed).toBe(false)
   })
 
   test('writes JSONL risk records when hosted risks are present', () => {
@@ -124,5 +204,71 @@ describe('GitHub hosted trust posture analysis', () => {
 
     expect(records.some((record) => record.kind === 'github_hosted_trust_risk')).toBe(true)
     expect(records.some((record) => record.category === 'code_scanning_alert_backlog')).toBe(true)
+  })
+
+  test('markdown report exposes generated time and freshness boundary', () => {
+    const report = analyzeHostedTrustPosture({
+      repository: 'svy04/metaforge',
+      defaultBranch: 'main',
+      branchProtection: { status: 'enabled', detail: 'protected' },
+      rulesets: { status: 'present', count: 1, detail: '1 ruleset' },
+      securityAndAnalysis: {
+        secretScanning: 'enabled',
+        pushProtection: 'enabled',
+        dependabotSecurityUpdates: 'enabled',
+      },
+      vulnerabilityAlerts: { status: 'enabled', detail: '204' },
+      codeScanning: {
+        status: 'available',
+        openAlertCount: 0,
+        byRuleSeverity: {},
+        bySecuritySeverity: {},
+        topRules: [],
+      },
+      latestMainRuns: [
+        {
+          name: 'OpenSSF Scorecard',
+          status: 'completed',
+          conclusion: 'success',
+          headSha: 'a'.repeat(40),
+          url: 'https://github.com/svy04/metaforge/actions/runs/4',
+        },
+        {
+          name: 'PR Checks',
+          status: 'completed',
+          conclusion: 'success',
+          headSha: 'a'.repeat(40),
+          url: 'https://github.com/svy04/metaforge/actions/runs/1',
+        },
+        {
+          name: 'Release Boundary',
+          status: 'completed',
+          conclusion: 'success',
+          headSha: 'a'.repeat(40),
+          url: 'https://github.com/svy04/metaforge/actions/runs/2',
+        },
+        {
+          name: 'CodeQL',
+          status: 'completed',
+          conclusion: 'success',
+          headSha: 'a'.repeat(40),
+          url: 'https://github.com/svy04/metaforge/actions/runs/3',
+        },
+      ],
+      discovery: {
+        repositoryDiscovery: 'gh_repo_view',
+        branchProtectionDiscovery: 'github_branch_protection_api',
+        rulesetDiscovery: 'github_rulesets_api',
+        securityAndAnalysisDiscovery: 'github_repository_api',
+        vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api',
+        codeScanningDiscovery: 'github_code_scanning_api',
+        workflowRunDiscovery: 'gh_run_list',
+      },
+    })
+
+    const markdown = buildHostedTrustPostureMarkdown(report, 'a'.repeat(64))
+
+    expect(markdown).toContain(`- generated_at: \`${report.generatedAt}\``)
+    expect(markdown).toContain('- freshness_boundary: `current at generated_at only`')
   })
 })

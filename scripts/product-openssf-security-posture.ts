@@ -282,7 +282,7 @@ function main(): void {
       id: 'hosted_ci_scorecard_evidence',
       status: 'classified_unresolved',
       protectedActionRequired: true,
-      reason: 'Hosted CI evidence requires a real GitHub repository/remote workflow run; this workspace is not currently a Git repository root.',
+      reason: 'Hosted CI evidence requires a real GitHub Actions run; local Git workspace detection is not hosted-run evidence.',
     },
     {
       id: 'hosted_codeql_analysis_evidence',
