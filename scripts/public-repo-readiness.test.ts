@@ -253,7 +253,7 @@ describe('public repository readiness surfaces', () => {
     expect(generatedAvfRuns).toEqual([])
   })
 
-  test('public setup docs do not pin stale OpenAI model examples', () => {
+  test('public setup docs avoid current-model recency claims', () => {
     const docs = readPublicSetupDocs()
 
     for (const [path, text] of Object.entries(docs)) {
@@ -266,16 +266,20 @@ describe('public repository readiness surfaces', () => {
       expect(text, path).not.toMatch(/\bclaude-sonnet-4-5-20250929\b/i)
       expect(text, path).not.toMatch(/~\/\.codex\/auth\.json/i)
       expect(text, path).not.toMatch(/\b(?:current[-\s]?best|best[-\s]?(?:available\s+)?(?:provider|model|benchmark)|recommended\s+(?:free\s+)?(?:provider|model|benchmark))\b/i)
+      expect(text, path).not.toMatch(/<current-[^>\n]*model>/i)
+      expect(text, path).not.toMatch(/\bcurrent\s+(?:OpenAI|Anthropic|Mistral)\s+model\b/i)
+      expect(text, path).not.toMatch(/\b[a-z0-9][a-z0-9.-]*-latest\b/i)
     }
 
-    expect(docs['README.md']).toContain('<current-openai-tool-model>')
+    expect(docs['README.md']).toContain('<openai-tool-model-id>')
     expect(docs['README.md']).toContain('<local-ollama-model>')
-    expect(docs['docs/quick-start-windows.md']).toContain('<current-openai-tool-model>')
-    expect(docs['docs/quick-start-mac-linux.md']).toContain('<current-openai-tool-model>')
-    expect(docs['docs/advanced-setup.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/quick-start-windows.md']).toContain('<openai-tool-model-id>')
+    expect(docs['docs/quick-start-mac-linux.md']).toContain('<openai-tool-model-id>')
+    expect(docs['docs/advanced-setup.md']).toContain('<openai-tool-model-id>')
     expect(docs['docs/litellm-setup.md']).toContain('openai-tool-model')
-    expect(docs['docs/litellm-setup.md']).toContain('<current-anthropic-tool-model>')
-    expect(docs['PLAYBOOK.md']).toContain('<current-openai-tool-model>')
+    expect(docs['docs/litellm-setup.md']).toContain('<anthropic-tool-model-id>')
+    expect(docs['docs/advanced-setup.md']).toContain('<mistral-tool-model-id>')
+    expect(docs['PLAYBOOK.md']).toContain('<openai-tool-model-id>')
     expect(docs['PLAYBOOK.md']).toContain('<local-ollama-model>')
   })
 

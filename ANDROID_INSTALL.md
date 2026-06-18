@@ -47,7 +47,7 @@ history, screenshots, issues, or repository files.
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=<provider-api-key>
 export OPENAI_BASE_URL=<openai-compatible-base-url>
-export OPENAI_MODEL=<current-openai-tool-model>
+export OPENAI_MODEL=<openai-tool-model-id>
 node dist/cli.mjs
 ```
 
