@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T20:36:40.080Z",
+  "generatedAt": "2026-06-18T20:58:30.212Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,9 +20,9 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "9db7c8264d4e9166393b1e5860d351d1bf576abd2363378d2d815c42ea976ce1",
+  "manifestJsonlSha256": "eefaf8e559e409be56e2ba5e294200ab86c59ddbf6edee61c63916ce1d3f8c60",
   "evidenceRecordCount": 220,
-  "evidenceTotalSizeBytes": 11957787,
+  "evidenceTotalSizeBytes": 11957855,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 202,
@@ -223,8 +223,8 @@
     },
     {
       "path": ".github/workflows/scorecard.yml",
-      "sha256": "4d886843abdcef9406b52f051da25c97f264218ee578f713b41de585ae3c943a",
-      "sizeBytes": 507,
+      "sha256": "5436fa049b53c5200966dcff56f9eb6b755f523593e635fe251430e21d429ebc",
+      "sizeBytes": 553,
       "role": "workflow"
     },
     {
@@ -733,14 +733,14 @@
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.json",
-      "sha256": "86e2b4f89759d03f223b076adf7e3ee392e98cb542c10a9ab044f4bcc2ae7f64",
-      "sizeBytes": 11572,
+      "sha256": "10e8ef65d6cac8d86936dfbdb2a60340711ae0289e76938f580cfa740c039f91",
+      "sizeBytes": 11583,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.md",
-      "sha256": "d1cd2a084a9fe10b0f8ba4639b0c001cb2a7d8431961c89030836177ac87bf65",
-      "sizeBytes": 8458,
+      "sha256": "aa7d994a2622f53656382e2ca66673af874d5860de0be792c27669a7c85f95b8",
+      "sizeBytes": 8469,
       "role": "evidence_report"
     },
     {
@@ -1502,7 +1502,7 @@
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "11957787 total bytes"
+      "detail": "11957855 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",

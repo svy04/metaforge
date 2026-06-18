@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T20:36:32.078Z",
+  "generatedAt": "2026-06-18T20:58:23.371Z",
   "mode": "local_no_provider_openssf_security_posture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -14,7 +14,7 @@
   "codeqlWorkflowPath": ".github/workflows/codeql.yml",
   "codeqlWorkflowSha256": "f816e44746bdde5ac4ff040eabf44b52e277cffa104c14bea5e8d0f220918c53",
   "scorecardWorkflowPath": ".github/workflows/scorecard.yml",
-  "scorecardWorkflowSha256": "4d886843abdcef9406b52f051da25c97f264218ee578f713b41de585ae3c943a",
+  "scorecardWorkflowSha256": "5436fa049b53c5200966dcff56f9eb6b755f523593e635fe251430e21d429ebc",
   "dependabotConfigPath": ".github/dependabot.yml",
   "dependabotConfigSha256": "40217e92a62970cf6cc535be9f60b00450d174b6f278e48b4e772e2565624d61",
   "primarySourceInputs": [
@@ -203,7 +203,7 @@
     {
       "label": "Scorecard workflow permissions are scoped",
       "ok": true,
-      "detail": "contents: read, security-events: write, id-token: write"
+      "detail": "top-level contents: read; job-level security-events/id-token write"
     },
     {
       "label": "Scorecard workflow has scheduled scanning",
