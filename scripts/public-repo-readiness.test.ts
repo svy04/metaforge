@@ -134,6 +134,25 @@ describe('public repository readiness surfaces', () => {
     expect(validateKoreanReadmeRoute(root)).toEqual([])
   })
 
+  test('public feedback docs preserve latest community signals without raw private breadcrumbs', () => {
+    const snapshot = readRepoText('docs/product-quality/public-feedback-snapshot-2026-06-15.md')
+    const triage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-15.md')
+    const combined = `${snapshot}\n${triage}`
+
+    expect(combined).toContain('2026-06-18 Owner-Restated Feedback Packet')
+    expect(combined).toContain('private-to-public transition')
+    expect(combined).toContain('OpenClaude runtime substrate')
+    expect(combined).toMatch(/behavioral happy paths, edge cases,[\s\S]*side-effect (?:guards|checks)/)
+    expect(combined).toContain('Knip')
+    expect(combined).toContain('dependency-cruiser')
+    expect(combined).toContain('jscpd')
+    expect(combined).toContain('Korean docs')
+    expect(combined).not.toContain('갤로그')
+    for (const needle of privateLocalPathNeedles()) {
+      expect(combined).not.toContain(needle)
+    }
+  })
+
   test('Korean README route contract rejects broken public navigation fixtures', () => {
     const fixtureRoot = mkdtempSync(join(tmpdir(), 'metaforge-readme-route-'))
     try {
@@ -347,6 +366,36 @@ describe('public repository readiness surfaces', () => {
     expect(scorecard).toContain('# Metaforge Competitive Evidence Scorecard')
     expect(scorecard).toContain('OpenClaude is the runtime substrate')
     expect(scorecard).not.toContain('## OpenClaude Product Thesis')
+  })
+
+  test('product-quality evidence docs keep Metaforge as product layer over OpenClaude substrate', () => {
+    const evidenceDocs = {
+      'docs/product-quality/primary-source-learning-loop.md': readRepoText('docs/product-quality/primary-source-learning-loop.md'),
+      'docs/product-quality/product-evidence-manifest.md': readRepoText('docs/product-quality/product-evidence-manifest.md'),
+      'docs/product-quality/benchmark-readiness-matrix.md': readRepoText('docs/product-quality/benchmark-readiness-matrix.md'),
+    }
+    const evidenceGenerators = {
+      'scripts/product-evidence-manifest.ts': readRepoText('scripts/product-evidence-manifest.ts'),
+      'scripts/product-benchmark-readiness-matrix.ts': readRepoText('scripts/product-benchmark-readiness-matrix.ts'),
+    }
+    const forbiddenDrift = [
+      'OpenClaude must keep improving',
+      'whether OpenClaude should',
+      'proves OpenClaude is learning',
+      'OpenClaude product-quality evidence',
+      'local OpenClaude product-quality evidence',
+    ]
+
+    for (const [path, text] of Object.entries({ ...evidenceDocs, ...evidenceGenerators })) {
+      expect(text, path).toContain('Metaforge')
+      for (const marker of forbiddenDrift) {
+        expect(text, `${path}: ${marker}`).not.toContain(marker)
+      }
+    }
+
+    expect(evidenceDocs['docs/product-quality/primary-source-learning-loop.md']).toContain('OpenClaude runtime substrate')
+    expect(evidenceDocs['docs/product-quality/product-evidence-manifest.md']).toContain('Metaforge product-quality evidence over the OpenClaude runtime substrate')
+    expect(evidenceDocs['docs/product-quality/benchmark-readiness-matrix.md']).toContain('Metaforge product-quality evidence over the OpenClaude runtime substrate')
   })
 
   test('runtime diagnostics do not recommend pinned local model examples', () => {

@@ -1,6 +1,6 @@
 # Primary-Source Learning Loop
 
-OpenClaude must keep improving by studying primary sources and absorbing proven patterns when they are better than the current local design.
+Metaforge must keep improving by studying primary sources and absorbing proven patterns when they are better than the current local design. OpenClaude remains the runtime substrate beneath this product-quality loop.
 
 ## Rule
 
@@ -8,7 +8,7 @@ When research discovers a better maintained open-source implementation, official
 
 1. Record it in `open-source-absorption-register.json`.
 2. Identify the concrete pattern worth learning from.
-3. Decide whether OpenClaude should reuse, adapt, benchmark against, or reject the pattern.
+3. Decide whether Metaforge should reuse, adapt, benchmark against, or reject the pattern while keeping OpenClaude framed as runtime substrate.
 4. If safe and scoped, implement the next local improvement.
 5. If implementation requires a protected boundary, record the blocker instead of pretending it is done.
 6. Verify with a local command before claiming the improvement.
@@ -78,4 +78,4 @@ When research discovers a better maintained open-source implementation, official
 
 ## Claim Boundary
 
-This loop proves OpenClaude is learning from stronger primary sources. It does not prove that OpenClaude is already better than those sources.
+This loop proves Metaforge is learning from stronger primary sources over the OpenClaude runtime substrate. It does not prove that Metaforge is already better than those sources.
