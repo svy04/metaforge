@@ -73,6 +73,15 @@ Use the public proof pack when describing Metaforge outside the repo. It gives t
 
 Wiring boundary: Orchestra is runtime-wired in `src/` today. Meta and MFH are governance, schema, and evidence-gate surfaces in `docs/`, reports, and product-quality gates. AVF Influence Factory is a repo-local manual artifact lane under `avf/` and `scripts/`, not a default runtime import. Generated AVF operator runs are local-only artifacts; see [avf/influence_factory/operator_runs.md](avf/influence_factory/operator_runs.md).
 
+### Wiring Evidence Map
+
+| Symbol | Public role | Evidence class | Runtime boundary |
+| --- | --- | --- | --- |
+| Orchestra | Routes planner, skeptic, implementer, reviewer, evidence arbiter, and promotion roles across Claude/Codex-backed execution paths. | runtime-wired import path; unit and product-quality evidence | Runtime code lives under `src/services/orchestra/` and is called from CLI query surfaces. |
+| Meta/MFH | Keeps operating memory, goal contracts, evidence gates, and closure rules honest. | governance/docs/gates | Expressed through `docs/`, schemas, reports, and product-quality gates; not a separate runtime module in this checkout. |
+| Mimesis Engineering | Source-first improvement loop that absorbs OSS, papers, patents, standards, and product patterns. | source-ledger loop, not a default runtime module | Public proof is docs/source ledgers plus local verification; private/local workbench material stays outside public proof. |
+| AVF Influence Factory | Operator artifact flow for venture/factory packets. | manual artifact lane, not a default CLI runtime import | Lives under `avf/` and validator scripts; generated operator outputs remain ignored local artifacts. |
+
 ## Claude And Codex Routes
 
 Metaforge can use Claude and Codex as execution engines inside Orchestra. Claude routes can support planner, skeptic, and review roles through Claude OAuth when available. Codex routes can support visible execution and implementation roles through Codex OAuth, Codex CLI auth, OpenClaude secure storage, or environment credentials.
