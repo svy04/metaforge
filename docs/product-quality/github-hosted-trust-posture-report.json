@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T08:32:09.791Z",
+  "generatedAt": "2026-06-18T09:14:29.722Z",
   "mode": "github_hosted_trust_posture_readonly",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
@@ -132,6 +132,27 @@
   "latestMainRuns": [
     {
       "conclusion": "success",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476143"
+    },
+    {
+      "conclusion": "",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "CodeQL",
+      "status": "in_progress",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476192"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476240"
+    },
+    {
+      "conclusion": "success",
       "headSha": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
       "name": "Release Boundary",
       "status": "completed",
@@ -178,27 +199,6 @@
       "name": "Release Boundary",
       "status": "completed",
       "url": "https://github.com/svy04/metaforge/actions/runs/27739981752"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "778c86c841cb88e9e3e576521a9e93c07fa78a67",
-      "name": "PR Checks",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27739981730"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "778c86c841cb88e9e3e576521a9e93c07fa78a67",
-      "name": "CodeQL",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27739981733"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "ef9f67ee4ef2bc6861d3ae2dbd26cb59d75a7738",
-      "name": "CodeQL",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27738851114"
     }
   ],
   "risks": [
@@ -236,9 +236,14 @@
       "category": "code_scanning_alert_backlog",
       "severity": "high",
       "detail": "414 open code scanning alerts."
+    },
+    {
+      "category": "main_workflow_not_green",
+      "severity": "medium",
+      "detail": "CodeQL is in_progress/: https://github.com/svy04/metaforge/actions/runs/27747476192"
     }
   ],
-  "riskCount": 7,
+  "riskCount": 8,
   "discovery": {
     "repositoryDiscovery": "gh_repo_view",
     "branchProtectionDiscovery": "github_branch_protection_api",

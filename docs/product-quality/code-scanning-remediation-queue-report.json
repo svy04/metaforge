@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-18T08:32:12.530Z",
+  "generatedAt": "2026-06-18T09:14:33.217Z",
   "mode": "code_scanning_remediation_queue_claim_safe",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "sourceCommit": "fe9c959d84effdc4a818206e881f253bf800cc55",
+  "sourceCommit": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
   "generatedFrom": "docs/product-quality/github-hosted-trust-posture-report.json",
   "status": "remediation_queue_required",
   "primarySourceInputs": [
@@ -116,6 +116,27 @@
   "latestMainRuns": [
     {
       "conclusion": "success",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "Release Boundary",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476143"
+    },
+    {
+      "conclusion": "",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "CodeQL",
+      "status": "in_progress",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476192"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "d4dac6e55b197ad6d0522520cfc749898ed8e16a",
+      "name": "PR Checks",
+      "status": "completed",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27747476240"
+    },
+    {
+      "conclusion": "success",
       "headSha": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
       "name": "Release Boundary",
       "status": "completed",
@@ -162,27 +183,6 @@
       "name": "Release Boundary",
       "status": "completed",
       "url": "https://github.com/svy04/metaforge/actions/runs/27739981752"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "778c86c841cb88e9e3e576521a9e93c07fa78a67",
-      "name": "PR Checks",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27739981730"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "778c86c841cb88e9e3e576521a9e93c07fa78a67",
-      "name": "CodeQL",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27739981733"
-    },
-    {
-      "conclusion": "success",
-      "headSha": "ef9f67ee4ef2bc6861d3ae2dbd26cb59d75a7738",
-      "name": "CodeQL",
-      "status": "completed",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27738851114"
     }
   ],
   "queueItems": [

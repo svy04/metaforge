@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T08:31:55.365Z",
+  "generatedAt": "2026-06-18T09:14:14.645Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
   "traceFileCount": 10,
@@ -76,7 +76,7 @@
         "user"
       ],
       "models": [
-        "claude-opus-4-7-fixture",
+        "historical-local-fixture-model",
         "local-human-fixture",
         "openclaude-local-no-provider-fixture"
       ],
@@ -386,7 +386,7 @@
         "planner"
       ],
       "models": [
-        "claude-opus-4-7"
+        "historical-local-model"
       ],
       "querySources": [
         "sdk"
@@ -419,7 +419,7 @@
         "planner"
       ],
       "models": [
-        "claude-opus-4-7"
+        "historical-local-model"
       ],
       "querySources": [
         "repl_main_thread"
@@ -458,8 +458,8 @@
       "user"
     ],
     "models": [
-      "claude-opus-4-7",
-      "claude-opus-4-7-fixture",
+      "historical-local-fixture-model",
+      "historical-local-model",
       "local-fixture-editor",
       "local-fixture-reader",
       "local-fixture-test-runner",
