@@ -500,7 +500,7 @@ async function saveProfileAndNotify(
 ): Promise<void> {
   try {
     const profileFile = createProfileFile(profile, env)
-    const filePath = saveProfileFile(profileFile)
+    const filePath = saveProfileFile(profileFile, { redactSecrets: true })
     const shouldActivateInSession = profile === 'codex'
     const activationWarning = shouldActivateInSession
       ? await applySharedProfileToCurrentSession({ profileFile })

@@ -181,12 +181,13 @@ async function main(): Promise<void> {
 
   const profile = createProfileFile(selected, env)
 
-  const outputPath = saveProfileFile(profile)
+  const outputPath = saveProfileFile(profile, { redactSecrets: true })
 
   console.log(`Saved profile: ${selected}`)
   console.log(`Goal: ${goal}`)
   console.log(`Model: ${profile.env.GEMINI_MODEL || profile.env.MISTRAL_MODEL || profile.env.OPENAI_MODEL || getGoalDefaultOpenAIModel(goal)}`)
   console.log(`Path: ${outputPath}`)
+  console.log('API keys are not persisted; keep them in your shell or secure storage.')
   console.log('Next: bun run dev:profile')
 }
 

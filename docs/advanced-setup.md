@@ -264,6 +264,8 @@ bun run dev:atomic-chat
 
 If no profile exists yet, `dev:profile` uses the same goal-aware defaults when picking the initial model.
 
+Generated `.openclaude-profile.json` files persist non-sensitive provider settings, not API keys or blocked stale model locks. Keep cloud provider keys in your shell environment or an approved local credential source before launching a key-backed profile.
+
 Use `--provider ollama` when you want a local-only path. Auto mode falls back to OpenAI when no viable local chat model is installed.
 
 Use `--provider atomic-chat` when you want Atomic Chat as the local Apple Silicon provider.

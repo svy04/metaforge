@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T06:47:13.355Z",
+  "generatedAt": "2026-06-18T08:32:03.468Z",
   "mode": "github_public_remote_surface_audit",
   "primarySourceInputs": [
     {
@@ -36,6 +36,10 @@
   "defaultBranch": "main",
   "remoteHeads": [
     {
+      "oid": "fe9c959d84effdc4a818206e881f253bf800cc55",
+      "name": "codex/profile-secretless-persistence"
+    },
+    {
       "oid": "2aea0c577df0a2db3eae4d0ccd8ad936254599df",
       "name": "dependabot/github_actions/actions/checkout-6.0.3"
     },
@@ -56,12 +60,19 @@
       "name": "dependabot/pip/python/pytest-9.1.0"
     },
     {
-      "oid": "f21f0f344239fd244a478f084d8c6e980942cbc1",
+      "oid": "d9265a0d314bb770c37326ee2222ec7d0d6b6961",
       "name": "main"
     }
   ],
-  "remoteHeadCount": 6,
+  "remoteHeadCount": 7,
   "openPullRequests": [
+    {
+      "number": 100,
+      "title": "[codex] Prevent generated profiles from persisting secrets",
+      "url": "https://github.com/svy04/metaforge/pull/100",
+      "headRefName": "codex/profile-secretless-persistence",
+      "isSameRepository": true
+    },
     {
       "number": 61,
       "title": "Bump the npm-runtime-and-dev group with 50 updates",
@@ -98,8 +109,9 @@
       "isSameRepository": true
     }
   ],
-  "openPullRequestCount": 5,
+  "openPullRequestCount": 6,
   "allowedOpenPrHeadBranches": [
+    "codex/profile-secretless-persistence",
     "dependabot/github_actions/actions/checkout-6.0.3",
     "dependabot/github_actions/actions/setup-node-6.4.0",
     "dependabot/github_actions/actions/setup-python-6.2.0",
@@ -107,6 +119,11 @@
     "dependabot/pip/python/pytest-9.1.0"
   ],
   "refScans": [
+    {
+      "refName": "codex/profile-secretless-persistence",
+      "patternFindings": [],
+      "treeFindings": []
+    },
     {
       "refName": "dependabot/github_actions/actions/checkout-6.0.3",
       "patternFindings": [],
@@ -162,7 +179,7 @@
     {
       "label": "remote heads were inventoried",
       "ok": true,
-      "detail": "6 heads"
+      "detail": "7 heads"
     },
     {
       "label": "open PR discovery is usable when non-default branches exist",

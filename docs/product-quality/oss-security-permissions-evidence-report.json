@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-06-17T00:43:20.963Z",
+  "generatedAt": "2026-06-18T08:29:21.353Z",
   "mode": "local_no_provider_oss_security_permissions_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "36462bb478d27f866746ca3a9a87ec790a5289cf6ac2914fa8ef17e0b39f45dd",
+  "sourceSafeBacklogPlanReportSha256": "633b3b77ee15d391281feecbb58da275ed1083d4a94a969046bfefb71bbe0a39",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "security_and_permissions",
-  "sourcePlanItemCount": 4,
-  "evidenceItemCount": 4,
+  "sourcePlanItemCount": 2,
+  "evidenceItemCount": 2,
   "sourceProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-security-permissions-evidence.jsonl",
-  "provenanceJsonlSha256": "742dc07e7febeb65221cd54fa3ee95f553352281eb2db0f0c9b0ee3b12c02192",
-  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlSha256": "01ab59fc27fd183e4d7b68e2691f2190690f19215a6d776f420c526dc4d62f07",
+  "provenanceJsonlRecordCount": 2,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -34,12 +33,6 @@
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "observedPattern": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
       "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix."
-    },
-    {
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "observedPattern": "Permission and security posture evidence should stay separated from hosted security service execution, branch-protection enforcement, and public security posture claims.",
-      "localAbsorption": "Convert security_and_permissions backlog items into a source-hash-addressed local security and permission evidence matrix."
     }
   ],
   "evidenceItems": [
@@ -55,31 +48,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "86fa32359be58c32704af177c37b5fa2221f72ca703f3b9a772184aa9f88efd7",
-          "sizeBytes": 19338
+          "sha256": "a5c749763393330a1896a601a7249fca7291af90c5be930dabc6037e45f09e51",
+          "sizeBytes": 11146
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
+          "sha256": "29b40e2a1b0cf1a7a4741d6a010f62bda7b9a7d3411c6e97f411a9b483c88e53",
           "sizeBytes": 9944
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "7b024908c3b2a0cc5df55ef460d1c6f1e223cd213345aa3887e562c5d8c6964f",
+          "sha256": "05c78717dceebd377444eae53fffbe798cf53ef9ace53a6b69a9e8de5cddea21",
           "sizeBytes": 10104
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "04f5cd65851e34490b0bfa920e08d999875630462292edf262c4035075f96c01",
+          "sha256": "48466528fc1bc74982faf66236224790ef008cc3064e1ba70ccc538345378b75",
           "sizeBytes": 19844
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "80fe3271b4a60b88dde5681c8743264bd62861e1c5c1981cad2d329f08a8a9d0",
+          "sha256": "4a15e721d48d73f98f801234366a9b6d2d6f48144035a0224eaca673a08e6425",
           "sizeBytes": 4142
         }
       ],
@@ -125,171 +118,31 @@
         {
           "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
           "exists": true,
-          "sha256": "86fa32359be58c32704af177c37b5fa2221f72ca703f3b9a772184aa9f88efd7",
-          "sizeBytes": 19338
+          "sha256": "a5c749763393330a1896a601a7249fca7291af90c5be930dabc6037e45f09e51",
+          "sizeBytes": 11146
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
+          "sha256": "29b40e2a1b0cf1a7a4741d6a010f62bda7b9a7d3411c6e97f411a9b483c88e53",
           "sizeBytes": 9944
         },
         {
           "path": "docs/product-quality/openssf-security-posture-report.json",
           "exists": true,
-          "sha256": "7b024908c3b2a0cc5df55ef460d1c6f1e223cd213345aa3887e562c5d8c6964f",
+          "sha256": "05c78717dceebd377444eae53fffbe798cf53ef9ace53a6b69a9e8de5cddea21",
           "sizeBytes": 10104
         },
         {
           "path": "docs/product-quality/dependency-governance-quality-report.json",
           "exists": true,
-          "sha256": "04f5cd65851e34490b0bfa920e08d999875630462292edf262c4035075f96c01",
+          "sha256": "48466528fc1bc74982faf66236224790ef008cc3064e1ba70ccc538345378b75",
           "sizeBytes": 19844
         },
         {
           "path": "docs/product-quality/source-controlled-checks-report.json",
           "exists": true,
-          "sha256": "80fe3271b4a60b88dde5681c8743264bd62861e1c5c1981cad2d329f08a8a9d0",
-          "sizeBytes": 4142
-        }
-      ],
-      "requiredEvidenceBeforeSecurityClaim": [
-        "permission regression fixture evidence with protected-action blockers",
-        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
-        "dependency governance evidence for frozen installs and pinned workflow posture",
-        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "hostedScorecardRunAllowed": false,
-      "hostedCodeqlRunAllowed": false,
-      "hostedBranchProtectionClaimAllowed": false,
-      "publicSecurityPostureClaimAllowed": false,
-      "providerCallAllowed": false,
-      "liveModelCallAllowed": false,
-      "externalServiceCallAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_security_permissions_warpdotdev_warp_37c94c34e0",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_1_0d14c9ebf6",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "security_and_permissions",
-      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
-      "securityPermissionsCoverageClass": "permission_protected_action_claim_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
-          "exists": true,
-          "sha256": "86fa32359be58c32704af177c37b5fa2221f72ca703f3b9a772184aa9f88efd7",
-          "sizeBytes": 19338
-        },
-        {
-          "path": "docs/product-quality/permission-regression-fixtures.json",
-          "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
-          "sizeBytes": 9944
-        },
-        {
-          "path": "docs/product-quality/openssf-security-posture-report.json",
-          "exists": true,
-          "sha256": "7b024908c3b2a0cc5df55ef460d1c6f1e223cd213345aa3887e562c5d8c6964f",
-          "sizeBytes": 10104
-        },
-        {
-          "path": "docs/product-quality/dependency-governance-quality-report.json",
-          "exists": true,
-          "sha256": "04f5cd65851e34490b0bfa920e08d999875630462292edf262c4035075f96c01",
-          "sizeBytes": 19844
-        },
-        {
-          "path": "docs/product-quality/source-controlled-checks-report.json",
-          "exists": true,
-          "sha256": "80fe3271b4a60b88dde5681c8743264bd62861e1c5c1981cad2d329f08a8a9d0",
-          "sizeBytes": 4142
-        }
-      ],
-      "requiredEvidenceBeforeSecurityClaim": [
-        "permission regression fixture evidence with protected-action blockers",
-        "local OpenSSF/SLSA posture evidence for repository files and workflow configuration",
-        "dependency governance evidence for frozen installs and pinned workflow posture",
-        "explicit owner authorization before hosted Scorecard, hosted CodeQL, hosted branch protection, external security service calls, or public security posture claims"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "security_permissions_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "hostedScorecardRunAllowed": false,
-      "hostedCodeqlRunAllowed": false,
-      "hostedBranchProtectionClaimAllowed": false,
-      "publicSecurityPostureClaimAllowed": false,
-      "providerCallAllowed": false,
-      "liveModelCallAllowed": false,
-      "externalServiceCallAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_security_permissions_warpdotdev_warp_43bab18994",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_2_13bc6fb88b",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "security_and_permissions",
-      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
-      "securityPermissionsCoverageClass": "hosted_security_claim_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-security-permissions-evidence-report.json",
-          "exists": true,
-          "sha256": "86fa32359be58c32704af177c37b5fa2221f72ca703f3b9a772184aa9f88efd7",
-          "sizeBytes": 19338
-        },
-        {
-          "path": "docs/product-quality/permission-regression-fixtures.json",
-          "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
-          "sizeBytes": 9944
-        },
-        {
-          "path": "docs/product-quality/openssf-security-posture-report.json",
-          "exists": true,
-          "sha256": "7b024908c3b2a0cc5df55ef460d1c6f1e223cd213345aa3887e562c5d8c6964f",
-          "sizeBytes": 10104
-        },
-        {
-          "path": "docs/product-quality/dependency-governance-quality-report.json",
-          "exists": true,
-          "sha256": "04f5cd65851e34490b0bfa920e08d999875630462292edf262c4035075f96c01",
-          "sizeBytes": 19844
-        },
-        {
-          "path": "docs/product-quality/source-controlled-checks-report.json",
-          "exists": true,
-          "sha256": "80fe3271b4a60b88dde5681c8743264bd62861e1c5c1981cad2d329f08a8a9d0",
+          "sha256": "4a15e721d48d73f98f801234366a9b6d2d6f48144035a0224eaca673a08e6425",
           "sizeBytes": 4142
         }
       ],
@@ -338,7 +191,7 @@
     {
       "label": "selected security and permissions axis has source items",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     },
     {
       "label": "source next gate candidate exists",
@@ -348,7 +201,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "20 bindings"
+      "detail": "10 bindings"
     },
     {
       "label": "coverage includes permission and hosted security claim boundaries",
@@ -358,12 +211,12 @@
     {
       "label": "every evidence item rejects hosted security and claim expansion",
       "ok": true,
-      "detail": "4 items"
+      "detail": "2 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     }
   ],
   "claimBoundary": "Internal no-provider security and permissions evidence only; not hosted Scorecard, hosted CodeQL, hosted CI, branch-protection enforcement, public security posture, release readiness, production readiness, external validation, or autonomous reliability evidence."

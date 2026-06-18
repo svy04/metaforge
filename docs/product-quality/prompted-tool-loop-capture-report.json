@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T00:45:50.742Z",
+  "generatedAt": "2026-06-18T08:31:53.646Z",
   "mode": "local_no_provider_prompted_tool_loop_capture",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -16,7 +16,7 @@
   "commandExecutable": "node",
   "commandTimeoutMs": 60000,
   "tracePath": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-  "traceSha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
+  "traceSha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
   "toolCommandCaptures": [
     {
       "name": "inspect_auto_mode_help",
@@ -32,9 +32,9 @@
       "timedOut": false,
       "errorMessage": null,
       "stdoutSha256": "40ce1ee14b9df4b97ff2620ad0f127d61f3b1b2b3cdff60e484bf0abfc7fa297",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "815775fdf938a1c7da9e543c853169c56e316498a8be06024a19e5e650d6497d",
       "stdoutByteLength": 521,
-      "stderrByteLength": 0,
+      "stderrByteLength": 391,
       "requiredSubstrings": [
         "Usage: claude auto-mode",
         "defaults",
@@ -57,9 +57,9 @@
       "timedOut": false,
       "errorMessage": null,
       "stdoutSha256": "b3320b8673ff39c99ce84ae651dce80328a84cc7e60913a44d37bc9f5ae2b437",
-      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "815775fdf938a1c7da9e543c853169c56e316498a8be06024a19e5e650d6497d",
       "stdoutByteLength": 255,
-      "stderrByteLength": 0,
+      "stderrByteLength": 391,
       "requiredSubstrings": [
         "Usage: claude agents",
         "--setting-sources"
@@ -122,7 +122,7 @@
     {
       "label": "trace artifact hash is recorded",
       "ok": true,
-      "detail": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652"
+      "detail": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359"
     },
     {
       "label": "non-synthetic user-session capture is not claimed",

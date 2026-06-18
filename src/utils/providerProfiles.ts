@@ -920,7 +920,7 @@ export function setActiveProviderProfile(
           } as const)
 
     const file = createProfileFile(startupProfile.profile, startupProfile.env)
-    saveProfileFile(file)
+    saveProfileFile(file, { redactSecrets: true })
   }
 
   return activeProfile

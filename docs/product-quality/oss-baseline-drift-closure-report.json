@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-17T00:43:22.264Z",
+  "generatedAt": "2026-06-18T08:29:22.483Z",
   "mode": "local_no_provider_oss_baseline_drift_closure",
   "sourceRefreshReportPath": "docs/product-quality/oss-baseline-refresh-report.json",
-  "sourceRefreshReportSha256": "13072c3dd875fc4b5edcc6da987137dc6ab7590c99f46129baa05ee60cdadeb3",
+  "sourceRefreshReportSha256": "bda384351ad37c5a224d804f593ed4e606f1153d31013cfc740d8d1a82851cce",
   "sourceBaselinePath": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
-  "sourceBaselineSha256": "7aedd86f49621beae4b2a0f29735a8ad04926e07124967265d7f4702be5a30e5",
+  "sourceBaselineSha256": "e1c02290fa4a5745d317a5472bbabe1901dd4f0e2c06ccd56c37444eefd22a4c",
   "baselineSnapshotDate": "2026-05-21",
   "top10ProjectCount": 10,
   "newlyDiscoveredTop10Projects": [
     "ultraworkers/claw-code",
     "nexu-io/open-design",
     "openinterpreter/openinterpreter",
-    "warpdotdev/warp"
+    "addyosmani/agent-skills"
   ],
   "removedPreviousTop10Projects": [
     "openinterpreter/open-interpreter",
@@ -23,48 +23,48 @@
   "removedPreviousTop10Count": 4,
   "driftRecordCount": 8,
   "driftJsonlPath": "reports/openclaude-oss-baseline-drift-closure.jsonl",
-  "driftJsonlSha256": "6c4e8bc9e393e4149c3049511ade43f3eff84f512ba0a2333715577b9407eddf",
+  "driftJsonlSha256": "58b7afd46a8b8b1d5b983261c40987a935995c45f2311db35828eed742d7688c",
   "driftJsonlRecordCount": 8,
   "sourceReportBindings": [
     {
       "path": "docs/product-quality/oss-baseline-refresh-report.json",
       "exists": true,
-      "sha256": "13072c3dd875fc4b5edcc6da987137dc6ab7590c99f46129baa05ee60cdadeb3"
+      "sha256": "bda384351ad37c5a224d804f593ed4e606f1153d31013cfc740d8d1a82851cce"
     },
     {
       "path": "docs/product-quality/oss-top10-baseline-2026-05-21.json",
       "exists": true,
-      "sha256": "7aedd86f49621beae4b2a0f29735a8ad04926e07124967265d7f4702be5a30e5"
+      "sha256": "e1c02290fa4a5745d317a5472bbabe1901dd4f0e2c06ccd56c37444eefd22a4c"
     },
     {
       "path": "docs/product-quality/oss-source-review-report.json",
       "exists": true,
-      "sha256": "2d8b5c4adfca52301487667aec2819ecbaf7272f02fbe409ada151318920e1c7"
+      "sha256": "7186ac37247b415dbe18359e59c12d89af54cb5ce8d4d91ffbd2ee89e01c6c76"
     },
     {
       "path": "docs/product-quality/oss-architecture-absorption-targets-report.json",
       "exists": true,
-      "sha256": "13cba8871ebc26305ce64b03b4644d8c949aa3de2bf435133e3b2726fbbfe4b4"
+      "sha256": "2c61a7b6e56be17e6b2c96fcfa2ab2a5c89a344f1308fc1b0ab9a516a5428d23"
     },
     {
       "path": "docs/product-quality/oss-architecture-gap-review-report.json",
       "exists": true,
-      "sha256": "fa342694dc01351d5c8d21a05936822b5c6227219d58f9cb9ca1a0a65aec769b"
+      "sha256": "52638cfd651efd4d2213f034d230ff37ae1a67179cfaab866bdea616dc94618e"
     },
     {
       "path": "docs/product-quality/oss-axis-architecture-review-report.json",
       "exists": true,
-      "sha256": "41546392a8291b46a53de7a6b6087ec5ffc9cb1d2caffa0eeda622e0618c7314"
+      "sha256": "a6ea12b70fe6da6d898f74899df12ac45226bd46836c11d317bc0353c16aaacb"
     },
     {
       "path": "docs/product-quality/oss-safe-backlog-plan-report.json",
       "exists": true,
-      "sha256": "36462bb478d27f866746ca3a9a87ec790a5289cf6ac2914fa8ef17e0b39f45dd"
+      "sha256": "633b3b77ee15d391281feecbb58da275ed1083d4a94a969046bfefb71bbe0a39"
     },
     {
       "path": "docs/product-quality/oss-safe-backlog-closure-report.json",
       "exists": true,
-      "sha256": "29fcbae1edd3221afbb7a7088bc12c2045f9be95d090b93171ef84fd9c0fdf82"
+      "sha256": "7186b6b8203595c20a27f50e3bcccfc3f1506a37830648bc94403d2381579a83"
     }
   ],
   "providerCallsPerformed": [],
@@ -130,13 +130,13 @@
       "status": "propagated_to_current_internal_evidence"
     },
     {
-      "project": "warpdotdev/warp",
+      "project": "addyosmani/agent-skills",
       "driftKind": "newly_discovered_top10",
       "presentInCurrentBaseline": true,
       "presentInSourceReview": true,
       "presentInArchitectureTargets": true,
       "presentInGapReview": true,
-      "presentInAxisHighPriorityReview": true,
+      "presentInAxisHighPriorityReview": false,
       "status": "propagated_to_current_internal_evidence"
     },
     {
@@ -219,12 +219,12 @@
     {
       "label": "axis high-priority review covers source-promoted newly discovered projects",
       "ok": true,
-      "detail": "ultraworkers/claw-code,warpdotdev/warp"
+      "detail": "ultraworkers/claw-code"
     },
     {
       "label": "safe backlog plan and closure remain synchronized",
       "ok": true,
-      "detail": "9/9"
+      "detail": "8/8"
     },
     {
       "label": "drift JSONL has one record per changed baseline project",
