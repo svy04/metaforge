@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T10:20:03.356Z",
+  "generatedAt": "2026-06-18T10:36:56.748Z",
   "mode": "local_no_provider_primary_source_registry",
   "registryFormat": "openclaude_primary_source_registry_v1",
   "primarySourceInputs": [
@@ -22,7 +22,7 @@
       "localAbsorption": "The registry adds a repeatable check that rejects blog-summary or secondary-source domains from product-quality evidence."
     }
   ],
-  "scannedReportCount": 96,
+  "scannedReportCount": 97,
   "reportsWithPrimarySourceInputs": [
     "docs/product-quality/agent-instructions-quality-report.json",
     "docs/product-quality/benchmark-efficiency-metrics-report.json",
@@ -36,6 +36,7 @@
     "docs/product-quality/dependency-governance-quality-report.json",
     "docs/product-quality/dependency-topology-report.json",
     "docs/product-quality/doc-link-integrity-report.json",
+    "docs/product-quality/eval-flywheel-validation-report.json",
     "docs/product-quality/github-hosted-trust-posture-report.json",
     "docs/product-quality/github-remote-surface-audit-report.json",
     "docs/product-quality/goal-trace-validation-report.json",
@@ -123,19 +124,19 @@
     "docs/product-quality/verification-report-consistency-report.json",
     "docs/product-quality/vscode-update-boundary-report.json"
   ],
-  "primarySourceEntryCount": 210,
+  "primarySourceEntryCount": 216,
   "uniqueSourceUrlCount": 144,
   "sourceKindCounts": {
     "benchmark_project": 14,
     "official_documentation": 57,
-    "official_project_site": 43,
-    "original_repository": 61,
+    "official_project_site": 48,
+    "original_repository": 62,
     "research_paper": 9,
     "standard_or_specification": 26
   },
   "sourceHostCounts": {
     "agents.md": 2,
-    "agentskills.io": 1,
+    "agentskills.io": 2,
     "airc.nist.gov": 1,
     "arxiv.org": 9,
     "bun.com": 2,
@@ -146,7 +147,7 @@
     "csrc.nist.gov": 1,
     "cyclonedx.org": 1,
     "deploymentsafety.openai.com": 1,
-    "developers.openai.com": 6,
+    "developers.openai.com": 8,
     "docs.cline.bot": 1,
     "docs.github.com": 39,
     "docs.npmjs.com": 2,
@@ -154,14 +155,14 @@
     "doi.org": 2,
     "git-scm.com": 1,
     "github.blog": 1,
-    "github.com": 72,
+    "github.com": 73,
     "harborframework.com": 1,
     "knip.dev": 2,
     "model-spec.openai.com": 1,
     "modelcontextprotocol.io": 4,
     "openai.com": 1,
     "opentelemetry.io": 4,
-    "owasp.org": 2,
+    "owasp.org": 3,
     "patents.google.com": 5,
     "platform.claude.com": 1,
     "platform.openai.com": 1,
@@ -173,7 +174,7 @@
     "spdx.github.io": 2,
     "spdx.org": 3,
     "www.harborframework.com": 1,
-    "www.nist.gov": 1,
+    "www.nist.gov": 2,
     "www.openpolicyagent.org": 1,
     "www.tbench.ai": 1,
     "www.uspto.gov": 1,
@@ -185,8 +186,8 @@
   "malformedSourceInputCount": 0,
   "malformedSourceInputs": [],
   "registryJsonlPath": "reports/openclaude-primary-source-registry.jsonl",
-  "registryJsonlSha256": "120d06649014ce29d228a448229969befea6ce5592fdc46bdb4f67780c45e462",
-  "registryJsonlRecordCount": 210,
+  "registryJsonlSha256": "2eaef712d22b948ba7851b87925e0ea94657f5a153fd22a529ba3338e471a9df",
+  "registryJsonlRecordCount": 216,
   "registryJsonlParseable": true,
   "externalSourceFetchPerformed": false,
   "blogSummarySourceAllowed": false,
@@ -773,7 +774,7 @@
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "9c8e53dfb62e9cbf4cc90a5d86f44e7c675807587aa898459b7ad9a8190892d0",
+      "sourceReportSha256": "134d7553b862b54eb6573a2f3ec3d4161ea694cffd13038c0d80221ebf448c57",
       "sourceProject": "github/docs",
       "sourceUrl": "https://docs.github.com/articles/relative-links-in-readmes",
       "sourceHost": "docs.github.com",
@@ -783,12 +784,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ec8c5655d88b324ce7c8259ac90c42a710136ac3a0ac5beec887a76b67641e45"
+      "recordDigest": "61e246c202fdd8194b050cc3761759850350b00a162b67d0e1c0777213fae7bb"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "9c8e53dfb62e9cbf4cc90a5d86f44e7c675807587aa898459b7ad9a8190892d0",
+      "sourceReportSha256": "134d7553b862b54eb6573a2f3ec3d4161ea694cffd13038c0d80221ebf448c57",
       "sourceProject": "openai/codex",
       "sourceUrl": "https://github.com/openai/codex",
       "sourceHost": "github.com",
@@ -798,12 +799,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ba085b205fc9915757f3fc0ff8c13971bbfa52724518b2e8e67365b2e0014efa"
+      "recordDigest": "c6f6a05ac81ce6a127975fcb085cf1a51bc974d61d4dc0c7684799b933b2e9c0"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/doc-link-integrity-report.json",
-      "sourceReportSha256": "9c8e53dfb62e9cbf4cc90a5d86f44e7c675807587aa898459b7ad9a8190892d0",
+      "sourceReportSha256": "134d7553b862b54eb6573a2f3ec3d4161ea694cffd13038c0d80221ebf448c57",
       "sourceProject": "continuedev/continue",
       "sourceUrl": "https://github.com/continuedev/continue",
       "sourceHost": "github.com",
@@ -813,7 +814,97 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "b835d6ba76f5d2d959a8569a5bd836b37b5068df508a3b8c39ba2f38570522a9"
+      "recordDigest": "eabe9ffa620bfd8c0ef777c7b21d0ba5521517c4404b9eedf206bb99b839b4bf"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "OpenAI Agent Evals",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "sourceHost": "developers.openai.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Agent workflow quality should be evaluated with datasets, graders, traces, and repeatable eval runs.",
+      "localAbsorption": "The Eval Flywheel separates checklist, command result, source reconciliation, and follow-up goal evidence.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "d6fca6b74d7682b41413e166866b968f11bc918fe8ab8a910e6d2faa9f6086fe"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "OpenAI Trace Grading",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/trace-grading",
+      "sourceHost": "developers.openai.com",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Trace-level grading evaluates full workflows rather than only final answers.",
+      "localAbsorption": "EVAL-006 and L4 remain trace-level gates before stronger agent workflow claims.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "e0e68a284caf9a2b4285a999df17067687580f72a55f1906076171ee366f9f88"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "OpenAI Evals",
+      "sourceUrl": "https://github.com/openai/evals",
+      "sourceHost": "github.com",
+      "sourceKind": "original_repository",
+      "patternSummary": "Evaluation assets are source-controlled and reproducible.",
+      "localAbsorption": "Metaforge eval docs and generated reports are source-controlled local no-provider artifacts.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "726d1c0f4ca64aa142a588db7e633e2dd830350723af45cd296a603967112881"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "Agent Skills",
+      "sourceUrl": "https://agentskills.io/",
+      "sourceHost": "agentskills.io",
+      "sourceKind": "official_project_site",
+      "patternSummary": "Skills should package repeated workflows only after the process is stable and reusable.",
+      "localAbsorption": "Skill promotion remains blocked until repeated eval evidence exists.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "45689f6f5ca5e00e0ea87fb6c3675ab893bd4f75e77ffe7f10affd4074107cfc"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "NIST AI RMF 1.0",
+      "sourceUrl": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+      "sourceHost": "www.nist.gov",
+      "sourceKind": "official_project_site",
+      "patternSummary": "AI risk work should be governed, mapped, measured, and managed with proportional evidence.",
+      "localAbsorption": "Automation candidates are tiered and blocked when permissions or external calls exceed local evidence.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "6b19d359e9e9eb98bd4d015698bf75250950a221543dec92dd0f31ba7dd49368"
+    },
+    {
+      "schemaVersion": "openclaude_primary_source_registry_v1",
+      "sourceReportPath": "docs/product-quality/eval-flywheel-validation-report.json",
+      "sourceReportSha256": "4590d22c57adfd8e50fa0ccfacfccbc31e3770036bf0f2b8f519e4053e208bb6",
+      "sourceProject": "OWASP Top 10 for LLM Applications",
+      "sourceUrl": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "sourceHost": "owasp.org",
+      "sourceKind": "official_project_site",
+      "patternSummary": "LLM application risk includes excessive agency and sensitive information disclosure.",
+      "localAbsorption": "Automation proposals keep external calls and protected actions blocked until approval.",
+      "isHttps": true,
+      "isDisallowedSecondarySource": false,
+      "disallowedReason": null,
+      "recordDigest": "2540e92c6eb0f9a04e60ffd51b42682f8a8237c942984c92c03622eb87e229fe"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
@@ -2273,7 +2364,7 @@
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "3f32a8d37459cfc1d7445c831b5bc74c08602cacc0df85b77ec3e3268813d3ac",
+      "sourceReportSha256": "d79c22a2b6f3e17a9d0902539a1eb08d11abf48ab1aad52195647e79c6b1e219",
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "sourceHost": "slsa.dev",
@@ -2283,12 +2374,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "c7e015a9550ca5bdcde0bd2aa56edc0ada54fce6be1bcd2a687c4becd94334bf"
+      "recordDigest": "e9bd48bc894ef250cb11bf4785e7475bcbb3065b4c9d4e44f2b1d9ae38986f27"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "3f32a8d37459cfc1d7445c831b5bc74c08602cacc0df85b77ec3e3268813d3ac",
+      "sourceReportSha256": "d79c22a2b6f3e17a9d0902539a1eb08d11abf48ab1aad52195647e79c6b1e219",
       "sourceProject": "in-toto Attestation Framework",
       "sourceUrl": "https://github.com/in-toto/attestation",
       "sourceHost": "github.com",
@@ -2298,12 +2389,12 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "2aa8d207cb8f2e20b37d98b8ff1ca0c74a83a5f38ddd736f4096ee6585427099"
+      "recordDigest": "3aa2e294426b1c3ac8044eae8546ca243035097df7e8a135e06e3104b7413567"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
       "sourceReportPath": "docs/product-quality/product-evidence-manifest.json",
-      "sourceReportSha256": "3f32a8d37459cfc1d7445c831b5bc74c08602cacc0df85b77ec3e3268813d3ac",
+      "sourceReportSha256": "d79c22a2b6f3e17a9d0902539a1eb08d11abf48ab1aad52195647e79c6b1e219",
       "sourceProject": "OpenSSF Scorecard",
       "sourceUrl": "https://github.com/ossf/scorecard",
       "sourceHost": "github.com",
@@ -2313,7 +2404,7 @@
       "isHttps": true,
       "isDisallowedSecondarySource": false,
       "disallowedReason": null,
-      "recordDigest": "ca80f9165680559354368cf4480fd53add5c185b2b8503dd39dc6d6a3b610166"
+      "recordDigest": "56c6fed6675f8130b6b882700da2b9a09470d0286ae310ce348a2356a10b4afb"
     },
     {
       "schemaVersion": "openclaude_primary_source_registry_v1",
@@ -3355,12 +3446,12 @@
     {
       "label": "product-quality reports were scanned",
       "ok": true,
-      "detail": "96 reports"
+      "detail": "97 reports"
     },
     {
       "label": "primary-source inputs are broadly represented",
       "ok": true,
-      "detail": "59 reports / 210 entries / 144 unique URLs"
+      "detail": "60 reports / 216 entries / 144 unique URLs"
     },
     {
       "label": "primary-source records have HTTPS URLs",
@@ -3370,7 +3461,7 @@
     {
       "label": "primary-source records include project, pattern, and local absorption text",
       "ok": true,
-      "detail": "210 records"
+      "detail": "216 records"
     },
     {
       "label": "blog-summary and secondary-source domains are absent",
@@ -3380,7 +3471,7 @@
     {
       "label": "source kinds cover repositories, docs, standards, benchmarks, and research",
       "ok": true,
-      "detail": "{\"benchmark_project\":14,\"official_documentation\":57,\"official_project_site\":43,\"original_repository\":61,\"research_paper\":9,\"standard_or_specification\":26}"
+      "detail": "{\"benchmark_project\":14,\"official_documentation\":57,\"official_project_site\":48,\"original_repository\":62,\"research_paper\":9,\"standard_or_specification\":26}"
     },
     {
       "label": "malformed source inputs are absent",
@@ -3395,7 +3486,7 @@
     {
       "label": "registry JSONL has one record per source input",
       "ok": true,
-      "detail": "210 records"
+      "detail": "216 records"
     },
     {
       "label": "registry JSONL is parseable and hash-addressed",
