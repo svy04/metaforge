@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an improvement or new capability for OpenClaude
+about: Suggest an improvement for Metaforge, Meta/MFH/Orchestra OS, or its OpenClaude runtime substrate
 title: "[Feature]: "
 labels: "enhancement, triage"
 assignees: ""
@@ -8,7 +8,7 @@ assignees: ""
 
 ## Summary
 
-What would you like OpenClaude to do?
+What would you like Metaforge to do?
 
 ## Problem
 
