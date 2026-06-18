@@ -36,6 +36,19 @@ This means Metaforge can currently market:
 
 This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority.
 
+## Wiring Evidence Map
+
+Use this map before turning architecture language into public copy.
+
+| Surface | Evidence class | Public wording allowed | Boundary |
+| --- | --- | --- | --- |
+| OpenClaude terminal UX, tools, MCP, slash commands, provider routes, streaming, and credential surfaces | Runtime import | "OpenClaude is the local CLI runtime substrate Metaforge rides on." | Do not make OpenClaude the main public thesis or call this a Metaforge release artifact. |
+| Orchestra routing and planner/skeptic/reviewer roles where tied to current `src/` behavior | Runtime import | "Orchestra is the runtime-wired layer in this package today." | Do not imply every named operating layer is a runtime module. |
+| Meta, MFH, Goal Kernel, evidence gates, claim-boundary rules, schemas, and reports | Governance/docs/gates | "Meta/MFH are governance, schema, and evidence-gate surfaces." | Do not describe Meta or MFH as separate default runtime imports in this checkout. |
+| Mimesis Engineering source-first loop, source ledgers, and absorbed patterns | Governance/docs/gates | "Mimesis Engineering is the source-first improvement loop." | Public proof is docs/source ledgers plus local verification, not external validation. |
+| Local no-provider gates, product-quality reports, privacy scans, proof pack, and profile refresh evidence | Private/local proof boundary | "Local gates currently bound what the public surface may claim." | Local proof is not hosted deployment, adoption, production readiness, or benchmark evidence. |
+| AVF Influence Factory, generated operator runs, and `avf/` plus validator artifacts | Manual artifact lane | "AVF Influence Factory is a repo-local manual artifact lane." | It is not a default CLI runtime import or CI execution path; generated outputs stay ignored. |
+
 ## Evidence Cards
 
 | Claim | Current evidence | What it proves | What it does not prove |
