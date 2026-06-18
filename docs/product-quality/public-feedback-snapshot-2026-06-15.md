@@ -115,3 +115,33 @@ fixture-tested analyzer, import-safe entrypoint, and no-write `--check` mode.
 goal-artifact status language as blocked only when a same-file top boundary is
 present. Older goal artifacts with strong local status language now carry an
 explicit historical local artifact boundary.
+
+## 2026-06-18 Owner-Restated Feedback Packet
+
+The owner supplied the same community thread again as an active operating input.
+The durable signal remains stronger than the casual language of the thread:
+
+- The private-to-public transition needs a plain provenance story. Commit/star
+  history questions are trust questions, so public copy should distinguish
+  original Metaforge work from adapted CLI substrate work.
+- OpenClaude should remain OpenClaude runtime substrate. The product thesis is
+  Metaforge as Meta + MFH + Orchestra OS, especially Meta/MFH/drift evidence and
+  Orchestra routing/review/promotion.
+- Public AGENTS.md and README surfaces must not expose local folder names,
+  stale model locks, private memory text, pasted agent-instruction dumps, or raw
+  runtime traces.
+- Marker-only audits are useful scaffolding but weak proof. The next stronger
+  evidence should prioritize behavioral happy paths, edge cases, and side-effect
+  guards.
+- Static-analysis recommendations are preserved as backlog inputs: Knip or
+  fallow for unused exports, dependency-cruiser for cycles/topology, jscpd for
+  duplicate shapes, and topology tools with manual false-positive review.
+- Metaforge, AVF, influence-factory, and Mimesis surfaces should not be marketed
+  as runtime-active modules without import paths, runtime traces, tests, or
+  source-controlled proof reports.
+- Korean docs should stay current because early public feedback arrived from a
+  Korean audience.
+
+Boundary: this restated feedback is product input and local no-provider public
+hygiene evidence. It is not production readiness, hosted workflow proof,
+external validation, benchmark superiority, or legal clearance.
