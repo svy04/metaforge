@@ -13,9 +13,6 @@ permissions:
   security-events: write
   id-token: write
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-
 jobs:
   scorecard:
     name: OpenSSF Scorecard
