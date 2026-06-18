@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T08:30:43.284Z",
+  "generatedAt": "2026-06-18T09:13:00.203Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -129,20 +129,6 @@
       "sampleTypes": []
     },
     {
-      "file": "src/constants/prompts.ts",
-      "unusedExports": 5,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "CLAUDE_CODE_DOCS_MAP_URL",
-        "computeEnvInfo",
-        "computeSimpleEnvInfo",
-        "getUnameSR",
-        "getScratchpadInstructions"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/state/AppState.tsx",
       "unusedExports": 2,
       "unusedTypes": 3,
@@ -195,6 +181,20 @@
         "canYankPop",
         "VIM_WORD_CHAR_REGEX",
         "WHITESPACE_REGEX"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/constants/prompts.ts",
+      "unusedExports": 5,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "CLAUDE_CODE_DOCS_MAP_URL",
+        "computeEnvInfo",
+        "computeSimpleEnvInfo",
+        "getUnameSR",
+        "getScratchpadInstructions"
       ],
       "sampleTypes": []
     },

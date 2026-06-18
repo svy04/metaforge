@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { check, sha256 as sha256Text } from './quality-report-helpers'
@@ -78,7 +79,7 @@ const credentialPatterns = [
   /-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----/,
 ]
 
-export const requiredEvidencePaths = [
+export const rawRequiredEvidencePaths = [
   'package.json',
   'bun.lock',
   '.jscpd.json',
@@ -229,6 +230,29 @@ export const requiredEvidencePaths = [
   'reports/openclaude-terminal-bench-task-map.jsonl',
 ]
 
+function listGitTrackedPaths(prefix: string): string[] {
+  const result = spawnSync('git', ['ls-files', '--', prefix], {
+    cwd: root,
+    encoding: 'utf8',
+  })
+  if (result.status !== 0) {
+    return []
+  }
+  return result.stdout
+    .split(/\r?\n/)
+    .map((path) => normalizePath(path.trim()))
+    .filter((path) => path.length > 0)
+}
+
+export function filterSourceControlledEvidencePaths(paths: string[], trackedPaths: Set<string>): string[] {
+  return paths.filter((path) => !normalizePath(path).startsWith('reports/') || trackedPaths.has(normalizePath(path)))
+}
+
+export const requiredEvidencePaths = filterSourceControlledEvidencePaths(
+  rawRequiredEvidencePaths,
+  new Set(listGitTrackedPaths('reports')),
+)
+
 function sha256Buffer(buffer: Buffer): string {
   return createHash('sha256').update(buffer).digest('hex')
 }
@@ -325,6 +349,7 @@ export function proofClassFor(path: string): EvidenceProofClass {
 }
 
 function buildEvidenceRecords(): EvidenceRecord[] {
+  const trackedReportPaths = listGitTrackedPaths('reports')
   const candidatePaths = [
     'package.json',
     'bun.lock',
@@ -332,7 +357,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
     '.dependency-cruiser.mjs',
     '.dependency-cruiser-known-violations.json',
     ...listFiles('docs/product-quality'),
-    ...listFiles('reports')
+    ...trackedReportPaths
       .filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path))
       .filter((path) => !isHistoricalLiveProbeTracePath(path)),
     ...listFiles('.github').filter((path) => /\.(ya?ml)$/.test(path) || path === '.github/CODEOWNERS'),

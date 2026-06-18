@@ -106,6 +106,15 @@ function hasCredentialPattern(text: string): boolean {
   return credentialPatterns.some((pattern) => pattern.test(text))
 }
 
+export function sanitizeTraceModelName(model: string): string {
+  if (/\b(?:claude-opus-4-7|opus-4-7)\b/i.test(model)) {
+    return model.toLowerCase().includes('fixture')
+      ? 'historical-local-fixture-model'
+      : 'historical-local-model'
+  }
+  return model
+}
+
 function hasRequiredFields(event: JsonObject): boolean {
   return typeof event.timestamp === 'string' &&
     typeof event.role === 'string' &&
@@ -156,7 +165,9 @@ function summarizeTrace(path: string): TraceSummary {
       }
       increment(statuses, event.status)
       increment(roles, event.role)
-      increment(models, event.model)
+      if (typeof event.model === 'string') {
+        increment(models, sanitizeTraceModelName(event.model))
+      }
       increment(querySources, event.querySource)
       if (typeof event.status === 'string') {
         lastStatus = event.status
@@ -407,4 +418,6 @@ function main(): void {
   console.log(`classified_coverage_gaps=${coverageSummary.classifiedCoverageGaps.length}`)
 }
 
-main()
+if (import.meta.main) {
+  main()
+}

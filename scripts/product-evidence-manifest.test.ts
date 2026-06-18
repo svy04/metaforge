@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import {
   buildEvidenceManifestJsonl,
   buildProductEvidenceManifestReport,
+  filterSourceControlledEvidencePaths,
   hasCredentialPattern,
   proofClassFor,
   roleFor,
@@ -129,6 +130,22 @@ describe('product evidence manifest behavior', () => {
   test('detects credential-shaped values before manifest packaging is treated as clean evidence', () => {
     expect(hasCredentialPattern(`github_pat_${'A'.repeat(40)}`)).toBe(true)
     expect(hasCredentialPattern('reports/openclaude-safe-evidence.jsonl')).toBe(false)
+  })
+
+  test('excludes ignored local report artifacts from public evidence manifests', () => {
+    const paths = [
+      'docs/product-quality/real-session-trace-evals-report.json',
+      'reports/openclaude-github-hosted-trust-posture.jsonl',
+      'reports/openclaude-portable-trace-events.jsonl',
+      'reports/orchestra-code-editing-trace-local-fixture.jsonl',
+    ]
+
+    expect(filterSourceControlledEvidencePaths(paths, new Set([
+      'reports/openclaude-github-hosted-trust-posture.jsonl',
+    ]))).toEqual([
+      'docs/product-quality/real-session-trace-evals-report.json',
+      'reports/openclaude-github-hosted-trust-posture.jsonl',
+    ])
   })
 
   test('wires proof-class evidence buckets into English and Korean proof ladders', () => {
