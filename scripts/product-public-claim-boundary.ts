@@ -27,6 +27,25 @@ type ClaimPattern = {
   pattern: RegExp
 }
 
+export type PublicClaimSymbol =
+  | 'Meta'
+  | 'MFH'
+  | 'Orchestra'
+  | 'OpenClaude runtime'
+  | 'Mimesis Engineering'
+  | 'AVF Influence Factory'
+
+export type PublicClaimEvidenceMapRow = {
+  symbol: PublicClaimSymbol
+  publicRole: string
+  evidenceClass: string
+  evidencePaths: string[]
+  verificationCommand: string
+  allowedClaim: string
+  nonClaims: string[]
+  unresolvedGap: string
+}
+
 type PublicClaimBoundaryReport = {
   generatedAt: string
   mode: 'local_no_provider_public_claim_boundary'
@@ -46,6 +65,8 @@ type PublicClaimBoundaryReport = {
   scanJsonlPath: string
   scanJsonlSha256: string
   scanJsonlRecordCount: number
+  publicClaimEvidenceSymbolCount: number
+  publicClaimEvidenceMap: PublicClaimEvidenceMapRow[]
   providerCallsPerformed: []
   liveModelCallsPerformed: []
   externalCallsPerformed: []
@@ -73,6 +94,143 @@ const reportJsonPath = 'docs/product-quality/public-claim-boundary-report.json'
 const reportMdPath = 'docs/product-quality/public-claim-boundary-report.md'
 const scanJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
 const checkOnly = process.argv.includes('--check')
+
+const expectedPublicClaimSymbols: PublicClaimSymbol[] = [
+  'Meta',
+  'MFH',
+  'Orchestra',
+  'OpenClaude runtime',
+  'Mimesis Engineering',
+  'AVF Influence Factory',
+]
+
+export const publicClaimEvidenceMap: PublicClaimEvidenceMapRow[] = [
+  {
+    symbol: 'Meta',
+    publicRole: 'Metaforge operating memory and state boundary for source ledgers, decisions, owner context, and goal state.',
+    evidenceClass: 'governance/docs/gates',
+    evidencePaths: [
+      'docs/MFH_META_SYNTHESIS.md',
+      'docs/GOAL_SCHEMA.md',
+      'docs/AGENT_REGISTRY.md',
+      'docs/PROJECT_SPEC.md',
+    ],
+    verificationCommand: 'bun run product:evidence-manifest',
+    allowedClaim: 'Meta is the repo-local governance and operating-memory contract used to bind goals, decisions, and source-ledger state.',
+    nonClaims: [
+      'Meta is not a separately shipped runtime service in this checkout.',
+      'Meta is not external validation of memory quality.',
+      'Meta is not production readiness or autonomous reliability proof.',
+    ],
+    unresolvedGap: 'Runtime persistence and import paths beyond the documented governance surface still need behavior-level evidence before stronger module claims.',
+  },
+  {
+    symbol: 'MFH',
+    publicRole: 'Metaforge evidence-gated closure layer for claim boundaries, validation commands, and rollback-aware completion.',
+    evidenceClass: 'governance/evidence-gate docs',
+    evidencePaths: [
+      'docs/MFH_META_SYNTHESIS.md',
+      'docs/EVALS.md',
+      'docs/GOAL_SCHEMA.md',
+      'docs/product-quality/public-claim-boundary-report.md',
+      'docs/product-quality/product-evidence-manifest.md',
+    ],
+    verificationCommand: 'bun run product:public-claim-boundary',
+    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, and product-quality reports.',
+    nonClaims: [
+      'MFH is not a formal certification system.',
+      'MFH is not external validation.',
+      'MFH does not prove production, release, public, or autonomous reliability readiness.',
+    ],
+    unresolvedGap: 'More gates still need happy-path, edge-case, and side-effect behavior tests before MFH can carry broader reliability claims.',
+  },
+  {
+    symbol: 'Orchestra',
+    publicRole: 'Runtime routing, critique, review, promotion, and evidence-arbiter surface for Claude/Codex-backed agent roles.',
+    evidenceClass: 'runtime-wired local no-provider evidence',
+    evidencePaths: [
+      'src/services/orchestra',
+      'src/query/orchestra.test.ts',
+      'docs/AGENT_REGISTRY.md',
+      'docs/product-quality/real-session-trace-evals-report.md',
+      'docs/product-quality/trace-schema-contract-report.md',
+      'docs/product-quality/trajectory-process-quality-report.md',
+      'docs/product-quality/protected-action-denial-trace-report.md',
+    ],
+    verificationCommand: 'bun test src/services/orchestra src/query/orchestra.test.ts',
+    allowedClaim: 'Orchestra has repo-local runtime-wired source and test surfaces for routing, critique, review, promotion, and evidence arbitration.',
+    nonClaims: [
+      'Orchestra is not a hosted orchestration service.',
+      'Orchestra is not live provider benchmark proof.',
+      'Orchestra does not prove autonomous reliability.',
+    ],
+    unresolvedGap: 'Hosted execution, live-provider reliability, and external benchmark claims remain blocked until separately authorized and measured.',
+  },
+  {
+    symbol: 'OpenClaude runtime',
+    publicRole: 'Local CLI substrate for terminal UX, tools, MCP, slash commands, provider routing, streaming, and credential-backed model routes.',
+    evidenceClass: 'runtime substrate',
+    evidencePaths: [
+      'src',
+      'package.json',
+      'docs/product-quality/provider-capability-matrix-report.md',
+      'docs/product-quality/provider-compatibility-fixtures.md',
+      'docs/product-quality/runtime-doctor-regression-fixtures.md',
+      'docs/product-quality/permission-regression-fixtures.md',
+      'docs/product-quality/origin-license-provenance-boundary-report.md',
+      'docs/product-quality/oss-privacy-no-phone-home-evidence-report.md',
+    ],
+    verificationCommand: 'bun run build && bun run verify:privacy',
+    allowedClaim: 'OpenClaude is the local CLI substrate that Metaforge rides on for tools, MCP, provider profiles, Claude routes, and Codex routes.',
+    nonClaims: [
+      'OpenClaude is not the product thesis.',
+      'OpenClaude is not a blanket MIT-original CLI claim.',
+      'OpenClaude is not production readiness, release readiness, or external validation.',
+    ],
+    unresolvedGap: 'Origin/license review, live-provider reachability, and stronger runtime behavior coverage remain prerequisites before heavier substrate promotion.',
+  },
+  {
+    symbol: 'Mimesis Engineering',
+    publicRole: 'Source-first improvement loop that absorbs proven OSS, papers, patents, standards, and product patterns into Metaforge work.',
+    evidenceClass: 'source-ledger loop with private-boundary guard',
+    evidencePaths: [
+      'docs/MIMESIS_ENGINEERING.md',
+      'docs/research/mimesis-engineering-source-ledger-2026-06-14.md',
+      'docs/product-quality/primary-source-registry-report.md',
+      'docs/product-quality/product-evidence-manifest.md',
+    ],
+    verificationCommand: 'bun run product:primary-source-registry',
+    allowedClaim: 'Mimesis Engineering is the repo-local source-first improvement method for turning primary sources into bounded product-quality work.',
+    nonClaims: [
+      'Mimesis Engineering is not a default runtime module.',
+      'Mimesis Engineering is not external validation or a universal quality lift.',
+      'Mimesis Engineering does not make private workbench material public proof.',
+    ],
+    unresolvedGap: 'Private/local workbench evidence stays outside public proof until sanitized, source-controlled, and re-verified.',
+  },
+  {
+    symbol: 'AVF Influence Factory',
+    publicRole: 'Manual artifact lane for venture/factory packets, operator runbooks, routing policies, and owner-review artifacts.',
+    evidenceClass: 'manual artifact lane',
+    evidencePaths: [
+      'avf',
+      'avf/influence_factory/operator_runs.md',
+      'avf/influence_factory/product_track_spec.md',
+      'docs/avf/WEB_FIRST_AUTONOMOUS_VENTURE_FACTORY_SPEC.md',
+      'docs/product-quality/public-claim-boundary-report.md',
+      'docs/product-quality/dependency-topology-report.md',
+      'docs/product-quality/dead-export-candidates-report.md',
+    ],
+    verificationCommand: 'python scripts\\validate_avf_influence_factory_completion_candidate_v42.py',
+    allowedClaim: 'AVF Influence Factory is a repo-local manual artifact lane with tracked schemas, runbooks, product-track notes, and boundary documentation.',
+    nonClaims: [
+      'AVF Influence Factory is not a default CLI runtime import.',
+      'AVF Influence Factory is not an active automation claim.',
+      'AVF Influence Factory does not prove generated public artifacts, release readiness, or external validation.',
+    ],
+    unresolvedGap: 'Runtime imports, generated public artifacts, and behavior tests are still required before marketing AVF as an active module.',
+  },
+]
 
 export const publicSurfacePaths = [
   'README.md',
@@ -493,10 +651,32 @@ function scanSurface(path: string): ClaimFinding[] {
   return scanClaimText(path, readText(path))
 }
 
+function publicClaimEvidenceMissingPaths(): string[] {
+  return publicClaimEvidenceMap
+    .flatMap((row) => row.evidencePaths)
+    .filter((path, index, paths) => paths.indexOf(path) === index)
+    .filter((path) => !existsSync(resolve(root, path)))
+}
+
+function publicClaimSymbolsMatchExpectedOrder(): boolean {
+  return JSON.stringify(publicClaimEvidenceMap.map((row) => row.symbol)) === JSON.stringify(expectedPublicClaimSymbols)
+}
+
 function writeMarkdown(report: PublicClaimBoundaryReport): void {
   const surfaceRows = report.scannedPublicSurfaces
     .map((surface) => `| \`${surface.path}\` | \`${surface.exists}\` | \`${surface.sha256 ?? 'missing'}\` | ${surface.lineCount} |`)
     .join('\n')
+  const publicClaimEvidenceRows = report.publicClaimEvidenceMap
+    .map((row) => `| \`${row.symbol}\` | ${markdownCell(row.publicRole)} | \`${row.evidenceClass}\` | ${markdownCell(row.allowedClaim)} | ${markdownCell(row.nonClaims.join('; '))} | ${markdownCell(row.unresolvedGap)} |`)
+    .join('\n')
+  const publicClaimEvidencePathSections = report.publicClaimEvidenceMap
+    .map((row) => [
+      `### ${row.symbol}`,
+      '',
+      `- verification_command: \`${row.verificationCommand}\``,
+      ...row.evidencePaths.map((path) => `- \`${path}\``),
+    ].join('\n'))
+    .join('\n\n')
   const blockedRows = report.blockedContextClaimMentions.length === 0
     ? '| none | none | none | none |'
     : report.blockedContextClaimMentions
@@ -528,6 +708,7 @@ Generated by: \`bun run product:public-claim-boundary\`
 - blocked_context_claim_mention_count: \`${report.blockedContextClaimMentionCount}\`
 - unauthorized_positive_claim_count: \`${report.unauthorizedPositiveClaimCount}\`
 - claim_boundary_status: \`${report.claimBoundaryStatus}\`
+- public_claim_evidence_symbol_count: \`${report.publicClaimEvidenceSymbolCount}\`
 - scan_jsonl_path: \`${report.scanJsonlPath}\`
 - scan_jsonl_sha256: \`${report.scanJsonlSha256}\`
 - release_claim_allowed: \`${report.releaseClaimAllowed}\`
@@ -546,6 +727,18 @@ Generated by: \`bun run product:public-claim-boundary\`
 | Source | URL | Pattern |
 | --- | --- | --- |
 ${report.primarySourceInputs.map((source) => `| ${source.sourceProject} | ${source.sourceUrl} | ${source.observedPattern} |`).join('\n')}
+
+## Public Claim Evidence Map
+
+This map binds public Metaforge symbols to local evidence, allowed claims, explicit non-claims, and unresolved gaps. It is local no-provider evidence mapping only, not external validation.
+
+| Symbol | Public role | Evidence class | Allowed claim | Non-claims | Unresolved gap |
+| --- | --- | --- | --- | --- | --- |
+${publicClaimEvidenceRows}
+
+## Public Claim Evidence Paths
+
+${publicClaimEvidencePathSections}
 
 ## Scanned Public Surfaces
 
@@ -607,9 +800,19 @@ function main(): void {
         observedPattern: 'Open-source quality posture is stronger when checks are explicit, repeatable, and tied to evidence instead of narrative-only assertions.',
       },
       {
+        sourceProject: 'in-toto Attestation Framework',
+        sourceUrl: 'https://github.com/in-toto/attestation/blob/main/spec/README.md',
+        observedPattern: 'Subject-to-predicate evidence binding keeps proof surfaces explicit instead of narrative-only.',
+      },
+      {
         sourceProject: 'SLSA Build Provenance',
         sourceUrl: 'https://slsa.dev/spec/v1.2/build-provenance',
         observedPattern: 'Evidence and provenance boundaries should stay separate from release, production, and external-attestation claims until those steps are actually authorized and performed.',
+      },
+      {
+        sourceProject: 'NIST SSDF SP 800-218',
+        sourceUrl: 'https://csrc.nist.gov/pubs/sp/800/218/final',
+        observedPattern: 'Secure-development practices and evidence records reduce communication and vulnerability risk without implying compliance from local reports alone.',
       },
     ],
     scannedPublicSurfaces,
@@ -623,6 +826,8 @@ function main(): void {
     scanJsonlPath,
     scanJsonlSha256,
     scanJsonlRecordCount,
+    publicClaimEvidenceSymbolCount: publicClaimEvidenceMap.length,
+    publicClaimEvidenceMap,
     providerCallsPerformed: [],
     liveModelCallsPerformed: [],
     externalCallsPerformed: [],
@@ -644,6 +849,11 @@ function main(): void {
   }
 
   report.evidenceChecks = [
+    check('public claim evidence map covers expected symbols', publicClaimSymbolsMatchExpectedOrder(), publicClaimEvidenceMap.map((row) => row.symbol).join(',')),
+    check('public claim evidence paths exist', publicClaimEvidenceMissingPaths().length === 0, publicClaimEvidenceMissingPaths().join(',') || 'all present'),
+    check('public claim evidence rows include allowed claims non-claims and gaps', publicClaimEvidenceMap.every((row) => row.allowedClaim.length > 0 && row.nonClaims.length > 0 && row.unresolvedGap.length > 0), `${publicClaimEvidenceMap.length} rows`),
+    check('OpenClaude remains substrate rather than thesis', publicClaimEvidenceMap.some((row) => row.symbol === 'OpenClaude runtime' && row.publicRole.includes('substrate') && row.allowedClaim.includes('local CLI substrate') && row.nonClaims.some((item) => item.includes('not the product thesis'))), 'substrate boundary present'),
+    check('AVF remains manual artifact lane not default runtime', publicClaimEvidenceMap.some((row) => row.symbol === 'AVF Influence Factory' && row.evidenceClass.includes('manual artifact') && row.nonClaims.some((item) => item.includes('not a default CLI runtime import'))), 'AVF manual lane boundary present'),
     check('all configured public surfaces exist', scannedPublicSurfaces.every((surface) => surface.exists), scannedPublicSurfaces.filter((surface) => !surface.exists).map((surface) => surface.path).join(',') || 'all present'),
     check('public surfaces are hash-bound', scannedPublicSurfaces.every((surface) => typeof surface.sha256 === 'string' && /^[a-f0-9]{64}$/.test(surface.sha256) && surface.sizeBytes > 0), `${scannedPublicSurfaces.length} surfaces`),
     check('public surfaces contain scanned lines', report.scannedLineCount > 0, `${report.scannedLineCount} lines`),

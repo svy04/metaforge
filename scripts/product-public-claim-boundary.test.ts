@@ -3,7 +3,12 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { markdownCell, publicSurfacePaths, scanClaimText } from './product-public-claim-boundary'
+import {
+  markdownCell,
+  publicClaimEvidenceMap,
+  publicSurfacePaths,
+  scanClaimText,
+} from './product-public-claim-boundary'
 
 const root = join(__dirname, '..')
 const scriptPath = join(__dirname, 'product-public-claim-boundary.ts')
@@ -24,6 +29,66 @@ function readOptionalEvidence(path: string) {
 }
 
 describe('product public claim boundary classifier', () => {
+  test('maps each public Metaforge symbol to evidence, non-claims, and unresolved gaps', () => {
+    expect(publicClaimEvidenceMap.map((row) => row.symbol)).toEqual([
+      'Meta',
+      'MFH',
+      'Orchestra',
+      'OpenClaude runtime',
+      'Mimesis Engineering',
+      'AVF Influence Factory',
+    ])
+
+    for (const row of publicClaimEvidenceMap) {
+      expect(row.evidenceClass.length).toBeGreaterThan(0)
+      expect(row.evidencePaths.length).toBeGreaterThan(0)
+      expect(row.allowedClaim.length).toBeGreaterThan(0)
+      expect(row.nonClaims.every((item) => /\bnot\b|does not/i.test(item))).toBe(true)
+      expect(row.unresolvedGap.length).toBeGreaterThan(0)
+    }
+  })
+
+  test('uses source-controlled evidence paths in the public claim evidence map', () => {
+    const trackedFiles = new Set(
+      spawnSync('git', ['ls-files'], { cwd: root, encoding: 'utf8', shell: false })
+        .stdout
+        .trim()
+        .split(/\r?\n/)
+        .filter(Boolean),
+    )
+
+    for (const row of publicClaimEvidenceMap) {
+      for (const path of row.evidencePaths) {
+        const isTrackedFile = trackedFiles.has(path)
+        const isTrackedDirectory = [...trackedFiles].some((trackedPath) => trackedPath.startsWith(`${path}/`))
+        expect(isTrackedFile || isTrackedDirectory, `${row.symbol} evidence path is not source-controlled: ${path}`).toBe(true)
+      }
+    }
+  })
+
+  test('keeps OpenClaude as runtime substrate while Metaforge symbols carry the thesis', () => {
+    const bySymbol = Object.fromEntries(publicClaimEvidenceMap.map((row) => [row.symbol, row]))
+
+    expect(bySymbol['OpenClaude runtime']?.publicRole).toContain('substrate')
+    expect(bySymbol['OpenClaude runtime']?.allowedClaim).toContain('local CLI substrate')
+    expect(bySymbol['OpenClaude runtime']?.nonClaims.join(' ')).toContain('not the product thesis')
+    expect(bySymbol.Meta?.publicRole).toContain('operating memory')
+    expect(bySymbol.MFH?.publicRole).toContain('evidence-gated')
+    expect(bySymbol.Orchestra?.publicRole).toContain('routing')
+    expect(bySymbol['AVF Influence Factory']?.nonClaims.join(' ')).toContain('not a default CLI runtime import')
+  })
+
+  test('points English and Korean READMEs to the generated public claim evidence map', () => {
+    const readme = readFileSync(join(root, 'README.md'), 'utf8')
+    const koreanReadme = readFileSync(join(root, 'README.ko.md'), 'utf8')
+    const generatedMapLink = 'docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map'
+
+    expect(readme).toContain('Public claim evidence map')
+    expect(readme).toContain(generatedMapLink)
+    expect(koreanReadme).toContain('public claim evidence map')
+    expect(koreanReadme).toContain(generatedMapLink)
+  })
+
   test('includes AGENTS.md in public claim-boundary surfaces', () => {
     expect(publicSurfacePaths).toContain('AGENTS.md')
   })
