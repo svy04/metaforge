@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T00:44:01.554Z",
+  "generatedAt": "2026-06-18T05:21:01.393Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -7,7 +7,7 @@
     "readText",
     "sha256Text"
   ],
-  "sourceProductScriptCount": 90,
+  "sourceProductScriptCount": 93,
   "helperOccurrenceCounts": {
     "check": 68,
     "readText": 33,
@@ -60,11 +60,11 @@
         },
         {
           "path": "scripts/product-git-release-hygiene.ts",
-          "line": 81
+          "line": 82
         },
         {
           "path": "scripts/product-ide-extension-host-smoke.ts",
-          "line": 88
+          "line": 96
         },
         {
           "path": "scripts/product-ide-extension-manifest-smoke.ts",
@@ -96,7 +96,7 @@
         },
         {
           "path": "scripts/product-ide-extension-workbench-smoke.ts",
-          "line": 99
+          "line": 107
         },
         {
           "path": "scripts/product-local-benchmark-harness.ts",
@@ -112,7 +112,7 @@
         },
         {
           "path": "scripts/product-onboarding-smoke.ts",
-          "line": 128
+          "line": 129
         },
         {
           "path": "scripts/product-openssf-security-posture.ts",
@@ -128,7 +128,7 @@
         },
         {
           "path": "scripts/product-oss-axis-architecture-review.ts",
-          "line": 127
+          "line": 117
         },
         {
           "path": "scripts/product-oss-baseline-drift-closure.ts",
@@ -240,7 +240,7 @@
         },
         {
           "path": "scripts/product-real-trace-evals.ts",
-          "line": 81
+          "line": 82
         },
         {
           "path": "scripts/product-regression-cycle-code-editing-trace-capture.ts",
@@ -260,7 +260,7 @@
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
-          "line": 144
+          "line": 145
         },
         {
           "path": "scripts/product-source-controlled-checks.ts",
@@ -280,15 +280,15 @@
         },
         {
           "path": "scripts/product-trace-redaction-policy.ts",
-          "line": 107
+          "line": 108
         },
         {
           "path": "scripts/product-trace-schema-contract.ts",
-          "line": 124
+          "line": 125
         },
         {
           "path": "scripts/product-trajectory-process-quality.ts",
-          "line": 137
+          "line": 138
         },
         {
           "path": "scripts/product-vscode-startup-diagnostics.ts",
@@ -296,7 +296,7 @@
         },
         {
           "path": "scripts/product-vscode-update-boundary.ts",
-          "line": 82
+          "line": 83
         }
       ],
       "normalizedBodyPreview": "return { label, ok, detail }"
@@ -320,7 +320,7 @@
         },
         {
           "path": "scripts/product-onboarding-smoke.ts",
-          "line": 69
+          "line": 70
         },
         {
           "path": "scripts/product-openssf-security-posture.ts",
@@ -336,7 +336,7 @@
         },
         {
           "path": "scripts/product-oss-axis-architecture-review.ts",
-          "line": 131
+          "line": 121
         },
         {
           "path": "scripts/product-oss-baseline-drift-closure.ts",
@@ -432,11 +432,11 @@
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
-          "line": 62
+          "line": 63
         },
         {
           "path": "scripts/product-trace-redaction-policy.ts",
-          "line": 95
+          "line": 96
         }
       ],
       "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
@@ -464,20 +464,20 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.469ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 50.974ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "0d6c08979fb12b1f9e0b849aa4af7fb75956f68bf627d81cafec4e57b3d972ee",
-  "jscpdCloneCount": 26,
+  "jscpdReportSha256": "5621d5aadb818110b5295bd149c4b2fc4213912ebc93236e033522b39269d062",
+  "jscpdCloneCount": 24,
   "jscpdCloneBaseline": 26,
-  "jscpdDuplicatedLines": 774,
+  "jscpdDuplicatedLines": 657,
   "jscpdDuplicatedLinesBaseline": 774,
-  "jscpdDuplicatedTokens": 4790,
+  "jscpdDuplicatedTokens": 4257,
   "jscpdDuplicatedTokensBaseline": 4790,
-  "jscpdDuplicatedPercentage": 1.8694749045939811,
+  "jscpdDuplicatedPercentage": 1.5867265613679176,
   "jscpdDuplicatedPercentageBaseline": 1.9,
-  "jscpdDuplicatedTokenPercentage": 1.8643500463168383,
-  "jscpdSourceCount": 90,
+  "jscpdDuplicatedTokenPercentage": 1.655904776723199,
+  "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
       "firstFile": "scripts/product-dead-export-candidates.ts",
@@ -488,26 +488,6 @@
       "secondEndLine": 183,
       "lines": 24,
       "tokens": 122
-    },
-    {
-      "firstFile": "scripts/product-ide-extension-host-smoke.ts",
-      "secondFile": "scripts/product-ide-extension-workbench-smoke.ts",
-      "firstStartLine": 116,
-      "firstEndLine": 160,
-      "secondStartLine": 135,
-      "secondEndLine": 179,
-      "lines": 45,
-      "tokens": 159
-    },
-    {
-      "firstFile": "scripts/product-ide-extension-host-smoke.ts",
-      "secondFile": "scripts/product-ide-extension-workbench-smoke.ts",
-      "firstStartLine": 258,
-      "firstEndLine": 331,
-      "secondStartLine": 317,
-      "secondEndLine": 390,
-      "lines": 74,
-      "tokens": 374
     },
     {
       "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
@@ -644,8 +624,8 @@
       "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
       "firstStartLine": 307,
       "firstEndLine": 328,
-      "secondStartLine": 342,
-      "secondEndLine": 362,
+      "secondStartLine": 343,
+      "secondEndLine": 363,
       "lines": 22,
       "tokens": 189
     },
@@ -678,6 +658,26 @@
       "secondEndLine": 353,
       "lines": 27,
       "tokens": 205
+    },
+    {
+      "firstFile": "scripts/product-oss-provider-breadth-evidence.ts",
+      "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
+      "firstStartLine": 1,
+      "firstEndLine": 41,
+      "secondStartLine": 1,
+      "secondEndLine": 41,
+      "lines": 41,
+      "tokens": 148
+    },
+    {
+      "firstFile": "scripts/product-oss-provider-breadth-evidence.ts",
+      "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+      "firstStartLine": 1,
+      "firstEndLine": 41,
+      "secondStartLine": 1,
+      "secondEndLine": 41,
+      "lines": 41,
+      "tokens": 148
     }
   ],
   "primarySourceInputs": [
@@ -735,7 +735,7 @@
     {
       "label": "product scripts are scanned",
       "ok": true,
-      "detail": "90 files"
+      "detail": "93 files"
     },
     {
       "label": "target helper occurrence surface is measured",
@@ -765,17 +765,17 @@
     {
       "label": "jscpd token clone count does not exceed baseline",
       "ok": true,
-      "detail": "26/26"
+      "detail": "24/26"
     },
     {
       "label": "jscpd duplicated line and token counts do not exceed baseline",
       "ok": true,
-      "detail": "774/774; 4790/4790"
+      "detail": "657/774; 4257/4790"
     },
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.8694749045939811/1.9"
+      "detail": "1.5867265613679176/1.9"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
