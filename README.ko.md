@@ -42,7 +42,7 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | --- | --- |
 | 무엇인가요? | OpenClaude CLI runtime 위에서 동작하는 Meta/MFH/Orchestra OS입니다. |
 | 바로 확인할 명령 | `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
-| 가장 강한 공개 증거 | `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`, `docs/MODEL_SYSTEM_CARD.md`, `docs/product-quality/product-evidence-manifest.md` |
+| 가장 강한 공개 증거 | `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`, `docs/MODEL_SYSTEM_CARD.md`, `docs/product-quality/product-evidence-manifest.md`, [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
 | 증거 분류 | `docs/product-quality/product-evidence-manifest.md`의 evidence manifest는 behavioral runtime evidence와 static analysis, governance-boundary, source-control, structural-inventory evidence를 분리합니다. |
 | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
 
@@ -57,6 +57,8 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route |
 
 ### 배선 증거 맵
+
+생성된 [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map)이 이 표의 근거 원본입니다. 각 symbol을 allowed claim, explicit non-claim, local evidence path, unresolved gap에 묶어 둡니다.
 
 | 심볼 | 공개 역할 | 증거 등급 | 런타임 경계 |
 | --- | --- | --- | --- |
