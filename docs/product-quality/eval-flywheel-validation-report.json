@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-06-18T10:34:39.026Z",
+  "mode": "local_no_provider_eval_flywheel_validation",
+  "valid": true,
+  "evalLevelsPresent": [
+    "L0",
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+  ],
+  "requiredEvalIdsPresent": [
+    "EVAL-008",
+    "EVAL-009",
+    "EVAL-010"
+  ],
+  "automationCandidateCount": 7,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "validationErrors": [],
+  "evalFlywheelChecks": [
+    {
+      "label": "required eval flywheel docs exist",
+      "ok": true,
+      "detail": "all present"
+    },
+    {
+      "label": "eval levels L0-L5 are present",
+      "ok": true,
+      "detail": "L0, L1, L2, L3, L4, L5"
+    },
+    {
+      "label": "EVAL-008 through EVAL-010 are present",
+      "ok": true,
+      "detail": "EVAL-008, EVAL-009, EVAL-010"
+    },
+    {
+      "label": "automation candidates remain proposed-only",
+      "ok": true,
+      "detail": "7 candidates"
+    },
+    {
+      "label": "external-call candidates are blocked pending owner approval",
+      "ok": true,
+      "detail": "blocked_until_owner_approval enforced"
+    },
+    {
+      "label": "owner-side MFH/Meta drift boundary is preserved",
+      "ok": true,
+      "detail": "drift_carried_forward_awaiting_user_adjudication"
+    },
+    {
+      "label": "no provider/live/external/protected side effects recorded",
+      "ok": true,
+      "detail": "side-effect arrays are empty"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenAI Agent Evals",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "observedPattern": "Agent workflow quality should be evaluated with datasets, graders, traces, and repeatable eval runs.",
+      "localAbsorption": "The Eval Flywheel separates checklist, command result, source reconciliation, and follow-up goal evidence."
+    },
+    {
+      "sourceProject": "OpenAI Trace Grading",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/trace-grading",
+      "observedPattern": "Trace-level grading evaluates full workflows rather than only final answers.",
+      "localAbsorption": "EVAL-006 and L4 remain trace-level gates before stronger agent workflow claims."
+    },
+    {
+      "sourceProject": "OpenAI Evals",
+      "sourceUrl": "https://github.com/openai/evals",
+      "observedPattern": "Evaluation assets are source-controlled and reproducible.",
+      "localAbsorption": "Metaforge eval docs and generated reports are source-controlled local no-provider artifacts."
+    },
+    {
+      "sourceProject": "Agent Skills",
+      "sourceUrl": "https://agentskills.io/",
+      "observedPattern": "Skills should package repeated workflows only after the process is stable and reusable.",
+      "localAbsorption": "Skill promotion remains blocked until repeated eval evidence exists."
+    },
+    {
+      "sourceProject": "NIST AI RMF 1.0",
+      "sourceUrl": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+      "observedPattern": "AI risk work should be governed, mapped, measured, and managed with proportional evidence.",
+      "localAbsorption": "Automation candidates are tiered and blocked when permissions or external calls exceed local evidence."
+    },
+    {
+      "sourceProject": "OWASP Top 10 for LLM Applications",
+      "sourceUrl": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "observedPattern": "LLM application risk includes excessive agency and sensitive information disclosure.",
+      "localAbsorption": "Automation proposals keep external calls and protected actions blocked until approval."
+    }
+  ],
+  "claimBoundary": "Eval flywheel validation is local no-provider governance evidence only. It does not create automations, schedule jobs, call providers, call live models, call external services, execute protected actions, claim production readiness, claim external validation, claim benchmark superiority, or claim autonomous reliability."
+}
