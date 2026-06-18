@@ -258,6 +258,18 @@ describe('public repository readiness surfaces', () => {
     expect(releaseWorkflow).not.toContain('Gitlawb/openclaude')
   })
 
+  test('issue templates keep Metaforge as the public thesis', () => {
+    const bugReport = readRepoText('.github/ISSUE_TEMPLATE/bug_report.md')
+    const featureRequest = readRepoText('.github/ISSUE_TEMPLATE/feature_request.md')
+
+    expect(bugReport).toContain('Metaforge or its OpenClaude runtime substrate')
+    expect(bugReport).toContain('Metaforge commit or OpenClaude runtime version')
+    expect(bugReport).not.toContain('Report a reproducible problem in OpenClaude')
+    expect(featureRequest).toContain('Metaforge, Meta/MFH/Orchestra OS, or its OpenClaude runtime substrate')
+    expect(featureRequest).toContain('What would you like Metaforge to do?')
+    expect(featureRequest).not.toContain('What would you like OpenClaude to do?')
+  })
+
   test('README states runtime wiring honestly', () => {
     const readme = readRepoText('README.md')
     const koreanReadme = readRepoText('README.ko.md')
