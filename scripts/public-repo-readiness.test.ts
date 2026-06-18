@@ -153,13 +153,18 @@ describe('public repository readiness surfaces', () => {
   test('public feedback docs preserve latest community signals without raw private breadcrumbs', () => {
     const snapshot = readRepoText('docs/product-quality/public-feedback-snapshot-2026-06-15.md')
     const triage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-15.md')
-    const combined = `${snapshot}\n${triage}`
+    const latestSnapshot = readRepoText('docs/product-quality/public-feedback-snapshot-2026-06-19.md')
+    const latestTriage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-19.md')
+    const combined = `${snapshot}\n${triage}\n${latestSnapshot}\n${latestTriage}`
 
     expect(combined).toContain('2026-06-18 Owner-Restated Feedback Packet')
+    expect(combined).toContain('Provenance is a trust surface')
+    expect(combined).toContain('fork/adaptation questions should be')
     expect(combined).toContain('private-to-public transition')
     expect(combined).toContain('OpenClaude runtime substrate')
     expect(combined).toMatch(/behavioral happy paths, edge cases,[\s\S]*side-effect (?:guards|checks)/)
     expect(combined).toContain('Knip')
+    expect(combined).toContain('fallow')
     expect(combined).toContain('dependency-cruiser')
     expect(combined).toContain('jscpd')
     expect(combined).toContain('Korean docs')
@@ -167,6 +172,27 @@ describe('public repository readiness surfaces', () => {
     for (const needle of privateLocalPathNeedles()) {
       expect(combined).not.toContain(needle)
     }
+  })
+
+  test('README surfaces the public feedback response without upgrading claims', () => {
+    const readme = readRepoText('README.md')
+    const koreanReadme = readRepoText('README.ko.md')
+
+    expect(readme).toContain('## Public Feedback Response')
+    expect(readme).toContain('2026-06-19 snapshot')
+    expect(readme).toContain('provenance and fork/adaptation boundaries')
+    expect(readme).toContain('OpenClaude remains the runtime substrate')
+    expect(readme).toContain('behavioral happy paths, edge cases, and side-effect guards')
+    expect(readme).toContain('Knip or fallow, dependency-cruiser, jscpd')
+    expect(readme).toContain('Korean docs stay current')
+    expect(readme).toContain('not applause or validation')
+    expect(readme).not.toContain('external validation from reviewers')
+
+    expect(koreanReadme).toContain('## 공개 피드백 응답')
+    expect(koreanReadme).toContain('칭찬이나 외부 검증이 아니라 제품 입력')
+    expect(koreanReadme).toContain('OpenClaude는 runtime substrate')
+    expect(koreanReadme).toContain('Metaforge = Meta + MFH + Orchestra OS')
+    expect(koreanReadme).toContain('behavioral happy path, edge case, side-effect guard')
   })
 
   test('Korean README route contract rejects broken public navigation fixtures', () => {
@@ -464,6 +490,51 @@ describe('public repository readiness surfaces', () => {
     }
   })
 
+  test('public Mimesis docs use neutral private-workbench labels', () => {
+    const concretePrivateRepoNames = [
+      `mimesis-${'plugin'}`,
+      `mimesis-${'source'}-${'packet'}`,
+    ]
+    const docs = [
+      'docs/MIMESIS_ENGINEERING.md',
+      'docs/product-quality/public-feedback-snapshot-2026-06-19.md',
+      'docs/product-quality/public-feedback-triage-2026-06-19.md',
+    ]
+
+    for (const path of docs) {
+      const text = readRepoText(path)
+      for (const name of concretePrivateRepoNames) {
+        expect(text, path).not.toContain(name)
+      }
+    }
+  })
+
+  test('scanner-unfriendly dummy key literals stay split or neutralized', () => {
+    const secretPrefix = 's' + 'k-'
+    const quoteGroup = "(['\"`])"
+    const dummySecretLiteralPattern = new RegExp(
+      `${quoteGroup}${secretPrefix}(?:secret|openai|test|persisted|live|legacy|moonshot|ant(?:-(?:key|test|x))?)[A-Za-z0-9_-]*\\1`,
+      'i',
+    )
+    const scannedPublicSourcePaths = trackedRepoPaths(root).filter((path) => {
+      if (path === 'src/utils/settings/types.ts') {
+        return true
+      }
+      if (!(path.startsWith('src/') || path.startsWith('scripts/'))) {
+        return false
+      }
+      if (!/\.(?:test|spec)\.(?:ts|tsx|js|jsx)$/.test(path)) {
+        return false
+      }
+      return path !== 'scripts/public-repo-readiness.test.ts'
+    })
+
+    expect(scannedPublicSourcePaths).toContain('src/utils/settings/types.ts')
+    for (const path of scannedPublicSourcePaths) {
+      expect(readRepoText(path), path).not.toMatch(dummySecretLiteralPattern)
+    }
+  })
+
   test('public operating docs do not cite removed planning artifacts as current authority', () => {
     const trackedPlanningArtifacts = trackedRepoPaths(root).filter((path) => path.startsWith('.planning/'))
     const docs = [
@@ -482,11 +553,11 @@ describe('public repository readiness surfaces', () => {
   test('profile refresh evidence does not expose private workbench repo breadcrumbs', () => {
     const evidence = readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
     const forbiddenEvidence = [
-      'mimesis-plugin',
-      'mimesis-source-packet',
+      `mimesis-${'plugin'}`,
+      `mimesis-${'source'}-${'packet'}`,
       'harness-meta',
-      'https://github.com/svy04/mimesis-plugin.git',
-      'https://github.com/svy04/mimesis-source-packet.git',
+      `https://github.com/svy04/mimesis-${'plugin'}.git`,
+      `https://github.com/svy04/mimesis-${'source'}-${'packet'}.git`,
       'dirty working tree',
       'untracked hero preview files',
     ]

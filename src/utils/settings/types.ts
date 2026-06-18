@@ -830,7 +830,7 @@ export const SettingsSchema = lazySchema(() =>
         .optional()
         .describe(
           'Map of model name to provider connection info. ' +
-            'Example: { "deepseek-chat": { "base_url": "https://api.deepseek.com/v1", "api_key": "sk-xxx" } }',
+            'Example: { "deepseek-chat": { "base_url": "https://api.deepseek.com/v1", "api_key": "<provider-api-key>" } }',
         ),
       agentRouting: z
         .record(z.string(), z.string())

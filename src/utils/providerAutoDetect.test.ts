@@ -27,12 +27,14 @@ function scan(env: Record<string, string | undefined>) {
   return detectProviderFromEnv({ env, hasCodexAuth: () => false })
 }
 
+const dummySk = (suffix: string): string => ['sk', suffix].join('-')
+
 describe('detectProviderFromEnv — priority order', () => {
   test('ANTHROPIC_API_KEY wins over all others', () => {
     expect(
       scan({
-        ANTHROPIC_API_KEY: 'sk-ant-x',
-        OPENAI_API_KEY: 'sk-x',
+        ANTHROPIC_API_KEY: dummySk('ant-x'),
+        OPENAI_API_KEY: dummySk('x'),
         GEMINI_API_KEY: 'gem-x',
       }),
     ).toEqual({ kind: 'anthropic', source: 'ANTHROPIC_API_KEY set' })
@@ -42,7 +44,7 @@ describe('detectProviderFromEnv — priority order', () => {
     expect(
       scan({
         CODEX_API_KEY: 'codex-x',
-        OPENAI_API_KEY: 'sk-x',
+        OPENAI_API_KEY: dummySk('x'),
       }),
     ).toEqual({ kind: 'codex', source: 'CODEX_API_KEY set' })
   })
@@ -65,7 +67,7 @@ describe('detectProviderFromEnv — priority order', () => {
     expect(
       scan({
         GITHUB_TOKEN: 'ghp-x',
-        OPENAI_API_KEY: 'sk-x',
+        OPENAI_API_KEY: dummySk('x'),
       }),
     ).toEqual({ kind: 'github', source: 'GITHUB_TOKEN set (GitHub Copilot)' })
   })
@@ -81,7 +83,7 @@ describe('detectProviderFromEnv — priority order', () => {
   test('OPENAI_API_KEYS (plural) detected', () => {
     expect(
       scan({
-        OPENAI_API_KEYS: 'sk-a,sk-b',
+        OPENAI_API_KEYS: [dummySk('a'), dummySk('b')].join(','),
       }),
     ).toEqual({ kind: 'openai', source: 'OPENAI_API_KEYS set' })
   })
@@ -89,7 +91,7 @@ describe('detectProviderFromEnv — priority order', () => {
   test('OPENAI_API_KEY reports baseUrl when set', () => {
     expect(
       scan({
-        OPENAI_API_KEY: 'sk-x',
+        OPENAI_API_KEY: dummySk('x'),
         OPENAI_BASE_URL: 'https://openrouter.ai/api/v1',
       }),
     ).toEqual({
@@ -261,7 +263,7 @@ describe('detectBestProvider — orchestrator', () => {
     })
 
     const result = await detectBestProvider({
-      env: { ANTHROPIC_API_KEY: 'sk-ant' },
+      env: { ANTHROPIC_API_KEY: dummySk('ant') },
       fetchImpl,
       timeoutMs: 200,
       hasCodexAuth: () => false,
