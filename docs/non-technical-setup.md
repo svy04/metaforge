@@ -1,4 +1,4 @@
-# OpenClaude for Non-Technical Users
+# Metaforge Runtime Setup for Non-Technical Users
 
 This guide is for people who want the easiest setup path.
 
@@ -6,7 +6,11 @@ You do not need to build from source. You do not need Bun. You do not need to un
 
 If you can copy and paste commands into a terminal, you can set this up.
 
-## What OpenClaude Does
+## What You Are Setting Up
+
+Metaforge is the public Meta/MFH/Orchestra operating layer. OpenClaude is the
+runtime substrate used here for the local CLI, provider routes, tools, and
+terminal workflow.
 
 OpenClaude lets you use an AI coding assistant with different model providers such as:
 
@@ -28,7 +32,7 @@ You need:
 
 ## Fastest Path
 
-1. Install OpenClaude with npm
+1. Install the OpenClaude runtime package with npm
 2. Set 3 environment variables
 3. Run `openclaude`
 

@@ -82,6 +82,7 @@ const credentialPatterns = [
 export const rawRequiredEvidencePaths = [
   'package.json',
   'bun.lock',
+  'knip.jsonc',
   '.jscpd.json',
   '.dependency-cruiser.mjs',
   '.dependency-cruiser-known-violations.json',
@@ -353,6 +354,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
   const candidatePaths = [
     'package.json',
     'bun.lock',
+    'knip.jsonc',
     '.jscpd.json',
     '.dependency-cruiser.mjs',
     '.dependency-cruiser-known-violations.json',
