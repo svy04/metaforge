@@ -185,6 +185,24 @@ describe('public repository readiness surfaces', () => {
     expect(longPaths).toEqual([])
   })
 
+  test('tracked product-quality docs do not expose historical live trace paths or task ids', () => {
+    const trackedProductQualityDocs = trackedRepoPaths(root)
+      .filter((path) => path.startsWith('docs/product-quality/'))
+      .filter((path) => /\.(?:json|jsonl|md|txt|ya?ml)$/.test(path))
+    const forbiddenMarkers = [
+      'reports/orchestra-live',
+      'openclaude.trace.reports_orchestra-live',
+    ]
+    const offenders = trackedProductQualityDocs.flatMap((path) => {
+      const text = readRepoText(path)
+      return forbiddenMarkers
+        .filter((marker) => text.includes(marker))
+        .map((marker) => `${path}: ${marker}`)
+    })
+
+    expect(offenders).toEqual([])
+  })
+
   test('advanced setup uses the current public repository source URL', () => {
     const advancedSetup = readRepoText('docs/advanced-setup.md')
 

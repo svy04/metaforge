@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-17T00:45:52.192Z",
+  "generatedAt": "2026-06-18T04:34:50.699Z",
   "mode": "local_no_provider_trace_capture_redaction_policy",
   "sourceTraceReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceTraceReportSha256": "207d3a6918940f58edf93dd786d946fac5c97d56ee8b7112345fdd0fec88b26d",
+  "sourceTraceReportSha256": "e76bc9548176c22d9fa53418ec1761059744bbdf7e3b1afb12647945c7cbf2b9",
   "rawTraceDirectory": "reports",
-  "rawTraceFileCount": 13,
+  "rawTraceFileCount": 10,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -97,27 +97,6 @@
       "providerRequestIdPatternFound": false
     },
     {
-      "path": "reports/orchestra-live-20260506-163448.jsonl",
-      "sha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "lineCount": 2,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
-      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "lineCount": 2,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
-      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
-      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
-      "lineCount": 2,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
       "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
       "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
       "lineCount": 10,
@@ -198,12 +177,12 @@
     {
       "label": "raw trace files match source report count",
       "ok": true,
-      "detail": "13/13"
+      "detail": "10/10"
     },
     {
       "label": "raw trace hashes match source report",
       "ok": true,
-      "detail": "13 summarized traces"
+      "detail": "10 summarized traces"
     },
     {
       "label": "raw trace credential patterns absent",
