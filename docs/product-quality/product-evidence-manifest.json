@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T11:55:42.684Z",
+  "generatedAt": "2026-06-18T12:50:16.063Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,19 +20,19 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "e3baf9e777e27daa2874f608fa21d440e44d94c311ef3ece405071db1cd1853a",
-  "evidenceRecordCount": 216,
-  "evidenceTotalSizeBytes": 11935408,
+  "manifestJsonlSha256": "bc3a8eb54633ae9e9c5b30fc8376fe317483086074f8334670ba40290c0ed222",
+  "evidenceRecordCount": 217,
+  "evidenceTotalSizeBytes": 11936451,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 200,
-    "evidence_artifact": 6,
+    "evidence_artifact": 7,
     "quality_gate": 1,
     "workflow": 7
   },
   "evidenceProofClasses": {
     "behavioral_runtime": 54,
-    "static_analysis": 10,
+    "static_analysis": 11,
     "governance_boundary": 39,
     "source_control": 10,
     "structural_inventory": 103
@@ -40,6 +40,7 @@
   "requiredEvidencePaths": [
     "package.json",
     "bun.lock",
+    "knip.jsonc",
     ".jscpd.json",
     ".dependency-cruiser.mjs",
     ".dependency-cruiser-known-violations.json",
@@ -366,8 +367,8 @@
     },
     {
       "path": "docs/product-quality/competitive-scorecard.md",
-      "sha256": "36ebf686106b1afd51b3ae7cd9c866bcb2bdafd49c175e7a29615d80dd57acf8",
-      "sizeBytes": 11638,
+      "sha256": "db68e5bcc24f30ad3e0adb9c98e7ea3afcec47aa50392e3a0658a4a504330d60",
+      "sizeBytes": 11913,
       "role": "evidence_report"
     },
     {
@@ -378,14 +379,14 @@
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.json",
-      "sha256": "7d5077740d80fd3ebfaf66877fa0c4b9c8d57bb4e61324a64983c2f13b809206",
-      "sizeBytes": 17356,
+      "sha256": "b20834fc803236e9815c3940cbfaa99223bf8497790ee556946d6a3f62e43deb",
+      "sizeBytes": 17411,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
-      "sha256": "c25fcdda6dd5a966681ab2eb6b71e523914205633241e1dfa1dad7bd03c48489",
-      "sizeBytes": 9078,
+      "sha256": "750e747315102db031e4c5d03e1060bff6006dd334493d62cbf5058e79dea41c",
+      "sizeBytes": 9104,
       "role": "evidence_report"
     },
     {
@@ -414,7 +415,7 @@
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.json",
-      "sha256": "d381859f36889aeeabfca5a63de739a6ec4806d2f983e1d5030235e051e7d16e",
+      "sha256": "5d0d7afc7849b7f4e6a3126d6aabe021cc45c7b44bdc4939e529cb17b3250df3",
       "sizeBytes": 22102,
       "role": "evidence_report"
     },
@@ -708,7 +709,7 @@
     },
     {
       "path": "docs/product-quality/onboarding-smoke-report.json",
-      "sha256": "54a33056336ef96cad8c9415223bcc8101a2ef7d841446cff062772d7f838cbd",
+      "sha256": "59376e8d119998a0ba4c275564eb386fa04a27147988dd1cfbd3be817b20dee5",
       "sizeBytes": 16087,
       "role": "evidence_report"
     },
@@ -1110,13 +1111,13 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "a56d172cc0440c107a12e65dde38c016194182ccf42c2845f5cb94cae4710539",
+      "sha256": "e921e32e766d1f5aa6af71027658dafc06a357ca1e91e99d353cfb06ede545f8",
       "sizeBytes": 663453,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "cebf52fd48dba17128f9a8a7f0ce5e328b7c245da4c8a3adcd77b3bb89d9fbd3",
+      "sha256": "2af7e3b3dc9aa00e5df46e5bfb1e9b81c675cbfaad42b22a70e6b46bfb478ae2",
       "sizeBytes": 344878,
       "role": "evidence_report"
     },
@@ -1248,13 +1249,13 @@
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.json",
-      "sha256": "96c20bdfe7532537d9d450d7b2782bb1ea9b55238c6b49e14f1b5c2a15fb462c",
+      "sha256": "2669e9060bc6d5814c0165ed7df9486f28014fd11b5b9f68248e03dc45e58e07",
       "sizeBytes": 23937,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
-      "sha256": "f5ae6d9ae5d6d7a4d7f524bee0d81f812d1c97d23bbc464bcff60ab3968b54bf",
+      "sha256": "41e0e704191811618a10bce90a891d20af3b60d93540d4961c551cf0e84dacbf",
       "sizeBytes": 8700,
       "role": "evidence_report"
     },
@@ -1439,6 +1440,12 @@
       "role": "evidence_report"
     },
     {
+      "path": "knip.jsonc",
+      "sha256": "7ec064429e61c6734f2e24195e714f42ff58c5e59a8d5fb70e1f7081e02af8e4",
+      "sizeBytes": 687,
+      "role": "evidence_artifact"
+    },
+    {
       "path": "package.json",
       "sha256": "5e7e0a30ea9855b30aa1f5e6a99de4c4b360dfe125b654f1c5d4f27fd285f664",
       "sizeBytes": 20933,
@@ -1472,17 +1479,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "216 records"
+      "detail": "217 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "11935408 total bytes"
+      "detail": "11936451 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "216 lines"
+      "detail": "217 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1497,12 +1504,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":200,\"evidence_artifact\":6,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":200,\"evidence_artifact\":7,\"quality_gate\":1,\"workflow\":7}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":10,\"governance_boundary\":39,\"source_control\":10,\"structural_inventory\":103}"
+      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":39,\"source_control\":10,\"structural_inventory\":103}"
     },
     {
       "label": "manifest contains no credential patterns",

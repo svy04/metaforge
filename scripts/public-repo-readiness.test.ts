@@ -94,6 +94,7 @@ function readPublicSetupDocs(): Record<string, string> {
     'README.ko.md',
     'ANDROID_INSTALL.md',
     'PLAYBOOK.md',
+    'docs/non-technical-setup.md',
     'docs/quick-start-windows.md',
     'docs/quick-start-mac-linux.md',
     'docs/advanced-setup.md',
@@ -326,6 +327,26 @@ describe('public repository readiness surfaces', () => {
     expect(docs['docs/advanced-setup.md']).toContain('<mistral-tool-model-id>')
     expect(docs['PLAYBOOK.md']).toContain('<openai-tool-model-id>')
     expect(docs['PLAYBOOK.md']).toContain('<local-ollama-model>')
+  })
+
+  test('public setup docs keep Metaforge as product thesis and OpenClaude as runtime substrate', () => {
+    const docs = readPublicSetupDocs()
+    const setupPaths = [
+      'docs/non-technical-setup.md',
+      'docs/quick-start-windows.md',
+      'docs/quick-start-mac-linux.md',
+    ]
+
+    for (const path of setupPaths) {
+      expect(docs[path], path).toContain('Metaforge')
+      expect(docs[path], path).toMatch(/OpenClaude[\s\S]*runtime\s+substrate|runtime\s+substrate[\s\S]*OpenClaude/i)
+      expect(docs[path], path).not.toContain('## What OpenClaude Does')
+    }
+
+    const scorecard = readRepoText('docs/product-quality/competitive-scorecard.md')
+    expect(scorecard).toContain('# Metaforge Competitive Evidence Scorecard')
+    expect(scorecard).toContain('OpenClaude is the runtime substrate')
+    expect(scorecard).not.toContain('## OpenClaude Product Thesis')
   })
 
   test('runtime diagnostics do not recommend pinned local model examples', () => {

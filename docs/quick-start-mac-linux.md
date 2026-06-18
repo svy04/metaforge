@@ -1,6 +1,10 @@
-# OpenClaude Quick Start for macOS and Linux
+# Metaforge Runtime Quick Start for macOS and Linux
 
 This guide uses a standard shell such as Terminal, iTerm, bash, or zsh.
+
+Metaforge is the Meta/MFH/Orchestra operating layer. OpenClaude is the runtime
+substrate used here for the local CLI command, provider routes, and terminal
+workflow.
 
 ## 1. Install Node.js
 
@@ -15,7 +19,7 @@ node --version
 npm --version
 ```
 
-## 2. Install OpenClaude
+## 2. Install the OpenClaude Runtime
 
 ```bash
 npm install -g @gitlawb/openclaude
@@ -126,13 +130,13 @@ Check the basics:
 - make sure a model is loaded in LM Studio
 - make sure the model name matches what you set in `OPENAI_MODEL`
 
-## 6. Updating OpenClaude
+## 6. Updating the OpenClaude Runtime
 
 ```bash
 npm install -g @gitlawb/openclaude@latest
 ```
 
-## 7. Uninstalling OpenClaude
+## 7. Uninstalling the OpenClaude Runtime
 
 ```bash
 npm uninstall -g @gitlawb/openclaude

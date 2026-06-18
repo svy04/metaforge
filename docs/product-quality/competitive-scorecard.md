@@ -1,12 +1,12 @@
-# OpenClaude Competitive Scorecard
+# Metaforge Competitive Evidence Scorecard
 
 Snapshot date: 2026-05-21
 
-This scorecard turns the user's top-level objective into a verifiable product gate. It does not claim OpenClaude is already better than the top related projects. It defines the evidence OpenClaude must keep producing before any stronger product claim is allowed.
+This scorecard turns the user's top-level objective into a verifiable product gate. It does not claim Metaforge is already better than the top related projects. It defines the evidence Metaforge must keep producing before any stronger product claim is allowed. OpenClaude is the runtime substrate beneath the Meta/MFH/Orchestra operating layer, not the public product thesis.
 
 ## Top 10 Reference Set
 
-The reference set is stored in `docs/product-quality/oss-top10-baseline-2026-05-21.json` and bounded by `bun run product:oss-baseline-refresh`, `bun run product:oss-baseline-freshness`, `bun run product:oss-source-review`, `bun run product:oss-architecture-targets`, and `bun run product:oss-architecture-gap-review`. The refresh uses GitHub REST metadata as current discovery evidence, the source review inspects README/root source surfaces and classifies 9 source-supported candidates plus 1 metadata-only candidate, the architecture-target queue maps those candidates to local no-provider absorption axes, and the gap review maps target axes to OpenClaude evidence plus protected blockers. This scorecard still treats the result as internal planning evidence until separate public-comparison and superiority-claim authorization exists.
+The reference set is stored in `docs/product-quality/oss-top10-baseline-2026-05-21.json` and bounded by `bun run product:oss-baseline-refresh`, `bun run product:oss-baseline-freshness`, `bun run product:oss-source-review`, `bun run product:oss-architecture-targets`, and `bun run product:oss-architecture-gap-review`. The refresh uses GitHub REST metadata as current discovery evidence, the source review inspects README/root source surfaces and classifies 9 source-supported candidates plus 1 metadata-only candidate, the architecture-target queue maps those candidates to local no-provider absorption axes, and the gap review maps target axes to Metaforge/OpenClaude evidence plus protected blockers. This scorecard still treats the result as internal planning evidence until separate public-comparison and superiority-claim authorization exists.
 
 | Rank | Project | Primary source | Stars at snapshot | Product signal |
 | --- | --- | --- | ---: | --- |
@@ -21,11 +21,11 @@ The reference set is stored in `docs/product-quality/oss-top10-baseline-2026-05-
 | 9 | warpdotdev/warp | https://github.com/warpdotdev/warp | 59372 | agentic development environment born out of the terminal |
 | 10 | ruvnet/ruflo | https://github.com/ruvnet/ruflo | 53696 | Claude/Codex-oriented agent orchestration candidate |
 
-## OpenClaude Product Thesis
+## Metaforge Product Thesis
 
-OpenClaude should compete by being the verifiable, provider-open, terminal-first agent layer:
+Metaforge should compete by being the verifiable Meta/MFH/Orchestra operating layer for agent work:
 
-- one workflow across cloud, local, OpenAI-compatible, Codex, Gemini, Ollama, Atomic Chat, and enterprise backends;
+- one workflow across cloud, local, OpenAI-compatible, Codex, Gemini, Ollama, Atomic Chat, and enterprise backends through the OpenClaude runtime substrate;
 - explicit provider profiles and runtime doctoring;
 - privacy gate through no-phone-home build verification;
 - goal, research, and eval documents that make agentic work auditable;
@@ -33,7 +33,7 @@ OpenClaude should compete by being the verifiable, provider-open, terminal-first
 
 ## Required Evidence Axes
 
-| Axis | Current OpenClaude evidence | Gap to keep closing |
+| Axis | Current Metaforge/OpenClaude evidence | Gap to keep closing |
 | --- | --- | --- |
 | provider_breadth | README provider matrix and provider launch scripts | Add provider compatibility fixtures with pass/fail examples |
 | terminal_workflow | `bin/openclaude`, `dist/cli.mjs`, slash/tool workflow docs | Add scripted golden-path terminal transcript tests |
@@ -50,8 +50,8 @@ OpenClaude should compete by being the verifiable, provider-open, terminal-first
 
 Allowed now:
 
-- OpenClaude has a verifiable product-quality gate and a fresh GitHub top-10 reference baseline with refresh, freshness, README/root-source review, exclusion, and provenance checks.
-- OpenClaude has a concrete path to compete against the leading GitHub coding-agent projects.
+- Metaforge has a verifiable product-quality gate and a fresh GitHub top-10 reference baseline with refresh, freshness, README/root-source review, exclusion, and provenance checks.
+- Metaforge has a concrete path to compete against the leading GitHub coding-agent projects through evidence-gated Meta/MFH/Orchestra work on top of the OpenClaude runtime substrate.
 
 Not allowed now:
 

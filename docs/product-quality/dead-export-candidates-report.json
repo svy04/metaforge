@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:13:00.203Z",
+  "generatedAt": "2026-06-18T12:46:21.374Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -129,6 +129,20 @@
       "sampleTypes": []
     },
     {
+      "file": "src/constants/prompts.ts",
+      "unusedExports": 5,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "CLAUDE_CODE_DOCS_MAP_URL",
+        "computeEnvInfo",
+        "computeSimpleEnvInfo",
+        "getUnameSR",
+        "getScratchpadInstructions"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/state/AppState.tsx",
       "unusedExports": 2,
       "unusedTypes": 3,
@@ -185,20 +199,6 @@
       "sampleTypes": []
     },
     {
-      "file": "src/constants/prompts.ts",
-      "unusedExports": 5,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "CLAUDE_CODE_DOCS_MAP_URL",
-        "computeEnvInfo",
-        "computeSimpleEnvInfo",
-        "getUnameSR",
-        "getScratchpadInstructions"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/services/mcp/types.ts",
       "unusedExports": 8,
       "unusedTypes": 8,
@@ -223,6 +223,23 @@
         "SerializedClient",
         "MCPCliState"
       ]
+    },
+    {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
     },
     {
       "file": "src/ink/frame.ts",
@@ -267,23 +284,6 @@
       "duplicateExports": 0,
       "sampleExports": [
         "renderSync"
-      ],
-      "sampleTypes": []
-    },
-    {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
       ],
       "sampleTypes": []
     },
@@ -539,7 +539,8 @@
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",
-      "ok": true
+      "ok": true,
+      "detail": "Knip,Knip JSON reporter docs,fallow"
     },
     {
       "label": "provider/live/external calls remain absent",

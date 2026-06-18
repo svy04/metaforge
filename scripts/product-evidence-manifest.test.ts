@@ -7,6 +7,7 @@ import {
   filterSourceControlledEvidencePaths,
   hasCredentialPattern,
   proofClassFor,
+  rawRequiredEvidencePaths,
   roleFor,
   type EvidenceRecord,
 } from './product-evidence-manifest'
@@ -116,6 +117,7 @@ describe('product evidence manifest behavior', () => {
     )
     expect(proofClassFor('docs/product-quality/script-duplication-audit-report.json')).toBe('static_analysis')
     expect(proofClassFor('.dependency-cruiser.mjs')).toBe('static_analysis')
+    expect(proofClassFor('knip.jsonc')).toBe('static_analysis')
     expect(proofClassFor('docs/product-quality/public-claim-boundary-report.json')).toBe('governance_boundary')
     expect(report.evidenceProofClasses.behavioral_runtime).toBe(2)
     expect(report.evidenceProofClasses.static_analysis).toBe(2)
@@ -156,5 +158,9 @@ describe('product evidence manifest behavior', () => {
     expect(readme).toContain('static analysis, governance-boundary, source-control, and structural-inventory evidence')
     expect(koreanReadme).toContain('evidence manifest는 behavioral runtime evidence')
     expect(koreanReadme).toContain('static analysis, governance-boundary, source-control, structural-inventory evidence')
+  })
+
+  test('requires the Knip config as static-analysis evidence', () => {
+    expect(rawRequiredEvidencePaths).toContain('knip.jsonc')
   })
 })
