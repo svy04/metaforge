@@ -35,7 +35,7 @@ Observed local anchors:
   are no longer tracked public authority after the public hygiene cleanup.
 - `src/services/orchestra/` already contains implementation surfaces for planner routing, skeptic, shadow executor contract, cross-review, evidence arbiter, human gate, promotion store, worktree manager, and experiment metrics.
 - `package.json` exposes verification commands: `bun run build`, `bun test`, `bun run typecheck`, `bun run smoke`, `bun run doctor:runtime`, `bun run verify:privacy`.
-- `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` and its plan document establish the existing GStack/GSD/Superpowers role split.
+- `AGENTS.md` and `docs/superpowers/specs/2026-05-05-agent-stack-integration-design.md` document the public-safe GStack/GSD/Superpowers role split. Internal installation runbooks are intentionally not tracked as public evidence.
 - `docs/MFH_META_SYNTHESIS.md` records a public-safe summary of companion
   harness sources that define governed-code, Meta, MFH, and Candidate M.
 - Companion Meta sources define Meta as the operator OS: Constitution, decision

@@ -165,6 +165,14 @@ const reportJsonPath = 'docs/product-quality/oss-comparison-readiness-index-repo
 const reportMdPath = 'docs/product-quality/oss-comparison-readiness-index-report.md'
 const readinessIndexJsonlPath = 'reports/openclaude-oss-comparison-readiness-index.jsonl'
 
+export function evidenceManifestIncludesSourceControlledComparisonEvidence(
+  manifestRequiredPaths: string[],
+  manifestMissingPaths: string[],
+  comparisonReportPath = sourceComparisonMatrixReportPath,
+): boolean {
+  return manifestRequiredPaths.includes(comparisonReportPath) && manifestMissingPaths.length === 0
+}
+
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')
 }
@@ -482,7 +490,7 @@ function main(): void {
     check('source reports preserve no-provider call arrays', [matrix, protectedPacket, evidenceManifest, publicClaimBoundary].every(callArraysEmpty), 'source call arrays empty'),
     check('source reports keep public comparison superiority and readiness claims blocked', [matrix, protectedPacket, evidenceManifest, publicClaimBoundary, report].every(claimsBlocked), 'all claim flags false'),
     check('protected-action packet keeps all owner authorizations false', Number(protectedPacket.sourceReportCount) >= 14 && allAuthorizationsFalse && protectedPacket.protectedActionExecuted === false, `${String(protectedPacket.sourceReportCount)}/${String(Array.isArray(requiredAuthorizations) ? requiredAuthorizations.length : 0)}`),
-    check('evidence manifest includes comparison matrix evidence and has no missing required paths', manifestRequiredPaths.includes(sourceComparisonMatrixReportPath) && manifestRequiredPaths.includes('reports/openclaude-oss-benchmark-comparison-matrix.jsonl') && manifestMissingPaths.length === 0, `${manifestRequiredPaths.length} required paths`),
+    check('evidence manifest includes source-controlled comparison matrix evidence and has no missing required paths', evidenceManifestIncludesSourceControlledComparisonEvidence(manifestRequiredPaths, manifestMissingPaths), `${manifestRequiredPaths.length} source-controlled required paths`),
     check('public claim boundary has no unauthorized positive claims', publicClaimBoundary.unauthorizedPositiveClaimCount === 0, String(publicClaimBoundary.unauthorizedPositiveClaimCount ?? 'missing')),
     check('terminal protected-action boundary remains explicit', report.terminalCondition === 'PROTECTED_ACTION_REQUIRED_FOR_NEXT_VERIFIABLE_PRODUCT_BOUNDARY' && report.protectedActionRequiredForNextVerifiableBoundary === true && report.protectedActionExecuted === false, report.terminalCondition),
     check('mth and canonical memory boundaries remain blocked', report.mthResolutionStatus === 'unresolved' && report.canonicalMemoryWriteAllowed === false, `${report.mthResolutionStatus}/${String(report.canonicalMemoryWriteAllowed)}`),
@@ -518,4 +526,6 @@ function main(): void {
   }
 }
 
-main()
+if (import.meta.main) {
+  main()
+}

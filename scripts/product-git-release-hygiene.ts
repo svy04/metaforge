@@ -79,6 +79,17 @@ function runGit(name: string, args: string[]): GitCommand {
   }
 }
 
+export function sanitizeGitCommandForPublicReport(command: GitCommand): GitCommand {
+  if (command.name !== 'status_short') {
+    return command
+  }
+  const entryCount = command.stdoutPreview.length
+  return {
+    ...command,
+    stdoutPreview: entryCount > 0 ? [`<git-status-short: ${entryCount} entries>`] : [],
+  }
+}
+
 function check(label: string, ok: boolean, detail: string): HygieneCheck {
   return { label, ok, detail }
 }
@@ -96,7 +107,10 @@ function classifyGitStatus(revParse: GitCommand): GitReleaseHygieneReport['works
 
 function writeReports(report: GitReleaseHygieneReport): void {
   mkdirSync(docsDir, { recursive: true })
-  const publicReport = scrubPublicArtifactValue(report)
+  const publicReport = scrubPublicArtifactValue({
+    ...report,
+    gitCommands: report.gitCommands.map(sanitizeGitCommandForPublicReport),
+  })
   writeFileSync(
     resolve(docsDir, 'git-release-hygiene-report.json'),
     `${JSON.stringify(publicReport, null, 2)}\n`,
@@ -129,7 +143,7 @@ function writeReports(report: GitReleaseHygieneReport): void {
     '',
     '| Command | Exit | Stdout | Stderr |',
     '| --- | ---: | --- | --- |',
-    ...report.gitCommands.map((item) => (
+    ...publicReport.gitCommands.map((item) => (
       `| \`${item.command.join(' ')}\` | ${item.exitCode ?? 'null'} | ${item.stdoutPreview.map((line) => `\`${line}\``).join('<br>') || '`none`'} | ${item.stderrPreview.map((line) => `\`${line}\``).join('<br>') || '`none`'} |`
     )),
     '',
@@ -206,4 +220,6 @@ function main(): void {
   console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)
 }
 
-main()
+if (import.meta.main) {
+  main()
+}
