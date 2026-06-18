@@ -172,3 +172,25 @@ behavioral closure evidence:
   Meta/MFH/Orchestra and leaves OpenClaude as runtime substrate.
 
 Blocked context: this is still local no-provider evidence and does not prove production readiness, hosted deployment, external validation, benchmark superiority, or autonomous reliability.
+
+## 2026-06-18 Response: Product Evidence Reframing
+
+The owner-restated feedback packet is now treated as an active backlog input,
+not a one-time launch reaction. This response slice keeps the raw thread out of
+public docs while preserving the concrete work:
+
+- keep feedback docs as summarized evidence, not raw comment archives;
+- keep OpenClaude framed as runtime substrate while Metaforge carries the
+  Meta/MFH/Orchestra thesis;
+- add regression coverage so product-quality evidence docs cannot drift back to
+  OpenClaude-as-product wording;
+- preserve the recommended analysis stack, including Knip/fallow,
+  dependency-cruiser, jscpd, and manual topology review;
+- continue moving weak marker/file-existence checks toward behavioral happy
+  paths, edge cases, and side-effect guards;
+- keep Korean docs current when public readers are Korean.
+
+Blocked context: this response is public-surface hygiene and local no-provider
+evidence alignment. It does not prove production readiness, hosted deployment,
+external validation, benchmark superiority, legal clearance, or autonomous
+reliability.
