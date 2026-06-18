@@ -39,6 +39,7 @@ This does not yet prove hosted deployment, public adoption, production readiness
 ## Wiring Evidence Map
 
 Use this map before turning architecture language into public copy.
+The generated [Public claim evidence map](../product-quality/public-claim-boundary-report.md#public-claim-evidence-map) is the source-bound version: it binds each public symbol to allowed claims, explicit non-claims, local evidence paths, and unresolved gaps.
 
 | Surface | Evidence class | Public wording allowed | Boundary |
 | --- | --- | --- | --- |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T06:39:19.518Z",
+  "generatedAt": "2026-06-18T07:15:53.616Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -13,9 +13,19 @@
       "observedPattern": "Open-source quality posture is stronger when checks are explicit, repeatable, and tied to evidence instead of narrative-only assertions."
     },
     {
+      "sourceProject": "in-toto Attestation Framework",
+      "sourceUrl": "https://github.com/in-toto/attestation/blob/main/spec/README.md",
+      "observedPattern": "Subject-to-predicate evidence binding keeps proof surfaces explicit instead of narrative-only."
+    },
+    {
       "sourceProject": "SLSA Build Provenance",
       "sourceUrl": "https://slsa.dev/spec/v1.2/build-provenance",
       "observedPattern": "Evidence and provenance boundaries should stay separate from release, production, and external-attestation claims until those steps are actually authorized and performed."
+    },
+    {
+      "sourceProject": "NIST SSDF SP 800-218",
+      "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "observedPattern": "Secure-development practices and evidence records reduce communication and vulnerability risk without implying compliance from local reports alone."
     }
   ],
   "scannedPublicSurfaces": [
@@ -78,16 +88,16 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "28f44fea1c3e7504f9b6799794b9ef46d621311a5c1feaa3df34262f600a56cc",
-      "sizeBytes": 7911,
-      "lineCount": 161
+      "sha256": "b87c1bb7fe089cab9c231e412d3725f8f67d727746ee596481c681f30f94c21d",
+      "sizeBytes": 8283,
+      "lineCount": 163
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "738f4f2916ccf091cac70d70da5aab421e112c713b5e461905d4ba937b282984",
-      "sizeBytes": 20681,
-      "lineCount": 434
+      "sha256": "4d52c074e3bcbd0c88839bce3aeff1cc763754018d772d4413ec54d91c957a6c",
+      "sizeBytes": 21060,
+      "lineCount": 436
     },
     {
       "path": "SECURITY.md",
@@ -1044,9 +1054,9 @@
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
       "exists": true,
-      "sha256": "4dd17f63fc273c1e6c8316664d1d7ca19bd2d9d6caf9b584f162ed7aed27fa50",
-      "sizeBytes": 14885,
-      "lineCount": 151
+      "sha256": "d7dae2e208011cee9f8d0ac108023f89b893e6391691c8758312198823819740",
+      "sizeBytes": 15145,
+      "lineCount": 152
     },
     {
       "path": "docs/product-quality/agent-instructions-quality-report.md",
@@ -1128,7 +1138,7 @@
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
       "exists": true,
-      "sha256": "1e756ef7ae4add7ab85d4562155f518ff8dfad1fc4ab258f4959b6468b1e7620",
+      "sha256": "afe6112878889181d828bc4433a5a9125d0c12fa18373a133e1ad5e2c261f1b0",
       "sizeBytes": 9078,
       "lineCount": 112
     },
@@ -1142,16 +1152,16 @@
     {
       "path": "docs/product-quality/dependency-topology-report.md",
       "exists": true,
-      "sha256": "d5da486e8e2e32c75a317e9a61839ab049054840e848dcdf3c2d86412bf6d6e3",
+      "sha256": "7945ba09d6d16eb464589238ce01fb1c2c68cbd73fd4dd0d839502c19093da60",
       "sizeBytes": 6142,
       "lineCount": 117
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
       "exists": true,
-      "sha256": "9ef41c4279bfa32868bb23b5954279fd61e0160f72f5d69b1b9e782c8a193b3c",
-      "sizeBytes": 6685,
-      "lineCount": 92
+      "sha256": "db2a9e83507c1801520b8f9d6b94b4550a080f42ef281a1a295b0b636644c828",
+      "sizeBytes": 7126,
+      "lineCount": 95
     },
     {
       "path": "docs/product-quality/external-benchmark-authorization-request.md",
@@ -1163,7 +1173,7 @@
     {
       "path": "docs/product-quality/external-benchmark-boundary-report.md",
       "exists": true,
-      "sha256": "a895c699731665a0bc5b1eb86e9b9482d4bcda7acd396871cf07fd9052b0e5f9",
+      "sha256": "066f18bc33e618a8268824d973d6a1f0f6ba14c4e59b3b3cc2a9be873476a3ef",
       "sizeBytes": 6331,
       "lineCount": 75
     },
@@ -1275,8 +1285,8 @@
     {
       "path": "docs/product-quality/local-benchmark-harness-report.md",
       "exists": true,
-      "sha256": "f745e8a14d9f7b68b065f4388cfd306c0990cf0e1bd402b4f3d910566aae9d82",
-      "sizeBytes": 4570,
+      "sha256": "a2eb6ef9d57cecab8d02e1d2df60c45d7d8edc5384431126e5706e384929611c",
+      "sizeBytes": 4566,
       "lineCount": 65
     },
     {
@@ -1499,7 +1509,7 @@
     {
       "path": "docs/product-quality/product-evidence-manifest.md",
       "exists": true,
-      "sha256": "7d06258d82ae1444c55c1e5aa11021405423fba55cb994f80aa9d49d23ac0909",
+      "sha256": "175f645302592c8b0f380f6de6d3228e4c7e030c4c70d8bf24ee4c32e43ee3a4",
       "sizeBytes": 14404,
       "lineCount": 227
     },
@@ -1625,7 +1635,7 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "21a527e9f2a675e019fbf7d66ce12eac3e9ad3e09525c30cc8815da39a6102fd",
+      "sha256": "81b6b876fd203049d41801d219e2e76406267f8b6bd973c880839d09f0ea6aca",
       "sizeBytes": 8811,
       "lineCount": 98
     },
@@ -1799,7 +1809,7 @@
     }
   ],
   "publicSurfaceCount": 254,
-  "scannedLineCount": 22657,
+  "scannedLineCount": 22665,
   "blockedContextClaimMentionCount": 953,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -2039,7 +2049,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 141,
+      "line": 143,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -2048,7 +2058,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 143,
+      "line": 145,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -2057,7 +2067,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 145,
+      "line": 147,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -5621,7 +5631,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 48,
+      "line": 49,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5630,7 +5640,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 49,
+      "line": 50,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -5639,7 +5649,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 57,
+      "line": 58,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5648,7 +5658,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 73,
+      "line": 74,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -5657,7 +5667,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 73,
+      "line": 74,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5666,7 +5676,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 76,
+      "line": 77,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5675,7 +5685,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 133,
+      "line": 134,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -5684,7 +5694,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 134,
+      "line": 135,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5693,7 +5703,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 137,
+      "line": 138,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -5702,7 +5712,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
-      "line": 138,
+      "line": 139,
       "phrase": "benchmark or model superiority",
       "category": "superiority",
       "status": "blocked_context",
@@ -10384,8 +10394,136 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/openclaude-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "b93c80cc0cfef3c896335403057c204b84a9f3652dfc054e8062e6e9e372e833",
+  "scanJsonlSha256": "785a1896ae621c5dfec12cc6039753627aac59321a0d91c240032de1d2d46f7d",
   "scanJsonlRecordCount": 953,
+  "publicClaimEvidenceSymbolCount": 6,
+  "publicClaimEvidenceMap": [
+    {
+      "symbol": "Meta",
+      "publicRole": "Metaforge operating memory and state boundary for source ledgers, decisions, owner context, and goal state.",
+      "evidenceClass": "governance/docs/gates",
+      "evidencePaths": [
+        "docs/MFH_META_SYNTHESIS.md",
+        "docs/GOAL_SCHEMA.md",
+        "docs/AGENT_REGISTRY.md",
+        "docs/PROJECT_SPEC.md"
+      ],
+      "verificationCommand": "bun run product:evidence-manifest",
+      "allowedClaim": "Meta is the repo-local governance and operating-memory contract used to bind goals, decisions, and source-ledger state.",
+      "nonClaims": [
+        "Meta is not a separately shipped runtime service in this checkout.",
+        "Meta is not external validation of memory quality.",
+        "Meta is not production readiness or autonomous reliability proof."
+      ],
+      "unresolvedGap": "Runtime persistence and import paths beyond the documented governance surface still need behavior-level evidence before stronger module claims."
+    },
+    {
+      "symbol": "MFH",
+      "publicRole": "Metaforge evidence-gated closure layer for claim boundaries, validation commands, and rollback-aware completion.",
+      "evidenceClass": "governance/evidence-gate docs",
+      "evidencePaths": [
+        "docs/MFH_META_SYNTHESIS.md",
+        "docs/EVALS.md",
+        "docs/GOAL_SCHEMA.md",
+        "docs/product-quality/public-claim-boundary-report.md",
+        "docs/product-quality/product-evidence-manifest.md"
+      ],
+      "verificationCommand": "bun run product:public-claim-boundary",
+      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, and product-quality reports.",
+      "nonClaims": [
+        "MFH is not a formal certification system.",
+        "MFH is not external validation.",
+        "MFH does not prove production, release, public, or autonomous reliability readiness."
+      ],
+      "unresolvedGap": "More gates still need happy-path, edge-case, and side-effect behavior tests before MFH can carry broader reliability claims."
+    },
+    {
+      "symbol": "Orchestra",
+      "publicRole": "Runtime routing, critique, review, promotion, and evidence-arbiter surface for Claude/Codex-backed agent roles.",
+      "evidenceClass": "runtime-wired local no-provider evidence",
+      "evidencePaths": [
+        "src/services/orchestra",
+        "src/query/orchestra.test.ts",
+        "docs/AGENT_REGISTRY.md",
+        "docs/product-quality/real-session-trace-evals-report.md",
+        "docs/product-quality/trace-schema-contract-report.md",
+        "docs/product-quality/trajectory-process-quality-report.md",
+        "docs/product-quality/protected-action-denial-trace-report.md"
+      ],
+      "verificationCommand": "bun test src/services/orchestra src/query/orchestra.test.ts",
+      "allowedClaim": "Orchestra has repo-local runtime-wired source and test surfaces for routing, critique, review, promotion, and evidence arbitration.",
+      "nonClaims": [
+        "Orchestra is not a hosted orchestration service.",
+        "Orchestra is not live provider benchmark proof.",
+        "Orchestra does not prove autonomous reliability."
+      ],
+      "unresolvedGap": "Hosted execution, live-provider reliability, and external benchmark claims remain blocked until separately authorized and measured."
+    },
+    {
+      "symbol": "OpenClaude runtime",
+      "publicRole": "Local CLI substrate for terminal UX, tools, MCP, slash commands, provider routing, streaming, and credential-backed model routes.",
+      "evidenceClass": "runtime substrate",
+      "evidencePaths": [
+        "src",
+        "package.json",
+        "docs/product-quality/provider-capability-matrix-report.md",
+        "docs/product-quality/provider-compatibility-fixtures.md",
+        "docs/product-quality/runtime-doctor-regression-fixtures.md",
+        "docs/product-quality/permission-regression-fixtures.md",
+        "docs/product-quality/origin-license-provenance-boundary-report.md",
+        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.md"
+      ],
+      "verificationCommand": "bun run build && bun run verify:privacy",
+      "allowedClaim": "OpenClaude is the local CLI substrate that Metaforge rides on for tools, MCP, provider profiles, Claude routes, and Codex routes.",
+      "nonClaims": [
+        "OpenClaude is not the product thesis.",
+        "OpenClaude is not a blanket MIT-original CLI claim.",
+        "OpenClaude is not production readiness, release readiness, or external validation."
+      ],
+      "unresolvedGap": "Origin/license review, live-provider reachability, and stronger runtime behavior coverage remain prerequisites before heavier substrate promotion."
+    },
+    {
+      "symbol": "Mimesis Engineering",
+      "publicRole": "Source-first improvement loop that absorbs proven OSS, papers, patents, standards, and product patterns into Metaforge work.",
+      "evidenceClass": "source-ledger loop with private-boundary guard",
+      "evidencePaths": [
+        "docs/MIMESIS_ENGINEERING.md",
+        "docs/research/mimesis-engineering-source-ledger-2026-06-14.md",
+        "docs/product-quality/primary-source-registry-report.md",
+        "docs/product-quality/product-evidence-manifest.md"
+      ],
+      "verificationCommand": "bun run product:primary-source-registry",
+      "allowedClaim": "Mimesis Engineering is the repo-local source-first improvement method for turning primary sources into bounded product-quality work.",
+      "nonClaims": [
+        "Mimesis Engineering is not a default runtime module.",
+        "Mimesis Engineering is not external validation or a universal quality lift.",
+        "Mimesis Engineering does not make private workbench material public proof."
+      ],
+      "unresolvedGap": "Private/local workbench evidence stays outside public proof until sanitized, source-controlled, and re-verified."
+    },
+    {
+      "symbol": "AVF Influence Factory",
+      "publicRole": "Manual artifact lane for venture/factory packets, operator runbooks, routing policies, and owner-review artifacts.",
+      "evidenceClass": "manual artifact lane",
+      "evidencePaths": [
+        "avf",
+        "avf/influence_factory/operator_runs.md",
+        "avf/influence_factory/product_track_spec.md",
+        "docs/avf/WEB_FIRST_AUTONOMOUS_VENTURE_FACTORY_SPEC.md",
+        "docs/product-quality/public-claim-boundary-report.md",
+        "docs/product-quality/dependency-topology-report.md",
+        "docs/product-quality/dead-export-candidates-report.md"
+      ],
+      "verificationCommand": "python scripts\\validate_avf_influence_factory_completion_candidate_v42.py",
+      "allowedClaim": "AVF Influence Factory is a repo-local manual artifact lane with tracked schemas, runbooks, product-track notes, and boundary documentation.",
+      "nonClaims": [
+        "AVF Influence Factory is not a default CLI runtime import.",
+        "AVF Influence Factory is not an active automation claim.",
+        "AVF Influence Factory does not prove generated public artifacts, release readiness, or external validation."
+      ],
+      "unresolvedGap": "Runtime imports, generated public artifacts, and behavior tests are still required before marketing AVF as an active module."
+    }
+  ],
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -10404,6 +10542,31 @@
   "allowedClaimLevel": "internal_no_provider_product_quality_evidence_only",
   "evidenceChecks": [
     {
+      "label": "public claim evidence map covers expected symbols",
+      "ok": true,
+      "detail": "Meta,MFH,Orchestra,OpenClaude runtime,Mimesis Engineering,AVF Influence Factory"
+    },
+    {
+      "label": "public claim evidence paths exist",
+      "ok": true,
+      "detail": "all present"
+    },
+    {
+      "label": "public claim evidence rows include allowed claims non-claims and gaps",
+      "ok": true,
+      "detail": "6 rows"
+    },
+    {
+      "label": "OpenClaude remains substrate rather than thesis",
+      "ok": true,
+      "detail": "substrate boundary present"
+    },
+    {
+      "label": "AVF remains manual artifact lane not default runtime",
+      "ok": true,
+      "detail": "AVF manual lane boundary present"
+    },
+    {
       "label": "all configured public surfaces exist",
       "ok": true,
       "detail": "all present"
@@ -10416,7 +10579,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "22657 lines"
+      "detail": "22665 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
