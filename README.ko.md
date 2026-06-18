@@ -46,6 +46,21 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | 증거 분류 | `docs/product-quality/product-evidence-manifest.md`의 evidence manifest는 behavioral runtime evidence와 static analysis, governance-boundary, source-control, structural-inventory evidence를 분리합니다. |
 | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
 
+## 공개 피드백 응답
+
+최근 한국 커뮤니티 피드백은 칭찬이나 외부 검증이 아니라 제품 입력으로 추적합니다.
+[2026-06-19 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-19.md)과
+[triage](docs/product-quality/public-feedback-triage-2026-06-19.md)에 보존되어 있습니다.
+
+그 피드백 때문에 공개 기준을 이렇게 고정합니다.
+
+- 출처, fork/adaptation, 낮은 public commit/star 맥락을 먼저 분명히 말한다.
+- AGENTS와 README는 public-safe하고 짧아야 하며 local machine context를 노출하지 않는다.
+- OpenClaude는 runtime substrate이고, 공개 thesis는 Metaforge = Meta + MFH + Orchestra OS다.
+- marker-only audit는 behavioral happy path, edge case, side-effect guard로 계속 옮겨가야 한다.
+- Knip/fallow, dependency-cruiser, jscpd, topology review는 실제로 실행하거나 gate에 연결하기 전까지 refactor backlog다.
+- 첫 피드백 루프가 한국어였으므로 한국어 문서도 최신으로 유지한다.
+
 ## Metaforge Proof Tour
 
 공개 설명이 진짜인지 확인할 때는 이 순서로 보면 됩니다.

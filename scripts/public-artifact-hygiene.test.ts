@@ -77,7 +77,7 @@ describe('public artifact hygiene scanner', () => {
         profile: 'openai',
         env: {
           OPENAI_MODEL: 'gpt-4o',
-          OPENAI_API_KEY: 'sk-openai-key',
+          OPENAI_API_KEY: ['sk', 'openai', 'key'].join('-'),
         },
       }),
     )

@@ -73,7 +73,7 @@ A private/local Mimesis v.next workbench has the freshest Mimesis evidence:
 - owner-side Mimesis design thread
 - owner-side Mimesis package notes
 
-The private workbench root is local, not a published repository. `mimesis-plugin` and `mimesis-source-packet` are git repositories inside it, but both currently have local dirty state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
+The private workbench root is local, not a published repository. It contains private local evidence repositories with unpublished working state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
 
 ## Claim Boundary
 

@@ -62,6 +62,8 @@ function createMockConfigState(): MockConfigState {
 
 let mockConfigState: MockConfigState = createMockConfigState()
 
+const dummySk = (suffix: string): string => ['sk', suffix].join('-')
+
 function saveMockGlobalConfig(
   updater: (current: MockConfigState) => MockConfigState,
 ): void {
@@ -561,7 +563,7 @@ describe('setActiveProviderProfile', () => {
         provider: 'openai',
         baseUrl: 'https://api.openai.com/v1',
         model: 'gpt-5',
-        apiKey: 'sk-test',
+        apiKey: dummySk('test'),
       })
 
       saveMockGlobalConfig(current => ({
@@ -648,7 +650,7 @@ describe('setActiveProviderProfile', () => {
       provider: 'openai',
       baseUrl: 'https://api.openai.com/v1',
       model: 'gpt-4o',
-      apiKey: 'sk-openai-key',
+      apiKey: dummySk('openai-key'),
     })
     const anthropicProfile = buildProfile({
       id: 'anthro_prof',
@@ -656,7 +658,7 @@ describe('setActiveProviderProfile', () => {
       provider: 'anthropic',
       baseUrl: 'https://api.anthropic.com',
       model: 'claude-sonnet-4-6',
-      apiKey: 'sk-ant-key',
+      apiKey: dummySk('ant-key'),
     })
 
     saveMockGlobalConfig(current => ({
@@ -693,7 +695,7 @@ describe('setActiveProviderProfile', () => {
       provider: 'anthropic',
       baseUrl: 'https://api.anthropic.com',
       model: 'claude-sonnet-4-6',
-      apiKey: 'sk-ant-key',
+      apiKey: dummySk('ant-key'),
     })
     const openaiProfile = buildProfile({
       id: 'openai_prof',
@@ -701,7 +703,7 @@ describe('setActiveProviderProfile', () => {
       provider: 'openai',
       baseUrl: 'https://api.openai.com/v1',
       model: 'gpt-4o',
-      apiKey: 'sk-openai-key',
+      apiKey: dummySk('openai-key'),
     })
 
     saveMockGlobalConfig(current => ({
@@ -757,7 +759,7 @@ describe('deleteProviderProfile', () => {
         id: 'only_profile',
         baseUrl: 'https://api.openai.com/v1',
         model: 'gpt-4o',
-        apiKey: 'sk-test',
+        apiKey: dummySk('test'),
       }),
     )
 

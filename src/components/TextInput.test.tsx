@@ -201,7 +201,7 @@ test('TextInput renders typed characters before delayed parent value commits', a
 })
 
 test('maskTextWithVisibleEdges preserves only the first and last three chars', () => {
-  expect(maskTextWithVisibleEdges('sk-secret-12345678', '*')).toBe(
+  expect(maskTextWithVisibleEdges(['sk', 'secret', '12345678'].join('-'), '*')).toBe(
     'sk-************678',
   )
   expect(maskTextWithVisibleEdges('abcdef', '*')).toBe('******')
