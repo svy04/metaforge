@@ -1,12 +1,6 @@
-import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-
-type Check = {
-  label: string
-  ok: boolean
-  detail: string
-}
+import { type Check, check, readText, sha256 } from './quality-report-helpers'
 
 type SafeBacklogPlanItem = {
   planItemId: string
@@ -128,18 +122,6 @@ const sourceSafeBacklogPlanReportPath = 'docs/product-quality/oss-safe-backlog-p
 const reportJsonPath = 'docs/product-quality/oss-terminal-workflow-evidence-report.json'
 const reportMdPath = 'docs/product-quality/oss-terminal-workflow-evidence-report.md'
 const provenanceJsonlPath = 'reports/openclaude-oss-terminal-workflow-evidence.jsonl'
-
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function readText(path: string): string {
-  return readFileSync(resolve(root, path), 'utf8')
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
-}
 
 function slug(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '')
