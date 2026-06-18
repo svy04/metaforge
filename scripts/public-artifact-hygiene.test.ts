@@ -195,6 +195,43 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('rejects public reports that expose local credential mechanics', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'reports')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'orchestra-recovery.md'),
+      [
+        'Replaced stale local profile with Codex OAuth profile.',
+        'CODEX_CREDENTIAL_SOURCE=oauth',
+        'The planner succeeded under the restored credentials.',
+        'The raw SDK path skipped the side-query OAuth attribution path.',
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('reports/orchestra-recovery.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('credential-source-env-var')
+  })
+
+  test('rejects public reports that turn provider aliases into latest-model claims', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'docs', 'product-quality')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'golden-path-terminal-transcripts.md'),
+      "  --model <model>  Provide an alias for the latest model (e.g. 'sonnet' or 'opus').\n",
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('docs/product-quality/golden-path-terminal-transcripts.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('latest-model-alias-claim')
+  })
+
   test('scans the root license for local path disclosure', () => {
     const repo = makeTempRepo()
     writeFileSync(

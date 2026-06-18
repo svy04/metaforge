@@ -58,7 +58,7 @@ Choose this if:
 Choose this if:
 
 - you already use the Codex CLI
-- you already have Codex or ChatGPT auth configured
+- you already have an approved local Codex-compatible provider profile
 
 ## What Success Looks Like
 

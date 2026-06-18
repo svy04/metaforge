@@ -112,7 +112,7 @@ Expected behavior:
 ## 5.2 OpenAI mode
 
 ```powershell
-bun run profile:init -- --provider openai --api-key <openai-api-key> --model <current-openai-tool-model>
+bun run profile:init -- --provider openai --api-key <openai-api-key> --model <openai-tool-model-id>
 bun run dev:profile
 ```
 
@@ -299,7 +299,7 @@ bun run dev:profile
 ```powershell
 # profile
 bun run profile:init -- --provider ollama --model <local-ollama-model>
-bun run profile:init -- --provider openai --api-key <openai-api-key> --model <current-openai-tool-model>
+bun run profile:init -- --provider openai --api-key <openai-api-key> --model <openai-tool-model-id>
 
 # launch
 bun run dev:profile

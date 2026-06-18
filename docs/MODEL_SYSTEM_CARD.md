@@ -22,10 +22,10 @@ OpenClaude is not the product center in this card. It is the runtime substrate t
 
 ## Model And Provider Surfaces
 
-Metaforge can route work through several model/provider surfaces when the owner configures credentials:
+Metaforge can route work through several model/provider surfaces when the owner configures an approved local credential source:
 
-- Claude OAuth routes for planner, skeptic, review, and first-party Anthropic tasks.
-- Codex OAuth or Codex CLI auth routes for visible execution and implementation tasks.
+- Owner-configured Claude routes for planner, skeptic, review, and first-party Anthropic tasks.
+- Owner-configured Codex-compatible routes for visible execution and implementation tasks.
 - OpenAI-compatible provider profiles for local or remote model endpoints.
 - Local providers such as Ollama or LM Studio when configured by the owner.
 - GitHub and other provider presets when the local provider profile evidence allows only configuration claims.
@@ -131,7 +131,7 @@ Update this card when any of these change:
 
 - Meta/MFH/Orchestra role boundaries;
 - OpenClaude runtime provider-routing behavior;
-- Claude OAuth or Codex OAuth route behavior;
+- owner-configured Claude or Codex-compatible route behavior;
 - permission, sandbox, or protected-action policy;
 - public proof-pack copy;
 - model/provider claim boundaries;
