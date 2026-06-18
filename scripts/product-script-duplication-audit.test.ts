@@ -306,11 +306,11 @@ export function renderFixtureReport(input: string): string {
       }>
     }
 
-    expect(report.helperOccurrenceCounts.check).toBe(68)
-    expect(report.helperOccurrenceCounts.readText).toBe(33)
+    expect(report.helperOccurrenceCounts.check).toBe(66)
+    expect(report.helperOccurrenceCounts.readText).toBe(31)
     expect(report.helperOccurrenceCounts.sha256Text).toBe(0)
-    expect(report.helperOccurrenceBaselines.check).toBe(68)
-    expect(report.helperOccurrenceBaselines.readText).toBe(33)
+    expect(report.helperOccurrenceBaselines.check).toBe(66)
+    expect(report.helperOccurrenceBaselines.readText).toBe(31)
     expect(report.helperOccurrenceBaselines.sha256Text).toBe(0)
     expect(report.jscpdEnabled).toBe(true)
     expect(report.jscpdVersion).toContain('5.0.9')
@@ -342,6 +342,19 @@ export function renderFixtureReport(input: string): string {
       report.auditChecks.some((item) => item.label === 'jscpd token clone count does not exceed baseline' && item.ok),
     ).toBe(true)
   }, 120000)
+
+  test('provider breadth and security permissions evidence scripts use shared quality helpers', () => {
+    const providerBreadth = readFileSync(join(root, 'scripts', 'product-oss-provider-breadth-evidence.ts'), 'utf8')
+    const securityPermissions = readFileSync(join(root, 'scripts', 'product-oss-security-permissions-evidence.ts'), 'utf8')
+    const targetSources = [providerBreadth, securityPermissions]
+
+    for (const source of targetSources) {
+      expect(source).toContain("from './quality-report-helpers'")
+      expect(source).not.toContain('function sha256(')
+      expect(source).not.toContain('function readText(')
+      expect(source).not.toContain('function check(')
+    }
+  })
 
   test('wires script duplication evidence into aggregate product quality and manifest surfaces', () => {
     const qualityGate = readFileSync(qualityGatePath, 'utf8')
