@@ -124,3 +124,35 @@ Status: active
   - `bun test scripts/validate-goal-traces.test.ts` passed with 5 tests.
   - `bun run goals:validate` passed with 1 valid goal trace and no provider,
     live model, external, or protected calls.
+
+## 2026-06-18 Checkpoint 10 - Primary-Source Research Ledger
+
+- Added `docs/superpowers/plans/2026-06-18-primary-source-research-ledger.md`
+  for the research-ledger implementation slice.
+- Added `scripts/validate-research-briefs.ts` and
+  `scripts/validate-research-briefs.test.ts` for required Goal OS research
+  sections, local authority sources, official/original external sources,
+  secondary-source rejection, mapping coverage, and claim boundaries.
+- Added `docs/research/README.md` and
+  `docs/research/templates/primary-source-brief.md` as the reusable
+  raw/wiki/decision research format.
+- Added `docs/research/goal-os-governed-code-prior-art-2026-06-18.md` with
+  local authority docs, AGENTS.md, Agent Skills, MCP, OpenAI agent evals and
+  trace grading, OpenAI Evals, W3C PROV, NIST AI RMF, OWASP LLM Top 10,
+  ReAct, Reflexion, and USPTO Patent Public Search mapped to requirements,
+  evals, guardrails, and decisions.
+- Added `research:validate` and wired `product:quality` so the research
+  validator runs before `product:primary-source-registry`.
+- Validation results:
+  - `bun test scripts/validate-research-briefs.test.ts` passed with 5 tests.
+  - `bun run research:validate` passed with 1 valid `goal-os-*.md` research
+    brief and no provider, live model, external, or protected calls.
+  - `bun run product:doc-link-integrity` passed.
+  - `bun run product:public-claim-boundary:check` passed with 0 unauthorized
+    positive claims.
+  - `bun run product:primary-source-registry` passed with 210 records and 144
+    unique URLs.
+  - `bun run product:evidence-manifest` passed with 214 evidence records.
+  - `bun run build` passed.
+  - `bun run scripts/product-quality-gate.ts` passed.
+  - `bun run verify:privacy` passed.
