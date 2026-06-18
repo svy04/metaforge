@@ -113,7 +113,8 @@ function printHumanSummary(payload: {
   }
 
   if (payload.applied) {
-    console.log('\nSaved .openclaude-profile.json with the recommended profile.')
+    console.log('\nSaved .openclaude-profile.json with the recommended profile settings.')
+    console.log('API keys are not persisted; keep them in your shell or secure storage.')
     console.log('Next: bun run dev:profile')
   } else {
     console.log(
@@ -152,7 +153,7 @@ async function maybeApplyProfile(
 
   const profileFile = createProfileFile(profile, env)
 
-  saveProfileFile(profileFile)
+  saveProfileFile(profileFile, { redactSecrets: true })
   return true
 }
 

@@ -1,4 +1,7 @@
 import { afterEach, describe, expect, mock, test } from 'bun:test'
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 
 import * as actualConfigModule from './config.js'
 import type { ProviderProfile } from './config.js'
@@ -544,6 +547,43 @@ describe('getProviderPresetDefaults', () => {
 })
 
 describe('setActiveProviderProfile', () => {
+  test('syncs startup profile without writing API keys to disk', async () => {
+    const originalCwd = process.cwd()
+    const cwd = mkdtempSync(join(tmpdir(), 'openclaude-active-profile-'))
+
+    try {
+      process.chdir(cwd)
+      const { setActiveProviderProfile } =
+        await importFreshProviderProfileModules()
+      const openaiProfile = buildProfile({
+        id: 'openai_prof',
+        name: 'OpenAI Provider',
+        provider: 'openai',
+        baseUrl: 'https://api.openai.com/v1',
+        model: 'gpt-5',
+        apiKey: 'sk-test',
+      })
+
+      saveMockGlobalConfig(current => ({
+        ...current,
+        providerProfiles: [openaiProfile],
+      }))
+
+      const result = setActiveProviderProfile('openai_prof')
+      const file = JSON.parse(
+        readFileSync(join(cwd, '.openclaude-profile.json'), 'utf8'),
+      )
+
+      expect(result?.id).toBe('openai_prof')
+      expect(file.env.OPENAI_BASE_URL).toBe('https://api.openai.com/v1')
+      expect(file.env.OPENAI_MODEL).toBe('gpt-5')
+      expect(file.env.OPENAI_API_KEY).toBeUndefined()
+    } finally {
+      process.chdir(originalCwd)
+      rmSync(cwd, { recursive: true, force: true })
+    }
+  })
+
   test('sets OPENAI_MODEL env var when switching to an openai-type provider', async () => {
     const { setActiveProviderProfile } =
       await importFreshProviderProfileModules()

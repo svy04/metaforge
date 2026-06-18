@@ -1,34 +1,32 @@
 {
-  "generatedAt": "2026-06-17T00:43:20.025Z",
+  "generatedAt": "2026-06-18T08:29:19.500Z",
   "mode": "local_no_provider_oss_axis_architecture_review",
   "sourceGapReviewReportPath": "docs/product-quality/oss-architecture-gap-review-report.json",
-  "sourceGapReviewReportSha256": "fa342694dc01351d5c8d21a05936822b5c6227219d58f9cb9ca1a0a65aec769b",
+  "sourceGapReviewReportSha256": "52638cfd651efd4d2213f034d230ff37ae1a67179cfaab866bdea616dc94618e",
   "sourceTargetsReportPath": "docs/product-quality/oss-architecture-absorption-targets-report.json",
   "sourceReviewReportPath": "docs/product-quality/oss-source-review-report.json",
   "baselineSnapshotDate": "2026-05-21",
-  "highPriorityProjectCount": 2,
+  "highPriorityProjectCount": 1,
   "reviewedHighPriorityProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
-  "axisReviewRecordCount": 17,
-  "uniqueAxisCount": 9,
+  "axisReviewRecordCount": 8,
+  "uniqueAxisCount": 8,
   "reviewedAxes": [
     "eval_and_quality_gates",
     "onboarding_docs",
     "privacy_and_no_phone_home",
     "provider_breadth",
-    "release_hygiene",
     "runtime_doctoring",
     "security_and_permissions",
     "terminal_workflow",
     "tool_loop_reliability"
   ],
-  "safeInternalBacklogItemCount": 32,
-  "protectedBoundaryCount": 9,
+  "safeInternalBacklogItemCount": 15,
+  "protectedBoundaryCount": 8,
   "provenanceJsonlPath": "reports/openclaude-oss-axis-architecture-review.jsonl",
-  "provenanceJsonlSha256": "6f13c72da526b780bdc67ae864b10395bf7cca88c5283c46d482338ca2c0e3ab",
-  "provenanceJsonlRecordCount": 17,
+  "provenanceJsonlSha256": "efad33dd5e82486d168db411daf1fde4300d182bd5248ecba838a2c35e692703",
+  "provenanceJsonlRecordCount": 8,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -70,27 +68,27 @@
     {
       "label": "high-priority projects are exactly the newly discovered source-supported targets",
       "ok": true,
-      "detail": "ultraworkers/claw-code,warpdotdev/warp"
+      "detail": "ultraworkers/claw-code"
     },
     {
       "label": "axis review records cover high-priority target axes",
       "ok": true,
-      "detail": "17 records"
+      "detail": "8 records"
     },
     {
-      "label": "core benchmark-quality axes are reviewed",
+      "label": "high-priority target axes are reviewed",
       "ok": true,
-      "detail": "eval_and_quality_gates,onboarding_docs,privacy_and_no_phone_home,provider_breadth,release_hygiene,runtime_doctoring,security_and_permissions,terminal_workflow,tool_loop_reliability"
+      "detail": "eval_and_quality_gates,onboarding_docs,privacy_and_no_phone_home,provider_breadth,runtime_doctoring,security_and_permissions,terminal_workflow,tool_loop_reliability / expected eval_and_quality_gates,onboarding_docs,privacy_and_no_phone_home,provider_breadth,runtime_doctoring,security_and_permissions,terminal_workflow,tool_loop_reliability"
     },
     {
       "label": "every axis review has local evidence and safe backlog items",
       "ok": true,
-      "detail": "32 backlog items"
+      "detail": "15 backlog items"
     },
     {
       "label": "protected boundaries remain explicit for every axis",
       "ok": true,
-      "detail": "9 protected boundaries"
+      "detail": "8 protected boundaries"
     },
     {
       "label": "every axis review blocks claims and shortcuts",
@@ -395,348 +393,6 @@
       ],
       "claimAllowed": false,
       "recordDigest": "367adc8e437bcd23f4a499269608a76b29cce2fa7bf18cec9bfa8643b26e2f18"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "eval_and_quality_gates",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-        "docs/product-quality/product-quality-gate.md",
-        "docs/product-quality/benchmark-readiness-matrix.json",
-        "docs/product-quality/local-benchmark-harness-report.json",
-        "docs/product-quality/benchmark-submission-readiness-report.json",
-        "docs/product-quality/terminal-bench-readiness-report.json",
-        "docs/product-quality/verification-report-consistency-report.json",
-        "docs/product-quality/quality-blocker-taxonomy-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for agent/coding workflow quality signals; OpenClaude should keep gates machine-checkable before public benchmark claims.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
-        "map every local benchmark task to missing external execution evidence"
-      ],
-      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
-      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "4f2efe694ed34fa30cdebd83f250f4892e7fad4e36dd8ee79080b682c27f8ed1"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "onboarding_docs",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/doc-link-integrity-report.json",
-        "docs/product-quality/community-profile-quality-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for onboarding documentation; OpenClaude should keep first-run guidance covered by link and CLI smoke evidence.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
-        "keep README and quick-start link integrity evidence in the product gate"
-      ],
-      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
-      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "cbfabe4f91b23e200f6da0c3f56999008798f6c34fff9226409fa26aae3dd7a3"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "privacy_and_no_phone_home",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-        "docs/product-quality/public-claim-boundary-report.json",
-        "scripts/verify-no-phone-home.ts"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for privacy_and_no_phone_home; OpenClaude should add a bounded local review before implementation absorption.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption"
-      ],
-      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
-      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "162df2c4341a5c24e1c7c63059c7d3609381af1c2ad0d35d3c27dc7b71860ff1"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "provider_breadth",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-provider-breadth-evidence-report.json",
-        "docs/product-quality/provider-capability-matrix-report.json",
-        "docs/product-quality/provider-compatibility-fixtures.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for provider/model breadth; OpenClaude should keep provider coverage measurable through local compatibility fixtures before live calls.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
-        "keep provider fallback evidence in local reports until explicit live-model authorization exists"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "f4807a9b99afa5e3d28d097669cc77b7aea11ff8a6a51324b4f0a32cdab34b58"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "release_hygiene",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-release-hygiene-evidence-report.json",
-        "docs/product-quality/release-artifact-file-list-report.json",
-        "docs/product-quality/release-artifact-provenance-report.json",
-        "docs/product-quality/release-artifact-reproducibility-report.json",
-        "docs/product-quality/git-release-hygiene-report.json",
-        "docs/product-quality/license-boundary-authorization-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for package or release manifests; OpenClaude should keep artifact file lists, provenance, reproducibility, and license decisions explicit.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
-        "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "1531d1f009ec93621073a1448f3b140882bafec8af493123b3d693b2ccb0b7f0"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "runtime_doctoring",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json",
-        "docs/product-quality/vscode-startup-diagnostics-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for runtime configuration expectations; OpenClaude should keep runtime doctor evidence separate from protected install/PATH repair.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "add runtime-doctor fixture rows for protected local install/PATH blockers",
-        "separate diagnostic reporting from any repair, reinstall, or dependency-install action"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "16ee6179eaf295e8eb84f1366ad56a00e38aa91c6ce901a4208cc13d8b86872f"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "security_and_permissions",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-security-permissions-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/openssf-security-posture-report.json",
-        "docs/product-quality/dependency-governance-quality-report.json",
-        "docs/product-quality/source-controlled-checks-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for permission or tool-risk signals; OpenClaude should keep permission boundaries and hosted security claims separated.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "keep permission regression fixtures tied to protected-action and public-claim blockers",
-        "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "4b08e08c6c11436ce797a99c552183bfd2904eb11d47d82c363d2584488f47db"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "terminal_workflow",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-        "docs/product-quality/golden-path-terminal-transcripts.json",
-        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/real-session-capture-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for terminal-first workflows; OpenClaude should keep command surfaces reproducible through golden transcript and onboarding smoke evidence.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
-        "bind every transcript to command hashes and no-provider claim boundaries"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "518b663f3116b4f4433317cffbf70eea2ca3923380df05c4ab1de147ab3588db"
-    },
-    {
-      "schemaVersion": "openclaude_oss_axis_architecture_review_v1",
-      "fullName": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "priority": "high",
-      "axis": "tool_loop_reliability",
-      "sourceSignals": [
-        "codebase-workflow",
-        "coding-agent",
-        "provider-model",
-        "terminal-cli",
-        "tool-use"
-      ],
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/prompted-tool-loop-capture-report.json",
-        "docs/product-quality/code-editing-trace-capture-report.json",
-        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-        "docs/product-quality/tool-interruption-recovery-trace-report.json",
-        "docs/product-quality/protected-action-denial-trace-report.json"
-      ],
-      "observedSourcePattern": "warpdotdev/warp exposes source-reviewed signals for tool-use loops; OpenClaude should keep tool loops traceable through permission regression, prompted-loop, and code-editing trace evidence.",
-      "safeAbsorptionDecision": "record as internal no-provider architecture review input only; do not implement, claim superiority, publish, deploy, or execute protected validation from this record alone",
-      "safeInternalImplementationBacklog": [
-        "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
-        "preserve raw-trace redaction and portable trace exports before stronger reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "claimAllowed": false,
-      "recordDigest": "f24fa31e342beb5cd0a9b483f2479e59e4c0aac36e7b57978d622161c6d5d84a"
     }
   ],
   "claimBoundary": "OSS axis architecture review is local no-provider planning evidence only. It does not fetch sources, clone repositories, install dependencies, call providers, call live models, mutate production OpenClaude, publish, deploy, launch, or authorize public comparison, superiority, release, production, external-validation, or autonomous-reliability claims."

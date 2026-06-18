@@ -54,7 +54,7 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | Goal Kernel | 목표 계층, 성공 기준, non-goals, 검증 명령, rollback rule |
 | Orchestra | Claude/Codex route, planning, critique, review, evidence arbitration |
 | MFH | drift, state, evidence, closure, release claim을 막는 governed-code gate |
-| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route |
+| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route. Generated profile은 non-sensitive 설정만 저장하고 API key와 blocked stale model lock은 저장하지 않습니다. |
 
 ### 배선 증거 맵
 

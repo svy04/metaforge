@@ -20,6 +20,7 @@ import {
   loadProfileFile,
   PROFILE_FILE_NAME,
   redactSecretValueForDisplay,
+  redactProfileSecretsForPersistence,
   saveProfileFile,
   sanitizeProviderConfigValue,
   selectAutoProfile,
@@ -423,6 +424,68 @@ test('saveProfileFile writes a profile that loadProfileFile can read back', () =
       'openai',
     )
     assert.deepEqual(loadProfileFile({ cwd }), persisted)
+  } finally {
+    rmSync(cwd, { recursive: true, force: true })
+  }
+})
+
+test('redactProfileSecretsForPersistence removes API keys before generated profile save', () => {
+  const persisted = createProfileFile('openai', {
+    OPENAI_API_KEY: 'sk-live-secret',
+    OPENAI_BASE_URL: 'https://api.openai.com/v1',
+    OPENAI_MODEL: 'gpt-5',
+    CODEX_API_KEY: 'codex-live-secret',
+    GEMINI_API_KEY: 'gemini-live-secret',
+    GOOGLE_API_KEY: 'google-live-secret',
+    NVIDIA_API_KEY: 'nvidia-live-secret',
+    MINIMAX_API_KEY: 'minimax-live-secret',
+    MISTRAL_API_KEY: 'mistral-live-secret',
+    MISTRAL_MODEL: 'devstral-latest',
+  })
+
+  const redacted = redactProfileSecretsForPersistence(persisted)
+
+  assert.deepEqual(redacted.env, {
+    OPENAI_BASE_URL: 'https://api.openai.com/v1',
+    OPENAI_MODEL: 'gpt-5',
+    MISTRAL_MODEL: 'devstral-latest',
+  })
+  assert.equal(persisted.env.OPENAI_API_KEY, 'sk-live-secret')
+})
+
+test('redactProfileSecretsForPersistence removes stale OpenAI model locks', () => {
+  const persisted = createProfileFile('openai', {
+    OPENAI_API_KEY: 'sk-live-secret',
+    OPENAI_BASE_URL: 'https://api.openai.com/v1',
+    OPENAI_MODEL: 'gpt-4o',
+  })
+
+  const redacted = redactProfileSecretsForPersistence(persisted)
+
+  assert.deepEqual(redacted.env, {
+    OPENAI_BASE_URL: 'https://api.openai.com/v1',
+  })
+  assert.equal(persisted.env.OPENAI_MODEL, 'gpt-4o')
+})
+
+test('saveProfileFile can persist generated profiles without API keys', () => {
+  const cwd = mkdtempSync(join(tmpdir(), 'openclaude-secretless-profile-file-'))
+
+  try {
+    const persisted = createProfileFile('gemini', {
+      GEMINI_API_KEY: 'gemini-live-secret',
+      GEMINI_MODEL: 'gemini-2.5-flash',
+      GEMINI_BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/openai',
+    })
+
+    const filePath = saveProfileFile(persisted, { cwd, redactSecrets: true })
+    const file = JSON.parse(readFileSync(filePath, 'utf8')) as ProfileFile
+
+    assert.deepEqual(file.env, {
+      GEMINI_MODEL: 'gemini-2.5-flash',
+      GEMINI_BASE_URL: 'https://generativelanguage.googleapis.com/v1beta/openai',
+    })
+    assert.equal(persisted.env.GEMINI_API_KEY, 'gemini-live-secret')
   } finally {
     rmSync(cwd, { recursive: true, force: true })
   }
