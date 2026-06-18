@@ -1,0 +1,250 @@
+{
+  "generatedAt": "2026-06-18T10:20:03.194Z",
+  "mode": "local_no_provider_research_brief_validation",
+  "briefDirectory": "docs/research",
+  "briefFilePattern": "goal-os-*.md",
+  "briefFileCount": 1,
+  "validBriefCount": 1,
+  "invalidBriefCount": 0,
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "validationResults": [
+    {
+      "path": "docs/research/goal-os-governed-code-prior-art-2026-06-18.md",
+      "ok": true,
+      "errors": [],
+      "sourceRowCount": 27,
+      "requiredSourceCoverage": {
+        "present": [
+          "AGENTS.md",
+          "README.md",
+          "docs/RESEARCH_PIPELINE.md",
+          "docs/PROJECT_SPEC.md",
+          "docs/MFH_META_SYNTHESIS.md",
+          "docs/GOAL_SCHEMA.md",
+          "docs/EVALS.md",
+          "docs/SECURITY_AND_GUARDRAILS.md",
+          "docs/DECISION_LOG.md",
+          "docs/research/mimesis-engineering-source-ledger-2026-06-14.md",
+          "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
+          "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+          "https://agents.md/",
+          "https://agentskills.io/",
+          "https://modelcontextprotocol.io/docs/getting-started/intro",
+          "https://modelcontextprotocol.io/specification/2025-06-18/server/resources",
+          "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts",
+          "https://modelcontextprotocol.io/specification/2024-11-05/server/tools",
+          "https://developers.openai.com/api/docs/guides/agent-evals",
+          "https://developers.openai.com/api/docs/guides/trace-grading",
+          "https://github.com/openai/evals",
+          "https://www.w3.org/TR/prov-overview/",
+          "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+          "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+          "https://arxiv.org/abs/2210.03629",
+          "https://arxiv.org/abs/2303.11366",
+          "https://www.uspto.gov/patents/search/patent-public-search/"
+        ],
+        "missing": []
+      },
+      "disallowedSources": [],
+      "mappedRowCount": 27,
+      "sha256": "ddf75aed5b9d8d902b8d9f4df904488768fe700f7d0e8355687303f15909936e"
+    }
+  ],
+  "researchBriefChecks": [
+    {
+      "label": "goal-os research briefs discovered",
+      "ok": true,
+      "detail": "1 files"
+    },
+    {
+      "label": "all goal-os research briefs pass primary-source validation",
+      "ok": true,
+      "detail": "1/1 valid"
+    },
+    {
+      "label": "all required source anchors are covered",
+      "ok": true,
+      "detail": "all required sources present"
+    },
+    {
+      "label": "secondary/blog sources are absent from final source ledgers",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "label": "no provider/live/external/protected side effects recorded",
+      "ok": true,
+      "detail": "side-effect arrays are empty"
+    }
+  ],
+  "primarySourceInputs": [
+    {
+      "sourceProject": "OpenAI Agents SDK Evolution",
+      "sourceUrl": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+      "observedPattern": "Agent runtimes are described around controlled workspaces, instructions, MCP, skills, checkpointing, and evaluation surfaces.",
+      "localAbsorption": "Metaforge keeps these as runtime substrate primitives while Meta/MFH/Orchestra remains the public product thesis."
+    },
+    {
+      "sourceProject": "AGENTS.md Format",
+      "sourceUrl": "https://agents.md/",
+      "observedPattern": "AGENTS.md provides predictable agent instructions for setup, testing, conventions, and security notes.",
+      "localAbsorption": "Local AGENTS.md stays compact and routes deeper governance into docs."
+    },
+    {
+      "sourceProject": "Agent Skills",
+      "sourceUrl": "https://agentskills.io/",
+      "observedPattern": "Skills package procedural knowledge with progressive disclosure, optional references, scripts, and assets.",
+      "localAbsorption": "Repeated research workflows can become skills only after validated runs."
+    },
+    {
+      "sourceProject": "Model Context Protocol Intro",
+      "sourceUrl": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "observedPattern": "MCP standardizes how applications expose context and capabilities to models.",
+      "localAbsorption": "Orchestra integrations should retain typed resource/tool boundaries."
+    },
+    {
+      "sourceProject": "MCP Resources Specification",
+      "sourceUrl": "https://modelcontextprotocol.io/specification/2025-06-18/server/resources",
+      "observedPattern": "Resources expose application-controlled context and data to clients.",
+      "localAbsorption": "Meta state should be exposed as bounded resources rather than untracked prompt sprawl."
+    },
+    {
+      "sourceProject": "MCP Prompts Specification",
+      "sourceUrl": "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts",
+      "observedPattern": "Prompts are reusable templates with declared arguments.",
+      "localAbsorption": "Goal OS prompt surfaces should be reusable and inspectable before promotion."
+    },
+    {
+      "sourceProject": "MCP Tools Specification",
+      "sourceUrl": "https://modelcontextprotocol.io/specification/2024-11-05/server/tools",
+      "observedPattern": "Tools are model-controlled external actions and require clear boundaries.",
+      "localAbsorption": "Protected-action gates stay explicit in Goal OS and trace validation."
+    },
+    {
+      "sourceProject": "OpenAI Agent Evals",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "observedPattern": "Agent quality should be evaluated with datasets, graders, traces, and repeatable runs.",
+      "localAbsorption": "Research findings map to eval changes instead of narrative-only claims."
+    },
+    {
+      "sourceProject": "OpenAI Trace Grading",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/trace-grading",
+      "observedPattern": "Trace-level grading evaluates complete workflows, tool calls, and outcomes.",
+      "localAbsorption": "MFH closure should be trace-aware before stronger public proof copy."
+    },
+    {
+      "sourceProject": "OpenAI Evals",
+      "sourceUrl": "https://github.com/openai/evals",
+      "observedPattern": "Open-source eval frameworks make evaluation definitions and runs inspectable.",
+      "localAbsorption": "Metaforge eval loops should be source-controlled and reproducible."
+    },
+    {
+      "sourceProject": "W3C PROV",
+      "sourceUrl": "https://www.w3.org/TR/prov-overview/",
+      "observedPattern": "Provenance records entities, activities, agents, and relationships for evidence lineage.",
+      "localAbsorption": "Research rows tie sources to findings, mappings, and claim boundaries."
+    },
+    {
+      "sourceProject": "NIST AI RMF 1.0",
+      "sourceUrl": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+      "observedPattern": "AI risk management is framed as governance, mapping, measuring, and managing risks.",
+      "localAbsorption": "Metaforge public claims stay proportional to local evidence and risk controls."
+    },
+    {
+      "sourceProject": "OWASP Top 10 for LLM Applications",
+      "sourceUrl": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "observedPattern": "LLM application risks include prompt injection, sensitive information disclosure, and excessive agency.",
+      "localAbsorption": "Goal OS keeps protected actions, secrets, and unsafe autonomy outside public proof claims."
+    },
+    {
+      "sourceProject": "ReAct",
+      "sourceUrl": "https://arxiv.org/abs/2210.03629",
+      "observedPattern": "Reasoning and acting can be interleaved so actions, observations, and reasoning remain inspectable.",
+      "localAbsorption": "Orchestra traces should preserve action/observation structure for evals."
+    },
+    {
+      "sourceProject": "Reflexion",
+      "sourceUrl": "https://arxiv.org/abs/2303.11366",
+      "observedPattern": "Feedback and reflection memory can improve agent behavior across trials.",
+      "localAbsorption": "Meta memory updates should be evidence-backed and source-linked."
+    },
+    {
+      "sourceProject": "USPTO Patent Public Search",
+      "sourceUrl": "https://www.uspto.gov/patents/search/patent-public-search/",
+      "observedPattern": "Patent public search is a primary route for prior-art and patent-family investigation.",
+      "localAbsorption": "The research ledger records prior-art search duty without claiming patent clearance."
+    }
+  ],
+  "localAuthorityInputs": [
+    {
+      "sourceProject": "Local AGENTS instructions",
+      "sourcePath": "AGENTS.md",
+      "observedPattern": "Agent-facing repo law keeps Metaforge centered on Meta/MFH/Orchestra OS and bounds OpenClaude as runtime substrate.",
+      "localAbsorption": "Research briefs must cite local operating law before changing public framing or proof copy."
+    },
+    {
+      "sourceProject": "Local README public frame",
+      "sourcePath": "README.md",
+      "observedPattern": "The public surface presents Metaforge as the operating system and OpenClaude as local CLI substrate.",
+      "localAbsorption": "Research mapping cannot let OpenClaude become the thesis again."
+    },
+    {
+      "sourceProject": "Metaforge Research Pipeline",
+      "sourcePath": "docs/RESEARCH_PIPELINE.md",
+      "observedPattern": "Research follows local-first, primary-source, raw/wiki/decision workflow with blog-only rejection rules.",
+      "localAbsorption": "This validator enforces the reusable research brief shape from the pipeline."
+    },
+    {
+      "sourceProject": "Metaforge Project Spec",
+      "sourcePath": "docs/PROJECT_SPEC.md",
+      "observedPattern": "The project spec defines Meta, MFH, and Orchestra as the durable product frame.",
+      "localAbsorption": "The research brief maps prior art into those product primitives instead of broad runtime claims."
+    },
+    {
+      "sourceProject": "MFH Meta Synthesis",
+      "sourcePath": "docs/MFH_META_SYNTHESIS.md",
+      "observedPattern": "MFH/Meta concepts are imported as governed-code gates with explicit drift boundaries.",
+      "localAbsorption": "Research claims must remain evidence-aware and not imply the companion harness is green."
+    },
+    {
+      "sourceProject": "Goal OS Schema",
+      "sourcePath": "docs/GOAL_SCHEMA.md",
+      "observedPattern": "Goals include research requirements, governed-code claim level, closure state, and evidence gates.",
+      "localAbsorption": "The research ledger feeds goal requirements and validation evidence."
+    },
+    {
+      "sourceProject": "Metaforge Evals",
+      "sourcePath": "docs/EVALS.md",
+      "observedPattern": "Eval design includes source reconciliation, trace scoring, and verification gates.",
+      "localAbsorption": "Brief findings must map to evals when they affect closure or proof quality."
+    },
+    {
+      "sourceProject": "Metaforge Guardrails",
+      "sourcePath": "docs/SECURITY_AND_GUARDRAILS.md",
+      "observedPattern": "Security policy distinguishes operating gates from a security sandbox and keeps protected actions explicit.",
+      "localAbsorption": "Research findings map to guardrails before stronger automation or public claims."
+    },
+    {
+      "sourceProject": "Metaforge Decision Log",
+      "sourcePath": "docs/DECISION_LOG.md",
+      "observedPattern": "Plan-changing research decisions are recorded as durable public authority.",
+      "localAbsorption": "This slice records the research-ledger gate as a decision before marketing copy can rely on it."
+    },
+    {
+      "sourceProject": "Mimesis Engineering Source Ledger",
+      "sourcePath": "docs/research/mimesis-engineering-source-ledger-2026-06-14.md",
+      "observedPattern": "Existing research ledgers preserve source-first improvement and rejected-source wording.",
+      "localAbsorption": "The Goal OS brief reuses that pattern in a narrower auditable format."
+    },
+    {
+      "sourceProject": "Public Proof Pack Source Ledger",
+      "sourcePath": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
+      "observedPattern": "Public proof copy is bounded by local artifacts and explicit non-claims.",
+      "localAbsorption": "The research ledger applies the same boundary to Goal OS prior-art claims."
+    }
+  ],
+  "claimBoundary": "Research brief validation is local no-provider documentation governance evidence only. It does not fetch sources, call providers, call live models, call external services, perform protected actions, claim production readiness, claim external validation, claim benchmark superiority, claim patent clearance, or claim autonomous reliability."
+}

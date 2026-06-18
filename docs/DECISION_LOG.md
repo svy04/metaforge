@@ -297,3 +297,38 @@ Consequence:
 - The new proof remains local no-provider evidence only, not production
   readiness, hosted deployment, external validation, benchmark superiority, or
   autonomous reliability.
+
+## D-015 - Gate Goal OS research claims with a primary-source brief ledger
+
+Date: 2026-06-18
+Status: accepted
+
+Decision:
+
+Goal OS prior-art and governed-code research claims require a structured
+primary-source brief before they can support public proof copy, roadmap
+language, eval changes, guardrail changes, or stronger marketing language.
+
+Evidence:
+
+- `docs/RESEARCH_PIPELINE.md` already requires local-first primary-source
+  research and the Meta raw/wiki/decision flow.
+- `docs/research/goal-os-governed-code-prior-art-2026-06-18.md` maps local
+  authority docs plus official/original external sources to requirements,
+  evals, guardrails, and decisions.
+- `scripts/validate-research-briefs.ts` validates required source coverage,
+  secondary-source rejection, mapping coverage, and explicit claim boundaries.
+- `docs/product-quality/research-brief-validation-report.json` records the
+  local no-provider report and HTTPS `primarySourceInputs` for the existing
+  primary-source registry.
+
+Consequence:
+
+- `bun run research:validate` is now the local gate for current
+  `docs/research/goal-os-*.md` briefs.
+- `product:quality` runs the research brief validator before
+  `product:primary-source-registry`, so generated research source inputs are
+  included in downstream evidence inventory.
+- This is research governance evidence only; it does not claim production
+  readiness, hosted deployment, external validation, benchmark superiority,
+  standards compliance, patent clearance, or autonomous reliability.
