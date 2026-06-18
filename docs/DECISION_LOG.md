@@ -20,19 +20,25 @@ Consequence:
 
 - Current docs now use MFH as the canonical concrete component and treat `mth` as an unresolved alias/spelling unless the owner defines it separately.
 
-## D-002 - Treat existing `.planning/` and `src/services/orchestra/` as operative evidence
+## D-002 - Treat legacy planning artifacts and `src/services/orchestra/` as operative evidence
 
 Date: 2026-05-10
-Status: accepted
+Status: superseded public-surface wording
 
 Decision:
 
-The planning package treats `.planning/PROJECT.md`, `.planning/ROADMAP.md`, `.planning/phase-*`, and `src/services/orchestra/` as the current source of truth for Orchestra OS status.
+The initial planning package imported legacy planning artifacts and
+`src/services/orchestra/` as evidence that Orchestra OS was not starting from
+zero. The tracked public checkout no longer treats the removed planning
+artifacts as current authority; current public authority lives in `docs/`,
+`src/services/orchestra/`, and generated product-quality evidence.
 
 Evidence:
 
-- `.planning/PROJECT.md` contains detailed v0.2 role, milestone, and validation state.
+- Legacy planning artifacts contained detailed v0.2 role, milestone, and validation state before public hygiene cleanup.
 - `src/services/orchestra/` contains tests and implementations for multiple planned roles.
+- PR #92 removed tracked planning artifacts from the public checkout and added
+  hygiene gates so public docs cannot rely on private/local planning state.
 
 Consequence:
 
