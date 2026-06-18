@@ -11,7 +11,8 @@ Status: active
 
 ## 2026-05-10 Checkpoint 2 - Existing Planning State
 
-- Read `.planning/PROJECT.md`, `.planning/REQUIREMENTS.md`, `.planning/ROADMAP.md`, and phase specs/plans.
+- Read legacy local planning files and phase specs/plans before public
+  hygiene cleanup removed them from current authority.
 - Found existing Orchestra v0.2 state: planner/skeptic/shadow/evidence/experiment concepts are already partially implemented and documented.
 - Read `src/services/orchestra/` surfaces for config, orchestrator, memory, worktree manager, shadow executor, cross-review, evidence arbiter, human gate, promote, promotion store, and experiment metrics.
 - Found `/orchestra-apply` and `/orchestra-reject` command implementations and tests.
@@ -156,3 +157,44 @@ Status: active
   - `bun run build` passed.
   - `bun run scripts/product-quality-gate.ts` passed.
   - `bun run verify:privacy` passed.
+
+## 2026-06-18 Checkpoint 11 - Eval Flywheel And Automation Candidates
+
+- Added `docs/superpowers/plans/2026-06-18-eval-flywheel-source-reconciliation.md`.
+- Added `scripts/validate-eval-flywheel.ts` and
+  `scripts/validate-eval-flywheel.test.ts` for L0-L5, EVAL-008 through
+  EVAL-010, mock-versus-real experiment status, proposed-only automation
+  candidates, blocked external-call candidates, and MFH/Meta source
+  reconciliation boundaries.
+- Added `docs/evals/README.md` and
+  `docs/evals/autonomous-goal-os-minimal-checklist.md`.
+- Added `docs/reports/automation-candidates-2026-06-18.md` with A0, A1, and
+  A4 proposed-only candidates, required approvals, pause conditions, kill
+  switches, output paths, and blocked external-call status.
+- Added `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` to record
+  public-doc reconciliation and carry forward owner-side MFH/Meta drift.
+- Ran `bun run scripts/orchestra-experiment-runner.ts`; it exited 0 and used
+  the one-task mock fallback because a source-controlled 20-task experiment
+  task set was absent. The ignored local runner output was removed after
+  hygiene checks and was not treated as public proof.
+- Validation results so far:
+  - `bun test scripts/validate-eval-flywheel.test.ts` passed with 5 tests.
+  - `bun run evals:validate` passed with 7 proposed automation candidates and
+    no provider, live model, external, or protected calls.
+  - Focused Orchestra tests passed:
+    `src/services/orchestra/experimentMetrics.test.ts`,
+    `src/services/orchestra/promote.test.ts`,
+    `src/services/orchestra/promotionStore.test.ts`,
+    `src/services/orchestra/humanGate.test.ts`, and
+    `src/services/orchestra/evidenceArbiter.test.ts`.
+  - `bun run product:doc-link-integrity` passed.
+  - `bun run product:public-claim-boundary:check` passed with 0 unauthorized
+    positive claims.
+  - `bun run product:primary-source-registry` passed with 216 records and 144
+    unique URLs.
+  - `bun run product:evidence-manifest` passed with 216 evidence records.
+  - `bun run build` passed.
+  - `bun run scripts/product-quality-gate.ts` passed.
+  - `bun run verify:privacy` initially caught ignored local runner output with
+    a Windows path; the generated local files were removed and the rerun
+    passed.
