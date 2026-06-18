@@ -89,6 +89,32 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('actual-looking-sk-token')
   })
 
+  test('rejects ignored local tool config files with private paths or runtime context', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, '.mcp.json'),
+      JSON.stringify({
+        mcpServers: {
+          local: {
+            command: windowsPrivatePath,
+          },
+        },
+      }),
+    )
+    const cursorDir = join(repo, '.cursor')
+    mkdirSync(cursorDir, { recursive: true })
+    writeFileSync(
+      join(cursorDir, 'rules.md'),
+      '<codex_internal_context source="goal">\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('.mcp.json')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('.cursor/rules.md')
+  })
+
   test('rejects private workspace placeholders in public docs', () => {
     const repo = makeTempRepo()
     writeFileSync(
