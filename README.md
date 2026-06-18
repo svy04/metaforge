@@ -115,7 +115,7 @@ macOS / Linux:
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=<key>
-export OPENAI_MODEL=<current-openai-tool-model>
+export OPENAI_MODEL=<openai-tool-model-id>
 
 openclaude
 ```
@@ -125,14 +125,14 @@ Windows PowerShell:
 ```powershell
 $env:CLAUDE_CODE_USE_OPENAI="1"
 $env:OPENAI_API_KEY="<key>"
-$env:OPENAI_MODEL="<current-openai-tool-model>"
+$env:OPENAI_MODEL="<openai-tool-model-id>"
 
 openclaude
 ```
 
-Replace `<current-openai-tool-model>` with the current OpenAI model you have
-enabled for tool/function calling. Public docs intentionally avoid pinning a
-stale model name.
+Replace `<openai-tool-model-id>` with an OpenAI model ID enabled in your
+account for tool/function calling. Public docs intentionally avoid turning a
+time-sensitive model choice into a repo claim.
 
 ### Fastest local Ollama setup
 
@@ -243,17 +243,17 @@ Add to `~/.claude/settings.json`:
       "base_url": "https://api.deepseek.com/v1",
       "api_key": "<deepseek-api-key>"
     },
-    "<current-openai-tool-model>": {
+    "<openai-tool-model-id>": {
       "base_url": "https://api.openai.com/v1",
       "api_key": "<openai-api-key>"
     }
   },
   "agentRouting": {
     "Explore": "deepseek-chat",
-    "Plan": "<current-openai-tool-model>",
-    "general-purpose": "<current-openai-tool-model>",
+    "Plan": "<openai-tool-model-id>",
+    "general-purpose": "<openai-tool-model-id>",
     "frontend-dev": "deepseek-chat",
-    "default": "<current-openai-tool-model>"
+    "default": "<openai-tool-model-id>"
   }
 }
 ```

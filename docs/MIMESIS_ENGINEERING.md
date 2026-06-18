@@ -64,7 +64,7 @@ This gives Metaforge a marketable but proof-bounded claim:
 | Goal Kernel | Requires research requirements, claim boundaries, validation commands, and non-goals |
 | Orchestra | Dispatches independent scouts and critics so context stays protected |
 | MFH | Blocks closure when evidence, state, source reconciliation, or claim boundary is weak |
-| OpenClaude runtime | Provides local tools, OAuth-backed model routes, file edits, tests, and reports |
+| OpenClaude runtime | Provides local tools, owner-configured model routes, file edits, tests, and reports |
 
 ## Current Private Workbench Evidence
 

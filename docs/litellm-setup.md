@@ -28,12 +28,12 @@ Create a `litellm_config.yaml` with your desired model aliases:
 model_list:
   - model_name: openai-tool-model
     litellm_params:
-      model: openai/<current-openai-tool-model>
+      model: openai/<openai-tool-model-id>
       api_key: os.environ/OPENAI_API_KEY
 
   - model_name: claude-tool-model
     litellm_params:
-      model: anthropic/<current-anthropic-tool-model>
+      model: anthropic/<anthropic-tool-model-id>
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: gemini-2.5-flash
@@ -90,12 +90,12 @@ Replace `<litellm-model-alias>` with a model name from your
 model_list:
   - model_name: openai-tool-model
     litellm_params:
-      model: openai/<current-openai-tool-model>
+      model: openai/<openai-tool-model-id>
       api_key: os.environ/OPENAI_API_KEY
 
   - model_name: claude-tool-model
     litellm_params:
-      model: anthropic/<current-anthropic-tool-model>
+      model: anthropic/<anthropic-tool-model-id>
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: deepseek-chat

@@ -40,27 +40,26 @@ bun run dev
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_API_KEY=<openai-api-key>
-export OPENAI_MODEL=<current-openai-tool-model>
+export OPENAI_MODEL=<openai-tool-model-id>
 ```
 
-### Codex via ChatGPT auth
+### Codex-compatible route
 
 `codexplan` and `codexspark` are Codex backend profiles handled by the runtime.
 Check current Codex provider docs before turning either profile into a public
 model-specific claim.
 
-If you use the in-app provider wizard, choose `Codex OAuth` to open ChatGPT sign-in in your browser and let OpenClaude store Codex credentials securely.
+If you use the in-app provider wizard, choose the Codex-compatible route and
+complete the owner-authorized sign-in flow locally. Do not record account,
+token, or auth-file details in public evidence reports.
 
-If you already use the Codex CLI, OpenClaude can read your existing Codex CLI
-auth file automatically. You can also point it elsewhere with
-`CODEX_AUTH_JSON_PATH` or override the token directly with `CODEX_API_KEY`.
+If you already use the Codex CLI, OpenClaude can reuse an approved local
+credential source. Keep private token overrides and auth-file path controls out
+of screenshots, issues, READMEs, and generated reports.
 
 ```bash
 export CLAUDE_CODE_USE_OPENAI=1
 export OPENAI_MODEL=codexplan
-
-# optional if you do not already have Codex CLI auth
-export CODEX_API_KEY=...
 
 openclaude
 ```
@@ -154,7 +153,7 @@ export OPENAI_MODEL=llama-3.3-70b-versatile
 ```bash
 export CLAUDE_CODE_USE_MISTRAL=1
 export MISTRAL_API_KEY=<mistral-api-key>
-export MISTRAL_MODEL=mistral-large-latest
+export MISTRAL_MODEL=<mistral-tool-model-id>
 ```
 
 ### Azure OpenAI
@@ -172,11 +171,11 @@ export OPENAI_MODEL=<azure-openai-deployment>
 |----------|----------|-------------|
 | `CLAUDE_CODE_USE_OPENAI` | Yes | Set to `1` to enable the OpenAI provider |
 | `OPENAI_API_KEY` | Yes* | Your API key (`*` not needed for local models like Ollama or Atomic Chat) |
-| `OPENAI_MODEL` | Yes | Model, alias, or deployment name such as `<current-openai-tool-model>`, `<local-ollama-model>`, or `deepseek-chat` |
+| `OPENAI_MODEL` | Yes | Model, alias, or deployment name such as `<openai-tool-model-id>`, `<local-ollama-model>`, or `deepseek-chat` |
 | `OPENAI_BASE_URL` | No | API endpoint, defaulting to `https://api.openai.com/v1` |
-| `CODEX_API_KEY` | Codex only | Codex or ChatGPT access token override |
-| `CODEX_AUTH_JSON_PATH` | Codex only | Path to a Codex CLI `auth.json` file |
-| `CODEX_HOME` | Codex only | Alternative Codex home directory |
+| `CODEX_API_KEY` | Codex only | Private credential override; do not include values in public artifacts |
+| `CODEX_AUTH_JSON_PATH` | Codex only | Private local credential-source path override |
+| `CODEX_HOME` | Codex only | Private local Codex home override |
 | `OPENCLAUDE_DISABLE_CO_AUTHORED_BY` | No | Suppress the default `Co-Authored-By` trailer in generated git commits |
 
 You can also use `ANTHROPIC_MODEL` to override the model name. `OPENAI_MODEL` takes priority.
@@ -209,7 +208,9 @@ Notes:
 
 - `doctor:runtime` fails fast if `CLAUDE_CODE_USE_OPENAI=1` with a placeholder key or a missing key for non-local providers.
 - Local providers such as `http://localhost:11434/v1`, `http://10.0.0.1:11434/v1`, and `http://127.0.0.1:1337/v1` can run without `OPENAI_API_KEY`.
-- Codex profiles validate `CODEX_API_KEY` or the Codex CLI auth file and probe `POST /responses` instead of `GET /models`.
+- Codex-compatible profiles validate an approved local credential source and
+  probe the provider route without recording account/auth details in public
+  evidence.
 
 ## Provider Launch Profiles
 
@@ -246,7 +247,7 @@ bun run profile:init -- --provider codex --model codexspark
 # launch using persisted profile (.openclaude-profile.json)
 bun run dev:profile
 
-# codex profile (uses CODEX_API_KEY or existing Codex CLI auth)
+# codex profile (uses an approved local credential source)
 bun run dev:codex
 
 # OpenAI profile (requires OPENAI_API_KEY in your shell)
