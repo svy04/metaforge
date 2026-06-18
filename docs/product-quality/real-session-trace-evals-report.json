@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-17T00:45:51.767Z",
+  "generatedAt": "2026-06-18T04:34:41.478Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
-  "traceFileCount": 13,
+  "traceFileCount": 10,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -82,105 +82,6 @@
       ],
       "querySources": [
         "fixture_user_session"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "succeeded",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "passed": true
-    },
-    {
-      "path": "reports/orchestra-live-20260506-163448.jsonl",
-      "sha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "traceKind": "live_probe",
-      "lineCount": 2,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "statuses": {
-        "failed": 1,
-        "started": 1
-      },
-      "statusSequence": [
-        "started",
-        "failed"
-      ],
-      "roles": [
-        "planner"
-      ],
-      "models": [
-        "claude-opus-4-7"
-      ],
-      "querySources": [
-        "sdk"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "failed",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "passed": true
-    },
-    {
-      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "traceKind": "live_adaptive_probe",
-      "lineCount": 2,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "statuses": {
-        "failed": 1,
-        "started": 1
-      },
-      "statusSequence": [
-        "started",
-        "failed"
-      ],
-      "roles": [
-        "planner"
-      ],
-      "models": [
-        "claude-opus-4-7"
-      ],
-      "querySources": [
-        "sdk"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "failed",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "passed": true
-    },
-    {
-      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
-      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
-      "traceKind": "live_sidequery_probe",
-      "lineCount": 2,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "statuses": {
-        "started": 1,
-        "succeeded": 1
-      },
-      "statusSequence": [
-        "started",
-        "succeeded"
-      ],
-      "roles": [
-        "planner"
-      ],
-      "models": [
-        "claude-opus-4-7"
-      ],
-      "querySources": [
-        "sdk"
       ],
       "hasStarted": true,
       "firstStatus": "started",
@@ -539,9 +440,6 @@
       "implementation_bearing_code_editing_fixture",
       "implementation_bearing_multi_file_code_editing_fixture",
       "implementation_bearing_regression_cycle_code_editing_fixture",
-      "live_adaptive_probe",
-      "live_probe",
-      "live_sidequery_probe",
       "prompted_tool_loop_cli",
       "protected_action_denial_fixture",
       "real_session_capture_cli",
@@ -590,9 +488,9 @@
       "repl_main_thread",
       "sdk"
     ],
-    "passedTraceCount": 13,
-    "failedTraceCount": 4,
-    "succeededTraceCount": 9,
+    "passedTraceCount": 10,
+    "failedTraceCount": 2,
+    "succeededTraceCount": 8,
     "classifiedCoverageGaps": [
       {
         "id": "single_role_trace_coverage",
@@ -608,8 +506,8 @@
       },
       {
         "id": "live_trace_kind_coverage",
-        "status": "not_present",
-        "detail": "Live trace kinds represented.",
+        "status": "classified_unresolved",
+        "detail": "Fresh local no-provider trace generation did not include live trace kinds. Live trace evidence remains blocked until an explicitly authorized live capture exists.",
         "protectedActionRequired": false
       },
       {
@@ -630,7 +528,7 @@
     {
       "label": "real JSONL trace files discovered",
       "ok": true,
-      "detail": "13 traces"
+      "detail": "10 traces"
     },
     {
       "label": "all trace lines parsed as JSON",
@@ -665,7 +563,7 @@
     {
       "label": "live and usage trace kind gaps are represented or classified",
       "ok": true,
-      "detail": "fixture_user_executor_session,implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,live_adaptive_probe,live_probe,live_sidequery_probe,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture,usage_cli_probe,usage_repl_probe"
+      "detail": "fixture_user_executor_session,implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture,usage_cli_probe,usage_repl_probe"
     },
     {
       "label": "query source diversity represented",
@@ -695,7 +593,7 @@
     {
       "label": "all trace summaries pass",
       "ok": true,
-      "detail": "13/13"
+      "detail": "10/10"
     }
   ],
   "claimBoundary": "Real session trace evals grade existing local JSONL trace artifacts only. They do not perform provider, live model, or external calls and do not claim release readiness, production readiness, external validation, public readiness, or autonomous reliability."

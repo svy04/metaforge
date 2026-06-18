@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-17T00:45:53.288Z",
+  "generatedAt": "2026-06-18T04:35:24.807Z",
   "mode": "local_no_provider_benchmark_submission_readiness",
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c",
+  "sourceLocalBenchmarkResultsSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
   "sourceBenchmarkEfficiencyMetricsPath": "docs/product-quality/benchmark-efficiency-metrics-report.json",
   "sourceBenchmarkEfficiencyMetricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-  "sourceBenchmarkEfficiencyMetricsJsonlSha256": "7368d73428285e43b22f655ab10fff90aa7fd5c50499ebdd834f674401586c4f",
+  "sourceBenchmarkEfficiencyMetricsJsonlSha256": "ec409920ea27258942e568db434f41a6d6de50363411ba1fc0377288246e135e",
   "sourceRealTraceEvalsPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceRealTraceCount": 13,
+  "sourceRealTraceCount": 10,
   "primarySourceInputs": [
     {
       "sourceProject": "SWE-bench/experiments",
@@ -27,7 +27,7 @@
     }
   ],
   "submissionAssetsJsonlPath": "reports/openclaude-benchmark-submission-assets.jsonl",
-  "submissionAssetsJsonlSha256": "fc5c18fe41969419938a8b961a450a9198d651bd7365d1349a2f7429ad4ff903",
+  "submissionAssetsJsonlSha256": "a680cdcb2879a8fe112aab457d49121e44c27455c5025a72e7cb7bb83fd2f2fd",
   "requiredSubmissionAssets": [
     "all_preds.jsonl or preds.json",
     "metadata.yaml",
@@ -46,7 +46,7 @@
       "assetId": "all_predictions_equivalent",
       "sweBenchRequiredAsset": "all_preds.jsonl or preds.json",
       "localEquivalentPath": "reports/openclaude-local-benchmark-results.jsonl",
-      "localEquivalentSha256": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c",
+      "localEquivalentSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
       "readinessStatus": "local_equivalent_available",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": false,
@@ -70,7 +70,7 @@
       "assetId": "submission_readme",
       "sweBenchRequiredAsset": "README.md",
       "localEquivalentPath": "docs/product-quality/benchmark-readiness-matrix.md",
-      "localEquivalentSha256": "72b3bc70b94a27fa5964a708da297f7e2a8e544edd5bdf35a4e4995f2bd71522",
+      "localEquivalentSha256": "1a0699cb64e98f0d1bb2d40d3527cc6d1de8effcb3348cf6acd7081b605f9553",
       "readinessStatus": "partial_local_equivalent_available",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": false,
@@ -82,7 +82,7 @@
       "assetId": "reasoning_traces",
       "sweBenchRequiredAsset": "trajs/",
       "localEquivalentPath": "docs/product-quality/real-session-trace-evals-report.json",
-      "localEquivalentSha256": "207d3a6918940f58edf93dd786d946fac5c97d56ee8b7112345fdd0fec88b26d",
+      "localEquivalentSha256": "e76bc9548176c22d9fa53418ec1761059744bbdf7e3b1afb12647945c7cbf2b9",
       "readinessStatus": "classified_unresolved_protected_action_required",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": true,
@@ -94,7 +94,7 @@
       "assetId": "evaluation_logs",
       "sweBenchRequiredAsset": "logs/",
       "localEquivalentPath": "docs/product-quality/local-benchmark-harness-report.json",
-      "localEquivalentSha256": "64aab4297d3fcafb49c21ea99dfbe9226abf3ef2e79628bda47850a40c1d4cbf",
+      "localEquivalentSha256": "c5477fb0adf87d3cc0e650108e3d46e6b47379f3058fb095049b9613b599e8cd",
       "readinessStatus": "partial_local_equivalent_available",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": false,
@@ -118,7 +118,7 @@
       "assetId": "report_json_per_instance",
       "sweBenchRequiredAsset": "logs/<instance_id>/report.json",
       "localEquivalentPath": "reports/openclaude-local-benchmark-results.jsonl",
-      "localEquivalentSha256": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c",
+      "localEquivalentSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
       "readinessStatus": "partial_local_equivalent_available",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": false,
@@ -154,7 +154,7 @@
       "assetId": "efficiency_metrics",
       "sweBenchRequiredAsset": "cost, duration, token, turn, and resolved fields for comparison",
       "localEquivalentPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-      "localEquivalentSha256": "7368d73428285e43b22f655ab10fff90aa7fd5c50499ebdd834f674401586c4f",
+      "localEquivalentSha256": "ec409920ea27258942e568db434f41a6d6de50363411ba1fc0377288246e135e",
       "readinessStatus": "partial_local_equivalent_available",
       "requiredForExternalSubmission": true,
       "protectedActionRequiredToComplete": false,
@@ -209,7 +209,7 @@
     {
       "label": "real trace eval report is imported",
       "ok": true,
-      "detail": "13 traces"
+      "detail": "10 traces"
     },
     {
       "label": "source result hash matches harness report",

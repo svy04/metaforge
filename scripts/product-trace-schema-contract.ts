@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
+import { discoverPublishableTraceFiles } from './product-trace-discovery'
 
 type JsonObject = Record<string, unknown>
 
@@ -247,15 +248,6 @@ function summarizeTrace(path: string): TraceSchemaSummary {
   }
 }
 
-function discoverTraceFiles(): string[] {
-  return readdirSync(resolve(root, traceDirectory), { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => /^orchestra-.*\.jsonl$/.test(name))
-    .sort((a, b) => a.localeCompare(b))
-    .map((name) => `${traceDirectory}/${name}`)
-}
-
 function buildAlignmentGaps(summaries: TraceSchemaSummary[]): AlignmentGap[] {
   const missingEventName = summaries.reduce((total, summary) => total + summary.missingRecommendedEventNameCount, 0)
   const missingTraceContext = summaries.reduce((total, summary) => total + summary.missingRecommendedTraceContextCount, 0)
@@ -359,7 +351,7 @@ function writeReports(report: TraceSchemaContractReport): void {
 function main(): void {
   const sourceText = readFileSync(resolve(root, sourceRealTraceEvalReportPath), 'utf8')
   const sourceRealTraceEval = JSON.parse(sourceText) as RealTraceEvalReport
-  const traceFiles = discoverTraceFiles()
+  const traceFiles = discoverPublishableTraceFiles({ root, traceDirectory })
   const traceSchemaSummaries = traceFiles.map((path) => summarizeTrace(path))
   const currentGeneratedTraceProducerSummaries = traceSchemaSummaries.filter((summary) => summary.currentGeneratedTraceProducer)
   const sourceTraceHashesMatch = traceSchemaSummaries.every((summary) => (
