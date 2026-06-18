@@ -1,8 +1,6 @@
-import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-
-type Check = { label: string; ok: boolean; detail: string }
+import { type Check, check, readText, sha256 } from './quality-report-helpers'
 
 type SafeBacklogPlanItem = {
   planItemId: string
@@ -22,6 +20,7 @@ type SafeBacklogPlanReport = {
   nextSafeInternalGateCandidates: Array<{
     gateId: string
     axis: string
+    sourceBacklogItemCount?: number
     protectedActionRequiredForPlanning: boolean
   }>
   providerCallsPerformed: unknown[]
@@ -133,18 +132,6 @@ const fallbackBoundaryEvidence = [
   'docs/product-quality/oss-runtime-doctoring-evidence-report.json',
   'docs/product-quality/oss-runtime-doctoring-evidence-report.md',
 ]
-
-function sha256(input: string | Buffer): string {
-  return createHash('sha256').update(input).digest('hex')
-}
-
-function readText(path: string): string {
-  return readFileSync(resolve(root, path), 'utf8')
-}
-
-function check(label: string, ok: boolean, detail: string): Check {
-  return { label, ok, detail }
-}
 
 function slug(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '')
