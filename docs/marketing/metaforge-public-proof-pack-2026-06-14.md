@@ -36,6 +36,19 @@ This means Metaforge can currently market:
 
 This does not yet prove hosted deployment, public adoption, production readiness, external validation, compliance, autonomous reliability, or benchmark superiority.
 
+## Metaforge Proof Tour
+
+Use this tour when turning the architecture into public copy:
+
+1. **Goal Kernel** turns owner intent into `CG-*.md` goals with scope, success criteria, validation commands, rollback, evidence, and MFH/Meta fields.
+2. **Meta** keeps authority sources, decision-ledger links, raw source records, and memory/wiki boundaries attached to the goal.
+3. **MFH** blocks premature closure: `scripts/validate-goals.ts` rejects `validated` or `closed` states without passing command evidence, and `scripts/validate-goal-traces.ts` grades the ordered closure trace.
+4. **Orchestra** is the runtime-wired layer where current `src/services/orchestra/` behavior and product-quality reports support routing claims.
+5. **Mimesis Engineering** absorbs proven structures from trace, policy, eval, risk, OSS, paper, patent, and standards sources.
+6. **OpenClaude** remains the CLI/runtime substrate for terminal tools, provider routes, MCP, slash commands, streaming, and credential surfaces.
+
+Current proof route: [README proof tour](../../README.md#metaforge-proof-tour), [goal trace validation report](../product-quality/goal-trace-validation-report.md), and `bun run goals:validate`.
+
 ## Wiring Evidence Map
 
 Use this map before turning architecture language into public copy.
@@ -55,6 +68,7 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 | Claim | Current evidence | What it proves | What it does not prove |
 | --- | --- | --- | --- |
 | Metaforge is centered on Meta/MFH/Orchestra, not OpenClaude alone. | [README.md](../../README.md), [docs/PROJECT_SPEC.md](../PROJECT_SPEC.md), [docs/MFH_META_SYNTHESIS.md](../MFH_META_SYNTHESIS.md), [docs/AGENT_REGISTRY.md](../AGENT_REGISTRY.md) | Current repository positioning and operating architecture. | Runtime completeness or external adoption. |
+| Goal Kernel closure now has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:validate` | A current goal trace is checked for loaded, checkpoint, validation, claim-review, validated ordering and no provider/live/external/protected side effects. | It is not live provider execution, external validation, production readiness, or autonomous reliability. |
 | Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [public proof-pack source ledger](../research/public-proof-pack-source-ledger-2026-06-14.md) | Current method, source-first operating rules, and absorbed source patterns. | Does not prove that Mimesis always improves output or is externally validated. |
 | Public profile was refreshed from current repo evidence. | [GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-14.md), [svy04 profile](https://github.com/svy04) | The profile surface was rebuilt around current public repos and private/local boundaries. | That all private workbench material is public or stable. |
 | Public claims are scanned locally. | [public claim boundary report](../product-quality/public-claim-boundary-report.md), command: `bun run product:public-claim-boundary` | Configured public surfaces contain no detected unauthorized positive readiness/superiority claims. | It does not fetch external pages or certify marketing truth. |
@@ -98,6 +112,9 @@ Do not reuse copy from a branch, PR, generated report, or private workbench unle
 | Tool docs | [Playwright Trace Viewer](https://playwright.dev/docs/trace-viewer) | Browser traces, network logs, videos, screenshots, and DOM snapshots are data-bearing artifacts. | Blocking accidental artifacts is not a statement that all browser evidence is publishable. |
 | Security reference | [OWASP Full Path Disclosure](https://owasp.org/www-community/attacks/Full_Path_Disclosure) | Absolute local paths should be treated as privacy/security disclosures on public surfaces. | Path-disclosure scanning is not a complete security audit. |
 | Standard | [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | Risk language should be tied to govern/map/measure/manage-style controls and evidence, not broad safety claims. | NIST alignment language is not a compliance claim. |
+| Open-source standard | [OpenTelemetry](https://opentelemetry.io/) | Ordered trace-style evidence can preserve event sequence and boundary metadata before stronger observability claims. | The Goal Kernel trace gate is not an OpenTelemetry compliance claim. |
+| Open-source project | [Open Policy Agent](https://www.openpolicyagent.org/docs) | Structured policy decisions are stronger than prose-only closure claims. | Metaforge does not embed OPA in this slice. |
+| Official product docs | [OpenAI Agent Evals](https://developers.openai.com/api/docs/guides/agent-evals) and [Trace Grading](https://developers.openai.com/api/docs/guides/trace-grading) | Agent workflow quality should be evaluated through traces, graders, datasets, and repeatable evals. | Local trace validation is not an OpenAI hosted eval run. |
 | Paper | [Model Cards for Model Reporting](https://arxiv.org/abs/1810.03993) | Public AI surfaces should disclose intended use, evaluation procedure, and limits. | Metaforge is not publishing a trained model card from this document. |
 | Paper | [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) | Proof packets should expose motivation, composition, operating characteristics, test results, and recommended uses. | This does not certify datasets or benchmarks. |
 | Standard / OSS spec | [in-toto Attestation Framework](https://github.com/in-toto/attestation) | Evidence should be structured as verifiable claims about software production. | This pack is unsigned and local unless real attestations are generated. |
@@ -123,7 +140,7 @@ Meta/MFH/Orchestra OS with Mimesis Engineering loops, evidence gates, and Claude
 
 ### Short Social Post
 
-Metaforge is my attempt to stop treating agent output as magic. Meta keeps memory, Orchestra routes work, MFH forces evidence, and Mimesis Engineering imports proven structures from products, OSS, papers, patents, and standards before any stronger claim survives.
+Metaforge is my attempt to stop treating agent output as magic. Meta keeps memory, Orchestra routes work, MFH forces evidence, and the Goal Kernel now has a local trace-policy gate before stronger claims survive.
 
 ### Conservative CTA
 

@@ -41,10 +41,23 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | 질문 | 현재 답 |
 | --- | --- |
 | 무엇인가요? | OpenClaude CLI runtime 위에서 동작하는 Meta/MFH/Orchestra OS입니다. |
-| 바로 확인할 명령 | `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
-| 가장 강한 공개 증거 | `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`, `docs/MODEL_SYSTEM_CARD.md`, `docs/product-quality/product-evidence-manifest.md`, [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
+| 바로 확인할 명령 | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
+| 가장 강한 공개 증거 | [goal trace validation report](docs/product-quality/goal-trace-validation-report.md), `docs/marketing/metaforge-public-proof-pack-2026-06-14.md`, `docs/MODEL_SYSTEM_CARD.md`, `docs/product-quality/product-evidence-manifest.md`, [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
 | 증거 분류 | `docs/product-quality/product-evidence-manifest.md`의 evidence manifest는 behavioral runtime evidence와 static analysis, governance-boundary, source-control, structural-inventory evidence를 분리합니다. |
 | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
+
+## Metaforge Proof Tour
+
+공개 설명이 진짜인지 확인할 때는 이 순서로 보면 됩니다.
+
+1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md`가 owner intent를 scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, MFH/Meta field가 있는 machine-checkable goal로 만듭니다.
+2. **Meta**: goal은 local authority source, decision ledger, raw source, memory/wiki update boundary를 연결해서 운영 상태를 채팅 기억이 아니라 증거로 남깁니다.
+3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 closure trace의 순서와 side-effect boundary를 검사합니다.
+4. **Orchestra**: `src/services/orchestra/`는 planner, skeptic, reviewer, arbiter, promotion role이 runtime-wired 된 layer입니다. 단, 이 주장은 local test와 product-quality report 범위로만 말합니다.
+5. **Mimesis Engineering**: trace gate는 OpenTelemetry식 trace, OPA식 policy decision, OpenAI agent eval trace grading, NIST AI RMF risk-management record 구조를 흡수한 작은 증거층입니다.
+6. **OpenClaude runtime**: OpenClaude는 terminal tool, provider route, MCP, slash command, credential surface를 제공합니다. 제품 중심은 OpenClaude가 아니라 Meta/MFH/Orchestra입니다.
+
+Blocked context: 이 Proof Tour는 local no-provider evidence이며 production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability claim을 만들지 않습니다.
 
 ## 운영 레이어
 

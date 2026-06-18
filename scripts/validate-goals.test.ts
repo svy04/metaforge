@@ -148,4 +148,36 @@ describe('goal validator', () => {
     expect(result.errors).toContain('checkpoints.0.name must be a non-empty string')
     expect(result.errors).toContain('governedCode.metaRecords.wikiOrMemoryUpdates must be an array')
   })
+
+  test('accepts validated goals only when required commands have passing evidence and artifacts exist', () => {
+    const validated = validGoal
+      .replace('status: active', 'status: validated')
+      .replace('      status: not_run', '      status: pass')
+      .replace('      outputSummary: Pending.', '      outputSummary: Local validation passed.')
+
+    const result = validateGoalDocument('docs/goals/CG-001-goal-kernel-mvp.md', validated)
+
+    expect(result.ok).toBe(true)
+  })
+
+  test('rejects validated goals with missing passing command evidence', () => {
+    const validatedWithoutEvidence = validGoal.replace('status: active', 'status: validated')
+
+    const result = validateGoalDocument('docs/goals/CG-001-goal-kernel-mvp.md', validatedWithoutEvidence)
+
+    expect(result.ok).toBe(false)
+    expect(result.errors).toContain('validated or closed goals require passing evidence.testResults for required validation command: bun run goals:validate')
+  })
+
+  test('rejects missing evidence artifact paths', () => {
+    const missingArtifact = validGoal.replace(
+      'evidence:\n  artifacts:\n    - docs/goals/CG-001-goal-kernel-mvp.md',
+      'evidence:\n  artifacts:\n    - docs/MISSING_GOAL_ARTIFACT.md',
+    )
+
+    const result = validateGoalDocument('docs/goals/CG-001-goal-kernel-mvp.md', missingArtifact)
+
+    expect(result.ok).toBe(false)
+    expect(result.errors).toContain('evidence.artifacts.0 must point to an existing local source')
+  })
 })
