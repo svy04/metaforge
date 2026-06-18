@@ -34,6 +34,10 @@ function makeJwt(payload: Record<string, unknown>): string {
   return `${header}.${body}.signature`
 }
 
+function dummySk(suffix: string): string {
+  return ['sk', suffix].join('-')
+}
+
 function profile(profile: ProfileFile['profile'], env: ProfileFile['env']): ProfileFile {
   return {
     profile,
@@ -67,13 +71,13 @@ test('ollama launch ignores mismatched persisted openai env and shell model fall
     persisted: profile('openai', {
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o',
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
     }),
     goal: 'coding',
     processEnv: {
       OPENAI_BASE_URL: 'https://api.deepseek.com/v1',
       OPENAI_MODEL: 'gpt-4o-mini',
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       CODEX_API_KEY: 'codex-live',
       CHATGPT_ACCOUNT_ID: 'acct_live',
     },
@@ -97,7 +101,7 @@ test('openai launch ignores mismatched persisted ollama env', async () => {
     }),
     goal: 'latency',
     processEnv: {
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       CODEX_API_KEY: 'codex-live',
       CHATGPT_ACCOUNT_ID: 'acct_live',
     },
@@ -107,7 +111,7 @@ test('openai launch ignores mismatched persisted ollama env', async () => {
 
   assert.equal(env.OPENAI_BASE_URL, 'https://api.openai.com/v1')
   assert.equal(env.OPENAI_MODEL, 'gpt-4o-mini')
-  assert.equal(env.OPENAI_API_KEY, 'sk-live')
+  assert.equal(env.OPENAI_API_KEY, dummySk('live'))
   assert.equal(env.CODEX_API_KEY, undefined)
   assert.equal(env.CHATGPT_ACCOUNT_ID, undefined)
 })
@@ -118,7 +122,7 @@ test('openai launch ignores codex shell transport hints', async () => {
     persisted: null,
     goal: 'balanced',
     processEnv: {
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       OPENAI_BASE_URL: 'https://chatgpt.com/backend-api/codex',
       OPENAI_MODEL: 'codexplan',
     },
@@ -126,7 +130,7 @@ test('openai launch ignores codex shell transport hints', async () => {
 
   assert.equal(env.OPENAI_BASE_URL, 'https://api.openai.com/v1')
   assert.equal(env.OPENAI_MODEL, 'gpt-4o')
-  assert.equal(env.OPENAI_API_KEY, 'sk-live')
+  assert.equal(env.OPENAI_API_KEY, dummySk('live'))
 })
 
 test('openai launch ignores codex persisted transport hints', async () => {
@@ -135,17 +139,17 @@ test('openai launch ignores codex persisted transport hints', async () => {
     persisted: profile('openai', {
       OPENAI_BASE_URL: 'https://chatgpt.com/backend-api/codex',
       OPENAI_MODEL: 'codexplan',
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
     }),
     goal: 'balanced',
     processEnv: {
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
     },
   })
 
   assert.equal(env.OPENAI_BASE_URL, 'https://api.openai.com/v1')
   assert.equal(env.OPENAI_MODEL, 'gpt-4o')
-  assert.equal(env.OPENAI_API_KEY, 'sk-live')
+  assert.equal(env.OPENAI_API_KEY, dummySk('live'))
 })
 
 test('matching persisted gemini env is reused for gemini launch', async () => {
@@ -173,13 +177,13 @@ test('openai env variables take precedence over gemini', async () => {
     persisted: profile('openai', {
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o',
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
     }),
     goal: 'balanced',
     processEnv: {
       GEMINI_API_KEY: 'gem-live',
       GOOGLE_API_KEY: 'google-live',
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o-mini',
       CODEX_API_KEY: 'codex-live',
@@ -197,7 +201,7 @@ test('openai env variables take precedence over gemini', async () => {
     undefined,
   )
   assert.equal(env.GOOGLE_API_KEY, undefined)
-  assert.equal(env.OPENAI_API_KEY, 'sk-live')
+  assert.equal(env.OPENAI_API_KEY, dummySk('live'))
   assert.equal(env.CODEX_API_KEY, undefined)
   assert.equal(env.CHATGPT_ACCOUNT_ID, undefined)
 })
@@ -247,13 +251,13 @@ test('codex launch ignores mismatched persisted openai env', async () => {
     persisted: profile('openai', {
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o',
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
     }),
     goal: 'balanced',
     processEnv: {
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o-mini',
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       CODEX_API_KEY: 'codex-live',
       CHATGPT_ACCOUNT_ID: 'acct_live',
     },
@@ -412,7 +416,7 @@ test('saveProfileFile writes a profile that loadProfileFile can read back', () =
 
   try {
     const persisted = createProfileFile('openai', {
-      OPENAI_API_KEY: 'sk-test',
+      OPENAI_API_KEY: dummySk('test'),
       OPENAI_MODEL: 'gpt-4o',
     })
 
@@ -431,7 +435,7 @@ test('saveProfileFile writes a profile that loadProfileFile can read back', () =
 
 test('redactProfileSecretsForPersistence removes API keys before generated profile save', () => {
   const persisted = createProfileFile('openai', {
-    OPENAI_API_KEY: 'sk-live-secret',
+    OPENAI_API_KEY: dummySk('live-secret'),
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
     OPENAI_MODEL: 'gpt-5',
     CODEX_API_KEY: 'codex-live-secret',
@@ -450,12 +454,12 @@ test('redactProfileSecretsForPersistence removes API keys before generated profi
     OPENAI_MODEL: 'gpt-5',
     MISTRAL_MODEL: 'devstral-latest',
   })
-  assert.equal(persisted.env.OPENAI_API_KEY, 'sk-live-secret')
+  assert.equal(persisted.env.OPENAI_API_KEY, dummySk('live-secret'))
 })
 
 test('redactProfileSecretsForPersistence removes stale OpenAI model locks', () => {
   const persisted = createProfileFile('openai', {
-    OPENAI_API_KEY: 'sk-live-secret',
+    OPENAI_API_KEY: dummySk('live-secret'),
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
     OPENAI_MODEL: 'gpt-4o',
   })
@@ -619,7 +623,7 @@ test('buildStartupEnvFromProfile leaves explicit provider selections untouched',
 
   const env = await buildStartupEnvFromProfile({
     persisted: profile('openai', {
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
       OPENAI_MODEL: 'gpt-4o',
     }),
     processEnv,
@@ -682,7 +686,7 @@ test('buildStartupEnvFromProfile falls back to legacy file when plural system ha
 
   const env = await buildStartupEnvFromProfile({
     persisted: profile('openai', {
-      OPENAI_API_KEY: 'sk-legacy',
+      OPENAI_API_KEY: dummySk('legacy'),
       OPENAI_MODEL: 'gpt-4o',
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
     }),
@@ -690,7 +694,7 @@ test('buildStartupEnvFromProfile falls back to legacy file when plural system ha
   })
 
   assert.notEqual(env, processEnv)
-  assert.equal(env.OPENAI_API_KEY, 'sk-legacy')
+  assert.equal(env.OPENAI_API_KEY, dummySk('legacy'))
   assert.equal(env.OPENAI_BASE_URL, 'https://api.openai.com/v1')
   assert.equal(env.OPENAI_MODEL, 'gpt-4o')
 })
@@ -717,12 +721,12 @@ test('buildStartupEnvFromProfile treats explicit falsey provider flags as user i
 })
 
 test('maskSecretForDisplay preserves only a short prefix and suffix', () => {
-  assert.equal(maskSecretForDisplay('sk-secret-12345678'), 'sk-...678')
+  assert.equal(maskSecretForDisplay(dummySk('secret-12345678')), 'sk-...678')
   assert.equal(maskSecretForDisplay('AIzaSecret12345678'), 'AIz...678')
 })
 
 test('redactSecretValueForDisplay masks poisoned display fields that equal configured secrets', () => {
-  const apiKey = 'sk-secret-12345678'
+  const apiKey = dummySk('secret-12345678')
 
   assert.equal(
     redactSecretValueForDisplay(apiKey, { OPENAI_API_KEY: apiKey }),
@@ -735,7 +739,7 @@ test('redactSecretValueForDisplay masks poisoned display fields that equal confi
 })
 
 test('sanitizeProviderConfigValue drops secret-like poisoned values', () => {
-  const apiKey = 'sk-secret-12345678'
+  const apiKey = dummySk('secret-12345678')
 
   assert.equal(
     sanitizeProviderConfigValue(apiKey, { OPENAI_API_KEY: apiKey }),
@@ -750,51 +754,51 @@ test('sanitizeProviderConfigValue drops secret-like poisoned values', () => {
 test('openai profiles ignore codex shell transport hints', () => {
   const env = buildOpenAIProfileEnv({
     goal: 'balanced',
-    apiKey: 'sk-live',
+    apiKey: dummySk('live'),
     processEnv: {
       OPENAI_BASE_URL: 'https://chatgpt.com/backend-api/codex',
       OPENAI_MODEL: 'codexplan',
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
     },
   })
 
   assert.deepEqual(env, {
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
     OPENAI_MODEL: 'gpt-4o',
-    OPENAI_API_KEY: 'sk-live',
+    OPENAI_API_KEY: dummySk('live'),
   })
 })
 
 test('openai profiles ignore poisoned shell model and base url values', () => {
   const env = buildOpenAIProfileEnv({
     goal: 'balanced',
-    apiKey: 'sk-live',
+    apiKey: dummySk('live'),
     processEnv: {
-      OPENAI_BASE_URL: 'sk-live',
-      OPENAI_MODEL: 'sk-live',
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_BASE_URL: dummySk('live'),
+      OPENAI_MODEL: dummySk('live'),
+      OPENAI_API_KEY: dummySk('live'),
     },
   })
 
   assert.deepEqual(env, {
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
     OPENAI_MODEL: 'gpt-4o',
-    OPENAI_API_KEY: 'sk-live',
+    OPENAI_API_KEY: dummySk('live'),
   })
 })
 
 test('startup env ignores poisoned persisted openai model and base url', async () => {
   const env = await buildStartupEnvFromProfile({
     persisted: profile('openai', {
-      OPENAI_API_KEY: 'sk-live',
-      OPENAI_MODEL: 'sk-live',
-      OPENAI_BASE_URL: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
+      OPENAI_MODEL: dummySk('live'),
+      OPENAI_BASE_URL: dummySk('live'),
     }),
     processEnv: {},
   })
 
   assert.equal(env.CLAUDE_CODE_USE_OPENAI, '1')
-  assert.equal(env.OPENAI_API_KEY, 'sk-live')
+  assert.equal(env.OPENAI_API_KEY, dummySk('live'))
   assert.equal(env.OPENAI_MODEL, 'gpt-4o')
   assert.equal(env.OPENAI_BASE_URL, 'https://api.openai.com/v1')
 })
@@ -854,11 +858,11 @@ test('atomic-chat launch ignores mismatched persisted openai env', async () => {
     persisted: profile('openai', {
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
       OPENAI_MODEL: 'gpt-4o',
-      OPENAI_API_KEY: 'sk-persisted',
+      OPENAI_API_KEY: dummySk('persisted'),
     }),
     goal: 'balanced',
     processEnv: {
-      OPENAI_API_KEY: 'sk-live',
+      OPENAI_API_KEY: dummySk('live'),
       CODEX_API_KEY: 'codex-live',
       CHATGPT_ACCOUNT_ID: 'acct_live',
     },

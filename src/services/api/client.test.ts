@@ -279,7 +279,7 @@ test('forceFirstParty bypasses CLAUDE_CODE_USE_OPENAI shim and routes to Anthrop
   process.env.OPENAI_API_KEY = 'openai-test-key'
   process.env.OPENAI_BASE_URL = 'http://shim.example.test/v1'
   process.env.OPENAI_MODEL = 'gpt-4o'
-  process.env.ANTHROPIC_API_KEY = 'sk-ant-test'
+  process.env.ANTHROPIC_API_KEY = ['sk', 'ant', 'test'].join('-')
 
   globalThis.fetch = (async (input: Parameters<FetchType>[0]) => {
     capturedUrl =

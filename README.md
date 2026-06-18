@@ -33,6 +33,21 @@ Public history boundary: Metaforge moved from a private/local workbench into thi
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
 
+## Public Feedback Response
+
+Recent Korean community feedback is tracked as product input, not applause or validation:
+[2026-06-19 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-19.md) and
+[triage](docs/product-quality/public-feedback-triage-2026-06-19.md).
+
+That feedback changed the public bar:
+
+- provenance and fork/adaptation boundaries must be plain before stronger copy;
+- AGENTS and README surfaces must stay public-safe, compact, and free of local machine context;
+- OpenClaude remains the runtime substrate while Metaforge remains the Meta/MFH/Orchestra thesis;
+- marker-only audits must keep moving toward behavioral happy paths, edge cases, and side-effect guards;
+- static-analysis work such as Knip or fallow, dependency-cruiser, jscpd, and topology review stays a refactor backlog until it is actually run or wired into gates;
+- Korean docs stay current because the first feedback loop is Korean.
+
 ## Metaforge Proof Tour
 
 Follow this path when checking whether the public story is real:

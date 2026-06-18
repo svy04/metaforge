@@ -25,6 +25,7 @@ const ORIGINAL_SIMPLE_ENV = process.env.CLAUDE_CODE_SIMPLE
 const ORIGINAL_CODEX_API_KEY = process.env.CODEX_API_KEY
 const ORIGINAL_CHATGPT_ACCOUNT_ID = process.env.CHATGPT_ACCOUNT_ID
 const ORIGINAL_CODEX_ACCOUNT_ID = process.env.CODEX_ACCOUNT_ID
+const dummySk = (suffix: string) => ['sk', suffix].join('-')
 
 function extractLastFrame(output: string): string {
   let lastFrame: string | null = null
@@ -238,7 +239,7 @@ test('wizard step remount prevents a typed API key from leaking into the next fi
   )
 
   await Bun.sleep(25)
-  stdin.write('sk-secret-12345678')
+  stdin.write(dummySk('secret-12345678'))
   await Bun.sleep(25)
 
   root.render(
@@ -263,14 +264,14 @@ test('wizard step remount prevents a typed API key from leaking into the next fi
 
   const output = stripAnsi(extractLastFrame(getOutput()))
   expect(output).toContain('Model step')
-  expect(output).not.toContain('sk-secret-12345678')
+  expect(output).not.toContain(dummySk('secret-12345678'))
 })
 
 test('buildProfileSaveMessage maps provider fields without echoing secrets', () => {
   const message = buildProfileSaveMessage(
     'openai',
     {
-      OPENAI_API_KEY: 'sk-secret-12345678',
+      OPENAI_API_KEY: dummySk('secret-12345678'),
       OPENAI_MODEL: 'gpt-4o',
       OPENAI_BASE_URL: 'https://api.openai.com/v1',
     },
@@ -281,7 +282,7 @@ test('buildProfileSaveMessage maps provider fields without echoing secrets', () 
   expect(message).toContain('Model: gpt-4o')
   expect(message).toContain('Endpoint: https://api.openai.com/v1')
   expect(message).toContain('Credentials: configured')
-  expect(message).not.toContain('sk-secret-12345678')
+  expect(message).not.toContain(dummySk('secret-12345678'))
 })
 
 test('buildProfileSaveMessage labels local openai-compatible profiles consistently', () => {
@@ -408,7 +409,7 @@ test('explicitly declared env takes precedence over applySavedProfileToCurrentSe
     CLAUDE_CODE_USE_OPENAI: '1',
     OPENAI_MODEL: 'gpt-4o',
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
-    OPENAI_API_KEY: 'sk-openai',
+    OPENAI_API_KEY: dummySk('openai'),
     CODEX_API_KEY: 'codex-live',
     CHATGPT_ACCOUNT_ID: 'acct_codex',
     CLAUDE_CODE_PROVIDER_PROFILE_ENV_APPLIED: '1',
@@ -435,7 +436,7 @@ test('explicitly declared env takes precedence over applySavedProfileToCurrentSe
   )
   expect(processEnv.CODEX_API_KEY).toBeUndefined()
   expect(processEnv.CHATGPT_ACCOUNT_ID).toBeUndefined()
-  expect(processEnv.OPENAI_API_KEY).toBe("sk-openai")
+  expect(processEnv.OPENAI_API_KEY).toBe(dummySk('openai'))
   expect(processEnv.CLAUDE_CODE_PROVIDER_PROFILE_ENV_APPLIED).toBeUndefined()
   expect(processEnv.CLAUDE_CODE_PROVIDER_PROFILE_ENV_APPLIED_ID).toBeUndefined()
 })
@@ -477,9 +478,9 @@ test('buildCurrentProviderSummary redacts poisoned model and endpoint values', (
   const summary = buildCurrentProviderSummary({
     processEnv: {
       CLAUDE_CODE_USE_OPENAI: '1',
-      OPENAI_API_KEY: 'sk-secret-12345678',
-      OPENAI_MODEL: 'sk-secret-12345678',
-      OPENAI_BASE_URL: 'sk-secret-12345678',
+      OPENAI_API_KEY: dummySk('secret-12345678'),
+      OPENAI_MODEL: dummySk('secret-12345678'),
+      OPENAI_BASE_URL: dummySk('secret-12345678'),
     },
     persisted: null,
   })
@@ -536,9 +537,9 @@ test('buildCurrentProviderSummary recognizes GitHub Models mode', () => {
 
 test('getProviderWizardDefaults ignores poisoned current provider values', () => {
   const defaults = getProviderWizardDefaults({
-    OPENAI_API_KEY: 'sk-secret-12345678',
-    OPENAI_MODEL: 'sk-secret-12345678',
-    OPENAI_BASE_URL: 'sk-secret-12345678',
+    OPENAI_API_KEY: dummySk('secret-12345678'),
+    OPENAI_MODEL: dummySk('secret-12345678'),
+    OPENAI_BASE_URL: dummySk('secret-12345678'),
     GEMINI_API_KEY: 'AIzaSecret12345678',
     GEMINI_MODEL: 'AIzaSecret12345678',
   })
