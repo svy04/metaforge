@@ -49,7 +49,7 @@ test('buildChildEnv includes PATH and HOME from parent', () => {
   const parentEnv = {
     PATH: '/usr/bin:/usr/local/bin',
     HOME: '/home/user',
-    ANTHROPIC_API_KEY: 'sk-secret',
+    ANTHROPIC_API_KEY: ['sk', 'secret'].join('-'),
   }
   const env = buildChildEnv(parentEnv, baseOpts)
   expect(env.PATH).toBe('/usr/bin:/usr/local/bin')

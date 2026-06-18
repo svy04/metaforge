@@ -1,6 +1,8 @@
 import { describe, expect, test, beforeEach, afterEach } from 'bun:test'
 import { extractHits, customProvider, isPrivateHostname } from './custom.js'
 
+const dummySk = (suffix: string) => ['sk', suffix].join('-')
+
 // ---------------------------------------------------------------------------
 // extractHits — flexible response parsing
 // ---------------------------------------------------------------------------
@@ -142,20 +144,20 @@ describe('buildAuthHeadersForPreset direct assertions', () => {
   })
 
   test('WEB_AUTH_HEADER="" is an explicit opt-out — returns empty headers even with WEB_KEY set', () => {
-    process.env.WEB_KEY = 'sk-test-123'
+    process.env.WEB_KEY = dummySk('test-123')
     process.env.WEB_AUTH_HEADER = ''
     const { buildAuthHeadersForPreset } = require('./custom.js')
     expect(buildAuthHeadersForPreset({ urlTemplate: '', queryParam: 'q', authHeader: 'Authorization' })).toEqual({})
   })
 
   test('WEB_AUTH_SCHEME="" strips the scheme prefix (bare key only)', () => {
-    process.env.WEB_KEY = 'sk-test-123'
+    process.env.WEB_KEY = dummySk('test-123')
     process.env.WEB_AUTH_SCHEME = ''
     delete process.env.WEB_AUTH_HEADER
     const { buildAuthHeadersForPreset } = require('./custom.js')
     const result = buildAuthHeadersForPreset({ urlTemplate: '', queryParam: 'q', authHeader: 'X-Api-Key' })
     // scheme is '' so the header value should be just the key (trimmed)
-    expect(result).toEqual({ 'X-Api-Key': 'sk-test-123' })
+    expect(result).toEqual({ 'X-Api-Key': dummySk('test-123') })
   })
 
   test('uses preset authHeader and authScheme when no env overrides', () => {

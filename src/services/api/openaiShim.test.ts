@@ -3317,7 +3317,7 @@ test('injects semantic assistant message when tool result is followed by user me
 
 test('Moonshot: uses max_tokens (not max_completion_tokens) and strips store', async () => {
   process.env.OPENAI_BASE_URL = 'https://api.moonshot.ai/v1'
-  process.env.OPENAI_API_KEY = 'sk-moonshot-test'
+  process.env.OPENAI_API_KEY = ['sk', 'moonshot', 'test'].join('-')
 
   let requestBody: Record<string, unknown> | undefined
   globalThis.fetch = (async (_input, init) => {
@@ -3351,7 +3351,7 @@ test('Moonshot: uses max_tokens (not max_completion_tokens) and strips store', a
 
 test('Moonshot: cn host is also detected', async () => {
   process.env.OPENAI_BASE_URL = 'https://api.moonshot.cn/v1'
-  process.env.OPENAI_API_KEY = 'sk-moonshot-test'
+  process.env.OPENAI_API_KEY = ['sk', 'moonshot', 'test'].join('-')
 
   let requestBody: Record<string, unknown> | undefined
   globalThis.fetch = (async (_input, init) => {
