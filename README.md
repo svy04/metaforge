@@ -20,18 +20,31 @@ Public history boundary: Metaforge moved from a private/local workbench into thi
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-see_LICENSE-2563eb)](LICENSE)
 
-[Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
+[Proof Tour](#metaforge-proof-tour) | [Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
 ## Current Proof Ladder
 
 | Question | Current answer |
 | --- | --- |
 | What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
-| Fastest verification | `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
-| Strongest public evidence | [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), [evidence manifest](docs/product-quality/product-evidence-manifest.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
+| Fastest verification | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
+| Strongest public evidence | [Goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), [evidence manifest](docs/product-quality/product-evidence-manifest.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
 | Evidence class map | The evidence manifest now separates behavioral runtime evidence from static analysis, governance-boundary, source-control, and structural-inventory evidence before public claims are upgraded. |
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
+
+## Metaforge Proof Tour
+
+Follow this path when checking whether the public story is real:
+
+1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md` turns owner intent into a machine-checkable goal with scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, and MFH/Meta fields.
+2. **Meta**: the goal links local authority sources, decision-ledger entries, raw sources, and memory/wiki update boundaries so operating state is not only chat context.
+3. **MFH**: `scripts/validate-goals.ts` blocks `validated` or `closed` goal states unless required validation commands have passing evidence, and `scripts/validate-goal-traces.ts` grades the ordered closure trace.
+4. **Orchestra**: `src/services/orchestra/` remains the runtime-wired layer for planner, skeptic, reviewer, arbiter, and promotion roles where local tests and product-quality reports cover those surfaces.
+5. **Mimesis Engineering**: the trace gate absorbs proven structures from OpenTelemetry-style traces, OPA-style policy decisions, OpenAI agent eval trace grading, and NIST AI RMF risk-management records.
+6. **OpenClaude runtime**: OpenClaude supplies terminal tools, provider routes, MCP, slash commands, and credential surfaces. It is the substrate, not the public thesis.
+
+Current limit: this proof tour is local no-provider evidence. It does not claim production readiness, hosted deployment, external validation, benchmark superiority, or autonomous reliability.
 
 ## Why Metaforge
 

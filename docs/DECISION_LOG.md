@@ -263,3 +263,37 @@ Consequence:
 - Historical goal artifacts remain public-surface-scanned evidence, but they
   are not rewritten or treated as schema-valid Goal Kernel records in this
   slice.
+
+## D-014 - Add Goal Kernel trace-policy evidence before stronger marketing
+
+Date: 2026-06-18
+Status: accepted
+
+Decision:
+
+Metaforge should not market Goal Kernel closure from schema validity alone.
+The public proof path now requires a local no-provider goal trace gate in
+addition to the `CG-*.md` schema validator.
+
+Evidence:
+
+- Community feedback called out file-existence, marker, and hardcoded-flag
+  audits as weaker than behavioral happy-path, edge-case, and side-effect
+  checks.
+- `docs/GOAL_SCHEMA.md` says goals cannot move to `validated` or `closed`
+  without fresh evidence.
+- OpenTelemetry, Open Policy Agent, OpenAI agent eval trace grading, and NIST
+  AI RMF Playbook patterns all favor structured traces, policy decisions,
+  eval records, and proportional risk evidence over narrative-only claims.
+
+Consequence:
+
+- `scripts/validate-goals.ts` rejects `validated` or `closed` goals when
+  required validation commands do not have passing `evidence.testResults`.
+- `scripts/validate-goal-traces.ts` validates source-controlled goal traces for
+  ordered goal-loaded, checkpoint, validation, claim-review, and validated
+  events.
+- `bun run goals:validate` now runs both schema and trace validation.
+- The new proof remains local no-provider evidence only, not production
+  readiness, hosted deployment, external validation, benchmark superiority, or
+  autonomous reliability.

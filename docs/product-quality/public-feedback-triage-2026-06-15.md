@@ -151,3 +151,24 @@ Current response in this slice:
   local Ollama example model names;
 - keep the proof boundary explicit: this is public hygiene and regression
   prevention, not production readiness or external validation.
+
+## 2026-06-18 Goal Kernel Trace-Policy Response
+
+The next response slice moves the Goal Kernel from schema-only evidence toward
+behavioral closure evidence:
+
+- `scripts/validate-goals.ts` now rejects future `validated` or `closed` goals
+  when required validation commands lack passing `evidence.testResults`.
+- `scripts/validate-goals.ts` now checks `evidence.artifacts` paths, so closure
+  cannot rest only on named but missing files.
+- `scripts/validate-goal-traces.ts` validates source-controlled goal traces for
+  `goal.loaded -> checkpoint.completed -> validation.ran -> claim.reviewed ->
+  goal.validated` ordering.
+- `docs/goals/traces/CG-001-goal-kernel-mvp.trace.json` is the first local
+  no-provider Goal Kernel trace fixture.
+- `docs/product-quality/goal-trace-validation-report.md` records the trace
+  result, source patterns, side-effect arrays, and claim boundary.
+- README and README.ko now expose a short `Metaforge Proof Tour` that centers
+  Meta/MFH/Orchestra and leaves OpenClaude as runtime substrate.
+
+Blocked context: this is still local no-provider evidence and does not prove production readiness, hosted deployment, external validation, benchmark superiority, or autonomous reliability.

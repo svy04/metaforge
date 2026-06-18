@@ -102,3 +102,25 @@ Status: active
   TypeScript diagnostics outside this docs-governance change; the changed
   goal validator path passed focused tests and the repo's product typecheck
   health gate.
+
+## 2026-06-18 Checkpoint 9 - Goal Trace Policy Gate
+
+- Added `docs/superpowers/plans/2026-06-18-goal-trace-policy-gate.md` as the
+  implementation plan for the next Goal Kernel evidence ratchet.
+- Added `scripts/validate-goal-traces.ts` and
+  `scripts/validate-goal-traces.test.ts`.
+- Added `docs/goals/traces/CG-001-goal-kernel-mvp.trace.json` as the first
+  source-controlled local no-provider goal trace fixture.
+- Updated `scripts/validate-goals.ts` so future `validated` or `closed` goal
+  states require passing `evidence.testResults` for required validation
+  commands and existing evidence artifact paths.
+- Updated `package.json` so `bun run goals:validate` runs both schema and trace
+  validation, and `product:quality` starts by running the Goal Kernel gate.
+- Added the public README and Korean README `Metaforge Proof Tour` so marketing
+  language follows Goal Kernel -> Meta -> MFH -> Orchestra -> Mimesis ->
+  OpenClaude substrate.
+- Validation results:
+  - `bun test scripts/validate-goals.test.ts` passed with 6 tests.
+  - `bun test scripts/validate-goal-traces.test.ts` passed with 5 tests.
+  - `bun run goals:validate` passed with 1 valid goal trace and no provider,
+    live model, external, or protected calls.
