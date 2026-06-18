@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T16:50:23.862Z",
+  "generatedAt": "2026-06-18T20:13:52.893Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,21 +20,21 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "5b6dccad5d37458b31564d98c03e96a8e08f13b7b7cd9a56a5f4e9115ec38eeb",
-  "evidenceRecordCount": 219,
-  "evidenceTotalSizeBytes": 11957195,
+  "manifestJsonlSha256": "ca8f9c0a475794577fdb42e53c9364376effdf731a56d5677abc00174f28386c",
+  "evidenceRecordCount": 220,
+  "evidenceTotalSizeBytes": 11957451,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 202,
     "evidence_artifact": 7,
     "quality_gate": 1,
-    "workflow": 7
+    "workflow": 8
   },
   "evidenceProofClasses": {
     "behavioral_runtime": 54,
     "static_analysis": 11,
     "governance_boundary": 41,
-    "source_control": 10,
+    "source_control": 11,
     "structural_inventory": 103
   },
   "requiredEvidencePaths": [
@@ -219,6 +219,12 @@
       "path": ".github/workflows/release.yml",
       "sha256": "a16b475b114fb945edc979e8cd82de4c3ba15af97e271c0bc7c4e64a66ae8730",
       "sizeBytes": 1159,
+      "role": "workflow"
+    },
+    {
+      "path": ".github/workflows/scorecard.yml",
+      "sha256": "8996eef1f582b2acfba3ba243dc60cac663b97ddb370a71556f57da3938a4047",
+      "sizeBytes": 558,
       "role": "workflow"
     },
     {
@@ -481,14 +487,14 @@
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.json",
-      "sha256": "1bf74f852ad979bf7971a7b820a95f72e89c71dc844a724bbb408506956fe7ca",
-      "sizeBytes": 7174,
+      "sha256": "2017793c27fb887d1bb6ffb7108e8efa76d074d3c90a3d44ce33a7c751c3ea45",
+      "sizeBytes": 5395,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/github-remote-surface-audit-report.md",
-      "sha256": "25756875193c522e363d646d8296f3ad088308ded9b002f3058ec49a247d1c3c",
-      "sizeBytes": 4614,
+      "sha256": "70bd0e2ff3faf4bd81591acc573a5d26e704247856268135f709e3d80cc91965",
+      "sizeBytes": 3999,
       "role": "evidence_report"
     },
     {
@@ -727,14 +733,14 @@
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.json",
-      "sha256": "af97c2fc90890de54f45efb37ca5b8ce462fba14fb6dc7352d277745f6ade4b5",
-      "sizeBytes": 10104,
+      "sha256": "1b829aaa46e75e712b75eb410001bb58de5fc2de370e0b1f3fa59631d80baff8",
+      "sizeBytes": 11354,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/openssf-security-posture-report.md",
-      "sha256": "274705d13a6a2ef7dc00b2a5a5f9dbe9cce0d81e396746e6fa7f34291acc3df5",
-      "sizeBytes": 7447,
+      "sha256": "530fc9a9759a96823af5404a54ef0299a0de53a78faf39f96ec9e0d2eacf28b0",
+      "sizeBytes": 8289,
       "role": "evidence_report"
     },
     {
@@ -1477,7 +1483,7 @@
     },
     {
       "path": "reports/openclaude-github-remote-surface-audit.jsonl",
-      "sha256": "eceb249f194f48bc9bd457aaf005867315738ef8b3ebb1ee63b70ad5127a6140",
+      "sha256": "c1ac8d79d81a1321ccfa84627a62612e77c59616110d0a9bd9b05bea93df5a53",
       "sizeBytes": 205,
       "role": "evidence_artifact"
     }
@@ -1491,17 +1497,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "219 records"
+      "detail": "220 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "11957195 total bytes"
+      "detail": "11957451 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "219 lines"
+      "detail": "220 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1516,12 +1522,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":7,\"quality_gate\":1,\"workflow\":7}"
+      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":7,\"quality_gate\":1,\"workflow\":8}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":41,\"source_control\":10,\"structural_inventory\":103}"
+      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":41,\"source_control\":11,\"structural_inventory\":103}"
     },
     {
       "label": "manifest contains no credential patterns",

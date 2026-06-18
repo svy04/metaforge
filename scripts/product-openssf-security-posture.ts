@@ -30,6 +30,8 @@ type OpenSsfSecurityPostureReport = {
   releaseWorkflowSha256: string
   codeqlWorkflowPath: string
   codeqlWorkflowSha256: string | null
+  scorecardWorkflowPath: string
+  scorecardWorkflowSha256: string | null
   dependabotConfigPath: string
   dependabotConfigSha256: string | null
   primarySourceInputs: Array<{
@@ -56,6 +58,12 @@ type OpenSsfSecurityPostureReport = {
   codeqlSecurityExtendedQueriesConfigured: boolean
   codeqlScheduledScanConfigured: boolean
   codeqlHostedExecutionPerformed: false
+  scorecardWorkflowPresent: boolean
+  scorecardWorkflowActionsPinned: boolean
+  scorecardWorkflowPermissionsScoped: boolean
+  scorecardScheduledScanConfigured: boolean
+  scorecardSarifUploadConfigured: boolean
+  scorecardHostedExecutionPerformed: false
   productQualityWorkflowPresent: boolean
   frozenDependencyInstallPresent: boolean
   npmProvenanceConfigured: boolean
@@ -80,6 +88,7 @@ const securityPolicyPath = 'SECURITY.md'
 const prWorkflowPath = '.github/workflows/pr-checks.yml'
 const releaseWorkflowPath = '.github/workflows/release.yml'
 const codeqlWorkflowPath = '.github/workflows/codeql.yml'
+const scorecardWorkflowPath = '.github/workflows/scorecard.yml'
 const dependabotConfigPath = '.github/dependabot.yml'
 
 function readText(path: string): string {
@@ -154,6 +163,12 @@ function writeReports(report: OpenSsfSecurityPostureReport): void {
     `- codeql_security_extended_queries_configured: \`${report.codeqlSecurityExtendedQueriesConfigured}\``,
     `- codeql_scheduled_scan_configured: \`${report.codeqlScheduledScanConfigured}\``,
     `- codeql_hosted_execution_performed: \`${report.codeqlHostedExecutionPerformed}\``,
+    `- scorecard_workflow_present: \`${report.scorecardWorkflowPresent}\``,
+    `- scorecard_workflow_actions_pinned: \`${report.scorecardWorkflowActionsPinned}\``,
+    `- scorecard_workflow_permissions_scoped: \`${report.scorecardWorkflowPermissionsScoped}\``,
+    `- scorecard_scheduled_scan_configured: \`${report.scorecardScheduledScanConfigured}\``,
+    `- scorecard_sarif_upload_configured: \`${report.scorecardSarifUploadConfigured}\``,
+    `- scorecard_hosted_execution_performed: \`${report.scorecardHostedExecutionPerformed}\``,
     `- product_quality_workflow_present: \`${report.productQualityWorkflowPresent}\``,
     `- frozen_dependency_install_present: \`${report.frozenDependencyInstallPresent}\``,
     `- npm_provenance_configured: \`${report.npmProvenanceConfigured}\``,
@@ -192,9 +207,11 @@ function main(): void {
   const releaseWorkflow = readText(releaseWorkflowPath)
   const codeqlWorkflowExists = existsSync(resolve(root, codeqlWorkflowPath))
   const codeqlWorkflow = codeqlWorkflowExists ? readText(codeqlWorkflowPath) : ''
+  const scorecardWorkflowExists = existsSync(resolve(root, scorecardWorkflowPath))
+  const scorecardWorkflow = scorecardWorkflowExists ? readText(scorecardWorkflowPath) : ''
   const dependabotConfigExists = existsSync(resolve(root, dependabotConfigPath))
   const dependabotConfig = dependabotConfigExists ? readText(dependabotConfigPath) : ''
-  const combinedWorkflows = `${prWorkflow}\n${releaseWorkflow}\n${codeqlWorkflow}`
+  const combinedWorkflows = `${prWorkflow}\n${releaseWorkflow}\n${codeqlWorkflow}\n${scorecardWorkflow}`
 
   const securityPolicyPresent = securityPolicy.trim().length > 0 && /Reporting a Vulnerability/i.test(securityPolicy)
   const privateReportingGuidancePresent = /report it privately/i.test(securityPolicy) && /GitHub Security Advisories/i.test(securityPolicy)
@@ -229,6 +246,16 @@ function main(): void {
   const codeqlAnalyzesJavaScriptTypeScript = /javascript-typescript/.test(codeqlWorkflow)
   const codeqlSecurityExtendedQueriesConfigured = /security-extended/.test(codeqlWorkflow) && /security-and-quality/.test(codeqlWorkflow)
   const codeqlScheduledScanConfigured = /schedule:/.test(codeqlWorkflow) && /cron:/.test(codeqlWorkflow)
+  const scorecardWorkflowPresent = scorecardWorkflowExists && /ossf\/scorecard-action@/i.test(scorecardWorkflow)
+  const scorecardWorkflowActionsPinned = scorecardWorkflowPresent && allActionsPinned([scorecardWorkflow])
+  const scorecardWorkflowPermissionsScoped =
+    /permissions:\s*\r?\n\s+contents:\s+read\s*\r?\n\s+security-events:\s+write\s*\r?\n\s+id-token:\s+write/i.test(scorecardWorkflow) &&
+    !/\b(write-all|contents:\s+write|pull-requests:\s+write|packages:\s+write)\b/i.test(scorecardWorkflow)
+  const scorecardScheduledScanConfigured = /schedule:/.test(scorecardWorkflow) && /cron:/.test(scorecardWorkflow)
+  const scorecardSarifUploadConfigured =
+    /results_file:\s+results\.sarif/.test(scorecardWorkflow) &&
+    /results_format:\s+sarif/.test(scorecardWorkflow) &&
+    /publish_results:\s+true/.test(scorecardWorkflow)
   const productQualityWorkflowPresent = /bun run product:quality/.test(prWorkflow)
   const frozenDependencyInstallPresent = /bun install --frozen-lockfile/.test(prWorkflow) && /bun install --frozen-lockfile/.test(releaseWorkflow)
   const npmProvenanceConfigured = /npm publish --access public --provenance/.test(releaseWorkflow)
@@ -281,6 +308,11 @@ function main(): void {
     check('CodeQL workflow analyzes JavaScript/TypeScript', codeqlAnalyzesJavaScriptTypeScript, 'javascript-typescript'),
     check('CodeQL workflow uses extended security query suites', codeqlSecurityExtendedQueriesConfigured, 'security-extended, security-and-quality'),
     check('CodeQL workflow has scheduled scanning', codeqlScheduledScanConfigured, 'schedule cron'),
+    check('Scorecard workflow exists', scorecardWorkflowPresent, scorecardWorkflowPath),
+    check('Scorecard workflow action is pinned by full SHA', scorecardWorkflowActionsPinned, usesLines(scorecardWorkflow).join(', ')),
+    check('Scorecard workflow permissions are scoped', scorecardWorkflowPermissionsScoped, 'contents: read, security-events: write, id-token: write'),
+    check('Scorecard workflow has scheduled scanning', scorecardScheduledScanConfigured, 'schedule cron'),
+    check('Scorecard workflow publishes SARIF results', scorecardSarifUploadConfigured, 'results.sarif / sarif / publish_results'),
     check('product-quality workflow is present', productQualityWorkflowPresent, 'bun run product:quality'),
     check('dependency install uses frozen lockfile', frozenDependencyInstallPresent, 'bun install --frozen-lockfile'),
     check('npm provenance publish flag is configured or release is boundary-only', releaseWorkflowBoundaryOnly || npmProvenanceConfigured, releaseWorkflowBoundaryOnly ? 'release boundary disables npm publish' : 'npm publish --access public --provenance'),
@@ -307,6 +339,8 @@ function main(): void {
     releaseWorkflowSha256: sha256(releaseWorkflow),
     codeqlWorkflowPath,
     codeqlWorkflowSha256: codeqlWorkflowExists ? sha256(codeqlWorkflow) : null,
+    scorecardWorkflowPath,
+    scorecardWorkflowSha256: scorecardWorkflowExists ? sha256(scorecardWorkflow) : null,
     dependabotConfigPath,
     dependabotConfigSha256: dependabotConfigExists ? sha256(dependabotConfig) : null,
     primarySourceInputs: [
@@ -350,6 +384,12 @@ function main(): void {
     codeqlSecurityExtendedQueriesConfigured,
     codeqlScheduledScanConfigured,
     codeqlHostedExecutionPerformed: false,
+    scorecardWorkflowPresent,
+    scorecardWorkflowActionsPinned,
+    scorecardWorkflowPermissionsScoped,
+    scorecardScheduledScanConfigured,
+    scorecardSarifUploadConfigured,
+    scorecardHostedExecutionPerformed: false,
     productQualityWorkflowPresent,
     frozenDependencyInstallPresent,
     npmProvenanceConfigured,
@@ -392,6 +432,9 @@ function main(): void {
   console.log(`codeql_workflow_present=${codeqlWorkflowPresent}`)
   console.log(`codeql_actions_pinned=${codeqlActionsPinned}`)
   console.log(`codeql_hosted_execution_performed=${report.codeqlHostedExecutionPerformed}`)
+  console.log(`scorecard_workflow_present=${scorecardWorkflowPresent}`)
+  console.log(`scorecard_workflow_actions_pinned=${scorecardWorkflowActionsPinned}`)
+  console.log(`scorecard_hosted_execution_performed=${report.scorecardHostedExecutionPerformed}`)
   console.log(`npm_provenance_configured=${npmProvenanceConfigured}`)
   console.log(`real_scorecard_run_performed=${report.realScorecardRunPerformed}`)
   console.log(`classified_unresolved_gaps=${classifiedUnresolvedGaps.length}`)
