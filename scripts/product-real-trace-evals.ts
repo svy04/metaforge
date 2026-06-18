@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
+import { discoverPublishableTraceFiles } from './product-trace-discovery'
 
 type JsonObject = Record<string, unknown>
 
@@ -202,15 +203,6 @@ function summarizeTrace(path: string): TraceSummary {
   }
 }
 
-function discoverTraceFiles(): string[] {
-  return readdirSync(resolve(root, traceDirectory), { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => /^orchestra-.*\.jsonl$/.test(name))
-    .sort((a, b) => a.localeCompare(b))
-    .map((name) => `${traceDirectory}/${name}`)
-}
-
 function gap(id: string, status: CoverageGap['status'], detail: string, protectedActionRequired = false): CoverageGap {
   return { id, status, detail, protectedActionRequired }
 }
@@ -349,7 +341,7 @@ function writeReports(report: RealTraceEvalReport): void {
 }
 
 function main(): void {
-  const traceFiles = discoverTraceFiles()
+  const traceFiles = discoverPublishableTraceFiles({ root, traceDirectory })
   const traces = traceFiles.map((path) => summarizeTrace(path))
   const coverageSummary = buildCoverageSummary(traces)
   const statusSet = new Set(traces.flatMap((trace) => Object.keys(trace.statuses)))

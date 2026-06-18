@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-17T00:45:51.912Z",
+  "generatedAt": "2026-06-18T04:34:50.634Z",
   "mode": "local_no_provider_trace_schema_contract",
   "schemaContractVersion": "openclaude_trace_schema_contract_v1",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceRealTraceEvalReportSha256": "207d3a6918940f58edf93dd786d946fac5c97d56ee8b7112345fdd0fec88b26d",
+  "sourceRealTraceEvalReportSha256": "e76bc9548176c22d9fa53418ec1761059744bbdf7e3b1afb12647945c7cbf2b9",
   "sourceTraceDirectory": "reports",
-  "sourceTraceFileCount": 13,
+  "sourceTraceFileCount": 10,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -80,57 +80,6 @@
       "invalidTraceContextCount": 0,
       "missingRecommendedEventNameCount": 3,
       "missingRecommendedTraceContextCount": 3,
-      "missingRecommendedActionObservationCount": 0,
-      "missingSweAgentTripletFieldCount": 0,
-      "credentialPatternFound": false,
-      "schemaContractPassed": true
-    },
-    {
-      "path": "reports/orchestra-live-20260506-163448.jsonl",
-      "sha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "currentGeneratedTraceProducer": false,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "requiredFieldViolationCount": 0,
-      "invalidTimestampCount": 0,
-      "invalidStatusCount": 0,
-      "invalidTraceContextCount": 0,
-      "missingRecommendedEventNameCount": 2,
-      "missingRecommendedTraceContextCount": 2,
-      "missingRecommendedActionObservationCount": 0,
-      "missingSweAgentTripletFieldCount": 0,
-      "credentialPatternFound": false,
-      "schemaContractPassed": true
-    },
-    {
-      "path": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "currentGeneratedTraceProducer": false,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "requiredFieldViolationCount": 0,
-      "invalidTimestampCount": 0,
-      "invalidStatusCount": 0,
-      "invalidTraceContextCount": 0,
-      "missingRecommendedEventNameCount": 2,
-      "missingRecommendedTraceContextCount": 2,
-      "missingRecommendedActionObservationCount": 0,
-      "missingSweAgentTripletFieldCount": 0,
-      "credentialPatternFound": false,
-      "schemaContractPassed": true
-    },
-    {
-      "path": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
-      "sha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
-      "currentGeneratedTraceProducer": false,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "requiredFieldViolationCount": 0,
-      "invalidTimestampCount": 0,
-      "invalidStatusCount": 0,
-      "invalidTraceContextCount": 0,
-      "missingRecommendedEventNameCount": 2,
-      "missingRecommendedTraceContextCount": 2,
       "missingRecommendedActionObservationCount": 0,
       "missingSweAgentTripletFieldCount": 0,
       "credentialPatternFound": false,
@@ -274,12 +223,12 @@
     }
   ],
   "aggregate": {
-    "traceCount": 13,
-    "eventCount": 79,
-    "schemaPassedTraceCount": 13,
+    "traceCount": 10,
+    "eventCount": 73,
+    "schemaPassedTraceCount": 10,
     "schemaFailedTraceCount": 0,
-    "missingRecommendedEventNameCount": 13,
-    "missingRecommendedTraceContextCount": 13,
+    "missingRecommendedEventNameCount": 7,
+    "missingRecommendedTraceContextCount": 7,
     "missingRecommendedActionObservationCount": 0,
     "missingSweAgentTripletFieldCount": 0,
     "currentGeneratedTraceProducerTraceCount": 7,
@@ -293,13 +242,13 @@
       "id": "otel_event_name_not_universal",
       "status": "classified_unresolved",
       "protectedActionRequired": false,
-      "detail": "13 current trace events lack optional OTel-style eventName; this blocks stronger schema portability claims but not the local v1 contract."
+      "detail": "7 current trace events lack optional OTel-style eventName; this blocks stronger schema portability claims but not the local v1 contract."
     },
     {
       "id": "otel_trace_context_not_universal",
       "status": "classified_unresolved",
       "protectedActionRequired": false,
-      "detail": "13 current trace events lack complete traceId/spanId context; this blocks stronger observability interoperability claims."
+      "detail": "7 current trace events lack complete traceId/spanId context; this blocks stronger observability interoperability claims."
     },
     {
       "id": "swe_agent_action_observation_triplet_not_universal",
@@ -322,7 +271,7 @@
     {
       "label": "trace files discovered",
       "ok": true,
-      "detail": "13/13"
+      "detail": "10/10"
     },
     {
       "label": "trace hashes match real-trace eval source",
@@ -387,7 +336,7 @@
     {
       "label": "all traces pass the local v1 schema contract",
       "ok": true,
-      "detail": "13/13"
+      "detail": "10/10"
     }
   ],
   "claimBoundary": "Local trace schema contract evidence only; no provider/live/external calls, protected actions, release readiness, production readiness, public readiness, external validation, or autonomous reliability claim is authorized."

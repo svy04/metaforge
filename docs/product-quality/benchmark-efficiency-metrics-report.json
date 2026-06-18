@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-17T00:45:53.125Z",
+  "generatedAt": "2026-06-18T04:35:14.173Z",
   "mode": "local_no_provider_benchmark_efficiency_metrics",
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c",
+  "sourceLocalBenchmarkResultsSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
   "primarySourceInputs": [
     {
       "sourceProject": "Vexp-ai/vexp-swe-bench",
@@ -34,7 +34,7 @@
     "sourceEvidenceSha256"
   ],
   "metricsJsonlPath": "reports/openclaude-benchmark-efficiency-metrics.jsonl",
-  "metricsJsonlSha256": "7368d73428285e43b22f655ab10fff90aa7fd5c50499ebdd834f674401586c4f",
+  "metricsJsonlSha256": "ec409920ea27258942e568db434f41a6d6de50363411ba1fc0377288246e135e",
   "benchmarkEfficiencyRecords": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
@@ -135,96 +135,6 @@
       "sourceEvidenceSha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
       "sourceEvidenceSizeBytes": 495,
       "sourceEvidenceLineCount": 3,
-      "comparableMetricFields": {
-        "agent": "openclaude_local_no_provider",
-        "model": null,
-        "inputTokens": null,
-        "outputTokens": null,
-        "costUsd": null,
-        "numTurns": null,
-        "durationMs": null,
-        "resolved": null
-      },
-      "metricAvailability": {
-        "tokenUsageMeasured": false,
-        "costMeasured": false,
-        "durationMeasured": false,
-        "turnCountMeasured": false,
-        "externalResolvedMeasured": false
-      },
-      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-20260506-163448.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "localHarnessStatus": "valid_local_evidence",
-      "localOutcomeForReplayOnly": "failed",
-      "sourceEvidencePath": "reports/orchestra-live-20260506-163448.jsonl",
-      "sourceEvidenceSha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "sourceEvidenceSizeBytes": 498,
-      "sourceEvidenceLineCount": 2,
-      "comparableMetricFields": {
-        "agent": "openclaude_local_no_provider",
-        "model": null,
-        "inputTokens": null,
-        "outputTokens": null,
-        "costUsd": null,
-        "numTurns": null,
-        "durationMs": null,
-        "resolved": null
-      },
-      "metricAvailability": {
-        "tokenUsageMeasured": false,
-        "costMeasured": false,
-        "durationMeasured": false,
-        "turnCountMeasured": false,
-        "externalResolvedMeasured": false
-      },
-      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-adaptive-20260506-164441.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "localHarnessStatus": "valid_local_evidence",
-      "localOutcomeForReplayOnly": "failed",
-      "sourceEvidencePath": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sourceEvidenceSha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "sourceEvidenceSizeBytes": 498,
-      "sourceEvidenceLineCount": 2,
-      "comparableMetricFields": {
-        "agent": "openclaude_local_no_provider",
-        "model": null,
-        "inputTokens": null,
-        "outputTokens": null,
-        "costUsd": null,
-        "numTurns": null,
-        "durationMs": null,
-        "resolved": null
-      },
-      "metricAvailability": {
-        "tokenUsageMeasured": false,
-        "costMeasured": false,
-        "durationMeasured": false,
-        "turnCountMeasured": false,
-        "externalResolvedMeasured": false
-      },
-      "metricGapStatus": "classified_unresolved_external_or_live_run_required",
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-sidequery-20260506-172336.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "localHarnessStatus": "valid_local_evidence",
-      "localOutcomeForReplayOnly": "succeeded",
-      "sourceEvidencePath": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
-      "sourceEvidenceSha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
-      "sourceEvidenceSizeBytes": 276,
-      "sourceEvidenceLineCount": 2,
       "comparableMetricFields": {
         "agent": "openclaude_local_no_provider",
         "model": null,
@@ -518,11 +428,11 @@
     }
   ],
   "summary": {
-    "sourceTaskCount": 16,
-    "comparableRecordCount": 16,
-    "recordsWithComparableMetricFields": 16,
+    "sourceTaskCount": 13,
+    "comparableRecordCount": 13,
+    "recordsWithComparableMetricFields": 13,
     "recordsWithMeasuredTokenCostDuration": 0,
-    "classifiedMetricGapCount": 16
+    "classifiedMetricGapCount": 13
   },
   "unresolvedMetricGaps": [
     {
@@ -594,12 +504,12 @@
     {
       "label": "one efficiency record exists per local benchmark task",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "all records carry benchmark-comparable metric fields",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "cost token duration metrics are classified as unmeasured in no-provider mode",
@@ -609,7 +519,7 @@
     {
       "label": "metric gaps are classified for every record",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "unresolved metric gaps require later authorization",

@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { check, sha256 as sha256Text } from './quality-report-helpers'
+import { isHistoricalLiveProbeTracePath } from './product-trace-discovery'
 
 export type EvidenceCheck = {
   label: string
@@ -268,7 +269,9 @@ function buildEvidenceRecords(): EvidenceRecord[] {
     '.dependency-cruiser.mjs',
     '.dependency-cruiser-known-violations.json',
     ...listFiles('docs/product-quality'),
-    ...listFiles('reports').filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path)),
+    ...listFiles('reports')
+      .filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path))
+      .filter((path) => !isHistoricalLiveProbeTracePath(path)),
     ...listFiles('.github').filter((path) => /\.(ya?ml)$/.test(path) || path === '.github/CODEOWNERS'),
   ]
   const uniquePaths = [...new Set(candidatePaths)]

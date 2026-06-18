@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
+import { discoverPublishableTraceFiles } from './product-trace-discovery'
 
 type JsonObject = Record<string, unknown>
 
@@ -304,13 +305,6 @@ function assessTrace(path: string, benchmarkTaskIdsByEvidencePath: Map<string, s
   }
 }
 
-function discoverTraceFiles(): string[] {
-  return readdirSync(resolve(root, 'reports'), { withFileTypes: true })
-    .filter((entry) => entry.isFile() && /^orchestra-.*\.jsonl$/.test(entry.name))
-    .map((entry) => `reports/${entry.name}`)
-    .sort((a, b) => a.localeCompare(b))
-}
-
 function buildMarkdown(report: TrajectoryProcessQualityReport): string {
   const sourceRows = report.primarySourceInputs
     .map((source) => `| ${source.sourceProject} | ${source.sourceUrl} | ${source.observedPattern} | ${source.localAbsorption} |`)
@@ -380,7 +374,7 @@ function main(): void {
 
   const realTraceEval = readJson<RealTraceEvalReport>(realTraceEvalReportPath)
   const localBenchmarkHarness = readJson<LocalBenchmarkHarnessReport>(localBenchmarkHarnessPath)
-  const discoveredTraceFiles = discoverTraceFiles()
+  const discoveredTraceFiles = discoverPublishableTraceFiles({ root, traceDirectory: 'reports' })
   const benchmarkTaskIdsByEvidencePath = new Map<string, string[]>()
   for (const task of localBenchmarkHarness.localBenchmarkTaskResults) {
     const existing = benchmarkTaskIdsByEvidencePath.get(task.sourceEvidencePath) ?? []

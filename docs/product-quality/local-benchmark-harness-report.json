@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-17T00:45:52.813Z",
+  "generatedAt": "2026-06-18T04:35:04.028Z",
   "mode": "local_no_provider_benchmark_replay_harness",
   "sourceBenchmarkReadinessPath": "docs/product-quality/benchmark-readiness-matrix.json",
   "sourceBenchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
-  "sourceBenchmarkTaskCount": 16,
-  "sourceBenchmarkManifestSha256": "5fdf82525cf017f0d5e6c124b9c90deda43dbf296be24e90a23bcd95e548b57b",
+  "sourceBenchmarkTaskCount": 13,
+  "sourceBenchmarkManifestSha256": "cc8a1a17afb45683d5cb9c826e398d76e5bb243f8a51e870e066fa21f15b3ddb",
   "sourceExternalBenchmarkBoundaryPath": "docs/product-quality/external-benchmark-boundary-report.json",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -13,7 +13,7 @@
   "externalBenchmarkExecutionPerformed": false,
   "externalBenchmarkResultClaimed": false,
   "localBenchmarkResultPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "localBenchmarkResultSha256": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c",
+  "localBenchmarkResultSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
   "localBenchmarkTaskResults": [
     {
       "benchmarkTaskId": "openclaude.local.terminal_failure_recovery_transcripts",
@@ -76,60 +76,6 @@
       "sourceEvidenceExists": true,
       "expectedSourceEvidenceSha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
       "actualSourceEvidenceSha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
-      "sourceEvidenceHashMatches": true,
-      "requiredEvidenceCount": 4,
-      "terminalOutcomeClass": "succeeded",
-      "localHarnessStatus": "valid_local_evidence",
-      "protectedActionRequired": false,
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false,
-      "providerCallsPerformed": 0,
-      "liveModelCallsPerformed": 0,
-      "externalCallsPerformed": 0
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-20260506-163448.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "sourceEvidencePath": "reports/orchestra-live-20260506-163448.jsonl",
-      "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "actualSourceEvidenceSha256": "52076e41a27dc4cdf8541d9c5527d0705f1c42517aec9bbbd0f060f2990be60a",
-      "sourceEvidenceHashMatches": true,
-      "requiredEvidenceCount": 4,
-      "terminalOutcomeClass": "failed",
-      "localHarnessStatus": "valid_local_evidence",
-      "protectedActionRequired": false,
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false,
-      "providerCallsPerformed": 0,
-      "liveModelCallsPerformed": 0,
-      "externalCallsPerformed": 0
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-adaptive-20260506-164441.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "sourceEvidencePath": "reports/orchestra-live-adaptive-20260506-164441.jsonl",
-      "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "actualSourceEvidenceSha256": "17323b7df95abb4793a19f4c8b26ce80b02855d0c25d021ef7b8fac2afeb8a52",
-      "sourceEvidenceHashMatches": true,
-      "requiredEvidenceCount": 4,
-      "terminalOutcomeClass": "failed",
-      "localHarnessStatus": "valid_local_evidence",
-      "protectedActionRequired": false,
-      "protectedActionExecuted": false,
-      "externalBenchmarkResultClaimed": false,
-      "providerCallsPerformed": 0,
-      "liveModelCallsPerformed": 0,
-      "externalCallsPerformed": 0
-    },
-    {
-      "benchmarkTaskId": "openclaude.trace.reports_orchestra-live-sidequery-20260506-172336.jsonl",
-      "benchmarkFamily": "local_no_provider_trace_eval",
-      "sourceEvidencePath": "reports/orchestra-live-sidequery-20260506-172336.jsonl",
-      "sourceEvidenceExists": true,
-      "expectedSourceEvidenceSha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
-      "actualSourceEvidenceSha256": "579fe8a245402948a5ad1fe4692523fb3591fd677f86e7e69b28c54a04a38ce8",
       "sourceEvidenceHashMatches": true,
       "requiredEvidenceCount": 4,
       "terminalOutcomeClass": "succeeded",
@@ -305,7 +251,7 @@
     }
   ],
   "statusSummary": {
-    "validLocalEvidenceTasks": 16,
+    "validLocalEvidenceTasks": 13,
     "classifiedBlockedTasks": 0,
     "failedTasks": 0
   },
@@ -328,22 +274,22 @@
     {
       "label": "manifest task count matches readiness report",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "task ids are unique",
       "ok": true,
-      "detail": "16 tasks"
+      "detail": "13 tasks"
     },
     {
       "label": "source evidence exists for every task",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "source evidence hashes match every task",
       "ok": true,
-      "detail": "16/16"
+      "detail": "13/13"
     },
     {
       "label": "task records do not perform provider/live/external calls",
@@ -373,7 +319,7 @@
     {
       "label": "result JSONL hash is recorded",
       "ok": true,
-      "detail": "3ce903d3fecc38c22bf7626f5a5b43ca6516461fa1ac28fb0e92632b41de5f3c"
+      "detail": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7"
     }
   ],
   "claimBoundary": "Local benchmark harness evidence is internal no-provider replay evidence only. It does not execute external benchmarks, providers, live models, external services, containers, hosted CI, deploy, publish, launch, or make release/public/production/external/autonomous reliability claims."

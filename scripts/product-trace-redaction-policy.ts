@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
+import { discoverPublishableTraceFiles } from './product-trace-discovery'
 
 type BasicCheck = {
   label: string
@@ -112,15 +113,6 @@ function hasCredentialPattern(text: string): boolean {
   return credentialPatterns.some((pattern) => pattern.test(text))
 }
 
-function discoverTraceFiles(): string[] {
-  return readdirSync(resolve(root, traceDirectory), { withFileTypes: true })
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => /^orchestra-.*\.jsonl$/.test(name))
-    .sort((left, right) => left.localeCompare(right))
-    .map((name) => `${traceDirectory}/${name}`)
-}
-
 function scanRawTrace(path: string): TraceCaptureRedactionPolicyReport['scannedRawTraceFiles'][number] {
   const text = readText(path)
   return {
@@ -203,7 +195,7 @@ function writeReports(report: TraceCaptureRedactionPolicyReport): void {
 function main(): void {
   const traceReportText = readText(sourceTraceReportPath)
   const traceReport = JSON.parse(traceReportText) as RealTraceEvalReport
-  const rawTraceFiles = discoverTraceFiles()
+  const rawTraceFiles = discoverPublishableTraceFiles({ root, traceDirectory })
   const scannedRawTraceFiles = rawTraceFiles.map((path) => scanRawTrace(path))
   const publishableSummaryFields = [
     'path',
