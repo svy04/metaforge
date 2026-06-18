@@ -54,7 +54,9 @@ const scannedMarkdownFiles = [
   'docs/product-quality/competitive-scorecard.md',
   'docs/MIMESIS_ENGINEERING.md',
   'docs/marketing/README.md',
+  'docs/marketing/metaforge-public-proof-pack-2026-06-18.md',
   'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
+  'docs/research/public-proof-pack-source-ledger-2026-06-18.md',
   'docs/research/public-proof-pack-source-ledger-2026-06-14.md',
 ]
 

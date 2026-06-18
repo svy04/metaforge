@@ -105,6 +105,7 @@ describe('product public claim boundary classifier', () => {
   test('includes generated public markdown reports while avoiding recursive self-report scans', () => {
     expect(publicSurfacePaths).toContain('docs/product-quality/community-profile-quality-report.md')
     expect(publicSurfacePaths).toContain('docs/product-quality/github-hosted-trust-posture-report.md')
+    expect(publicSurfacePaths).toContain('docs/marketing/metaforge-public-proof-pack-2026-06-18.md')
     expect(publicSurfacePaths).toContain('docs/marketing/metaforge-public-proof-pack-2026-06-14.md')
     expect(publicSurfacePaths).toContain('docs/marketing/README.md')
     expect(publicSurfacePaths).not.toContain('docs/product-quality/public-claim-boundary-report.md')
@@ -316,7 +317,7 @@ describe('product public claim boundary classifier', () => {
 
   test('treats unless clauses as conditional claim boundaries', () => {
     const findings = scanClaimText(
-      'docs/marketing/metaforge-public-proof-pack-2026-06-14.md',
+      'docs/marketing/metaforge-public-proof-pack-2026-06-18.md',
       'Public proof routes remain bounded unless external validation actually happens.',
     )
 

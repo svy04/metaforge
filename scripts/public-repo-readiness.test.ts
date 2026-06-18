@@ -225,7 +225,7 @@ describe('public repository readiness surfaces', () => {
   test('README states runtime wiring honestly', () => {
     const readme = readRepoText('README.md')
     const koreanReadme = readRepoText('README.ko.md')
-    const proofPack = readRepoText('docs/marketing/metaforge-public-proof-pack-2026-06-14.md')
+    const proofPack = readRepoText('docs/marketing/metaforge-public-proof-pack-2026-06-18.md')
     const gitignore = readRepoText('.gitignore')
     const orchestraFiles = listFilesUnder('src/services/orchestra')
     const orchestraRuntimeFiles = orchestraFiles.filter((path) => path.endsWith('.ts') && !path.endsWith('.test.ts'))
