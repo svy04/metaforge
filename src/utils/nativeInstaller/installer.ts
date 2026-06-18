@@ -163,16 +163,26 @@ async function getVersionPaths(version: string) {
 
   const installPath = join(dirs.versions, version)
 
-  // Create an empty file if it doesn't exist
-  try {
-    await stat(installPath)
-  } catch {
-    await writeFile(installPath, '', { encoding: 'utf8' })
-  }
+  await ensureVersionPlaceholderFile(installPath)
 
   return {
     stagingPath: join(dirs.staging, version),
     installPath,
+  }
+}
+
+export async function ensureVersionPlaceholderFile(filePath: string): Promise<void> {
+  try {
+    await writeFile(filePath, '', { encoding: 'utf8', flag: 'wx', mode: 0o600 })
+  } catch (error: unknown) {
+    const code = getErrnoCode(error)
+    if (code === 'EEXIST') {
+      const existing = await stat(filePath)
+      if (existing.isFile()) {
+        return
+      }
+    }
+    throw error
   }
 }
 
