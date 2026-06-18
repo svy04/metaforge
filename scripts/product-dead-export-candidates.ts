@@ -396,7 +396,11 @@ function buildReport(): DeadExportCandidatesReport {
     check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
     check('removed dead export ratchets remain absent', report.removedCandidateRatchets.every((ratchet) => !ratchet.currentCandidate), `${report.removedCandidateRatchets.filter((ratchet) => ratchet.currentCandidate).length}/${report.removedCandidateRatchets.length} regressed`),
-    check('primary sources include Knip docs and fallow comparator', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => report.primarySourceInputs.some((item) => item.sourceProject === source))),
+    check(
+      'primary sources include Knip docs and fallow comparator',
+      ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => report.primarySourceInputs.some((item) => item.sourceProject === source)),
+      report.primarySourceInputs.map((source) => source.sourceProject).join(','),
+    ),
     check('provider/live/external calls remain absent', report.providerCallsPerformed.length === 0 && report.liveModelCallsPerformed.length === 0 && report.externalCallsPerformed.length === 0, 'all call arrays empty'),
     check('protected actions remain absent', report.protectedActionsExecuted.length === 0, 'zero'),
     check('autofix deletion and readiness claims remain blocked', report.autofixPerformed === false && report.deletionPerformed === false && report.deletionClaimAllowed === false && report.cleanupCompletionClaimAllowed === false && report.publicReadinessClaimAllowed === false, 'all false'),
