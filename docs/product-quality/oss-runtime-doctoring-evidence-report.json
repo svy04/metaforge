@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-06-17T00:43:20.822Z",
+  "generatedAt": "2026-06-18T08:29:21.194Z",
   "mode": "local_no_provider_oss_runtime_doctoring_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "36462bb478d27f866746ca3a9a87ec790a5289cf6ac2914fa8ef17e0b39f45dd",
+  "sourceSafeBacklogPlanReportSha256": "633b3b77ee15d391281feecbb58da275ed1083d4a94a969046bfefb71bbe0a39",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "runtime_doctoring",
-  "sourcePlanItemCount": 4,
-  "evidenceItemCount": 4,
+  "sourcePlanItemCount": 2,
+  "evidenceItemCount": 2,
   "sourceProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-runtime-doctoring-evidence.jsonl",
-  "provenanceJsonlSha256": "26b328fe7b6b452262ce80fe654d5da918bf225861f3a5c7fd8b2b612acaa297",
-  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlSha256": "a6595c43c92136b1d739f8b2931d1cacc50f6d60b31a0a7734b01ce70c9bff4b",
+  "provenanceJsonlRecordCount": 2,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -35,12 +34,6 @@
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "observedPattern": "Runtime doctoring should separate diagnostic evidence from protected repair, reinstall, dependency install, provider probe, and external diagnostic actions.",
       "localAbsorption": "Convert runtime_doctoring backlog items into a source-hash-addressed runtime doctor evidence matrix."
-    },
-    {
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "observedPattern": "Runtime doctoring should separate diagnostic evidence from protected repair, reinstall, dependency install, provider probe, and external diagnostic actions.",
-      "localAbsorption": "Convert runtime_doctoring backlog items into a source-hash-addressed runtime doctor evidence matrix."
     }
   ],
   "evidenceItems": [
@@ -56,19 +49,19 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "43c6ca44659ebd8a7499f91b4391d8073a0cc15deaf9d8f58f3b111ae4d74fc0",
-          "sizeBytes": 16426
+          "sha256": "c62774b3e67319a08b51f2de054a06c12e1515b270a297331ae1b8ce20c042d9",
+          "sizeBytes": 9659
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "881cd4e037926fe904c19cf7ea120626dee370eef1fd7bf39bf202941ee3dfd0",
+          "sha256": "ee243f0dbd91da7852065b5b15254e48fdd452fe9ec0caadca73ddc76e195d10",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "9e1837a3c10cfdbbc457e4e5a85f24007f75a01adc073ec462abedc84ce930c3",
+          "sha256": "16bfd286f5f8bd6844d4b9648887ba82833dab3d6d634b5db182a8acb7839d0d",
           "sizeBytes": 5195
         }
       ],
@@ -112,131 +105,19 @@
         {
           "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
           "exists": true,
-          "sha256": "43c6ca44659ebd8a7499f91b4391d8073a0cc15deaf9d8f58f3b111ae4d74fc0",
-          "sizeBytes": 16426
+          "sha256": "c62774b3e67319a08b51f2de054a06c12e1515b270a297331ae1b8ce20c042d9",
+          "sizeBytes": 9659
         },
         {
           "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
           "exists": true,
-          "sha256": "881cd4e037926fe904c19cf7ea120626dee370eef1fd7bf39bf202941ee3dfd0",
+          "sha256": "ee243f0dbd91da7852065b5b15254e48fdd452fe9ec0caadca73ddc76e195d10",
           "sizeBytes": 7752
         },
         {
           "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
           "exists": true,
-          "sha256": "9e1837a3c10cfdbbc457e4e5a85f24007f75a01adc073ec462abedc84ce930c3",
-          "sizeBytes": 5195
-        }
-      ],
-      "requiredEvidenceBeforeRepairClaim": [
-        "runtime doctor regression fixture evidence",
-        "VS Code startup diagnostics evidence for local install/PATH blockers",
-        "explicit owner authorization before repair, reinstall, dependency install, provider probe, or external diagnostic action",
-        "post-repair smoke evidence before any availability, release, production, external-validation, or autonomous-reliability claim"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "runtime_doctoring_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "repairActionAllowed": false,
-      "reinstallActionAllowed": false,
-      "dependencyInstallAllowed": false,
-      "providerProbeAllowed": false,
-      "externalDiagnosticsAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_runtime_doctoring_warpdotdev_warp_115c8b6d10",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_1_0414691b52",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "runtime_doctoring",
-      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
-      "runtimeDoctoringCoverageClass": "protected_install_path_blocker_fixture",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-          "exists": true,
-          "sha256": "43c6ca44659ebd8a7499f91b4391d8073a0cc15deaf9d8f58f3b111ae4d74fc0",
-          "sizeBytes": 16426
-        },
-        {
-          "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-          "exists": true,
-          "sha256": "881cd4e037926fe904c19cf7ea120626dee370eef1fd7bf39bf202941ee3dfd0",
-          "sizeBytes": 7752
-        },
-        {
-          "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
-          "exists": true,
-          "sha256": "9e1837a3c10cfdbbc457e4e5a85f24007f75a01adc073ec462abedc84ce930c3",
-          "sizeBytes": 5195
-        }
-      ],
-      "requiredEvidenceBeforeRepairClaim": [
-        "runtime doctor regression fixture evidence",
-        "VS Code startup diagnostics evidence for local install/PATH blockers",
-        "explicit owner authorization before repair, reinstall, dependency install, provider probe, or external diagnostic action",
-        "post-repair smoke evidence before any availability, release, production, external-validation, or autonomous-reliability claim"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "runtime_doctoring_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "repairActionAllowed": false,
-      "reinstallActionAllowed": false,
-      "dependencyInstallAllowed": false,
-      "providerProbeAllowed": false,
-      "externalDiagnosticsAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_runtime_doctoring_warpdotdev_warp_929bc24b2b",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_2_f03d63c8eb",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "runtime_doctoring",
-      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
-      "runtimeDoctoringCoverageClass": "diagnosis_without_repair_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-          "exists": true,
-          "sha256": "43c6ca44659ebd8a7499f91b4391d8073a0cc15deaf9d8f58f3b111ae4d74fc0",
-          "sizeBytes": 16426
-        },
-        {
-          "path": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-          "exists": true,
-          "sha256": "881cd4e037926fe904c19cf7ea120626dee370eef1fd7bf39bf202941ee3dfd0",
-          "sizeBytes": 7752
-        },
-        {
-          "path": "docs/product-quality/vscode-startup-diagnostics-report.json",
-          "exists": true,
-          "sha256": "9e1837a3c10cfdbbc457e4e5a85f24007f75a01adc073ec462abedc84ce930c3",
+          "sha256": "16bfd286f5f8bd6844d4b9648887ba82833dab3d6d634b5db182a8acb7839d0d",
           "sizeBytes": 5195
         }
       ],
@@ -283,7 +164,7 @@
     {
       "label": "selected runtime doctoring axis has source items",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     },
     {
       "label": "source next gate candidate exists",
@@ -293,7 +174,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "12 bindings"
+      "detail": "6 bindings"
     },
     {
       "label": "coverage includes blocker fixture and diagnosis-only classes",
@@ -303,12 +184,12 @@
     {
       "label": "every evidence item rejects repair and claim expansion",
       "ok": true,
-      "detail": "4 items"
+      "detail": "2 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     }
   ],
   "claimBoundary": "Internal no-provider runtime doctoring evidence only; not local repair, reinstall, dependency install, provider probe, external diagnostics, release readiness, production readiness, external validation, or autonomous reliability evidence."

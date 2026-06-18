@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T05:52:44.836Z",
+  "generatedAt": "2026-06-18T08:30:04.096Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -464,19 +464,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 51.218ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 56.192ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "a9c16537e1d72f480ba5e7f1e7076c47dc469b2994feb319b7deea9719dd3e03",
+  "jscpdReportSha256": "1a13a3dd68703567e2cd0ab96c3439aeb9a168ddee2bdfac0204c4989f0d79e2",
   "jscpdCloneCount": 24,
   "jscpdCloneBaseline": 24,
   "jscpdDuplicatedLines": 657,
   "jscpdDuplicatedLinesBaseline": 657,
   "jscpdDuplicatedTokens": 4257,
   "jscpdDuplicatedTokensBaseline": 4257,
-  "jscpdDuplicatedPercentage": 1.5867265613679176,
+  "jscpdDuplicatedPercentage": 1.575161831695037,
   "jscpdDuplicatedPercentageBaseline": 1.59,
-  "jscpdDuplicatedTokenPercentage": 1.655904776723199,
+  "jscpdDuplicatedTokenPercentage": 1.6469741637456763,
   "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
@@ -574,8 +574,8 @@
       "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
       "firstStartLine": 239,
       "firstEndLine": 260,
-      "secondStartLine": 269,
-      "secondEndLine": 288,
+      "secondStartLine": 272,
+      "secondEndLine": 291,
       "lines": 22,
       "tokens": 186
     },
@@ -624,8 +624,8 @@
       "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
       "firstStartLine": 307,
       "firstEndLine": 328,
-      "secondStartLine": 343,
-      "secondEndLine": 363,
+      "secondStartLine": 346,
+      "secondEndLine": 366,
       "lines": 22,
       "tokens": 189
     },
@@ -775,7 +775,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.5867265613679176/1.59"
+      "detail": "1.575161831695037/1.59"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

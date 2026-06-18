@@ -81,6 +81,16 @@ const SECRET_ENV_KEYS = [
   'MISTRAL_API_KEY',
 ] as const
 
+const PERSISTENCE_MODEL_ENV_KEYS = [
+  'OPENAI_MODEL',
+  'GEMINI_MODEL',
+  'MINIMAX_MODEL',
+  'MISTRAL_MODEL',
+] as const
+
+const STALE_PROFILE_MODEL_LOCK_PATTERN =
+  /\b(?:gpt-4o|gpt-5\.1|gpt-5\.5|claude-sonnet-4-5|sonnet 4\.5|claude-opus-4-7|opus-4-7|Opus 4\.7)\b/i
+
 export type ProviderProfile = 'openai' | 'ollama' | 'codex' | 'gemini' | 'atomic-chat' | 'nvidia-nim' | 'minimax' | 'mistral'
 
 export type ProfileEnv = {
@@ -128,6 +138,7 @@ type SecretValueSource = Partial<
 type ProfileFileLocation = {
   cwd?: string
   filePath?: string
+  redactSecrets?: boolean
 }
 
 function resolveProfileFilePath(options?: ProfileFileLocation): string {
@@ -429,6 +440,27 @@ export function createProfileFile(
   }
 }
 
+export function redactProfileSecretsForPersistence(
+  profileFile: ProfileFile,
+): ProfileFile {
+  const env: ProfileEnv = { ...profileFile.env }
+
+  for (const key of SECRET_ENV_KEYS) {
+    delete env[key]
+  }
+
+  for (const key of PERSISTENCE_MODEL_ENV_KEYS) {
+    if (env[key] && STALE_PROFILE_MODEL_LOCK_PATTERN.test(env[key])) {
+      delete env[key]
+    }
+  }
+
+  return {
+    ...profileFile,
+    env,
+  }
+}
+
 export function isPersistedCodexOAuthProfile(
   persisted: ProfileFile | null,
 ): boolean {
@@ -479,7 +511,11 @@ export function saveProfileFile(
   options?: ProfileFileLocation,
 ): string {
   const filePath = resolveProfileFilePath(options)
-  writeFileSync(filePath, JSON.stringify(profileFile, null, 2), {
+  const persistableProfile = options?.redactSecrets
+    ? redactProfileSecretsForPersistence(profileFile)
+    : profileFile
+
+  writeFileSync(filePath, JSON.stringify(persistableProfile, null, 2), {
     encoding: 'utf8',
     mode: 0o600,
   })

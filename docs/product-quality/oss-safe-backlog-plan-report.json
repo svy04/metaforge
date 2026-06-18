@@ -1,44 +1,41 @@
 {
-  "generatedAt": "2026-06-17T00:43:20.191Z",
+  "generatedAt": "2026-06-18T08:29:20.021Z",
   "mode": "local_no_provider_oss_safe_backlog_plan",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-  "sourceAxisArchitectureReviewReportSha256": "41546392a8291b46a53de7a6b6087ec5ffc9cb1d2caffa0eeda622e0618c7314",
+  "sourceAxisArchitectureReviewReportSha256": "a6ea12b70fe6da6d898f74899df12ac45226bd46836c11d317bc0353c16aaacb",
   "sourceAxisArchitectureReviewProvenanceJsonlPath": "reports/openclaude-oss-axis-architecture-review.jsonl",
-  "sourceAxisArchitectureReviewProvenanceJsonlSha256": "6f13c72da526b780bdc67ae864b10395bf7cca88c5283c46d482338ca2c0e3ab",
-  "sourceSafeInternalBacklogItemCount": 32,
-  "plannedBacklogItemCount": 32,
+  "sourceAxisArchitectureReviewProvenanceJsonlSha256": "efad33dd5e82486d168db411daf1fde4300d182bd5248ecba838a2c35e692703",
+  "sourceSafeInternalBacklogItemCount": 15,
+  "plannedBacklogItemCount": 15,
   "reviewedHighPriorityProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
   "reviewedAxes": [
     "eval_and_quality_gates",
     "onboarding_docs",
     "privacy_and_no_phone_home",
     "provider_breadth",
-    "release_hygiene",
     "runtime_doctoring",
     "security_and_permissions",
     "terminal_workflow",
     "tool_loop_reliability"
   ],
-  "uniqueAxisCount": 9,
+  "uniqueAxisCount": 8,
   "categoryCounts": {
-    "benchmark_claim_boundary": 4,
-    "onboarding_evidence": 4,
-    "provider_surface": 8,
-    "terminal_runtime_surface": 4,
-    "runtime_doctoring": 2,
-    "security_permission_boundary": 4,
-    "tool_loop_traceability": 4,
-    "release_hygiene": 2
+    "benchmark_claim_boundary": 2,
+    "onboarding_evidence": 2,
+    "provider_surface": 4,
+    "terminal_runtime_surface": 2,
+    "runtime_doctoring": 1,
+    "security_permission_boundary": 2,
+    "tool_loop_traceability": 2
   },
-  "nextSafeInternalGateCandidateCount": 9,
+  "nextSafeInternalGateCandidateCount": 8,
   "nextSafeInternalGateCandidates": [
     {
       "gateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
       "axis": "eval_and_quality_gates",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for eval_and_quality_gates backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -46,7 +43,7 @@
     {
       "gateId": "openclaude_internal_onboarding_docs_evidence_gate",
       "axis": "onboarding_docs",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for onboarding_docs backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -54,7 +51,7 @@
     {
       "gateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
       "axis": "privacy_and_no_phone_home",
-      "sourceBacklogItemCount": 2,
+      "sourceBacklogItemCount": 1,
       "purpose": "Create the next bounded no-provider evidence gate for privacy_and_no_phone_home backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -62,23 +59,15 @@
     {
       "gateId": "openclaude_internal_provider_breadth_evidence_gate",
       "axis": "provider_breadth",
-      "sourceBacklogItemCount": 4,
-      "purpose": "Create the next bounded no-provider evidence gate for provider_breadth backlog items without executing protected actions or expanding claims.",
-      "protectedActionRequiredForPlanning": false,
-      "selectedNow": false
-    },
-    {
-      "gateId": "openclaude_internal_release_hygiene_evidence_gate",
-      "axis": "release_hygiene",
       "sourceBacklogItemCount": 2,
-      "purpose": "Create the next bounded no-provider evidence gate for release_hygiene backlog items without executing protected actions or expanding claims.",
+      "purpose": "Create the next bounded no-provider evidence gate for provider_breadth backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
     },
     {
       "gateId": "openclaude_internal_runtime_doctoring_evidence_gate",
       "axis": "runtime_doctoring",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for runtime_doctoring backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -86,7 +75,7 @@
     {
       "gateId": "openclaude_internal_security_and_permissions_evidence_gate",
       "axis": "security_and_permissions",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for security_and_permissions backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -94,7 +83,7 @@
     {
       "gateId": "openclaude_internal_terminal_workflow_evidence_gate",
       "axis": "terminal_workflow",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for terminal_workflow backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
@@ -102,15 +91,15 @@
     {
       "gateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
       "axis": "tool_loop_reliability",
-      "sourceBacklogItemCount": 4,
+      "sourceBacklogItemCount": 2,
       "purpose": "Create the next bounded no-provider evidence gate for tool_loop_reliability backlog items without executing protected actions or expanding claims.",
       "protectedActionRequiredForPlanning": false,
       "selectedNow": false
     }
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-safe-backlog-plan.jsonl",
-  "provenanceJsonlSha256": "e3b3d366279d8ca2ea3ce26fba52d4688f1f0e7321ba293ea5178320585b74e0",
-  "provenanceJsonlRecordCount": 32,
+  "provenanceJsonlSha256": "b4beb7e455c57b53652c9a86be8b7842c2baf0f8e344ac11fdd671c2b749173d",
+  "provenanceJsonlRecordCount": 15,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -595,520 +584,6 @@
       "protectedActionRequiredForPlanning": false,
       "protectedActionExecuted": false,
       "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_1_7bdf45afa4",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "eval_and_quality_gates",
-      "backlogText": "add a per-axis quality-gate checklist that rejects public benchmark, leaderboard, or superiority claims without protected authorization",
-      "category": "benchmark_claim_boundary",
-      "sourceRecordDigest": "4f2efe694ed34fa30cdebd83f250f4892e7fad4e36dd8ee79080b682c27f8ed1",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-        "docs/product-quality/product-quality-gate.md",
-        "docs/product-quality/benchmark-readiness-matrix.json",
-        "docs/product-quality/local-benchmark-harness-report.json",
-        "docs/product-quality/benchmark-submission-readiness-report.json",
-        "docs/product-quality/terminal-bench-readiness-report.json",
-        "docs/product-quality/verification-report-consistency-report.json",
-        "docs/product-quality/quality-blocker-taxonomy-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
-      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_eval_and_quality_gates_2_dbdaee401a",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "eval_and_quality_gates",
-      "backlogText": "map every local benchmark task to missing external execution evidence",
-      "category": "benchmark_claim_boundary",
-      "sourceRecordDigest": "4f2efe694ed34fa30cdebd83f250f4892e7fad4e36dd8ee79080b682c27f8ed1",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-eval-quality-gate-checklist-report.json",
-        "docs/product-quality/product-quality-gate.md",
-        "docs/product-quality/benchmark-readiness-matrix.json",
-        "docs/product-quality/local-benchmark-harness-report.json",
-        "docs/product-quality/benchmark-submission-readiness-report.json",
-        "docs/product-quality/terminal-bench-readiness-report.json",
-        "docs/product-quality/verification-report-consistency-report.json",
-        "docs/product-quality/quality-blocker-taxonomy-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local benchmark readiness and replay evidence exists; official external benchmark execution remains unperformed.",
-      "protectedBoundary": "external datasets, Docker/remote runtimes, hosted CI, provider calls, and leaderboard/public result claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_eval_and_quality_gates_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_onboarding_docs_1_fb4c9bd4f8",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "onboarding_docs",
-      "backlogText": "add operator-authorized non-synthetic first-run session capture before cross-platform onboarding claims",
-      "category": "onboarding_evidence",
-      "sourceRecordDigest": "cbfabe4f91b23e200f6da0c3f56999008798f6c34fff9226409fa26aae3dd7a3",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/doc-link-integrity-report.json",
-        "docs/product-quality/community-profile-quality-report.json"
-      ],
-      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
-      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_onboarding_docs_2_ef7c4a4a5f",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "onboarding_docs",
-      "backlogText": "keep README and quick-start link integrity evidence in the product gate",
-      "category": "onboarding_evidence",
-      "sourceRecordDigest": "cbfabe4f91b23e200f6da0c3f56999008798f6c34fff9226409fa26aae3dd7a3",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-onboarding-docs-evidence-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/doc-link-integrity-report.json",
-        "docs/product-quality/community-profile-quality-report.json"
-      ],
-      "unresolvedEvidenceGap": "Documentation structure is locally checked; cross-platform non-synthetic first-run sessions remain absent.",
-      "protectedBoundary": "cross-platform runtime claims and public readiness claims require separate evidence and authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_onboarding_docs_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_privacy_and_no_phone_home_1_ae234ab0bd",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "privacy_and_no_phone_home",
-      "backlogText": "add a no-provider review artifact for privacy_and_no_phone_home before implementation absorption",
-      "category": "provider_surface",
-      "sourceRecordDigest": "162df2c4341a5c24e1c7c63059c7d3609381af1c2ad0d35d3c27dc7b71860ff1",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-privacy-no-phone-home-evidence-report.json",
-        "docs/product-quality/public-claim-boundary-report.json",
-        "scripts/verify-no-phone-home.ts"
-      ],
-      "unresolvedEvidenceGap": "Local no-phone-home evidence exists for OpenClaude build output and privacy surfaces; external comparative telemetry review and public privacy claims remain unproven.",
-      "protectedBoundary": "external telemetry comparison, provider/live validation, public privacy claims, production mutation, and release/public/production readiness claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_privacy_and_no_phone_home_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_provider_breadth_1_76347b2f1f",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "provider_breadth",
-      "backlogText": "extend provider compatibility fixtures with per-provider capability and failure-mode rows before live-provider validation",
-      "category": "provider_surface",
-      "sourceRecordDigest": "f4807a9b99afa5e3d28d097669cc77b7aea11ff8a6a51324b4f0a32cdab34b58",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-provider-breadth-evidence-report.json",
-        "docs/product-quality/provider-capability-matrix-report.json",
-        "docs/product-quality/provider-compatibility-fixtures.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_provider_breadth_2_034dca3478",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "provider_breadth",
-      "backlogText": "keep provider fallback evidence in local reports until explicit live-model authorization exists",
-      "category": "provider_surface",
-      "sourceRecordDigest": "f4807a9b99afa5e3d28d097669cc77b7aea11ff8a6a51324b4f0a32cdab34b58",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-provider-breadth-evidence-report.json",
-        "docs/product-quality/provider-capability-matrix-report.json",
-        "docs/product-quality/provider-compatibility-fixtures.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json"
-      ],
-      "unresolvedEvidenceGap": "Provider breadth is locally fixture-verified; live provider compatibility and model behavior remain unmeasured.",
-      "protectedBoundary": "provider/live model calls require explicit authorization before any external validation or compatibility claim.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_provider_breadth_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_release_hygiene_1_33fd871200",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "release_hygiene",
-      "backlogText": "keep local artifact reproducibility, SBOM-shaped inventory, and license-boundary authorization in the release gate",
-      "category": "release_hygiene",
-      "sourceRecordDigest": "1531d1f009ec93621073a1448f3b140882bafec8af493123b3d693b2ccb0b7f0",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-release-hygiene-evidence-report.json",
-        "docs/product-quality/release-artifact-file-list-report.json",
-        "docs/product-quality/release-artifact-provenance-report.json",
-        "docs/product-quality/release-artifact-reproducibility-report.json",
-        "docs/product-quality/git-release-hygiene-report.json",
-        "docs/product-quality/license-boundary-authorization-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_release_hygiene_2_be7eb1c05d",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "release_hygiene",
-      "backlogText": "block signed provenance, publish, deploy, and release-readiness claims until a real git/release boundary exists",
-      "category": "release_hygiene",
-      "sourceRecordDigest": "1531d1f009ec93621073a1448f3b140882bafec8af493123b3d693b2ccb0b7f0",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-release-hygiene-evidence-report.json",
-        "docs/product-quality/release-artifact-file-list-report.json",
-        "docs/product-quality/release-artifact-provenance-report.json",
-        "docs/product-quality/release-artifact-reproducibility-report.json",
-        "docs/product-quality/git-release-hygiene-report.json",
-        "docs/product-quality/license-boundary-authorization-report.json"
-      ],
-      "unresolvedEvidenceGap": "Local packaging and provenance evidence exists; this workspace is not a git repository and license/legal decisions remain default-false.",
-      "protectedBoundary": "commit, push, publish, deploy, signed provenance, legal/NOTICE/REUSE decisions, and release readiness claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_release_hygiene_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_1_0414691b52",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "runtime_doctoring",
-      "backlogText": "add runtime-doctor fixture rows for protected local install/PATH blockers",
-      "category": "terminal_runtime_surface",
-      "sourceRecordDigest": "16ee6179eaf295e8eb84f1366ad56a00e38aa91c6ce901a4208cc13d8b86872f",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json",
-        "docs/product-quality/vscode-startup-diagnostics-report.json"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_runtime_doctoring_2_f03d63c8eb",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "runtime_doctoring",
-      "backlogText": "separate diagnostic reporting from any repair, reinstall, or dependency-install action",
-      "category": "runtime_doctoring",
-      "sourceRecordDigest": "16ee6179eaf295e8eb84f1366ad56a00e38aa91c6ce901a4208cc13d8b86872f",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-runtime-doctoring-evidence-report.json",
-        "docs/product-quality/runtime-doctor-regression-fixtures.json",
-        "docs/product-quality/vscode-startup-diagnostics-report.json"
-      ],
-      "unresolvedEvidenceGap": "Runtime diagnostics are locally checked; protected local install/PATH repair is still outside this gate.",
-      "protectedBoundary": "dependency install, VS Code repair, provider probes, and external diagnostics remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_runtime_doctoring_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_1_0d14c9ebf6",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "security_and_permissions",
-      "backlogText": "keep permission regression fixtures tied to protected-action and public-claim blockers",
-      "category": "security_permission_boundary",
-      "sourceRecordDigest": "4b08e08c6c11436ce797a99c552183bfd2904eb11d47d82c363d2584488f47db",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-security-permissions-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/openssf-security-posture-report.json",
-        "docs/product-quality/dependency-governance-quality-report.json",
-        "docs/product-quality/source-controlled-checks-report.json"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_security_and_permissions_2_13bc6fb88b",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "security_and_permissions",
-      "backlogText": "separate local security posture evidence from hosted Scorecard, hosted CodeQL, and branch-protection claims",
-      "category": "security_permission_boundary",
-      "sourceRecordDigest": "4b08e08c6c11436ce797a99c552183bfd2904eb11d47d82c363d2584488f47db",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-security-permissions-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/openssf-security-posture-report.json",
-        "docs/product-quality/dependency-governance-quality-report.json",
-        "docs/product-quality/source-controlled-checks-report.json"
-      ],
-      "unresolvedEvidenceGap": "Security posture is local file evidence; hosted Scorecard, hosted CodeQL, and branch protection enforcement remain unverified.",
-      "protectedBoundary": "hosted CI/security service calls and public security posture claims require explicit authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_security_and_permissions_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_1_8b64a539df",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "terminal_workflow",
-      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
-      "category": "terminal_runtime_surface",
-      "sourceRecordDigest": "518b663f3116b4f4433317cffbf70eea2ca3923380df05c4ab1de147ab3588db",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-        "docs/product-quality/golden-path-terminal-transcripts.json",
-        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/real-session-capture-report.json"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_2_4bec9fb3a2",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "terminal_workflow",
-      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
-      "category": "provider_surface",
-      "sourceRecordDigest": "518b663f3116b4f4433317cffbf70eea2ca3923380df05c4ab1de147ab3588db",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-        "docs/product-quality/golden-path-terminal-transcripts.json",
-        "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-        "docs/product-quality/onboarding-smoke-report.json",
-        "docs/product-quality/real-session-capture-report.json"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_terminal_workflow_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_1_03050d3ccb",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "tool_loop_reliability",
-      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
-      "category": "tool_loop_traceability",
-      "sourceRecordDigest": "f24fa31e342beb5cd0a9b483f2479e59e4c0aac36e7b57978d622161c6d5d84a",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/prompted-tool-loop-capture-report.json",
-        "docs/product-quality/code-editing-trace-capture-report.json",
-        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-        "docs/product-quality/tool-interruption-recovery-trace-report.json",
-        "docs/product-quality/protected-action-denial-trace-report.json"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
-    },
-    {
-      "planItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_2_5a1e7fdef6",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "tool_loop_reliability",
-      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
-      "category": "tool_loop_traceability",
-      "sourceRecordDigest": "f24fa31e342beb5cd0a9b483f2479e59e4c0aac36e7b57978d622161c6d5d84a",
-      "currentLocalEvidence": [
-        "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-        "docs/product-quality/permission-regression-fixtures.json",
-        "docs/product-quality/prompted-tool-loop-capture-report.json",
-        "docs/product-quality/code-editing-trace-capture-report.json",
-        "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-        "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-        "docs/product-quality/tool-interruption-recovery-trace-report.json",
-        "docs/product-quality/protected-action-denial-trace-report.json"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "recommendedNextGateId": "openclaude_internal_tool_loop_reliability_evidence_gate",
-      "implementationStatus": "planned_internal_no_provider",
-      "protectedActionRequiredForPlanning": false,
-      "protectedActionExecuted": false,
-      "claimAllowed": false
     }
   ],
   "planChecks": [
@@ -1125,12 +600,12 @@
     {
       "label": "planned backlog count matches source count",
       "ok": true,
-      "detail": "32/32"
+      "detail": "15/15"
     },
     {
       "label": "every plan item preserves source evidence and boundary",
       "ok": true,
-      "detail": "32 items"
+      "detail": "15 items"
     },
     {
       "label": "every plan item remains internal no-provider planning",
@@ -1140,12 +615,12 @@
     {
       "label": "next gate candidates cover reviewed axes",
       "ok": true,
-      "detail": "9/9"
+      "detail": "8/8"
     },
     {
       "label": "category classification covers multiple product-quality surfaces",
       "ok": true,
-      "detail": "benchmark_claim_boundary,onboarding_evidence,provider_surface,release_hygiene,runtime_doctoring,security_permission_boundary,terminal_runtime_surface,tool_loop_traceability"
+      "detail": "benchmark_claim_boundary,onboarding_evidence,provider_surface,runtime_doctoring,security_permission_boundary,terminal_runtime_surface,tool_loop_traceability"
     },
     {
       "label": "claim expansion remains blocked",

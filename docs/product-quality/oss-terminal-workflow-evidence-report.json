@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-06-17T00:43:20.519Z",
+  "generatedAt": "2026-06-18T08:29:20.885Z",
   "mode": "local_no_provider_oss_terminal_workflow_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "36462bb478d27f866746ca3a9a87ec790a5289cf6ac2914fa8ef17e0b39f45dd",
+  "sourceSafeBacklogPlanReportSha256": "633b3b77ee15d391281feecbb58da275ed1083d4a94a969046bfefb71bbe0a39",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "terminal_workflow",
-  "sourcePlanItemCount": 4,
-  "evidenceItemCount": 4,
+  "sourcePlanItemCount": 2,
+  "evidenceItemCount": 2,
   "sourceProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-terminal-workflow-evidence.jsonl",
-  "provenanceJsonlSha256": "557b637a0fdf437312e05b77c08a005e9ef0d5948e7e724c8d01aa24d7f7da27",
-  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlSha256": "6605e08bc889b428e98212b38472794276c152f7cc377348ef8dae68fb620f82",
+  "provenanceJsonlRecordCount": 2,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -34,12 +33,6 @@
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "observedPattern": "Terminal workflow quality should bind first-run, failure recovery, doctor handoff, command hashes, and no-provider boundaries before stronger claims are made.",
       "localAbsorption": "Convert terminal_workflow backlog items into a source-hash-addressed terminal workflow evidence matrix."
-    },
-    {
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "observedPattern": "Terminal workflow quality should bind first-run, failure recovery, doctor handoff, command hashes, and no-provider boundaries before stronger claims are made.",
-      "localAbsorption": "Convert terminal_workflow backlog items into a source-hash-addressed terminal workflow evidence matrix."
     }
   ],
   "evidenceItems": [
@@ -55,32 +48,32 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "6ed9e546c9107d8084b08349694b4f7110193f9f7ecb3917b66c5b40195d6512",
-          "sizeBytes": 19027
+          "sha256": "a124bfde41cba5bdd7b34b40bd17902cc073c02edba21fdc953dcdc1c845e0a5",
+          "sizeBytes": 10982
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "46ae0b01f351781514123a5b0171c1638cfbc54c10d7178231de48575d5c272c",
-          "sizeBytes": 10655
+          "sha256": "e3a1e328fd685d1143bfa0d8e3bba15333813220fe729578cc2b472fabd81a91",
+          "sizeBytes": 11028
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
-          "sizeBytes": 5630
+          "sha256": "22f5b87d5b2946ce54875d43488aea52669b7d93d1f7bf6f2546ced178d7f302",
+          "sizeBytes": 5635
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "335619de7730b2f796275b340b44aee7ca5a1303719cb7078fa27481a65c4419",
-          "sizeBytes": 15336
+          "sha256": "763b8c6bd0751f85440ba33d4cdeadc104ada3df1e80411644cc19dae7901e4a",
+          "sizeBytes": 16087
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "bc5795df9325bad367ce15283b5abf294084be32a1ca22aa7e48aeff1d2b5104",
-          "sizeBytes": 6231
+          "sha256": "a9508f24858ff7c7b8cc51bb9d97ff5136e5d8315ba347b03c8f2ee2fb17bc5c",
+          "sizeBytes": 6239
         }
       ],
       "requiredCoverageBeforeClaim": [
@@ -123,168 +116,32 @@
         {
           "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
           "exists": true,
-          "sha256": "6ed9e546c9107d8084b08349694b4f7110193f9f7ecb3917b66c5b40195d6512",
-          "sizeBytes": 19027
+          "sha256": "a124bfde41cba5bdd7b34b40bd17902cc073c02edba21fdc953dcdc1c845e0a5",
+          "sizeBytes": 10982
         },
         {
           "path": "docs/product-quality/golden-path-terminal-transcripts.json",
           "exists": true,
-          "sha256": "46ae0b01f351781514123a5b0171c1638cfbc54c10d7178231de48575d5c272c",
-          "sizeBytes": 10655
+          "sha256": "e3a1e328fd685d1143bfa0d8e3bba15333813220fe729578cc2b472fabd81a91",
+          "sizeBytes": 11028
         },
         {
           "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
           "exists": true,
-          "sha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
-          "sizeBytes": 5630
+          "sha256": "22f5b87d5b2946ce54875d43488aea52669b7d93d1f7bf6f2546ced178d7f302",
+          "sizeBytes": 5635
         },
         {
           "path": "docs/product-quality/onboarding-smoke-report.json",
           "exists": true,
-          "sha256": "335619de7730b2f796275b340b44aee7ca5a1303719cb7078fa27481a65c4419",
-          "sizeBytes": 15336
+          "sha256": "763b8c6bd0751f85440ba33d4cdeadc104ada3df1e80411644cc19dae7901e4a",
+          "sizeBytes": 16087
         },
         {
           "path": "docs/product-quality/real-session-capture-report.json",
           "exists": true,
-          "sha256": "bc5795df9325bad367ce15283b5abf294084be32a1ca22aa7e48aeff1d2b5104",
-          "sizeBytes": 6231
-        }
-      ],
-      "requiredCoverageBeforeClaim": [
-        "local first-run transcript evidence with command and output hashes",
-        "local failure-recovery transcript evidence with command and output hashes",
-        "local doctor handoff transcript evidence with command and output hashes",
-        "explicit no-provider and no-external-call boundary fields",
-        "explicit owner authorization before non-synthetic session, external benchmark, public comparison, superiority, release, production, external-validation, or autonomous-reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "terminal_workflow_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "nonSyntheticUserSessionClaimAllowed": false,
-      "externalBenchmarkSessionClaimAllowed": false,
-      "publicComparisonClaimAllowed": false,
-      "superiorityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_terminal_workflow_warpdotdev_warp_40f3ca2bb0",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_1_8b64a539df",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "terminal_workflow",
-      "backlogText": "add axis-specific terminal transcript coverage for first-run, failure-recovery, and doctor handoff paths",
-      "transcriptCoverageClass": "first_run_failure_recovery_doctor_handoff",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-          "exists": true,
-          "sha256": "6ed9e546c9107d8084b08349694b4f7110193f9f7ecb3917b66c5b40195d6512",
-          "sizeBytes": 19027
-        },
-        {
-          "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-          "exists": true,
-          "sha256": "46ae0b01f351781514123a5b0171c1638cfbc54c10d7178231de48575d5c272c",
-          "sizeBytes": 10655
-        },
-        {
-          "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-          "exists": true,
-          "sha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
-          "sizeBytes": 5630
-        },
-        {
-          "path": "docs/product-quality/onboarding-smoke-report.json",
-          "exists": true,
-          "sha256": "335619de7730b2f796275b340b44aee7ca5a1303719cb7078fa27481a65c4419",
-          "sizeBytes": 15336
-        },
-        {
-          "path": "docs/product-quality/real-session-capture-report.json",
-          "exists": true,
-          "sha256": "bc5795df9325bad367ce15283b5abf294084be32a1ca22aa7e48aeff1d2b5104",
-          "sizeBytes": 6231
-        }
-      ],
-      "requiredCoverageBeforeClaim": [
-        "local first-run transcript evidence with command and output hashes",
-        "local failure-recovery transcript evidence with command and output hashes",
-        "local doctor handoff transcript evidence with command and output hashes",
-        "explicit no-provider and no-external-call boundary fields",
-        "explicit owner authorization before non-synthetic session, external benchmark, public comparison, superiority, release, production, external-validation, or autonomous-reliability claims"
-      ],
-      "unresolvedEvidenceGap": "Terminal workflow has local no-provider command evidence; non-synthetic user workflows and external benchmark sessions remain absent.",
-      "protectedBoundary": "external benchmark, public comparison, and non-synthetic capture claims require explicit operator/owner authorization.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "terminal_workflow_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "nonSyntheticUserSessionClaimAllowed": false,
-      "externalBenchmarkSessionClaimAllowed": false,
-      "publicComparisonClaimAllowed": false,
-      "superiorityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_terminal_workflow_warpdotdev_warp_5f3e00c2b1",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_terminal_workflow_2_4bec9fb3a2",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "terminal_workflow",
-      "backlogText": "bind every transcript to command hashes and no-provider claim boundaries",
-      "transcriptCoverageClass": "command_hash_no_provider_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-terminal-workflow-evidence-report.json",
-          "exists": true,
-          "sha256": "6ed9e546c9107d8084b08349694b4f7110193f9f7ecb3917b66c5b40195d6512",
-          "sizeBytes": 19027
-        },
-        {
-          "path": "docs/product-quality/golden-path-terminal-transcripts.json",
-          "exists": true,
-          "sha256": "46ae0b01f351781514123a5b0171c1638cfbc54c10d7178231de48575d5c272c",
-          "sizeBytes": 10655
-        },
-        {
-          "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-          "exists": true,
-          "sha256": "65b545e8fff943d33f9bb84f9fcc6ccce6ebcd3e64a7c096a2d55658f390cb25",
-          "sizeBytes": 5630
-        },
-        {
-          "path": "docs/product-quality/onboarding-smoke-report.json",
-          "exists": true,
-          "sha256": "335619de7730b2f796275b340b44aee7ca5a1303719cb7078fa27481a65c4419",
-          "sizeBytes": 15336
-        },
-        {
-          "path": "docs/product-quality/real-session-capture-report.json",
-          "exists": true,
-          "sha256": "bc5795df9325bad367ce15283b5abf294084be32a1ca22aa7e48aeff1d2b5104",
-          "sizeBytes": 6231
+          "sha256": "a9508f24858ff7c7b8cc51bb9d97ff5136e5d8315ba347b03c8f2ee2fb17bc5c",
+          "sizeBytes": 6239
         }
       ],
       "requiredCoverageBeforeClaim": [
@@ -330,7 +187,7 @@
     {
       "label": "selected terminal workflow axis has source items",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     },
     {
       "label": "source next gate candidate exists",
@@ -340,7 +197,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "20 bindings"
+      "detail": "10 bindings"
     },
     {
       "label": "coverage includes transcript and command-hash classes",
@@ -350,12 +207,12 @@
     {
       "label": "every evidence item rejects claim expansion",
       "ok": true,
-      "detail": "4 items"
+      "detail": "2 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     }
   ],
   "claimBoundary": "Internal no-provider terminal workflow evidence only; not a non-synthetic user-session capture, external benchmark run, public comparison, superiority claim, release readiness claim, production readiness claim, external validation claim, public readiness claim, or autonomous reliability claim."

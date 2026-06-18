@@ -42,7 +42,7 @@ type DependencyTopologyReport = {
   }>
 }
 
-const currentDependencyEdgeCount = 11963
+const currentDependencyEdgeCount = 11977
 
 function runTopologyGate(): DependencyTopologyReport {
   const result = spawnSync('bun', ['run', 'product:dependency-topology'], {

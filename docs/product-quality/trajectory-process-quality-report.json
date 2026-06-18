@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-18T04:35:14.202Z",
+  "generatedAt": "2026-06-18T08:31:56.979Z",
   "mode": "local_no_provider_trajectory_process_quality",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
   "sourceRealTraceEvalMode": "local_no_provider_real_session_jsonl_trace_grading",
   "sourceTraceCount": 10,
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7",
+  "sourceLocalBenchmarkResultsSha256": "0a7af697c1f09184cc022e095c0e3aa6ee2b78b260e75d591f918cae64152427",
   "primarySourceInputs": [
     {
       "sourceProject": "SWE-agent/SWE-agent",
@@ -121,7 +121,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
+      "sha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
       "traceKind": "prompted_tool_loop_cli",
       "eventCount": 8,
       "terminalOutcome": "succeeded",
@@ -164,7 +164,7 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "71fa1b59526d6bc2cfa3681ae106b1dc4b879f874ec52ccdedbbd87c226e8912",
+      "sha256": "2240322b9b6ffb569910245b66a605203bdb70cd589cee7a2190fa2820ad956b",
       "traceKind": "real_session_capture_cli",
       "eventCount": 12,
       "terminalOutcome": "succeeded",
@@ -296,7 +296,7 @@
     {
       "label": "local benchmark result hash matches harness report",
       "ok": true,
-      "detail": "ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7/ab0aeb84ad19ba26a6dfc49e28d2bc1d954eb1ec821323c805674c9f75d382b7"
+      "detail": "0a7af697c1f09184cc022e095c0e3aa6ee2b78b260e75d591f918cae64152427/0a7af697c1f09184cc022e095c0e3aa6ee2b78b260e75d591f918cae64152427"
     },
     {
       "label": "trace discovery count matches real trace eval report",
@@ -341,7 +341,7 @@
     {
       "label": "process-quality result JSONL hash is recordable",
       "ok": true,
-      "detail": "4f8c4ca52978775de476076c01735d5924167fd4bd02115331976ee2101c7f25"
+      "detail": "3b793a52ba4a61457788e5db51da237d3a1861698c956fcd9ce470eb4a2d349b"
     }
   ],
   "claimBoundary": "This report is internal local process-quality evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."

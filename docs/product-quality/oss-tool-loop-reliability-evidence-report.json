@@ -1,19 +1,18 @@
 {
-  "generatedAt": "2026-06-17T00:43:21.103Z",
+  "generatedAt": "2026-06-18T08:29:21.523Z",
   "mode": "local_no_provider_oss_tool_loop_reliability_evidence",
   "sourceSafeBacklogPlanReportPath": "docs/product-quality/oss-safe-backlog-plan-report.json",
-  "sourceSafeBacklogPlanReportSha256": "36462bb478d27f866746ca3a9a87ec790a5289cf6ac2914fa8ef17e0b39f45dd",
+  "sourceSafeBacklogPlanReportSha256": "633b3b77ee15d391281feecbb58da275ed1083d4a94a969046bfefb71bbe0a39",
   "sourceAxisArchitectureReviewReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
   "selectedAxis": "tool_loop_reliability",
-  "sourcePlanItemCount": 4,
-  "evidenceItemCount": 4,
+  "sourcePlanItemCount": 2,
+  "evidenceItemCount": 2,
   "sourceProjects": [
-    "ultraworkers/claw-code",
-    "warpdotdev/warp"
+    "ultraworkers/claw-code"
   ],
   "provenanceJsonlPath": "reports/openclaude-oss-tool-loop-reliability-evidence.jsonl",
-  "provenanceJsonlSha256": "e7f68089d0b56acc244838e206fad827d887a5dfe887de72766a5150c12ca2b0",
-  "provenanceJsonlRecordCount": 4,
+  "provenanceJsonlSha256": "672f558e679549b8cb2fda849e9e9558e59024884d6d2d965337759356d8d390",
+  "provenanceJsonlRecordCount": 2,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -36,12 +35,6 @@
       "sourceUrl": "https://github.com/ultraworkers/claw-code",
       "observedPattern": "Tool-loop reliability evidence should preserve fixture-bounded repair traces, interrupted-tool recovery, redaction, and portable trace exports before stronger reliability claims.",
       "localAbsorption": "Convert tool_loop_reliability backlog items into a source-hash-addressed local trace and tool-loop evidence matrix."
-    },
-    {
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "observedPattern": "Tool-loop reliability evidence should preserve fixture-bounded repair traces, interrupted-tool recovery, redaction, and portable trace exports before stronger reliability claims.",
-      "localAbsorption": "Convert tool_loop_reliability backlog items into a source-hash-addressed local trace and tool-loop evidence matrix."
     }
   ],
   "evidenceItems": [
@@ -57,49 +50,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "9d3f5abebbcd57a3190af0230ec6352edd54285072f08f1542aa137e1e1570e9",
-          "sizeBytes": 25673
+          "sha256": "9f4df5498acc6f7da1a715b616fb47048850c9a5b2595cc6336d7b33950c87b8",
+          "sizeBytes": 14374
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
+          "sha256": "29b40e2a1b0cf1a7a4741d6a010f62bda7b9a7d3411c6e97f411a9b483c88e53",
           "sizeBytes": 9944
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "1aaf432cf208985f0196c14ad67ed0cd09fe82232a7403428b49893cf20e72a7",
-          "sizeBytes": 4446
+          "sha256": "b064fb69e92c01e6b3f048867668fd220bcda31f759f010bbafbdb46c01788eb",
+          "sizeBytes": 4450
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "953f2d048a15ce8e07d102470e8108b6ed96cd5549dfae653f99c38bb40ee88e",
+          "sha256": "87ce21468596b7bc0c81bc9a70ec9e6bece4b0946234110f51ef61a60dcb9771",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "fc838b4d2fd48ecacc2bedfbae1f2f857b68f30391e55cbd8cce31adc9ce89e6",
+          "sha256": "18a3f4e593518f9c800bb54e1db189604aca29c768e1ed1a2e1f06d45d247ffa",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "772fb49a43fe221658ef56dcfa2247aa1212cae243e8b6fe92c1df515ec10060",
+          "sha256": "de006a5a68b0d29871189d341ba9cc418b3f2862b08f096408abaa209eb1344d",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
+          "sha256": "e7792dcd81f416ab377a83bea69f9768641b168b58688fec6a520bffc7cfd4e9",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
+          "sha256": "c807dfc317fb97c247365031c750a3671bb365aee91635d7a8b584e19bd13530",
           "sizeBytes": 6267
         }
       ],
@@ -107,13 +100,13 @@
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
+          "sha256": "e7792dcd81f416ab377a83bea69f9768641b168b58688fec6a520bffc7cfd4e9",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
+          "sha256": "c807dfc317fb97c247365031c750a3671bb365aee91635d7a8b584e19bd13530",
           "sizeBytes": 6267
         }
       ],
@@ -158,49 +151,49 @@
         {
           "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
           "exists": true,
-          "sha256": "9d3f5abebbcd57a3190af0230ec6352edd54285072f08f1542aa137e1e1570e9",
-          "sizeBytes": 25673
+          "sha256": "9f4df5498acc6f7da1a715b616fb47048850c9a5b2595cc6336d7b33950c87b8",
+          "sizeBytes": 14374
         },
         {
           "path": "docs/product-quality/permission-regression-fixtures.json",
           "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
+          "sha256": "29b40e2a1b0cf1a7a4741d6a010f62bda7b9a7d3411c6e97f411a9b483c88e53",
           "sizeBytes": 9944
         },
         {
           "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
           "exists": true,
-          "sha256": "1aaf432cf208985f0196c14ad67ed0cd09fe82232a7403428b49893cf20e72a7",
-          "sizeBytes": 4446
+          "sha256": "b064fb69e92c01e6b3f048867668fd220bcda31f759f010bbafbdb46c01788eb",
+          "sizeBytes": 4450
         },
         {
           "path": "docs/product-quality/code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "953f2d048a15ce8e07d102470e8108b6ed96cd5549dfae653f99c38bb40ee88e",
+          "sha256": "87ce21468596b7bc0c81bc9a70ec9e6bece4b0946234110f51ef61a60dcb9771",
           "sizeBytes": 3082
         },
         {
           "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "fc838b4d2fd48ecacc2bedfbae1f2f857b68f30391e55cbd8cce31adc9ce89e6",
+          "sha256": "18a3f4e593518f9c800bb54e1db189604aca29c768e1ed1a2e1f06d45d247ffa",
           "sizeBytes": 4837
         },
         {
           "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
           "exists": true,
-          "sha256": "772fb49a43fe221658ef56dcfa2247aa1212cae243e8b6fe92c1df515ec10060",
+          "sha256": "de006a5a68b0d29871189d341ba9cc418b3f2862b08f096408abaa209eb1344d",
           "sizeBytes": 4586
         },
         {
           "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
           "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
+          "sha256": "e7792dcd81f416ab377a83bea69f9768641b168b58688fec6a520bffc7cfd4e9",
           "sizeBytes": 5551
         },
         {
           "path": "docs/product-quality/protected-action-denial-trace-report.json",
           "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
+          "sha256": "c807dfc317fb97c247365031c750a3671bb365aee91635d7a8b584e19bd13530",
           "sizeBytes": 6267
         }
       ],
@@ -208,240 +201,26 @@
         {
           "path": "docs/product-quality/real-session-trace-evals-report.json",
           "exists": true,
-          "sha256": "1aff6deec7abc2079706d0ac1d35c3fadc19808f3beace8d6a86422341fe7c58",
-          "sizeBytes": 20244
+          "sha256": "54fb06d3cac1b387c4ab77d836f9a6d8f1b0f731ec75b6db4ba7db047bdb341e",
+          "sizeBytes": 17761
         },
         {
           "path": "docs/product-quality/trace-schema-contract-report.json",
           "exists": true,
-          "sha256": "b84945692eee109097341e90b81a137c0fab6b6a195a84f7049f1eccd209ff2a",
-          "sizeBytes": 14653
+          "sha256": "2fbbabfb7cacb63faf505d89af73034a3bf83f354bcc38c96d3cc208d9229280",
+          "sizeBytes": 12641
         },
         {
           "path": "docs/product-quality/trace-portability-export-report.json",
           "exists": true,
-          "sha256": "9999d42a6288d1db9eb0bcfdfc614fa780e90bc6f3bbb41067f181f3125fff88",
-          "sizeBytes": 6414
+          "sha256": "aa6b8616c304bd3074949c846da2b690bfb15ca450c008a26b8c7c5b6163b4dc",
+          "sizeBytes": 5847
         },
         {
           "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
           "exists": true,
-          "sha256": "300d829b03f91d96ec82a069f1d75e10ef110ef05f5969c1cbf58cf64363bf93",
-          "sizeBytes": 9747
-        }
-      ],
-      "requiredEvidenceBeforeReliabilityClaim": [
-        "fixture-bounded prompted tool-loop and code-editing trace evidence",
-        "fixture-bounded multi-file, regression-cycle, interrupted-tool, and protected-action denial trace evidence",
-        "trace eval, schema contract, portability export, and redaction policy evidence",
-        "explicit owner authorization before real product repo mutation, provider-backed execution, live model validation, external benchmark execution, or reliability/readiness claims"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "tool_loop_reliability_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "realProductRepoMutationAllowed": false,
-      "providerBackedExecutionAllowed": false,
-      "liveModelValidationAllowed": false,
-      "externalBenchmarkExecutionAllowed": false,
-      "nonSyntheticReliabilityClaimAllowed": false,
-      "publicReliabilityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_tool_loop_reliability_warpdotdev_warp_e330da5f6f",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_1_03050d3ccb",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "tool_loop_reliability",
-      "backlogText": "expand local disposable code-editing traces to cover multi-step tool interruption and repair cycles",
-      "toolLoopCoverageClass": "disposable_code_editing_trace_reliability",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-          "exists": true,
-          "sha256": "9d3f5abebbcd57a3190af0230ec6352edd54285072f08f1542aa137e1e1570e9",
-          "sizeBytes": 25673
-        },
-        {
-          "path": "docs/product-quality/permission-regression-fixtures.json",
-          "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
-          "sizeBytes": 9944
-        },
-        {
-          "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
-          "exists": true,
-          "sha256": "1aaf432cf208985f0196c14ad67ed0cd09fe82232a7403428b49893cf20e72a7",
-          "sizeBytes": 4446
-        },
-        {
-          "path": "docs/product-quality/code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "953f2d048a15ce8e07d102470e8108b6ed96cd5549dfae653f99c38bb40ee88e",
-          "sizeBytes": 3082
-        },
-        {
-          "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "fc838b4d2fd48ecacc2bedfbae1f2f857b68f30391e55cbd8cce31adc9ce89e6",
-          "sizeBytes": 4837
-        },
-        {
-          "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "772fb49a43fe221658ef56dcfa2247aa1212cae243e8b6fe92c1df515ec10060",
-          "sizeBytes": 4586
-        },
-        {
-          "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-          "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
-          "sizeBytes": 5551
-        },
-        {
-          "path": "docs/product-quality/protected-action-denial-trace-report.json",
-          "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
-          "sizeBytes": 6267
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-          "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
-          "sizeBytes": 5551
-        },
-        {
-          "path": "docs/product-quality/protected-action-denial-trace-report.json",
-          "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
-          "sizeBytes": 6267
-        }
-      ],
-      "requiredEvidenceBeforeReliabilityClaim": [
-        "fixture-bounded prompted tool-loop and code-editing trace evidence",
-        "fixture-bounded multi-file, regression-cycle, interrupted-tool, and protected-action denial trace evidence",
-        "trace eval, schema contract, portability export, and redaction policy evidence",
-        "explicit owner authorization before real product repo mutation, provider-backed execution, live model validation, external benchmark execution, or reliability/readiness claims"
-      ],
-      "unresolvedEvidenceGap": "Tool-loop evidence is local and fixture-bounded; broader non-synthetic repository repair tasks remain unproven.",
-      "protectedBoundary": "real product repo mutation, provider/live model execution, and autonomous reliability claims remain blocked.",
-      "forbiddenShortcuts": [
-        "do not infer superiority from GitHub stars, README text, or local planning artifacts",
-        "do not treat this axis review as implementation, production readiness, release readiness, external validation, or autonomous reliability evidence",
-        "do not call providers, live models, or external services from this local review",
-        "do not clone, install dependencies, publish, deploy, launch, or mutate production systems",
-        "do not modify MFH, real product repositories, canonical memory/governance, or decision ledgers"
-      ],
-      "implementationStatus": "tool_loop_reliability_evidence_matrix_created_internal_no_provider",
-      "protectedActionRequiredForEvidenceMatrix": false,
-      "protectedActionExecuted": false,
-      "realProductRepoMutationAllowed": false,
-      "providerBackedExecutionAllowed": false,
-      "liveModelValidationAllowed": false,
-      "externalBenchmarkExecutionAllowed": false,
-      "nonSyntheticReliabilityClaimAllowed": false,
-      "publicReliabilityClaimAllowed": false,
-      "releaseReadinessClaimAllowed": false,
-      "productionReadinessClaimAllowed": false,
-      "externalValidationClaimAllowed": false,
-      "autonomousReliabilityClaimAllowed": false
-    },
-    {
-      "evidenceItemId": "oss_tool_loop_reliability_warpdotdev_warp_12b6b40ddb",
-      "sourcePlanItemId": "oss_backlog_warpdotdev_warp_tool_loop_reliability_2_5a1e7fdef6",
-      "sourceProject": "warpdotdev/warp",
-      "sourceUrl": "https://github.com/warpdotdev/warp",
-      "axis": "tool_loop_reliability",
-      "backlogText": "preserve raw-trace redaction and portable trace exports before stronger reliability claims",
-      "toolLoopCoverageClass": "trace_redaction_portability_boundary",
-      "currentLocalEvidence": [
-        {
-          "path": "docs/product-quality/oss-tool-loop-reliability-evidence-report.json",
-          "exists": true,
-          "sha256": "9d3f5abebbcd57a3190af0230ec6352edd54285072f08f1542aa137e1e1570e9",
-          "sizeBytes": 25673
-        },
-        {
-          "path": "docs/product-quality/permission-regression-fixtures.json",
-          "exists": true,
-          "sha256": "b416caa7e94f4f1f59a42c8e7f02f5e629a7215830de906b832d5383a0134c1b",
-          "sizeBytes": 9944
-        },
-        {
-          "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
-          "exists": true,
-          "sha256": "1aaf432cf208985f0196c14ad67ed0cd09fe82232a7403428b49893cf20e72a7",
-          "sizeBytes": 4446
-        },
-        {
-          "path": "docs/product-quality/code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "953f2d048a15ce8e07d102470e8108b6ed96cd5549dfae653f99c38bb40ee88e",
-          "sizeBytes": 3082
-        },
-        {
-          "path": "docs/product-quality/multi-file-code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "fc838b4d2fd48ecacc2bedfbae1f2f857b68f30391e55cbd8cce31adc9ce89e6",
-          "sizeBytes": 4837
-        },
-        {
-          "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.json",
-          "exists": true,
-          "sha256": "772fb49a43fe221658ef56dcfa2247aa1212cae243e8b6fe92c1df515ec10060",
-          "sizeBytes": 4586
-        },
-        {
-          "path": "docs/product-quality/tool-interruption-recovery-trace-report.json",
-          "exists": true,
-          "sha256": "31a21fe765cdee7273ef3df5c3d8c33a070c70412df9a5a600165508f6b60d08",
-          "sizeBytes": 5551
-        },
-        {
-          "path": "docs/product-quality/protected-action-denial-trace-report.json",
-          "exists": true,
-          "sha256": "483e4de0c7b8e90e99ebc59e9a8141819637f14d3c2cfc42a11209ae290d12a0",
-          "sizeBytes": 6267
-        }
-      ],
-      "supplementalLocalEvidence": [
-        {
-          "path": "docs/product-quality/real-session-trace-evals-report.json",
-          "exists": true,
-          "sha256": "1aff6deec7abc2079706d0ac1d35c3fadc19808f3beace8d6a86422341fe7c58",
-          "sizeBytes": 20244
-        },
-        {
-          "path": "docs/product-quality/trace-schema-contract-report.json",
-          "exists": true,
-          "sha256": "b84945692eee109097341e90b81a137c0fab6b6a195a84f7049f1eccd209ff2a",
-          "sizeBytes": 14653
-        },
-        {
-          "path": "docs/product-quality/trace-portability-export-report.json",
-          "exists": true,
-          "sha256": "9999d42a6288d1db9eb0bcfdfc614fa780e90bc6f3bbb41067f181f3125fff88",
-          "sizeBytes": 6414
-        },
-        {
-          "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
-          "exists": true,
-          "sha256": "300d829b03f91d96ec82a069f1d75e10ef110ef05f5969c1cbf58cf64363bf93",
-          "sizeBytes": 9747
+          "sha256": "7f5911f74882b11e46d711cb3bbd776bbcb46595a9f71a21697ee3be6a44cbd2",
+          "sizeBytes": 8933
         }
       ],
       "requiredEvidenceBeforeReliabilityClaim": [
@@ -488,7 +267,7 @@
     {
       "label": "selected tool loop reliability axis has source items",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     },
     {
       "label": "source next gate candidate exists",
@@ -498,7 +277,7 @@
     {
       "label": "every evidence item has hash-bound local evidence",
       "ok": true,
-      "detail": "44 bindings"
+      "detail": "22 bindings"
     },
     {
       "label": "coverage includes tool repair and redaction portability classes",
@@ -508,12 +287,12 @@
     {
       "label": "every evidence item rejects reliability and protected-action expansion",
       "ok": true,
-      "detail": "4 items"
+      "detail": "2 items"
     },
     {
       "label": "provenance JSONL is parseable",
       "ok": true,
-      "detail": "4/4"
+      "detail": "2/2"
     }
   ],
   "claimBoundary": "Internal no-provider tool-loop reliability evidence only; not real product repo repair, provider-backed execution, live model validation, external benchmark execution, public reliability, release readiness, production readiness, external validation, or autonomous reliability evidence."
