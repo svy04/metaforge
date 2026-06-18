@@ -311,6 +311,19 @@ describe('public repository readiness surfaces', () => {
     expect(releaseWorkflow).not.toContain('Gitlawb/openclaude')
   })
 
+  test('OpenSSF posture evidence does not carry stale Git-root wording', () => {
+    const staleGitRootWording = 'this workspace is not currently a Git repository root'
+    const surfaces = [
+      'scripts/product-openssf-security-posture.ts',
+      'docs/product-quality/openssf-security-posture-report.md',
+      'docs/product-quality/openssf-security-posture-report.json',
+    ].map((path) => readRepoText(path))
+
+    for (const surface of surfaces) {
+      expect(surface).not.toContain(staleGitRootWording)
+    }
+  })
+
   test('issue templates keep Metaforge as the public thesis', () => {
     const bugReport = readRepoText('.github/ISSUE_TEMPLATE/bug_report.md')
     const featureRequest = readRepoText('.github/ISSUE_TEMPLATE/feature_request.md')
