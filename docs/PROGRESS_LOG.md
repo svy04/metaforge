@@ -73,3 +73,32 @@ Status: active
   - target docs contain no open-work placeholder markers
   - required Goal OS plus MFH/Meta terms are present
 - Re-ran OpenClaude build sanity check: `bun run build` passed.
+
+## 2026-06-18 Checkpoint 8 - Goal Kernel MVP Start
+
+- Read `AGENTS.md`, `docs/NEXT_GOALS.md`, `docs/GOAL_SCHEMA.md`,
+  `docs/MFH_META_SYNTHESIS.md`, `docs/ROADMAP.md`, `docs/PROGRESS_LOG.md`,
+  and `docs/DECISION_LOG.md`.
+- Created the current structured goal registry entry:
+  `docs/goals/CG-001-goal-kernel-mvp.md`.
+- Created `docs/goals/README.md` to distinguish current `CG-*.md` goal
+  objects from historical local goal artifacts.
+- Added `scripts/validate-goals.ts` and `scripts/validate-goals.test.ts` for
+  required Goal OS fields, validation commands, pause conditions, rollback,
+  governed-code claim boundaries, MFH gates, and Meta records.
+- Added `goals:validate` to `package.json`.
+- Recorded D-013 so historical local goal artifacts are not rewritten as part
+  of the first Goal Kernel validator slice.
+- Validation results:
+  - `bun test scripts/validate-goals.test.ts` passed with 3 tests.
+  - `bun run goals:validate` passed with 1 valid `CG-*.md` goal and no
+    provider, live model, external, or protected calls.
+  - `bun run build` passed.
+  - `bun run product:typecheck-health` passed with 0 diagnostics.
+  - `bun run product:public-claim-boundary:check` passed with 0 unauthorized
+    positive claims.
+  - `bun run verify:privacy` passed.
+- Direct `bun run typecheck --pretty false` exposed broad existing `src/`
+  TypeScript diagnostics outside this docs-governance change; the changed
+  goal validator path passed focused tests and the repo's product typecheck
+  health gate.
