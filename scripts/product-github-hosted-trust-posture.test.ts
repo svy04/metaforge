@@ -22,6 +22,7 @@ describe('GitHub hosted trust posture analysis', () => {
     const report = analyzeHostedTrustPosture({
       repository: 'svy04/metaforge',
       defaultBranch: 'main',
+      defaultBranchHeadSha: 'a'.repeat(40),
       branchProtection: { status: 'disabled', detail: '404 from branch protection endpoint' },
       rulesets: { status: 'absent', count: 0, detail: 'no repository rulesets returned' },
       securityAndAnalysis: {
@@ -64,6 +65,7 @@ describe('GitHub hosted trust posture analysis', () => {
         vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api',
         codeScanningDiscovery: 'github_code_scanning_api',
         workflowRunDiscovery: 'gh_run_list',
+        defaultBranchHeadDiscovery: 'github_branch_api',
       },
     })
 
@@ -94,6 +96,7 @@ describe('GitHub hosted trust posture analysis', () => {
     const baseInput = {
       repository: 'svy04/metaforge',
       defaultBranch: 'main',
+      defaultBranchHeadSha: 'a'.repeat(40),
       branchProtection: { status: 'enabled' as const, detail: 'protected' },
       rulesets: { status: 'present' as const, count: 1, detail: '1 ruleset' },
       securityAndAnalysis: {
@@ -117,6 +120,7 @@ describe('GitHub hosted trust posture analysis', () => {
         vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api' as const,
         codeScanningDiscovery: 'github_code_scanning_api' as const,
         workflowRunDiscovery: 'gh_run_list' as const,
+        defaultBranchHeadDiscovery: 'github_branch_api' as const,
       },
     }
     const greenCoreRuns = [
@@ -168,10 +172,150 @@ describe('GitHub hosted trust posture analysis', () => {
     expect(withScorecard.releaseReadinessClaimAllowed).toBe(false)
   })
 
+  test('requires required workflow runs to match the observed default-branch head', () => {
+    const baseInput = {
+      repository: 'svy04/metaforge',
+      defaultBranch: 'main',
+      defaultBranchHeadSha: 'b'.repeat(40),
+      branchProtection: { status: 'enabled' as const, detail: 'protected' },
+      rulesets: { status: 'present' as const, count: 1, detail: '1 ruleset' },
+      securityAndAnalysis: {
+        secretScanning: 'enabled' as const,
+        pushProtection: 'enabled' as const,
+        dependabotSecurityUpdates: 'enabled' as const,
+      },
+      vulnerabilityAlerts: { status: 'enabled' as const, detail: '204' },
+      codeScanning: {
+        status: 'available' as const,
+        openAlertCount: 0,
+        byRuleSeverity: {},
+        bySecuritySeverity: {},
+        topRules: [],
+      },
+      latestMainRuns: ['PR Checks', 'Release Boundary', 'CodeQL', 'OpenSSF Scorecard'].map((name, index) => ({
+        name,
+        status: 'completed',
+        conclusion: 'success',
+        headSha: 'a'.repeat(40),
+        url: `https://github.com/svy04/metaforge/actions/runs/${index + 1}`,
+      })),
+      discovery: {
+        repositoryDiscovery: 'gh_repo_view' as const,
+        branchProtectionDiscovery: 'github_branch_protection_api' as const,
+        rulesetDiscovery: 'github_rulesets_api' as const,
+        securityAndAnalysisDiscovery: 'github_repository_api' as const,
+        vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api' as const,
+        codeScanningDiscovery: 'github_code_scanning_api' as const,
+        workflowRunDiscovery: 'gh_run_list' as const,
+        defaultBranchHeadDiscovery: 'github_branch_api' as const,
+      },
+    }
+
+    const staleRuns = analyzeHostedTrustPosture(baseInput)
+
+    expect(staleRuns.status).toBe('hosted_trust_risks_detected')
+    expect(staleRuns.risks.some((risk) => risk.detail.includes('does not match default branch head'))).toBe(true)
+
+    const currentRuns = analyzeHostedTrustPosture({
+      ...baseInput,
+      defaultBranchHeadSha: 'a'.repeat(40),
+    })
+
+    expect(currentRuns.risks.some((risk) => risk.category === 'main_workflow_not_green')).toBe(false)
+    expect(currentRuns.evidenceChecks.some((check) => check.label === 'required workflow runs match default branch head' && check.ok)).toBe(true)
+  })
+
+  test('classifies current-head pending workflow freshness before stronger hosted claims', () => {
+    const currentSha = 'a'.repeat(40)
+    const baseInput = {
+      repository: 'svy04/metaforge',
+      defaultBranch: 'main',
+      defaultBranchHeadSha: currentSha,
+      branchProtection: { status: 'enabled' as const, detail: 'protected' },
+      rulesets: { status: 'present' as const, count: 1, detail: '1 ruleset' },
+      securityAndAnalysis: {
+        secretScanning: 'enabled' as const,
+        pushProtection: 'enabled' as const,
+        dependabotSecurityUpdates: 'enabled' as const,
+      },
+      vulnerabilityAlerts: { status: 'enabled' as const, detail: '204' },
+      codeScanning: {
+        status: 'available' as const,
+        openAlertCount: 0,
+        byRuleSeverity: {},
+        bySecuritySeverity: {},
+        topRules: [],
+      },
+      discovery: {
+        repositoryDiscovery: 'gh_repo_view' as const,
+        branchProtectionDiscovery: 'github_branch_protection_api' as const,
+        rulesetDiscovery: 'github_rulesets_api' as const,
+        securityAndAnalysisDiscovery: 'github_repository_api' as const,
+        vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api' as const,
+        codeScanningDiscovery: 'github_code_scanning_api' as const,
+        workflowRunDiscovery: 'gh_run_list' as const,
+        defaultBranchHeadDiscovery: 'github_branch_api' as const,
+      },
+    }
+    const greenRuns = ['PR Checks', 'Release Boundary', 'OpenSSF Scorecard'].map((name, index) => ({
+      databaseId: index + 1,
+      name,
+      workflowName: name,
+      status: 'completed',
+      conclusion: 'success',
+      headSha: currentSha,
+      createdAt: '2026-06-18T22:00:00Z',
+      updatedAt: '2026-06-18T22:05:00Z',
+      url: `https://github.com/svy04/metaforge/actions/runs/${index + 1}`,
+    }))
+
+    const freshPending = analyzeHostedTrustPosture({
+      ...baseInput,
+      latestMainRuns: [
+        ...greenRuns,
+        {
+          databaseId: 4,
+          name: 'CodeQL',
+          workflowName: 'CodeQL',
+          status: 'in_progress',
+          conclusion: null,
+          headSha: currentSha,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          url: 'https://github.com/svy04/metaforge/actions/runs/4',
+        },
+      ],
+    })
+    expect(freshPending.status).toBe('hosted_trust_risks_detected')
+    expect(freshPending.risks.some((risk) => risk.detail.includes('pending_freshness=within_60_minutes_or_timestamp_unavailable'))).toBe(true)
+    expect(freshPending.publicSecurityPostureClaimAllowed).toBe(false)
+
+    const stalePending = analyzeHostedTrustPosture({
+      ...baseInput,
+      latestMainRuns: [
+        ...greenRuns,
+        {
+          databaseId: 5,
+          name: 'CodeQL',
+          workflowName: 'CodeQL',
+          status: 'in_progress',
+          conclusion: null,
+          headSha: currentSha,
+          createdAt: '2000-01-01T00:00:00Z',
+          updatedAt: '2000-01-01T00:00:00Z',
+          url: 'https://github.com/svy04/metaforge/actions/runs/5',
+        },
+      ],
+    })
+    expect(stalePending.risks.some((risk) => risk.detail.includes('stale_pending_after_minutes=60'))).toBe(true)
+    expect(stalePending.risks.some((risk) => risk.detail.includes('run_id=5'))).toBe(true)
+  })
+
   test('writes JSONL risk records when hosted risks are present', () => {
     const report = analyzeHostedTrustPosture({
       repository: 'svy04/metaforge',
       defaultBranch: 'main',
+      defaultBranchHeadSha: 'a'.repeat(40),
       branchProtection: { status: 'enabled', detail: 'protected' },
       rulesets: { status: 'present', count: 1, detail: '1 ruleset' },
       securityAndAnalysis: {
@@ -196,6 +340,7 @@ describe('GitHub hosted trust posture analysis', () => {
         vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api',
         codeScanningDiscovery: 'github_code_scanning_api',
         workflowRunDiscovery: 'gh_run_list',
+        defaultBranchHeadDiscovery: 'github_branch_api',
       },
     })
 
@@ -210,6 +355,7 @@ describe('GitHub hosted trust posture analysis', () => {
     const report = analyzeHostedTrustPosture({
       repository: 'svy04/metaforge',
       defaultBranch: 'main',
+      defaultBranchHeadSha: 'a'.repeat(40),
       branchProtection: { status: 'enabled', detail: 'protected' },
       rulesets: { status: 'present', count: 1, detail: '1 ruleset' },
       securityAndAnalysis: {
@@ -227,10 +373,14 @@ describe('GitHub hosted trust posture analysis', () => {
       },
       latestMainRuns: [
         {
+          databaseId: 4,
           name: 'OpenSSF Scorecard',
+          workflowName: 'OpenSSF Scorecard',
           status: 'completed',
           conclusion: 'success',
           headSha: 'a'.repeat(40),
+          createdAt: '2026-06-18T22:00:00Z',
+          updatedAt: '2026-06-18T22:05:00Z',
           url: 'https://github.com/svy04/metaforge/actions/runs/4',
         },
         {
@@ -263,6 +413,7 @@ describe('GitHub hosted trust posture analysis', () => {
         vulnerabilityAlertDiscovery: 'github_vulnerability_alerts_api',
         codeScanningDiscovery: 'github_code_scanning_api',
         workflowRunDiscovery: 'gh_run_list',
+        defaultBranchHeadDiscovery: 'github_branch_api',
       },
     })
 
@@ -270,5 +421,8 @@ describe('GitHub hosted trust posture analysis', () => {
 
     expect(markdown).toContain(`- generated_at: \`${report.generatedAt}\``)
     expect(markdown).toContain('- freshness_boundary: `current at generated_at only`')
+    expect(markdown).toContain(`- default_branch_head_sha: \`${report.defaultBranchHeadSha}\``)
+    expect(markdown).toContain('| Workflow | Workflow Name | Status | Conclusion | SHA | Created At | Updated At | Freshness | URL |')
+    expect(markdown).toContain('run_id=4; workflow_name=OpenSSF Scorecard')
   })
 })

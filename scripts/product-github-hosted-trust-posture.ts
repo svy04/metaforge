@@ -46,15 +46,20 @@ type CodeScanningStatus = {
 }
 
 type MainRun = {
+  databaseId?: number
   name: string
+  workflowName?: string
   status: string
   conclusion: string | null
   headSha: string
+  createdAt?: string
+  updatedAt?: string
   url: string
 }
 
 type Discovery = {
   repositoryDiscovery: 'gh_repo_view' | 'git_remote' | 'unavailable'
+  defaultBranchHeadDiscovery: 'github_branch_api' | 'unavailable'
   branchProtectionDiscovery: 'github_branch_protection_api' | 'unavailable'
   rulesetDiscovery: 'github_rulesets_api' | 'unavailable'
   securityAndAnalysisDiscovery: 'github_repository_api' | 'unavailable'
@@ -66,6 +71,7 @@ type Discovery = {
 type HostedTrustInput = {
   repository: string
   defaultBranch: string
+  defaultBranchHeadSha: string | null
   branchProtection: BranchProtectionStatus
   rulesets: RulesetStatus
   securityAndAnalysis: SecurityAndAnalysisStatus
@@ -107,6 +113,7 @@ type HostedTrustPostureReport = {
   mode: 'github_hosted_trust_posture_readonly'
   repository: string
   defaultBranch: string
+  defaultBranchHeadSha: string | null
   status: 'hosted_trust_no_risks_detected' | 'hosted_trust_risks_detected'
   primarySourceInputs: SourceInput[]
   branchProtection: BranchProtectionStatus
@@ -137,6 +144,7 @@ const reportsDir = resolve(root, 'reports')
 const reportJsonPath = 'docs/product-quality/github-hosted-trust-posture-report.json'
 const reportMdPath = 'docs/product-quality/github-hosted-trust-posture-report.md'
 const reportJsonlPath = 'reports/openclaude-github-hosted-trust-posture.jsonl'
+const stalePendingAfterMinutes = 60
 
 export function hostedTrustPostureMode(args = process.argv): 'check' | 'write' {
   return args.includes('--check') ? 'check' : 'write'
@@ -174,6 +182,39 @@ function latestRunsByName(runs: MainRun[]): Map<string, MainRun> {
 }
 
 const requiredMainWorkflowNames = ['PR Checks', 'Release Boundary', 'CodeQL', 'OpenSSF Scorecard'] as const
+
+function minutesSince(isoDate?: string): number | null {
+  if (!isoDate) return null
+  const timestamp = Date.parse(isoDate)
+  if (Number.isNaN(timestamp)) return null
+  return Math.max(0, Math.floor((Date.now() - timestamp) / 60000))
+}
+
+function runFreshnessParts(run: MainRun): string[] {
+  const parts: string[] = []
+  if (run.databaseId !== undefined) parts.push(`run_id=${run.databaseId}`)
+  if (run.workflowName) parts.push(`workflow_name=${run.workflowName}`)
+  const ageMinutes = minutesSince(run.createdAt)
+  const lastUpdateMinutes = minutesSince(run.updatedAt)
+  if (ageMinutes !== null) parts.push(`age_minutes=${ageMinutes}`)
+  if (lastUpdateMinutes !== null) parts.push(`last_update_minutes=${lastUpdateMinutes}`)
+  return parts
+}
+
+function workflowRunRiskDetail(requiredName: string, run: MainRun): string {
+  const parts = [`${requiredName} is ${run.status}/${run.conclusion ?? 'null'}`]
+  const lastUpdateMinutes = minutesSince(run.updatedAt)
+  if (run.status !== 'completed') {
+    if (lastUpdateMinutes !== null && lastUpdateMinutes >= stalePendingAfterMinutes) {
+      parts.push(`stale_pending_after_minutes=${stalePendingAfterMinutes}`)
+    } else {
+      parts.push(`pending_freshness=within_${stalePendingAfterMinutes}_minutes_or_timestamp_unavailable`)
+    }
+  }
+  parts.push(...runFreshnessParts(run))
+  parts.push(run.url)
+  return parts.join('; ')
+}
 
 export function analyzeHostedTrustPosture(input: HostedTrustInput): HostedTrustPostureReport {
   const risks: HostedTrustRisk[] = []
@@ -223,11 +264,21 @@ export function analyzeHostedTrustPosture(input: HostedTrustInput): HostedTrustP
       continue
     }
     if (run.status !== 'completed' || run.conclusion !== 'success') {
-      addRisk(risks, 'main_workflow_not_green', 'medium', `${requiredName} is ${run.status}/${run.conclusion ?? 'null'}: ${run.url}`)
+      addRisk(risks, 'main_workflow_not_green', 'medium', workflowRunRiskDetail(requiredName, run))
+    }
+    if (input.defaultBranchHeadSha && run.headSha !== input.defaultBranchHeadSha) {
+      addRisk(risks, 'main_workflow_not_green', 'medium', `${requiredName} run ${run.headSha} does not match default branch head ${input.defaultBranchHeadSha}: ${run.url}`)
     }
   }
 
   const primarySourceInputs: SourceInput[] = [
+    {
+      sourceType: 'github_doc',
+      sourceProject: 'GitHub Actions Workflow Runs REST API',
+      sourceUrl: 'https://docs.github.com/rest/actions/workflow-runs',
+      observedPattern: 'Workflow runs expose status/conclusion, head SHA, and run timestamps, so a green run should be tied to the branch head and freshness being claimed.',
+      localAbsorption: 'This report treats older green workflow runs as stale evidence when they do not match the observed default-branch head and labels not-completed runs by pending freshness.',
+    },
     {
       sourceType: 'github_doc',
       sourceProject: 'GitHub Code Scanning REST API',
@@ -284,6 +335,7 @@ export function analyzeHostedTrustPosture(input: HostedTrustInput): HostedTrustP
     mode: 'github_hosted_trust_posture_readonly',
     repository: input.repository,
     defaultBranch: input.defaultBranch,
+    defaultBranchHeadSha: input.defaultBranchHeadSha,
     status: risks.length === 0 ? 'hosted_trust_no_risks_detected' : 'hosted_trust_risks_detected',
     primarySourceInputs,
     branchProtection: input.branchProtection,
@@ -315,6 +367,7 @@ export function analyzeHostedTrustPosture(input: HostedTrustInput): HostedTrustP
     check('branch protection status was classified', report.branchProtection.status.length > 0, report.branchProtection.status),
     check('secret scanning status was classified', report.securityAndAnalysis.secretScanning.length > 0, report.securityAndAnalysis.secretScanning),
     check('OpenSSF Scorecard hosted workflow was included in main-run classification', byRunName.has('OpenSSF Scorecard'), byRunName.get('OpenSSF Scorecard')?.url ?? 'missing'),
+    check('required workflow runs match default branch head', input.defaultBranchHeadSha !== null && requiredMainWorkflowNames.every((name) => byRunName.get(name)?.headSha === input.defaultBranchHeadSha), input.defaultBranchHeadSha ?? 'unavailable'),
     check('hosted trust risks do not unlock readiness claims', !report.publicSecurityPostureClaimAllowed && !report.releaseReadinessClaimAllowed && !report.productionReadinessClaimAllowed && !report.externalValidationClaimAllowed, 'all claim booleans false'),
   ]
 
@@ -406,6 +459,20 @@ function readRepositorySecurity(repository: string): {
     },
     discovery: 'github_repository_api',
   }
+}
+
+function readDefaultBranchHead(repository: string, defaultBranch: string): {
+  defaultBranchHeadSha: string | null
+  discovery: Discovery['defaultBranchHeadDiscovery']
+} {
+  const data = runJson('gh', ['api', `repos/${repository}/branches/${defaultBranch}`]) as {
+    commit?: { sha?: string }
+  } | null
+  const sha = data?.commit?.sha
+  if (typeof sha === 'string' && /^[a-f0-9]{40}$/i.test(sha)) {
+    return { defaultBranchHeadSha: sha, discovery: 'github_branch_api' }
+  }
+  return { defaultBranchHeadSha: null, discovery: 'unavailable' }
 }
 
 function readBranchProtection(repository: string, defaultBranch: string): {
@@ -512,7 +579,7 @@ function readLatestMainRuns(repository: string, defaultBranch: string): {
     '--limit',
     '10',
     '--json',
-    'name,status,conclusion,headSha,url',
+    'databaseId,name,workflowName,status,conclusion,headSha,createdAt,updatedAt,url',
   ]) as MainRun[] | null
   if (!Array.isArray(data)) {
     return { latestMainRuns: [], discovery: 'unavailable' }
@@ -532,7 +599,7 @@ export function buildHostedTrustPostureMarkdown(report: HostedTrustPostureReport
     .join('\n')
   const runRows = report.latestMainRuns
     .slice(0, 10)
-    .map((run) => `| ${run.name} | ${run.status} | ${run.conclusion ?? 'null'} | ${run.headSha} | ${run.url} |`)
+    .map((run) => `| ${run.name} | ${run.workflowName ?? 'unknown'} | ${run.status} | ${run.conclusion ?? 'null'} | ${run.headSha} | ${run.createdAt ?? 'unknown'} | ${run.updatedAt ?? 'unknown'} | ${runFreshnessParts(run).join('; ') || 'unavailable'} | ${run.url} |`)
     .join('\n')
   const topRuleRows = report.codeScanning.topRules
     .map((rule) => `| ${rule.ruleId} | ${rule.count} |`)
@@ -553,6 +620,7 @@ Generated by: \`bun run product:github-hosted-trust-posture\`
 - freshness_boundary: \`current at generated_at only\`
 - repository: \`${report.repository}\`
 - default_branch: \`${report.defaultBranch}\`
+- default_branch_head_sha: \`${report.defaultBranchHeadSha ?? 'unavailable'}\`
 - status: \`${report.status}\`
 - risk_count: \`${report.riskCount}\`
 - branch_protection: \`${report.branchProtection.status}\`
@@ -581,9 +649,9 @@ ${topRuleRows || '| none | 0 |'}
 
 ## Latest Main Workflow Runs
 
-| Workflow | Status | Conclusion | SHA | URL |
-| --- | --- | --- | --- | --- |
-${runRows || '| none | none | none | none | none |'}
+| Workflow | Workflow Name | Status | Conclusion | SHA | Created At | Updated At | Freshness | URL |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+${runRows || '| none | none | none | none | none | none | none | none | none |'}
 
 ## Primary Sources
 
@@ -618,6 +686,7 @@ function writeReports(report: HostedTrustPostureReport): void {
 function main(): void {
   const mode = hostedTrustPostureMode()
   const repo = discoverRepository()
+  const defaultBranchHead = readDefaultBranchHead(repo.repository, repo.defaultBranch)
   const security = readRepositorySecurity(repo.repository)
   const branch = readBranchProtection(repo.repository, repo.defaultBranch)
   const rulesets = readRulesets(repo.repository)
@@ -628,6 +697,7 @@ function main(): void {
   const report = analyzeHostedTrustPosture({
     repository: repo.repository,
     defaultBranch: repo.defaultBranch,
+    defaultBranchHeadSha: defaultBranchHead.defaultBranchHeadSha,
     branchProtection: branch.branchProtection,
     rulesets: rulesets.rulesets,
     securityAndAnalysis: security.securityAndAnalysis,
@@ -636,6 +706,7 @@ function main(): void {
     latestMainRuns: runs.latestMainRuns,
     discovery: {
       repositoryDiscovery: repo.discovery,
+      defaultBranchHeadDiscovery: defaultBranchHead.discovery,
       branchProtectionDiscovery: branch.discovery,
       rulesetDiscovery: rulesets.discovery,
       securityAndAnalysisDiscovery: security.discovery,
