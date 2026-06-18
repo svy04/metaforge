@@ -28,7 +28,7 @@ Public history boundary: Metaforge moved from a private/local workbench into thi
 | --- | --- |
 | What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
 | Fastest verification | `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
-| Strongest public evidence | [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), and [evidence manifest](docs/product-quality/product-evidence-manifest.md). |
+| Strongest public evidence | [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-14.md), [model/system card](docs/MODEL_SYSTEM_CARD.md), [evidence manifest](docs/product-quality/product-evidence-manifest.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
 | Evidence class map | The evidence manifest now separates behavioral runtime evidence from static analysis, governance-boundary, source-control, and structural-inventory evidence before public claims are upgraded. |
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
@@ -75,6 +75,8 @@ Use the public proof pack when describing Metaforge outside the repo. It gives t
 Wiring boundary: Orchestra is runtime-wired in `src/` today. Meta and MFH are governance, schema, and evidence-gate surfaces in `docs/`, reports, and product-quality gates. AVF Influence Factory is a repo-local manual artifact lane under `avf/` and `scripts/`, not a default runtime import. Generated AVF operator runs are local-only artifacts; see [avf/influence_factory/operator_runs.md](avf/influence_factory/operator_runs.md).
 
 ### Wiring Evidence Map
+
+The generated [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) is the source-bound version of this table: it binds each symbol to allowed claims, explicit non-claims, local evidence paths, and unresolved gaps.
 
 | Symbol | Public role | Evidence class | Runtime boundary |
 | --- | --- | --- | --- |
