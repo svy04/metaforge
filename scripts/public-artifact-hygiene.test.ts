@@ -170,7 +170,7 @@ describe('public artifact hygiene scanner', () => {
 
   test('write mode scrubs the current repo root before private workspace leak checks', () => {
     const parent = makeTempRepo()
-    const repo = join(parent, '내 순수 재미', 'openclaude-worktrees', 'public-feedback-static-proof')
+    const repo = join(parent, '한글 테스트 경로', 'openclaude-worktrees', 'public-feedback-static-proof')
     const reportDir = join(repo, 'docs', 'product-quality')
     const reportPath = join(reportDir, 'golden-path-terminal-transcripts.md')
     mkdirSync(reportDir, { recursive: true })
@@ -191,7 +191,7 @@ describe('public artifact hygiene scanner', () => {
 
     const sanitized = readFileSync(reportPath, 'utf8')
     expect(sanitized).toContain('<repo>')
-    expect(sanitized).not.toContain('내 순수 재미')
+    expect(sanitized).not.toContain('한글 테스트 경로')
     expect(sanitized).not.toContain(parent)
   })
 

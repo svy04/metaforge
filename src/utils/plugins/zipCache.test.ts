@@ -77,19 +77,19 @@ test('createZipFromDirectory reads file contents from the same opened file it st
             open: 0,
             pathReadFile: 0,
           }
-          const fileStat = {
+          const fileDirent = {
+            name: 'plugin.txt',
             isDirectory: () => false,
             isFile: () => true,
             isSymbolicLink: () => false,
+          }
+          const fileStat = {
+            isFile: () => true,
             mode: 0o100755,
           }
 
           mock.module('fs/promises', () => ({
             ...realFsPromises,
-            lstat: async (path: string) => {
-              if (path === filePath) return fileStat
-              return realFsPromises.lstat(path)
-            },
             open: async (path: string, flags: string) => {
               if (path !== filePath) return realFsPromises.open(path, flags)
               calls.open++
@@ -115,9 +115,12 @@ test('createZipFromDirectory reads file contents from the same opened file it st
               }
               return realFsPromises.readFile(path)
             },
-            readdir: async (path: string) => {
-              if (path === sourceDir) return ['plugin.txt']
-              return realFsPromises.readdir(path)
+            readdir: async (path: string, options?: object) => {
+              if (path === sourceDir) {
+                expect(options).toEqual({ withFileTypes: true })
+                return [fileDirent]
+              }
+              return realFsPromises.readdir(path, options)
             },
             stat: async (path: string, options?: object) => {
               if (path === sourceDir) return { dev: 1n, ino: 2n }

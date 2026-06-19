@@ -30,9 +30,9 @@
  */
 
 import { randomBytes } from 'crypto'
+import type { Dirent } from 'node:fs'
 import {
   chmod,
-  lstat,
   open,
   readdir,
   rename,
@@ -239,9 +239,9 @@ async function collectFilesForZip(
   visited: Set<string>,
 ): Promise<void> {
   const currentDir = relativePath ? join(baseDir, relativePath) : baseDir
-  let entries: string[]
+  let entries: Dirent<string>[]
   try {
-    entries = await readdir(currentDir)
+    entries = await readdir(currentDir, { withFileTypes: true })
   } catch {
     return
   }
@@ -275,37 +275,16 @@ async function collectFilesForZip(
 
   for (const entry of entries) {
     // Skip hidden files that are git-related
-    if (entry === '.git') {
+    if (entry.name === '.git') {
       continue
     }
 
-    const fullPath = join(currentDir, entry)
-    const relPath = relativePath ? `${relativePath}/${entry}` : entry
+    const fullPath = join(currentDir, entry.name)
+    const relPath = relativePath ? `${relativePath}/${entry.name}` : entry.name
 
-    let fileStat
-    try {
-      fileStat = await lstat(fullPath)
-    } catch {
-      continue
-    }
-
-    // Skip symlinked directories (follow symlinked files)
-    if (fileStat.isSymbolicLink()) {
-      try {
-        const targetStat = await stat(fullPath)
-        if (targetStat.isDirectory()) {
-          continue
-        }
-        // Symlinked file — read its contents below
-        fileStat = targetStat
-      } catch {
-        continue // broken symlink
-      }
-    }
-
-    if (fileStat.isDirectory()) {
+    if (entry.isDirectory()) {
       await collectFilesForZip(baseDir, relPath, files, visited)
-    } else if (fileStat.isFile()) {
+    } else if (entry.isFile() || entry.isSymbolicLink()) {
       try {
         const fd = await open(fullPath, 'r')
         try {

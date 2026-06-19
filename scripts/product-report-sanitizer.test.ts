@@ -9,7 +9,7 @@ describe('product report public sanitizer', () => {
   const worktreeRepoPath = [
     winHome,
     desktop,
-    '내 순수 재미',
+    '한글 테스트 경로',
     'openclaude-worktrees',
     'public-feedback-static-proof',
   ].join('\\')
@@ -44,7 +44,7 @@ describe('product report public sanitizer', () => {
     expect(scrubbed).toContain('<repo>\\dist\\cli.mjs --version')
     expect(scrubbed).toContain('"cwd":"<repo>"')
     expect(scrubbed).not.toContain('<user-home>')
-    expect(scrubbed).not.toContain('내 순수 재미')
+    expect(scrubbed).not.toContain('한글 테스트 경로')
     expect(scrubbed).not.toContain(winUserPrefix)
   })
 
