@@ -30,11 +30,11 @@
  */
 
 import { randomBytes } from 'crypto'
+import type { Dirent } from 'node:fs'
 import {
   chmod,
-  lstat,
+  open,
   readdir,
-  readFile,
   rename,
   rm,
   stat,
@@ -239,9 +239,9 @@ async function collectFilesForZip(
   visited: Set<string>,
 ): Promise<void> {
   const currentDir = relativePath ? join(baseDir, relativePath) : baseDir
-  let entries: string[]
+  let entries: Dirent<string>[]
   try {
-    entries = await readdir(currentDir)
+    entries = await readdir(currentDir, { withFileTypes: true })
   } catch {
     return
   }
@@ -275,46 +275,34 @@ async function collectFilesForZip(
 
   for (const entry of entries) {
     // Skip hidden files that are git-related
-    if (entry === '.git') {
+    if (entry.name === '.git') {
       continue
     }
 
-    const fullPath = join(currentDir, entry)
-    const relPath = relativePath ? `${relativePath}/${entry}` : entry
+    const fullPath = join(currentDir, entry.name)
+    const relPath = relativePath ? `${relativePath}/${entry.name}` : entry.name
 
-    let fileStat
-    try {
-      fileStat = await lstat(fullPath)
-    } catch {
-      continue
-    }
-
-    // Skip symlinked directories (follow symlinked files)
-    if (fileStat.isSymbolicLink()) {
-      try {
-        const targetStat = await stat(fullPath)
-        if (targetStat.isDirectory()) {
-          continue
-        }
-        // Symlinked file — read its contents below
-        fileStat = targetStat
-      } catch {
-        continue // broken symlink
-      }
-    }
-
-    if (fileStat.isDirectory()) {
+    if (entry.isDirectory()) {
       await collectFilesForZip(baseDir, relPath, files, visited)
-    } else if (fileStat.isFile()) {
+    } else if (entry.isFile() || entry.isSymbolicLink()) {
       try {
-        const content = await readFile(fullPath)
-        // os=3 (Unix) + st_mode in high 16 bits of external_attr — this is
-        // what parseZipModes reads back on extraction. fileStat is already
-        // in hand from the lstat/stat above, so no extra syscall.
-        files[relPath] = [
-          new Uint8Array(content),
-          { os: 3, attrs: (fileStat.mode & 0xffff) << 16 },
-        ]
+        const fd = await open(fullPath, 'r')
+        try {
+          const openedStat = await fd.stat()
+          if (!openedStat.isFile()) {
+            continue
+          }
+          const content = await fd.readFile()
+          // os=3 (Unix) + st_mode in high 16 bits of external_attr — this is
+          // what parseZipModes reads back on extraction. Use the opened file's
+          // stat so content and mode come from the same descriptor.
+          files[relPath] = [
+            new Uint8Array(content),
+            { os: 3, attrs: (openedStat.mode & 0xffff) << 16 },
+          ]
+        } finally {
+          await fd.close()
+        }
       } catch (error) {
         logForDebugging(`Failed to read file for zip: ${relPath}: ${error}`)
       }

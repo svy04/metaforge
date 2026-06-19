@@ -2,7 +2,35 @@ const sep = String.raw`(?:\\+|/)`
 const segment = String.raw`[^\\/"]+`
 const userSegment = String.raw`[^\\/"]+`
 
-const replacements: Array<{ pattern: RegExp; replacement: string }> = [
+type ScrubOptions = {
+  repoRoot?: string
+}
+
+type Replacement = {
+  pattern: RegExp
+  replacement: string
+}
+
+function escapeRegExp(input: string): string {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function pathPattern(input: string): RegExp {
+  const parts = input.split(/[\\/]+/).filter(Boolean).map(escapeRegExp)
+  if (parts.length === 0) {
+    return /$^/
+  }
+  const first = parts[0]
+  const body = parts.slice(1).join(sep)
+  const prefix = /^[A-Za-z]:$/.test(first)
+    ? `${first}${body ? sep : ''}`
+    : input.startsWith('/') || input.startsWith('\\')
+      ? sep
+      : ''
+  return new RegExp(`${prefix}${body || (!/^[A-Za-z]:$/.test(first) ? first : '')}`, 'g')
+}
+
+const staticReplacements: Replacement[] = [
   {
     pattern: new RegExp(
       String.raw`C:${sep}Users${sep}${userSegment}${sep}Desktop${sep}${segment}${sep}openclaude-0\.6\.0`,
@@ -34,23 +62,33 @@ const replacements: Array<{ pattern: RegExp; replacement: string }> = [
   },
 ]
 
-export function scrubPublicArtifactText(text: string): string {
-  return replacements.reduce(
+function replacementsFor(options: ScrubOptions): Replacement[] {
+  return [
+    {
+      pattern: pathPattern(options.repoRoot ?? process.cwd()),
+      replacement: '<repo>',
+    },
+    ...staticReplacements,
+  ]
+}
+
+export function scrubPublicArtifactText(text: string, options: ScrubOptions = {}): string {
+  return replacementsFor(options).reduce(
     (current, item) => current.replace(item.pattern, item.replacement),
     text,
   )
 }
 
-export function scrubPublicArtifactValue<T>(value: T): T {
+export function scrubPublicArtifactValue<T>(value: T, options: ScrubOptions = {}): T {
   if (typeof value === 'string') {
-    return scrubPublicArtifactText(value) as T
+    return scrubPublicArtifactText(value, options) as T
   }
   if (Array.isArray(value)) {
-    return value.map((item) => scrubPublicArtifactValue(item)) as T
+    return value.map((item) => scrubPublicArtifactValue(item, options)) as T
   }
   if (value && typeof value === 'object') {
     return Object.fromEntries(
-      Object.entries(value).map(([key, item]) => [key, scrubPublicArtifactValue(item)]),
+      Object.entries(value).map(([key, item]) => [key, scrubPublicArtifactValue(item, options)]),
     ) as T
   }
   return value

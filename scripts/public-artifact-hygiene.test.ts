@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test } from 'bun:test'
 import { spawnSync } from 'node:child_process'
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 
@@ -17,6 +17,14 @@ function makeTempRepo(): string {
 
 function runHygiene(cwd: string) {
   return spawnSync('bun', ['run', scriptPath], {
+    cwd,
+    encoding: 'utf8',
+    shell: false,
+  })
+}
+
+function runHygieneWrite(cwd: string) {
+  return spawnSync('bun', ['run', scriptPath, '--write'], {
     cwd,
     encoding: 'utf8',
     shell: false,
@@ -158,6 +166,33 @@ describe('public artifact hygiene scanner', () => {
     expect(result.status).not.toBe(0)
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
     expect(`${result.stdout}\n${result.stderr}`).toContain('user-workspace-path')
+  })
+
+  test('write mode scrubs the current repo root before private workspace leak checks', () => {
+    const parent = makeTempRepo()
+    const repo = join(parent, '한글 테스트 경로', 'openclaude-worktrees', 'public-feedback-static-proof')
+    const reportDir = join(repo, 'docs', 'product-quality')
+    const reportPath = join(reportDir, 'golden-path-terminal-transcripts.md')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      reportPath,
+      [
+        `repo_root: ${repo}`,
+        `command: ${join(repo, 'dist', 'cli.mjs')} --version`,
+      ].join('\n'),
+    )
+
+    const writeResult = runHygieneWrite(repo)
+    const output = `${writeResult.stdout}\n${writeResult.stderr}`
+
+    expect(writeResult.status).toBe(0)
+    expect(output).toContain('RESULT: PASS')
+    expect(runHygiene(repo).status).toBe(0)
+
+    const sanitized = readFileSync(reportPath, 'utf8')
+    expect(sanitized).toContain('<repo>')
+    expect(sanitized).not.toContain('한글 테스트 경로')
+    expect(sanitized).not.toContain(parent)
   })
 
   test('rejects pasted internal runtime context in public docs', () => {
