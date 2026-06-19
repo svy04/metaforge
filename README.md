@@ -89,7 +89,7 @@ Use the public proof pack when describing Metaforge outside the repo. It gives t
 
 - [Metaforge Public Proof Pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md)
 - [Public proof-pack source ledger](docs/research/public-proof-pack-source-ledger-2026-06-18.md)
-- [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-19.md)
+- [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-20.md)
 
 ## Operating Layers
 
