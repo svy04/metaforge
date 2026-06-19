@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test'
 
 import {
   CODEX_GPT_55_ALIAS,
-  CLAUDE_OPUS_47_ALIAS,
+  CLAUDE_OPUS_ALIAS,
   DEFAULT_ORCHESTRA_SETTINGS,
   resolveOrchestraSettings,
 } from './config.js'
@@ -21,7 +21,7 @@ describe('orchestra config', () => {
     expect(settings.workerPolicy).toBe('codex-first')
     expect(settings.verifierPolicy).toBe('codex-default-opus-on-risk')
     expect(settings.parallelism).toBe('independent-lanes-only')
-    expect(settings.roles.planner).toBe(CLAUDE_OPUS_47_ALIAS)
+    expect(settings.roles.planner).toBe(CLAUDE_OPUS_ALIAS)
     expect(settings.roles.implementer).toBe(CODEX_GPT_55_ALIAS)
   })
 
@@ -63,7 +63,7 @@ describe('orchestra config', () => {
   })
 
   test('v0.2-locked mode forces enabled=true, plannerPolicy=always, everyTurn=true regardless of user overrides', () => {
-    // The lock guarantees the v0.2 contract: GPT 5.5 + Opus 4.7 ALWAYS run
+    // The lock guarantees the v0.2 contract: GPT 5.5 + Claude Opus ALWAYS run
     // together on every turn. Even if a user accidentally writes
     // `enabled: false` or `plannerPolicy: 'off'` in settings.json, the lock
     // wins. This protects the v0.2 invariant from accidental footguns.

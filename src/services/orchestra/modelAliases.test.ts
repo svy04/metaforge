@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test'
 
 import {
   CODEX_GPT_55_ALIAS,
-  CLAUDE_OPUS_47_ALIAS,
+  CLAUDE_OPUS_ALIAS,
   resolveOrchestraModelAlias,
 } from './modelAliases.js'
 
@@ -17,7 +17,7 @@ describe('orchestra model alias resolver', () => {
       env: { OPENCLAUDE_ORCHESTRA_PLANNER_MODEL: 'claude-opus-env' },
     })
 
-    expect(result.displayAlias).toBe(CLAUDE_OPUS_47_ALIAS)
+    expect(result.displayAlias).toBe(CLAUDE_OPUS_ALIAS)
     expect(result.model).toBe('claude-opus-explicit')
     expect(result.source).toBe('settings')
     expect(result.diagnostic).toBeUndefined()
@@ -46,10 +46,10 @@ describe('orchestra model alias resolver', () => {
       apiProvider: 'codex',
     })
 
-    expect(planner.displayAlias).toBe(CLAUDE_OPUS_47_ALIAS)
+    expect(planner.displayAlias).toBe(CLAUDE_OPUS_ALIAS)
     expect(planner.model).toBe('claude-opus-4-7')
     expect(planner.source).toBe('fallback')
-    expect(planner.diagnostic).toContain(CLAUDE_OPUS_47_ALIAS)
+    expect(planner.diagnostic).toContain(CLAUDE_OPUS_ALIAS)
 
     expect(implementer.displayAlias).toBe(CODEX_GPT_55_ALIAS)
     expect(implementer.model).toBe('gpt-5.5')

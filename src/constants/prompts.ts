@@ -115,8 +115,7 @@ export const CLAUDE_CODE_DOCS_MAP_URL =
 export const SYSTEM_PROMPT_DYNAMIC_BOUNDARY =
   '__SYSTEM_PROMPT_DYNAMIC_BOUNDARY__'
 
-// @[MODEL LAUNCH]: Update the latest frontier model.
-const FRONTIER_MODEL_NAME = 'Claude Opus 4.7'
+const FAST_MODE_MODEL_DESCRIPTION = 'configured Claude model route'
 
 // @[MODEL LAUNCH]: Update the model family IDs below to the latest in each tier.
 const CLAUDE_4_5_OR_4_6_MODEL_IDS = {
@@ -694,13 +693,13 @@ export async function computeSimpleEnvInfo(
     knowledgeCutoffMessage,
     process.env.USER_TYPE === 'ant' && isUndercover()
       ? null
-      : `The most recent Claude model family is Claude 4.5/4.6/4.7. Model IDs — Opus 4.7: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.opus}', Sonnet 4.6: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.sonnet}', Haiku 4.5: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.haiku}'. When building AI applications, default to the latest and most capable Claude models.`,
+      : `Claude model examples in this checkout are configuration hints, not a current-model guarantee. Example configured IDs — Opus route: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.opus}', Sonnet route: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.sonnet}', Haiku route: '${CLAUDE_4_5_OR_4_6_MODEL_IDS.haiku}'. For new AI applications, verify current model availability in the provider's official documentation before making recency or capability claims.`,
     process.env.USER_TYPE === 'ant' && isUndercover()
       ? null
       : `OpenClaude is available as a CLI in the terminal and can be used across local development environments and IDE workflows.`,
     process.env.USER_TYPE === 'ant' && isUndercover()
       ? null
-      : `Fast mode for OpenClaude uses the same ${FRONTIER_MODEL_NAME} model with faster output. It does NOT switch to a different model. It can be toggled with /fast.`,
+      : `Fast mode for OpenClaude uses the same ${FAST_MODE_MODEL_DESCRIPTION} with faster output. It does NOT switch to a different model. It can be toggled with /fast.`,
   ].filter(item => item !== null)
 
   return [

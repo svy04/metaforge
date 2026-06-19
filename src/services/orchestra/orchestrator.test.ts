@@ -44,7 +44,7 @@ describe('orchestra advisory orchestration', () => {
     ).toBeNull()
   })
 
-  test('builds hidden Opus 4.7 planner requests with max effort', () => {
+  test('builds hidden Claude Opus planner requests with max effort', () => {
     const request = buildClaudeLoginPlannerRequest({
       model: 'claude-opus-4-7',
       prompt: 'Plan the next step.',
@@ -110,7 +110,7 @@ describe('orchestra advisory orchestration', () => {
   })
 
   test('everyTurn config opens orchestra to every user turn (v0.2 always-on mode)', () => {
-    // v0.2 vision: GPT 5.5 + Opus 4.7 must run together on EVERY turn, not just
+    // v0.2 vision: GPT 5.5 + Claude Opus must run together on EVERY turn, not just
     // turn 1. The everyTurn config knob enables this without a hard breaking
     // change — default stays false, but v0.2-locked mode flips it on.
     expect(
@@ -277,7 +277,9 @@ describe('orchestra advisory orchestration', () => {
 
     expect(result.metaMessage).toBeUndefined()
     expect(result.diagnostic).toContain('rate limited')
-    expect(result.blockingError).toContain('Claude Opus 4.7 planner failed')
+    expect(result.blockingError).toContain(
+      'Claude Opus (configured) planner failed',
+    )
     expect(result.blockingError).toContain('rate limited')
     expect(events).toEqual([
       expect.objectContaining({
@@ -317,7 +319,9 @@ describe('orchestra advisory orchestration', () => {
 
     expect(result.metaMessage).toBeUndefined()
     expect(result.blockingError).toBeUndefined()
-    expect(result.noticeMessage).toContain('Claude Opus 4.7 planner failed')
+    expect(result.noticeMessage).toContain(
+      'Claude Opus (configured) planner failed',
+    )
   })
 
   test('blocks orchestra recursion from skeptic self-call', () => {

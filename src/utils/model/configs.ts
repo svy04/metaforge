@@ -20,7 +20,7 @@ export const OPENAI_MODEL_DEFAULTS = {
 // Override with GEMINI_MODEL env var.
 // ---------------------------------------------------------------------------
 export const GEMINI_MODEL_DEFAULTS = {
-  opus: 'gemini-2.5-pro',   // most capable
+  opus: 'gemini-2.5-pro',   // strong reasoning
   sonnet: 'gemini-2.0-flash',              // balanced
   haiku: 'gemini-2.0-flash-lite',          // fast & cheap
 } as const

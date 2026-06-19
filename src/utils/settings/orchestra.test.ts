@@ -16,7 +16,7 @@ describe('SettingsSchema orchestra', () => {
         verifierPolicy: 'codex-default-opus-on-risk',
         parallelism: 'independent-lanes-only',
         roles: {
-          planner: 'Claude Opus 4.7',
+          planner: 'Claude Opus (configured)',
           implementer: 'Codex GPT 5.5',
         },
         models: {

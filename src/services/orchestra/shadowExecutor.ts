@@ -2,7 +2,7 @@ import { SHADOW_LABELS, type ShadowLabel, type ShadowWorktree } from './worktree
 
 /**
  * Phase 3 Shadow Executor — orchestrates 3 candidate patches in isolated
- * worktrees: GPT-A primary alternative, GPT-B alternative-approach, Opus 4.7
+ * worktrees: GPT-A primary alternative, GPT-B alternative-approach, Claude Opus
  * shadow. Each worker is responsible for actually mutating its own worktree
  * (commits + diff capture) and returning a ShadowCandidate summary.
  *
@@ -139,6 +139,6 @@ export function shadowSystemPromptFor(label: ShadowLabel): string {
     case 'gpt-b':
       return 'You are GPT-B. The other GPT instance is solving this same task with its primary approach. You MUST take a deliberately different approach — different data structure, different algorithm, different abstraction boundary. If your first instinct matches GPT-A, pick the second-best alternative.'
     case 'opus-shadow':
-      return 'You are Claude Opus 4.7 acting as the shadow executor (야당 그림자 구현). The visible lead is GPT 5.5. Produce your own implementation independently, paying special attention to risks and edge cases the GPT path may underweight.'
+      return 'You are Claude Opus acting as the configured shadow executor (야당 그림자 구현). The visible lead is GPT 5.5. Produce your own implementation independently, paying special attention to risks and edge cases the GPT path may underweight.'
   }
 }
