@@ -219,6 +219,21 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   },
   { label: 'current-model-placeholder', pattern: /<current-[^>\r\n]*model>/i },
   { label: 'latest-model-alias-claim', pattern: new RegExp(String.raw`\balias for the ` + 'latest model' + String.raw`\b`, 'i') },
+  {
+    label: 'latest-model-identifier',
+    pattern: new RegExp(
+      String.raw`\b(?:devstral|mistral|ministral|codestral|magistral)[a-z0-9.-]*-` +
+      'latest' +
+      String.raw`\b`,
+      'i',
+    ),
+    appliesTo: (path) => !path.startsWith('reports/') || isTrackedOrOutsideGit(path),
+  },
+  {
+    label: 'stale-package-model-lock',
+    pattern: new RegExp('qwen' + String.raw`2\.5-coder:7b`, 'i'),
+    appliesTo: (path) => path === 'package.json',
+  },
   { label: 'github-oauth-token-label', pattern: new RegExp('Token: ' + 'gho_') },
   { label: 'github-token', pattern: /\bgh[pousr]_[A-Za-z0-9_]{30,}\b/ },
   { label: 'github-fine-grained-token', pattern: /\bgithub_pat_[A-Za-z0-9_]{30,}\b/ },

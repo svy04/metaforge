@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-18T09:13:14.031Z",
+  "generatedAt": "2026-06-19T13:49:22.151Z",
   "mode": "local_no_provider_provider_capability_matrix",
   "sourceProviderCompatibilityReportPath": "docs/product-quality/provider-compatibility-fixtures.json",
-  "sourceProviderCompatibilityReportSha256": "b9348472966fbb9d2140f463713b9b720b78d5a15800f8426aaba34bd39ff2a5",
+  "sourceProviderCompatibilityReportSha256": "f0a6529cbec59d94a6619c55b4ca15d01c0ee44b3577fd0e63f87b1984436c75",
   "sourceRuntimeDoctorReportPath": "docs/product-quality/runtime-doctor-regression-fixtures.json",
-  "sourceRuntimeDoctorReportSha256": "d51508805f4a079ed338970bf1deb914fe4ba0f7c044b5fe2785507c7adac051",
+  "sourceRuntimeDoctorReportSha256": "113e0f1e7c4398b779b841ca8475af4b7bb28fb562d8de4df2e223f6c86132df",
   "sourceOssAxisArchitectureReportPath": "docs/product-quality/oss-axis-architecture-review-report.json",
-  "sourceOssAxisArchitectureReportSha256": "61e15e2a3ef56f5e084252f28914dd2bd80b4406563df3c30281f9424c63336d",
+  "sourceOssAxisArchitectureReportSha256": "e99e18c903aaf1e4479b40fc2784e0dd089d0792983fbc9c97fab2b65c189410",
   "directProviderFlagCount": 10,
   "providerPresetDefaultCount": 18,
   "productDescriptionProviders": [
@@ -27,7 +27,7 @@
     "live_model_authorization_missing"
   ],
   "provenanceJsonlPath": "reports/openclaude-provider-capability-matrix.jsonl",
-  "provenanceJsonlSha256": "b525ae40ef4acbecfddcb174441fbccd9ebd29da43e791fd57361a977a02a840",
+  "provenanceJsonlSha256": "0a80b94d022dae74bdd6c26b5a469b5bbd4e5d5a4f512eb0178e6085cd61b0a6",
   "provenanceJsonlRecordCount": 26,
   "provenanceJsonlParseable": true,
   "providerCallsPerformed": [],
@@ -434,7 +434,7 @@
       "name": "Mistral",
       "baseUrl": "https://api.mistral.ai/v1",
       "baseUrlCategory": "remote_https",
-      "model": "devstral-latest",
+      "model": "mistral-medium-3-5",
       "requiresApiKey": true,
       "noApiKeyLocalCandidate": false,
       "openAiCompatibleTransport": false,
@@ -456,7 +456,7 @@
       "providerBackedExecutionClaimAllowed": false,
       "externalValidationClaimAllowed": false,
       "claimAllowed": false,
-      "recordDigest": "da3dc62a297ac597155bef62e69d9917ec627d20cb00ba2547922cce672e30ad"
+      "recordDigest": "eefcae579eef5627bf1f0d28bb91ec75e6881b720dfa58d55d1bd0730499b38f"
     },
     {
       "schemaVersion": "openclaude_provider_capability_matrix_v1",
