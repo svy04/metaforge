@@ -36,6 +36,12 @@ Observed:
   evidence workspaces. Do not link them as public proof.
 - Public Mimesis profile copy should route through public repos and redacted
   proof artifacts only, with local/preliminary/null/negative boundaries visible.
+- CLI-substrate alternatives remain a bounded architecture backlog item, not a
+  marketing claim. The public thesis must stay portable over OpenClaude,
+  Claude/Codex routes, or future lower-risk host adapters.
+- Public workflow language should stay compact; internal GStack, GSD, and
+  Superpowers boundaries should not recreate the AGENTS.md rule-sprawl problem
+  in README copy.
 
 No hosted workflow, legal review, external validation, cleanup completion,
 profile deployment, or repo-wide leak scan is claimed by this audit.
@@ -70,9 +76,21 @@ This slice:
 
 - Keep converting marker-only product-quality checks into behavioral happy
   paths, edge cases, and side-effect guards.
+- Split static analysis into two lanes: candidate discovery remains a
+  Knip/dependency-cruiser/jscpd ratchet, while runtime/public-surface proof lane
+  work needs focused behavior tests before any deletion, topology-clean, or
+  public-wiring claim.
+- Start with side-effect-sensitive Knip candidates such as credential lookup
+  and credential clearing helpers; give each owner-backed rationale, runtime
+  guard, and removal/non-removal decision before treating it as cleanup work.
+- Turn large dependency-cruiser cycle counts into a smaller SCC/topology map
+  before refactoring module boundaries, so wiring evidence becomes readable
+  instead of another raw count.
 - Continue static-analysis remediation from the generated queue; do not claim
   cleanup completion from candidate reports.
-- Do not claim CodeQL health without inspecting a current hosted run.
+- Do not claim CodeQL health without inspecting a current hosted run, and do
+  not upgrade security-posture wording without hosted Scorecard or CodeQL
+  evidence bound to a current commit/date.
 - Do not claim fallow or Lumin Repo Lens are wired unless they are actually run
   or added to source-controlled gates.
 - Do not promote private local Mimesis workbench artifacts into public
