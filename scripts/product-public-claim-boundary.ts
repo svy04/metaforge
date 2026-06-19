@@ -137,15 +137,17 @@ export const publicClaimEvidenceMap: PublicClaimEvidenceMapRow[] = [
       'docs/product-quality/public-claim-boundary-report.md',
       'docs/product-quality/product-evidence-manifest.md',
       'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
+      'docs/goals/traces/CG-001-missing-evidence-rejected.trace.json',
+      'docs/goals/traces/CG-001-protected-action-blocked.trace.json',
     ],
     verificationCommand: 'bun run goals:validate && bun run product:public-claim-boundary',
-    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, and trace-validation evidence.',
+    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, and representative trace-validation evidence.',
     nonClaims: [
       'MFH is not a formal certification system.',
       'MFH is not external validation.',
       'MFH does not prove production, release, public, or autonomous reliability readiness.',
     ],
-    unresolvedGap: 'More representative traces, happy-path tests, edge-case tests, and side-effect behavior tests are still needed before MFH can carry broader reliability claims.',
+    unresolvedGap: 'Cross-goal runtime traces, live-provider evidence, and broader side-effect behavior coverage are still needed before MFH can carry broader reliability claims.',
   },
   {
     symbol: 'Orchestra',
@@ -366,6 +368,7 @@ function publicMarkdownReportPaths(): string[] {
   return [
     ...markdownPathsUnder('docs/product-quality', new Set([
       reportMdPath,
+      'docs/product-quality/product-evidence-manifest.md',
     ])),
     ...markdownPathsUnder('docs/marketing'),
   ]
@@ -923,10 +926,12 @@ function main(): void {
       row.evidencePaths.includes('docs/product-quality/goal-trace-validation-report.md') &&
       row.evidencePaths.includes('docs/product-quality/goal-trace-validation-report.json') &&
       row.evidencePaths.includes('docs/goals/traces/CG-001-goal-kernel-mvp.trace.json') &&
+      row.evidencePaths.includes('docs/goals/traces/CG-001-missing-evidence-rejected.trace.json') &&
+      row.evidencePaths.includes('docs/goals/traces/CG-001-protected-action-blocked.trace.json') &&
       row.verificationCommand.includes('goals:validate') &&
-      row.allowedClaim.includes('trace-validation evidence') &&
-      row.unresolvedGap.includes('representative traces')
-    )), 'MFH row includes trace report, trace fixture, goals validation, and remaining trace gap'),
+      row.allowedClaim.includes('representative trace-validation evidence') &&
+      row.unresolvedGap.includes('Cross-goal runtime traces')
+    )), 'MFH row includes trace report, representative trace fixtures, goals validation, and remaining cross-goal runtime trace gap'),
     check('OpenClaude remains substrate rather than thesis', publicClaimEvidenceMap.some((row) => row.symbol === 'OpenClaude runtime' && row.publicRole.includes('substrate') && row.allowedClaim.includes('local CLI substrate') && row.nonClaims.some((item) => item.includes('not the product thesis'))), 'substrate boundary present'),
     check('AVF remains manual artifact lane not default runtime', publicClaimEvidenceMap.some((row) => row.symbol === 'AVF Influence Factory' && row.evidenceClass.includes('manual artifact') && row.nonClaims.some((item) => item.includes('not a default CLI runtime import'))), 'AVF manual lane boundary present'),
     check('all configured public surfaces exist', scannedPublicSurfaces.every((surface) => surface.exists), scannedPublicSurfaces.filter((surface) => !surface.exists).map((surface) => surface.path).join(',') || 'all present'),

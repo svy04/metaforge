@@ -62,7 +62,7 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 
 1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md`가 owner intent를 scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, MFH/Meta field가 있는 machine-checkable goal로 만듭니다.
 2. **Meta**: goal은 local authority source, decision ledger, raw source, memory/wiki update boundary를 연결해서 운영 상태를 채팅 기억이 아니라 증거로 남깁니다.
-3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 closure trace의 순서와 side-effect boundary를 검사합니다.
+3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 validated, rejected, blocked outcome을 담은 representative trace pack의 순서와 side-effect boundary를 검사합니다.
 4. **Orchestra**: `src/services/orchestra/`는 planner, skeptic, reviewer, arbiter, promotion role이 runtime-wired 된 layer입니다. 단, 이 주장은 local test와 product-quality report 범위로만 말합니다.
 5. **Mimesis Engineering**: trace gate는 OpenTelemetry식 trace, OPA식 policy decision, OpenAI agent eval trace grading, NIST AI RMF risk-management record 구조를 흡수한 작은 증거층입니다.
 6. **OpenClaude runtime**: OpenClaude는 terminal tool, provider route, MCP, slash command, credential surface를 제공합니다. 제품 중심은 OpenClaude가 아니라 Meta/MFH/Orchestra입니다.

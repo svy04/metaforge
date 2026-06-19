@@ -54,7 +54,7 @@ Follow this path when checking whether the public story is real:
 
 1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md` turns owner intent into a machine-checkable goal with scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, and MFH/Meta fields.
 2. **Meta**: the goal links local authority sources, decision-ledger entries, raw sources, and memory/wiki update boundaries so operating state is not only chat context.
-3. **MFH**: `scripts/validate-goals.ts` blocks `validated` or `closed` goal states unless required validation commands have passing evidence, and `scripts/validate-goal-traces.ts` grades the ordered closure trace.
+3. **MFH**: `scripts/validate-goals.ts` blocks `validated` or `closed` goal states unless required validation commands have passing evidence, and `scripts/validate-goal-traces.ts` grades a representative trace pack covering validated, rejected, and blocked outcomes.
 4. **Orchestra**: `src/services/orchestra/` remains the runtime-wired layer for planner, skeptic, reviewer, arbiter, and promotion roles where local tests and product-quality reports cover those surfaces.
 5. **Mimesis Engineering**: the trace gate absorbs proven structures from OpenTelemetry-style traces, OPA-style policy decisions, OpenAI agent eval trace grading, and NIST AI RMF risk-management records.
 6. **OpenClaude runtime**: OpenClaude supplies terminal tools, provider routes, MCP, slash commands, and credential surfaces. It is the substrate, not the public thesis.

@@ -45,9 +45,11 @@ goal-trace validation artifacts to the MFH claim-evidence map:
 - `docs/product-quality/goal-trace-validation-report.md`
 - `docs/product-quality/goal-trace-validation-report.json`
 - `docs/goals/traces/CG-001-goal-kernel-mvp.trace.json`
+- `docs/goals/traces/CG-001-missing-evidence-rejected.trace.json`
+- `docs/goals/traces/CG-001-protected-action-blocked.trace.json`
 
 The matching gate now checks that the MFH row includes the trace report, trace
-fixture, `goals:validate`, and the remaining representative-trace gap.
+fixtures, `goals:validate`, and the remaining cross-goal runtime trace gap.
 
 ## Remaining Work
 

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-18T09:53:02.529Z",
+  "generatedAt": "2026-06-19T10:49:01.412Z",
   "mode": "local_no_provider_goal_trace_validation",
   "traceDirectory": "docs/goals/traces",
-  "traceFileCount": 1,
-  "validTraceCount": 1,
+  "traceFileCount": 3,
+  "validTraceCount": 3,
   "invalidTraceCount": 0,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -23,24 +23,59 @@
         "claim.reviewed",
         "goal.validated"
       ],
-      "sha256": "01b04a7a79cb14899bc760551eb9b4b980da301a4824e6cfcd261d1fbc315b3e"
+      "sha256": "7431cf7258b3bf34d0f3e77246336b7ec1ea213a164e7449f48be0b0e0f08270"
+    },
+    {
+      "path": "docs/goals/traces/CG-001-missing-evidence-rejected.trace.json",
+      "goalId": "CG-001",
+      "traceId": "c0010000000000000000000000000002",
+      "ok": true,
+      "errors": [],
+      "eventSequence": [
+        "goal.loaded",
+        "checkpoint.completed",
+        "validation.ran",
+        "claim.reviewed",
+        "goal.rejected"
+      ],
+      "sha256": "3d70985c112ac39056bd1ac66b63fed74bf0aa80377d8bec43ffcd6260f215ab"
+    },
+    {
+      "path": "docs/goals/traces/CG-001-protected-action-blocked.trace.json",
+      "goalId": "CG-001",
+      "traceId": "c0010000000000000000000000000003",
+      "ok": true,
+      "errors": [],
+      "eventSequence": [
+        "goal.loaded",
+        "checkpoint.completed",
+        "protected_action.denied",
+        "claim.reviewed",
+        "goal.blocked"
+      ],
+      "sha256": "2b46c330e65438e9504a873d906747fe7b5f5590fc5e6bcb1385d3314a53ea60"
     }
   ],
   "traceChecks": [
     {
       "label": "goal trace files discovered",
       "ok": true,
-      "detail": "1 trace files"
+      "detail": "3 trace files"
     },
     {
       "label": "all goal traces pass MFH closure policy",
       "ok": true,
-      "detail": "1/1 valid"
+      "detail": "3/3 valid"
     },
     {
       "label": "no provider/live/external/protected side effects recorded",
       "ok": true,
       "detail": "side-effect arrays are empty in all valid traces"
+    },
+    {
+      "label": "representative trace pack covers happy path, edge case, and side-effect denial",
+      "ok": true,
+      "detail": "validated=1, rejected=1, blocked=1"
     }
   ],
   "primarySourceInputs": [
