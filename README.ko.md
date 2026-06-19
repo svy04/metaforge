@@ -37,7 +37,7 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 | --- | --- |
 | 무엇인가요? | OpenClaude CLI runtime 위에서 동작하는 Meta/MFH/Orchestra OS입니다. |
 | 바로 확인할 명령 | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
-| 가장 강한 공개 증거 | [goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
+| 가장 강한 공개 증거 | [goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-19.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
 | 증거 분류 | `docs/product-quality/product-evidence-manifest.md`의 evidence manifest는 behavioral runtime evidence와 static analysis, governance-boundary, source-control, structural-inventory evidence를 분리합니다. |
 | 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
 
