@@ -44,8 +44,8 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 ## 공개 피드백 응답
 
 최근 한국 커뮤니티 피드백은 칭찬이나 외부 검증이 아니라 제품 입력으로 추적합니다.
-[2026-06-19 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-19.md)과
-[triage](docs/product-quality/public-feedback-triage-2026-06-19.md)에 보존되어 있습니다.
+[2026-06-20 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-20.md)과
+[triage](docs/product-quality/public-feedback-triage-2026-06-20.md)에 보존되어 있습니다.
 
 그 피드백 때문에 공개 기준을 이렇게 고정합니다.
 

@@ -36,8 +36,8 @@ Public history boundary: Metaforge moved from pre-public work outside this check
 ## Public Feedback Response
 
 Recent Korean community feedback is tracked as product input, not applause or validation:
-[2026-06-19 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-19.md) and
-[triage](docs/product-quality/public-feedback-triage-2026-06-19.md).
+[2026-06-20 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-20.md) and
+[triage](docs/product-quality/public-feedback-triage-2026-06-20.md).
 
 That feedback changed the public bar:
 

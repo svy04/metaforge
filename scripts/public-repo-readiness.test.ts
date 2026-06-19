@@ -135,8 +135,8 @@ describe('public repository readiness surfaces', () => {
     expect(directiveWordCount).toBeLessThanOrEqual(12)
     expect(agents).toContain('Meta/MFH/Orchestra')
     expect(agents).toContain('OpenClaude runtime')
-    expect(agents).toContain('docs/product-quality/public-feedback-snapshot-2026-06-15.md')
-    expect(agents).toContain('docs/product-quality/public-feedback-triage-2026-06-15.md')
+    expect(agents).toContain('docs/product-quality/public-feedback-snapshot-2026-06-{15,19,20}.md')
+    expect(agents).toContain('docs/product-quality/public-feedback-triage-2026-06-{15,19,20}.md')
     expect(agents).toContain('behavioral happy-path, edge-case, and side-effect evidence')
     expect(agents).not.toContain('OpenClaude Orchestrator Memory')
     expect(agents).not.toContain('Use tools such as Knip')
@@ -155,14 +155,18 @@ describe('public repository readiness surfaces', () => {
     const triage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-15.md')
     const latestSnapshot = readRepoText('docs/product-quality/public-feedback-snapshot-2026-06-19.md')
     const latestTriage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-19.md')
-    const combined = `${snapshot}\n${triage}\n${latestSnapshot}\n${latestTriage}`
+    const activeSnapshot = readRepoText('docs/product-quality/public-feedback-snapshot-2026-06-20.md')
+    const activeTriage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-20.md')
+    const combined = `${snapshot}\n${triage}\n${latestSnapshot}\n${latestTriage}\n${activeSnapshot}\n${activeTriage}`
 
     expect(combined).toContain('2026-06-18 Restated Feedback Packet')
     expect(combined).toContain('The same community thread was restated as an active operating input')
     expect(combined).toContain('Provenance is a trust surface')
+    expect(combined).toContain('Public trust begins before architecture')
     expect(combined).toContain('fork/adaptation questions should be')
     expect(combined).toContain('private-to-public transition')
     expect(combined).toContain('OpenClaude runtime substrate')
+    expect(combined).toContain('private local Mimesis workbench evidence is')
     expect(combined).toMatch(/behavioral happy paths, edge cases,[\s\S]*side-effect (?:guards|checks)/)
     expect(combined).toContain('Knip')
     expect(combined).toContain('fallow')
@@ -180,7 +184,7 @@ describe('public repository readiness surfaces', () => {
     const koreanReadme = readRepoText('README.ko.md')
 
     expect(readme).toContain('## Public Feedback Response')
-    expect(readme).toContain('2026-06-19 snapshot')
+    expect(readme).toContain('2026-06-20 snapshot')
     expect(readme).toContain('provenance and fork/adaptation boundaries')
     expect(readme).toContain('OpenClaude remains the runtime substrate')
     expect(readme).toContain('behavioral happy paths, edge cases, and side-effect guards')
@@ -592,6 +596,8 @@ describe('public repository readiness surfaces', () => {
       'docs/MIMESIS_ENGINEERING.md',
       'docs/product-quality/public-feedback-snapshot-2026-06-19.md',
       'docs/product-quality/public-feedback-triage-2026-06-19.md',
+      'docs/product-quality/public-feedback-snapshot-2026-06-20.md',
+      'docs/product-quality/public-feedback-triage-2026-06-20.md',
     ]
 
     for (const path of docs) {

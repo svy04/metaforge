@@ -99,10 +99,8 @@ Goals -> Atomic Tasks.
 
 Community feedback is tracked in:
 
-- `docs/product-quality/public-feedback-snapshot-2026-06-15.md`
-- `docs/product-quality/public-feedback-triage-2026-06-15.md`
-- `docs/product-quality/public-feedback-snapshot-2026-06-19.md`
-- `docs/product-quality/public-feedback-triage-2026-06-19.md`
+- `docs/product-quality/public-feedback-snapshot-2026-06-{15,19,20}.md`
+- `docs/product-quality/public-feedback-triage-2026-06-{15,19,20}.md`
 
 Keep this public AGENTS.md concise: no private memory dumps, local paths, stale
 model locks, raw runtime logs, or internal-only rule transcripts. Stronger
