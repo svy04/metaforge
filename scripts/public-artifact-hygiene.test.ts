@@ -178,6 +178,28 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('reports exact pasted AGENTS local-context headers alongside generic path findings', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'AGENTS.md'),
+      [
+        `# AGENTS.md instructions for ${windowsPrivatePath}`,
+        '<environment_context>',
+        '<workspace_roots>',
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+    const output = `${result.stdout}\n${result.stderr}`
+
+    expect(result.status).not.toBe(0)
+    expect(output).toContain('AGENTS.md')
+    expect(output).toContain('windows-user-path')
+    expect(output).toContain('pasted-agents-local-context')
+    expect(output).toContain('environment-context')
+    expect(output).toContain('workspace-roots-context')
+  })
+
   test('rejects raw public-comment UI dumps in public docs', () => {
     const repo = makeTempRepo()
     writeFileSync(
