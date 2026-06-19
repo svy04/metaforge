@@ -5,6 +5,7 @@ import {
   statSync,
   writeFileSync,
 } from 'node:fs'
+import { spawnSync } from 'node:child_process'
 import { basename, extname, relative, resolve } from 'node:path'
 import { argv, cwd, exit } from 'node:process'
 
@@ -57,6 +58,29 @@ type PublicLeakPattern = {
   label: string
   pattern: RegExp
   appliesTo?: (relativePath: string) => boolean
+}
+
+function loadTrackedFiles(): Set<string> | null {
+  const result = spawnSync('git', ['ls-files'], {
+    cwd: root,
+    encoding: 'utf8',
+    shell: false,
+  })
+  if (result.status !== 0) {
+    return null
+  }
+  return new Set(
+    result.stdout
+      .split(/\r?\n/)
+      .map((line) => line.trim().replace(/\\/g, '/'))
+      .filter(Boolean),
+  )
+}
+
+const trackedFiles = loadTrackedFiles()
+
+function isTrackedOrOutsideGit(relativePath: string): boolean {
+  return trackedFiles === null || trackedFiles.has(relativePath)
 }
 
 const ignoredSensitiveRootFileNames = new Set([
@@ -202,6 +226,16 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
       path.startsWith('.planning/') ||
       path.startsWith('.openclaude-profile.json')
     ),
+  },
+  {
+    label: 'raw-provider-error-payload',
+    pattern: /\b(?:rate_limit_error|redacted_provider_request_id|errorStatus"?\s*:\s*429|claude-opus-4-7|opus-4-7)\b/i,
+    appliesTo: (path) => path.startsWith('reports/') && isTrackedOrOutsideGit(path),
+  },
+  {
+    label: 'raw-local-exception-payload',
+    pattern: /\bMACRO is not defined\b/i,
+    appliesTo: (path) => path.startsWith('reports/') && isTrackedOrOutsideGit(path),
   },
   { label: 'local-file-url', pattern: /\bfile:\/\/\/[^\s`"']*index\.html#selftest\b/i },
   { label: 'local-selftest-target', pattern: /(?:^|[\s`"'])[^`\s"']*index\.html#selftest\b/i },

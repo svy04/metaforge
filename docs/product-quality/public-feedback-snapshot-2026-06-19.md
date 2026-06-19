@@ -2,10 +2,9 @@
 
 Status: public-safe feedback preservation, local/no-provider record only.
 
-The owner supplied another Korean community-feedback packet and asked that it be
-saved before continuing. This document preserves durable product signals rather
-than copying a raw comment thread, public handles, casual chat, or local/private
-machine details back into the repository.
+This snapshot preserves another Korean community-feedback packet as durable
+product signals. It intentionally avoids copying a raw comment thread, public
+handles, casual chat, or local/private machine details back into the repository.
 
 ## Durable Feedback Signals
 

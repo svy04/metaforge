@@ -80,7 +80,7 @@ Boundary: this triage proves the current public-surface checks passed locally.
 It does not prove production readiness, external validation, release readiness,
 or autonomous reliability.
 
-## Owner-Provided Community Feedback Snapshot
+## Community Feedback Snapshot
 
 Additional public-community feedback was recorded on 2026-06-15 as follow-up
 product input. The raw comment thread is not copied verbatim into the public
@@ -140,9 +140,9 @@ Current response in this slice:
   private Codex memory directory placeholders, private agent skill directory
   placeholders, raw private memory headings, and pasted local agent-instruction
   headers;
-- remove tracked generated AVF operator-run artifacts from the public checkout,
+- remove tracked generated AVF local-run artifacts from the public checkout,
   add a path-portability regression test for tracked files over 240 characters,
-  and keep `operator_package_v*` outputs ignored as local owner-review artifacts;
+  and keep `operator_package_v*` outputs ignored as local review artifacts;
 - extract tiny shared helper surfaces from community/public and origin/license
   quality scripts;
 - wire `bun run product:script-duplication-audit` into `product:quality`;
@@ -175,7 +175,7 @@ Blocked context: this is still local no-provider evidence and does not prove pro
 
 ## 2026-06-18 Response: Product Evidence Reframing
 
-The owner-restated feedback packet is now treated as an active backlog input,
+The restated feedback packet is now treated as an active backlog input,
 not a one-time launch reaction. This response slice keeps the raw thread out of
 public docs while preserving the concrete work:
 
