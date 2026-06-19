@@ -1742,7 +1742,6 @@ async function loadAndCacheMarketplace(
         // Rename temp cache to final name
         await fs.rename(temporaryCachePath, finalCachePath)
         temporaryCachePath = finalCachePath
-        cleanupNeeded = false // Successfully renamed, no cleanup needed
       } catch (error) {
         const errorMsg = errorMessage(error)
         throw new Error(

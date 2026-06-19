@@ -56,7 +56,7 @@ export function AssistantToolUseMessage(t0: Props) {
   const permissionMode = useAppStateMaybeOutsideOfProvider(_temp2);
   const hasStrippedRules = useAppStateMaybeOutsideOfProvider(_temp3);
   const isAutoClassifier = permissionMode === "auto" || permissionMode === "plan" && hasStrippedRules;
-  const isClassifierChecking = false && isClassifierCheckingRaw && permissionMode !== "auto";
+  const isClassifierChecking = isClassifierCheckingRaw;
   let t1;
   if ($[0] !== param.input || $[1] !== param.name || $[2] !== tools) {
     bb0: {

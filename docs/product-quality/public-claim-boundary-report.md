@@ -285,9 +285,9 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/product-quality/community-intake-quality-report.md` | `true` | `e57c131467cd7c49c562c002ee3969d37dca82db8301ad2a25bbcf26793c1047` | 61 |
 | `docs/product-quality/community-profile-quality-report.md` | `true` | `08b95453f468cd80749bb3d6195c71a5630f39278ae4a76d49a0c1e2373d5ef0` | 64 |
 | `docs/product-quality/competitive-scorecard.md` | `true` | `db68e5bcc24f30ad3e0adb9c98e7ea3afcec47aa50392e3a0658a4a504330d60` | 67 |
-| `docs/product-quality/dead-export-candidates-report.md` | `true` | `596a0d34cb8a78af67f20e1dcf3f3d1f6e312877e55a3a3a5155c84369b324c5` | 112 |
+| `docs/product-quality/dead-export-candidates-report.md` | `true` | `dc08c5f4efa61cfb0e8b56df2ec102785dda21630d6efd8c34e814179ac83d4b` | 112 |
 | `docs/product-quality/dependency-governance-quality-report.md` | `true` | `4edaa9099276c14919ae5390999a4a356727137f106b62ee84a0db4e8b4aa12a` | 179 |
-| `docs/product-quality/dependency-topology-report.md` | `true` | `7945ba09d6d16eb464589238ce01fb1c2c68cbd73fd4dd0d839502c19093da60` | 117 |
+| `docs/product-quality/dependency-topology-report.md` | `true` | `92acb7cfc97c2a9559ca140071d7fb4839319335b86be304c206d3c7f9e99dbf` | 117 |
 | `docs/product-quality/doc-link-integrity-report.md` | `true` | `16378b14406beb31065bc8a2c7af9971b8d88f444992c9da1ae6973ec43189fd` | 124 |
 | `docs/product-quality/eval-flywheel-validation-report.md` | `true` | `8c09d95c865c368ede3d81b2c9811423ad77f0d8fc410bcea8db6ca4e8b3c015` | 44 |
 | `docs/product-quality/external-benchmark-authorization-request.md` | `true` | `99a21853c963093d60426ce1eb02c4b23d2450fd5396280d6dbca143a22b4d3b` | 31 |
@@ -361,7 +361,7 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/product-quality/release-artifact-reproducibility-report.md` | `true` | `fcf65b88d294218421bce03071538ce5d927f9b5494ce3f26855683fda39182f` | 57 |
 | `docs/product-quality/research-brief-validation-report.md` | `true` | `2d2b174682b62e550d6629f1b202a83a19d928ac3f1b374a432cbb699f9ecc9f` | 75 |
 | `docs/product-quality/runtime-doctor-regression-fixtures.md` | `true` | `7b9ef7fba04ffc74b6de423ebc5dff32a1dda99893bb6f8b4a57ea77e7c0cb33` | 62 |
-| `docs/product-quality/script-duplication-audit-report.md` | `true` | `41e0e704191811618a10bce90a891d20af3b60d93540d4961c551cf0e84dacbf` | 97 |
+| `docs/product-quality/script-duplication-audit-report.md` | `true` | `939333855e57512209bd7ba58d4c9f724feb3bd277eb1ac6ffcdd26c211bfa30` | 97 |
 | `docs/product-quality/source-controlled-checks-report.md` | `true` | `7084a4cc99bef3c3db10e92eac758049f7fbc969c78ed4d2ee7a8652b8d1c5d5` | 51 |
 | `docs/product-quality/source-license-metadata-quality-report.md` | `true` | `e271bdd028ae0317bc2bf53d4dff6f7294c383a3b96e5c2326e1124a16422c10` | 184 |
 | `docs/product-quality/terminal-bench-readiness-report.md` | `true` | `c76ebab4c267c229af18a7c6708eb0a56768823ec6d5c0edc9f7b2368466e7bc` | 69 |
