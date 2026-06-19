@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T20:06:54.337Z",
+  "generatedAt": "2026-06-19T20:43:14.256Z",
   "mode": "local_no_provider_static_analysis_remediation_queue",
   "repository": "svy04/metaforge",
-  "sourceCommit": "115d1d3d499b43c3ceeb0acfcdddf35c30ee8b7a",
+  "sourceCommit": "167f85a298e8b6cf040081f9f3b7149eea1543bc",
   "generatedFrom": [
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dependency-topology-report.json",
@@ -180,7 +180,7 @@
   ],
   "queueItemCount": 5,
   "deadExport": {
-    "generatedAt": "2026-06-19T16:34:12.264Z",
+    "generatedAt": "2026-06-19T20:43:14.088Z",
     "mode": "local_no_provider_dead_export_candidate_gate",
     "scannerTarget": "knip --config knip.jsonc --exports",
     "knipVersion": "6.16.1",
@@ -309,19 +309,6 @@
         "sampleTypes": []
       },
       {
-        "file": "src/constants/prompts.ts",
-        "unusedExports": 4,
-        "unusedTypes": 0,
-        "duplicateExports": 0,
-        "sampleExports": [
-          "CLAUDE_CODE_DOCS_MAP_URL",
-          "computeEnvInfo",
-          "getUnameSR",
-          "getScratchpadInstructions"
-        ],
-        "sampleTypes": []
-      },
-      {
         "file": "src/state/AppState.tsx",
         "unusedExports": 2,
         "unusedTypes": 3,
@@ -374,6 +361,19 @@
           "canYankPop",
           "VIM_WORD_CHAR_REGEX",
           "WHITESPACE_REGEX"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/constants/prompts.ts",
+        "unusedExports": 4,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "CLAUDE_CODE_DOCS_MAP_URL",
+          "computeEnvInfo",
+          "getUnameSR",
+          "getScratchpadInstructions"
         ],
         "sampleTypes": []
       },
@@ -736,7 +736,7 @@
     "claimBoundary": "Knip findings are candidate unused export/type/duplicate-export evidence only. They do not prove a symbol is safe to delete, that cleanup is complete, or that the repo is public-ready."
   },
   "dependencyTopology": {
-    "generatedAt": "2026-06-19T16:23:32.288Z",
+    "generatedAt": "2026-06-19T20:43:10.128Z",
     "mode": "local_no_provider_dependency_topology_gate",
     "scannerTargetRoots": [
       "src",
@@ -834,14 +834,14 @@
         ],
         "missingSubstrings": [],
         "stdoutPreview": [
-          "✔ no dependency violations found (2631 modules, 11985 dependencies cruised)",
+          "✔ no dependency violations found (2632 modules, 11986 dependencies cruised)",
           "‼ 2105 known violations ignored. Run with --no-ignore-known to see them."
         ],
         "stderrPreview": []
       }
     ],
-    "moduleCount": 2631,
-    "dependencyEdgeCount": 11985,
+    "moduleCount": 2632,
+    "dependencyEdgeCount": 11986,
     "circularDependencyCount": 1737,
     "circularDependencyBaseline": 1737,
     "unresolvedDependencyCount": 863,
@@ -1063,12 +1063,12 @@
       {
         "label": "modules are discovered",
         "ok": true,
-        "detail": "2631 modules"
+        "detail": "2632 modules"
       },
       {
         "label": "dependency edges are discovered",
         "ok": true,
-        "detail": "11985 edges"
+        "detail": "11986 edges"
       },
       {
         "label": "circular dependencies do not exceed baseline",
@@ -1114,7 +1114,7 @@
     "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
   },
   "scriptDuplication": {
-    "generatedAt": "2026-06-19T16:22:57.633Z",
+    "generatedAt": "2026-06-19T20:42:35.050Z",
     "mode": "local_no_provider_product_script_duplication_audit",
     "scannerTargetGlob": "scripts/product-*.ts",
     "auditTargetHelperNames": [
@@ -1122,7 +1122,7 @@
       "readText",
       "sha256Text"
     ],
-    "sourceProductScriptCount": 94,
+    "sourceProductScriptCount": 95,
     "helperOccurrenceCounts": {
       "check": 63,
       "readText": 28,
@@ -1327,7 +1327,7 @@
           },
           {
             "path": "scripts/product-quality-gate.ts",
-            "line": 3199
+            "line": 3242
           },
           {
             "path": "scripts/product-real-session-capture.ts",
@@ -1503,7 +1503,7 @@
           },
           {
             "path": "scripts/product-quality-gate.ts",
-            "line": 3195
+            "line": 3238
           },
           {
             "path": "scripts/product-runtime-doctor-regression.ts",
@@ -1539,20 +1539,20 @@
         "JSON report saved"
       ],
       "missingSubstrings": [],
-      "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
+      "stdoutPreview": "JSON report saved to <local-path>\ntime: 48.783ms\n",
       "stderrPreview": "Using config from .jscpd.json\n"
     },
-    "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
+    "jscpdReportSha256": "bd9ee0ef49f7c5c17762aef1e942806abadb3b1b4c6f7eef605319212273bb47",
     "jscpdCloneCount": 17,
     "jscpdCloneBaseline": 17,
     "jscpdDuplicatedLines": 439,
     "jscpdDuplicatedLinesBaseline": 439,
     "jscpdDuplicatedTokens": 2979,
     "jscpdDuplicatedTokensBaseline": 2979,
-    "jscpdDuplicatedPercentage": 1.0281993629379802,
+    "jscpdDuplicatedPercentage": 1.0146769906390847,
     "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-    "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
-    "jscpdSourceCount": 94,
+    "jscpdDuplicatedTokenPercentage": 1.1163742383247266,
+    "jscpdSourceCount": 95,
     "jscpdTopClonePairs": [
       {
         "firstFile": "scripts/product-dead-export-candidates.ts",
@@ -1780,7 +1780,7 @@
       {
         "label": "product scripts are scanned",
         "ok": true,
-        "detail": "94 files"
+        "detail": "95 files"
       },
       {
         "label": "target helper occurrence surface is measured",
@@ -1820,7 +1820,7 @@
       {
         "label": "jscpd duplicated percentage does not exceed baseline",
         "ok": true,
-        "detail": "1.0281993629379802/1.043871121150874"
+        "detail": "1.0146769906390847/1.043871121150874"
       },
       {
         "label": "jscpd clone pair paths are relative and normalized",

@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-06-18T09:11:36.728Z",
+  "generatedAt": "2026-06-19T20:41:53.482Z",
   "mode": "local_no_provider_oss_comparison_readiness_index",
   "sourceComparisonMatrixReportPath": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
-  "sourceComparisonMatrixReportSha256": "caf4866aa512be034103311c5b80dfe2b643167dcb9f91a57277594103495fea",
+  "sourceComparisonMatrixReportSha256": "4419d93e98156f495b9fbfdc71586665353f9bfbc09d4e1d675223feacfe5068",
   "sourceProtectedActionAuthorizationPacketPath": "docs/product-quality/protected-action-authorization-packet.json",
-  "sourceProtectedActionAuthorizationPacketSha256": "8d0e2c337b98c3f38e03553154aee8b1046e77f0f05897ae976cb30b05088f51",
+  "sourceProtectedActionAuthorizationPacketSha256": "da4e0f202cf8c6057ad9b744f1ab445ffe84368b88f88bfb54bf928c3bfc1956",
   "sourceProductEvidenceManifestPath": "docs/product-quality/product-evidence-manifest.json",
-  "sourceProductEvidenceManifestSha256": "ed20fde8510251f6da98c5316a89a8a453dfaee9f514c829ee5af2e85bf42ec8",
+  "sourceProductEvidenceManifestSha256": "4bd1c54db0be572fde8a4656bdeaf8e78284f0c71625aac1068acbeb4f9a1ce3",
   "sourcePublicClaimBoundaryReportPath": "docs/product-quality/public-claim-boundary-report.json",
-  "sourcePublicClaimBoundaryReportSha256": "ae3ca99a5cc6efebeef024f7d20adf9a844c43c0523f78c4c5f6f014cc07c6b2",
+  "sourcePublicClaimBoundaryReportSha256": "3dd47ee0e5e38b2f241fe11633ecb4475a4fafe6f5ec68adaa8a70d7fdc53360",
   "sourceReportBindings": [
     {
       "path": "docs/product-quality/oss-benchmark-comparison-matrix-report.json",
       "exists": true,
-      "sha256": "caf4866aa512be034103311c5b80dfe2b643167dcb9f91a57277594103495fea",
+      "sha256": "4419d93e98156f495b9fbfdc71586665353f9bfbc09d4e1d675223feacfe5068",
       "sizeBytes": 265570
     },
     {
       "path": "docs/product-quality/protected-action-authorization-packet.json",
       "exists": true,
-      "sha256": "8d0e2c337b98c3f38e03553154aee8b1046e77f0f05897ae976cb30b05088f51",
+      "sha256": "da4e0f202cf8c6057ad9b744f1ab445ffe84368b88f88bfb54bf928c3bfc1956",
       "sizeBytes": 20838
     },
     {
       "path": "docs/product-quality/product-evidence-manifest.json",
       "exists": true,
-      "sha256": "ed20fde8510251f6da98c5316a89a8a453dfaee9f514c829ee5af2e85bf42ec8",
-      "sizeBytes": 59320
+      "sha256": "4bd1c54db0be572fde8a4656bdeaf8e78284f0c71625aac1068acbeb4f9a1ce3",
+      "sizeBytes": 66392
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
       "exists": true,
-      "sha256": "ae3ca99a5cc6efebeef024f7d20adf9a844c43c0523f78c4c5f6f014cc07c6b2",
-      "sizeBytes": 625318
+      "sha256": "3dd47ee0e5e38b2f241fe11633ecb4475a4fafe6f5ec68adaa8a70d7fdc53360",
+      "sizeBytes": 698771
     }
   ],
   "baselineSnapshotDate": "2026-05-21",
@@ -971,7 +971,7 @@
     {
       "label": "evidence manifest includes source-controlled comparison matrix evidence and has no missing required paths",
       "ok": true,
-      "detail": "109 source-controlled required paths"
+      "detail": "126 source-controlled required paths"
     },
     {
       "label": "public claim boundary has no unauthorized positive claims",

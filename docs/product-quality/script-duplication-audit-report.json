@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T16:22:57.633Z",
+  "generatedAt": "2026-06-19T20:42:35.050Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -7,7 +7,7 @@
     "readText",
     "sha256Text"
   ],
-  "sourceProductScriptCount": 94,
+  "sourceProductScriptCount": 95,
   "helperOccurrenceCounts": {
     "check": 63,
     "readText": 28,
@@ -212,7 +212,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3199
+          "line": 3242
         },
         {
           "path": "scripts/product-real-session-capture.ts",
@@ -388,7 +388,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3195
+          "line": 3238
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
@@ -424,20 +424,20 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 48.783ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
+  "jscpdReportSha256": "bd9ee0ef49f7c5c17762aef1e942806abadb3b1b4c6f7eef605319212273bb47",
   "jscpdCloneCount": 17,
   "jscpdCloneBaseline": 17,
   "jscpdDuplicatedLines": 439,
   "jscpdDuplicatedLinesBaseline": 439,
   "jscpdDuplicatedTokens": 2979,
   "jscpdDuplicatedTokensBaseline": 2979,
-  "jscpdDuplicatedPercentage": 1.0281993629379802,
+  "jscpdDuplicatedPercentage": 1.0146769906390847,
   "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-  "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
-  "jscpdSourceCount": 94,
+  "jscpdDuplicatedTokenPercentage": 1.1163742383247266,
+  "jscpdSourceCount": 95,
   "jscpdTopClonePairs": [
     {
       "firstFile": "scripts/product-dead-export-candidates.ts",
@@ -665,7 +665,7 @@
     {
       "label": "product scripts are scanned",
       "ok": true,
-      "detail": "94 files"
+      "detail": "95 files"
     },
     {
       "label": "target helper occurrence surface is measured",
@@ -705,7 +705,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.0281993629379802/1.043871121150874"
+      "detail": "1.0146769906390847/1.043871121150874"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

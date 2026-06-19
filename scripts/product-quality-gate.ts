@@ -3155,6 +3155,49 @@ type GithubRemoteSurfaceAuditReport = {
   }>
 }
 
+type SecretScannerEvidenceReport = {
+  mode: string
+  status: string
+  externalScanners: Array<{
+    name: string
+    command: string
+    status: string
+    detail: string
+  }>
+  externalScannerUnavailableCount: number
+  hostedSecretScanning: {
+    secretScanning: string
+    pushProtection: string
+    sourceReportPath: string
+  }
+  remoteSurfaceAudit: {
+    status: string
+    blockerCount: number
+    sourceReportPath: string
+  }
+  findings: Array<{
+    category: string
+    severity: string
+    detail: string
+  }>
+  findingCount: number
+  providerCallsPerformed: unknown[]
+  liveModelCallsPerformed: unknown[]
+  protectedActionsExecuted: unknown[]
+  settingsMutationsPerformed: unknown[]
+  fullHistorySecretCleanClaimAllowed: boolean
+  hostedSecretScanningCleanClaimAllowed: boolean
+  verifiedSecretCleanClaimAllowed: boolean
+  publicSecurityPostureClaimAllowed: boolean
+  releaseReadinessClaimAllowed: boolean
+  productionReadinessClaimAllowed: boolean
+  externalValidationClaimAllowed: boolean
+  evidenceChecks: Array<{
+    label: string
+    ok: boolean
+  }>
+}
+
 type OriginLicenseProvenanceBoundaryReport = {
   mode: string
   status: string
@@ -3420,6 +3463,9 @@ function main(): void {
   const githubRemoteSurfaceAuditJsonPath = 'docs/product-quality/github-remote-surface-audit-report.json'
   const githubRemoteSurfaceAuditMdPath = 'docs/product-quality/github-remote-surface-audit-report.md'
   const githubRemoteSurfaceAuditJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'
+  const secretScannerEvidenceJsonPath = 'docs/product-quality/secret-scanner-evidence-report.json'
+  const secretScannerEvidenceMdPath = 'docs/product-quality/secret-scanner-evidence-report.md'
+  const secretScannerEvidenceJsonlPath = 'reports/openclaude-secret-scanner-evidence.jsonl'
   const originLicenseProvenanceBoundaryJsonPath = 'docs/product-quality/origin-license-provenance-boundary-report.json'
   const originLicenseProvenanceBoundaryMdPath = 'docs/product-quality/origin-license-provenance-boundary-report.md'
   const originLicenseProvenanceBoundaryJsonlPath = 'reports/openclaude-origin-license-provenance-boundary.jsonl'
@@ -3711,6 +3757,9 @@ function main(): void {
     githubRemoteSurfaceAuditJsonPath,
     githubRemoteSurfaceAuditMdPath,
     githubRemoteSurfaceAuditJsonlPath,
+    secretScannerEvidenceJsonPath,
+    secretScannerEvidenceMdPath,
+    secretScannerEvidenceJsonlPath,
     originLicenseProvenanceBoundaryJsonPath,
     originLicenseProvenanceBoundaryMdPath,
     originLicenseProvenanceBoundaryJsonlPath,
@@ -3808,6 +3857,9 @@ function main(): void {
     'product:quality-blocker-taxonomy',
     'product:public-claim-boundary',
     'product:github-remote-surface-audit',
+    'product:github-hosted-trust-posture',
+    'product:secret-scanner-evidence',
+    'product:secret-scanner-evidence:check',
     'product:origin-license-provenance-boundary',
     'product:protected-action-authorization-packet',
     'product:evidence-manifest',
@@ -3964,6 +4016,7 @@ function main(): void {
   const qualityBlockerTaxonomy = readJson<QualityBlockerTaxonomyReport>(qualityBlockerTaxonomyJsonPath)
   const publicClaimBoundary = readJson<PublicClaimBoundaryReport>(publicClaimBoundaryJsonPath)
   const githubRemoteSurfaceAudit = readJson<GithubRemoteSurfaceAuditReport>(githubRemoteSurfaceAuditJsonPath)
+  const secretScannerEvidence = readJson<SecretScannerEvidenceReport>(secretScannerEvidenceJsonPath)
   const originLicenseProvenanceBoundary = readJson<OriginLicenseProvenanceBoundaryReport>(originLicenseProvenanceBoundaryJsonPath)
   const protectedActionAuthorizationPacket = readJson<ProtectedActionAuthorizationPacketReport>(protectedActionAuthorizationPacketJsonPath)
   const productEvidenceManifest = readJson<ProductEvidenceManifestReport>(productEvidenceManifestJsonPath)
@@ -5029,6 +5082,12 @@ function main(): void {
   checks.push(check('GitHub remote surface audit detects no blockers', githubRemoteSurfaceAudit.blockerCount === 0 && githubRemoteSurfaceAudit.blockers.length === 0 && githubRemoteSurfaceAudit.status === 'no_public_github_surface_findings_detected', `${githubRemoteSurfaceAudit.blockerCount} blockers`))
   checks.push(check('GitHub remote surface audit blocks provider live and protected actions', githubRemoteSurfaceAudit.providerCallsPerformed.length === 0 && githubRemoteSurfaceAudit.liveModelCallsPerformed.length === 0 && githubRemoteSurfaceAudit.protectedActionsExecuted.length === 0))
   checks.push(check('GitHub remote surface audit checks pass', githubRemoteSurfaceAudit.evidenceChecks.every((item) => item.ok)))
+  checks.push(check('secret scanner evidence uses claim-bounded mode', secretScannerEvidence.mode === 'claim_bounded_secret_scanner_evidence', secretScannerEvidence.mode))
+  checks.push(check('secret scanner evidence classifies external scanner availability', secretScannerEvidence.externalScanners.length >= 3 && secretScannerEvidence.externalScanners.every((scanner) => scanner.status === 'available' || scanner.status === 'unavailable'), `${secretScannerEvidence.externalScanners.length} scanners/${secretScannerEvidence.externalScannerUnavailableCount} unavailable`))
+  checks.push(check('secret scanner evidence imports hosted and remote surface boundaries', secretScannerEvidence.hostedSecretScanning.sourceReportPath === 'docs/product-quality/github-hosted-trust-posture-report.json' && secretScannerEvidence.remoteSurfaceAudit.sourceReportPath === githubRemoteSurfaceAuditJsonPath, `${secretScannerEvidence.hostedSecretScanning.sourceReportPath}/${secretScannerEvidence.remoteSurfaceAudit.sourceReportPath}`))
+  checks.push(check('secret scanner evidence performed no provider live settings or protected actions', secretScannerEvidence.providerCallsPerformed.length === 0 && secretScannerEvidence.liveModelCallsPerformed.length === 0 && secretScannerEvidence.settingsMutationsPerformed.length === 0 && secretScannerEvidence.protectedActionsExecuted.length === 0))
+  checks.push(check('secret scanner evidence keeps secret-clean and readiness claims blocked', secretScannerEvidence.fullHistorySecretCleanClaimAllowed === false && secretScannerEvidence.hostedSecretScanningCleanClaimAllowed === false && secretScannerEvidence.verifiedSecretCleanClaimAllowed === false && secretScannerEvidence.publicSecurityPostureClaimAllowed === false && secretScannerEvidence.releaseReadinessClaimAllowed === false && secretScannerEvidence.productionReadinessClaimAllowed === false && secretScannerEvidence.externalValidationClaimAllowed === false))
+  checks.push(check('secret scanner evidence checks pass', secretScannerEvidence.evidenceChecks.every((item) => item.ok)))
   checks.push(check('origin/license provenance boundary is local no-provider check', originLicenseProvenanceBoundary.mode === 'local_no_provider_origin_license_provenance_boundary', originLicenseProvenanceBoundary.mode))
   checks.push(check('origin/license provenance boundary detects no blockers', originLicenseProvenanceBoundary.blockerCount === 0 && originLicenseProvenanceBoundary.blockers.length === 0 && originLicenseProvenanceBoundary.status === 'no_origin_license_provenance_boundary_findings', `${originLicenseProvenanceBoundary.blockerCount} blockers`))
   checks.push(check('origin/license provenance boundary preserves package and origin metadata', originLicenseProvenanceBoundary.packageLicenseField === 'SEE LICENSE FILE' && isMetaforgeGithubUrl(originLicenseProvenanceBoundary.packageRepositoryUrl) && isMetaforgeGithubUrl(originLicenseProvenanceBoundary.originRemoteUrl), `${originLicenseProvenanceBoundary.packageLicenseField}/${originLicenseProvenanceBoundary.packageRepositoryUrl}/${originLicenseProvenanceBoundary.originRemoteUrl}`))
