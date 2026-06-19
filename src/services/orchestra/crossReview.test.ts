@@ -146,4 +146,24 @@ describe('crossReview — formatting helpers', () => {
       expect(detail).toContain(v.rationale)
     }
   })
+
+  test('formatMatrixDetail escapes backslashes before markdown table pipes', () => {
+    const detail = formatMatrixDetail({
+      candidates: [baseCandidates[0]],
+      generatedAt: '2026-06-19T00:00:00.000Z',
+      verdicts: [
+        {
+          candidateLabel: 'gpt-a',
+          reviewer: 'gpt',
+          verdict: 'green',
+          scoresOutOf5: { correctness: 4, minimality: 4, scopeFit: 4 },
+          rationale: String.raw`windows path C:\tmp | table pipe`,
+        },
+      ],
+    })
+
+    expect(detail).toContain(
+      String.raw`| gpt-a | gpt | green | 4 | 4 | 4 | windows path C:\\tmp \| table pipe |`,
+    )
+  })
 })

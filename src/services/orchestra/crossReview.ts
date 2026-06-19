@@ -129,6 +129,10 @@ export function formatMatrixSummary(matrix: CrossReviewMatrix): string {
   return `[Phase 3 Cross-Review] ${parts.join(' | ')}`
 }
 
+function escapeMarkdownTableCell(value: string): string {
+  return value.replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+}
+
 export function formatMatrixDetail(matrix: CrossReviewMatrix): string {
   const lines: string[] = []
   lines.push(`# Phase 3 Cross-Review Matrix`)
@@ -139,7 +143,7 @@ export function formatMatrixDetail(matrix: CrossReviewMatrix): string {
   for (const v of matrix.verdicts) {
     const s = v.scoresOutOf5
     lines.push(
-      `| ${v.candidateLabel} | ${v.reviewer} | ${v.verdict} | ${s.correctness} | ${s.minimality} | ${s.scopeFit} | ${v.rationale.replace(/\|/g, '\\|')} |`,
+      `| ${v.candidateLabel} | ${v.reviewer} | ${v.verdict} | ${s.correctness} | ${s.minimality} | ${s.scopeFit} | ${escapeMarkdownTableCell(v.rationale)} |`,
     )
   }
   lines.push('')
