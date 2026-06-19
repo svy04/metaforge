@@ -345,6 +345,9 @@ export function buildGoalTraceReport(
   const validatedCount = validOutcomeCount('validated')
   const rejectedCount = validOutcomeCount('rejected')
   const blockedCount = validOutcomeCount('blocked')
+  const validGoalIds = [...new Set(validTraceInputs.map((input) => input.trace.goalId))]
+    .filter((goalId): goalId is string => hasNonEmptyString(goalId))
+    .sort()
   const traceChecks = [
     {
       label: 'goal trace files discovered',
@@ -370,6 +373,11 @@ export function buildGoalTraceReport(
       label: 'representative trace pack covers happy path, edge case, and side-effect denial',
       ok: validatedCount > 0 && rejectedCount > 0 && blockedCount > 0,
       detail: `validated=${validatedCount}, rejected=${rejectedCount}, blocked=${blockedCount}`,
+    },
+    {
+      label: 'cross-goal trace pack covers more than one goal',
+      ok: validGoalIds.length > 1,
+      detail: `goal_ids=${validGoalIds.length > 0 ? validGoalIds.join(',') : 'none'}`,
     },
   ]
 

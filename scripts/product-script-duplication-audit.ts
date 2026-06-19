@@ -618,7 +618,7 @@ function main(): void {
         sourceProject: 'dependency-cruiser',
         sourceUrl: 'https://github.com/sverweij/dependency-cruiser',
         observedPattern: 'Dependency rule and cycle validation is a different graph problem from clone detection.',
-        localAbsorption: 'Cycle/rule checks stay out of this helper-duplication report and should be introduced as a dedicated gate.',
+        localAbsorption: 'Cycle/rule checks stay out of this helper-duplication report because dependency-cruiser topology is tracked by a separate product-quality gate.',
       },
       {
         sourceType: 'research_survey',

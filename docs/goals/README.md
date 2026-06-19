@@ -10,6 +10,9 @@ The machine-checkable registry is intentionally narrow:
 - Current structured goal objects use `CG-*.md` file names.
 - Each structured goal contains a fenced `yaml` object following
   `docs/GOAL_SCHEMA.md`.
+- `CG-001` covers Goal Kernel schema and representative MFH trace behavior.
+- `CG-002` covers static-analysis ratchet evidence for Knip,
+  dependency-cruiser, and jscpd without cleanup claims.
 - Historical AVF and Influence Factory artifacts remain local evidence inputs;
   they are not rewritten into the new schema in this slice.
 

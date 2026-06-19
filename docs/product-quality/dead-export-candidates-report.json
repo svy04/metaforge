@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T08:47:15.016Z",
+  "generatedAt": "2026-06-19T11:32:33.986Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -30,7 +30,7 @@
     }
   ],
   "candidateFileCount": 637,
-  "candidateUnusedExportCount": 1397,
+  "candidateUnusedExportCount": 1396,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -130,13 +130,12 @@
     },
     {
       "file": "src/constants/prompts.ts",
-      "unusedExports": 5,
+      "unusedExports": 4,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
         "CLAUDE_CODE_DOCS_MAP_URL",
         "computeEnvInfo",
-        "computeSimpleEnvInfo",
         "getUnameSR",
         "getScratchpadInstructions"
       ],
@@ -490,7 +489,7 @@
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1397 exports"
+      "detail": "1396 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
@@ -500,7 +499,7 @@
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1397/1461"
+      "detail": "1396/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T08:48:29.484Z",
+  "generatedAt": "2026-06-19T11:33:09.306Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -432,19 +432,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 55.403ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.043ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "39d8359fa8306d0bbbee57ed30ce09c5d3e9a985153e73e852b77a803d60dde1",
+  "jscpdReportSha256": "4ab10348aa971f8a8208f9fa11ee45308fe084ae0e333d83575cfeea288144c3",
   "jscpdCloneCount": 19,
   "jscpdCloneBaseline": 19,
   "jscpdDuplicatedLines": 507,
   "jscpdDuplicatedLinesBaseline": 507,
   "jscpdDuplicatedTokens": 3320,
   "jscpdDuplicatedTokensBaseline": 3320,
-  "jscpdDuplicatedPercentage": 1.2060229786626704,
+  "jscpdDuplicatedPercentage": 1.2051629465877487,
   "jscpdDuplicatedPercentageBaseline": 1.2150406211805307,
-  "jscpdDuplicatedTokenPercentage": 1.2760592829469282,
+  "jscpdDuplicatedTokenPercentage": 1.2752750291930428,
   "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
@@ -658,7 +658,7 @@
       "sourceProject": "dependency-cruiser",
       "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
       "observedPattern": "Dependency rule and cycle validation is a different graph problem from clone detection.",
-      "localAbsorption": "Cycle/rule checks stay out of this helper-duplication report and should be introduced as a dedicated gate."
+      "localAbsorption": "Cycle/rule checks stay out of this helper-duplication report because dependency-cruiser topology is tracked by a separate product-quality gate."
     },
     {
       "sourceType": "research_survey",
@@ -733,7 +733,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.2060229786626704/1.2150406211805307"
+      "detail": "1.2051629465877487/1.2150406211805307"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

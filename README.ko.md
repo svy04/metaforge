@@ -53,16 +53,16 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 - AGENTS와 README는 public-safe하고 짧아야 하며 local machine context를 노출하지 않는다.
 - OpenClaude는 runtime substrate이고, 공개 thesis는 Metaforge = Meta + MFH + Orchestra OS다.
 - marker-only audit는 behavioral happy path, edge case, side-effect guard로 계속 옮겨가야 한다.
-- Knip/fallow, dependency-cruiser, jscpd, topology review는 실제로 실행하거나 gate에 연결하기 전까지 refactor backlog다.
+- Knip, dependency-cruiser, jscpd는 현재 local no-provider product-quality gate로 연결되어 dead-export 후보, dependency topology baseline/ratchet, product-script clone baseline을 기록한다. Fallow와 Lumin Repo Lens는 여전히 선택적/manual backlog input이며, 이 gate들은 cleanup 완료나 topology clean을 증명하지 않는다.
 - 첫 피드백 루프가 한국어였으므로 한국어 문서도 최신으로 유지한다.
 
 ## Metaforge Proof Tour
 
 공개 설명이 진짜인지 확인할 때는 이 순서로 보면 됩니다.
 
-1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md`가 owner intent를 scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, MFH/Meta field가 있는 machine-checkable goal로 만듭니다.
+1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md`와 `docs/goals/CG-002-static-analysis-ratchet.md`가 owner intent를 scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, MFH/Meta field가 있는 machine-checkable goal로 만듭니다.
 2. **Meta**: goal은 local authority source, decision ledger, raw source, memory/wiki update boundary를 연결해서 운영 상태를 채팅 기억이 아니라 증거로 남깁니다.
-3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 validated, rejected, blocked outcome을 담은 representative trace pack의 순서와 side-effect boundary를 검사합니다.
+3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 validated, rejected, blocked outcome을 담은 representative cross-goal trace pack의 순서와 side-effect boundary를 검사합니다.
 4. **Orchestra**: `src/services/orchestra/`는 planner, skeptic, reviewer, arbiter, promotion role이 runtime-wired 된 layer입니다. 단, 이 주장은 local test와 product-quality report 범위로만 말합니다.
 5. **Mimesis Engineering**: trace gate는 OpenTelemetry식 trace, OPA식 policy decision, OpenAI agent eval trace grading, NIST AI RMF risk-management record 구조를 흡수한 작은 증거층입니다.
 6. **OpenClaude runtime**: OpenClaude는 terminal tool, provider route, MCP, slash command, credential surface를 제공합니다. 제품 중심은 OpenClaude가 아니라 Meta/MFH/Orchestra입니다.

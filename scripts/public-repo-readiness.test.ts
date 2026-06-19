@@ -183,7 +183,9 @@ describe('public repository readiness surfaces', () => {
     expect(readme).toContain('provenance and fork/adaptation boundaries')
     expect(readme).toContain('OpenClaude remains the runtime substrate')
     expect(readme).toContain('behavioral happy paths, edge cases, and side-effect guards')
-    expect(readme).toContain('Knip or fallow, dependency-cruiser, jscpd')
+    expect(readme).toContain('Knip, dependency-cruiser, and jscpd are wired')
+    expect(readme).toContain('fallow and Lumin Repo Lens remain optional/manual backlog inputs')
+    expect(readme).toContain('none of these gates prove cleanup completion')
     expect(readme).toContain('Korean docs stay current')
     expect(readme).toContain('not applause or validation')
     expect(readme).not.toContain('external validation from reviewers')
@@ -193,6 +195,8 @@ describe('public repository readiness surfaces', () => {
     expect(koreanReadme).toContain('OpenClaude는 runtime substrate')
     expect(koreanReadme).toContain('Metaforge = Meta + MFH + Orchestra OS')
     expect(koreanReadme).toContain('behavioral happy path, edge case, side-effect guard')
+    expect(koreanReadme).toContain('Knip, dependency-cruiser, jscpd는 현재 local no-provider product-quality gate')
+    expect(koreanReadme).toContain('Fallow와 Lumin Repo Lens는 여전히 선택적/manual backlog input')
   })
 
   test('OpenSSF Scorecard workflow is source-controlled but claim-bounded', () => {

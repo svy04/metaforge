@@ -226,3 +226,40 @@ Status: active
   - `bun run product:evidence-manifest` passed with 221 evidence records.
   - `bun run product:public-claim-boundary:check` passed after the manifest
     exclusion, confirming generated claim-boundary artifacts are current.
+
+## 2026-06-19 Checkpoint 13 - Static Analysis Goal Ratchet
+
+- Added `docs/goals/CG-002-static-analysis-ratchet.md` so community feedback
+  about dead exports, dependency topology, duplicate shapes, and marker-only
+  audits is tracked as a bounded Goal OS slice.
+- Added `docs/goals/traces/CG-002-static-analysis-ratchet.trace.json` as the
+  second source-controlled local no-provider validated trace.
+- Extended `scripts/validate-goal-traces.ts` so the trace report now checks
+  that valid traces cover more than one goal before cross-goal MFH wording.
+- Updated the MFH public claim evidence map to include CG-002, the static
+  analysis trace, and the Knip, dependency-cruiser, and jscpd reports.
+- Updated README, Korean README, and public feedback docs so Knip,
+  dependency-cruiser, and jscpd are described as wired local gates while
+  cleanup completion, topology cleanliness, and external validation remain
+  blocked.
+- Validation results:
+  - `bun test scripts/validate-goal-traces.test.ts --test-name-pattern
+    "cross-goal"` first failed because the cross-goal check did not exist.
+  - After adding the check, the same focused test passed.
+  - `bun run goals:validate` passed with 2 valid goal files, 4 valid goal
+    traces, representative coverage `validated=2`, `rejected=1`, `blocked=1`,
+    and cross-goal coverage `goal_ids=CG-001,CG-002`.
+  - `bun run product:dead-export-candidates` passed with Knip 6.16.1, 637
+    candidate files, 1396 unused-export candidates, and no autofix/deletion or
+    readiness claims.
+  - `bun run product:dependency-topology` passed with dependency-cruiser
+    17.4.3, 2630 modules, 11983 edges, 2105 known violations, and 0 new
+    ratchet violations.
+  - `bun run product:script-duplication-audit` passed with jscpd 5.0.9, 19
+    clone pairs, 507 duplicated lines, and 1.2054781492225024 percent duplicated
+    lines under baseline.
+  - `bun run product:public-claim-boundary` passed with 0 unauthorized positive
+    claims.
+  - `bun run product:evidence-manifest` passed with 227 evidence records after
+    adding Goal OS and trace artifacts to the manifest input set.
+  - `bun run product:public-claim-boundary:check` passed after manifest refresh.

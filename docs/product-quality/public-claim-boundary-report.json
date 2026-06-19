@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T10:50:52.251Z",
+  "generatedAt": "2026-06-19T11:33:09.830Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -108,15 +108,15 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "985943b4e5bd098562e4dc55eb855b4db29e1b8e21e7e8abf5dfeea3bbd35fc5",
-      "sizeBytes": 11238,
+      "sha256": "3378ae96ab9b6f290790ee170244521b3ce211bc2e27ae8951c8e4381b2536e1",
+      "sizeBytes": 11516,
       "lineCount": 188
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "3f42ffbb914a9bc32e7d7890a99814e3f4d6aaf8449d9d0b539bfdc2745fcae3",
-      "sizeBytes": 23682,
+      "sha256": "d9e3c6d863bfd3deba3166993fb8ad4f16f9bd3b7dc720ec0606f6433a32c7e3",
+      "sizeBytes": 23912,
       "lineCount": 464
     },
     {
@@ -202,6 +202,13 @@
       "sha256": "ffab5b5e4ec0503f52187b859d6f8186469aae3a036e0e2c9c5e3c07dc2eb883",
       "sizeBytes": 10247,
       "lineCount": 263
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "exists": true,
+      "sha256": "5ec78737cdeee15c549c979c87a8d6fba28183c577cf5adbdbd0db146266079d",
+      "sizeBytes": 12173,
+      "lineCount": 272
     },
     {
       "path": "docs/goals/FIRST_CONTENT_BATCH_VALIDATION_REPORT.md",
@@ -1067,9 +1074,9 @@
     {
       "path": "docs/goals/README.md",
       "exists": true,
-      "sha256": "6db083d24c185d84bb735f1bdef483160d9d59d3af0f170b2d725244e8fd3bc9",
-      "sizeBytes": 947,
-      "lineCount": 27
+      "sha256": "b4e0f11b37062e76eb7f43d83e6b9b86f227db6f1366061c03531bed0fc87e51",
+      "sizeBytes": 1140,
+      "lineCount": 30
     },
     {
       "path": "docs/litellm-setup.md",
@@ -1179,8 +1186,8 @@
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
       "exists": true,
-      "sha256": "25d160540f8856538f10c6607483498579c6bfcff49639e192a231970bc9ec36",
-      "sizeBytes": 9104,
+      "sha256": "f2f264c44670942b321f265ac1dea65c43c884541673c9796135fc14fab260e4",
+      "sizeBytes": 9078,
       "lineCount": 112
     },
     {
@@ -1249,9 +1256,9 @@
     {
       "path": "docs/product-quality/goal-trace-validation-report.md",
       "exists": true,
-      "sha256": "0a2146788890f6fbe78d3de1c8bc3deaf9709773376fdc01b9dd373609c66623",
-      "sizeBytes": 2786,
-      "lineCount": 47
+      "sha256": "870685443260dff697028d9da7dac8d7c767c1e10c1c8f9a72f0f14972e6ade0",
+      "sizeBytes": 3128,
+      "lineCount": 49
     },
     {
       "path": "docs/product-quality/golden-path-terminal-transcripts.md",
@@ -1613,9 +1620,9 @@
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
       "exists": true,
-      "sha256": "be59b8b898ecf6af24626711e90e103c510bc23221f0b353071f100670e4b262",
-      "sizeBytes": 3241,
-      "lineCount": 66
+      "sha256": "e0070e3894a7abfe125120e8a45277c0516b5901855020bad190e30a04a49b97",
+      "sizeBytes": 3431,
+      "lineCount": 67
     },
     {
       "path": "docs/product-quality/public-feedback-structure-audit-2026-06-15.md",
@@ -1634,9 +1641,9 @@
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
       "exists": true,
-      "sha256": "f6574370e2e47182e6134f2e6e600617d820e56c1897ae56006d642fc2d7cded",
-      "sizeBytes": 2978,
-      "lineCount": 70
+      "sha256": "7043b2b90c09548df85a993f7830069a7aa8fcf14e0560a3ee617596a3eb5fb1",
+      "sizeBytes": 3798,
+      "lineCount": 84
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.md",
@@ -1704,8 +1711,8 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "0baf5d2390b4348147afb5080b4dfd78ea50b7007a6cde7fdef1e4e2d5d1d1e0",
-      "sizeBytes": 8700,
+      "sha256": "75aaecb5691f160f781795891d9258c75b8135caab602eec870ce654f631ab5c",
+      "sizeBytes": 8737,
       "lineCount": 97
     },
     {
@@ -1898,9 +1905,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 264,
-  "scannedLineCount": 23581,
-  "blockedContextClaimMentionCount": 1025,
+  "publicSurfaceCount": 265,
+  "scannedLineCount": 23873,
+  "blockedContextClaimMentionCount": 1039,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -2514,6 +2521,87 @@
       "status": "blocked_context",
       "text": "- Autonomous reliability.",
       "contextText": "Blocked context: forbidden: Claim mention: - Autonomous reliability."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 6,
+      "phrase": "release readiness",
+      "category": "release_readiness",
+      "status": "blocked_context",
+      "text": "deletion, topology cleanliness, production readiness, release readiness, public",
+      "contextText": "Blocked context: Goal OS and MFH trace validation. It does not prove cleanup completion, safe Claim mention: deletion, topology cleanliness, production readiness, release readiness, public"
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 6,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "deletion, topology cleanliness, production readiness, release readiness, public",
+      "contextText": "Blocked context: Goal OS and MFH trace validation. It does not prove cleanup completion, safe Claim mention: deletion, topology cleanliness, production readiness, release readiness, public"
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 7,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: Boundary: this is a local no-provider static-analysis governance goal. It Claim mention: readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 7,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: Boundary: this is a local no-provider static-analysis governance goal. It Claim mention: readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 242,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "- Production readiness.",
+      "contextText": "Blocked context: forbidden: Claim mention: - Production readiness."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 243,
+      "phrase": "release readiness",
+      "category": "release_readiness",
+      "status": "blocked_context",
+      "text": "- Release readiness.",
+      "contextText": "Blocked context: forbidden: Claim mention: - Release readiness."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 244,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "- Public readiness.",
+      "contextText": "Blocked context: forbidden: Claim mention: - Public readiness."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 245,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- External validation.",
+      "contextText": "Blocked context: forbidden: Claim mention: - External validation."
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "line": 246,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "- Autonomous reliability.",
+      "contextText": "Blocked context: Boundary: this is a local no-provider static-analysis governance goal. It Claim mention: - Autonomous reliability."
     },
     {
       "path": "docs/goals/FIRST_REAL_USER_GOAL_COMPLETION_AUDIT.md",
@@ -5820,7 +5908,7 @@
     },
     {
       "path": "docs/goals/README.md",
-      "line": 25,
+      "line": 28,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -5829,7 +5917,7 @@
     },
     {
       "path": "docs/goals/README.md",
-      "line": 26,
+      "line": 29,
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
@@ -5838,7 +5926,7 @@
     },
     {
       "path": "docs/goals/README.md",
-      "line": 26,
+      "line": 29,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -5847,7 +5935,7 @@
     },
     {
       "path": "docs/goals/README.md",
-      "line": 26,
+      "line": 29,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -9150,7 +9238,7 @@
     },
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
-      "line": 63,
+      "line": 64,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -9159,7 +9247,7 @@
     },
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
-      "line": 64,
+      "line": 65,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -9168,7 +9256,7 @@
     },
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
-      "line": 65,
+      "line": 66,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -9312,7 +9400,52 @@
     },
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
-      "line": 67,
+      "line": 37,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "No hosted workflow, legal review, new external validation, cleanup completion,",
+      "contextText": "Blocked context: No hosted workflow, legal review, new external validation, cleanup completion,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 64,
+      "phrase": "release readiness",
+      "category": "release_readiness",
+      "status": "blocked_context",
+      "text": "described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 64,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 64,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 64,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
+      "line": 81,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -9321,7 +9454,7 @@
     },
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
-      "line": 68,
+      "line": 82,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -9330,7 +9463,7 @@
     },
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
-      "line": 69,
+      "line": 83,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -11132,8 +11265,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "1027e9dfaea544b624e6f7d822b84ae5e7fd183c9493f930446babc46f027ac7",
-  "scanJsonlRecordCount": 1025,
+  "scanJsonlSha256": "ab39c22ceb36e6d62ba56ea380bf8ab2c7bc8f5dfa528eba8e2e9460993e63c4",
+  "scanJsonlRecordCount": 1039,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11167,18 +11300,23 @@
         "docs/product-quality/goal-trace-validation-report.json",
         "docs/product-quality/public-claim-boundary-report.md",
         "docs/product-quality/product-evidence-manifest.md",
+        "docs/goals/CG-002-static-analysis-ratchet.md",
         "docs/goals/traces/CG-001-goal-kernel-mvp.trace.json",
         "docs/goals/traces/CG-001-missing-evidence-rejected.trace.json",
-        "docs/goals/traces/CG-001-protected-action-blocked.trace.json"
+        "docs/goals/traces/CG-001-protected-action-blocked.trace.json",
+        "docs/goals/traces/CG-002-static-analysis-ratchet.trace.json",
+        "docs/product-quality/dead-export-candidates-report.md",
+        "docs/product-quality/dependency-topology-report.md",
+        "docs/product-quality/script-duplication-audit-report.md"
       ],
-      "verificationCommand": "bun run goals:validate && bun run product:public-claim-boundary",
-      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, and representative trace-validation evidence.",
+      "verificationCommand": "bun run goals:validate && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:public-claim-boundary",
+      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, and static-analysis ratchets.",
       "nonClaims": [
         "MFH is not a formal certification system.",
         "MFH is not external validation.",
         "MFH does not prove production, release, public, or autonomous reliability readiness."
       ],
-      "unresolvedGap": "Cross-goal runtime traces, live-provider evidence, and broader side-effect behavior coverage are still needed before MFH can carry broader reliability claims."
+      "unresolvedGap": "Runtime traces beyond docs-governance and static-analysis goals, live-provider evidence, and broader side-effect behavior coverage are still needed before MFH can carry broader reliability claims."
     },
     {
       "symbol": "Orchestra",
@@ -11302,7 +11440,7 @@
     {
       "label": "MFH behavior evidence is bound to trace validation",
       "ok": true,
-      "detail": "MFH row includes trace report, representative trace fixtures, goals validation, and remaining cross-goal runtime trace gap"
+      "detail": "MFH row includes representative trace fixtures, CG-002 static-analysis ratchet evidence, goals validation, and remaining runtime trace gap"
     },
     {
       "label": "OpenClaude remains substrate rather than thesis",
@@ -11322,12 +11460,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "264 surfaces"
+      "detail": "265 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "23581 lines"
+      "detail": "23873 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11337,12 +11475,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1025 findings"
+      "detail": "1039 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1025/1025"
+      "detail": "1039/1039"
     },
     {
       "label": "claim JSONL hash is recorded",

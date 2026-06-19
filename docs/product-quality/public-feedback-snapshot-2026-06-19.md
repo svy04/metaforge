@@ -38,12 +38,12 @@ machine details back into the repository.
      language should not imply runtime-active modules without imports, runtime
      traces, tests, or source-controlled reports.
 
-6. Static-analysis recommendations remain backlog inputs.
-   - Use Knip or fallow for unused/dead exports.
-   - Use dependency-cruiser for cycles and topology.
-   - Use jscpd for duplicate shapes.
-   - Use topology tools such as `annyeong844/lumin-repo-lens` as heuristic
-     review inputs with manual false-positive triage.
+6. Static-analysis recommendations are now partially closed into bounded gates.
+   - Knip is wired for unused/dead-export candidate evidence.
+   - dependency-cruiser is wired for dependency topology and known-violation ratchet evidence.
+   - jscpd is wired for duplicate-shape baseline evidence.
+   - Fallow and topology tools such as `annyeong844/lumin-repo-lens` remain
+     optional/manual review inputs until they are separately wired.
    - Keep CodeQL as a positive but bounded configured-analysis signal unless a
      current hosted run is inspected.
 
@@ -55,9 +55,10 @@ machine details back into the repository.
 
 This slice records the feedback as a new dated snapshot, updates the public
 feedback backlog pointer, and binds MFH public claim evidence directly to the
-source-controlled three-file Goal Kernel trace pack and goal-trace validation
-report. The pack covers one validated happy path, one rejected missing-evidence
-edge case, and one blocked protected-action side-effect case.
+source-controlled Goal Kernel trace pack, static-analysis Goal OS ratchet, and
+goal-trace validation report. The pack covers one validated happy path, one
+rejected missing-evidence edge case, one blocked protected-action side-effect
+case, and one additional validated static-analysis goal trace.
 
 Boundary: this snapshot and response are local no-provider product input and
 public hygiene evidence. They are not production readiness, hosted workflow

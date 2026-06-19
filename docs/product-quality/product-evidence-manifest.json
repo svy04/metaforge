@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T10:50:52.983Z",
+  "generatedAt": "2026-06-19T11:33:09.575Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,22 +20,22 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "4ee3d64ba34439c6f7edca6585a4cfe0d3efc9e26a9b8b03031fd03931f8baf0",
-  "evidenceRecordCount": 221,
-  "evidenceTotalSizeBytes": 12500383,
+  "manifestJsonlSha256": "0d10278f9a74a9254f4fa90dede9cb36c798c7027ef93c01e6608cabbb0f7c21",
+  "evidenceRecordCount": 227,
+  "evidenceTotalSizeBytes": 12552308,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 202,
-    "evidence_artifact": 8,
+    "evidence_artifact": 14,
     "quality_gate": 1,
     "workflow": 8
   },
   "evidenceProofClasses": {
-    "behavioral_runtime": 54,
+    "behavioral_runtime": 58,
     "static_analysis": 11,
     "governance_boundary": 42,
     "source_control": 11,
-    "structural_inventory": 103
+    "structural_inventory": 105
   },
   "requiredEvidencePaths": [
     "package.json",
@@ -101,6 +101,15 @@
     "docs/product-quality/tool-interruption-recovery-trace-report.md",
     "docs/product-quality/protected-action-denial-trace-report.json",
     "docs/product-quality/protected-action-denial-trace-report.md",
+    "docs/goals/CG-001-goal-kernel-mvp.md",
+    "docs/goals/CG-002-static-analysis-ratchet.md",
+    "docs/goals/traces/CG-001-goal-kernel-mvp.trace.json",
+    "docs/goals/traces/CG-001-missing-evidence-rejected.trace.json",
+    "docs/goals/traces/CG-001-protected-action-blocked.trace.json",
+    "docs/goals/traces/CG-002-static-analysis-ratchet.trace.json",
+    "docs/product-quality/goal-validation-report.json",
+    "docs/product-quality/goal-trace-validation-report.json",
+    "docs/product-quality/goal-trace-validation-report.md",
     "docs/product-quality/product-quality-gate.md",
     "docs/product-quality/terminal-report.md",
     "docs/product-quality/verification-report-2026-05-17.md",
@@ -239,6 +248,42 @@
       "sha256": "6c799f62f98cc6d8c7ed9ffdef1e4938017841de44da04702baa5dfa72ab8d34",
       "sizeBytes": 225100,
       "role": "source"
+    },
+    {
+      "path": "docs/goals/CG-001-goal-kernel-mvp.md",
+      "sha256": "ffab5b5e4ec0503f52187b859d6f8186469aae3a036e0e2c9c5e3c07dc2eb883",
+      "sizeBytes": 10247,
+      "role": "evidence_artifact"
+    },
+    {
+      "path": "docs/goals/CG-002-static-analysis-ratchet.md",
+      "sha256": "5ec78737cdeee15c549c979c87a8d6fba28183c577cf5adbdbd0db146266079d",
+      "sizeBytes": 12173,
+      "role": "evidence_artifact"
+    },
+    {
+      "path": "docs/goals/traces/CG-001-goal-kernel-mvp.trace.json",
+      "sha256": "7431cf7258b3bf34d0f3e77246336b7ec1ea213a164e7449f48be0b0e0f08270",
+      "sizeBytes": 2091,
+      "role": "evidence_artifact"
+    },
+    {
+      "path": "docs/goals/traces/CG-001-missing-evidence-rejected.trace.json",
+      "sha256": "3d70985c112ac39056bd1ac66b63fed74bf0aa80377d8bec43ffcd6260f215ab",
+      "sizeBytes": 2127,
+      "role": "evidence_artifact"
+    },
+    {
+      "path": "docs/goals/traces/CG-001-protected-action-blocked.trace.json",
+      "sha256": "2b46c330e65438e9504a873d906747fe7b5f5590fc5e6bcb1385d3314a53ea60",
+      "sizeBytes": 2113,
+      "role": "evidence_artifact"
+    },
+    {
+      "path": "docs/goals/traces/CG-002-static-analysis-ratchet.trace.json",
+      "sha256": "2eb7f8bf9d4ee51138cba99b692223e3a05680583e439b04d9fdb54de1069f14",
+      "sizeBytes": 2567,
+      "role": "evidence_artifact"
     },
     {
       "path": "docs/product-quality/agent-instructions-quality-report.json",
@@ -386,14 +431,14 @@
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.json",
-      "sha256": "0a1e6da18a2ade4bb2e9981c708932ad7226de5ddb06a89c6ec73893bf7b2ce6",
-      "sizeBytes": 17411,
+      "sha256": "433dd28ad50b0edb2e9d85a3b43e75da4ebee0b2a7be0b0d8b9108924ba6cdee",
+      "sizeBytes": 17379,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
-      "sha256": "25d160540f8856538f10c6607483498579c6bfcff49639e192a231970bc9ec36",
-      "sizeBytes": 9104,
+      "sha256": "f2f264c44670942b321f265ac1dea65c43c884541673c9796135fc14fab260e4",
+      "sizeBytes": 9078,
       "role": "evidence_report"
     },
     {
@@ -410,7 +455,7 @@
     },
     {
       "path": "docs/product-quality/dependency-topology-report.json",
-      "sha256": "4c88953d86db8c699fe606c8cd5a62d7e0119490c155046cff31012680cd24c6",
+      "sha256": "c8a7b92d1e769f936c4c639463a30d23eb4753ed183d1bb9443adcdc2a3112f3",
       "sizeBytes": 11232,
       "role": "evidence_report"
     },
@@ -500,20 +545,20 @@
     },
     {
       "path": "docs/product-quality/goal-trace-validation-report.json",
-      "sha256": "a19874ad98a6fdea053d28d01e5b80dd9a1297153c376d52a31cc081e5b0c2d5",
-      "sizeBytes": 3670,
+      "sha256": "126a152b283b5e7ff058eeabd9d8b087bcd908d5f608c8163cccd3a13dcef56c",
+      "sizeBytes": 4264,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/goal-trace-validation-report.md",
-      "sha256": "0a2146788890f6fbe78d3de1c8bc3deaf9709773376fdc01b9dd373609c66623",
-      "sizeBytes": 2786,
+      "sha256": "870685443260dff697028d9da7dac8d7c767c1e10c1c8f9a72f0f14972e6ade0",
+      "sizeBytes": 3128,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/goal-validation-report.json",
-      "sha256": "d45215e82ac7c6f9716357dfa71babbc89cc913bd759d0f13479c6e792671738",
-      "sizeBytes": 658,
+      "sha256": "fdf010bb3edefde83b1c3dadb8d11e0136909cf861470bb3c37a261f2c3660b6",
+      "sizeBytes": 796,
       "role": "evidence_report"
     },
     {
@@ -1118,14 +1163,14 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "9a753e851e91bf754a550821a004bcdc4b56d4fdb93550c3d0503b99a3f91142",
-      "sizeBytes": 673093,
+      "sha256": "aaf0cded1d2cef1690ba027299b92df901a1cdf07c89575a012cf31c759dfa88",
+      "sizeBytes": 681012,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "3b079fb6400736035fcd390d9f5a58cd90a8b01503d25fc15b371d98ac002260",
-      "sizeBytes": 350629,
+      "sha256": "07ca36eedf04a9d366f373765cccba11e5a0f31b89e015925ecec7bad5385720",
+      "sizeBytes": 354990,
       "role": "evidence_report"
     },
     {
@@ -1136,8 +1181,8 @@
     },
     {
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
-      "sha256": "be59b8b898ecf6af24626711e90e103c510bc23221f0b353071f100670e4b262",
-      "sizeBytes": 3241,
+      "sha256": "e0070e3894a7abfe125120e8a45277c0516b5901855020bad190e30a04a49b97",
+      "sizeBytes": 3431,
       "role": "evidence_report"
     },
     {
@@ -1154,8 +1199,8 @@
     },
     {
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
-      "sha256": "f6574370e2e47182e6134f2e6e600617d820e56c1897ae56006d642fc2d7cded",
-      "sizeBytes": 2978,
+      "sha256": "7043b2b90c09548df85a993f7830069a7aa8fcf14e0560a3ee617596a3eb5fb1",
+      "sizeBytes": 3798,
       "role": "evidence_report"
     },
     {
@@ -1268,14 +1313,14 @@
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.json",
-      "sha256": "9c67be1a82cd4ae7ab7cb1e9d7cde6840f314369ab814f964e831499dcf89117",
-      "sizeBytes": 23940,
+      "sha256": "a99875de8ef37d837acd78ce3b59c39776f48c599852fe404caf6068618b9b56",
+      "sizeBytes": 23977,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
-      "sha256": "0baf5d2390b4348147afb5080b4dfd78ea50b7007a6cde7fdef1e4e2d5d1d1e0",
-      "sizeBytes": 8700,
+      "sha256": "75aaecb5691f160f781795891d9258c75b8135caab602eec870ce654f631ab5c",
+      "sizeBytes": 8737,
       "role": "evidence_report"
     },
     {
@@ -1406,7 +1451,7 @@
     },
     {
       "path": "docs/product-quality/typecheck-health-report.json",
-      "sha256": "f0061cc994135c532faa571b00493cd91753a9e6e138b683ae6a469c8543f4df",
+      "sha256": "419fd0e7c6530cfd4c6e3d37ee5a83ce34e57a94cb691abd49be1914bcffc243",
       "sizeBytes": 250,
       "role": "evidence_report"
     },
@@ -1472,8 +1517,8 @@
     },
     {
       "path": "reports/metaforge-public-claim-boundary.jsonl",
-      "sha256": "1027e9dfaea544b624e6f7d822b84ae5e7fd183c9493f930446babc46f027ac7",
-      "sizeBytes": 526869,
+      "sha256": "ab39c22ceb36e6d62ba56ea380bf8ab2c7bc8f5dfa528eba8e2e9460993e63c4",
+      "sizeBytes": 533096,
       "role": "evidence_artifact"
     },
     {
@@ -1504,17 +1549,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "221 records"
+      "detail": "227 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "12500383 total bytes"
+      "detail": "12552308 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "221 lines"
+      "detail": "227 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1529,12 +1574,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":8,\"quality_gate\":1,\"workflow\":8}"
+      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":14,\"quality_gate\":1,\"workflow\":8}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":42,\"source_control\":11,\"structural_inventory\":103}"
+      "detail": "{\"behavioral_runtime\":58,\"static_analysis\":11,\"governance_boundary\":42,\"source_control\":11,\"structural_inventory\":105}"
     },
     {
       "label": "manifest contains no credential patterns",
