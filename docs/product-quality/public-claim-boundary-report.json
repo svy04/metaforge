@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T16:36:28.342Z",
+  "generatedAt": "2026-06-19T17:12:46.547Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -73,9 +73,9 @@
     {
       "path": "AGENTS.md",
       "exists": true,
-      "sha256": "cdf758209a913341b3b6f7848d5fed10a51581eeb5382853691fd98d822492b0",
-      "sizeBytes": 4508,
-      "lineCount": 110
+      "sha256": "f2ca4de88e8c387b0e78804566ef6402166710a32b5b233f8d5105d3203fe3a3",
+      "sizeBytes": 4398,
+      "lineCount": 108
     },
     {
       "path": "ANDROID_INSTALL.md",
@@ -108,14 +108,14 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "0b1ab7e6c266511f3047dfd3d51f68c50dabdeab40e4289325f4e94df3776e35",
+      "sha256": "e4f115dc1959e54a6a78f0e690be4a851ac57ea5eef7dd90978b4ee000617eb7",
       "sizeBytes": 12574,
       "lineCount": 189
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "1bc2217dc50dad0f1b2971a0076b453033032b021727354909a9149de1ee10df",
+      "sha256": "da3c075186f942611ef8e8c5142d315de6635287221669eb75f72e25074e03a0",
       "sizeBytes": 25033,
       "lineCount": 465
     },
@@ -1207,9 +1207,9 @@
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
       "exists": true,
-      "sha256": "4e5a2508ab285c8dc3fb8c81fdf13e02898103552cecd03c6c0de7c415b52395",
-      "sizeBytes": 12875,
-      "lineCount": 135
+      "sha256": "f29446ccd2b02c3551f06cfc9acd2212b69e9b376f7d8039a6a7d66c728605f8",
+      "sizeBytes": 13001,
+      "lineCount": 136
     },
     {
       "path": "docs/product-quality/eval-flywheel-validation-report.md",
@@ -1632,6 +1632,13 @@
       "lineCount": 66
     },
     {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "exists": true,
+      "sha256": "1480e5fc84e3bfc3e7b4d4d2efb08de686549d12c0a13a19208946a6127063d5",
+      "sizeBytes": 3734,
+      "lineCount": 78
+    },
+    {
       "path": "docs/product-quality/public-feedback-structure-audit-2026-06-15.md",
       "exists": true,
       "sha256": "34642e376e063d94b2c2df938bea5d232a31f9cbed2cfa689e116ae6c6ffbd76",
@@ -1651,6 +1658,13 @@
       "sha256": "7043b2b90c09548df85a993f7830069a7aa8fcf14e0560a3ee617596a3eb5fb1",
       "sizeBytes": 3798,
       "lineCount": 84
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "exists": true,
+      "sha256": "c15effd2bd66a38d58f6efd72fa0b4d30eb0453fa215c76df938ed086567f59e",
+      "sizeBytes": 3808,
+      "lineCount": 86
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.md",
@@ -1919,9 +1933,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 267,
-  "scannedLineCount": 24173,
-  "blockedContextClaimMentionCount": 1053,
+  "publicSurfaceCount": 269,
+  "scannedLineCount": 24336,
+  "blockedContextClaimMentionCount": 1064,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -9359,6 +9373,42 @@
       "contextText": "Blocked context: Autonomous reliability claims remain blocked."
     },
     {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "line": 51,
+      "phrase": "release readiness",
+      "category": "release_readiness",
+      "status": "blocked_context",
+      "text": "public readiness, release readiness, legal clearance, or external",
+      "contextText": "Blocked context: They do not prove safe deletion, topology cleanliness, refactor completion, Claim mention: public readiness, release readiness, legal clearance, or external"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "line": 51,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "public readiness, release readiness, legal clearance, or external",
+      "contextText": "Blocked context: They do not prove safe deletion, topology cleanliness, refactor completion, Claim mention: public readiness, release readiness, legal clearance, or external"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "line": 75,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "public hygiene evidence. They are not production readiness, hosted workflow",
+      "contextText": "Blocked context: public hygiene evidence. They are not production readiness, hosted workflow"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "line": 76,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "proof, external validation, benchmark superiority, legal clearance, or",
+      "contextText": "Blocked context: public hygiene evidence. They are not production readiness, hosted workflow Claim mention: proof, external validation, benchmark superiority, legal clearance, or"
+    },
+    {
       "path": "docs/product-quality/public-feedback-structure-audit-2026-06-15.md",
       "line": 9,
       "phrase": "production readiness",
@@ -9564,6 +9614,69 @@
       "status": "blocked_context",
       "text": "clearance. Autonomous reliability claims remain blocked.",
       "contextText": "Blocked context: clearance. Autonomous reliability claims remain blocked."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 3,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "Status: local no-provider triage, not an external validation claim.",
+      "contextText": "Blocked context: Status: local no-provider triage, not an external validation claim."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 33,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "readiness, production readiness, hosted deployment, external validation,",
+      "contextText": "Blocked context: profile checkouts should not be edited for current profile work. Claim mention: readiness, production readiness, hosted deployment, external validation,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 33,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "readiness, production readiness, hosted deployment, external validation,",
+      "contextText": "Blocked context: profile checkouts should not be edited for current profile work. Claim mention: readiness, production readiness, hosted deployment, external validation,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 34,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "public benchmark, deterministic-code lift, and autonomous reliability claims.",
+      "contextText": "Blocked context: profile checkouts should not be edited for current profile work. Claim mention: public benchmark, deterministic-code lift, and autonomous reliability claims."
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 40,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "No hosted workflow, legal review, external validation, cleanup completion,",
+      "contextText": "Blocked context: No hosted workflow, legal review, external validation, cleanup completion,"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 83,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "surface alignment. It does not prove production readiness, hosted workflow",
+      "contextText": "Blocked context: surface alignment. It does not prove production readiness, hosted workflow"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "line": 84,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "health, external validation, benchmark superiority, legal clearance, or",
+      "contextText": "Blocked context: surface alignment. It does not prove production readiness, hosted workflow Claim mention: health, external validation, benchmark superiority, legal clearance, or"
     },
     {
       "path": "docs/product-quality/quality-blocker-taxonomy-report.md",
@@ -11405,8 +11518,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "94dec0005405d966b6f749d7104e0cb775fa8e75f071c1f1143930ad7d25ee7e",
-  "scanJsonlRecordCount": 1053,
+  "scanJsonlSha256": "7f7a6471a651ad8e77ff2f54aca76f2056d64097adee1f6e9fffac036b43a811",
+  "scanJsonlRecordCount": 1064,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11603,12 +11716,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "267 surfaces"
+      "detail": "269 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "24173 lines"
+      "detail": "24336 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11618,12 +11731,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1053 findings"
+      "detail": "1064 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1053/1053"
+      "detail": "1064/1064"
     },
     {
       "label": "claim JSONL hash is recorded",
