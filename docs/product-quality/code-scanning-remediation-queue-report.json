@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-18T22:52:52.913Z",
+  "generatedAt": "2026-06-19T04:49:06.406Z",
   "mode": "code_scanning_remediation_queue_claim_safe",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "sourceCommit": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+  "sourceCommit": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
   "generatedFrom": "docs/product-quality/github-hosted-trust-posture-report.json",
   "status": "remediation_queue_required",
   "primarySourceInputs": [
@@ -240,8 +240,8 @@
           "startLine": 310
         },
         {
-          "path": "src/utils/nativeInstaller/installer.ts",
-          "startLine": 170
+          "path": "src/skills/bundled/debug.ts",
+          "startLine": 38
         }
       ],
       "priority": "P0",
@@ -570,7 +570,7 @@
   ],
   "queueItemCount": 10,
   "sampleDiscoveryStatus": "available",
-  "sampleDiscoveryDetail": "27 rules sampled",
+  "sampleDiscoveryDetail": "25 rules sampled",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [
