@@ -18,7 +18,7 @@ Date: 2026-06-18
 
 ### EVAL-008 MFH Source Reconciliation Import
 
-Current status: owner-side MFH/Meta source reconciliation remains `drift_carried_forward_awaiting_user_adjudication`. The public OpenClaude/Metaforge repo may import concepts, but it must not claim the companion harness is green.
+Current status: internal MFH/Meta source reconciliation remains `drift_carried_forward_awaiting_user_adjudication`. The public OpenClaude/Metaforge repo may import concepts, but it must not claim the companion harness is green.
 
 ### EVAL-009 Closure Reality Gate
 
@@ -51,7 +51,7 @@ Boundary: the runner did not find a source-controlled 20-task task directory and
 - The Orchestra experiment runner result records mock versus real task status.
 - Automation candidates stay proposed-only.
 - External-call candidates stay blocked until owner approval.
-- Source reconciliation preserves owner-side drift and does not edit private harness workspaces.
+- Source reconciliation preserves internal drift and does not edit private harness workspaces.
 - Progress and decision logs record what ran, what did not run, and the claim boundary.
 
 ## Claim Boundary

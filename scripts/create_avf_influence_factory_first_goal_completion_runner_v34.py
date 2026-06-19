@@ -123,7 +123,7 @@ def owner_ready_package(record: dict) -> dict:
             "character_bible": "Every AI persona must disclose AI assistance and stay inside its domain.",
             "visual_style_guide": "Clean editorial product interface, precise typography, no fake social proof.",
             "forbidden_styles": "No bot armies, no fake crowds, no spam visuals, no manipulation motifs.",
-            "rights_notes": "Use only owner-provided or properly licensed references.",
+            "rights_notes": "Use only user-provided or properly licensed references.",
         },
         "image_generation_reference_packet": {
             "reference_image_index": "owner-approved references only",

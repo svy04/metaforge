@@ -63,7 +63,7 @@ Status: active
 ## 2026-05-10 Checkpoint 7 - Harness Engineering Replan
 
 - User corrected the planning source: MFH/Meta evidence supersedes the provisional `mth` assumption.
-- Reviewed private owner-side harness material and imported only the public-safe synthesis into this repository.
+- Reviewed private internal harness material and imported only the public-safe synthesis into this repository.
 - Recorded that private harness state is not public proof of cleanliness, release readiness, or external validation.
 - Updated `AGENTS.md`, `docs/PROJECT_SPEC.md`, `docs/GOAL_SCHEMA.md`, `docs/AGENT_REGISTRY.md`, `docs/RESEARCH_PIPELINE.md`, `docs/EVALS.md`, `docs/SECURITY_AND_GUARDRAILS.md`, `docs/ROADMAP.md`, `docs/DECISION_LOG.md`, and `docs/NEXT_GOALS.md`.
 - Planning correction: provisional `mth` assumption is superseded by canonical MFH evidence unless the owner later defines a separate `mth`.
@@ -172,7 +172,7 @@ Status: active
   A4 proposed-only candidates, required approvals, pause conditions, kill
   switches, output paths, and blocked external-call status.
 - Added `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` to record
-  public-doc reconciliation and carry forward owner-side MFH/Meta drift.
+  public-doc reconciliation and carry forward internal MFH/Meta drift.
 - Ran `bun run scripts/orchestra-experiment-runner.ts`; it exited 0 and used
   the one-task mock fallback because a source-controlled 20-task experiment
   task set was absent. The ignored local runner output was removed after

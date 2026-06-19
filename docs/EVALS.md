@@ -189,7 +189,7 @@ Harness command:
 python meta\scripts\source_reconciler.py
 ```
 
-Owner-side status:
+Internal reconciliation status:
 
 ```text
 awaiting user adjudication
@@ -210,7 +210,7 @@ Question: Does a completed milestone have ledger evidence, not just a completed 
 Harness source:
 
 ```text
-owner-side closure reality check, not a public proof artifact
+internal closure reality check, not a public proof artifact
 ```
 
 Method:

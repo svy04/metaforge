@@ -2,7 +2,7 @@
 
 RESULT: PASS
 
-The first owner-provided product direction has been converted into a local-only artifact bundle.
+The first user-provided product direction has been converted into a local-only artifact bundle.
 
 Verified artifacts:
 

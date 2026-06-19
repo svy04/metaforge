@@ -38,7 +38,7 @@ No automations were scheduled or created.
 `],
   ['docs/reports/mfh-meta-source-reconciliation-2026-06-18.md', `# MFH Meta Source Reconciliation
 
-owner-side status: drift_carried_forward_awaiting_user_adjudication
+internal status: drift_carried_forward_awaiting_user_adjudication
 private harness workspace was not edited.
 OpenClaude public docs local reconciliation: pass
 This does not claim production readiness, hosted deployment, external validation, benchmark superiority, standards compliance, patent clearance, or autonomous reliability.
@@ -71,7 +71,7 @@ function reconciliationDoc(): string {
   return [
     '# MFH / Meta Source Reconciliation',
     '',
-    'owner-side status: drift_carried_forward_awaiting_user_adjudication',
+    'internal status: drift_carried_forward_awaiting_user_adjudication',
     '',
     'The private harness workspace was not edited.',
     '',

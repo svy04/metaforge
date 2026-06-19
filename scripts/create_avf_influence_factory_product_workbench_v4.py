@@ -211,7 +211,7 @@ const defaultWorkspace = {
     visualGuide: "Clean editorial product interface, precise typography, no fake social proof.",
     paletteTypography: "Ink, white, teal accent, warm proof accent, dense but readable product UI.",
     forbiddenStyles: "No bot armies, no fake crowds, no spam visuals, no manipulation motifs.",
-    rightsNotes: "Use only owner-provided or properly licensed references."
+    rightsNotes: "Use only user-provided or properly licensed references."
   },
   references: { referenceIndex: "ref-001: owner-approved character sheet; ref-002: product UI screenshot", assetRegistry: "No external assets embedded.", promptPack: {}, checklist: [] },
   personas: [
