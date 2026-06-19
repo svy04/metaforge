@@ -198,3 +198,31 @@ Status: active
   - `bun run verify:privacy` initially caught ignored local runner output with
     a Windows path; the generated local files were removed and the rerun
     passed.
+
+## 2026-06-19 Checkpoint 12 - MFH Representative Trace Pack
+
+- Extended `scripts/validate-goal-traces.ts` so goal traces declare
+  `expectedOutcome` as `validated`, `rejected`, or `blocked`.
+- Added source-controlled trace fixtures:
+  - `docs/goals/traces/CG-001-goal-kernel-mvp.trace.json`
+  - `docs/goals/traces/CG-001-missing-evidence-rejected.trace.json`
+  - `docs/goals/traces/CG-001-protected-action-blocked.trace.json`
+- Updated `scripts/validate-goal-traces.test.ts` so MFH accepts rejected and
+  blocked traces only when the denial evidence is explicit and no side effects
+  execute.
+- Updated the MFH public claim evidence map so it points to the representative
+  trace fixtures and keeps broader cross-goal/runtime reliability claims
+  blocked.
+- Excluded `docs/product-quality/product-evidence-manifest.md` from the public
+  claim-boundary scan input set because the manifest hashes the claim-boundary
+  report; this prevents generated-report stale loops while keeping the manifest
+  itself hash-bound by `product:evidence-manifest`.
+- Validation results so far:
+  - `bun test scripts/validate-goal-traces.test.ts` passed with 8 tests.
+  - `bun run goals:trace:validate` passed with 3 valid traces and coverage
+    `validated=1`, `rejected=1`, `blocked=1`.
+  - `bun run product:public-claim-boundary` passed with 0 unauthorized positive
+    claims.
+  - `bun run product:evidence-manifest` passed with 221 evidence records.
+  - `bun run product:public-claim-boundary:check` passed after the manifest
+    exclusion, confirming generated claim-boundary artifacts are current.

@@ -15,9 +15,12 @@ export type GoalTraceEvent = {
   disallowedClaimsFound?: boolean
 }
 
+export type GoalTraceOutcome = 'validated' | 'rejected' | 'blocked'
+
 export type GoalTrace = {
   goalId: string
   traceId: string
+  expectedOutcome: GoalTraceOutcome
   claimBoundary: {
     allowed: string[]
     forbidden: string[]
@@ -86,6 +89,12 @@ const credentialPatterns = [
   /-----BEGIN (RSA|DSA|EC|OPENSSH|PGP) PRIVATE KEY-----/,
 ]
 
+const terminalEventByOutcome: Record<GoalTraceOutcome, string> = {
+  validated: 'goal.validated',
+  rejected: 'goal.rejected',
+  blocked: 'goal.blocked',
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
@@ -123,12 +132,29 @@ function eventIndex(trace: GoalTrace, eventName: string): number {
   return trace.events.findIndex((event) => event.eventName === eventName)
 }
 
+function eventIsBeforeTerminal(trace: GoalTrace, eventName: string, terminalEventName: string): boolean {
+  const targetIndex = eventIndex(trace, eventName)
+  const terminalIndex = eventIndex(trace, terminalEventName)
+  return targetIndex !== -1 && terminalIndex !== -1 && targetIndex < terminalIndex
+}
+
 function hasSuccessfulValidationEvidence(trace: GoalTrace): boolean {
   return trace.events.some((event) => (
     event.eventName === 'validation.ran' &&
     event.status === 'succeeded' &&
     hasNonEmptyString(event.command) &&
     event.exitCode === 0 &&
+    isNonEmptyArray(event.evidenceArtifacts)
+  ))
+}
+
+function hasFailedValidationEvidence(trace: GoalTrace): boolean {
+  return trace.events.some((event) => (
+    event.eventName === 'validation.ran' &&
+    event.status === 'failed' &&
+    hasNonEmptyString(event.command) &&
+    typeof event.exitCode === 'number' &&
+    event.exitCode !== 0 &&
     isNonEmptyArray(event.evidenceArtifacts)
   ))
 }
@@ -144,6 +170,25 @@ function hasCleanClaimReview(trace: GoalTrace): boolean {
     event.status === 'succeeded' &&
     event.disallowedClaimsFound === false
   ))
+}
+
+function hasDisallowedClaimReviewBefore(trace: GoalTrace, terminalEventName: string): boolean {
+  const terminalIndex = eventIndex(trace, terminalEventName)
+  if (terminalIndex === -1) return false
+  return trace.events.some((event, index) => (
+    index < terminalIndex &&
+    event.eventName === 'claim.reviewed' &&
+    event.status === 'succeeded' &&
+    event.disallowedClaimsFound === true
+  ))
+}
+
+function hasProtectedActionDenialBefore(trace: GoalTrace, terminalEventName: string): boolean {
+  return trace.events.some((event) => (
+    event.eventName === 'protected_action.denied' &&
+    event.status === 'succeeded' &&
+    isNonEmptyArray(event.evidenceArtifacts)
+  )) && eventIsBeforeTerminal(trace, 'protected_action.denied', terminalEventName)
 }
 
 function eventSequenceIsChronological(events: GoalTraceEvent[]): boolean {
@@ -174,6 +219,15 @@ export function evaluateGoalTrace(
   if (!isValidTraceId(trace.traceId)) {
     errors.push('traceId must be 32 hex characters')
   }
+
+  const outcome = trace.expectedOutcome
+  const validOutcomes: GoalTraceOutcome[] = ['validated', 'rejected', 'blocked']
+  if (!validOutcomes.includes(outcome)) {
+    errors.push('expectedOutcome must be validated, rejected, or blocked')
+  }
+  const terminalEventName = validOutcomes.includes(outcome)
+    ? terminalEventByOutcome[outcome]
+    : 'goal.validated'
 
   if (!isRecord(trace.claimBoundary)) {
     errors.push('claimBoundary must be an object')
@@ -215,24 +269,52 @@ export function evaluateGoalTrace(
   }
 
   const loadedIndex = eventIndex(trace, 'goal.loaded')
+  const terminalIndex = eventIndex(trace, terminalEventName)
   const validatedIndex = eventIndex(trace, 'goal.validated')
   if (loadedIndex !== 0) {
     errors.push('trace must start with goal.loaded')
   }
-  if (validatedIndex === -1) {
-    errors.push('trace must include goal.validated')
+  if (terminalIndex === -1) {
+    errors.push(`trace expectedOutcome=${outcome} must include ${terminalEventName}`)
   }
-  if (validatedIndex !== -1 && loadedIndex !== -1 && validatedIndex <= loadedIndex) {
-    errors.push('goal.validated must occur after goal.loaded')
+  if (terminalIndex !== -1 && loadedIndex !== -1 && terminalIndex <= loadedIndex) {
+    errors.push(`${terminalEventName} must occur after goal.loaded`)
+  }
+  if (terminalIndex !== -1 && Array.isArray(trace.events) && terminalIndex !== trace.events.length - 1) {
+    errors.push(`${terminalEventName} must be the final event`)
   }
   if (eventIndex(trace, 'checkpoint.completed') === -1) {
     errors.push('trace must include at least one checkpoint.completed event')
   }
-  if (validatedIndex !== -1 && !hasSuccessfulValidationEvidence(trace)) {
-    errors.push('validated traces require a successful validation.ran event with command, exitCode 0, and evidence artifact')
+  if (outcome === 'validated') {
+    if (!hasSuccessfulValidationEvidence(trace)) {
+      errors.push('validated traces require a successful validation.ran event with command, exitCode 0, and evidence artifact')
+    }
+    if (!hasCleanClaimReview(trace)) {
+      errors.push('validated traces require claim.reviewed with disallowedClaimsFound=false before goal.validated')
+    }
   }
-  if (validatedIndex !== -1 && !hasCleanClaimReview(trace)) {
-    errors.push('validated traces require claim.reviewed with disallowedClaimsFound=false before goal.validated')
+  if (outcome === 'rejected') {
+    if (validatedIndex !== -1) {
+      errors.push('rejected traces must not include goal.validated')
+    }
+    if (!hasFailedValidationEvidence(trace)) {
+      errors.push('rejected traces require a failed validation.ran event with command, nonzero exitCode, and evidence artifact')
+    }
+    if (!hasDisallowedClaimReviewBefore(trace, terminalEventName)) {
+      errors.push('rejected traces require claim.reviewed with disallowedClaimsFound=true before goal.rejected')
+    }
+  }
+  if (outcome === 'blocked') {
+    if (validatedIndex !== -1) {
+      errors.push('blocked traces must not include goal.validated')
+    }
+    if (!hasProtectedActionDenialBefore(trace, terminalEventName)) {
+      errors.push('blocked traces require protected_action.denied with evidence before goal.blocked')
+    }
+    if (!hasDisallowedClaimReviewBefore(trace, terminalEventName)) {
+      errors.push('blocked traces require claim.reviewed with disallowedClaimsFound=true before goal.blocked')
+    }
   }
   if (hasCredentialPattern(trace)) {
     errors.push('trace must not contain credential-like patterns')
@@ -256,6 +338,13 @@ export function buildGoalTraceReport(
   const validationResults = traceFiles.map((input) =>
     evaluateGoalTrace(input.trace, knownGoalIds, input.path, input.sha256),
   )
+  const validTraceInputs = traceFiles.filter((_, index) => validationResults[index]?.ok)
+  const validOutcomeCount = (outcome: GoalTraceOutcome) => validTraceInputs
+    .filter((input) => input.trace.expectedOutcome === outcome)
+    .length
+  const validatedCount = validOutcomeCount('validated')
+  const rejectedCount = validOutcomeCount('rejected')
+  const blockedCount = validOutcomeCount('blocked')
   const traceChecks = [
     {
       label: 'goal trace files discovered',
@@ -276,6 +365,11 @@ export function buildGoalTraceReport(
         input.trace.protectedActionsExecuted.length === 0
       )),
       detail: 'side-effect arrays are empty in all valid traces',
+    },
+    {
+      label: 'representative trace pack covers happy path, edge case, and side-effect denial',
+      ok: validatedCount > 0 && rejectedCount > 0 && blockedCount > 0,
+      detail: `validated=${validatedCount}, rejected=${rejectedCount}, blocked=${blockedCount}`,
     },
   ]
 

@@ -1,0 +1,66 @@
+{
+  "goalId": "CG-001",
+  "traceId": "c0010000000000000000000000000002",
+  "expectedOutcome": "rejected",
+  "claimBoundary": {
+    "allowed": [
+      "CG-001 has a local no-provider edge-case trace proving MFH rejects closure when passing command evidence is absent."
+    ],
+    "forbidden": [
+      "Production readiness",
+      "Release readiness",
+      "Hosted deployment",
+      "External validation",
+      "Benchmark superiority",
+      "Autonomous reliability"
+    ]
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "events": [
+    {
+      "timestamp": "2026-06-18T09:35:00.000Z",
+      "eventName": "goal.loaded",
+      "status": "started",
+      "actor": "orchestrator",
+      "summary": "Loaded CG-001 as an edge-case fixture for incomplete validation evidence."
+    },
+    {
+      "timestamp": "2026-06-18T09:36:00.000Z",
+      "eventName": "checkpoint.completed",
+      "status": "succeeded",
+      "actor": "implementer",
+      "checkpointId": "CP-EDGE-001",
+      "summary": "Prepared an MFH closure attempt that lacks passing command evidence."
+    },
+    {
+      "timestamp": "2026-06-18T09:37:00.000Z",
+      "eventName": "validation.ran",
+      "status": "failed",
+      "actor": "eval",
+      "command": "bun run goals:validate",
+      "exitCode": 1,
+      "evidenceArtifacts": [
+        "docs/product-quality/goal-validation-report.json"
+      ],
+      "summary": "The edge-case fixture records the policy path for a failed validation command."
+    },
+    {
+      "timestamp": "2026-06-18T09:38:00.000Z",
+      "eventName": "claim.reviewed",
+      "status": "succeeded",
+      "actor": "evidence-arbiter",
+      "disallowedClaimsFound": true,
+      "summary": "MFH would disallow a validated completion claim without passing validation evidence."
+    },
+    {
+      "timestamp": "2026-06-18T09:39:00.000Z",
+      "eventName": "goal.rejected",
+      "status": "succeeded",
+      "actor": "orchestrator",
+      "summary": "CG-001 closure is rejected in this fixture instead of being upgraded to validated."
+    }
+  ]
+}

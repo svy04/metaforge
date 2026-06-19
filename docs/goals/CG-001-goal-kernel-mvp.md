@@ -13,7 +13,7 @@ parent: SG-001
 status: active
 owner: Orchestrator
 createdAt: 2026-06-18
-updatedAt: 2026-06-18
+updatedAt: 2026-06-19
 
 objective:
   summary: Create a machine-checkable goal registry for the Autonomous Goal OS.
@@ -26,6 +26,7 @@ scope:
     - Add a local validator for required Goal OS fields.
     - Bind the goal to MFH gate flags and Meta record fields.
     - Record local validation commands and claim boundaries.
+    - Add a representative trace pack for validated, rejected, and blocked MFH outcomes.
   out:
     - Public deployment.
     - Credential or provider changes.
@@ -41,6 +42,9 @@ scope:
     - package.json
     - docs/PROGRESS_LOG.md
     - docs/DECISION_LOG.md
+    - docs/goals/traces/CG-001-goal-kernel-mvp.trace.json
+    - docs/goals/traces/CG-001-missing-evidence-rejected.trace.json
+    - docs/goals/traces/CG-001-protected-action-blocked.trace.json
   targetDomain: docs-governance
 
 context:
@@ -106,6 +110,9 @@ successCriteria:
   - id: SC-004
     statement: Claim boundaries remain explicit and no protected actions are performed.
     validation: bun run goals:validate and bun run verify:privacy
+  - id: SC-005
+    statement: The MFH trace pack covers a validated happy path, a rejected missing-evidence edge case, and a blocked protected-action side-effect path.
+    validation: bun run goals:trace:validate
 
 validationCommands:
   - command: bun run goals:validate
@@ -120,6 +127,9 @@ validationCommands:
   - command: bun run verify:privacy
     expected: exit 0
     required: false
+  - command: bun run goals:trace:validate
+    expected: exit 0 with validated=1, rejected=1, blocked=1 representative coverage
+    required: true
 
 checkpoints:
   - id: CP-001
@@ -134,6 +144,9 @@ checkpoints:
   - id: CP-004
     name: Record outcome
     doneWhen: Progress and decision logs mention the Goal Kernel MVP.
+  - id: CP-005
+    name: Add representative trace pack
+    doneWhen: The goal trace report records validated, rejected, and blocked outcomes with no side effects executed.
 
 pauseConditions:
   - A protected action, credential change, provider activation, public deployment, or automation creation is needed.
@@ -165,13 +178,20 @@ evidence:
   artifacts:
     - docs/goals/README.md
     - docs/goals/CG-001-goal-kernel-mvp.md
+    - docs/goals/traces/CG-001-goal-kernel-mvp.trace.json
+    - docs/goals/traces/CG-001-missing-evidence-rejected.trace.json
+    - docs/goals/traces/CG-001-protected-action-blocked.trace.json
     - scripts/validate-goals.ts
     - scripts/validate-goals.test.ts
     - docs/product-quality/goal-validation-report.json
+    - docs/product-quality/goal-trace-validation-report.json
   testResults:
     - command: bun run goals:validate
       status: pass
-      outputSummary: 1 goal file passed, 0 invalid, with no provider, live model, external, or protected calls.
+      outputSummary: 1 goal file passed and 3 goal traces passed, with no provider, live model, external, or protected calls.
+    - command: bun run goals:trace:validate
+      status: pass
+      outputSummary: 3 goal traces passed with representative coverage validated=1, rejected=1, blocked=1.
     - command: bun test scripts/validate-goals.test.ts
       status: pass
       outputSummary: 3 tests passed, including MFH/Meta fields, missing gate fields, malformed item fields, filename mismatch, and missing local sources.
@@ -181,7 +201,10 @@ evidence:
     - command: bun run verify:privacy
       status: pass
       outputSummary: No banned build-output patterns, no unauthorized positive public claims, and no origin/license provenance blockers.
-  traceLinks: []
+  traceLinks:
+    - docs/goals/traces/CG-001-goal-kernel-mvp.trace.json
+    - docs/goals/traces/CG-001-missing-evidence-rejected.trace.json
+    - docs/goals/traces/CG-001-protected-action-blocked.trace.json
 
 reflection:
   result: keep
