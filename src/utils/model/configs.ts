@@ -31,9 +31,9 @@ export const GEMINI_MODEL_DEFAULTS = {
 // complete when Mistral is the active API provider.
 // ---------------------------------------------------------------------------
 export const MISTRAL_MODEL_DEFAULTS = {
-  opus: 'devstral-latest',
-  sonnet: 'mistral-medium-latest',
-  haiku: 'ministral-3b-latest',
+  opus: 'mistral-medium-3-5',
+  sonnet: 'mistral-medium-3-5',
+  haiku: 'ministral-3b-2512',
 } as const
 
 // @[MODEL LAUNCH]: Add a new CLAUDE_*_CONFIG constant here. Double check the correct model strings

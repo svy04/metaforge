@@ -3145,7 +3145,7 @@ test('preserves valid tool_result and drops orphan tool_result', async () => {
     return new Response(
       JSON.stringify({
         id: 'chatcmpl-1',
-        model: 'mistral-large-latest',
+        model: 'mistral-medium-3-5',
         choices: [
           {
             message: {
@@ -3172,7 +3172,7 @@ test('preserves valid tool_result and drops orphan tool_result', async () => {
   const client = createOpenAIShimClient({}) as OpenAIShimClient
 
   await client.beta.messages.create({
-    model: 'mistral-large-latest',
+    model: 'mistral-medium-3-5',
     system: 'test system',
     messages: [
       { role: 'user', content: 'Search and then I will interrupt' },
@@ -3241,7 +3241,7 @@ test('drops empty assistant message when only thinking block was present and str
       id: 'chatcmpl-1',
       object: 'chat.completion',
       created: 123456789,
-      model: 'mistral-large-latest',
+      model: 'mistral-medium-3-5',
       choices: [{ message: { role: 'assistant', content: 'hi' }, finish_reason: 'stop' }],
       usage: { prompt_tokens: 1, completion_tokens: 1, total_tokens: 2 }
     }), { headers: { 'Content-Type': 'application/json' } })
@@ -3250,7 +3250,7 @@ test('drops empty assistant message when only thinking block was present and str
   const client = createOpenAIShimClient({}) as OpenAIShimClient
 
   await client.beta.messages.create({
-    model: 'mistral-large-latest',
+    model: 'mistral-medium-3-5',
     messages: [
       { role: 'user', content: 'Initial' },
       { role: 'assistant', content: [{ type: 'thinking', thinking: 'I am thinking...', signature: 'sig' }] },
@@ -3278,7 +3278,7 @@ test('injects semantic assistant message when tool result is followed by user me
       id: 'chatcmpl-2',
       object: 'chat.completion',
       created: 123456789,
-      model: 'mistral-large-latest',
+      model: 'mistral-medium-3-5',
       choices: [{ message: { role: 'assistant', content: 'hi' }, finish_reason: 'stop' }],
       usage: { prompt_tokens: 1, completion_tokens: 1, total_tokens: 2 }
     }), { headers: { 'Content-Type': 'application/json' } })
@@ -3287,7 +3287,7 @@ test('injects semantic assistant message when tool result is followed by user me
   const client = createOpenAIShimClient({}) as OpenAIShimClient
 
   await client.beta.messages.create({
-    model: 'mistral-large-latest',
+    model: 'mistral-medium-3-5',
     messages: [
       { 
         role: 'assistant', 
