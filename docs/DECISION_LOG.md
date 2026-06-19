@@ -369,3 +369,35 @@ Consequence:
 - This slice does not create automations, schedule jobs, call providers, call
   live models, call external services, execute protected actions, claim a real
   20-task experiment, or claim production/external/autonomous readiness.
+
+## D-017 - Upgrade MFH trace evidence from a single happy path to a representative pack
+
+Date: 2026-06-19
+Status: accepted
+
+Decision:
+
+MFH trace evidence should include a representative local no-provider pack, not
+only one happy-path closure trace. The first pack for `CG-001` covers:
+
+- `validated`: passing command evidence and clean claim review.
+- `rejected`: missing or failed command evidence blocks validation.
+- `blocked`: a protected action is denied without executing side effects.
+
+Evidence:
+
+- Korean community feedback specifically called out marker-only and
+  file-presence checks as weak proof compared with happy-path, edge-case, and
+  side-effect behavior checks.
+- `scripts/validate-goal-traces.test.ts` now exercises accepted rejected and
+  blocked traces and requires representative coverage.
+- `docs/product-quality/goal-trace-validation-report.md` records 3/3 valid
+  trace fixtures and zero provider, live model, external, or protected calls.
+
+Consequence:
+
+- MFH can now claim representative local trace-validation evidence for the
+  first Goal Kernel slice.
+- Broader MFH reliability claims remain blocked until cross-goal runtime
+  traces, live-provider evidence, and broader side-effect behavior coverage
+  exist.

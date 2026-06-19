@@ -1,0 +1,64 @@
+{
+  "goalId": "CG-001",
+  "traceId": "c0010000000000000000000000000003",
+  "expectedOutcome": "blocked",
+  "claimBoundary": {
+    "allowed": [
+      "CG-001 has a local no-provider side-effect trace proving MFH blocks closure when a protected action lacks authorization."
+    ],
+    "forbidden": [
+      "Production readiness",
+      "Release readiness",
+      "Hosted deployment",
+      "External validation",
+      "Benchmark superiority",
+      "Autonomous reliability"
+    ]
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "events": [
+    {
+      "timestamp": "2026-06-18T09:40:00.000Z",
+      "eventName": "goal.loaded",
+      "status": "started",
+      "actor": "orchestrator",
+      "summary": "Loaded CG-001 as a side-effect fixture for a protected-action boundary."
+    },
+    {
+      "timestamp": "2026-06-18T09:41:00.000Z",
+      "eventName": "checkpoint.completed",
+      "status": "succeeded",
+      "actor": "implementer",
+      "checkpointId": "CP-SIDE-001",
+      "summary": "Prepared an MFH closure attempt that would need a protected publish or release action."
+    },
+    {
+      "timestamp": "2026-06-18T09:42:00.000Z",
+      "eventName": "protected_action.denied",
+      "status": "succeeded",
+      "actor": "security",
+      "evidenceArtifacts": [
+        "docs/product-quality/protected-action-denial-trace-report.json"
+      ],
+      "summary": "The protected action is denied because no owner authorization is present."
+    },
+    {
+      "timestamp": "2026-06-18T09:43:00.000Z",
+      "eventName": "claim.reviewed",
+      "status": "succeeded",
+      "actor": "evidence-arbiter",
+      "disallowedClaimsFound": true,
+      "summary": "Release, public-readiness, or hosted-deployment claims remain blocked."
+    },
+    {
+      "timestamp": "2026-06-18T09:44:00.000Z",
+      "eventName": "goal.blocked",
+      "status": "succeeded",
+      "actor": "orchestrator",
+      "summary": "CG-001 closure is blocked without executing provider, live model, external, or protected side effects."
+    }
+  ]
+}

@@ -86,10 +86,13 @@ describe('product public claim boundary classifier', () => {
       'docs/product-quality/goal-trace-validation-report.md',
       'docs/product-quality/goal-trace-validation-report.json',
       'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
+      'docs/goals/traces/CG-001-missing-evidence-rejected.trace.json',
+      'docs/goals/traces/CG-001-protected-action-blocked.trace.json',
     ]))
     expect(mfh?.verificationCommand).toContain('goals:validate')
-    expect(mfh?.allowedClaim).toContain('trace-validation evidence')
-    expect(mfh?.unresolvedGap).toContain('representative traces')
+    expect(mfh?.allowedClaim).toContain('representative trace-validation evidence')
+    expect(mfh?.unresolvedGap).toContain('Cross-goal runtime traces')
+    expect(mfh?.unresolvedGap).not.toContain('representative traces')
   })
 
   test('check mode reports the MFH trace-evidence binding check', () => {
@@ -135,6 +138,7 @@ describe('product public claim boundary classifier', () => {
     expect(publicSurfacePaths).toContain('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
     expect(publicSurfacePaths).toContain('docs/marketing/README.md')
     expect(publicSurfacePaths).not.toContain('docs/product-quality/public-claim-boundary-report.md')
+    expect(publicSurfacePaths).not.toContain('docs/product-quality/product-evidence-manifest.md')
   })
 
   test('classifies unsupported public-readiness claims as unauthorized positives', () => {

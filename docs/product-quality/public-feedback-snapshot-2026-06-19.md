@@ -55,7 +55,9 @@ machine details back into the repository.
 
 This slice records the feedback as a new dated snapshot, updates the public
 feedback backlog pointer, and binds MFH public claim evidence directly to the
-source-controlled Goal Kernel trace and goal-trace validation report.
+source-controlled three-file Goal Kernel trace pack and goal-trace validation
+report. The pack covers one validated happy path, one rejected missing-evidence
+edge case, and one blocked protected-action side-effect case.
 
 Boundary: this snapshot and response are local no-provider product input and
 public hygiene evidence. They are not production readiness, hosted workflow
