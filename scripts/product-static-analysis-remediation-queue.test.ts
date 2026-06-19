@@ -75,6 +75,7 @@ describe('static analysis remediation queue', () => {
     ])
     expect(report.queueItems.find((item) => item.queueId === 'static-analysis-new-dependency-violations')?.priority).toBe('P0')
     expect(report.queueItems.find((item) => item.queueId === 'static-analysis-dead-export-runtime-guards')?.validationCommands).toContain('bun run product:dead-export-candidates')
+    expect(report.queueItems.find((item) => item.queueId === 'static-analysis-dead-export-runtime-guards')?.validationCommands).toContain('bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts')
     expect(report.queueItems.find((item) => item.queueId === 'static-analysis-duplicate-helper-clusters')?.safeFirstStep).toContain('shared helper')
     expect(report.evidenceChecks.every((item) => item.ok)).toBe(true)
     expect(report.cleanupCompletionClaimAllowed).toBe(false)

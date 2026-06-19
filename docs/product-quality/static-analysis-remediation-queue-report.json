@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T16:35:58.439Z",
+  "generatedAt": "2026-06-19T20:06:54.337Z",
   "mode": "local_no_provider_static_analysis_remediation_queue",
   "repository": "svy04/metaforge",
-  "sourceCommit": "0db39507bf5dba66671d2df4a8e780fb9e811027",
+  "sourceCommit": "115d1d3d499b43c3ceeb0acfcdddf35c30ee8b7a",
   "generatedFrom": [
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dependency-topology-report.json",
@@ -74,7 +74,7 @@
       "safeFirstStep": "Add or verify runtime guards for side-effect-sensitive exported candidates before any deletion or export narrowing.",
       "ownerDecisionRequired": true,
       "validationCommands": [
-        "bun run product:dead-export-candidates",
+        "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts",
         "bun run product:dead-export-candidates",
         "bun run product:dependency-topology",
         "bun run product:script-duplication-audit",
