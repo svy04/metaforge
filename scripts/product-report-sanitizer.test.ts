@@ -6,6 +6,13 @@ describe('product report public sanitizer', () => {
   const desktop = 'Desk' + 'top'
   const repoPath = [winHome, desktop, 'project space', 'openclaude-0.6.0'].join('\\')
   const posixRepoPath = ['C:', 'Users', 'alice', desktop, 'project-space', 'openclaude-0.6.0'].join('/')
+  const worktreeRepoPath = [
+    winHome,
+    desktop,
+    '내 순수 재미',
+    'openclaude-worktrees',
+    'public-feedback-static-proof',
+  ].join('\\')
   const bunExePath = [winHome, 'AppData', 'Roaming', 'npm', 'node_modules', 'bun', 'bin', 'bun.exe'].join('\\')
   const winUserPrefix = ['C:', 'Users'].join('\\')
   const posixUserPrefix = ['C:', 'Users'].join('/')
@@ -24,6 +31,21 @@ describe('product report public sanitizer', () => {
     expect(scrubbed).toContain('<bun>')
     expect(scrubbed).not.toContain(winUserPrefix)
     expect(scrubbed).not.toContain(posixUserPrefix)
+  })
+
+  test('scrubs the current repo root before broader user-home placeholders', () => {
+    const text = [
+      `${worktreeRepoPath}\\dist\\cli.mjs --version`,
+      `"cwd":"${worktreeRepoPath.replaceAll('\\', '\\\\')}"`,
+    ].join('\n')
+
+    const scrubbed = scrubPublicArtifactText(text, { repoRoot: worktreeRepoPath })
+
+    expect(scrubbed).toContain('<repo>\\dist\\cli.mjs --version')
+    expect(scrubbed).toContain('"cwd":"<repo>"')
+    expect(scrubbed).not.toContain('<user-home>')
+    expect(scrubbed).not.toContain('내 순수 재미')
+    expect(scrubbed).not.toContain(winUserPrefix)
   })
 
   test('recursively scrubs public report values', () => {

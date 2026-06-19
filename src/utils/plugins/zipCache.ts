@@ -33,8 +33,8 @@ import { randomBytes } from 'crypto'
 import {
   chmod,
   lstat,
+  open,
   readdir,
-  readFile,
   rename,
   rm,
   stat,
@@ -307,14 +307,23 @@ async function collectFilesForZip(
       await collectFilesForZip(baseDir, relPath, files, visited)
     } else if (fileStat.isFile()) {
       try {
-        const content = await readFile(fullPath)
-        // os=3 (Unix) + st_mode in high 16 bits of external_attr — this is
-        // what parseZipModes reads back on extraction. fileStat is already
-        // in hand from the lstat/stat above, so no extra syscall.
-        files[relPath] = [
-          new Uint8Array(content),
-          { os: 3, attrs: (fileStat.mode & 0xffff) << 16 },
-        ]
+        const fd = await open(fullPath, 'r')
+        try {
+          const openedStat = await fd.stat()
+          if (!openedStat.isFile()) {
+            continue
+          }
+          const content = await fd.readFile()
+          // os=3 (Unix) + st_mode in high 16 bits of external_attr — this is
+          // what parseZipModes reads back on extraction. Use the opened file's
+          // stat so content and mode come from the same descriptor.
+          files[relPath] = [
+            new Uint8Array(content),
+            { os: 3, attrs: (openedStat.mode & 0xffff) << 16 },
+          ]
+        } finally {
+          await fd.close()
+        }
       } catch (error) {
         logForDebugging(`Failed to read file for zip: ${relPath}: ${error}`)
       }
