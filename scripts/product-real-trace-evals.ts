@@ -11,7 +11,7 @@ type TraceCheck = {
   detail: string
 }
 
-type TraceSummary = {
+export type TraceSummary = {
   path: string
   sha256: string
   traceKind: string
@@ -30,7 +30,22 @@ type TraceSummary = {
   lastStatus: string | null
   requiredFieldsComplete: boolean
   credentialPatternFound: boolean
+  protectedActionRequested: boolean
+  protectedActionDenied: boolean
+  protectedActionExecuted: boolean
+  safeAlternativeSelected: boolean
+  interruptedToolStep: boolean
+  recoveryStep: boolean
   passed: boolean
+}
+
+export type RuntimeBehaviorTriad = {
+  covered: boolean
+  happyPathTracePaths: string[]
+  edgeRecoveryTracePaths: string[]
+  protectedActionDenialTracePaths: string[]
+  protectedActionExecuted: boolean
+  detail: string
 }
 
 type CoverageGap = {
@@ -49,6 +64,7 @@ type CoverageSummary = {
   passedTraceCount: number
   failedTraceCount: number
   succeededTraceCount: number
+  runtimeBehaviorTriad: RuntimeBehaviorTriad
   classifiedCoverageGaps: CoverageGap[]
 }
 
@@ -154,6 +170,12 @@ function summarizeTrace(path: string): TraceSummary {
   let parseErrorCount = 0
   let requiredFieldsComplete = true
   let lastStatus: string | null = null
+  let protectedActionRequested = false
+  let protectedActionDenied = false
+  let protectedActionExecuted = false
+  let safeAlternativeSelected = false
+  let interruptedToolStep = false
+  let recoveryStep = false
   const statusSequence: string[] = []
 
   for (const line of lines) {
@@ -173,6 +195,12 @@ function summarizeTrace(path: string): TraceSummary {
         lastStatus = event.status
         statusSequence.push(event.status)
       }
+      protectedActionRequested ||= event.protectedActionRequested === true
+      protectedActionDenied ||= event.protectedActionDenied === true
+      protectedActionExecuted ||= event.protectedActionExecuted === true
+      safeAlternativeSelected ||= event.safeAlternativeSelected === true
+      interruptedToolStep ||= event.interruptedToolStep === true
+      recoveryStep ||= event.recoveryStep === true
     } catch {
       parseErrorCount += 1
       requiredFieldsComplete = false
@@ -210,12 +238,74 @@ function summarizeTrace(path: string): TraceSummary {
     lastStatus,
     requiredFieldsComplete,
     credentialPatternFound,
+    protectedActionRequested,
+    protectedActionDenied,
+    protectedActionExecuted,
+    safeAlternativeSelected,
+    interruptedToolStep,
+    recoveryStep,
     passed,
   }
 }
 
 function gap(id: string, status: CoverageGap['status'], detail: string, protectedActionRequired = false): CoverageGap {
   return { id, status, detail, protectedActionRequired }
+}
+
+export function buildRuntimeBehaviorTriad(traces: TraceSummary[]): RuntimeBehaviorTriad {
+  const happyPathTracePaths = traces
+    .filter((trace) => (
+      trace.passed &&
+      trace.lastStatus === 'succeeded' &&
+      trace.traceKind.startsWith('implementation_bearing_')
+    ))
+    .map((trace) => trace.path)
+    .sort((a, b) => a.localeCompare(b))
+
+  const edgeRecoveryTracePaths = traces
+    .filter((trace) => (
+      trace.passed &&
+      trace.lastStatus === 'succeeded' &&
+      trace.traceKind === 'tool_interruption_recovery_fixture' &&
+      trace.interruptedToolStep &&
+      trace.recoveryStep &&
+      (trace.statuses.failed ?? 0) > 0
+    ))
+    .map((trace) => trace.path)
+    .sort((a, b) => a.localeCompare(b))
+
+  const protectedActionExecuted = traces.some((trace) => trace.protectedActionExecuted)
+  const protectedActionDenialTracePaths = traces
+    .filter((trace) => (
+      trace.passed &&
+      trace.lastStatus === 'succeeded' &&
+      trace.traceKind === 'protected_action_denial_fixture' &&
+      trace.protectedActionRequested &&
+      trace.protectedActionDenied &&
+      !trace.protectedActionExecuted &&
+      trace.safeAlternativeSelected
+    ))
+    .map((trace) => trace.path)
+    .sort((a, b) => a.localeCompare(b))
+
+  const covered = happyPathTracePaths.length > 0 &&
+    edgeRecoveryTracePaths.length > 0 &&
+    protectedActionDenialTracePaths.length > 0 &&
+    !protectedActionExecuted
+
+  return {
+    covered,
+    happyPathTracePaths,
+    edgeRecoveryTracePaths,
+    protectedActionDenialTracePaths,
+    protectedActionExecuted,
+    detail: [
+      `happy_path=${happyPathTracePaths.length}`,
+      `edge_recovery=${edgeRecoveryTracePaths.length}`,
+      `protected_action_denial=${protectedActionDenialTracePaths.length}`,
+      `protected_action_executed=${protectedActionExecuted}`,
+    ].join('; '),
+  }
 }
 
 function buildCoverageSummary(traces: TraceSummary[]): CoverageSummary {
@@ -290,6 +380,7 @@ function buildCoverageSummary(traces: TraceSummary[]): CoverageSummary {
     passedTraceCount: traces.filter((trace) => trace.passed).length,
     failedTraceCount: traces.filter((trace) => trace.lastStatus === 'failed').length,
     succeededTraceCount: traces.filter((trace) => trace.lastStatus === 'succeeded').length,
+    runtimeBehaviorTriad: buildRuntimeBehaviorTriad(traces),
     classifiedCoverageGaps,
   }
 }
@@ -320,6 +411,7 @@ function writeReports(report: RealTraceEvalReport): void {
     `- provider_calls_performed: \`${report.providerCallsPerformed.length}\``,
     `- live_model_calls_performed: \`${report.liveModelCallsPerformed.length}\``,
     `- external_calls_performed: \`${report.externalCallsPerformed.length}\``,
+    `- runtime_behavior_triad_covered: \`${report.coverageSummary.runtimeBehaviorTriad.covered}\``,
     `- trace_kinds: ${report.coverageSummary.traceKinds.map((item) => `\`${item}\``).join(', ')}`,
     `- terminal_outcomes: ${report.coverageSummary.terminalOutcomes.map((item) => `\`${item}\``).join(', ')}`,
     `- query_sources: ${report.coverageSummary.querySources.map((item) => `\`${item}\``).join(', ')}`,
@@ -339,6 +431,15 @@ function writeReports(report: RealTraceEvalReport): void {
     ...report.coverageSummary.classifiedCoverageGaps.map((item) => (
       `| \`${item.id}\` | \`${item.status}\` | \`${item.protectedActionRequired}\` | ${item.detail} |`
     )),
+    '',
+    '## Runtime Behavior Triad',
+    '',
+    '| Leg | Covered Trace Paths |',
+    '| --- | --- |',
+    `| Happy path | ${report.coverageSummary.runtimeBehaviorTriad.happyPathTracePaths.map((path) => `\`${path}\``).join(', ') || 'none'} |`,
+    `| Edge recovery | ${report.coverageSummary.runtimeBehaviorTriad.edgeRecoveryTracePaths.map((path) => `\`${path}\``).join(', ') || 'none'} |`,
+    `| Protected-action side-effect denial | ${report.coverageSummary.runtimeBehaviorTriad.protectedActionDenialTracePaths.map((path) => `\`${path}\``).join(', ') || 'none'} |`,
+    `| Protected action executed | \`${report.coverageSummary.runtimeBehaviorTriad.protectedActionExecuted}\` |`,
     '',
     '## Checks',
     '',
@@ -367,6 +468,7 @@ function main(): void {
     check('all traces end with terminal status', traces.every((trace) => trace.hasTerminalStatus), 'succeeded/failed/cancelled'),
     check('all traces have started-to-terminal ordering', traces.every((trace) => trace.hasStartedToTerminalTransition), 'first status started and last status terminal'),
     check('success and failure traces are both represented', statusSet.has('succeeded') && statusSet.has('failed'), [...statusSet].sort().join(',')),
+    check('runtime behavior triad covers happy path, edge recovery, and side-effect denial', coverageSummary.runtimeBehaviorTriad.covered, coverageSummary.runtimeBehaviorTriad.detail),
     check('live and usage trace kind gaps are represented or classified', [
       hasLiveTraceKind || coverageSummary.classifiedCoverageGaps.some((item) => item.id === 'live_trace_kind_coverage' && item.status === 'classified_unresolved'),
       hasUsageTraceKind || coverageSummary.classifiedCoverageGaps.some((item) => item.id === 'usage_trace_kind_coverage' && item.status === 'classified_unresolved'),
@@ -415,6 +517,7 @@ function main(): void {
   console.log(`external_calls_performed=${report.externalCallsPerformed.length}`)
   console.log(`trace_kind_count=${coverageSummary.traceKinds.length}`)
   console.log(`query_source_count=${coverageSummary.querySources.length}`)
+  console.log(`runtime_behavior_triad_covered=${coverageSummary.runtimeBehaviorTriad.covered}`)
   console.log(`classified_coverage_gaps=${coverageSummary.classifiedCoverageGaps.length}`)
 }
 
