@@ -352,8 +352,8 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/product-quality/prompted-tool-loop-capture-report.md` | `true` | `d2f61c55b903c3ac5e59136dcf89833cfacbf9f50b167519e54c5461c394ab1f` | 57 |
 | `docs/product-quality/protected-action-authorization-packet.md` | `true` | `56d50d62918114262184d5cd015a5a28ffd588470e59250b7c86ff4fddd57aba` | 80 |
 | `docs/product-quality/protected-action-denial-trace-report.md` | `true` | `00b012e011e0f89a182efc6c7effccabc783fd69e3edb6bc5937a0832fef4792` | 47 |
-| `docs/product-quality/provider-capability-matrix-report.md` | `true` | `7dda878184bcefaa6167eee43b4e4c9a11c06838a020987594754e1e51646fac` | 77 |
-| `docs/product-quality/provider-compatibility-fixtures.md` | `true` | `9b04235f227e32093aac49e388833ebd2d0922a12a2c1eea9c0a24f50c33fcc2` | 78 |
+| `docs/product-quality/provider-capability-matrix-report.md` | `true` | `656e8f9d8f5c3812e0a632490e79fcbe8c60cc375bef5f89f7344e5c127ce7c8` | 77 |
+| `docs/product-quality/provider-compatibility-fixtures.md` | `true` | `3bed29c3c484fa7a6c51496cbcbd5a7c4625a1c305c4aacf294f23464a18f300` | 78 |
 | `docs/product-quality/public-feedback-snapshot-2026-06-15.md` | `true` | `f13913dbf367aa9702169a24c494d7fd7d6e6cceb2abc7a0c1780913dd6c2ccc` | 148 |
 | `docs/product-quality/public-feedback-snapshot-2026-06-19.md` | `true` | `dcffb70cc0b4e332294bba8fb53d8ca5dd74269974cddc5a372788acc37d0de1` | 66 |
 | `docs/product-quality/public-feedback-structure-audit-2026-06-15.md` | `true` | `34642e376e063d94b2c2df938bea5d232a31f9cbed2cfa689e116ae6c6ffbd76` | 158 |
@@ -391,7 +391,7 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/quick-start-windows.md` | `true` | `88d297a02159906288876fde2fb74621115718669bf8a782b551920b3388d168` | 150 |
 | `docs/research/public-proof-pack-source-ledger-2026-06-14.md` | `true` | `f8696f391c27d42be8034f0dcd8976d170f7215f41793c24bc0943e3c2108aa6` | 50 |
 | `docs/research/public-proof-pack-source-ledger-2026-06-18.md` | `true` | `687d0dc537f24cbaa6ddca4fbaf4bc596fae839e304ad2d4e412f3b390a72086` | 58 |
-| `package.json` | `true` | `61a809028693882b2a3e006a7a021c4ed57951b38da928528ddd4f1f9d8e5529` | 289 |
+| `package.json` | `true` | `9bad31056eaea58f772fad7c0e8ccbbbd0201ad4b3be8cc1392b95378fed7c40` | 289 |
 | `packages/openclaude-vscode/README.md` | `true` | `6022c84eefaa1e38775b321959b981b15bbc26333ddf179bf2f1b52901eed3b1` | 17 |
 | `packages/openclaude-vscode/package.json` | `true` | `4c718775e642ff1f66c3beee33fa656e504a689f332eaa8bc6ea7b61fb4175b4` | 108 |
 | `vscode-extension/openclaude-vscode/README.md` | `true` | `41efe03849a68187f5df726927fd4b6ae22a84805192706287caf15cbdc98236` | 28 |

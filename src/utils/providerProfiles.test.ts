@@ -119,7 +119,7 @@ function buildMistralProfile(overrides: Partial<ProviderProfile> = {}): Provider
   return buildProfile({
     provider: 'mistral',
     baseUrl: 'https://api.mistral.ai/v1',
-    model: 'devstral-latest',
+    model: 'mistral-medium-3-5',
     ...overrides,
   })
 }
@@ -164,7 +164,7 @@ describe('applyProviderProfileToProcessEnv', () => {
 
     expect(process.env.CLAUDE_CODE_USE_MISTRAL).toBe('1')
     expect(process.env.CLAUDE_CODE_USE_OPENAI).toBeUndefined()
-    expect(process.env.MISTRAL_MODEL).toBe('devstral-latest')
+    expect(process.env.MISTRAL_MODEL).toBe('mistral-medium-3-5')
     expect(getFreshAPIProvider()).toBe('mistral')
   })
 

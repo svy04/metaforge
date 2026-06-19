@@ -480,7 +480,7 @@ test('redactProfileSecretsForPersistence removes API keys before generated profi
     NVIDIA_API_KEY: 'nvidia-live-secret',
     MINIMAX_API_KEY: 'minimax-live-secret',
     MISTRAL_API_KEY: 'mistral-live-secret',
-    MISTRAL_MODEL: 'devstral-latest',
+    MISTRAL_MODEL: 'mistral-medium-3-5',
   })
 
   const redacted = redactProfileSecretsForPersistence(persisted)
@@ -488,7 +488,7 @@ test('redactProfileSecretsForPersistence removes API keys before generated profi
   assert.deepEqual(redacted.env, {
     OPENAI_BASE_URL: 'https://api.openai.com/v1',
     OPENAI_MODEL: 'gpt-5',
-    MISTRAL_MODEL: 'devstral-latest',
+    MISTRAL_MODEL: 'mistral-medium-3-5',
   })
   assert.equal(persisted.env.OPENAI_API_KEY, dummySk('live-secret'))
 })
