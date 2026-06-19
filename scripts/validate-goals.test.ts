@@ -133,7 +133,7 @@ describe('goal validator', () => {
 
   test('rejects malformed item fields, filename mismatch, and missing local sources', () => {
     const invalid = validGoal
-      .replace('    - title: W3C PROV-DM', '    - title: W3C PROV-DM')
+      .replace('    - title: W3C PROV-DM', '    - title: ""')
       .replace('    - AGENTS.md', '    - docs/MISSING_LOCAL_SOURCE.md')
       .replace('  - id: SC-001\n    statement: Goal validator passes.', '  - statement: Goal validator passes.')
       .replace('  - id: CP-001\n    name: Write validator', '  - id: CP-001')
@@ -143,6 +143,7 @@ describe('goal validator', () => {
 
     expect(result.ok).toBe(false)
     expect(result.errors).toContain('id must match filename prefix CG-999')
+    expect(result.errors).toContain('context.externalPrimarySources.0.title must be a non-empty string')
     expect(result.errors).toContain('context.localSourcesRead.0 must point to an existing local source')
     expect(result.errors).toContain('successCriteria.0.id must be a non-empty string')
     expect(result.errors).toContain('checkpoints.0.name must be a non-empty string')

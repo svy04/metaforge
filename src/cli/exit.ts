@@ -20,7 +20,7 @@ import { sanitizePlainTextLogValue } from '../utils/logSanitization.js'
 /** Write an error message to stderr (if given) and exit with code 1. */
 export function cliError(msg?: string): never {
   // biome-ignore lint/suspicious/noConsole: centralized CLI error output
-  if (msg) console.error(sanitizePlainTextLogValue(msg))
+  if (msg) console.error('%s', sanitizePlainTextLogValue(msg))
   process.exit(1)
   return undefined as never
 }

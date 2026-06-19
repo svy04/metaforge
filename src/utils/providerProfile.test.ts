@@ -433,6 +433,42 @@ test('saveProfileFile writes a profile that loadProfileFile can read back', () =
   }
 })
 
+test('saveProfileFile only persists allowlisted string env values', () => {
+  const cwd = mkdtempSync(join(tmpdir(), 'openclaude-profile-normalized-file-'))
+
+  try {
+    const persisted = {
+      ...createProfileFile('codex', {
+        OPENAI_BASE_URL: DEFAULT_CODEX_BASE_URL,
+        OPENAI_MODEL: 'codexplan',
+        CODEX_CREDENTIAL_SOURCE: 'oauth',
+        CHATGPT_ACCOUNT_ID: 'acct_live',
+      }),
+      env: {
+        OPENAI_BASE_URL: DEFAULT_CODEX_BASE_URL,
+        OPENAI_MODEL: 42,
+        CODEX_CREDENTIAL_SOURCE: 'oauth',
+        CHATGPT_ACCOUNT_ID: 'acct_live',
+        UNKNOWN_PROFILE_FIELD: 'do-not-persist',
+      } as unknown as ProfileFile['env'],
+    }
+
+    const filePath = saveProfileFile(persisted, { cwd })
+    const file = JSON.parse(readFileSync(filePath, 'utf8')) as ProfileFile & {
+      env: Record<string, unknown>
+    }
+
+    assert.deepEqual(file.env, {
+      OPENAI_BASE_URL: DEFAULT_CODEX_BASE_URL,
+      CODEX_CREDENTIAL_SOURCE: 'oauth',
+      CHATGPT_ACCOUNT_ID: 'acct_live',
+    })
+    assert.equal(file.env.UNKNOWN_PROFILE_FIELD, undefined)
+  } finally {
+    rmSync(cwd, { recursive: true, force: true })
+  }
+})
+
 test('redactProfileSecretsForPersistence removes API keys before generated profile save', () => {
   const persisted = createProfileFile('openai', {
     OPENAI_API_KEY: dummySk('live-secret'),

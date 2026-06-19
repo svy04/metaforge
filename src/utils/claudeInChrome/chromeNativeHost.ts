@@ -53,7 +53,7 @@ function log(message: string, ...args: unknown[]): void {
       // Ignore file write errors
     })
   }
-  console.error(formattedMessage)
+  console.error('%s', formattedMessage)
 }
 /**
  * Send a message to stdout (Chrome native messaging protocol)
