@@ -306,11 +306,11 @@ export function renderFixtureReport(input: string): string {
       }>
     }
 
-    expect(report.helperOccurrenceCounts.check).toBe(64)
-    expect(report.helperOccurrenceCounts.readText).toBe(29)
+    expect(report.helperOccurrenceCounts.check).toBe(63)
+    expect(report.helperOccurrenceCounts.readText).toBe(28)
     expect(report.helperOccurrenceCounts.sha256Text).toBe(0)
-    expect(report.helperOccurrenceBaselines.check).toBe(64)
-    expect(report.helperOccurrenceBaselines.readText).toBe(29)
+    expect(report.helperOccurrenceBaselines.check).toBe(63)
+    expect(report.helperOccurrenceBaselines.readText).toBe(28)
     expect(report.helperOccurrenceBaselines.sha256Text).toBe(0)
     expect(report.jscpdEnabled).toBe(true)
     expect(report.jscpdVersion).toContain('5.0.9')
@@ -325,10 +325,10 @@ export function renderFixtureReport(input: string): string {
     expect(report.jscpdCommand.passed).toBe(true)
     expect(report.jscpdCommand.missingSubstrings).toEqual([])
     expect(report.jscpdCloneCount).toBeGreaterThan(0)
-    expect(report.jscpdCloneBaseline).toBe(19)
-    expect(report.jscpdDuplicatedLinesBaseline).toBe(507)
-    expect(report.jscpdDuplicatedTokensBaseline).toBe(3320)
-    expect(report.jscpdDuplicatedPercentageBaseline).toBe(1.2150406211805307)
+    expect(report.jscpdCloneBaseline).toBe(17)
+    expect(report.jscpdDuplicatedLinesBaseline).toBe(439)
+    expect(report.jscpdDuplicatedTokensBaseline).toBe(2979)
+    expect(report.jscpdDuplicatedPercentageBaseline).toBe(1.043871121150874)
     expect(report.jscpdCloneCount).toBeLessThanOrEqual(report.jscpdCloneBaseline)
     expect(report.jscpdDuplicatedLines).toBeLessThanOrEqual(report.jscpdDuplicatedLinesBaseline)
     expect(report.jscpdDuplicatedTokens).toBeLessThanOrEqual(report.jscpdDuplicatedTokensBaseline)
@@ -359,7 +359,8 @@ export function renderFixtureReport(input: string): string {
   test('onboarding docs and terminal workflow evidence scripts use shared quality helpers', () => {
     const onboardingDocs = readFileSync(join(root, 'scripts', 'product-oss-onboarding-docs-evidence.ts'), 'utf8')
     const terminalWorkflow = readFileSync(join(root, 'scripts', 'product-oss-terminal-workflow-evidence.ts'), 'utf8')
-    const targetSources = [onboardingDocs, terminalWorkflow]
+    const toolLoopReliability = readFileSync(join(root, 'scripts', 'product-oss-tool-loop-reliability-evidence.ts'), 'utf8')
+    const targetSources = [onboardingDocs, terminalWorkflow, toolLoopReliability]
 
     for (const source of targetSources) {
       expect(source).toContain("from './quality-report-helpers'")
