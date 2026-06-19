@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-19T04:49:06.406Z",
+  "generatedAt": "2026-06-19T15:42:09.409Z",
   "mode": "code_scanning_remediation_queue_claim_safe",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "sourceCommit": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
+  "sourceCommit": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
   "generatedFrom": "docs/product-quality/github-hosted-trust-posture-report.json",
   "status": "remediation_queue_required",
   "primarySourceInputs": [
@@ -59,21 +59,21 @@
   ],
   "codeScanning": {
     "status": "available",
-    "openAlertCount": 416,
+    "openAlertCount": 368,
     "byRuleSeverity": {
-      "note": 200,
-      "warning": 208,
-      "error": 8
+      "note": 193,
+      "warning": 174,
+      "error": 1
     },
     "bySecuritySeverity": {
-      "unknown": 264,
-      "medium": 114,
-      "high": 38
+      "unknown": 223,
+      "medium": 110,
+      "high": 35
     },
     "topRules": [
       {
         "ruleId": "js/unused-local-variable",
-        "count": 182
+        "count": 176
       },
       {
         "ruleId": "js/file-access-to-http",
@@ -81,7 +81,7 @@
       },
       {
         "ruleId": "js/http-to-file-access",
-        "count": 32
+        "count": 31
       },
       {
         "ruleId": "js/insecure-temporary-file",
@@ -89,139 +89,139 @@
       },
       {
         "ruleId": "js/trivial-conditional",
-        "count": 21
+        "count": 20
       },
       {
         "ruleId": "js/automatic-semicolon-insertion",
         "count": 17
       },
       {
-        "ruleId": "js/useless-expression",
-        "count": 17
-      },
-      {
         "ruleId": "js/file-system-race",
-        "count": 12
-      },
-      {
-        "ruleId": "js/useless-assignment-to-local",
-        "count": 8
+        "count": 11
       },
       {
         "ruleId": "js/indirect-command-line-injection",
         "count": 6
+      },
+      {
+        "ruleId": "js/use-before-declaration",
+        "count": 4
+      },
+      {
+        "ruleId": "js/unreachable-statement",
+        "count": 2
       }
     ]
   },
   "latestMainRuns": [
     {
-      "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094945,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
-      "name": "Release Boundary",
-      "status": "completed",
-      "updatedAt": "2026-06-18T22:03:12Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094945",
-      "workflowName": "Release Boundary"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094958,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
-      "name": "OpenSSF Scorecard",
-      "status": "completed",
-      "updatedAt": "2026-06-18T22:03:22Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094958",
-      "workflowName": "OpenSSF Scorecard"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094966,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
-      "name": "PR Checks",
-      "status": "completed",
-      "updatedAt": "2026-06-18T22:06:35Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094966",
-      "workflowName": "PR Checks"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094953,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+      "conclusion": "",
+      "createdAt": "2026-06-19T15:14:04Z",
+      "databaseId": 27833856848,
+      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
       "name": "CodeQL",
-      "status": "completed",
-      "updatedAt": "2026-06-18T22:44:14Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094953",
+      "status": "in_progress",
+      "updatedAt": "2026-06-19T15:14:12Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27833856848",
       "workflowName": "CodeQL"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373264,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T15:14:04Z",
+      "databaseId": 27833856837,
+      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
       "name": "Release Boundary",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:07:29Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373264",
+      "updatedAt": "2026-06-19T15:14:17Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27833856837",
       "workflowName": "Release Boundary"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373242,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T15:14:04Z",
+      "databaseId": 27833856854,
+      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
       "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:07:47Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373242",
+      "updatedAt": "2026-06-19T15:14:27Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27833856854",
       "workflowName": "OpenSSF Scorecard"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373230,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T15:14:04Z",
+      "databaseId": 27833856829,
+      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:10:51Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373230",
+      "updatedAt": "2026-06-19T15:17:42Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27833856829",
       "workflowName": "PR Checks"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373290,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T14:27:21Z",
+      "databaseId": 27831529958,
+      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
+      "name": "PR Checks",
+      "status": "completed",
+      "updatedAt": "2026-06-19T14:31:16Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27831529958",
+      "workflowName": "PR Checks"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-06-19T14:27:21Z",
+      "databaseId": 27831529891,
+      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
+      "name": "Release Boundary",
+      "status": "completed",
+      "updatedAt": "2026-06-19T14:27:34Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27831529891",
+      "workflowName": "Release Boundary"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-06-19T14:27:21Z",
+      "databaseId": 27831530046,
+      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
+      "name": "OpenSSF Scorecard",
+      "status": "completed",
+      "updatedAt": "2026-06-19T14:27:43Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27831530046",
+      "workflowName": "OpenSSF Scorecard"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-06-19T14:27:21Z",
+      "databaseId": 27831530010,
+      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
       "name": "CodeQL",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:47:39Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373290",
+      "updatedAt": "2026-06-19T15:07:32Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27831530010",
       "workflowName": "CodeQL"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T20:45:57Z",
-      "databaseId": 27788252073,
-      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
+      "createdAt": "2026-06-19T13:59:02Z",
+      "databaseId": 27830107651,
+      "headSha": "dc2c373d7b4b18c0a5e229a170ea0940000d1d01",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-18T20:49:35Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27788252073",
+      "updatedAt": "2026-06-19T14:02:46Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27830107651",
       "workflowName": "PR Checks"
     },
     {
-      "conclusion": "cancelled",
-      "createdAt": "2026-06-18T20:45:57Z",
-      "databaseId": 27788252024,
-      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
+      "conclusion": "success",
+      "createdAt": "2026-06-19T13:59:02Z",
+      "databaseId": 27830107649,
+      "headSha": "dc2c373d7b4b18c0a5e229a170ea0940000d1d01",
       "name": "CodeQL",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:18:29Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27788252024",
+      "updatedAt": "2026-06-19T14:37:54Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27830107649",
       "workflowName": "CodeQL"
     }
   ],
@@ -229,7 +229,7 @@
     {
       "queueId": "codeql-js-file-system-race",
       "ruleId": "js/file-system-race",
-      "openAlertCount": 12,
+      "openAlertCount": 11,
       "sampleLocations": [
         {
           "path": "src/utils/plugins/validatePlugin.ts",
@@ -331,12 +331,8 @@
     {
       "queueId": "codeql-js-http-to-file-access",
       "ruleId": "js/http-to-file-access",
-      "openAlertCount": 32,
+      "openAlertCount": 31,
       "sampleLocations": [
-        {
-          "path": "src/utils/providerProfile.ts",
-          "startLine": 518
-        },
         {
           "path": "src/utils/telemetry/perfettoTracing.ts",
           "startLine": 1062
@@ -344,6 +340,10 @@
         {
           "path": "src/utils/telemetry/perfettoTracing.ts",
           "startLine": 1028
+        },
+        {
+          "path": "src/utils/telemetry/perfettoTracing.ts",
+          "startLine": 995
         }
       ],
       "priority": "P1",
@@ -397,21 +397,85 @@
       "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
     },
     {
-      "queueId": "codeql-js-unused-local-variable",
-      "ruleId": "js/unused-local-variable",
-      "openAlertCount": 182,
+      "queueId": "codeql-js-use-before-declaration",
+      "ruleId": "js/use-before-declaration",
+      "openAlertCount": 4,
       "sampleLocations": [
         {
-          "path": "scripts/product-github-remote-surface-audit.ts",
-          "startLine": 1
+          "path": "src/utils/attachments.ts",
+          "startLine": 95
         },
         {
-          "path": "scripts/validate-eval-flywheel.ts",
-          "startLine": 77
+          "path": "src/tools.ts",
+          "startLine": 19
         },
         {
-          "path": "scripts/product-trace-schema-contract.ts",
-          "startLine": 3
+          "path": "src/services/api/claude.ts",
+          "startLine": 109
+        }
+      ],
+      "priority": "P2",
+      "remediationClass": "manual_triage",
+      "securitySeverity": "unknown",
+      "ruleSeverity": "unknown",
+      "sourceUrl": "https://codeql.github.com/codeql-query-help/javascript/js-use-before-declaration/",
+      "ownerDecisionRequired": true,
+      "safeFirstStep": "Inspect representative alerts, decide whether they are generated code, false positives, or behavior defects, then fix the smallest test-backed cluster first.",
+      "validationCommands": [
+        "bun test scripts/product-code-scanning-remediation-queue.test.ts",
+        "bun run product:github-hosted-trust-posture",
+        "bun run product:code-scanning-remediation-queue",
+        "bun run typecheck --pretty false",
+        "bun run verify:privacy"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
+    },
+    {
+      "queueId": "codeql-js-unreachable-statement",
+      "ruleId": "js/unreachable-statement",
+      "openAlertCount": 2,
+      "sampleLocations": [
+        {
+          "path": "src/components/LogSelector.tsx",
+          "startLine": 816
+        },
+        {
+          "path": "src/components/LogSelector.tsx",
+          "startLine": 485
+        }
+      ],
+      "priority": "P2",
+      "remediationClass": "manual_triage",
+      "securitySeverity": "unknown",
+      "ruleSeverity": "unknown",
+      "sourceUrl": "https://codeql.github.com/codeql-query-help/javascript/js-unreachable-statement/",
+      "ownerDecisionRequired": true,
+      "safeFirstStep": "Inspect representative alerts, decide whether they are generated code, false positives, or behavior defects, then fix the smallest test-backed cluster first.",
+      "validationCommands": [
+        "bun test scripts/product-code-scanning-remediation-queue.test.ts",
+        "bun run product:github-hosted-trust-posture",
+        "bun run product:code-scanning-remediation-queue",
+        "bun run typecheck --pretty false",
+        "bun run verify:privacy"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
+    },
+    {
+      "queueId": "codeql-js-unused-local-variable",
+      "ruleId": "js/unused-local-variable",
+      "openAlertCount": 176,
+      "sampleLocations": [
+        {
+          "path": "vscode-extension/openclaude-vscode/src/chat/chatProvider.js",
+          "startLine": 328
+        },
+        {
+          "path": "vscode-extension/openclaude-vscode/src/chat/sessionManager.js",
+          "startLine": 15
+        },
+        {
+          "path": "vscode-extension/openclaude-vscode/src/chat/chatProvider.js",
+          "startLine": 13
         }
       ],
       "priority": "P3",
@@ -434,7 +498,7 @@
     {
       "queueId": "codeql-js-trivial-conditional",
       "ruleId": "js/trivial-conditional",
-      "openAlertCount": 21,
+      "openAlertCount": 20,
       "sampleLocations": [
         {
           "path": "src/utils/teleport.tsx",
@@ -498,79 +562,11 @@
         "bun run verify:privacy"
       ],
       "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
-    },
-    {
-      "queueId": "codeql-js-useless-expression",
-      "ruleId": "js/useless-expression",
-      "openAlertCount": 17,
-      "sampleLocations": [
-        {
-          "path": "src/tools/AgentTool/UI.tsx",
-          "startLine": 218
-        },
-        {
-          "path": "src/components/PackageManagerAutoUpdater.tsx",
-          "startLine": 30
-        },
-        {
-          "path": "src/components/Markdown.tsx",
-          "startLine": 152
-        }
-      ],
-      "priority": "P3",
-      "remediationClass": "quality_cleanup",
-      "securitySeverity": "unknown",
-      "ruleSeverity": "note",
-      "sourceUrl": "https://codeql.github.com/codeql-query-help/javascript/js-useless-expression/",
-      "ownerDecisionRequired": false,
-      "safeFirstStep": "Remove useless expressions only after confirming they are not preserving intentional side effects.",
-      "validationCommands": [
-        "bun test scripts/product-code-scanning-remediation-queue.test.ts",
-        "bun run product:github-hosted-trust-posture",
-        "bun run product:code-scanning-remediation-queue",
-        "bun run typecheck --pretty false",
-        "bun run verify:privacy"
-      ],
-      "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
-    },
-    {
-      "queueId": "codeql-js-useless-assignment-to-local",
-      "ruleId": "js/useless-assignment-to-local",
-      "openAlertCount": 8,
-      "sampleLocations": [
-        {
-          "path": "src/utils/plugins/marketplaceManager.ts",
-          "startLine": 1745
-        },
-        {
-          "path": "src/utils/plugins/mcpbHandler.ts",
-          "startLine": 818
-        },
-        {
-          "path": "src/utils/plugins/installedPluginsManager.ts",
-          "startLine": 1221
-        }
-      ],
-      "priority": "P3",
-      "remediationClass": "generated_or_dead_code_cleanup",
-      "securitySeverity": "unknown",
-      "ruleSeverity": "note",
-      "sourceUrl": "https://codeql.github.com/codeql-query-help/javascript/js-useless-assignment-to-local/",
-      "ownerDecisionRequired": false,
-      "safeFirstStep": "Remove dead assignments in small batches and keep changed-file diagnostics clean.",
-      "validationCommands": [
-        "bun test scripts/product-code-scanning-remediation-queue.test.ts",
-        "bun run product:github-hosted-trust-posture",
-        "bun run product:code-scanning-remediation-queue",
-        "bun run typecheck --pretty false",
-        "bun run verify:privacy"
-      ],
-      "claimBoundary": "This queue item is a remediation candidate only. It does not claim the corresponding CodeQL alerts are resolved until hosted CodeQL confirms closure on the target branch."
     }
   ],
   "queueItemCount": 10,
   "sampleDiscoveryStatus": "available",
-  "sampleDiscoveryDetail": "25 rules sampled",
+  "sampleDiscoveryDetail": "17 rules sampled",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [
@@ -605,7 +601,7 @@
     {
       "label": "security-sensitive rules are prioritized before cleanup-heavy buckets",
       "ok": true,
-      "detail": "P0:js/file-system-race,P0:js/insecure-temporary-file,P1:js/file-access-to-http,P1:js/http-to-file-access,P1:js/indirect-command-line-injection,P3:js/unused-local-variable,P3:js/trivial-conditional,P3:js/automatic-semicolon-insertion,P3:js/useless-expression,P3:js/useless-assignment-to-local"
+      "detail": "P0:js/file-system-race,P0:js/insecure-temporary-file,P1:js/file-access-to-http,P1:js/http-to-file-access,P1:js/indirect-command-line-injection,P2:js/use-before-declaration,P2:js/unreachable-statement,P3:js/unused-local-variable,P3:js/trivial-conditional,P3:js/automatic-semicolon-insertion"
     },
     {
       "label": "primary sources cover GitHub, CodeQL, OSS, standard, paper, and patent inputs",
