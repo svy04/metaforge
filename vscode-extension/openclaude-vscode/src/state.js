@@ -239,7 +239,13 @@ function hasCodexBaseUrl(baseUrl) {
     return false;
   }
 
-  return /chatgpt\.com\/backend-api\/codex/i.test(normalized);
+  try {
+    const parsedUrl = new URL(normalized);
+    const pathname = parsedUrl.pathname.replace(/\/+$/, '').toLowerCase();
+    return parsedUrl.hostname.toLowerCase() === 'chatgpt.com' && pathname === '/backend-api/codex';
+  } catch {
+    return false;
+  }
 }
 
 function hasCodexAlias(model) {
