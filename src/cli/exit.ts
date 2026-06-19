@@ -8,6 +8,8 @@
  */
 /* eslint-disable custom-rules/no-process-exit -- centralized CLI exit point */
 
+import { sanitizePlainTextLogValue } from '../utils/logSanitization.js'
+
 // `return undefined as never` (not a post-exit throw) — tests spy on
 // process.exit and let it return. Call sites write `return cliError(...)`
 // where subsequent code would dereference narrowed-away values under mock.
@@ -18,7 +20,7 @@
 /** Write an error message to stderr (if given) and exit with code 1. */
 export function cliError(msg?: string): never {
   // biome-ignore lint/suspicious/noConsole: centralized CLI error output
-  if (msg) console.error(msg)
+  if (msg) console.error(sanitizePlainTextLogValue(msg))
   process.exit(1)
   return undefined as never
 }
