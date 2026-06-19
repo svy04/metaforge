@@ -11,7 +11,11 @@ import { afterEach, expect, test } from 'bun:test'
   NATIVE_PACKAGE_URL: undefined,
 }
 
-import { getSystemPrompt, DEFAULT_AGENT_PROMPT } from './prompts.js'
+import {
+  computeSimpleEnvInfo,
+  getSystemPrompt,
+  DEFAULT_AGENT_PROMPT,
+} from './prompts.js'
 import { CLI_SYSPROMPT_PREFIXES, getCLISyspromptPrefix } from './system.js'
 import { CLAUDE_CODE_GUIDE_AGENT } from '../tools/AgentTool/built-in/claudeCodeGuideAgent.js'
 import { GENERAL_PURPOSE_AGENT } from '../tools/AgentTool/built-in/generalPurposeAgent.js'
@@ -45,6 +49,16 @@ test('simple mode identity describes OpenClaude instead of Claude Code', async (
   expect(prompt[0]).toContain('OpenClaude')
   expect(prompt[0]).not.toContain('Claude Code')
   expect(prompt[0]).not.toContain("Anthropic's official CLI for Claude")
+})
+
+test('simple environment prompt treats model IDs as configured examples, not recency claims', async () => {
+  const envInfo = await computeSimpleEnvInfo('gpt-4o')
+
+  expect(envInfo).toContain('configuration hints')
+  expect(envInfo).toContain('not a current-model guarantee')
+  expect(envInfo).toContain('verify current model availability')
+  expect(envInfo).not.toContain('most recent Claude model family')
+  expect(envInfo).not.toContain('latest and most capable Claude models')
 })
 
 test('built-in agent prompts describe OpenClaude instead of Claude Code', () => {
