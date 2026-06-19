@@ -165,8 +165,8 @@ function getOpus46Option(fastMode = false): ModelOption {
   return {
     value: is3P ? getModelStrings().opus46 : 'opus',
     label: 'Opus',
-    description: `${opusName} · Most capable for complex work${getOpus46PricingSuffix(fastMode)}`,
-    descriptionForModel: `${opusName} - most capable for complex work`,
+    description: `${opusName} · Configured for complex work${getOpus46PricingSuffix(fastMode)}`,
+    descriptionForModel: `${opusName} - configured for complex work`,
   }
 }
 
@@ -243,7 +243,7 @@ function getMaxOpusOption(fastMode = false): ModelOption {
   return {
     value: 'opus',
     label: 'Opus',
-    description: `Opus 4.7 · Most capable for complex work${fastMode ? getOpus46PricingSuffix(true) : ''}`,
+    description: `Opus 4.7 · Configured for complex work${fastMode ? getOpus46PricingSuffix(true) : ''}`,
   }
 }
 
@@ -272,9 +272,9 @@ function getMergedOpus1MOption(fastMode = false): ModelOption {
   return {
     value: is3P ? getModelStrings().opus46 + '[1m]' : 'opus[1m]',
     label: 'Opus (1M context)',
-    description: `${opusName} with 1M context · Most capable for complex work${!is3P && fastMode ? getOpus46PricingSuffix(fastMode) : ''}`,
+    description: `${opusName} with 1M context · Configured for complex work${!is3P && fastMode ? getOpus46PricingSuffix(fastMode) : ''}`,
     descriptionForModel:
-      `${opusName} with 1M context - most capable for complex work`,
+      `${opusName} with 1M context - configured for complex work`,
   }
 }
 
@@ -294,7 +294,7 @@ function getOpusPlanOption(): ModelOption {
   return {
     value: 'opusplan',
     label: 'Opus Plan Mode',
-    description: 'Use Opus 4.7 in plan mode, Sonnet 4.6 otherwise',
+    description: 'Use configured Opus in plan mode, Sonnet 4.6 otherwise',
   }
 }
 

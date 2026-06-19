@@ -6,7 +6,7 @@ import { execFileNoThrowWithCwd } from '../../utils/execFileNoThrow.js'
  * Phase 3 Shadow Executor — git worktree life-cycle.
  *
  * Three shadow worktrees per task: GPT-A primary alternative, GPT-B alternative
- * approach, Opus 4.7 shadow. Each lives under `{gitRoot}/.openclaude-shadows/
+ * approach, Claude Opus shadow. Each lives under `{gitRoot}/.openclaude-shadows/
  * {taskId}/{label}` on a dedicated branch `openclaude-shadow/{taskId}/{label}`,
  * so the user's main worktree is never touched (D3=i: Phase 3 is read-only
  * compared, Phase 4 will decide promotion).

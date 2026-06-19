@@ -6,7 +6,7 @@ import { getClaudeConfigHomeDir } from '../../utils/envUtils.js'
 
 export type OrchestraUsageEvent = {
   timestamp?: string
-  // v0.2 added 'skeptic' — Opus 4.7 야당 post-implementation dissent role.
+  // v0.2 added 'skeptic' — configured Claude Opus 야당 post-implementation dissent role.
   // It runs read-only on turn end (after the GPT response yields) and is
   // logged with the same status transitions as planner/implementer.
   //

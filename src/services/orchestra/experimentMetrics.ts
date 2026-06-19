@@ -1,7 +1,7 @@
 /**
  * Phase 5 Validation Experiment metrics.
  *
- * Goal: quantify whether Opus 4.7 is "differently wrong than GPT 5.5" enough
+ * Goal: quantify whether the configured Claude Opus route is "differently wrong than GPT 5.5" enough
  * to justify keeping it in the orchestra. v0.3 will use these numbers to
  * decide keep / demote / remove.
  *

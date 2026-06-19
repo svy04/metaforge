@@ -164,7 +164,7 @@ describe('orchestra skeptic — formatDissent display', () => {
       severity: 'caution',
     }
     const text = formatDissent(report)
-    expect(text).toContain('[Opus 4.7 야당]')
+    expect(text).toContain('[Opus 야당]')
     expect(text).toContain('테스트 누락')
     expect(text).toContain('오류 처리 없음')
     expect(text).toContain('idempotent 가정')
@@ -174,7 +174,7 @@ describe('orchestra skeptic — formatDissent display', () => {
 
   test('compresses fully empty dissent into a single advisory line', () => {
     const text = formatDissent(EMPTY_DISSENT)
-    expect(text).toContain('[Opus 4.7 야당]')
+    expect(text).toContain('[Opus 야당]')
     expect(text.split('\n').length).toBeLessThanOrEqual(2)
   })
 })

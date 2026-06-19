@@ -149,7 +149,7 @@ describe('query orchestra integration', () => {
       uuid: () => 'query-chain-id',
       orchestraGuidance: async () => ({
         blockingError:
-          'Claude Opus 4.7 planner failed before GPT implementation could start.',
+          'Claude Opus (configured) planner failed before GPT implementation could start.',
       }),
       orchestraImplementerRoute: () => ({
         route: {
@@ -179,7 +179,9 @@ describe('query orchestra integration', () => {
     expect(modelCalls.length).toBe(0)
     expect(
       yielded.some((m: any) =>
-        JSON.stringify(m.message?.content ?? '').includes('Claude Opus 4.7'),
+        JSON.stringify(m.message?.content ?? '').includes(
+          'Claude Opus (configured)',
+        ),
       ),
     ).toBe(true)
   })

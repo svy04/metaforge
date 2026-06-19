@@ -880,7 +880,7 @@ export async function runHeadless(
     // v0.2 Orchestra system messages — always surfaced to stderr so users
     // see them regardless of --output-format / --verbose. The orchestra
     // tags ([Phase 2 Skeptic], [Phase 3 Cross-Review], [Phase 4 Human
-    // Gate], [Opus 4.7 야당]) are how we identify our own payloads vs
+    // Gate], [Opus 야당]) are how we identify our own payloads vs
     // unrelated informational messages.
     if (
       message.type === 'system' &&
@@ -892,7 +892,7 @@ export async function runHeadless(
           content.includes('[Phase 2') ||
           content.includes('[Phase 3') ||
           content.includes('[Phase 4') ||
-          content.includes('[Opus 4.7')
+          content.includes('[Opus 야당')
         if (isOrchestra) {
           try {
             process.stderr.write(`${content}\n`)

@@ -9,7 +9,7 @@
  * picker flow should take over.
  *
  * Detection priority (first match wins):
- *   1. ANTHROPIC_API_KEY → first-party Claude (most capable default)
+ *   1. ANTHROPIC_API_KEY → first-party Claude default
  *   2. Codex: CODEX_API_KEY, CHATGPT_ACCOUNT_ID, or valid ~/.codex/auth.json
  *   3. GitHub Copilot: GITHUB_TOKEN or GH_TOKEN
  *   4. OPENAI_API_KEY / OPENAI_API_KEYS

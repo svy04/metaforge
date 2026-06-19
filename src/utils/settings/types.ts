@@ -748,7 +748,7 @@ export const SettingsSchema = lazySchema(() =>
             .enum(['balanced', 'codex-dominant', 'codex-max', 'v0.2-locked'])
             .optional()
             .describe(
-              'High-level orchestration posture. codex-dominant keeps Codex as the default executor and uses Opus only on risk-gated turns. v0.2-locked forces always-on dual-model orchestra (GPT 5.5 + Opus 4.7 every turn) and overrides any conflicting enabled/plannerPolicy/everyTurn user settings.',
+              'High-level orchestration posture. codex-dominant keeps Codex as the default executor and uses Opus only on risk-gated turns. v0.2-locked forces always-on dual-model orchestra (GPT 5.5 + configured Claude Opus every turn) and overrides any conflicting enabled/plannerPolicy/everyTurn user settings.',
             ),
           plannerPolicy: z
             .enum(['always', 'risk-gated', 'off'])
@@ -805,7 +805,7 @@ export const SettingsSchema = lazySchema(() =>
             })
             .optional()
             .describe(
-              'Display aliases for orchestration roles, e.g. Claude Opus 4.7 and Codex GPT 5.5.',
+              'Display aliases for orchestration roles, e.g. Claude Opus (configured) and Codex GPT 5.5.',
             ),
           models: z
             .object({

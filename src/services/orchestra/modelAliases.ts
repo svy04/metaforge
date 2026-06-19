@@ -3,11 +3,11 @@ import { getAPIProvider, type APIProvider } from '../../utils/model/providers.js
 import type { SettingsJson } from '../../utils/settings/types.js'
 import {
   CODEX_GPT_55_ALIAS,
-  CLAUDE_OPUS_47_ALIAS,
+  CLAUDE_OPUS_ALIAS,
   resolveOrchestraSettings,
 } from './config.js'
 
-export { CODEX_GPT_55_ALIAS, CLAUDE_OPUS_47_ALIAS }
+export { CODEX_GPT_55_ALIAS, CLAUDE_OPUS_ALIAS }
 
 export type OrchestraRole = 'planner' | 'implementer'
 
@@ -69,9 +69,7 @@ export function resolveOrchestraModelAlias(
   const apiProvider = options.apiProvider ?? getAPIProvider()
   const orchestra = resolveOrchestraSettings(options.settings)
   const displayAlias =
-    role === 'planner'
-      ? CLAUDE_OPUS_47_ALIAS
-      : CODEX_GPT_55_ALIAS
+    role === 'planner' ? CLAUDE_OPUS_ALIAS : CODEX_GPT_55_ALIAS
   const explicitSetting = trim(orchestra.models[role])
   if (explicitSetting) {
     return {
