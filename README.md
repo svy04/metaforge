@@ -10,7 +10,7 @@ It turns owner intent into durable goals, routes work through Claude and Codex O
 
 OpenClaude is the local CLI substrate Metaforge currently rides on. It provides the terminal UX, tools, MCP, slash commands, streaming output, provider routing, and credential surfaces; Metaforge is the operating layer above it.
 
-Orchestra is the runtime-wired layer in this package today. Meta and MFH are governance, schema, and evidence-gate surfaces that constrain how the runtime is used; they are not separate runtime modules in this checkout. AVF Influence Factory is a repo-local manual artifact lane, not part of the default CLI runtime or CI path; generated AVF operator run outputs are intentionally ignored and kept out of the public checkout.
+Orchestra is the runtime-wired layer in this package today. Meta and MFH are governance, schema, and evidence-gate surfaces that constrain how the runtime is used; they are not separate runtime modules in this checkout.
 
 Origin and license boundary: this repository contains runtime code derived from Anthropic's Claude Code CLI. OpenClaude contributor modifications are offered under MIT where legally permissible; this is not a blanket MIT license over the derived runtime. See [LICENSE](LICENSE) before reusing or redistributing code from this repository.
 
