@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T14:18:55.347Z",
+  "generatedAt": "2026-06-19T16:22:57.633Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -7,7 +7,7 @@
     "readText",
     "sha256Text"
   ],
-  "sourceProductScriptCount": 93,
+  "sourceProductScriptCount": 94,
   "helperOccurrenceCounts": {
     "check": 63,
     "readText": 28,
@@ -220,7 +220,7 @@
         },
         {
           "path": "scripts/product-real-trace-evals.ts",
-          "line": 82
+          "line": 98
         },
         {
           "path": "scripts/product-regression-cycle-code-editing-trace-capture.ts",
@@ -424,26 +424,26 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 55.726ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "b187820f87ba8ec352c745673ce26e1375a0d8e7271eb90af2d246ddf166c2e8",
+  "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
   "jscpdCloneCount": 17,
   "jscpdCloneBaseline": 17,
   "jscpdDuplicatedLines": 439,
   "jscpdDuplicatedLinesBaseline": 439,
   "jscpdDuplicatedTokens": 2979,
   "jscpdDuplicatedTokensBaseline": 2979,
-  "jscpdDuplicatedPercentage": 1.043871121150874,
+  "jscpdDuplicatedPercentage": 1.0281993629379802,
   "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-  "jscpdDuplicatedTokenPercentage": 1.1446729862554708,
-  "jscpdSourceCount": 93,
+  "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
+  "jscpdSourceCount": 94,
   "jscpdTopClonePairs": [
     {
       "firstFile": "scripts/product-dead-export-candidates.ts",
       "secondFile": "scripts/product-dependency-topology.ts",
-      "firstStartLine": 217,
-      "firstEndLine": 240,
+      "firstStartLine": 223,
+      "firstEndLine": 246,
       "secondStartLine": 160,
       "secondEndLine": 183,
       "lines": 24,
@@ -602,8 +602,8 @@
     {
       "firstFile": "scripts/product-real-trace-evals.ts",
       "secondFile": "scripts/product-trajectory-process-quality.ts",
-      "firstStartLine": 125,
-      "firstEndLine": 145,
+      "firstStartLine": 141,
+      "firstEndLine": 161,
       "secondStartLine": 144,
       "secondEndLine": 164,
       "lines": 21,
@@ -665,7 +665,7 @@
     {
       "label": "product scripts are scanned",
       "ok": true,
-      "detail": "93 files"
+      "detail": "94 files"
     },
     {
       "label": "target helper occurrence surface is measured",
@@ -705,7 +705,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.043871121150874/1.043871121150874"
+      "detail": "1.0281993629379802/1.043871121150874"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",

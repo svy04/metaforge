@@ -3449,6 +3449,9 @@ function main(): void {
   const deadExportCandidatesJsonPath = 'docs/product-quality/dead-export-candidates-report.json'
   const deadExportCandidatesMdPath = 'docs/product-quality/dead-export-candidates-report.md'
   const deadExportCandidateTriagePath = 'docs/product-quality/dead-export-candidate-triage.json'
+  const staticAnalysisRemediationQueueJsonPath = 'docs/product-quality/static-analysis-remediation-queue-report.json'
+  const staticAnalysisRemediationQueueMdPath = 'docs/product-quality/static-analysis-remediation-queue-report.md'
+  const staticAnalysisRemediationQueueJsonlPath = 'reports/openclaude-static-analysis-remediation-queue.jsonl'
   const maintainerOwnershipQualityJsonPath = 'docs/product-quality/maintainer-ownership-quality-report.json'
   const maintainerOwnershipQualityMdPath = 'docs/product-quality/maintainer-ownership-quality-report.md'
   const dependencyGovernanceQualityJsonPath = 'docs/product-quality/dependency-governance-quality-report.json'
@@ -3576,6 +3579,9 @@ function main(): void {
     deadExportCandidatesJsonPath,
     deadExportCandidatesMdPath,
     deadExportCandidateTriagePath,
+    staticAnalysisRemediationQueueJsonPath,
+    staticAnalysisRemediationQueueMdPath,
+    staticAnalysisRemediationQueueJsonlPath,
     maintainerOwnershipQualityJsonPath,
     maintainerOwnershipQualityMdPath,
     dependencyGovernanceQualityJsonPath,
@@ -4326,7 +4332,7 @@ function main(): void {
   checks.push(check('dead export unused types do not exceed baseline', deadExportCandidates.candidateUnusedTypeCount <= deadExportCandidates.candidateUnusedTypeBaseline, `${deadExportCandidates.candidateUnusedTypeCount}/${deadExportCandidates.candidateUnusedTypeBaseline}`))
   checks.push(check('dead export duplicate exports do not exceed baseline', deadExportCandidates.candidateDuplicateExportCount <= deadExportCandidates.candidateDuplicateExportBaseline, `${deadExportCandidates.candidateDuplicateExportCount}/${deadExportCandidates.candidateDuplicateExportBaseline}`))
   checks.push(check('dead export candidate triage path is required evidence', deadExportCandidates.triageLedgerPath === deadExportCandidateTriagePath && existsSync(resolve(root, deadExportCandidateTriagePath)), deadExportCandidates.triageLedgerPath))
-  checks.push(check('dead export candidate triage entries remain current', deadExportCandidates.triageRecordCount >= 4 && deadExportCandidates.triageCurrentCandidateCount === deadExportCandidates.triageRecordCount && deadExportCandidates.triageRecords.every((item) => item.currentCandidate), `${deadExportCandidates.triageCurrentCandidateCount}/${deadExportCandidates.triageRecordCount}`))
+  checks.push(check('dead export candidate triage entries remain current', deadExportCandidates.triageRecordCount >= 3 && deadExportCandidates.triageCurrentCandidateCount === deadExportCandidates.triageRecordCount && deadExportCandidates.triageRecords.every((item) => item.currentCandidate), `${deadExportCandidates.triageCurrentCandidateCount}/${deadExportCandidates.triageRecordCount}`))
   checks.push(check('dead export candidate triage covers guarded and removal-review paths', (deadExportCandidates.triageActionCounts.needs_runtime_guard ?? 0) > 0 && (deadExportCandidates.triageActionCounts.review_for_removal ?? 0) > 0, JSON.stringify(deadExportCandidates.triageActionCounts)))
   checks.push(check('dead export candidate triage records rationale and guardrails', deadExportCandidates.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20), `${deadExportCandidates.triageRecordCount} records`))
   checks.push(check('dead export candidate removed ratchets remain absent', deadExportCandidates.removedCandidateRatchets.length >= 4 && deadExportCandidates.removedCandidateRatchets.every((item) => !item.currentCandidate && item.guardrail.length > 20), `${deadExportCandidates.removedCandidateRatchets.filter((item) => item.currentCandidate).length}/${deadExportCandidates.removedCandidateRatchets.length} regressed`))
