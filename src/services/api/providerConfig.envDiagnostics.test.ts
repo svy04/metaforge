@@ -94,7 +94,7 @@ test('uses OPENAI_API_BASE as fallback in mistral mode when MISTRAL_BASE_URL is 
   delete process.env.CLAUDE_CODE_USE_OPENAI
   process.env.CLAUDE_CODE_USE_MISTRAL = '1'
   delete process.env.MISTRAL_BASE_URL
-  process.env.MISTRAL_MODEL = 'mistral-medium-latest'
+  process.env.MISTRAL_MODEL = 'mistral-medium-3-5'
   process.env.OPENAI_API_BASE = 'http://127.0.0.1:11434/v1'
 
   const nonce = `${Date.now()}-${Math.random()}`

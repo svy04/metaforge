@@ -262,6 +262,44 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('latest-model-alias-claim')
   })
 
+  test('rejects stale package-level local model locks', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'package.json'),
+      JSON.stringify(
+        {
+          scripts: {
+            'profile:code': 'bun run profile:init -- --provider ollama --model qwen2.5-coder:7b',
+          },
+        },
+        null,
+        2,
+      ),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('package.json')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('stale-package-model-lock')
+  })
+
+  test('rejects provider latest model identifiers in public evidence', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'docs', 'product-quality')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'provider-capability-matrix-report.json'),
+      JSON.stringify({ provider: 'mistral', model: 'devstral-latest' }, null, 2),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('provider-capability-matrix-report.json')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('latest-model-identifier')
+  })
+
   test('rejects raw historical provider payloads in public reports', () => {
     const repo = makeTempRepo()
     const reportDir = join(repo, 'reports')

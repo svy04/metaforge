@@ -189,7 +189,7 @@ export function getProviderPresetDefaults(
         provider: 'mistral',
         name: 'Mistral',
         baseUrl: 'https://api.mistral.ai/v1',
-        model: 'devstral-latest',
+        model: 'mistral-medium-3-5',
         apiKey: '',
         requiresApiKey: true
       }

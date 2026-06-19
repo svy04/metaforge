@@ -29,7 +29,7 @@
     "profile:auto": "bun run scripts/provider-recommend.ts --apply",
     "profile:codex": "bun run profile:init -- --provider codex --model codexplan",
     "profile:fast": "bun run profile:init -- --provider ollama --model llama3.2:3b",
-    "profile:code": "bun run profile:init -- --provider ollama --model qwen2.5-coder:7b",
+    "profile:code": "bun run profile:init -- --provider ollama --goal coding",
     "dev:fast": "bun run profile:fast && bun run dev:ollama:fast",
     "dev:code": "bun run profile:code && bun run dev:profile",
     "dev:grpc": "bun run scripts/start-grpc.ts",

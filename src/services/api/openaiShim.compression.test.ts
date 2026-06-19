@@ -301,7 +301,7 @@ test('FIX: 32k window (Mistral tier) → recent=3 keeps last 3 only', async () =
   mockState.effectiveWindow = 24_000 // 16–32k → recent=3, mid=5
   const messages = buildLongConversation(15, 3_000)
 
-  const body = await captureRequestBody(messages, 'mistral-large-latest')
+  const body = await captureRequestBody(messages, 'mistral-medium-3-5')
   const toolMessages = getToolMessages(body)
 
   // 15 total: indices 0..6 old, 7..11 mid, 12..14 recent

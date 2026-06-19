@@ -102,10 +102,10 @@ const OPENAI_CONTEXT_WINDOWS: Record<string, number> = {
   'mixtral-8x7b-32768':        32_768,
 
   // Mistral
-  'mistral-large-latest':     256_000,
-  'mistral-small-latest':     256_000,
-  'devstral-latest':          256_000,
-  'ministral-3b-latest':      256_000,
+  'mistral-medium-3-5':       256_000,
+  'mistral-small-2603':       256_000,
+  'devstral-2512':            256_000,
+  'ministral-3b-2512':        256_000,
 
   // NVIDIA NIM - popular models
   'nvidia/llama-3.1-nemotron-70b-instruct': 128_000,
@@ -322,8 +322,8 @@ const OPENAI_MAX_OUTPUT_TOKENS: Record<string, number> = {
   'mixtral-8x7b-32768':       32_768,
 
   // Mistral
-  'mistral-large-latest':     32_768,
-  'mistral-small-latest':     32_768,
+  'mistral-medium-3-5':       32_768,
+  'mistral-small-2603':       32_768,
 
   // MiniMax (all M2.x variants share 131,072 max output)
   'MiniMax-M2.7':            131_072,
