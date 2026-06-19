@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T14:20:22.495Z",
+  "generatedAt": "2026-06-19T14:59:01.360Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -108,15 +108,15 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "d7aebfb86ad46c33a60671a4de2f35752a2223fd5409c240c49546a5748595c5",
-      "sizeBytes": 12229,
+      "sha256": "5620d8dae88bd6c0882ec50c2ef3962ad5826efc2eda5b24d27af52d2853d469",
+      "sizeBytes": 12401,
       "lineCount": 189
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "82f5514e1a2bed92730e8b4678ed08adb56a9afa016d6972338e0b1888c4d6aa",
-      "sizeBytes": 24631,
+      "sha256": "0464b7c04fd6e71fb84efffedd4e3b1bb61fa72f4073308e93753da70cdf8c2c",
+      "sizeBytes": 24876,
       "lineCount": 465
     },
     {
@@ -1200,16 +1200,16 @@
     {
       "path": "docs/product-quality/dependency-topology-report.md",
       "exists": true,
-      "sha256": "92acb7cfc97c2a9559ca140071d7fb4839319335b86be304c206d3c7f9e99dbf",
+      "sha256": "b0a1593560300fb20fa0905958ce7e5e84eb4524ac629742f2b64299858e6861",
       "sizeBytes": 6142,
       "lineCount": 117
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
       "exists": true,
-      "sha256": "16378b14406beb31065bc8a2c7af9971b8d88f444992c9da1ae6973ec43189fd",
-      "sizeBytes": 11538,
-      "lineCount": 124
+      "sha256": "4e5a2508ab285c8dc3fb8c81fdf13e02898103552cecd03c6c0de7c415b52395",
+      "sizeBytes": 12875,
+      "lineCount": 135
     },
     {
       "path": "docs/product-quality/eval-flywheel-validation-report.md",
@@ -1364,6 +1364,13 @@
       "sha256": "0c74673274ff61a0f88571b0e548b41aca3ad7510603f59aec5b4bee2e0775bd",
       "sizeBytes": 4251,
       "lineCount": 93
+    },
+    {
+      "path": "docs/product-quality/metaforge-architecture-map.md",
+      "exists": true,
+      "sha256": "45fb9e0e38d9d8ef96a826627f68060c667ae85d5da4e985e44c81a1ff4f89a7",
+      "sizeBytes": 6089,
+      "lineCount": 150
     },
     {
       "path": "docs/product-quality/model-system-card-report.md",
@@ -1905,9 +1912,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 265,
-  "scannedLineCount": 23895,
-  "blockedContextClaimMentionCount": 1045,
+  "publicSurfaceCount": 266,
+  "scannedLineCount": 24056,
+  "blockedContextClaimMentionCount": 1048,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -7914,6 +7921,33 @@
       "contextText": "Blocked context: - It does not query hosted branch protection, enable required code-owner review, mutate repository settings, publish, deploy, launch, or claim release readiness."
     },
     {
+      "path": "docs/product-quality/metaforge-architecture-map.md",
+      "line": 9,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "- It is not clean-architecture proof, not production readiness, not external validation, not topology cleanup, and not refactor completion.",
+      "contextText": "Blocked context: - It is not clean-architecture proof, not production readiness, not external validation, not topology cleanup, and not refactor completion."
+    },
+    {
+      "path": "docs/product-quality/metaforge-architecture-map.md",
+      "line": 9,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- It is not clean-architecture proof, not production readiness, not external validation, not topology cleanup, and not refactor completion.",
+      "contextText": "Blocked context: - It is not clean-architecture proof, not production readiness, not external validation, not topology cleanup, and not refactor completion."
+    },
+    {
+      "path": "docs/product-quality/metaforge-architecture-map.md",
+      "line": 138,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "Those counters are ratchet evidence. They are not clean-architecture proof and they do not prove public readiness.",
+      "contextText": "Blocked context: Those counters are ratchet evidence. They are not clean-architecture proof and they do not prove public readiness."
+    },
+    {
       "path": "docs/product-quality/model-system-card-report.md",
       "line": 9,
       "phrase": "release readiness",
@@ -11319,8 +11353,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "a73fea7de3fdd1296b2d60a0d8dbf6d7b91366ae5a90252c3f40c343f0aa6bcc",
-  "scanJsonlRecordCount": 1045,
+  "scanJsonlSha256": "b9fb04ee4408642941eb6ff822b9b509c2fc5350f18e65465ec785805e439dd5",
+  "scanJsonlRecordCount": 1048,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11514,12 +11548,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "265 surfaces"
+      "detail": "266 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "23895 lines"
+      "detail": "24056 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11529,12 +11563,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1045 findings"
+      "detail": "1048 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1045/1045"
+      "detail": "1048/1048"
     },
     {
       "label": "claim JSONL hash is recorded",
