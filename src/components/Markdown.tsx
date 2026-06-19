@@ -191,10 +191,8 @@ export function StreamingMarkdown({
   // React Compiler: this component reads and writes stablePrefixRef.current
   // during render by design. The boundary only advances (monotonic), so
   // the ref mutation is idempotent under StrictMode double-render — but the
-  // compiler can't prove that, and memoizing around the ref reads would
-  // break the algorithm (stale boundary). Opt out.
-  // codeql[js/unknown-directive]
-  'use no memo';
+  // compiler can't prove that. This checked-in file already contains compiler
+  // output, so keep the opt-out rationale here without a runtime directive.
 
   configureMarked();
 

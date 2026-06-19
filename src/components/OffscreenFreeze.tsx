@@ -24,9 +24,8 @@ export function OffscreenFreeze({
   children
 }: Props): React.ReactNode {
   // React Compiler: reading cached.current in the return is the entire
-  // freeze mechanism — memoizing this component would defeat it. Opt out.
-  // codeql[js/unknown-directive]
-  'use no memo';
+  // freeze mechanism. This checked-in file already contains compiler output,
+  // so keep the opt-out rationale here without a runtime directive.
 
   const inVirtualList = useContext(InVirtualListContext);
   const [ref, {
