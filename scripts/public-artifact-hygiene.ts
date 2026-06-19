@@ -327,7 +327,6 @@ for (const file of files) {
     }
     if (pattern.test(inspect)) {
       findings.push(`${relativePath}: ${label}`)
-      break
     }
   }
 }
