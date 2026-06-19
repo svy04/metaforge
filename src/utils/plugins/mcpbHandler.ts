@@ -795,15 +795,13 @@ export async function loadMcpbFile(
 
   // Not cached or changed - need to download/load and extract
   let mcpbData: Uint8Array
-  let mcpbFilePath: string
-
   if (isUrl(source)) {
     // Download from URL
     const sourceHash = createHash('md5')
       .update(source)
       .digest('hex')
       .substring(0, 8)
-    mcpbFilePath = join(cacheDir, `${sourceHash}.mcpb`)
+    const mcpbFilePath = join(cacheDir, `${sourceHash}.mcpb`)
     mcpbData = await downloadMcpb(source, mcpbFilePath, onProgress)
   } else {
     // Load from local path
@@ -815,7 +813,6 @@ export async function loadMcpbFile(
 
     try {
       mcpbData = await fs.readFileBytes(localPath)
-      mcpbFilePath = localPath
     } catch (error) {
       if (isENOENT(error)) {
         const err = new Error(`MCPB file not found: ${localPath}`)

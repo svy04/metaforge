@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T11:56:23.966Z",
+  "generatedAt": "2026-06-19T08:48:29.484Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -52,7 +52,7 @@
         },
         {
           "path": "scripts/product-doc-link-integrity.ts",
-          "line": 129
+          "line": 131
         },
         {
           "path": "scripts/product-external-benchmark-boundary.ts",
@@ -116,7 +116,7 @@
         },
         {
           "path": "scripts/product-openssf-security-posture.ts",
-          "line": 93
+          "line": 103
         },
         {
           "path": "scripts/product-oss-architecture-gap-review.ts",
@@ -296,7 +296,7 @@
         },
         {
           "path": "scripts/product-doc-link-integrity.ts",
-          "line": 63
+          "line": 65
         },
         {
           "path": "scripts/product-model-system-card.ts",
@@ -308,7 +308,7 @@
         },
         {
           "path": "scripts/product-openssf-security-posture.ts",
-          "line": 85
+          "line": 95
         },
         {
           "path": "scripts/product-oss-architecture-gap-review.ts",
@@ -432,19 +432,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 58.723ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 55.403ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "c9a3de69a1a6f3a719089851bbf06c167e7537345d98f48188d13043dc9a67e2",
+  "jscpdReportSha256": "39d8359fa8306d0bbbee57ed30ce09c5d3e9a985153e73e852b77a803d60dde1",
   "jscpdCloneCount": 19,
   "jscpdCloneBaseline": 19,
   "jscpdDuplicatedLines": 507,
   "jscpdDuplicatedLinesBaseline": 507,
   "jscpdDuplicatedTokens": 3320,
   "jscpdDuplicatedTokensBaseline": 3320,
-  "jscpdDuplicatedPercentage": 1.2150406211805307,
+  "jscpdDuplicatedPercentage": 1.2060229786626704,
   "jscpdDuplicatedPercentageBaseline": 1.2150406211805307,
-  "jscpdDuplicatedTokenPercentage": 1.28547146214635,
+  "jscpdDuplicatedTokenPercentage": 1.2760592829469282,
   "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
@@ -733,7 +733,7 @@
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.2150406211805307/1.2150406211805307"
+      "detail": "1.2060229786626704/1.2150406211805307"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
