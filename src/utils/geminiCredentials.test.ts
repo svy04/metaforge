@@ -62,3 +62,73 @@ test('clearGeminiAccessToken removes the stored token', async () => {
   expect(clearGeminiAccessToken().success).toBe(true)
   expect(readGeminiAccessToken()).toBeUndefined()
 })
+
+test('clearGeminiAccessToken is safe when no Gemini token exists', async () => {
+  const {
+    clearGeminiAccessToken,
+    readGeminiAccessToken,
+  } = await importFreshModule()
+
+  storageState = {
+    codex: {
+      accessToken: 'codex-token-should-remain',
+      accountId: 'acct_keep',
+    },
+  }
+
+  expect(clearGeminiAccessToken().success).toBe(true)
+  expect(readGeminiAccessToken()).toBeUndefined()
+  expect(storageState).toEqual({
+    codex: {
+      accessToken: 'codex-token-should-remain',
+      accountId: 'acct_keep',
+    },
+  })
+})
+
+test('clearGeminiAccessToken does not touch secure storage in bare mode', async () => {
+  const {
+    clearGeminiAccessToken,
+  } = await importFreshModule()
+
+  process.argv = [...originalArgv, '--bare']
+  storageState = {
+    gemini: { accessToken: 'token-123' },
+  }
+
+  expect(clearGeminiAccessToken().success).toBe(true)
+  expect(storageState).toEqual({
+    gemini: { accessToken: 'token-123' },
+  })
+})
+
+test('clearGeminiAccessToken removes only Gemini credentials when other keys coexist', async () => {
+  const {
+    clearGeminiAccessToken,
+    readGeminiAccessToken,
+  } = await importFreshModule()
+
+  storageState = {
+    gemini: { accessToken: 'gemini-token' },
+    codex: {
+      accessToken: 'codex-token-should-remain',
+      accountId: 'acct_keep',
+    },
+    preferences: {
+      provider: 'gemini',
+    },
+  }
+
+  expect(readGeminiAccessToken()).toBe('gemini-token')
+  expect(clearGeminiAccessToken().success).toBe(true)
+  expect(readGeminiAccessToken()).toBeUndefined()
+  expect(storageState).toEqual({
+    codex: {
+      accessToken: 'codex-token-should-remain',
+      accountId: 'acct_keep',
+    },
+    preferences: {
+      provider: 'gemini',
+    },
+  })
+})

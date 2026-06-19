@@ -131,6 +131,8 @@ const baseValidationCommands = [
   'bun run product:static-analysis-remediation-queue',
   'bun run product:typecheck-health',
 ]
+const credentialRuntimeGuardValidationCommand =
+  'bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts'
 
 function priorityRank(priority: RemediationPriority): number {
   return { P0: 0, P1: 1, P2: 2, P3: 3 }[priority]
@@ -238,7 +240,10 @@ function buildQueueItems(input: StaticAnalysisRemediationInput): StaticAnalysisQ
       sampleLocations: runtimeGuardRecords.slice(0, 5).map((record) => `${record.file}#${record.symbol}`),
       safeFirstStep: 'Add or verify runtime guards for side-effect-sensitive exported candidates before any deletion or export narrowing.',
       ownerDecisionRequired: true,
-      validationCommands: ['bun run product:dead-export-candidates', ...baseValidationCommands],
+      validationCommands: [
+        credentialRuntimeGuardValidationCommand,
+        ...baseValidationCommands,
+      ],
     }))
   }
 
