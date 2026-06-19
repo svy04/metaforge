@@ -78,7 +78,7 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 | Orchestra routing and planner/skeptic/reviewer roles where tied to current `src/` behavior | Runtime import | "Orchestra is the runtime-wired layer in this package today." | Do not imply every named operating layer is a runtime module. |
 | Meta, MFH, Goal Kernel, evidence gates, claim-boundary rules, schemas, and reports | Governance/docs/gates | "Meta/MFH are governance, schema, and evidence-gate surfaces." | Do not describe Meta or MFH as separate default runtime imports in this checkout. |
 | Mimesis Engineering source-first loop, source ledgers, research briefs, and eval briefs | Governance/docs/gates | "Mimesis Engineering is the source-first improvement loop." | Public proof is docs/source ledgers plus local verification, not external validation. |
-| Local no-provider gates, product-quality reports, privacy scans, proof pack, and profile refresh evidence | Private/local proof boundary | "Local gates currently bound what the public surface may claim." | Local proof is not hosted deployment, adoption, production readiness, or benchmark evidence. |
+| Local no-provider gates, product-quality reports, privacy scans, proof pack, and profile refresh evidence | Local no-provider proof boundary | "Local gates currently bound what the public surface may claim." | Local proof is not hosted deployment, adoption, production readiness, or benchmark evidence. |
 | AVF Influence Factory, generated operator runs, and `avf/` plus validator artifacts | Manual artifact lane | "AVF Influence Factory is a repo-local manual artifact lane." | It is not a default CLI runtime import or CI execution path; generated outputs stay ignored. |
 
 ## Evidence Cards
@@ -120,14 +120,14 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 
 ### GitHub Profile Line
 
-Building **Metaforge**: a Meta/MFH/Orchestra operating system for
-evidence-gated agent work, powered by OpenClaude runtime routes and Mimesis
-Engineering source loops.
+Building **Metaforge**: a Meta/MFH/Orchestra OS for evidence-gated agent work,
+with OpenClaude as runtime substrate and Mimesis Engineering as the source-first
+loop.
 
 ### Repo Description
 
-Meta/MFH/Orchestra OS with Mimesis Engineering loops, evidence gates, and
-Claude/Codex-ready OpenClaude runtime routes.
+Meta/MFH/Orchestra OS with evidence gates, Mimesis Engineering loops, and
+OpenClaude runtime substrate for Claude/Codex routes.
 
 ### Short Social Post
 
@@ -144,7 +144,7 @@ before stronger claims survive.
 - Do not claim hosted deployment or public adoption.
 - Do not claim autonomous reliability.
 - Do not claim it beats other agent systems.
-- Do not market private workbench repositories as public proof.
+- Do not market unpublished workbench repositories as public proof.
 
 ## Verification Routine
 

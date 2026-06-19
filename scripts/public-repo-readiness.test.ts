@@ -387,7 +387,7 @@ describe('public repository readiness surfaces', () => {
     expect(proofPack).toContain('| Surface | Evidence class | Public wording allowed | Boundary |')
     expect(proofPack).toContain('Runtime import')
     expect(proofPack).toContain('Governance/docs/gates')
-    expect(proofPack).toContain('Private/local proof boundary')
+    expect(proofPack).toContain('Local no-provider proof boundary')
     expect(proofPack).toContain('Manual artifact lane')
     expect(orchestraRuntimeFiles.length).toBeGreaterThan(0)
     expect(orchestraTestFiles.length).toBeGreaterThan(0)
@@ -590,7 +590,7 @@ describe('public repository readiness surfaces', () => {
     }
   })
 
-  test('profile refresh evidence does not expose private workbench repo breadcrumbs', () => {
+  test('profile refresh evidence does not expose non-public artifact repo breadcrumbs', () => {
     const evidence = readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
     const forbiddenEvidence = [
       `mimesis-${'plugin'}`,
@@ -602,7 +602,7 @@ describe('public repository readiness surfaces', () => {
       'untracked hero preview files',
     ]
 
-    expect(evidence).toContain('private workbench repos were checked locally and are not public proof')
+    expect(evidence).toContain('non-public artifact repos were checked locally and are not public proof')
     for (const marker of forbiddenEvidence) {
       expect(evidence, marker).not.toContain(marker)
     }
