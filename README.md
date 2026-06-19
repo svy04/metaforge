@@ -14,7 +14,7 @@ Orchestra is the runtime-wired layer in this package today. Meta and MFH are gov
 
 Origin and license boundary: this repository contains runtime code derived from Anthropic's Claude Code CLI. OpenClaude contributor modifications are offered under MIT where legally permissible; this is not a blanket MIT license over the derived runtime. See [LICENSE](LICENSE) before reusing or redistributing code from this repository.
 
-Public history boundary: Metaforge moved from a private/local workbench into this public checkout, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; public claims must come from source-controlled tests, reports, and claim-boundary records.
+Public history boundary: Metaforge moved from pre-public work outside this checkout into the current public repository, so a low public commit/star count is expected context. That history is not adoption evidence, external validation, or production readiness; public claims must come from source-controlled tests, reports, and claim-boundary records.
 
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
@@ -110,7 +110,7 @@ The generated [Public claim evidence map](docs/product-quality/public-claim-boun
 | --- | --- | --- | --- |
 | Orchestra | Routes planner, skeptic, implementer, reviewer, evidence arbiter, and promotion roles across Claude/Codex-backed execution paths. | runtime-wired import path; unit and product-quality evidence | Runtime code lives under `src/services/orchestra/` and is called from CLI query surfaces. |
 | Meta/MFH | Keeps operating memory, goal contracts, evidence gates, and closure rules honest. | governance/docs/gates | Expressed through `docs/`, schemas, reports, and product-quality gates; not a separate runtime module in this checkout. |
-| Mimesis Engineering | Source-first improvement loop that absorbs OSS, papers, patents, standards, and product patterns. | source-ledger loop, not a default runtime module | Public proof is docs/source ledgers plus local verification; private/local workbench material stays outside public proof. |
+| Mimesis Engineering | Source-first improvement loop that absorbs OSS, papers, patents, standards, and product patterns. | source-ledger loop, not a default runtime module | Public proof is docs/source ledgers plus local verification; unpublished pre-public artifacts stay outside public proof. |
 | AVF Influence Factory | Operator artifact flow for venture/factory packets. | manual artifact lane, not a default CLI runtime import | Lives under `avf/` and validator scripts; generated operator outputs remain ignored local artifacts. |
 
 ## Claude And Codex Routes
@@ -211,7 +211,7 @@ If you have [Ollama](https://ollama.com) installed, you can skip the env var set
 ollama launch openclaude --model <local-ollama-model>
 ```
 
-This automatically sets `ANTHROPIC_BASE_URL`, model routing, and auth so all API traffic goes through your local Ollama instance. Works with any model you have pulled — local or cloud.
+This automatically sets `ANTHROPIC_BASE_URL`, model routing, and auth so all API traffic goes through your local Ollama instance. Use `ollama list` to confirm the exact local model name; cloud-backed or Ollama-compatible routes may need provider-specific setup.
 
 ## Setup Guides
 
