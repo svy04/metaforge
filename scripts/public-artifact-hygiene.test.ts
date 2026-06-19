@@ -195,6 +195,36 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
   })
 
+  test('rejects internal owner-process breadcrumbs in public docs', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      [
+        'Owner-' + 'side claim pack is freshest.',
+        'The owner ' + 'supplied this community packet.',
+        'owner-' + 'provided publication evidence is pending.',
+      ].join('\n'),
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('README.md')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('public-owner-process-breadcrumb')
+  })
+
+  test('allows owner authorization wording for protected-action boundaries', () => {
+    const repo = makeTempRepo()
+    writeFileSync(
+      join(repo, 'README.md'),
+      'Protected public actions require explicit owner authorization before execution.\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).toBe(0)
+  })
+
   test('rejects public reports that expose local credential mechanics', () => {
     const repo = makeTempRepo()
     const reportDir = join(repo, 'reports')

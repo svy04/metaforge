@@ -52,7 +52,7 @@ The local authority set is the public repo itself: `AGENTS.md`, `README.md`, `do
 - Requirement: OpenClaude should be explained as runtime substrate; Meta, MFH, and Orchestra remain the product thesis.
 - Eval: `bun run research:validate` checks required source coverage, mapping coverage, secondary-source rejection, and no-provider side-effect boundaries.
 - Eval: the generated research report feeds `bun run product:primary-source-registry` through HTTPS `primarySourceInputs`.
-- Guardrail: blog-only summaries, unsupported provider claims, patent/legal claims without patent database support, security claims without a standard or reproducible eval, and private owner-side notes are not final public evidence.
+- Guardrail: blog-only summaries, unsupported provider claims, patent/legal claims without patent database support, security claims without a standard or reproducible eval, and private internal notes are not final public evidence.
 - Decision: future public proof updates that cite Goal OS prior art should depend on this research ledger or an explicit decision-log assumption.
 
 ## Rejected Sources
@@ -62,7 +62,7 @@ The local authority set is the public repo itself: `AGENTS.md`, `README.md`, `do
 - Patent or prior-art claims without a patent-database route were rejected.
 - Security/compliance claims without a standard, official project source, or reproducible eval were rejected.
 - OSS claims without repository, license, maintenance signal, and install/run path were rejected.
-- Private owner-side harness notes may inform planning, but they are not public proof paths.
+- Private internal harness notes may inform planning, but they are not public proof paths.
 
 ## Follow-Up Goal Candidates
 

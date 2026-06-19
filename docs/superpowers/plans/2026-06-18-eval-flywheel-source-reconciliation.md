@@ -4,7 +4,7 @@
 
 **Goal:** Build the first Autonomous Goal OS eval flywheel with MFH-style source reconciliation and proposed-only automation candidates.
 
-**Architecture:** Add human-readable eval/checklist/reconciliation/automation reports plus a local no-provider validator. The validator ensures L0-L5, EVAL-008 through EVAL-010, mock-versus-real experiment status, proposed-only automation status, blocked external-call candidates, and owner-side MFH/Meta drift boundaries are present before downstream primary-source registry collection.
+**Architecture:** Add human-readable eval/checklist/reconciliation/automation reports plus a local no-provider validator. The validator ensures L0-L5, EVAL-008 through EVAL-010, mock-versus-real experiment status, proposed-only automation status, blocked external-call candidates, and internal MFH/Meta drift boundaries are present before downstream primary-source registry collection.
 
 **Tech Stack:** Bun test, TypeScript scripts, Markdown eval/reports docs, generated product-quality JSON/Markdown reports.
 
@@ -86,7 +86,7 @@ Run:
 
 - [ ] **Step 1: Record decision and progress**
 
-Record that automations are proposed-only, owner-side harness drift is carried forward, and the runner used mock fallback rather than a real 20-task experiment.
+Record that automations are proposed-only, internal harness drift is carried forward, and the runner used mock fallback rather than a real 20-task experiment.
 
 - [ ] **Step 2: Verify**
 

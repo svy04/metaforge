@@ -198,6 +198,17 @@ const customPublicLeakPatterns: PublicLeakPattern[] = [
   { label: 'workspace-roots-context', pattern: new RegExp('<workspace_' + 'roots\\b', 'i') },
   { label: 'permissions-instructions-context', pattern: new RegExp('<permissions ' + 'instructions\\b', 'i') },
   { label: 'raw-public-comment-ui-dump', pattern: new RegExp('갤로그로 ' + '이동합니다|댓글' + '돌이') },
+  {
+    label: 'public-owner-process-breadcrumb',
+    pattern: new RegExp(
+      String.raw`\b(?:` +
+      'Owner-' + 'side|' +
+      'owner ' + 'supplied|' +
+      'owner-' + 'provided (?:goal|publication|affiliation|method-disclosure|peer-review)|' +
+      'owner-' + String.raw`restated)\b`,
+      'i',
+    ),
+  },
   { label: 'credential-source-env-var', pattern: /\b[A-Z0-9_]*CREDENTIAL_SOURCE\s*=\s*oauth\b/i },
   { label: 'oauth-profile-operational-detail', pattern: /\b(?:Codex|Claude)\s+OAuth\s+profile\b/i },
   { label: 'oauth-attribution-operational-detail', pattern: new RegExp(String.raw`\bside-query ` + 'OAuth attribution path' + String.raw`\b`, 'i') },

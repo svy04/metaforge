@@ -155,5 +155,5 @@ This is not a public launch, production release, platform integration, external 
 
 The local product is validated as an internal artifact-generating workbench. The next step is either:
 
-- run a real owner-provided goal through the local bundle generator, or
+- run a real user-provided goal through the local bundle generator, or
 - request explicit owner authorization for a protected public/productization operation.
