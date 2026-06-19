@@ -24,7 +24,7 @@ autonomous reliability, or benchmark superiority?
 | [US11163858B2 client software attestation](https://patents.google.com/patent/US11163858B2/en) | Patent publication | Use pass/fail gate language instead of trusting self-report. | Prior-art vocabulary only, not legal clearance or implementation equivalence. |
 | `docs/research/goal-os-governed-code-prior-art-2026-06-18.md` | Local authority | Primary-source research briefs now require source, local precedent, rejected-source, and claim-boundary records. | Local research gate only. |
 | `docs/evals/autonomous-goal-os-minimal-checklist.md` | Local authority | Eval levels, automation candidates, side-effect arrays, and owner-side drift are separated before stronger claims. | Local no-provider eval governance only. |
-| `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` | Local authority | Public docs, private harness status, owner-side claims, and blocked claim classes are reconciled explicitly. | Reconciliation report, not external validation. |
+| `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` | Local authority | Public docs, unpublished harness boundaries, owner-side claims, and blocked claim classes are reconciled explicitly. | Reconciliation report, not external validation. |
 
 ## Rejected Shortcuts
 
@@ -34,7 +34,7 @@ autonomous reliability, or benchmark superiority?
 | Treat a profile refresh as adoption evidence | Profile README is a routing surface, not social proof. |
 | Treat local no-provider eval governance as live benchmark evidence | No live provider benchmark or external evaluator was run. |
 | Claim standards compliance from standards-inspired structure | The standards informed structure only; no certification or conformance run exists. |
-| Link private/local workbench or plugin repos directly | Live unauthenticated checks returned non-public/inaccessible surfaces, so profile/proof copy must use public-safe boundaries only. |
+| Link unpublished workbench or plugin repos directly | Live unauthenticated checks returned non-public/inaccessible surfaces, so profile/proof copy must use public-safe boundaries only. |
 
 ## Public Copy Rule
 
@@ -52,5 +52,5 @@ Not allowed: Metaforge is externally validated.
 Not allowed: Metaforge is production-ready.
 Not allowed: Metaforge is compliant with SLSA, NIST, SSDF, OpenSSF, or in-toto.
 Not allowed: Mimesis Engineering universally improves AI output.
-Not allowed: Private/local workbench repositories are public proof.
+Not allowed: Unpublished workbench repositories are public proof.
 ```

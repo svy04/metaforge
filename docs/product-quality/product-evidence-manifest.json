@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T22:53:03.708Z",
+  "generatedAt": "2026-06-19T02:48:58.114Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,20 +20,20 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "4ec0d190bb3b45c27afa6c6e9c084cb0d7bd2155a86a40d5ebdbb57387bb03e8",
-  "evidenceRecordCount": 220,
-  "evidenceTotalSizeBytes": 11965759,
+  "manifestJsonlSha256": "e2f0b4062355521bc2dca6214b5f6131580b491c93c3269a5fed546f9c3c058b",
+  "evidenceRecordCount": 221,
+  "evidenceTotalSizeBytes": 12493622,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 202,
-    "evidence_artifact": 7,
+    "evidence_artifact": 8,
     "quality_gate": 1,
     "workflow": 8
   },
   "evidenceProofClasses": {
     "behavioral_runtime": 54,
     "static_analysis": 11,
-    "governance_boundary": 41,
+    "governance_boundary": 42,
     "source_control": 11,
     "structural_inventory": 103
   },
@@ -126,6 +126,7 @@
     "docs/product-quality/quality-blocker-taxonomy-report.json",
     "docs/product-quality/public-claim-boundary-report.json",
     "docs/product-quality/public-claim-boundary-report.md",
+    "reports/metaforge-public-claim-boundary.jsonl",
     "docs/product-quality/github-remote-surface-audit-report.json",
     "docs/product-quality/github-remote-surface-audit-report.md",
     "reports/openclaude-github-remote-surface-audit.jsonl",
@@ -241,7 +242,7 @@
     },
     {
       "path": "docs/product-quality/agent-instructions-quality-report.json",
-      "sha256": "b15303cae04d06ecfab7fbb50f24774a29a7ad621be3d626c0394fa83b11d0a1",
+      "sha256": "f4532be68dfab0822863c641a0968db0785e9133b5368243b4d83d98398c8ccc",
       "sizeBytes": 5557,
       "role": "evidence_report"
     },
@@ -1117,14 +1118,14 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "7d2d4b2d911d8d3e2a301c7fb6a1b865628596c47d9c6588b6f5f2385eccfec9",
-      "sizeBytes": 671405,
+      "sha256": "76d80a3e5ac2ac63ab6955fb0b505723c5d26f2de1fb98ac518d0c8273681d73",
+      "sizeBytes": 672201,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "c60498b6e0b4f191fb2d527c56d1db0dd88823f03daabfc7c4389647c3af4848",
-      "sizeBytes": 349520,
+      "sha256": "04072be9b2b68ef6c86da765bfb4e219f5db709030298a3daa6238594a9f432a",
+      "sizeBytes": 349907,
       "role": "evidence_report"
     },
     {
@@ -1327,8 +1328,8 @@
     },
     {
       "path": "docs/product-quality/terminal-report.md",
-      "sha256": "1da9f041632f79d693d7082c7c8ec0cd454157bb5d0f41314dfa6d4d84cb383e",
-      "sizeBytes": 49733,
+      "sha256": "6d647c1fd443d31197b2587ec01a19d879d3da2da18699c7869932dd93ad2dd0",
+      "sizeBytes": 49781,
       "role": "evidence_report"
     },
     {
@@ -1417,8 +1418,8 @@
     },
     {
       "path": "docs/product-quality/verification-report-2026-05-17.md",
-      "sha256": "833bb36661db7a6f418729f033686f3c273d32e76688518fe3cbf8c2b2c091f2",
-      "sizeBytes": 175249,
+      "sha256": "2214e13407a3c11cd36a19cf253fc6b4bc338a184f20a525dec503f9d5ff9ebf",
+      "sizeBytes": 175285,
       "role": "evidence_report"
     },
     {
@@ -1465,9 +1466,15 @@
     },
     {
       "path": "package.json",
-      "sha256": "5e7e0a30ea9855b30aa1f5e6a99de4c4b360dfe125b654f1c5d4f27fd285f664",
-      "sizeBytes": 20933,
+      "sha256": "61a809028693882b2a3e006a7a021c4ed57951b38da928528ddd4f1f9d8e5529",
+      "sizeBytes": 20974,
       "role": "source"
+    },
+    {
+      "path": "reports/metaforge-public-claim-boundary.jsonl",
+      "sha256": "d3cec30c8ee700ab345d382df5b54e67610b857b957e1dbbee752a76c2385971",
+      "sizeBytes": 526555,
+      "role": "evidence_artifact"
     },
     {
       "path": "reports/openclaude-code-scanning-remediation-queue.jsonl",
@@ -1497,17 +1504,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "220 records"
+      "detail": "221 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "11965759 total bytes"
+      "detail": "12493622 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "220 lines"
+      "detail": "221 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1522,12 +1529,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":7,\"quality_gate\":1,\"workflow\":8}"
+      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":8,\"quality_gate\":1,\"workflow\":8}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":41,\"source_control\":11,\"structural_inventory\":103}"
+      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":42,\"source_control\":11,\"structural_inventory\":103}"
     },
     {
       "label": "manifest contains no credential patterns",

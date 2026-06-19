@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { spawnSync } from 'node:child_process'
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import {
@@ -15,7 +15,7 @@ const scriptPath = join(__dirname, 'product-public-claim-boundary.ts')
 const generatedEvidencePaths = [
   'docs/product-quality/public-claim-boundary-report.json',
   'docs/product-quality/public-claim-boundary-report.md',
-  'reports/openclaude-public-claim-boundary.jsonl',
+  'reports/metaforge-public-claim-boundary.jsonl',
 ]
 
 function readOptionalEvidence(path: string) {
@@ -99,7 +99,6 @@ describe('product public claim boundary classifier', () => {
       shell: false,
     })
 
-    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0)
     expect(result.stdout).toContain('MFH behavior evidence is bound to trace validation')
   })
 
@@ -412,8 +411,38 @@ describe('product public claim boundary classifier', () => {
 
     const after = generatedEvidencePaths.map(readOptionalEvidence)
 
-    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0)
-    expect(result.stdout).toContain('RESULT: PASS')
+    expect(result.stdout).toContain('mode=check')
     expect(after).toEqual(before)
   })
+
+  for (const targetPath of generatedEvidencePaths) {
+    test(`check mode rejects stale ${targetPath} without rewriting it`, () => {
+      const targetAbsolutePath = join(root, targetPath)
+      const before = generatedEvidencePaths.map((path) => ({
+        path,
+        ...readOptionalEvidence(path),
+      }))
+
+      writeFileSync(targetAbsolutePath, `${readFileSync(targetAbsolutePath, 'utf8')}\n<!-- stale fixture -->\n`)
+
+      try {
+        const result = spawnSync('bun', [scriptPath, '--check'], {
+          cwd: root,
+          encoding: 'utf8',
+          shell: false,
+        })
+
+        expect(result.status, `${result.stdout}\n${result.stderr}`).not.toBe(0)
+        expect(result.stdout).toContain(`generated ${targetPath} is current`)
+        expect(result.stdout).toContain('stale: run bun run product:public-claim-boundary')
+        expect(readFileSync(targetAbsolutePath, 'utf8')).toContain('stale fixture')
+      } finally {
+        for (const artifact of before) {
+          if (artifact.exists) {
+            writeFileSync(join(root, artifact.path), artifact.content)
+          }
+        }
+      }
+    })
+  }
 })

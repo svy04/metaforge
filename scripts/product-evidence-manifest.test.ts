@@ -6,6 +6,7 @@ import {
   buildProductEvidenceManifestReport,
   filterSourceControlledEvidencePaths,
   hasCredentialPattern,
+  isSourceControlledReportArtifactPath,
   proofClassFor,
   rawRequiredEvidencePaths,
   roleFor,
@@ -162,5 +163,13 @@ describe('product evidence manifest behavior', () => {
 
   test('requires the Knip config as static-analysis evidence', () => {
     expect(rawRequiredEvidencePaths).toContain('knip.jsonc')
+  })
+
+  test('includes Metaforge-owned source-controlled report artifacts', () => {
+    expect(rawRequiredEvidencePaths).toContain('reports/metaforge-public-claim-boundary.jsonl')
+    expect(isSourceControlledReportArtifactPath('reports/openclaude-product-evidence-manifest.jsonl')).toBe(true)
+    expect(isSourceControlledReportArtifactPath('reports/orchestra-protected-action-denial-trace-local-fixture.jsonl')).toBe(true)
+    expect(isSourceControlledReportArtifactPath('reports/metaforge-public-claim-boundary.jsonl')).toBe(true)
+    expect(isSourceControlledReportArtifactPath('reports/private-runtime-dump.jsonl')).toBe(false)
   })
 })

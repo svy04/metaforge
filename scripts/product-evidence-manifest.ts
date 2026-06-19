@@ -197,7 +197,7 @@ export const rawRequiredEvidencePaths = [
   'docs/product-quality/quality-blocker-taxonomy-report.json',
   'docs/product-quality/public-claim-boundary-report.json',
   'docs/product-quality/public-claim-boundary-report.md',
-  'reports/openclaude-public-claim-boundary.jsonl',
+  'reports/metaforge-public-claim-boundary.jsonl',
   'docs/product-quality/github-remote-surface-audit-report.json',
   'docs/product-quality/github-remote-surface-audit-report.md',
   'reports/openclaude-github-remote-surface-audit.jsonl',
@@ -247,6 +247,10 @@ function listGitTrackedPaths(prefix: string): string[] {
 
 export function filterSourceControlledEvidencePaths(paths: string[], trackedPaths: Set<string>): string[] {
   return paths.filter((path) => !normalizePath(path).startsWith('reports/') || trackedPaths.has(normalizePath(path)))
+}
+
+export function isSourceControlledReportArtifactPath(path: string): boolean {
+  return /^reports\/(openclaude-|orchestra-|metaforge-)/.test(normalizePath(path))
 }
 
 export const requiredEvidencePaths = filterSourceControlledEvidencePaths(
@@ -360,7 +364,7 @@ function buildEvidenceRecords(): EvidenceRecord[] {
     '.dependency-cruiser-known-violations.json',
     ...listFiles('docs/product-quality'),
     ...trackedReportPaths
-      .filter((path) => /^reports\/(openclaude-|orchestra-)/.test(path))
+      .filter(isSourceControlledReportArtifactPath)
       .filter((path) => !isHistoricalLiveProbeTracePath(path)),
     ...listFiles('.github').filter((path) => /\.(ya?ml)$/.test(path) || path === '.github/CODEOWNERS'),
   ]

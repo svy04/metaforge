@@ -67,7 +67,7 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 5. **Mimesis Engineering**: trace gate는 OpenTelemetry식 trace, OPA식 policy decision, OpenAI agent eval trace grading, NIST AI RMF risk-management record 구조를 흡수한 작은 증거층입니다.
 6. **OpenClaude runtime**: OpenClaude는 terminal tool, provider route, MCP, slash command, credential surface를 제공합니다. 제품 중심은 OpenClaude가 아니라 Meta/MFH/Orchestra입니다.
 
-Blocked context: 이 Proof Tour는 local no-provider evidence이며 production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability claim을 만들지 않습니다.
+증명하지 않는 것: 이 Proof Tour는 local no-provider evidence이며 production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability claim을 만들지 않습니다.
 
 ## 운영 레이어
 
@@ -79,7 +79,7 @@ AVF Influence Factory는 repo-local manual artifact lane입니다.
 | Goal Kernel | 목표 계층, 성공 기준, non-goals, 검증 명령, rollback rule |
 | Orchestra | Claude/Codex route, planning, critique, review, evidence arbitration |
 | MFH | drift, state, evidence, closure, release claim을 막는 governed-code gate |
-| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route. Generated profile은 non-sensitive 설정만 저장하고 API key와 blocked stale model lock은 저장하지 않습니다. |
+| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route. Generated profile은 non-sensitive 설정만 저장하고 API key와 obsolete or blocked model-lock metadata는 저장하지 않습니다. |
 
 ### 배선 증거 맵
 
