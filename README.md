@@ -20,7 +20,7 @@ Public history boundary: Metaforge moved from pre-public work outside this check
 [![Security Policy](https://img.shields.io/badge/security-policy-0f766e)](SECURITY.md)
 [![License](https://img.shields.io/badge/license-see_LICENSE-2563eb)](LICENSE)
 
-[Proof Tour](#metaforge-proof-tour) | [Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
+[Proof Tour](#metaforge-proof-tour) | [Architecture Map](docs/product-quality/metaforge-architecture-map.md) | [Operating Layers](#operating-layers) | [Mimesis](#mimesis-engineering) | [Proof Pack](#public-proof-pack) | [Runtime Setup](#quick-start) | [Routes](#runtime-routes) | [Evidence Gates](#evidence-gates) | [Source Build](#source-build-and-local-development) | [Community](#community)
 
 ## Current Proof Ladder
 
@@ -28,7 +28,7 @@ Public history boundary: Metaforge moved from pre-public work outside this check
 | --- | --- |
 | What is it? | Meta/MFH/Orchestra OS for evidence-gated agent work, riding on the OpenClaude CLI runtime. |
 | Fastest verification | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy`, and the generated product-quality reports. |
-| Strongest public evidence | [Goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [Origin/license provenance boundary](docs/product-quality/origin-license-provenance-boundary-report.md), [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
+| Strongest public evidence | [Goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [Origin/license provenance boundary](docs/product-quality/origin-license-provenance-boundary-report.md), [Architecture Map](docs/product-quality/metaforge-architecture-map.md), [Public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), and [Public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map). |
 | Evidence class map | The evidence manifest now separates behavioral runtime evidence from static analysis, governance-boundary, source-control, and structural-inventory evidence before public claims are upgraded. |
 | What this proves | Current repository positioning, local no-provider gates, claim boundaries, and public-surface hygiene. |
 | What this does not prove | Production readiness, hosted deployment, external validation, standards compliance, benchmark superiority, or autonomous reliability. |
@@ -46,7 +46,7 @@ That feedback changed the public bar:
 - OpenClaude remains the runtime substrate while Metaforge remains the Meta/MFH/Orchestra thesis;
 - marker-only audits must keep moving toward behavioral happy paths, edge cases, and side-effect guards;
 - Knip, dependency-cruiser, and jscpd are wired as local no-provider product-quality gates for dead-export candidates, dependency-topology baselines/ratchets, and product-script clone baselines; fallow and Lumin Repo Lens remain optional/manual backlog inputs, and none of these gates prove cleanup completion or topology cleanliness;
-- Static analysis evidence: [Knip dead-export candidates](docs/product-quality/dead-export-candidates-report.md), [dependency-cruiser topology ratchet](docs/product-quality/dependency-topology-report.md), [jscpd product-script clone ratchet](docs/product-quality/script-duplication-audit-report.md), [CG-002 static-analysis goal](docs/goals/CG-002-static-analysis-ratchet.md), and [evidence manifest](docs/product-quality/product-evidence-manifest.md). These are candidate/baseline/ratchet evidence only, not cleanup completion, topology-clean, refactor-completion, public-readiness, or external-validation proof;
+- Static analysis evidence: [Knip dead-export candidates](docs/product-quality/dead-export-candidates-report.md), [dependency-cruiser topology ratchet](docs/product-quality/dependency-topology-report.md), [jscpd product-script clone ratchet](docs/product-quality/script-duplication-audit-report.md), [architecture map](docs/product-quality/metaforge-architecture-map.md#static-analysis-trust-stack), [CG-002 static-analysis goal](docs/goals/CG-002-static-analysis-ratchet.md), and [evidence manifest](docs/product-quality/product-evidence-manifest.md). These are candidate/baseline/ratchet evidence only, not cleanup completion, topology-clean, refactor-completion, public-readiness, or external-validation proof;
 - Korean docs stay current because the first feedback loop is Korean.
 
 ## Metaforge Proof Tour
