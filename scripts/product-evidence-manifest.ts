@@ -192,6 +192,9 @@ export const rawRequiredEvidencePaths = [
   'docs/product-quality/dead-export-candidates-report.json',
   'docs/product-quality/dead-export-candidates-report.md',
   'docs/product-quality/dead-export-candidate-triage.json',
+  'docs/product-quality/static-analysis-remediation-queue-report.json',
+  'docs/product-quality/static-analysis-remediation-queue-report.md',
+  'reports/openclaude-static-analysis-remediation-queue.jsonl',
   'docs/product-quality/maintainer-ownership-quality-report.json',
   'docs/product-quality/dependency-governance-quality-report.json',
   'docs/product-quality/lockfile-sbom-quality-report.json',
@@ -332,6 +335,7 @@ export function proofClassFor(path: string): EvidenceProofClass {
     normalized.includes('dependency-topology') ||
     normalized.includes('dead-export') ||
     normalized.includes('script-duplication') ||
+    normalized.includes('static-analysis-remediation') ||
     normalized.includes('knip')
   ) {
     return 'static_analysis'

@@ -1,0 +1,1916 @@
+{
+  "generatedAt": "2026-06-19T16:35:58.439Z",
+  "mode": "local_no_provider_static_analysis_remediation_queue",
+  "repository": "svy04/metaforge",
+  "sourceCommit": "0db39507bf5dba66671d2df4a8e780fb9e811027",
+  "generatedFrom": [
+    "docs/product-quality/dead-export-candidates-report.json",
+    "docs/product-quality/dependency-topology-report.json",
+    "docs/product-quality/script-duplication-audit-report.json"
+  ],
+  "status": "remediation_queue_required",
+  "primarySourceInputs": [
+    {
+      "sourceType": "project_docs",
+      "sourceProject": "Knip JSON reporter docs",
+      "sourceUrl": "https://knip.dev/features/reporters",
+      "observedPattern": "Knip JSON reporter output is machine-readable and groups issue arrays by file.",
+      "localAbsorption": "Metaforge turns existing Knip dead-export candidates into ordered queue work without claiming deletion safety."
+    },
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "jscpd",
+      "sourceUrl": "https://github.com/kucherenko/jscpd",
+      "observedPattern": "jscpd detects copy/paste clones and exposes report formats suitable for agents and CI follow-up.",
+      "localAbsorption": "Metaforge uses current jscpd clone pairs as clone-hotspot queue inputs, not as automatic refactor instructions."
+    },
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "dependency-cruiser",
+      "sourceUrl": "https://github.com/sverweij/dependency-cruiser/blob/main/doc/cli.md",
+      "observedPattern": "dependency-cruiser supports baselining known violations and focusing future runs on new violations.",
+      "localAbsorption": "Metaforge prioritizes new topology ratchet violations ahead of ordinary cleanup candidates."
+    },
+    {
+      "sourceType": "oss_tool",
+      "sourceProject": "fallow",
+      "sourceUrl": "https://github.com/fallow-rs/fallow",
+      "observedPattern": "Fallow frames static analysis as health, hotspot, refactor, and safe-removal evidence for maintainers and agents.",
+      "localAbsorption": "Metaforge absorbs that queue shape while reusing its already pinned Knip, jscpd, and dependency-cruiser reports."
+    },
+    {
+      "sourceType": "research_survey",
+      "sourceProject": "Roy and Cordy clone detection survey",
+      "sourceUrl": "https://research.cs.queensu.ca/TechReports/Reports/2007-541.pdf",
+      "observedPattern": "Clone detection identifies maintenance candidates that need classification and human review.",
+      "localAbsorption": "Metaforge keeps clone hits as prioritized work items rather than proof of refactor completion."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US11662998B2 duplicate code pattern patent",
+      "sourceUrl": "https://patents.google.com/patent/US11662998B2/en",
+      "observedPattern": "Duplicate-pattern systems identify candidate pairs and surface refactor opportunities.",
+      "localAbsorption": "Metaforge records duplicate-script hotspots before attempting shared-helper extraction."
+    },
+    {
+      "sourceType": "patent",
+      "sourceProject": "US7904892B2 dependency graph cycle patent",
+      "sourceUrl": "https://patents.google.com/patent/US7904892B2/en",
+      "observedPattern": "Dependency graph systems model component relationships and cycles.",
+      "localAbsorption": "Metaforge keeps topology remediation separate from duplicate-code and dead-export cleanup."
+    }
+  ],
+  "queueItems": [
+    {
+      "queueId": "static-analysis-dead-export-runtime-guards",
+      "priority": "P1",
+      "remediationClass": "dead_export_runtime_guard",
+      "evidenceSource": "knip",
+      "evidenceCount": 2,
+      "sampleLocations": [
+        "src/services/api/providerConfig.ts#resolveStoredCodexCredentials",
+        "src/utils/geminiCredentials.ts#clearGeminiAccessToken"
+      ],
+      "safeFirstStep": "Add or verify runtime guards for side-effect-sensitive exported candidates before any deletion or export narrowing.",
+      "ownerDecisionRequired": true,
+      "validationCommands": [
+        "bun run product:dead-export-candidates",
+        "bun run product:dead-export-candidates",
+        "bun run product:dependency-topology",
+        "bun run product:script-duplication-audit",
+        "bun run product:static-analysis-remediation-queue",
+        "bun run product:typecheck-health"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
+    },
+    {
+      "queueId": "static-analysis-duplicate-helper-clusters",
+      "priority": "P2",
+      "remediationClass": "duplicate_helper_extraction",
+      "evidenceSource": "jscpd",
+      "evidenceCount": 91,
+      "sampleLocations": [
+        "check:63",
+        "readText:28"
+      ],
+      "safeFirstStep": "Extract or reuse a shared helper only for the smallest product-script family whose behavior is covered by focused tests.",
+      "ownerDecisionRequired": true,
+      "validationCommands": [
+        "bun run product:script-duplication-audit",
+        "bun run product:dead-export-candidates",
+        "bun run product:dependency-topology",
+        "bun run product:script-duplication-audit",
+        "bun run product:static-analysis-remediation-queue",
+        "bun run product:typecheck-health"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
+    },
+    {
+      "queueId": "static-analysis-jscpd-clone-hotspots",
+      "priority": "P2",
+      "remediationClass": "clone_hotspot_review",
+      "evidenceSource": "jscpd",
+      "evidenceCount": 17,
+      "sampleLocations": [
+        "scripts/product-dead-export-candidates.ts:223-246 <-> scripts/product-dependency-topology.ts:160-183",
+        "scripts/product-ide-extension-rendered-workbench-screenshot.ts:142-178 <-> scripts/product-ide-extension-webview-render-smoke.ts:102-138",
+        "scripts/product-ide-extension-runtime-smoke.ts:118-142 <-> scripts/product-ide-extension-webview-interaction-smoke.ts:168-194",
+        "scripts/product-oss-baseline-drift-closure.ts:85-106 <-> scripts/product-oss-safe-backlog-closure.ts:134-155",
+        "scripts/product-oss-eval-quality-gate-checklist.ts:11-53 <-> scripts/product-oss-terminal-workflow-evidence.ts:5-47"
+      ],
+      "safeFirstStep": "Review the top jscpd clone pair, classify whether it is shared infrastructure or intentional parallel evidence, then patch one test-backed extraction at a time.",
+      "ownerDecisionRequired": true,
+      "validationCommands": [
+        "bun run product:script-duplication-audit",
+        "bun run product:dead-export-candidates",
+        "bun run product:dependency-topology",
+        "bun run product:script-duplication-audit",
+        "bun run product:static-analysis-remediation-queue",
+        "bun run product:typecheck-health"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
+    },
+    {
+      "queueId": "static-analysis-known-topology-knots",
+      "priority": "P3",
+      "remediationClass": "known_dependency_knot",
+      "evidenceSource": "dependency-cruiser",
+      "evidenceCount": 2600,
+      "sampleLocations": [
+        "src/utils/slowOperations.ts -> src/utils/debug.ts",
+        "src/utils/debug.ts -> src/utils/fsOperations.ts",
+        "src/utils/debug.ts -> src/utils/slowOperations.ts",
+        "src/services/api/providerConfig.ts -> src/utils/providerProfile.js",
+        "src/bootstrap/state.ts -> src/utils/crypto.js",
+        "src/bootstrap/state.ts -> src/utils/settings/settingsCache.js"
+      ],
+      "safeFirstStep": "Pick one high-locality cycle or unresolved import cluster and add a behavior-preserving regression before changing module boundaries.",
+      "ownerDecisionRequired": true,
+      "validationCommands": [
+        "bun run product:dependency-topology",
+        "bun run product:dead-export-candidates",
+        "bun run product:dependency-topology",
+        "bun run product:script-duplication-audit",
+        "bun run product:static-analysis-remediation-queue",
+        "bun run product:typecheck-health"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
+    },
+    {
+      "queueId": "static-analysis-dead-export-removal-review",
+      "priority": "P3",
+      "remediationClass": "dead_export_cleanup_review",
+      "evidenceSource": "knip",
+      "evidenceCount": 1,
+      "sampleLocations": [
+        "src/bridge/sessionRunner.ts#_extractActivitiesForTesting"
+      ],
+      "safeFirstStep": "Review ordinary Knip removal candidates after runtime-guard candidates, and delete only when tests and docs prove the symbol is not part of a public or fixture boundary.",
+      "ownerDecisionRequired": false,
+      "validationCommands": [
+        "bun run product:dead-export-candidates",
+        "bun run product:dead-export-candidates",
+        "bun run product:dependency-topology",
+        "bun run product:script-duplication-audit",
+        "bun run product:static-analysis-remediation-queue",
+        "bun run product:typecheck-health"
+      ],
+      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
+    }
+  ],
+  "queueItemCount": 5,
+  "deadExport": {
+    "generatedAt": "2026-06-19T16:34:12.264Z",
+    "mode": "local_no_provider_dead_export_candidate_gate",
+    "scannerTarget": "knip --config knip.jsonc --exports",
+    "knipVersion": "6.16.1",
+    "knipCommands": [
+      {
+        "name": "knip_exports_json",
+        "command": [
+          "knip",
+          "--config",
+          "knip.jsonc",
+          "--exports",
+          "--reporter",
+          "json",
+          "--no-exit-code",
+          "--no-progress"
+        ],
+        "exitCode": 0,
+        "passed": true,
+        "requiredSubstrings": [
+          "\"issues\"",
+          "\"exports\""
+        ],
+        "missingSubstrings": [],
+        "stdoutPreview": [
+          "{\"issues\":[{\"file\":\"src/services/api/providerConfig.ts\",\"owners\":[{\"name\":\"@Gitlawb\"}],\"duplicates\":[],\"enumMembers\":[],\"exports\":[{\"name\":\"DEFAULT_MISTRAL_BASE_URL\",\"line\":21,\"col\":14,\"pos\":712},{\"name\":\"isCodexAlias\",\"line\":238,\"col\":17,\"pos\":6435},{\"name..."
+        ],
+        "stderrPreview": []
+      }
+    ],
+    "candidateFileCount": 637,
+    "candidateUnusedExportCount": 1395,
+    "candidateUnusedTypeCount": 364,
+    "candidateDuplicateExportCount": 12,
+    "candidateFileBaseline": 657,
+    "candidateUnusedExportBaseline": 1461,
+    "candidateUnusedTypeBaseline": 492,
+    "candidateDuplicateExportBaseline": 12,
+    "sampleCandidateFiles": [
+      {
+        "file": "src/services/api/providerConfig.ts",
+        "unusedExports": 7,
+        "unusedTypes": 1,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "DEFAULT_MISTRAL_BASE_URL",
+          "isCodexAlias",
+          "normalizeGithubCopilotModel",
+          "GITHUB_COPILOT_BASE_URL",
+          "GITHUB_MODELS_BASE_URL",
+          "resolveCodexAuthPath",
+          "resolveStoredCodexCredentials"
+        ],
+        "sampleTypes": [
+          "ProviderTransport"
+        ]
+      },
+      {
+        "file": "src/utils/providerProfile.ts",
+        "unusedExports": 2,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "isProviderProfile",
+          "hasExplicitProviderSelection"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/utils/config.ts",
+        "unusedExports": 14,
+        "unusedTypes": 7,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "actualConfigModule.EDITOR_MODES",
+          "actualConfigModule.NOTIFICATION_CHANNELS",
+          "actualConfigModule.DEFAULT_GLOBAL_CONFIG",
+          "actualConfigModule.GLOBAL_CONFIG_KEYS",
+          "actualConfigModule.isGlobalConfigKey",
+          "actualConfigModule.PROJECT_CONFIG_KEYS",
+          "actualConfigModule.resetTrustDialogAcceptedCacheForTesting",
+          "actualConfigModule.isPathTrusted"
+        ],
+        "sampleTypes": [
+          "actualConfigModule.SerializedStructuredHistoryEntry",
+          "actualConfigModule.NotificationChannel",
+          "actualConfigModule.EditorMode",
+          "actualConfigModule.DiffTool",
+          "actualConfigModule.Providers",
+          "actualConfigModule.GlobalConfigKey",
+          "actualConfigModule.ProjectConfigKey"
+        ]
+      },
+      {
+        "file": "src/utils/geminiCredentials.ts",
+        "unusedExports": 2,
+        "unusedTypes": 1,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "GEMINI_TOKEN_STORAGE_KEY",
+          "clearGeminiAccessToken"
+        ],
+        "sampleTypes": [
+          "GeminiCredentialBlob"
+        ]
+      },
+      {
+        "file": "src/utils/githubModelsCredentials.ts",
+        "unusedExports": 1,
+        "unusedTypes": 1,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "GITHUB_MODELS_STORAGE_KEY"
+        ],
+        "sampleTypes": [
+          "GithubModelsCredentialBlob"
+        ]
+      },
+      {
+        "file": "src/bridge/sessionRunner.ts",
+        "unusedExports": 1,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "_extractActivitiesForTesting"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/constants/prompts.ts",
+        "unusedExports": 4,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "CLAUDE_CODE_DOCS_MAP_URL",
+          "computeEnvInfo",
+          "getUnameSR",
+          "getScratchpadInstructions"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/state/AppState.tsx",
+        "unusedExports": 2,
+        "unusedTypes": 3,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "getDefaultAppState",
+          "IDLE_SPECULATION_STATE"
+        ],
+        "sampleTypes": [
+          "CompletionBoundary",
+          "SpeculationResult",
+          "SpeculationState"
+        ]
+      },
+      {
+        "file": "src/ink.ts",
+        "unusedExports": 13,
+        "unusedTypes": 11,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "ThemeProvider",
+          "BaseBox",
+          "Button",
+          "Spacer",
+          "BaseText",
+          "EventEmitter",
+          "Event",
+          "TerminalFocusEvent"
+        ],
+        "sampleTypes": [
+          "BoxProps",
+          "AppProps",
+          "BaseBoxProps",
+          "ButtonState",
+          "ButtonProps",
+          "LinkProps",
+          "NewlineProps",
+          "StdinProps"
+        ]
+      },
+      {
+        "file": "src/utils/Cursor.ts",
+        "unusedExports": 6,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "getKillRingItem",
+          "getKillRingSize",
+          "clearKillRing",
+          "canYankPop",
+          "VIM_WORD_CHAR_REGEX",
+          "WHITESPACE_REGEX"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/services/mcp/types.ts",
+        "unusedExports": 8,
+        "unusedTypes": 8,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "TransportSchema",
+          "McpSSEServerConfigSchema",
+          "McpSSEIDEServerConfigSchema",
+          "McpWebSocketIDEServerConfigSchema",
+          "McpHTTPServerConfigSchema",
+          "McpWebSocketServerConfigSchema",
+          "McpSdkServerConfigSchema",
+          "McpClaudeAIProxyServerConfigSchema"
+        ],
+        "sampleTypes": [
+          "Transport",
+          "FailedMCPServer",
+          "NeedsAuthMCPServer",
+          "PendingMCPServer",
+          "DisabledMCPServer",
+          "SerializedTool",
+          "SerializedClient",
+          "MCPCliState"
+        ]
+      },
+      {
+        "file": "src/ink/frame.ts",
+        "unusedExports": 1,
+        "unusedTypes": 1,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "shouldClearScreen"
+        ],
+        "sampleTypes": [
+          "Patch"
+        ]
+      },
+      {
+        "file": "src/ink/screen.ts",
+        "unusedExports": 3,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "isCellEmpty",
+          "clearRegion",
+          "diff"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/ink/parse-keypress.ts",
+        "unusedExports": 1,
+        "unusedTypes": 1,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "DECRPM_STATUS"
+        ],
+        "sampleTypes": [
+          "ParsedResponse"
+        ]
+      },
+      {
+        "file": "src/ink/root.ts",
+        "unusedExports": 1,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "renderSync"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/services/api/claude.ts",
+        "unusedExports": 11,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "actualClaudeModule.getPromptCachingEnabled",
+          "actualClaudeModule.configureTaskBudgetParams",
+          "actualClaudeModule.userMessageToMessageParam",
+          "actualClaudeModule.assistantMessageToMessageParam",
+          "actualClaudeModule.executeNonStreamingRequest",
+          "actualClaudeModule.stripExcessMediaItems",
+          "actualClaudeModule.cleanupStream",
+          "actualClaudeModule.addCacheBreakpoints"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/utils/messages.ts",
+        "unusedExports": 16,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "deriveShortMessageId",
+          "DENIAL_WORKAROUND_GUIDANCE",
+          "SYNTHETIC_TOOL_RESULT_PLACEHOLDER",
+          "isToolUseRequestMessage",
+          "hasUnresolvedHooks",
+          "getToolResultIDs",
+          "getSiblingToolUseIDs",
+          "reorderAttachmentsForAPI"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/skills/loadSkillsDir.ts",
+        "unusedExports": 4,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "getCommandDirCommands",
+          "clearCommandCaches",
+          "transformSkillFiles",
+          "getConditionalSkillCount"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/tools/BashTool/BashTool.tsx",
+        "unusedExports": 2,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "isSearchOrReadBashCommand",
+          "detectBlockedSleepPattern"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/tools/PowerShellTool/PowerShellTool.tsx",
+        "unusedExports": 1,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "detectBlockedSleepPattern"
+        ],
+        "sampleTypes": []
+      }
+    ],
+    "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
+    "triageRecordCount": 3,
+    "triageCurrentCandidateCount": 3,
+    "triageActionCounts": {
+      "needs_runtime_guard": 2,
+      "review_for_removal": 1,
+      "defer_public_api": 0,
+      "keep_until_entrypoint_proven": 0
+    },
+    "triageRecords": [
+      {
+        "file": "src/services/api/providerConfig.ts",
+        "symbol": "resolveStoredCodexCredentials",
+        "kind": "export",
+        "action": "needs_runtime_guard",
+        "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
+        "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
+        "reviewedAt": "2026-06-16",
+        "reviewer": "codex-local-triage",
+        "currentCandidate": true
+      },
+      {
+        "file": "src/utils/geminiCredentials.ts",
+        "symbol": "clearGeminiAccessToken",
+        "kind": "export",
+        "action": "needs_runtime_guard",
+        "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
+        "guardrail": "Before removal, add credential lifecycle tests that prove stored-token clear, missing-token no-op, and no secret logging behavior.",
+        "reviewedAt": "2026-06-16",
+        "reviewer": "codex-local-triage",
+        "currentCandidate": true
+      },
+      {
+        "file": "src/bridge/sessionRunner.ts",
+        "symbol": "_extractActivitiesForTesting",
+        "kind": "export",
+        "action": "review_for_removal",
+        "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
+        "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
+        "reviewedAt": "2026-06-16",
+        "reviewer": "codex-local-triage",
+        "currentCandidate": true
+      }
+    ],
+    "removedCandidateRatchets": [
+      {
+        "file": "src/utils/providerDiscovery.ts",
+        "symbol": "getOpenAICompatibleModelsBaseUrl",
+        "kind": "export",
+        "guardrail": "Keep this helper private; callers should use the public provider-discovery APIs instead.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/bridge/sessionRunner.ts",
+        "symbol": "PermissionRequest",
+        "kind": "type",
+        "guardrail": "Keep this request shape internal to the session runner bridge contract.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/utils/providerProfile.ts",
+        "symbol": "buildMiniMaxProfileEnv",
+        "kind": "export",
+        "guardrail": "Keep this provider profile helper private until an actual module boundary imports it.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/utils/providerProfile.ts",
+        "symbol": "buildNvidiaNimProfileEnv",
+        "kind": "export",
+        "guardrail": "Keep NVIDIA NIM preset behavior in the provider profile and flag flows; do not re-export unused env builders without a runtime import.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/projectOnboardingState.ts",
+        "symbol": "isProjectOnboardingComplete",
+        "kind": "export",
+        "guardrail": "Keep onboarding completion checks exported from projectOnboardingSteps.ts, not re-exported from state.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/commands.ts",
+        "symbol": "meetsAvailabilityRequirement",
+        "kind": "export",
+        "guardrail": "Keep command availability covered by src/commands.policy.test.ts happy-path and unavailable-command edge-case checks.",
+        "currentCandidate": false
+      },
+      {
+        "file": "src/commands.ts",
+        "symbol": "BRIDGE_SAFE_COMMANDS",
+        "kind": "export",
+        "guardrail": "Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.",
+        "currentCandidate": false
+      }
+    ],
+    "primarySourceInputs": [
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "Knip",
+        "sourceUrl": "https://github.com/webpro-nl/knip",
+        "observedPattern": "Knip detects unused files, dependencies, and exports in JavaScript and TypeScript projects and supports machine-readable JSON reporting.",
+        "localAbsorption": "Metaforge records Knip unused-export candidates as a baseline only; no deletion or autofix claim follows from a candidate report."
+      },
+      {
+        "sourceType": "project_docs",
+        "sourceProject": "Knip JSON reporter docs",
+        "sourceUrl": "https://knip.dev/features/reporters",
+        "observedPattern": "The JSON reporter is designed for tool consumption and exposes per-file issues.",
+        "localAbsorption": "The product gate parses JSON reporter output and stores counts, samples, and claim boundaries for follow-up review."
+      },
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "fallow",
+        "sourceUrl": "https://github.com/fallow-rs/fallow",
+        "observedPattern": "Fallow also treats unused files, unused exports, and stale cleanup opportunities as codebase intelligence rather than automatic deletion.",
+        "localAbsorption": "Metaforge keeps cleanup-candidate evidence separate from refactor completion or runtime behavior claims."
+      }
+    ],
+    "dependencyInstallPerformed": false,
+    "autofixPerformed": false,
+    "deletionPerformed": false,
+    "providerCallsPerformed": [],
+    "liveModelCallsPerformed": [],
+    "externalCallsPerformed": [],
+    "protectedActionsExecuted": [],
+    "deletionClaimAllowed": false,
+    "cleanupCompletionClaimAllowed": false,
+    "publicReadinessClaimAllowed": false,
+    "deadExportChecks": [
+      {
+        "label": "Knip version command passes",
+        "ok": true,
+        "detail": "6.16.1"
+      },
+      {
+        "label": "Knip exports JSON command passes",
+        "ok": true,
+        "detail": "0"
+      },
+      {
+        "label": "candidate files are discovered",
+        "ok": true,
+        "detail": "637 files"
+      },
+      {
+        "label": "unused export candidates are discovered",
+        "ok": true,
+        "detail": "1395 exports"
+      },
+      {
+        "label": "candidate files do not exceed baseline",
+        "ok": true,
+        "detail": "637/657"
+      },
+      {
+        "label": "unused export candidates do not exceed baseline",
+        "ok": true,
+        "detail": "1395/1461"
+      },
+      {
+        "label": "unused type candidates do not exceed baseline",
+        "ok": true,
+        "detail": "364/492"
+      },
+      {
+        "label": "duplicate export candidates do not exceed baseline",
+        "ok": true,
+        "detail": "12/12"
+      },
+      {
+        "label": "dead export triage ledger records reviewed candidates",
+        "ok": true,
+        "detail": "3 records"
+      },
+      {
+        "label": "dead export triage entries remain current",
+        "ok": true,
+        "detail": "3/3"
+      },
+      {
+        "label": "dead export triage has runtime guard and removal-review actions",
+        "ok": true,
+        "detail": "{\"needs_runtime_guard\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+      },
+      {
+        "label": "dead export triage records guardrails and rationales",
+        "ok": true,
+        "detail": "3 records"
+      },
+      {
+        "label": "removed dead export ratchets remain absent",
+        "ok": true,
+        "detail": "0/7 regressed"
+      },
+      {
+        "label": "primary sources include Knip docs and fallow comparator",
+        "ok": true,
+        "detail": "Knip,Knip JSON reporter docs,fallow"
+      },
+      {
+        "label": "provider/live/external calls remain absent",
+        "ok": true,
+        "detail": "all call arrays empty"
+      },
+      {
+        "label": "protected actions remain absent",
+        "ok": true,
+        "detail": "zero"
+      },
+      {
+        "label": "autofix deletion and readiness claims remain blocked",
+        "ok": true,
+        "detail": "all false"
+      }
+    ],
+    "claimBoundary": "Knip findings are candidate unused export/type/duplicate-export evidence only. They do not prove a symbol is safe to delete, that cleanup is complete, or that the repo is public-ready."
+  },
+  "dependencyTopology": {
+    "generatedAt": "2026-06-19T16:23:32.288Z",
+    "mode": "local_no_provider_dependency_topology_gate",
+    "scannerTargetRoots": [
+      "src",
+      "scripts"
+    ],
+    "dependencyCruiserVersion": "17.4.3",
+    "topologyCommands": [
+      {
+        "name": "dependency_cruiser_src_scripts",
+        "command": [
+          "depcruise",
+          "--no-config",
+          "--output-type",
+          "json",
+          "--include-only",
+          "^src|^scripts",
+          "--exclude",
+          "(^node_modules|\\.test\\.ts$|^scripts/_fixtures)",
+          "src",
+          "scripts"
+        ],
+        "exitCode": 0,
+        "passed": true,
+        "requiredSubstrings": [
+          "\"modules\"",
+          "\"summary\""
+        ],
+        "missingSubstrings": [],
+        "stdoutPreview": [
+          "{",
+          "  \"modules\": [",
+          "    {",
+          "      \"source\": \"scripts/build.ts\",",
+          "      \"dependencies\": [",
+          "        {",
+          "          \"module\": \"./no-telemetry-plugin\",",
+          "          \"moduleSystem\": \"es6\",",
+          "          \"dynamic\": false,",
+          "          \"exoticallyRequired\": false,",
+          "          \"dependencyTypes\": [",
+          "            \"local\",",
+          "            \"import\"",
+          "          ],",
+          "          \"resolved\": \"scripts/no-telemetry-plugin.ts\",",
+          "          \"coreModule\": false,",
+          "          \"followable\": true,",
+          "          \"couldNotResolve\": false,",
+          "          \"matchesDoNotFollow\": false,",
+          "          \"circular\": false,",
+          "          \"valid\": true",
+          "        }",
+          "      ],",
+          "      \"dependents\": [],",
+          "      \"orphan\": false,",
+          "      \"valid\": true",
+          "    },",
+          "    {",
+          "      \"source\": \"scripts/no-telemetry-plugin.ts\",",
+          "      \"dependencies\": [],",
+          "      \"dependents\": [",
+          "        \"scripts/build.ts\"",
+          "      ],",
+          "      \"orphan\": false,",
+          "      \"valid\": true",
+          "    },",
+          "    {",
+          "      \"source\": \"scripts/grpc-cli.ts\",",
+          "      \"dependencies\": [],",
+          "      \"dependents\": [],"
+        ],
+        "stderrPreview": []
+      },
+      {
+        "name": "dependency_cruiser_known_violation_ratchet",
+        "command": [
+          "depcruise",
+          "--config",
+          ".dependency-cruiser.mjs",
+          "--ignore-known",
+          ".dependency-cruiser-known-violations.json",
+          "--output-type",
+          "err",
+          "--include-only",
+          "^src|^scripts",
+          "--exclude",
+          "(^node_modules|\\.test\\.ts$|^scripts/_fixtures)",
+          "src",
+          "scripts"
+        ],
+        "exitCode": 0,
+        "passed": true,
+        "requiredSubstrings": [
+          "no dependency violations found",
+          "known violations ignored"
+        ],
+        "missingSubstrings": [],
+        "stdoutPreview": [
+          "✔ no dependency violations found (2631 modules, 11985 dependencies cruised)",
+          "‼ 2105 known violations ignored. Run with --no-ignore-known to see them."
+        ],
+        "stderrPreview": []
+      }
+    ],
+    "moduleCount": 2631,
+    "dependencyEdgeCount": 11985,
+    "circularDependencyCount": 1737,
+    "circularDependencyBaseline": 1737,
+    "unresolvedDependencyCount": 863,
+    "unresolvedDependencyBaseline": 863,
+    "configuredRatchetMode": "dependency_cruiser_known_violation_ratchet",
+    "dependencyCruiserConfigPath": ".dependency-cruiser.mjs",
+    "knownViolationBaselinePath": ".dependency-cruiser-known-violations.json",
+    "configuredRatchetKnownViolationCount": 2105,
+    "configuredRatchetKnownViolationRuleCounts": {
+      "no-circular": 1242,
+      "not-to-unresolvable": 863
+    },
+    "configuredRatchetNewViolationCount": 0,
+    "configuredRatchetClaimAllowed": false,
+    "sampleCircularEdges": [
+      {
+        "source": "src/utils/slowOperations.ts",
+        "resolved": "src/utils/debug.ts"
+      },
+      {
+        "source": "src/utils/debug.ts",
+        "resolved": "src/utils/fsOperations.ts"
+      },
+      {
+        "source": "src/utils/debug.ts",
+        "resolved": "src/utils/slowOperations.ts"
+      },
+      {
+        "source": "src/utils/fsOperations.ts",
+        "resolved": "src/utils/slowOperations.ts"
+      },
+      {
+        "source": "src/utils/providerProfile.ts",
+        "resolved": "src/utils/providerValidation.ts"
+      },
+      {
+        "source": "src/utils/providerValidation.ts",
+        "resolved": "src/utils/providerProfile.ts"
+      },
+      {
+        "source": "src/utils/config.ts",
+        "resolved": "src/bridge/bridgeEnabled.ts"
+      },
+      {
+        "source": "src/utils/config.ts",
+        "resolved": "src/memdir/paths.ts"
+      },
+      {
+        "source": "src/utils/config.ts",
+        "resolved": "src/memdir/teamMemPaths.ts"
+      },
+      {
+        "source": "src/utils/config.ts",
+        "resolved": "src/utils/file.ts"
+      },
+      {
+        "source": "src/bridge/bridgeEnabled.ts",
+        "resolved": "src/services/analytics/growthbook.ts"
+      },
+      {
+        "source": "src/bridge/bridgeEnabled.ts",
+        "resolved": "src/utils/auth.ts"
+      },
+      {
+        "source": "src/services/analytics/growthbook.ts",
+        "resolved": "src/utils/config.ts"
+      },
+      {
+        "source": "src/services/analytics/growthbook.ts",
+        "resolved": "src/utils/http.ts"
+      },
+      {
+        "source": "src/services/analytics/growthbook.ts",
+        "resolved": "src/utils/user.ts"
+      },
+      {
+        "source": "src/services/analytics/growthbook.ts",
+        "resolved": "src/services/analytics/firstPartyEventLogger.ts"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "resolved": "src/services/mockRateLimits.ts"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "resolved": "src/services/oauth/client.ts"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "resolved": "src/utils/betas.ts"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "resolved": "src/utils/config.ts"
+      }
+    ],
+    "sampleUnresolvedEdges": [
+      {
+        "source": "src/services/api/providerConfig.ts",
+        "module": "src/utils/providerProfile.js"
+      },
+      {
+        "source": "src/bootstrap/state.ts",
+        "module": "src/utils/crypto.js"
+      },
+      {
+        "source": "src/bootstrap/state.ts",
+        "module": "src/utils/settings/settingsCache.js"
+      },
+      {
+        "source": "src/bootstrap/state.ts",
+        "module": "src/utils/signal.js"
+      },
+      {
+        "source": "src/utils/debug.ts",
+        "module": "src/bootstrap/state.js"
+      },
+      {
+        "source": "src/utils/secureStorage/macOsKeychainHelpers.ts",
+        "module": "src/constants/oauth.js"
+      },
+      {
+        "source": "src/constants/oauth.ts",
+        "module": "src/utils/envUtils.js"
+      },
+      {
+        "source": "src/entrypoints/init.ts",
+        "module": "src/bootstrap/state.js"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "module": "src/constants/oauth.js"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "module": "src/services/analytics/index.js"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "module": "src/utils/model/modelStrings.js"
+      },
+      {
+        "source": "src/utils/auth.ts",
+        "module": "src/utils/model/providers.js"
+      },
+      {
+        "source": "src/services/oauth/client.ts",
+        "module": "src/services/analytics/index.js"
+      },
+      {
+        "source": "src/services/oauth/getOauthProfile.ts",
+        "module": "src/constants/oauth.js"
+      },
+      {
+        "source": "src/services/oauth/getOauthProfile.ts",
+        "module": "src/utils/auth.js"
+      },
+      {
+        "source": "src/services/oauth/getOauthProfile.ts",
+        "module": "src/utils/config.js"
+      },
+      {
+        "source": "src/services/oauth/getOauthProfile.ts",
+        "module": "src/utils/log.js"
+      },
+      {
+        "source": "src/utils/authPortable.ts",
+        "module": "src/utils/secureStorage/macOsKeychainHelpers.js"
+      },
+      {
+        "source": "src/utils/betas.ts",
+        "module": "src/services/analytics/growthbook.js"
+      },
+      {
+        "source": "src/utils/model/antModels.ts",
+        "module": "src/services/analytics/growthbook.js"
+      }
+    ],
+    "primarySourceInputs": [
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "dependency-cruiser",
+        "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
+        "observedPattern": "dependency-cruiser extracts dependency graphs, validates configured rules, and supports known-violation baselines through the baseline reporter plus --ignore-known.",
+        "localAbsorption": "Metaforge records current src/scripts graph counts and runs a configured known-violation ratchet so new topology violations fail without claiming cleanup of the existing knots."
+      },
+      {
+        "sourceType": "patent",
+        "sourceProject": "US7904892B2 dependency graph cycle patent",
+        "sourceUrl": "https://patents.google.com/patent/US7904892B2/en",
+        "observedPattern": "Dependency graph systems model directed component relationships to identify levels, cycles, and structural dependencies.",
+        "localAbsorption": "OpenClaude keeps dependency topology evidence separate from clone detection and dead-export cleanup."
+      }
+    ],
+    "dependencyInstallPerformed": false,
+    "providerCallsPerformed": [],
+    "liveModelCallsPerformed": [],
+    "externalCallsPerformed": [],
+    "protectedActionsExecuted": [],
+    "topologyCleanClaimAllowed": false,
+    "refactorCompletionClaimAllowed": false,
+    "publicReadinessClaimAllowed": false,
+    "topologyChecks": [
+      {
+        "label": "dependency-cruiser version command passes",
+        "ok": true,
+        "detail": "17.4.3"
+      },
+      {
+        "label": "dependency-cruiser topology command passes",
+        "ok": true,
+        "detail": "0"
+      },
+      {
+        "label": "configured dependency-cruiser ratchet command passes",
+        "ok": true,
+        "detail": "0"
+      },
+      {
+        "label": "modules are discovered",
+        "ok": true,
+        "detail": "2631 modules"
+      },
+      {
+        "label": "dependency edges are discovered",
+        "ok": true,
+        "detail": "11985 edges"
+      },
+      {
+        "label": "circular dependencies do not exceed baseline",
+        "ok": true,
+        "detail": "1737/1737"
+      },
+      {
+        "label": "unresolved dependencies do not exceed baseline",
+        "ok": true,
+        "detail": "863/863"
+      },
+      {
+        "label": "known dependency-cruiser violations are baselined",
+        "ok": true,
+        "detail": "2105 known violations"
+      },
+      {
+        "label": "configured dependency-cruiser ratchet has no new violations",
+        "ok": true,
+        "detail": "0 new violations"
+      },
+      {
+        "label": "primary sources include official tool and patent sources",
+        "ok": true,
+        "detail": "dependency-cruiser,US7904892B2 dependency graph cycle patent"
+      },
+      {
+        "label": "provider/live/external calls remain absent",
+        "ok": true,
+        "detail": "all call arrays empty"
+      },
+      {
+        "label": "protected actions remain absent",
+        "ok": true,
+        "detail": "zero"
+      },
+      {
+        "label": "topology cleanup and public readiness claims remain blocked",
+        "ok": true,
+        "detail": "all false"
+      }
+    ],
+    "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
+  },
+  "scriptDuplication": {
+    "generatedAt": "2026-06-19T16:22:57.633Z",
+    "mode": "local_no_provider_product_script_duplication_audit",
+    "scannerTargetGlob": "scripts/product-*.ts",
+    "auditTargetHelperNames": [
+      "check",
+      "readText",
+      "sha256Text"
+    ],
+    "sourceProductScriptCount": 94,
+    "helperOccurrenceCounts": {
+      "check": 63,
+      "readText": 28,
+      "sha256Text": 0
+    },
+    "helperOccurrenceBaselines": {
+      "check": 63,
+      "readText": 28,
+      "sha256Text": 0
+    },
+    "duplicateHelperClusterCount": 2,
+    "duplicateHelperClusterBaseline": 2,
+    "duplicateHelperClusters": [
+      {
+        "helperName": "check",
+        "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
+        "occurrenceCount": 63,
+        "files": [
+          {
+            "path": "scripts/product-benchmark-efficiency-metrics.ts",
+            "line": 135
+          },
+          {
+            "path": "scripts/product-benchmark-policy-compliance.ts",
+            "line": 126
+          },
+          {
+            "path": "scripts/product-benchmark-readiness-matrix.ts",
+            "line": 180
+          },
+          {
+            "path": "scripts/product-benchmark-submission-readiness.ts",
+            "line": 129
+          },
+          {
+            "path": "scripts/product-code-editing-trace-capture.ts",
+            "line": 103
+          },
+          {
+            "path": "scripts/product-dependency-governance-quality.ts",
+            "line": 116
+          },
+          {
+            "path": "scripts/product-doc-link-integrity.ts",
+            "line": 131
+          },
+          {
+            "path": "scripts/product-external-benchmark-boundary.ts",
+            "line": 105
+          },
+          {
+            "path": "scripts/product-git-release-hygiene.ts",
+            "line": 93
+          },
+          {
+            "path": "scripts/product-ide-extension-host-smoke.ts",
+            "line": 96
+          },
+          {
+            "path": "scripts/product-ide-extension-manifest-smoke.ts",
+            "line": 91
+          },
+          {
+            "path": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
+            "line": 101
+          },
+          {
+            "path": "scripts/product-ide-extension-runtime-smoke.ts",
+            "line": 64
+          },
+          {
+            "path": "scripts/product-ide-extension-scope.ts",
+            "line": 57
+          },
+          {
+            "path": "scripts/product-ide-extension-surface.ts",
+            "line": 68
+          },
+          {
+            "path": "scripts/product-ide-extension-webview-interaction-smoke.ts",
+            "line": 117
+          },
+          {
+            "path": "scripts/product-ide-extension-webview-render-smoke.ts",
+            "line": 73
+          },
+          {
+            "path": "scripts/product-ide-extension-workbench-smoke.ts",
+            "line": 107
+          },
+          {
+            "path": "scripts/product-local-benchmark-harness.ts",
+            "line": 109
+          },
+          {
+            "path": "scripts/product-model-system-card.ts",
+            "line": 211
+          },
+          {
+            "path": "scripts/product-multi-file-code-editing-trace-capture.ts",
+            "line": 139
+          },
+          {
+            "path": "scripts/product-onboarding-smoke.ts",
+            "line": 129
+          },
+          {
+            "path": "scripts/product-openssf-security-posture.ts",
+            "line": 103
+          },
+          {
+            "path": "scripts/product-oss-architecture-gap-review.ts",
+            "line": 119
+          },
+          {
+            "path": "scripts/product-oss-architecture-targets.ts",
+            "line": 119
+          },
+          {
+            "path": "scripts/product-oss-axis-architecture-review.ts",
+            "line": 117
+          },
+          {
+            "path": "scripts/product-oss-baseline-drift-closure.ts",
+            "line": 102
+          },
+          {
+            "path": "scripts/product-oss-baseline-freshness.ts",
+            "line": 111
+          },
+          {
+            "path": "scripts/product-oss-baseline-refresh.ts",
+            "line": 200
+          },
+          {
+            "path": "scripts/product-oss-benchmark-comparison-matrix.ts",
+            "line": 184
+          },
+          {
+            "path": "scripts/product-oss-comparison-readiness-index.ts",
+            "line": 197
+          },
+          {
+            "path": "scripts/product-oss-eval-quality-gate-checklist.ts",
+            "line": 132
+          },
+          {
+            "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+            "line": 191
+          },
+          {
+            "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+            "line": 160
+          },
+          {
+            "path": "scripts/product-oss-release-hygiene-evidence.ts",
+            "line": 149
+          },
+          {
+            "path": "scripts/product-oss-runtime-doctoring-evidence.ts",
+            "line": 125
+          },
+          {
+            "path": "scripts/product-oss-safe-backlog-closure.ts",
+            "line": 151
+          },
+          {
+            "path": "scripts/product-oss-safe-backlog-plan.ts",
+            "line": 130
+          },
+          {
+            "path": "scripts/product-oss-source-review.ts",
+            "line": 163
+          },
+          {
+            "path": "scripts/product-primary-source-registry.ts",
+            "line": 134
+          },
+          {
+            "path": "scripts/product-prompted-tool-loop-capture.ts",
+            "line": 108
+          },
+          {
+            "path": "scripts/product-protected-action-authorization-packet.ts",
+            "line": 120
+          },
+          {
+            "path": "scripts/product-protected-action-denial-trace.ts",
+            "line": 120
+          },
+          {
+            "path": "scripts/product-provider-capability-matrix.ts",
+            "line": 162
+          },
+          {
+            "path": "scripts/product-provider-compatibility.ts",
+            "line": 89
+          },
+          {
+            "path": "scripts/product-quality-blocker-taxonomy.ts",
+            "line": 161
+          },
+          {
+            "path": "scripts/product-quality-gate.ts",
+            "line": 3199
+          },
+          {
+            "path": "scripts/product-real-session-capture.ts",
+            "line": 117
+          },
+          {
+            "path": "scripts/product-real-trace-evals.ts",
+            "line": 98
+          },
+          {
+            "path": "scripts/product-regression-cycle-code-editing-trace-capture.ts",
+            "line": 120
+          },
+          {
+            "path": "scripts/product-release-artifact-file-list.ts",
+            "line": 113
+          },
+          {
+            "path": "scripts/product-release-artifact-provenance.ts",
+            "line": 83
+          },
+          {
+            "path": "scripts/product-release-reproducibility.ts",
+            "line": 127
+          },
+          {
+            "path": "scripts/product-runtime-doctor-regression.ts",
+            "line": 145
+          },
+          {
+            "path": "scripts/product-source-controlled-checks.ts",
+            "line": 47
+          },
+          {
+            "path": "scripts/product-terminal-bench-readiness.ts",
+            "line": 154
+          },
+          {
+            "path": "scripts/product-tool-interruption-recovery-trace.ts",
+            "line": 115
+          },
+          {
+            "path": "scripts/product-trace-portability-export.ts",
+            "line": 147
+          },
+          {
+            "path": "scripts/product-trace-redaction-policy.ts",
+            "line": 108
+          },
+          {
+            "path": "scripts/product-trace-schema-contract.ts",
+            "line": 125
+          },
+          {
+            "path": "scripts/product-trajectory-process-quality.ts",
+            "line": 138
+          },
+          {
+            "path": "scripts/product-vscode-startup-diagnostics.ts",
+            "line": 131
+          },
+          {
+            "path": "scripts/product-vscode-update-boundary.ts",
+            "line": 83
+          }
+        ],
+        "normalizedBodyPreview": "return { label, ok, detail }"
+      },
+      {
+        "helperName": "readText",
+        "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
+        "occurrenceCount": 28,
+        "files": [
+          {
+            "path": "scripts/product-dependency-governance-quality.ts",
+            "line": 108
+          },
+          {
+            "path": "scripts/product-doc-link-integrity.ts",
+            "line": 65
+          },
+          {
+            "path": "scripts/product-model-system-card.ts",
+            "line": 194
+          },
+          {
+            "path": "scripts/product-onboarding-smoke.ts",
+            "line": 70
+          },
+          {
+            "path": "scripts/product-openssf-security-posture.ts",
+            "line": 95
+          },
+          {
+            "path": "scripts/product-oss-architecture-gap-review.ts",
+            "line": 123
+          },
+          {
+            "path": "scripts/product-oss-architecture-targets.ts",
+            "line": 123
+          },
+          {
+            "path": "scripts/product-oss-axis-architecture-review.ts",
+            "line": 121
+          },
+          {
+            "path": "scripts/product-oss-baseline-drift-closure.ts",
+            "line": 89
+          },
+          {
+            "path": "scripts/product-oss-baseline-freshness.ts",
+            "line": 107
+          },
+          {
+            "path": "scripts/product-oss-benchmark-comparison-matrix.ts",
+            "line": 163
+          },
+          {
+            "path": "scripts/product-oss-comparison-readiness-index.ts",
+            "line": 180
+          },
+          {
+            "path": "scripts/product-oss-eval-quality-gate-checklist.ts",
+            "line": 128
+          },
+          {
+            "path": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+            "line": 174
+          },
+          {
+            "path": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+            "line": 143
+          },
+          {
+            "path": "scripts/product-oss-release-hygiene-evidence.ts",
+            "line": 145
+          },
+          {
+            "path": "scripts/product-oss-runtime-doctoring-evidence.ts",
+            "line": 121
+          },
+          {
+            "path": "scripts/product-oss-safe-backlog-closure.ts",
+            "line": 138
+          },
+          {
+            "path": "scripts/product-oss-safe-backlog-plan.ts",
+            "line": 126
+          },
+          {
+            "path": "scripts/product-oss-source-review.ts",
+            "line": 167
+          },
+          {
+            "path": "scripts/product-permission-regression.ts",
+            "line": 41
+          },
+          {
+            "path": "scripts/product-primary-source-registry.ts",
+            "line": 130
+          },
+          {
+            "path": "scripts/product-protected-action-authorization-packet.ts",
+            "line": 103
+          },
+          {
+            "path": "scripts/product-provider-capability-matrix.ts",
+            "line": 166
+          },
+          {
+            "path": "scripts/product-provider-compatibility.ts",
+            "line": 45
+          },
+          {
+            "path": "scripts/product-quality-gate.ts",
+            "line": 3195
+          },
+          {
+            "path": "scripts/product-runtime-doctor-regression.ts",
+            "line": 63
+          },
+          {
+            "path": "scripts/product-trace-redaction-policy.ts",
+            "line": 96
+          }
+        ],
+        "normalizedBodyPreview": "return readFileSync(resolve(root, path), 'utf8')"
+      }
+    ],
+    "jscpdEnabled": true,
+    "jscpdVersion": "5.0.9",
+    "jscpdConfigPath": ".jscpd.json",
+    "jscpdCommand": {
+      "name": "jscpd_product_scripts_json",
+      "command": [
+        "jscpd",
+        "--config",
+        ".jscpd.json",
+        "--reporters",
+        "json",
+        "--output",
+        "<temp-jscpd-output>",
+        "--no-tips"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "requiredSubstrings": [
+        "Using config from .jscpd.json",
+        "JSON report saved"
+      ],
+      "missingSubstrings": [],
+      "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
+      "stderrPreview": "Using config from .jscpd.json\n"
+    },
+    "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
+    "jscpdCloneCount": 17,
+    "jscpdCloneBaseline": 17,
+    "jscpdDuplicatedLines": 439,
+    "jscpdDuplicatedLinesBaseline": 439,
+    "jscpdDuplicatedTokens": 2979,
+    "jscpdDuplicatedTokensBaseline": 2979,
+    "jscpdDuplicatedPercentage": 1.0281993629379802,
+    "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
+    "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
+    "jscpdSourceCount": 94,
+    "jscpdTopClonePairs": [
+      {
+        "firstFile": "scripts/product-dead-export-candidates.ts",
+        "secondFile": "scripts/product-dependency-topology.ts",
+        "firstStartLine": 223,
+        "firstEndLine": 246,
+        "secondStartLine": 160,
+        "secondEndLine": 183,
+        "lines": 24,
+        "tokens": 122
+      },
+      {
+        "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
+        "secondFile": "scripts/product-ide-extension-webview-render-smoke.ts",
+        "firstStartLine": 142,
+        "firstEndLine": 178,
+        "secondStartLine": 102,
+        "secondEndLine": 138,
+        "lines": 37,
+        "tokens": 144
+      },
+      {
+        "firstFile": "scripts/product-ide-extension-runtime-smoke.ts",
+        "secondFile": "scripts/product-ide-extension-webview-interaction-smoke.ts",
+        "firstStartLine": 118,
+        "firstEndLine": 142,
+        "secondStartLine": 168,
+        "secondEndLine": 194,
+        "lines": 25,
+        "tokens": 126
+      },
+      {
+        "firstFile": "scripts/product-oss-baseline-drift-closure.ts",
+        "secondFile": "scripts/product-oss-safe-backlog-closure.ts",
+        "firstStartLine": 85,
+        "firstEndLine": 106,
+        "secondStartLine": 134,
+        "secondEndLine": 155,
+        "lines": 22,
+        "tokens": 142
+      },
+      {
+        "firstFile": "scripts/product-oss-eval-quality-gate-checklist.ts",
+        "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+        "firstStartLine": 11,
+        "firstEndLine": 53,
+        "secondStartLine": 5,
+        "secondEndLine": 47,
+        "lines": 43,
+        "tokens": 134
+      },
+      {
+        "firstFile": "scripts/product-oss-ide-or-editor-surface-evidence.ts",
+        "secondFile": "scripts/product-oss-privacy-no-phone-home-evidence.ts",
+        "firstStartLine": 167,
+        "firstEndLine": 195,
+        "secondStartLine": 136,
+        "secondEndLine": 164,
+        "lines": 29,
+        "tokens": 184
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
+        "firstStartLine": 221,
+        "firstEndLine": 242,
+        "secondStartLine": 272,
+        "secondEndLine": 291,
+        "lines": 22,
+        "tokens": 186
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-runtime-doctoring-evidence.ts",
+        "firstStartLine": 221,
+        "firstEndLine": 243,
+        "secondStartLine": 229,
+        "secondEndLine": 251,
+        "lines": 23,
+        "tokens": 220
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+        "firstStartLine": 221,
+        "firstEndLine": 243,
+        "secondStartLine": 223,
+        "secondEndLine": 245,
+        "lines": 23,
+        "tokens": 220
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+        "firstStartLine": 221,
+        "firstEndLine": 243,
+        "secondStartLine": 236,
+        "secondEndLine": 258,
+        "lines": 23,
+        "tokens": 220
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+        "firstStartLine": 221,
+        "firstEndLine": 241,
+        "secondStartLine": 243,
+        "secondEndLine": 262,
+        "lines": 21,
+        "tokens": 169
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-release-hygiene-evidence.ts",
+        "firstStartLine": 289,
+        "firstEndLine": 310,
+        "secondStartLine": 346,
+        "secondEndLine": 366,
+        "lines": 22,
+        "tokens": 189
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+        "firstStartLine": 289,
+        "firstEndLine": 315,
+        "secondStartLine": 291,
+        "secondEndLine": 317,
+        "lines": 27,
+        "tokens": 205
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-terminal-workflow-evidence.ts",
+        "firstStartLine": 289,
+        "firstEndLine": 315,
+        "secondStartLine": 304,
+        "secondEndLine": 330,
+        "lines": 27,
+        "tokens": 205
+      },
+      {
+        "firstFile": "scripts/product-oss-onboarding-docs-evidence.ts",
+        "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
+        "firstStartLine": 289,
+        "firstEndLine": 315,
+        "secondStartLine": 313,
+        "secondEndLine": 339,
+        "lines": 27,
+        "tokens": 205
+      },
+      {
+        "firstFile": "scripts/product-oss-provider-breadth-evidence.ts",
+        "secondFile": "scripts/product-oss-security-permissions-evidence.ts",
+        "firstStartLine": 1,
+        "firstEndLine": 40,
+        "secondStartLine": 1,
+        "secondEndLine": 40,
+        "lines": 40,
+        "tokens": 143
+      },
+      {
+        "firstFile": "scripts/product-real-trace-evals.ts",
+        "secondFile": "scripts/product-trajectory-process-quality.ts",
+        "firstStartLine": 141,
+        "firstEndLine": 161,
+        "secondStartLine": 144,
+        "secondEndLine": 164,
+        "lines": 21,
+        "tokens": 165
+      }
+    ],
+    "primarySourceInputs": [
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "jscpd",
+        "sourceUrl": "https://github.com/kucherenko/jscpd",
+        "observedPattern": "Copy/paste detection is a dedicated audit surface with CLI configuration, JSON reporting, and threshold/ratchet-friendly metrics.",
+        "localAbsorption": "This local audit runs jscpd against product scripts, records clone/line/token/percentage evidence, and blocks new growth against a stable baseline."
+      },
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "Knip",
+        "sourceUrl": "https://knip.dev/",
+        "observedPattern": "Unused files, dependencies, and exports need a project graph and configuration-aware audit surface.",
+        "localAbsorption": "Dead export cleanup is kept as a follow-up lane separate from duplicate helper measurement."
+      },
+      {
+        "sourceType": "oss_tool",
+        "sourceProject": "dependency-cruiser",
+        "sourceUrl": "https://github.com/sverweij/dependency-cruiser",
+        "observedPattern": "Dependency rule and cycle validation is a different graph problem from clone detection.",
+        "localAbsorption": "Cycle/rule checks stay out of this helper-duplication report because dependency-cruiser topology is tracked by a separate product-quality gate."
+      },
+      {
+        "sourceType": "research_survey",
+        "sourceProject": "Roy and Cordy clone detection survey",
+        "sourceUrl": "https://research.cs.queensu.ca/TechReports/Reports/2007-541.pdf",
+        "observedPattern": "Clone-detection research treats duplicated and near-duplicated code as a maintenance signal that needs classification and human review.",
+        "localAbsorption": "This audit keeps repeated helper shapes as refactor candidates and avoids claiming semantic clone cleanup from a narrow helper hash scan."
+      },
+      {
+        "sourceType": "patent",
+        "sourceProject": "US11662998B2 duplicate code pattern patent",
+        "sourceUrl": "https://patents.google.com/patent/US11662998B2/en",
+        "observedPattern": "Duplicated-code-pattern systems tokenize, index, identify candidate pairs, and surface visual refactor candidates rather than treating every match as an automatic fix.",
+        "localAbsorption": "OpenClaude records duplicate helper clusters with hashes and file locations first; extraction/refactor remains a separate authorized implementation lane."
+      },
+      {
+        "sourceType": "patent",
+        "sourceProject": "US7904892B2 dependency graph cycle patent",
+        "sourceUrl": "https://patents.google.com/patent/US7904892B2/en",
+        "observedPattern": "Dependency graph systems use directed graphs to determine levels, cycles, and component relationships.",
+        "localAbsorption": "Dependency-cycle evidence is kept separate from duplicate-helper evidence so future graph gates can be evaluated without conflating clone detection and architecture topology."
+      }
+    ],
+    "dependencyInstallPerformed": false,
+    "providerCallsPerformed": [],
+    "liveModelCallsPerformed": [],
+    "externalCallsPerformed": [],
+    "protectedActionsExecuted": [],
+    "publicReadinessClaimAllowed": false,
+    "refactorCompletionClaimAllowed": false,
+    "auditChecks": [
+      {
+        "label": "product scripts are scanned",
+        "ok": true,
+        "detail": "94 files"
+      },
+      {
+        "label": "target helper occurrence surface is measured",
+        "ok": true,
+        "detail": "{\"check\":63,\"readText\":28,\"sha256Text\":0}"
+      },
+      {
+        "label": "duplicate helper clusters are reported as candidates",
+        "ok": true,
+        "detail": "2 clusters"
+      },
+      {
+        "label": "duplicate helper clusters do not exceed baseline",
+        "ok": true,
+        "detail": "2/2"
+      },
+      {
+        "label": "helper occurrences do not exceed baseline",
+        "ok": true,
+        "detail": "{\"current\":{\"check\":63,\"readText\":28,\"sha256Text\":0},\"baseline\":{\"check\":63,\"readText\":28,\"sha256Text\":0}}"
+      },
+      {
+        "label": "jscpd token clone command is configured when config is present",
+        "ok": true,
+        "detail": "5.0.9/0"
+      },
+      {
+        "label": "jscpd token clone count does not exceed baseline",
+        "ok": true,
+        "detail": "17/17"
+      },
+      {
+        "label": "jscpd duplicated line and token counts do not exceed baseline",
+        "ok": true,
+        "detail": "439/439; 2979/2979"
+      },
+      {
+        "label": "jscpd duplicated percentage does not exceed baseline",
+        "ok": true,
+        "detail": "1.0281993629379802/1.043871121150874"
+      },
+      {
+        "label": "jscpd clone pair paths are relative and normalized",
+        "ok": true,
+        "detail": "17 pairs"
+      },
+      {
+        "label": "primary sources include OSS, research, and patent inputs",
+        "ok": true,
+        "detail": "oss_tool,research_survey,patent"
+      },
+      {
+        "label": "primary sources are official project, paper, or patent sources",
+        "ok": true,
+        "detail": "https://github.com/kucherenko/jscpd,https://knip.dev/,https://github.com/sverweij/dependency-cruiser,https://research.cs.queensu.ca/TechReports/Reports/2007-541.pdf,https://patents.google.com/patent/US11662998B2/en,https://patents.google.com/patent/US7904892B2/en"
+      },
+      {
+        "label": "no dependency install was performed",
+        "ok": true,
+        "detail": "false"
+      },
+      {
+        "label": "provider and external calls remain absent",
+        "ok": true,
+        "detail": "all call arrays empty"
+      },
+      {
+        "label": "protected actions remain absent",
+        "ok": true,
+        "detail": "zero"
+      },
+      {
+        "label": "readiness and refactor-completion claims remain blocked",
+        "ok": true,
+        "detail": "all false"
+      }
+    ]
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "deletionPerformed": false,
+  "autofixPerformed": false,
+  "dependencyInstallPerformed": false,
+  "cleanupCompletionClaimAllowed": false,
+  "topologyCleanClaimAllowed": false,
+  "refactorCompletionClaimAllowed": false,
+  "publicReadinessClaimAllowed": false,
+  "evidenceChecks": [
+    {
+      "label": "static-analysis source reports are declared",
+      "ok": true,
+      "detail": "docs/product-quality/dead-export-candidates-report.json,docs/product-quality/dependency-topology-report.json,docs/product-quality/script-duplication-audit-report.json"
+    },
+    {
+      "label": "queue items are generated from current static-analysis findings",
+      "ok": true,
+      "detail": "5 items"
+    },
+    {
+      "label": "queue covers existing static-analysis tools when findings exist",
+      "ok": true,
+      "detail": "knip,jscpd,dependency-cruiser"
+    },
+    {
+      "label": "new dependency violations are prioritized first when present",
+      "ok": true,
+      "detail": "P1:static-analysis-dead-export-runtime-guards,P2:static-analysis-duplicate-helper-clusters,P2:static-analysis-jscpd-clone-hotspots,P3:static-analysis-known-topology-knots,P3:static-analysis-dead-export-removal-review"
+    },
+    {
+      "label": "primary sources cover OSS docs research and patent inputs",
+      "ok": true,
+      "detail": "project_docs,oss_tool,research_survey,patent"
+    },
+    {
+      "label": "queue item paths are relative and local-safe",
+      "ok": true,
+      "detail": "5 items"
+    },
+    {
+      "label": "no provider live external protected dependency install or autofix action occurred",
+      "ok": true,
+      "detail": "all action flags empty/false"
+    },
+    {
+      "label": "cleanup topology refactor and public-readiness claims remain blocked",
+      "ok": true,
+      "detail": "all claim flags false"
+    }
+  ],
+  "claimBoundary": "Static-analysis remediation queue only. It orders local Knip, dependency-cruiser, and jscpd findings for follow-up; it does not delete, autofix, refactor, prove cleanup completion, prove topology cleanliness, or claim public readiness."
+}

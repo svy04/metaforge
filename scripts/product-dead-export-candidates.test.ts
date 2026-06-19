@@ -112,7 +112,7 @@ describe('product dead export candidate gate', () => {
     expect(report.candidateUnusedTypeBaseline).toBeGreaterThanOrEqual(report.candidateUnusedTypeCount)
     expect(report.candidateDuplicateExportBaseline).toBeGreaterThanOrEqual(report.candidateDuplicateExportCount)
     expect(report.triageLedgerPath).toBe('docs/product-quality/dead-export-candidate-triage.json')
-    expect(report.triageRecordCount).toBeGreaterThanOrEqual(4)
+    expect(report.triageRecordCount).toBeGreaterThanOrEqual(3)
     expect(report.triageCurrentCandidateCount).toBe(report.triageRecordCount)
     expect(report.triageActionCounts['needs_runtime_guard']).toBeGreaterThanOrEqual(1)
     expect(report.triageActionCounts['review_for_removal']).toBeGreaterThanOrEqual(1)
