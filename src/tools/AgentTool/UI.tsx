@@ -210,12 +210,12 @@ export function AgentPromptDisplay(t0: {
   dim?: boolean;
   theme?: ThemeName;
 }) {
-  const $ = _c(3);
+  const $ = _c(4);
   const {
     prompt,
     dim: t1
   } = t0;
-  t1 === undefined ? false : t1;
+  const dim = t1 === undefined ? false : t1;
   let t2;
   if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
     t2 = <Text color="success" bold={true}>Prompt:</Text>;
@@ -224,12 +224,13 @@ export function AgentPromptDisplay(t0: {
     t2 = $[0];
   }
   let t3;
-  if ($[1] !== prompt) {
-    t3 = <Box flexDirection="column">{t2}<Box paddingLeft={2}><Markdown>{prompt}</Markdown></Box></Box>;
+  if ($[1] !== prompt || $[2] !== dim) {
+    t3 = <Box flexDirection="column">{t2}<Box paddingLeft={2}><Markdown dimColor={dim}>{prompt}</Markdown></Box></Box>;
     $[1] = prompt;
-    $[2] = t3;
+    $[2] = dim;
+    $[3] = t3;
   } else {
-    t3 = $[2];
+    t3 = $[3];
   }
   return t3;
 }

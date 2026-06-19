@@ -149,7 +149,6 @@ function MarkdownBody(t0: MarkdownBodyProps) {
         elements.push(<MarkdownTable key={elements.length} token={token as Tokens.Table} highlight={highlight} />);
       } else {
         nonTableContent = nonTableContent + formatToken(token, theme, 0, null, null, highlight);
-        nonTableContent;
       }
     }
     flushNonTableContent();
@@ -194,6 +193,7 @@ export function StreamingMarkdown({
   // the ref mutation is idempotent under StrictMode double-render — but the
   // compiler can't prove that, and memoizing around the ref reads would
   // break the algorithm (stale boundary). Opt out.
+  // codeql[js/unknown-directive]
   'use no memo';
 
   configureMarked();
