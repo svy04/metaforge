@@ -232,6 +232,54 @@ describe('public artifact hygiene scanner', () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain('latest-model-alias-claim')
   })
 
+  test('rejects raw historical provider payloads in public reports', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'reports')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'orchestra-usage-cli-probe.jsonl'),
+      '{"model":"claude-opus-4-7","errorType":"rate_limit_error","errorStatus":429,"request_id":"[redacted_provider_request_id]"}\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('reports/orchestra-usage-cli-probe.jsonl')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('raw-provider-error-payload')
+  })
+
+  test('rejects raw local exception payloads in public reports', () => {
+    const repo = makeTempRepo()
+    const reportDir = join(repo, 'reports')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'orchestra-usage-probe.jsonl'),
+      '{"errorName":"ReferenceError","errorMessage":"MACRO is not defined"}\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).not.toBe(0)
+    expect(`${result.stdout}\n${result.stderr}`).toContain('reports/orchestra-usage-probe.jsonl')
+    expect(`${result.stdout}\n${result.stderr}`).toContain('raw-local-exception-payload')
+  })
+
+  test('does not reject ignored local report probes that are not source controlled', () => {
+    const repo = makeTempRepo()
+    spawnSync('git', ['init'], { cwd: repo, encoding: 'utf8', shell: false })
+    writeFileSync(join(repo, '.gitignore'), 'reports/\n')
+    const reportDir = join(repo, 'reports')
+    mkdirSync(reportDir, { recursive: true })
+    writeFileSync(
+      join(reportDir, 'orchestra-live-local-probe.jsonl'),
+      '{"model":"claude-opus-4-7","errorType":"rate_limit_error","errorStatus":429}\n',
+    )
+
+    const result = runHygiene(repo)
+
+    expect(result.status).toBe(0)
+  })
+
   test('scans the root license for local path disclosure', () => {
     const repo = makeTempRepo()
     writeFileSync(
