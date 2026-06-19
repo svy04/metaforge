@@ -3416,7 +3416,7 @@ function main(): void {
   const qualityBlockerTaxonomyMdPath = 'docs/product-quality/quality-blocker-taxonomy-report.md'
   const publicClaimBoundaryJsonPath = 'docs/product-quality/public-claim-boundary-report.json'
   const publicClaimBoundaryMdPath = 'docs/product-quality/public-claim-boundary-report.md'
-  const publicClaimBoundaryJsonlPath = 'reports/openclaude-public-claim-boundary.jsonl'
+  const publicClaimBoundaryJsonlPath = 'reports/metaforge-public-claim-boundary.jsonl'
   const githubRemoteSurfaceAuditJsonPath = 'docs/product-quality/github-remote-surface-audit-report.json'
   const githubRemoteSurfaceAuditMdPath = 'docs/product-quality/github-remote-surface-audit-report.md'
   const githubRemoteSurfaceAuditJsonlPath = 'reports/openclaude-github-remote-surface-audit.jsonl'

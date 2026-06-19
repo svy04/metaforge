@@ -197,7 +197,7 @@ export const rawRequiredEvidencePaths = [
   'docs/product-quality/quality-blocker-taxonomy-report.json',
   'docs/product-quality/public-claim-boundary-report.json',
   'docs/product-quality/public-claim-boundary-report.md',
-  'reports/openclaude-public-claim-boundary.jsonl',
+  'reports/metaforge-public-claim-boundary.jsonl',
   'docs/product-quality/github-remote-surface-audit-report.json',
   'docs/product-quality/github-remote-surface-audit-report.md',
   'reports/openclaude-github-remote-surface-audit.jsonl',

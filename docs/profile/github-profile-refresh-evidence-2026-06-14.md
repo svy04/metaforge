@@ -41,7 +41,7 @@ Observed through GitHub metadata:
 
 ## Private Workbench Evidence
 
-private workbench repos were checked locally and are not public proof.
+non-public artifact repos were checked locally and are not public proof.
 This public packet intentionally omits private repository names, private remote
 URLs, branch names, revision identifiers, worktree cleanliness details, and
 local file inventory. Those details are internal operating context, not public

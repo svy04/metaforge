@@ -60,7 +60,7 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 | Orchestra routing and planner/skeptic/reviewer roles where tied to current `src/` behavior | Runtime import | "Orchestra is the runtime-wired layer in this package today." | Do not imply every named operating layer is a runtime module. |
 | Meta, MFH, Goal Kernel, evidence gates, claim-boundary rules, schemas, and reports | Governance/docs/gates | "Meta/MFH are governance, schema, and evidence-gate surfaces." | Do not describe Meta or MFH as separate default runtime imports in this checkout. |
 | Mimesis Engineering source-first loop, source ledgers, and absorbed patterns | Governance/docs/gates | "Mimesis Engineering is the source-first improvement loop." | Public proof is docs/source ledgers plus local verification, not external validation. |
-| Local no-provider gates, product-quality reports, privacy scans, proof pack, and profile refresh evidence | Private/local proof boundary | "Local gates currently bound what the public surface may claim." | Local proof is not hosted deployment, adoption, production readiness, or benchmark evidence. |
+| Local no-provider gates, product-quality reports, privacy scans, proof pack, and profile refresh evidence | Local no-provider proof boundary | "Local gates currently bound what the public surface may claim." | Local proof is not hosted deployment, adoption, production readiness, or benchmark evidence. |
 | AVF Influence Factory, generated operator runs, and `avf/` plus validator artifacts | Manual artifact lane | "AVF Influence Factory is a repo-local manual artifact lane." | It is not a default CLI runtime import or CI execution path; generated outputs stay ignored. |
 
 ## Evidence Cards
@@ -87,7 +87,7 @@ Marketing does not start only at `README.md`. The public surface includes the de
 | Default repo branch | Treat `main` as the canonical public story. | `git status -sb`, `git grep` for local/private patterns, `bun run product:public-artifact-hygiene`, `bun run product:public-claim-boundary` | A clean local checkout is not proof that every remote branch is clean. |
 | GitHub profile | Treat the profile README as a routing surface, not a broad validation claim. | Profile README workflow, live link check, claim-boundary phrases, current public repo links | A profile README does not prove adoption, production readiness, or external validation. |
 | Open PRs | Treat open PRs as public staging surfaces. | `gh pr list`, `gh pr checks <number>`, and branch-scoped public-artifact scans when the PR changes public copy or generated reports | A PR body or green local run is not a merge/readiness claim. |
-| Visible branches | Keep stale public branches out of the proof path. | `git ls-remote --heads origin` plus branch-targeted scans for local paths, private workbench names, and token-shaped strings | Branch presence is not proof that the branch should be marketed. |
+| Visible branches | Keep stale public branches out of the proof path. | `git ls-remote --heads origin` plus branch-targeted scans for local paths, unpublished workbench names, and token-shaped strings | Branch presence is not proof that the branch should be marketed. |
 | Proof routes | Link only artifacts that carry explicit claim boundaries. | Source ledger, proof pack, model/system card, public claim boundary report | Public proof routes remain bounded unless external validation actually happens. |
 
 Reusable public line:
@@ -96,7 +96,7 @@ Reusable public line:
 Metaforge markets only what the current GitHub surface can prove: default-branch docs, profile routes, open PR state, local no-provider gates, and explicit non-claims.
 ```
 
-Do not reuse copy from a branch, PR, generated report, or private workbench unless it passes the same public-surface scan as `main`.
+Do not reuse copy from a branch, PR, generated report, or unpublished workbench unless it passes the same public-surface scan as `main`.
 
 ## Source Absorption
 
@@ -132,11 +132,11 @@ Do not reuse copy from a branch, PR, generated report, or private workbench unle
 
 ### GitHub Profile Line
 
-Building **Metaforge**: a Meta/MFH/Orchestra operating system for evidence-gated agent work, powered by OpenClaude runtime routes and Mimesis Engineering source loops.
+Building **Metaforge**: a Meta/MFH/Orchestra OS for evidence-gated agent work, with OpenClaude as runtime substrate and Mimesis Engineering as the source-first loop.
 
 ### Repo Description
 
-Meta/MFH/Orchestra OS with Mimesis Engineering loops, evidence gates, and Claude/Codex-ready OpenClaude runtime routes.
+Meta/MFH/Orchestra OS with evidence gates, Mimesis Engineering loops, and OpenClaude runtime substrate for Claude/Codex routes.
 
 ### Short Social Post
 
@@ -154,7 +154,7 @@ Start with the README, then read the proof pack and claim-boundary reports befor
 - Do not claim hosted deployment or public adoption.
 - Do not claim autonomous reliability.
 - Do not claim it beats other agent systems.
-- Do not market private workbench repositories as public proof.
+- Do not market unpublished workbench repositories as public proof.
 
 ## Verification Routine
 

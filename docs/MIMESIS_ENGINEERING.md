@@ -66,14 +66,14 @@ This gives Metaforge a marketable but proof-bounded claim:
 | MFH | Blocks closure when evidence, state, source reconciliation, or claim boundary is weak |
 | OpenClaude runtime | Provides local tools, owner-configured model routes, file edits, tests, and reports |
 
-## Current Private Workbench Evidence
+## Current Non-Public Artifact Evidence
 
-A private/local Mimesis v.next workbench has the freshest Mimesis evidence:
+An unpublished Mimesis v.next artifact set has the freshest Mimesis evidence:
 
 - owner-side Mimesis design thread
 - owner-side Mimesis package notes
 
-The private workbench root is local, not a published repository. It contains private local evidence repositories with unpublished working state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer this current evidence over older placeholder pages or obsolete repository lists, while labeling private or local work as private or local.
+The source artifact set is not a published repository. It contains unpublished working state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer current evidence over older placeholder pages or obsolete repository lists, while labeling non-public work as non-public.
 
 ## Claim Boundary
 
@@ -82,7 +82,7 @@ Allowed now:
 - Metaforge uses a source-first Mimesis Engineering loop.
 - Mimesis Engineering is a working operating frame for extracting structure from proven artifacts.
 - Current evidence is local, repo-bound, and partially experimental.
-- Some Mimesis gates have local scripts and case notes in the private workbench.
+- Some Mimesis gates have local scripts and case notes in unpublished artifact evidence.
 
 Not allowed yet:
 
@@ -97,7 +97,7 @@ Not allowed yet:
 
 Completed:
 
-1. GitHub profile README was rebuilt from actual public repositories and current private workbench evidence.
+1. GitHub profile README was rebuilt from actual public repositories and current non-public artifact evidence.
 2. Old or inaccessible project claims were removed from the profile surface.
 3. The profile refresh was recorded in `docs/profile/github-profile-refresh-evidence-2026-06-14.md`.
 
