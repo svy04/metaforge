@@ -85,6 +85,8 @@ describe('product public claim boundary classifier', () => {
     expect(mfh?.evidencePaths).toEqual(expect.arrayContaining([
       'docs/product-quality/goal-trace-validation-report.md',
       'docs/product-quality/goal-trace-validation-report.json',
+      'docs/product-quality/real-session-trace-evals-report.md',
+      'docs/product-quality/real-session-trace-evals-report.json',
       'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
       'docs/goals/traces/CG-001-missing-evidence-rejected.trace.json',
       'docs/goals/traces/CG-001-protected-action-blocked.trace.json',
@@ -95,12 +97,16 @@ describe('product public claim boundary classifier', () => {
       'docs/product-quality/script-duplication-audit-report.md',
     ]))
     expect(mfh?.verificationCommand).toContain('goals:validate')
+    expect(mfh?.verificationCommand).toContain('product:real-trace-evals')
     expect(mfh?.verificationCommand).toContain('product:dead-export-candidates')
     expect(mfh?.verificationCommand).toContain('product:dependency-topology')
     expect(mfh?.verificationCommand).toContain('product:script-duplication-audit')
     expect(mfh?.allowedClaim).toContain('representative cross-goal trace-validation evidence')
+    expect(mfh?.allowedClaim).toContain('local runtime behavior triad evidence')
     expect(mfh?.allowedClaim).toContain('static-analysis ratchets')
-    expect(mfh?.unresolvedGap).toContain('Runtime traces beyond docs-governance and static-analysis goals')
+    expect(mfh?.unresolvedGap).toContain('broader non-fixture behavior coverage')
+    expect(mfh?.unresolvedGap).toContain('live-provider evidence')
+    expect(mfh?.unresolvedGap).not.toContain('Runtime traces beyond docs-governance and static-analysis goals')
     expect(mfh?.unresolvedGap).not.toContain('representative traces')
   })
 
