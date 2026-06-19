@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T13:52:48.872Z",
+  "generatedAt": "2026-06-19T14:20:22.495Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -108,16 +108,16 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "ad959975d4cd4769086df3c83c092a6d8c5e663311cdf90bf27e3e6c8f2553b9",
-      "sizeBytes": 11621,
-      "lineCount": 188
+      "sha256": "d7aebfb86ad46c33a60671a4de2f35752a2223fd5409c240c49546a5748595c5",
+      "sizeBytes": 12229,
+      "lineCount": 189
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "a0a06e8db374adbd9ca08f4a1799c570dbb31eefca48e3fee5c3ab87e39b66cd",
-      "sizeBytes": 24017,
-      "lineCount": 464
+      "sha256": "82f5514e1a2bed92730e8b4678ed08adb56a9afa016d6972338e0b1888c4d6aa",
+      "sizeBytes": 24631,
+      "lineCount": 465
     },
     {
       "path": "SECURITY.md",
@@ -1711,9 +1711,9 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "75aaecb5691f160f781795891d9258c75b8135caab602eec870ce654f631ab5c",
-      "sizeBytes": 8737,
-      "lineCount": 97
+      "sha256": "bc975e7d7a46ad84349f4695abe70864c412dc298fe61024f708f3655b765872",
+      "sizeBytes": 8469,
+      "lineCount": 95
     },
     {
       "path": "docs/product-quality/source-controlled-checks-report.md",
@@ -1907,7 +1907,7 @@
   ],
   "publicSurfaceCount": 265,
   "scannedLineCount": 23895,
-  "blockedContextClaimMentionCount": 1043,
+  "blockedContextClaimMentionCount": 1045,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -2146,7 +2146,25 @@
     },
     {
       "path": "README.ko.md",
-      "line": 70,
+      "line": 57,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "- 정적 분석 증거: [Knip dead-export 후보](docs/product-quality/dead-export-candidates-report.md), [dependency-cruiser topology ratchet](docs/product-quality/dependency-topology-report.md), [jscpd product-script clone ratchet](docs/product-quality/s",
+      "contextText": "Blocked context: ... cleanup 완료, topology clean, refactor 완료, public readiness, external validation을 증명하지 않습니다."
+    },
+    {
+      "path": "README.ko.md",
+      "line": 57,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- 정적 분석 증거: [Knip dead-export 후보](docs/product-quality/dead-export-candidates-report.md), [dependency-cruiser topology ratchet](docs/product-quality/dependency-topology-report.md), [jscpd product-script clone ratchet](docs/product-quality/s",
+      "contextText": "Blocked context: ... cleanup 완료, topology clean, refactor 완료, public readiness, external validation을 증명하지 않습니다."
+    },
+    {
+      "path": "README.ko.md",
+      "line": 71,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -2155,7 +2173,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 70,
+      "line": 71,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -2164,7 +2182,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 70,
+      "line": 71,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -2173,7 +2191,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 168,
+      "line": 169,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -2182,7 +2200,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 170,
+      "line": 171,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -2191,7 +2209,7 @@
     },
     {
       "path": "README.ko.md",
-      "line": 172,
+      "line": 173,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -2245,7 +2263,7 @@
     },
     {
       "path": "README.md",
-      "line": 62,
+      "line": 63,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -2254,7 +2272,7 @@
     },
     {
       "path": "README.md",
-      "line": 62,
+      "line": 63,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -2263,7 +2281,7 @@
     },
     {
       "path": "README.md",
-      "line": 62,
+      "line": 63,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -2272,7 +2290,7 @@
     },
     {
       "path": "README.md",
-      "line": 332,
+      "line": 333,
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -11301,8 +11319,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "a7daca959552ac332a13363ffdfdb92f37dc6c445f38a80e03d72604c1aa9063",
-  "scanJsonlRecordCount": 1043,
+  "scanJsonlSha256": "a73fea7de3fdd1296b2d60a0d8dbf6d7b91366ae5a90252c3f40c343f0aa6bcc",
+  "scanJsonlRecordCount": 1045,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11511,12 +11529,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1043 findings"
+      "detail": "1045 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1043/1043"
+      "detail": "1045/1045"
     },
     {
       "label": "claim JSONL hash is recorded",
