@@ -343,7 +343,7 @@ The system does not scrape platforms or automate account access in this packet.
             "Initial Evidence Ledger",
             """
 Evidence entries:
-- owner supplied first real goal
+- user-supplied first real goal
 - safe reframe recorded
 - protected actions blocked
 - product track packet created

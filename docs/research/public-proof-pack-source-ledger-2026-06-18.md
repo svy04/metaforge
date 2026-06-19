@@ -23,8 +23,8 @@ autonomous reliability, or benchmark superiority?
 | [Datasheets for Datasets](https://arxiv.org/abs/1803.09010) | Paper | Proof packets should preserve motivation, composition, operating characteristics, and recommended uses. | This does not certify datasets or benchmarks. |
 | [US11163858B2 client software attestation](https://patents.google.com/patent/US11163858B2/en) | Patent publication | Use pass/fail gate language instead of trusting self-report. | Prior-art vocabulary only, not legal clearance or implementation equivalence. |
 | `docs/research/goal-os-governed-code-prior-art-2026-06-18.md` | Local authority | Primary-source research briefs now require source, local precedent, rejected-source, and claim-boundary records. | Local research gate only. |
-| `docs/evals/autonomous-goal-os-minimal-checklist.md` | Local authority | Eval levels, automation candidates, side-effect arrays, and owner-side drift are separated before stronger claims. | Local no-provider eval governance only. |
-| `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` | Local authority | Public docs, unpublished harness boundaries, owner-side claims, and blocked claim classes are reconciled explicitly. | Reconciliation report, not external validation. |
+| `docs/evals/autonomous-goal-os-minimal-checklist.md` | Local authority | Eval levels, automation candidates, side-effect arrays, and internal drift are separated before stronger claims. | Local no-provider eval governance only. |
+| `docs/reports/mfh-meta-source-reconciliation-2026-06-18.md` | Local authority | Public docs, unpublished harness boundaries, internal claim boundaries, and blocked claim classes are reconciled explicitly. | Reconciliation report, not external validation. |
 | `docs/profile/github-profile-refresh-evidence-2026-06-19.md` | Local authority | Current profile README maintenance records PR #68, the merge commit, workflow success, null-boundary copy, and blocked claim classes. | Profile maintenance evidence, not adoption, external validation, benchmark superiority, or universal Mimesis lift. |
 
 ## Rejected Shortcuts
