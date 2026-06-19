@@ -20,8 +20,8 @@ runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 
 라이선스로 제공되지만, 전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다.
 재사용이나 재배포 전에는 반드시 [LICENSE](LICENSE)를 확인하세요.
 
-공개 히스토리 경계: Metaforge는 프라이빗/로컬 workbench에서 이 공개 checkout으로
-옮겨온 surface라서 public commit/star 숫자가 낮은 것은 예상 가능한 맥락입니다.
+공개 히스토리 경계: Metaforge는 이 checkout 밖의 공개 전 작업 이력에서 현재 공개
+repository로 옮겨온 surface라서 public commit/star 숫자가 낮은 것은 예상 가능한 맥락입니다.
 이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은
 source-controlled test, report, claim-boundary record에서만 나와야 합니다.
 
@@ -89,7 +89,7 @@ AVF Influence Factory는 repo-local manual artifact lane입니다.
 | --- | --- | --- | --- |
 | Orchestra | Claude/Codex route 위에서 planner, skeptic, implementer, reviewer, evidence arbiter, promotion 역할을 분배합니다. | runtime-wired import path; unit/product-quality evidence | Runtime code는 `src/services/orchestra/`에 있고 CLI query surface에서 호출됩니다. |
 | Meta/MFH | 운영 기억, goal contract, evidence gate, closure rule을 정직하게 유지합니다. | governance/docs/gates | `docs/`, schema, report, product-quality gate로 표현됩니다. 이 checkout의 별도 runtime module이 아닙니다. |
-| Mimesis Engineering | OSS, 논문, 특허, 표준, 제품 패턴에서 load-bearing structure를 흡수하는 source-first loop입니다. | source-ledger loop이며 기본 runtime module이 아닙니다 | 공개 증거는 docs/source ledger와 local verification입니다. private/local workbench material은 public proof 밖에 둡니다. |
+| Mimesis Engineering | OSS, 논문, 특허, 표준, 제품 패턴에서 load-bearing structure를 흡수하는 source-first loop입니다. | source-ledger loop이며 기본 runtime module이 아닙니다 | 공개 증거는 docs/source ledger와 local verification입니다. 공개되지 않은 pre-public artifact는 public proof 밖에 둡니다. |
 | AVF Influence Factory | venture/factory packet을 만드는 operator artifact flow입니다. | manual artifact lane이며 기본 CLI runtime import가 아닙니다 | `avf/`와 validator script에 있으며 generated operator output은 ignored local artifact로 남깁니다. |
 
 ## 빠른 시작
