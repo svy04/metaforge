@@ -77,6 +77,8 @@ treating them as out of scope.
 - Local proof artifacts are not external validation.
 - Benchmarks need command, input, output, and claim-boundary evidence before
   public readiness wording.
+- Do not describe the OpenClaude CLI substrate as fully original, blanket MIT,
+  or redistribution-cleared; route origin/license questions to `README.md` and `LICENSE`.
 - Protected actions, credential changes, public deploys, and destructive
   filesystem operations require explicit authorization.
 

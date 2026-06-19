@@ -26,6 +26,8 @@ This allows Metaforge to market:
 - Mimesis Engineering as a source-first improvement loop.
 - local research and eval gates that make source absorption auditable.
 - public profile/repo surfaces that carry explicit claim boundaries.
+- an origin/license provenance boundary that separates Metaforge work from the
+  adapted OpenClaude runtime substrate.
 
 This does not prove hosted deployment, public adoption, production readiness,
 external validation, compliance, autonomous reliability, or benchmark
@@ -39,6 +41,7 @@ superiority.
 | Eval flywheel proposal gate | `bun run evals:validate` | Eval proposals must keep L0-L5 levels, automation candidates, owner-side drift, and side-effect arrays explicit. | It is local no-provider eval governance, not a live provider benchmark or autonomous reliability claim. |
 | Public claim evidence map | `bun run product:public-claim-boundary` | Meta, MFH, Orchestra, OpenClaude runtime, Mimesis Engineering, and AVF are mapped to allowed claims, non-claims, evidence paths, and gaps. | It is a local map of allowed wording, not external validation. |
 | Public artifact hygiene | `bun run product:public-artifact-hygiene` | Public text surfaces are scanned for configured local-path, stale-model, secret-shaped, and internal-rule breadcrumbs. | It is a configured tree scan, not full-history secret scanning or security certification. |
+| Origin/license provenance boundary | `bun run product:origin-license-provenance-boundary` | Package metadata, git origin, README/README.ko/LICENSE copy, source-license reports, remote-surface audit, and release-provenance reports are checked together. | It is local no-provider provenance consistency, not legal review, license compliance, open-source readiness, release readiness, or permission to publish. |
 | GitHub profile refresh | [svy04 profile](https://github.com/svy04) | The profile now centers Mimesis Engineering and Metaforge while keeping OpenClaude as substrate. | The profile is a routing surface, not adoption or product-completion proof. |
 | GitHub profile null-boundary refresh | [2026-06-19 profile evidence](../profile/github-profile-refresh-evidence-2026-06-19.md) | The profile now publishes Mimesis null/negative boundaries beside wins and keeps deterministic-code lift, public benchmark, production-readiness, and external-validation claims blocked. | It proves profile maintenance and workflow checks only, not adoption, external validation, benchmark superiority, or universal Mimesis lift. |
 
@@ -66,6 +69,7 @@ Use this path when checking whether the public story is real:
 Current proof route: [README proof tour](../../README.md#metaforge-proof-tour),
 [research validation report](../product-quality/research-brief-validation-report.md),
 [eval flywheel validation report](../product-quality/eval-flywheel-validation-report.md),
+[origin/license provenance boundary report](../product-quality/origin-license-provenance-boundary-report.md),
 and [public claim evidence map](../product-quality/public-claim-boundary-report.md#public-claim-evidence-map).
 
 ## Wiring Evidence Map
@@ -90,6 +94,7 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 | Research work now has primary-source discipline. | [research validation report](../product-quality/research-brief-validation-report.md), command: `bun run research:validate` | Research briefs preserve original source links, local authority, rejected-source boundaries, and claim limits. | It does not prove implementation, external validation, or source-derived performance lift. |
 | Eval flywheel work is proposal-gated before automation. | [eval flywheel validation report](../product-quality/eval-flywheel-validation-report.md), command: `bun run evals:validate` | Automation candidates and eval levels are bounded as proposed local no-provider evidence. | It does not schedule automations, call providers, run live benchmarks, or prove autonomous reliability. |
 | Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:validate` | A current goal trace is checked for ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |
+| OpenClaude origin/license boundaries are public-routed. | [origin/license provenance boundary report](../product-quality/origin-license-provenance-boundary-report.md), command: `bun run product:origin-license-provenance-boundary` | Public package, README, Korean README, LICENSE, origin remote, source-license reports, remote-surface audit, and release-provenance evidence keep the derived-runtime boundary visible. | It is not legal review, license compliance, open-source readiness, release readiness, public readiness, production readiness, or authorization to publish. |
 | Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [2026-06-18 public proof-pack source ledger](../research/public-proof-pack-source-ledger-2026-06-18.md) | Current method, source-first operating rules, and absorbed source patterns. | Does not prove universal output lift or external validation. |
 | Mimesis Minecraft high-integration evidence is tracked as a bounded local case. | A public redacted board v0 route plus sanitized evidence summaries keep board-v1 blocked until public-safe manifest and readiness gates exist. | A local L3 evidence card plus public redacted board v0 exists; board v1 is a blocked draft with sidecar inventory only. | Not board-v1 ready, not external validation, not public benchmark status, not human visual-quality proof, not near-Fable quality, and not general Mimesis lift. |
 | Public profile was refreshed from current repo evidence. | [2026-06-19 GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-19.md), [baseline evidence](../profile/github-profile-refresh-evidence-2026-06-14.md), [svy04 profile](https://github.com/svy04) | The profile routes readers to current public repos, proof packets, and claim boundaries, including current null-boundary language. | It is not adoption evidence, external validation, benchmark evidence, or proof that unpublished pre-public artifacts are public. |
@@ -102,6 +107,9 @@ The generated [Public claim evidence map](../product-quality/public-claim-bounda
 | --- | --- | --- | --- |
 | Official product docs | [GitHub profile README docs](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) | The profile README is a public identity and project-routing surface. | A profile README is not adoption proof. |
 | Official product docs | [GitHub README docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) | README copy should explain what the project does, why it is useful, how to start, where to get help, and who maintains it. | README clarity is not product readiness. |
+| Official product docs | [GitHub licensing docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) | Licensing is an explicit public repository surface and should not be blurred with narrative marketing. | This is not legal advice or legal clearance. |
+| Open-source specification | [REUSE specification](https://reuse.software/spec/) | Licensing clarity should be human- and machine-readable rather than implied from repo presence. | The repo does not claim REUSE compliance yet. |
+| Open-source standard | [SPDX overview](https://spdx.dev/about/overview/) | Provenance and license information benefit from standard identifiers and explicit metadata. | The derived-runtime package does not collapse into a blanket SPDX MIT claim. |
 | Open-source project | [OpenSSF Scorecard](https://github.com/ossf/scorecard) | Security and quality posture should be expressed as explicit checks, risks, and remediation. | A local report is not an OpenSSF Scorecard result unless Scorecard is actually run. |
 | Open-source standard | [in-toto Attestation Framework](https://github.com/in-toto/attestation) | Evidence should bind claims to produced artifacts and verifiable predicates. | This proof pack is unsigned local documentation, not an in-toto attestation. |
 | Standard | [SLSA Build Provenance](https://slsa.dev/spec/v1.2/build-provenance) | Provenance should distinguish local generation, source revision, and build claims. | No SLSA level or hosted provenance claim is made. |
@@ -129,6 +137,10 @@ loop.
 
 Meta/MFH/Orchestra OS with evidence gates, Mimesis Engineering loops, and
 OpenClaude runtime substrate for Claude/Codex routes.
+
+Longer project pages that mention the OpenClaude runtime substrate should pair
+that phrase with the README/LICENSE origin boundary and the origin/license
+provenance boundary report.
 
 ### Short Social Post
 

@@ -3,6 +3,11 @@
 Date: 2026-06-14
 Status: public-facing, proof-bounded marketing aid
 
+Superseded copy note: use the 2026-06-18 proof pack for current public copy.
+It adds the origin/license provenance boundary for the OpenClaude-derived
+runtime substrate and keeps that boundary out of legal-clearance or
+open-source-readiness claims.
+
 ## One-Line Position
 
 Metaforge is a Meta/MFH/Orchestra operating system that turns owner intent into evidence-gated agent work, with OpenClaude as the local CLI runtime and Mimesis Engineering as the source-first improvement loop.
