@@ -259,4 +259,39 @@ describe('goal trace validator', () => {
     expect(coveredCheck?.detail).toContain('rejected=1')
     expect(coveredCheck?.detail).toContain('blocked=1')
   })
+
+  test('requires trace evidence to cover more than one goal before cross-goal MFH claims', () => {
+    const staticAnalysisTrace: GoalTrace = {
+      ...validTrace,
+      goalId: 'CG-002',
+      traceId: '44444444444444444444444444444444',
+      claimBoundary: {
+        allowed: ['Local static-analysis ratchet evidence is bound to Goal OS trace validation.'],
+        forbidden: ['Cleanup complete', 'Public readiness', 'External validation'],
+      },
+      events: validTrace.events.map((event) => ({
+        ...event,
+        summary: event.summary.replace('CG-001', 'CG-002'),
+      })),
+    }
+
+    const undercoveredReport = buildGoalTraceReport([
+      { path: 'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json', trace: validTrace },
+      { path: 'docs/goals/traces/CG-001-missing-evidence-rejected.trace.json', trace: rejectedTrace },
+      { path: 'docs/goals/traces/CG-001-protected-action-blocked.trace.json', trace: blockedTrace },
+    ], new Set(['CG-001', 'CG-002']))
+    const undercoveredCheck = undercoveredReport.traceChecks.find((check) => check.label === 'cross-goal trace pack covers more than one goal')
+
+    expect(undercoveredCheck?.ok).toBe(false)
+    expect(undercoveredCheck?.detail).toBe('goal_ids=CG-001')
+
+    const coveredReport = buildGoalTraceReport([
+      { path: 'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json', trace: validTrace },
+      { path: 'docs/goals/traces/CG-002-static-analysis-ratchet.trace.json', trace: staticAnalysisTrace },
+    ], new Set(['CG-001', 'CG-002']))
+    const coveredCheck = coveredReport.traceChecks.find((check) => check.label === 'cross-goal trace pack covers more than one goal')
+
+    expect(coveredCheck?.ok).toBe(true)
+    expect(coveredCheck?.detail).toBe('goal_ids=CG-001,CG-002')
+  })
 })

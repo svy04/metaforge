@@ -1,0 +1,71 @@
+{
+  "goalId": "CG-002",
+  "traceId": "c0020000000000000000000000000001",
+  "expectedOutcome": "validated",
+  "claimBoundary": {
+    "allowed": [
+      "CG-002 has local no-provider static-analysis ratchet evidence bound to Goal OS trace validation."
+    ],
+    "forbidden": [
+      "Cleanup completion",
+      "Safe deletion",
+      "Topology cleanliness",
+      "Refactor completion",
+      "Production readiness",
+      "Release readiness",
+      "Public readiness",
+      "External validation",
+      "Autonomous reliability"
+    ]
+  },
+  "providerCallsPerformed": [],
+  "liveModelCallsPerformed": [],
+  "externalCallsPerformed": [],
+  "protectedActionsExecuted": [],
+  "events": [
+    {
+      "timestamp": "2026-06-19T08:20:00.000Z",
+      "eventName": "goal.loaded",
+      "status": "started",
+      "actor": "orchestrator",
+      "summary": "Loaded CG-002 from docs/goals/CG-002-static-analysis-ratchet.md."
+    },
+    {
+      "timestamp": "2026-06-19T08:22:00.000Z",
+      "eventName": "checkpoint.completed",
+      "status": "succeeded",
+      "actor": "implementer",
+      "checkpointId": "CP-003",
+      "summary": "Bound Knip, dependency-cruiser, and jscpd report lanes into the static-analysis Goal OS record."
+    },
+    {
+      "timestamp": "2026-06-19T08:24:00.000Z",
+      "eventName": "validation.ran",
+      "status": "succeeded",
+      "actor": "eval",
+      "command": "bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit",
+      "exitCode": 0,
+      "evidenceArtifacts": [
+        "docs/product-quality/dead-export-candidates-report.json",
+        "docs/product-quality/dependency-topology-report.json",
+        "docs/product-quality/script-duplication-audit-report.json"
+      ],
+      "summary": "Static-analysis reports refreshed locally without deletion, autofix, provider, live model, external, or protected calls."
+    },
+    {
+      "timestamp": "2026-06-19T08:26:00.000Z",
+      "eventName": "claim.reviewed",
+      "status": "succeeded",
+      "actor": "evidence-arbiter",
+      "disallowedClaimsFound": false,
+      "summary": "Claim boundary allows local static-analysis ratchet evidence and blocks cleanup, public-readiness, and reliability claims."
+    },
+    {
+      "timestamp": "2026-06-19T08:28:00.000Z",
+      "eventName": "goal.validated",
+      "status": "succeeded",
+      "actor": "orchestrator",
+      "summary": "CG-002 can be described as local no-provider static-analysis ratchet evidence, not cleanup completion or external validation."
+    }
+  ]
+}

@@ -45,16 +45,16 @@ That feedback changed the public bar:
 - AGENTS and README surfaces must stay public-safe, compact, and free of local machine context;
 - OpenClaude remains the runtime substrate while Metaforge remains the Meta/MFH/Orchestra thesis;
 - marker-only audits must keep moving toward behavioral happy paths, edge cases, and side-effect guards;
-- static-analysis work such as Knip or fallow, dependency-cruiser, jscpd, and topology review stays a refactor backlog until it is actually run or wired into gates;
+- Knip, dependency-cruiser, and jscpd are wired as local no-provider product-quality gates for dead-export candidates, dependency-topology baselines/ratchets, and product-script clone baselines; fallow and Lumin Repo Lens remain optional/manual backlog inputs, and none of these gates prove cleanup completion or topology cleanliness;
 - Korean docs stay current because the first feedback loop is Korean.
 
 ## Metaforge Proof Tour
 
 Follow this path when checking whether the public story is real:
 
-1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md` turns owner intent into a machine-checkable goal with scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, and MFH/Meta fields.
+1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md` and `docs/goals/CG-002-static-analysis-ratchet.md` turn owner intent into machine-checkable goals with scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, and MFH/Meta fields.
 2. **Meta**: the goal links local authority sources, decision-ledger entries, raw sources, and memory/wiki update boundaries so operating state is not only chat context.
-3. **MFH**: `scripts/validate-goals.ts` blocks `validated` or `closed` goal states unless required validation commands have passing evidence, and `scripts/validate-goal-traces.ts` grades a representative trace pack covering validated, rejected, and blocked outcomes.
+3. **MFH**: `scripts/validate-goals.ts` blocks `validated` or `closed` goal states unless required validation commands have passing evidence, and `scripts/validate-goal-traces.ts` grades a representative cross-goal trace pack covering validated, rejected, and blocked outcomes.
 4. **Orchestra**: `src/services/orchestra/` remains the runtime-wired layer for planner, skeptic, reviewer, arbiter, and promotion roles where local tests and product-quality reports cover those surfaces.
 5. **Mimesis Engineering**: the trace gate absorbs proven structures from OpenTelemetry-style traces, OPA-style policy decisions, OpenAI agent eval trace grading, and NIST AI RMF risk-management records.
 6. **OpenClaude runtime**: OpenClaude supplies terminal tools, provider routes, MCP, slash commands, and credential surfaces. It is the substrate, not the public thesis.
