@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T20:06:54.337Z",
+  "generatedAt": "2026-06-19T23:45:00.088Z",
   "mode": "local_no_provider_static_analysis_remediation_queue",
   "repository": "svy04/metaforge",
-  "sourceCommit": "115d1d3d499b43c3ceeb0acfcdddf35c30ee8b7a",
+  "sourceCommit": "8c565d01e5960b88aeadc967537b75658a771b44",
   "generatedFrom": [
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dependency-topology-report.json",
@@ -62,28 +62,6 @@
   ],
   "queueItems": [
     {
-      "queueId": "static-analysis-dead-export-runtime-guards",
-      "priority": "P1",
-      "remediationClass": "dead_export_runtime_guard",
-      "evidenceSource": "knip",
-      "evidenceCount": 2,
-      "sampleLocations": [
-        "src/services/api/providerConfig.ts#resolveStoredCodexCredentials",
-        "src/utils/geminiCredentials.ts#clearGeminiAccessToken"
-      ],
-      "safeFirstStep": "Add or verify runtime guards for side-effect-sensitive exported candidates before any deletion or export narrowing.",
-      "ownerDecisionRequired": true,
-      "validationCommands": [
-        "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts",
-        "bun run product:dead-export-candidates",
-        "bun run product:dependency-topology",
-        "bun run product:script-duplication-audit",
-        "bun run product:static-analysis-remediation-queue",
-        "bun run product:typecheck-health"
-      ],
-      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
-    },
-    {
       "queueId": "static-analysis-duplicate-helper-clusters",
       "priority": "P2",
       "remediationClass": "duplicate_helper_extraction",
@@ -112,7 +90,7 @@
       "evidenceSource": "jscpd",
       "evidenceCount": 17,
       "sampleLocations": [
-        "scripts/product-dead-export-candidates.ts:223-246 <-> scripts/product-dependency-topology.ts:160-183",
+        "scripts/product-dead-export-candidates.ts:233-256 <-> scripts/product-dependency-topology.ts:160-183",
         "scripts/product-ide-extension-rendered-workbench-screenshot.ts:142-178 <-> scripts/product-ide-extension-webview-render-smoke.ts:102-138",
         "scripts/product-ide-extension-runtime-smoke.ts:118-142 <-> scripts/product-ide-extension-webview-interaction-smoke.ts:168-194",
         "scripts/product-oss-baseline-drift-closure.ts:85-106 <-> scripts/product-oss-safe-backlog-closure.ts:134-155",
@@ -178,9 +156,66 @@
       "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
     }
   ],
-  "queueItemCount": 5,
+  "queueItemCount": 4,
+  "guardedDeadExportRuntimeRecordCount": 2,
+  "guardedDeadExportRuntimeRecords": [
+    {
+      "file": "src/services/api/providerConfig.ts",
+      "symbol": "resolveStoredCodexCredentials",
+      "kind": "export",
+      "action": "runtime_guarded",
+      "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
+      "guardrail": "Runtime guard evidence now covers Codex credential lookup with no-secret fixtures; any future removal still needs separate public/API boundary review.",
+      "resolvedEvidence": {
+        "state": "resolved_with_runtime_guard",
+        "validationCommands": [
+          "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+        ],
+        "evidencePaths": [
+          "src/services/api/providerConfig.runtimeCodexCredentials.test.ts"
+        ],
+        "checkedBehaviors": [
+          "explicit auth.json path wins over stored secure-storage tokens",
+          "explicit missing auth.json path remains stable instead of falling through silently",
+          "async credentials avoid sync secure-storage reads",
+          "stored Codex credentials preserve explicit account id and fallback priority"
+        ],
+        "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+      },
+      "reviewedAt": "2026-06-20",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    },
+    {
+      "file": "src/utils/geminiCredentials.ts",
+      "symbol": "clearGeminiAccessToken",
+      "kind": "export",
+      "action": "runtime_guarded",
+      "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
+      "guardrail": "Runtime guard evidence now covers credential lifecycle behavior; any future removal still needs separate logout/reset boundary review.",
+      "resolvedEvidence": {
+        "state": "resolved_with_runtime_guard",
+        "validationCommands": [
+          "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+        ],
+        "evidencePaths": [
+          "src/utils/geminiCredentials.test.ts"
+        ],
+        "checkedBehaviors": [
+          "stored Gemini token is removed",
+          "missing token clear remains a no-op success",
+          "bare mode does not touch secure storage",
+          "clearing Gemini credentials leaves other stored keys intact"
+        ],
+        "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+      },
+      "reviewedAt": "2026-06-20",
+      "reviewer": "codex-local-triage",
+      "currentCandidate": true
+    }
+  ],
   "deadExport": {
-    "generatedAt": "2026-06-19T16:34:12.264Z",
+    "generatedAt": "2026-06-19T23:44:59.889Z",
     "mode": "local_no_provider_dead_export_candidate_gate",
     "scannerTarget": "knip --config knip.jsonc --exports",
     "knipVersion": "6.16.1",
@@ -309,19 +344,6 @@
         "sampleTypes": []
       },
       {
-        "file": "src/constants/prompts.ts",
-        "unusedExports": 4,
-        "unusedTypes": 0,
-        "duplicateExports": 0,
-        "sampleExports": [
-          "CLAUDE_CODE_DOCS_MAP_URL",
-          "computeEnvInfo",
-          "getUnameSR",
-          "getScratchpadInstructions"
-        ],
-        "sampleTypes": []
-      },
-      {
         "file": "src/state/AppState.tsx",
         "unusedExports": 2,
         "unusedTypes": 3,
@@ -374,6 +396,19 @@
           "canYankPop",
           "VIM_WORD_CHAR_REGEX",
           "WHITESPACE_REGEX"
+        ],
+        "sampleTypes": []
+      },
+      {
+        "file": "src/constants/prompts.ts",
+        "unusedExports": 4,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "CLAUDE_CODE_DOCS_MAP_URL",
+          "computeEnvInfo",
+          "getUnameSR",
+          "getScratchpadInstructions"
         ],
         "sampleTypes": []
       },
@@ -522,7 +557,8 @@
     "triageRecordCount": 3,
     "triageCurrentCandidateCount": 3,
     "triageActionCounts": {
-      "needs_runtime_guard": 2,
+      "needs_runtime_guard": 0,
+      "runtime_guarded": 2,
       "review_for_removal": 1,
       "defer_public_api": 0,
       "keep_until_entrypoint_proven": 0
@@ -532,10 +568,26 @@
         "file": "src/services/api/providerConfig.ts",
         "symbol": "resolveStoredCodexCredentials",
         "kind": "export",
-        "action": "needs_runtime_guard",
+        "action": "runtime_guarded",
         "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
-        "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
-        "reviewedAt": "2026-06-16",
+        "guardrail": "Runtime guard evidence now covers Codex credential lookup with no-secret fixtures; any future removal still needs separate public/API boundary review.",
+        "resolvedEvidence": {
+          "state": "resolved_with_runtime_guard",
+          "validationCommands": [
+            "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+          ],
+          "evidencePaths": [
+            "src/services/api/providerConfig.runtimeCodexCredentials.test.ts"
+          ],
+          "checkedBehaviors": [
+            "explicit auth.json path wins over stored secure-storage tokens",
+            "explicit missing auth.json path remains stable instead of falling through silently",
+            "async credentials avoid sync secure-storage reads",
+            "stored Codex credentials preserve explicit account id and fallback priority"
+          ],
+          "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+        },
+        "reviewedAt": "2026-06-20",
         "reviewer": "codex-local-triage",
         "currentCandidate": true
       },
@@ -543,10 +595,26 @@
         "file": "src/utils/geminiCredentials.ts",
         "symbol": "clearGeminiAccessToken",
         "kind": "export",
-        "action": "needs_runtime_guard",
+        "action": "runtime_guarded",
         "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
-        "guardrail": "Before removal, add credential lifecycle tests that prove stored-token clear, missing-token no-op, and no secret logging behavior.",
-        "reviewedAt": "2026-06-16",
+        "guardrail": "Runtime guard evidence now covers credential lifecycle behavior; any future removal still needs separate logout/reset boundary review.",
+        "resolvedEvidence": {
+          "state": "resolved_with_runtime_guard",
+          "validationCommands": [
+            "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+          ],
+          "evidencePaths": [
+            "src/utils/geminiCredentials.test.ts"
+          ],
+          "checkedBehaviors": [
+            "stored Gemini token is removed",
+            "missing token clear remains a no-op success",
+            "bare mode does not touch secure storage",
+            "clearing Gemini credentials leaves other stored keys intact"
+          ],
+          "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+        },
+        "reviewedAt": "2026-06-20",
         "reviewer": "codex-local-triage",
         "currentCandidate": true
       },
@@ -698,9 +766,14 @@
         "detail": "3/3"
       },
       {
-        "label": "dead export triage has runtime guard and removal-review actions",
+        "label": "dead export triage covers runtime guards and removal-review actions",
         "ok": true,
-        "detail": "{\"needs_runtime_guard\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+        "detail": "{\"needs_runtime_guard\":0,\"runtime_guarded\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+      },
+      {
+        "label": "runtime-guarded dead export triage links behavior evidence",
+        "ok": true,
+        "detail": "2 guarded records"
       },
       {
         "label": "dead export triage records guardrails and rationales",
@@ -736,7 +809,7 @@
     "claimBoundary": "Knip findings are candidate unused export/type/duplicate-export evidence only. They do not prove a symbol is safe to delete, that cleanup is complete, or that the repo is public-ready."
   },
   "dependencyTopology": {
-    "generatedAt": "2026-06-19T16:23:32.288Z",
+    "generatedAt": "2026-06-19T23:44:55.967Z",
     "mode": "local_no_provider_dependency_topology_gate",
     "scannerTargetRoots": [
       "src",
@@ -1114,7 +1187,7 @@
     "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
   },
   "scriptDuplication": {
-    "generatedAt": "2026-06-19T16:22:57.633Z",
+    "generatedAt": "2026-06-19T23:44:19.330Z",
     "mode": "local_no_provider_product_script_duplication_audit",
     "scannerTargetGlob": "scripts/product-*.ts",
     "auditTargetHelperNames": [
@@ -1327,7 +1400,7 @@
           },
           {
             "path": "scripts/product-quality-gate.ts",
-            "line": 3199
+            "line": 3207
           },
           {
             "path": "scripts/product-real-session-capture.ts",
@@ -1503,7 +1576,7 @@
           },
           {
             "path": "scripts/product-quality-gate.ts",
-            "line": 3195
+            "line": 3203
           },
           {
             "path": "scripts/product-runtime-doctor-regression.ts",
@@ -1539,26 +1612,26 @@
         "JSON report saved"
       ],
       "missingSubstrings": [],
-      "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
+      "stdoutPreview": "JSON report saved to <local-path>\ntime: 71.269ms\n",
       "stderrPreview": "Using config from .jscpd.json\n"
     },
-    "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
+    "jscpdReportSha256": "4074a8401898db7b2add6c8997eca994ef651798adf02d713125c2c9f7172936",
     "jscpdCloneCount": 17,
     "jscpdCloneBaseline": 17,
     "jscpdDuplicatedLines": 439,
     "jscpdDuplicatedLinesBaseline": 439,
     "jscpdDuplicatedTokens": 2979,
     "jscpdDuplicatedTokensBaseline": 2979,
-    "jscpdDuplicatedPercentage": 1.0281993629379802,
+    "jscpdDuplicatedPercentage": 1.0257488667694752,
     "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-    "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
+    "jscpdDuplicatedTokenPercentage": 1.1253399818676337,
     "jscpdSourceCount": 94,
     "jscpdTopClonePairs": [
       {
         "firstFile": "scripts/product-dead-export-candidates.ts",
         "secondFile": "scripts/product-dependency-topology.ts",
-        "firstStartLine": 223,
-        "firstEndLine": 246,
+        "firstStartLine": 233,
+        "firstEndLine": 256,
         "secondStartLine": 160,
         "secondEndLine": 183,
         "lines": 24,
@@ -1820,7 +1893,7 @@
       {
         "label": "jscpd duplicated percentage does not exceed baseline",
         "ok": true,
-        "detail": "1.0281993629379802/1.043871121150874"
+        "detail": "1.0257488667694752/1.043871121150874"
       },
       {
         "label": "jscpd clone pair paths are relative and normalized",
@@ -1879,17 +1952,17 @@
     {
       "label": "queue items are generated from current static-analysis findings",
       "ok": true,
-      "detail": "5 items"
+      "detail": "4 items"
     },
     {
       "label": "queue covers existing static-analysis tools when findings exist",
       "ok": true,
-      "detail": "knip,jscpd,dependency-cruiser"
+      "detail": "jscpd,dependency-cruiser,knip"
     },
     {
       "label": "new dependency violations are prioritized first when present",
       "ok": true,
-      "detail": "P1:static-analysis-dead-export-runtime-guards,P2:static-analysis-duplicate-helper-clusters,P2:static-analysis-jscpd-clone-hotspots,P3:static-analysis-known-topology-knots,P3:static-analysis-dead-export-removal-review"
+      "detail": "P2:static-analysis-duplicate-helper-clusters,P2:static-analysis-jscpd-clone-hotspots,P3:static-analysis-known-topology-knots,P3:static-analysis-dead-export-removal-review"
     },
     {
       "label": "primary sources cover OSS docs research and patent inputs",
@@ -1897,9 +1970,19 @@
       "detail": "project_docs,oss_tool,research_survey,patent"
     },
     {
+      "label": "runtime-guarded dead-export candidates carry linked validation evidence",
+      "ok": true,
+      "detail": "2 guarded records"
+    },
+    {
+      "label": "runtime-guarded dead-export candidates stay out of unresolved P1 queue",
+      "ok": true,
+      "detail": "0 unresolved samples"
+    },
+    {
       "label": "queue item paths are relative and local-safe",
       "ok": true,
-      "detail": "5 items"
+      "detail": "4 items"
     },
     {
       "label": "no provider live external protected dependency install or autofix action occurred",

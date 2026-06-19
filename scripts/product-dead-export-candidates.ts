@@ -46,11 +46,20 @@ type CandidateFileSummary = {
 
 type DeadExportTriageAction =
   | 'needs_runtime_guard'
+  | 'runtime_guarded'
   | 'review_for_removal'
   | 'defer_public_api'
   | 'keep_until_entrypoint_proven'
 
 type DeadExportTriageKind = 'export' | 'type' | 'duplicate_export'
+
+type DeadExportResolvedEvidence = {
+  state: 'resolved_with_runtime_guard'
+  validationCommands: string[]
+  evidencePaths: string[]
+  checkedBehaviors: string[]
+  claimBoundary: string
+}
 
 type DeadExportTriageRecord = {
   file: string
@@ -59,6 +68,7 @@ type DeadExportTriageRecord = {
   action: DeadExportTriageAction
   rationale: string
   guardrail: string
+  resolvedEvidence?: DeadExportResolvedEvidence
   reviewedAt: string
   reviewer: string
 }
@@ -295,6 +305,7 @@ function countTriageActions(records: DeadExportTriageReportRecord[]): Record<Dea
     [record.action]: counts[record.action] + 1,
   }), {
     needs_runtime_guard: 0,
+    runtime_guarded: 0,
     review_for_removal: 0,
     defer_public_api: 0,
     keep_until_entrypoint_proven: 0,
@@ -399,7 +410,8 @@ function buildReport(): DeadExportCandidatesReport {
     check('duplicate export candidates do not exceed baseline', report.candidateDuplicateExportCount <= report.candidateDuplicateExportBaseline, `${report.candidateDuplicateExportCount}/${report.candidateDuplicateExportBaseline}`),
     check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 3, `${report.triageRecordCount} records`),
     check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
-    check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
+    check('dead export triage covers runtime guards and removal-review actions', (report.triageActionCounts.needs_runtime_guard + report.triageActionCounts.runtime_guarded) > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
+    check('runtime-guarded dead export triage links behavior evidence', report.triageRecords.filter((record) => record.action === 'runtime_guarded').every((record) => record.resolvedEvidence?.state === 'resolved_with_runtime_guard' && record.resolvedEvidence.validationCommands.length > 0 && record.resolvedEvidence.evidencePaths.length > 0 && record.resolvedEvidence.checkedBehaviors.length > 0 && record.resolvedEvidence.claimBoundary.includes('does not authorize deletion')), `${report.triageActionCounts.runtime_guarded} guarded records`),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
     check('removed dead export ratchets remain absent', report.removedCandidateRatchets.every((ratchet) => !ratchet.currentCandidate), `${report.removedCandidateRatchets.filter((ratchet) => ratchet.currentCandidate).length}/${report.removedCandidateRatchets.length} regressed`),
     check(
@@ -426,7 +438,7 @@ function writeMarkdown(report: DeadExportCandidatesReport): void {
     .map((item) => `| \`${item.file}\` | ${item.unusedExports} | ${item.unusedTypes} | ${item.duplicateExports} | ${item.sampleExports.map((sample) => `\`${sample}\``).join('<br>') || 'none'} |`)
     .join('\n')
   const triageRows = report.triageRecords
-    .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.action}\` | \`${item.currentCandidate}\` | ${item.guardrail} |`)
+    .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.action}\` | \`${item.currentCandidate}\` | ${item.guardrail}${item.resolvedEvidence ? `<br>Evidence: ${item.resolvedEvidence.evidencePaths.map((path) => `\`${path}\``).join(', ')}<br>Validation: ${item.resolvedEvidence.validationCommands.map((command) => `\`${command}\``).join(', ')}` : ''} |`)
     .join('\n')
   const ratchetRows = report.removedCandidateRatchets
     .map((item) => `| \`${item.file}\` | \`${item.kind}\` | \`${item.symbol}\` | \`${item.currentCandidate}\` | ${item.guardrail} |`)
