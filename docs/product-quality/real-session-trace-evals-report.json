@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:14:14.645Z",
+  "generatedAt": "2026-06-19T15:57:27.877Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
   "traceFileCount": 10,
@@ -52,6 +52,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -90,6 +96,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -137,6 +149,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -180,6 +198,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -226,6 +250,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": true,
+      "protectedActionDenied": true,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": true,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -271,6 +301,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -318,6 +354,12 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
@@ -365,11 +407,17 @@
       "lastStatus": "succeeded",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": true,
+      "recoveryStep": true,
       "passed": true
     },
     {
       "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "21c1b2e7fc2e7a7a26a3c60698f8f6f186e19a5cd749f7a051633ecd0b0b40f5",
+      "sha256": "e955e5df0c1e5934c0695ef4d2ae582f406d5abd3b4ee7c30a68a305df8655a9",
       "traceKind": "usage_cli_probe",
       "lineCount": 2,
       "eventCount": 2,
@@ -386,7 +434,7 @@
         "planner"
       ],
       "models": [
-        "historical-local-model"
+        "historical-redacted-provider-probe"
       ],
       "querySources": [
         "sdk"
@@ -398,11 +446,17 @@
       "lastStatus": "failed",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     },
     {
       "path": "reports/orchestra-usage-probe.jsonl",
-      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
+      "sha256": "de009a9975248b135afdb57bac56ef871069d77caf751054aabd48e8808e2f06",
       "traceKind": "usage_repl_probe",
       "lineCount": 2,
       "eventCount": 2,
@@ -419,7 +473,7 @@
         "planner"
       ],
       "models": [
-        "historical-local-model"
+        "historical-redacted-local-probe"
       ],
       "querySources": [
         "repl_main_thread"
@@ -431,6 +485,12 @@
       "lastStatus": "failed",
       "requiredFieldsComplete": true,
       "credentialPatternFound": false,
+      "protectedActionRequested": false,
+      "protectedActionDenied": false,
+      "protectedActionExecuted": false,
+      "safeAlternativeSelected": false,
+      "interruptedToolStep": false,
+      "recoveryStep": false,
       "passed": true
     }
   ],
@@ -459,7 +519,8 @@
     ],
     "models": [
       "historical-local-fixture-model",
-      "historical-local-model",
+      "historical-redacted-local-probe",
+      "historical-redacted-provider-probe",
       "local-fixture-editor",
       "local-fixture-reader",
       "local-fixture-test-runner",
@@ -491,6 +552,22 @@
     "passedTraceCount": 10,
     "failedTraceCount": 2,
     "succeededTraceCount": 8,
+    "runtimeBehaviorTriad": {
+      "covered": true,
+      "happyPathTracePaths": [
+        "reports/orchestra-code-editing-trace-local-fixture.jsonl",
+        "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
+        "reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl"
+      ],
+      "edgeRecoveryTracePaths": [
+        "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl"
+      ],
+      "protectedActionDenialTracePaths": [
+        "reports/orchestra-protected-action-denial-trace-local-fixture.jsonl"
+      ],
+      "protectedActionExecuted": false,
+      "detail": "happy_path=3; edge_recovery=1; protected_action_denial=1; protected_action_executed=false"
+    },
     "classifiedCoverageGaps": [
       {
         "id": "single_role_trace_coverage",
@@ -501,7 +578,7 @@
       {
         "id": "single_model_trace_coverage",
         "status": "not_present",
-        "detail": "17 models represented.",
+        "detail": "18 models represented.",
         "protectedActionRequired": false
       },
       {
@@ -559,6 +636,11 @@
       "label": "success and failure traces are both represented",
       "ok": true,
       "detail": "failed,started,succeeded"
+    },
+    {
+      "label": "runtime behavior triad covers happy path, edge recovery, and side-effect denial",
+      "ok": true,
+      "detail": "happy_path=3; edge_recovery=1; protected_action_denial=1; protected_action_executed=false"
     },
     {
       "label": "live and usage trace kind gaps are represented or classified",

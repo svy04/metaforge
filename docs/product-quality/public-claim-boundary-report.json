@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T15:42:10.080Z",
+  "generatedAt": "2026-06-19T15:58:44.520Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -1669,9 +1669,9 @@
     {
       "path": "docs/product-quality/real-session-trace-evals-report.md",
       "exists": true,
-      "sha256": "f75f1334cfb8ff83c2c5a8e3fce9bd4eed4389063f0fc9b982c349b3de64e645",
-      "sizeBytes": 7468,
-      "lineCount": 67
+      "sha256": "9fd6e8b62391522da03835ab11e50074d9643748ff06ff09547a787bbf8d8ad2",
+      "sizeBytes": 8235,
+      "lineCount": 78
     },
     {
       "path": "docs/product-quality/regression-cycle-code-editing-trace-capture-report.md",
@@ -1913,7 +1913,7 @@
     }
   ],
   "publicSurfaceCount": 266,
-  "scannedLineCount": 24057,
+  "scannedLineCount": 24068,
   "blockedContextClaimMentionCount": 1048,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -11386,6 +11386,8 @@
         "docs/GOAL_SCHEMA.md",
         "docs/product-quality/goal-trace-validation-report.md",
         "docs/product-quality/goal-trace-validation-report.json",
+        "docs/product-quality/real-session-trace-evals-report.md",
+        "docs/product-quality/real-session-trace-evals-report.json",
         "docs/product-quality/public-claim-boundary-report.md",
         "docs/product-quality/product-evidence-manifest.md",
         "docs/goals/CG-002-static-analysis-ratchet.md",
@@ -11397,14 +11399,14 @@
         "docs/product-quality/dependency-topology-report.md",
         "docs/product-quality/script-duplication-audit-report.md"
       ],
-      "verificationCommand": "bun run goals:validate && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:public-claim-boundary",
-      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, and static-analysis ratchets.",
+      "verificationCommand": "bun run goals:validate && bun run product:real-trace-evals && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:public-claim-boundary",
+      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, local runtime behavior triad evidence, and static-analysis ratchets.",
       "nonClaims": [
         "MFH is not a formal certification system.",
         "MFH is not external validation.",
         "MFH does not prove production, release, public, or autonomous reliability readiness."
       ],
-      "unresolvedGap": "Runtime traces beyond docs-governance and static-analysis goals, live-provider evidence, and broader side-effect behavior coverage are still needed before MFH can carry broader reliability claims."
+      "unresolvedGap": "live-provider evidence, broader non-fixture behavior coverage, and cross-environment side-effect coverage are still needed before MFH can carry broader reliability claims."
     },
     {
       "symbol": "Orchestra",
@@ -11528,7 +11530,7 @@
     {
       "label": "MFH behavior evidence is bound to trace validation",
       "ok": true,
-      "detail": "MFH row includes representative trace fixtures, CG-002 static-analysis ratchet evidence, goals validation, and remaining runtime trace gap"
+      "detail": "MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, goals validation, and remaining live-provider/non-fixture gaps"
     },
     {
       "label": "OpenClaude remains substrate rather than thesis",
@@ -11553,7 +11555,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "24057 lines"
+      "detail": "24068 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
