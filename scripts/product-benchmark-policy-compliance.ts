@@ -154,21 +154,21 @@ function buildPolicyItems(submission: BenchmarkSubmissionReadinessReport): Bench
       'SWE-bench Verified and Multilingual submission policy dated 2025-11-18',
       'classified_unresolved_protected_or_owner_claim_required',
       'No arXiv preprint, technical report, or peer-reviewed publication artifact is present in local no-provider product-quality evidence.',
-      'Owner-provided publication evidence and explicit permission to cite it before any official SWE-bench Verified or Multilingual submission eligibility claim.',
+      'Publication evidence and explicit permission to cite it before any official SWE-bench Verified or Multilingual submission eligibility claim.',
     ),
     policyItem(
       'academic_or_research_institution_affiliation',
       'SWE-bench Verified and Multilingual submission policy dated 2025-11-18',
       'classified_unresolved_protected_or_owner_claim_required',
       'No academic institution or established research-lab affiliation evidence is present in local product-quality artifacts.',
-      'Explicit owner-provided affiliation evidence before any official SWE-bench Verified or Multilingual eligibility claim.',
+      'Explicit affiliation evidence before any official SWE-bench Verified or Multilingual eligibility claim.',
     ),
     policyItem(
       'open_source_methods',
       'SWE-bench Verified and Multilingual submission policy dated 2025-11-18',
       'partial_local_evidence_only',
       'Local repo files, product-quality scripts, and evidence reports are present, but no official benchmark submission method disclosure package exists.',
-      'A complete owner-approved method disclosure package bound to an official benchmark submission, without adding release or public-readiness claims.',
+      'A complete authorized method disclosure package bound to an official benchmark submission, without adding release or public-readiness claims.',
       false,
     ),
     policyItem(
@@ -176,7 +176,7 @@ function buildPolicyItems(submission: BenchmarkSubmissionReadinessReport): Bench
       'SWE-bench Verified and Multilingual submission policy dated 2025-11-18',
       'classified_unresolved_protected_or_owner_claim_required',
       'No peer-reviewed publication evidence is present in this local no-provider gate.',
-      'Owner-provided peer-review or accepted publication evidence before any official eligibility claim that depends on it.',
+      'Peer-review or accepted publication evidence before any official eligibility claim that depends on it.',
     ),
     policyItem(
       'official_submission_assets_complete',

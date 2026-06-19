@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:14:16.441Z",
+  "generatedAt": "2026-06-19T12:52:02.538Z",
   "mode": "local_no_provider_benchmark_policy_compliance",
   "sourceBenchmarkSubmissionReadinessPath": "docs/product-quality/benchmark-submission-readiness-report.json",
   "sourceBenchmarkSubmissionReadinessSha256": "50612f93fd078782c8557d125eb75460c79babcf56ee6ed1354cff104454c9b3",
@@ -20,14 +20,14 @@
     }
   ],
   "policyComplianceJsonlPath": "reports/openclaude-benchmark-policy-compliance.jsonl",
-  "policyComplianceJsonlSha256": "79893d0140078916c7f5ae5bfb22276d188857ded96c4c450c849ac3e55a1bd4",
+  "policyComplianceJsonlSha256": "87017dbd091b15c7585562e6a7f39a0d89a92c96b114bb1568fb7dcff192d968",
   "policyItems": [
     {
       "policyItemId": "open_research_publication_or_technical_report",
       "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
       "status": "classified_unresolved_protected_or_owner_claim_required",
       "currentLocalEvidence": "No arXiv preprint, technical report, or peer-reviewed publication artifact is present in local no-provider product-quality evidence.",
-      "requiredBeforeOfficialClaim": "Owner-provided publication evidence and explicit permission to cite it before any official SWE-bench Verified or Multilingual submission eligibility claim.",
+      "requiredBeforeOfficialClaim": "Publication evidence and explicit permission to cite it before any official SWE-bench Verified or Multilingual submission eligibility claim.",
       "protectedActionRequiredToResolve": true,
       "protectedActionExecuted": false,
       "officialClaimAllowed": false
@@ -37,7 +37,7 @@
       "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
       "status": "classified_unresolved_protected_or_owner_claim_required",
       "currentLocalEvidence": "No academic institution or established research-lab affiliation evidence is present in local product-quality artifacts.",
-      "requiredBeforeOfficialClaim": "Explicit owner-provided affiliation evidence before any official SWE-bench Verified or Multilingual eligibility claim.",
+      "requiredBeforeOfficialClaim": "Explicit affiliation evidence before any official SWE-bench Verified or Multilingual eligibility claim.",
       "protectedActionRequiredToResolve": true,
       "protectedActionExecuted": false,
       "officialClaimAllowed": false
@@ -47,7 +47,7 @@
       "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
       "status": "partial_local_evidence_only",
       "currentLocalEvidence": "Local repo files, product-quality scripts, and evidence reports are present, but no official benchmark submission method disclosure package exists.",
-      "requiredBeforeOfficialClaim": "A complete owner-approved method disclosure package bound to an official benchmark submission, without adding release or public-readiness claims.",
+      "requiredBeforeOfficialClaim": "A complete authorized method disclosure package bound to an official benchmark submission, without adding release or public-readiness claims.",
       "protectedActionRequiredToResolve": false,
       "protectedActionExecuted": false,
       "officialClaimAllowed": false
@@ -57,7 +57,7 @@
       "sourcePolicyScope": "SWE-bench Verified and Multilingual submission policy dated 2025-11-18",
       "status": "classified_unresolved_protected_or_owner_claim_required",
       "currentLocalEvidence": "No peer-reviewed publication evidence is present in this local no-provider gate.",
-      "requiredBeforeOfficialClaim": "Owner-provided peer-review or accepted publication evidence before any official eligibility claim that depends on it.",
+      "requiredBeforeOfficialClaim": "Peer-review or accepted publication evidence before any official eligibility claim that depends on it.",
       "protectedActionRequiredToResolve": true,
       "protectedActionExecuted": false,
       "officialClaimAllowed": false

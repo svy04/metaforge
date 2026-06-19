@@ -157,7 +157,8 @@ describe('public repository readiness surfaces', () => {
     const latestTriage = readRepoText('docs/product-quality/public-feedback-triage-2026-06-19.md')
     const combined = `${snapshot}\n${triage}\n${latestSnapshot}\n${latestTriage}`
 
-    expect(combined).toContain('2026-06-18 Owner-Restated Feedback Packet')
+    expect(combined).toContain('2026-06-18 Restated Feedback Packet')
+    expect(combined).toContain('The same community thread was restated as an active operating input')
     expect(combined).toContain('Provenance is a trust surface')
     expect(combined).toContain('fork/adaptation questions should be')
     expect(combined).toContain('private-to-public transition')

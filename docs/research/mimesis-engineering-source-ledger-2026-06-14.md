@@ -19,10 +19,10 @@ Define Mimesis Engineering as a Metaforge operating loop and decide which source
 | `docs/RESEARCH_PIPELINE.md` | Primary-source ladder already requires local code, official docs, repos, standards, papers, patents, and rejection of blog-only final evidence. | Mimesis inherits this ladder. |
 | `docs/avf/OSS_ASSIMILATION_PIPELINE.md` | Existing local rule: OSS assimilation is governed acquisition, not copy-paste adoption. | Reuse as the open-source absorption boundary. |
 | `docs/avf/OPEN_SOURCE_EXPANSION_MAP.md` | Existing local map already separates candidate reuse from dependency adoption and runtime claims. | Reuse candidate-only boundary language. |
-| Owner-side Mimesis workbench note | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use only as private planning context, not public proof. |
-| Owner-side Mimesis package note | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Re-check public sources before profile or README use. |
-| Owner-side claim pack | Current local claim pack for public statement guardrails. | Use only as private tone guidance, not a public source path. |
-| Owner-side source packet | Candidate source packet for the Mimesis method. | Use as private planning context after dirty-state review. |
+| Internal Mimesis workbench note | Current thread separates shallow prompt imitation from deeper design-structure transfer. | Use only as private planning context, not public proof. |
+| Internal Mimesis package note | Current public-facing frame: standards, not roles; provenance and verification inheritance. | Re-check public sources before profile or README use. |
+| Internal claim pack | Current local claim pack for public statement guardrails. | Use only as private tone guidance, not a public source path. |
+| Internal source packet | Candidate source packet for the Mimesis method. | Use as private planning context after dirty-state review. |
 
 ## Product And Open-Source Sources
 
@@ -74,7 +74,7 @@ Define Mimesis Engineering as a Metaforge operating loop and decide which source
 3. Open-source systems provide reusable grammar for agent runtime, handoffs, durable execution, and policy gates, but not immediate production claims.
 4. Papers provide task-loop patterns: reason-act, reflect, debate, retrieve, evaluate.
 5. Patents and standards are useful as prior-art and control vocabulary, not as permission or compliance evidence.
-6. The private/local Mimesis v.next workbench currently contains the freshest local Mimesis method and should supersede older profile links or inaccessible public claims.
+6. Unpublished Mimesis research can influence internal direction only after review; public claims must wait until the evidence is sanitized, source-controlled, linked through public proof surfaces, and re-verified.
 
 ## Decision Log Impact
 

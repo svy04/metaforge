@@ -74,7 +74,7 @@ external validation, hosted workflow proof, or autonomous reliability evidence.
 
 ## Late Follow-Up Signals
 
-An additional owner-provided community thread on 2026-06-15 reinforced the same
+An additional community thread on 2026-06-15 reinforced the same
 public-readiness priorities and added two sharper trust signals:
 
 - Early readers check commit/star history and provenance before trying the
@@ -97,7 +97,7 @@ public-readiness priorities and added two sharper trust signals:
 
 ## Third-Wave Follow-Up Signals
 
-A later owner-provided community thread on 2026-06-16 sharpened the same
+A later community thread on 2026-06-16 sharpened the same
 feedback into two immediate hardening requirements:
 
 - AGENTS.md quality gates should not pass because required words appear
@@ -116,10 +116,10 @@ goal-artifact status language as blocked only when a same-file top boundary is
 present. Older goal artifacts with strong local status language now carry an
 explicit historical local artifact boundary.
 
-## 2026-06-18 Owner-Restated Feedback Packet
+## 2026-06-18 Restated Feedback Packet
 
-The owner supplied the same community thread again as an active operating input.
-The durable signal remains stronger than the casual language of the thread:
+The same community thread was restated as an active operating input. The durable
+signal remains stronger than the casual language of the thread:
 
 - The private-to-public transition needs a plain provenance story. Commit/star
   history questions are trust questions, so public copy should distinguish
