@@ -290,7 +290,6 @@ function _temp4(query_0: string, controller_1: AbortController, setMatches_0: Di
       return;
     }
     collected = collected + parsed.length;
-    collected;
     setMatches_0((prev: Match[]) => {
       const seen = new Set(prev.map(matchKey));
       const fresh = parsed.filter(p => !seen.has(matchKey(p)));

@@ -103,15 +103,15 @@ export function getContextWindowForModel(
     return OPENAI_FALLBACK_CONTEXT_WINDOW
   }
 
-  const cap = getModelCapability(model)
-  if (cap?.max_input_tokens && cap.max_input_tokens >= 100_000) {
+  const maxInputTokens = getModelCapability(model)?.max_input_tokens
+  if (typeof maxInputTokens === 'number' && maxInputTokens >= 100_000) {
     if (
-      cap.max_input_tokens > MODEL_CONTEXT_WINDOW_DEFAULT &&
+      maxInputTokens > MODEL_CONTEXT_WINDOW_DEFAULT &&
       is1mContextDisabled()
     ) {
       return MODEL_CONTEXT_WINDOW_DEFAULT
     }
-    return cap.max_input_tokens
+    return maxInputTokens
   }
 
   if (betas?.includes(CONTEXT_1M_BETA_HEADER) && modelSupports1M(model)) {
@@ -245,9 +245,9 @@ export function getModelMaxOutputTokens(model: string): {
     upperLimit = MAX_OUTPUT_TOKENS_UPPER_LIMIT
   }
 
-  const cap = getModelCapability(model)
-  if (cap?.max_tokens && cap.max_tokens >= 4_096) {
-    upperLimit = cap.max_tokens
+  const maxTokens = getModelCapability(model)?.max_tokens
+  if (typeof maxTokens === 'number' && maxTokens >= 4_096) {
+    upperLimit = maxTokens
     defaultTokens = Math.min(defaultTokens, upperLimit)
   }
 
