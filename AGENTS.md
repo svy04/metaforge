@@ -52,15 +52,13 @@ evidence appears.
 
 ## Workflow Stack
 
-- **GStack**: product judgment, architecture challenge, design review, QA
-  review, security review, and final spec shaping.
-- **GSD**: milestone/phase decomposition, context-rot control, `.planning/`
-  state, and large multi-step execution.
-- **Superpowers**: TDD, systematic debugging, code review, and
-  verification-before-completion for concrete implementation work.
+Use the stack as compact operating boundaries, not a rule pile:
 
-Do not let one layer swallow the others. GStack defines judgment, GSD tracks
-phases, and Superpowers governs implementation discipline.
+- **GStack**: product, architecture, design, QA, and security judgment.
+- **GSD**: phases, checkpoints, and long-running execution state.
+- **Superpowers**: TDD, debugging, code review, and verification discipline.
+
+Keep detailed role contracts in `docs/AGENT_REGISTRY.md`.
 
 ## Verification Standard
 

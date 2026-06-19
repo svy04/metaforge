@@ -11,14 +11,9 @@ OpenClaude는 현재 Metaforge가 올라타는 로컬 CLI 런타임입니다. �
 route를 제공합니다. 하지만 공개적으로 중심에 둘 가치는 OpenClaude 자체가
 아니라 **Meta + MFH + Orchestra**입니다.
 
-AVF Influence Factory는 기본 CLI runtime이 아니라 `avf/`와 `scripts/` 아래의
-manual artifact lane입니다. Generated operator run output은 공개 checkout에
-추적하지 않고 로컬 owner-review workspace에서만 재생성합니다.
-
 Orchestra는 현재 이 package에서 runtime-wired layer입니다. Meta와 MFH는
-governance, schema, evidence-gate surface입니다. AVF Influence Factory는
-repo-local manual artifact lane입니다. 이 세 영역을 모두 기본 runtime module로
-말하지 않습니다.
+governance, schema, evidence-gate surface입니다. 이 영역들을 모두 별도 runtime
+module로 말하지 않습니다.
 
 출처와 라이선스 경계: 이 repository에는 Anthropic Claude Code CLI에서 파생된
 runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 법적으로 가능한 범위에서 MIT
@@ -75,6 +70,8 @@ Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완�
 Blocked context: 이 Proof Tour는 local no-provider evidence이며 production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability claim을 만들지 않습니다.
 
 ## 운영 레이어
+
+AVF Influence Factory는 repo-local manual artifact lane입니다.
 
 | 레이어 | 역할 |
 | --- | --- |
