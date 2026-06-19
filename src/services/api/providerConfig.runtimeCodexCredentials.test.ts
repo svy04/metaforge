@@ -105,3 +105,78 @@ test('runtime credential resolution avoids sync secure-storage reads when async 
   expect(credentials.apiKey).toBe('stored-access-token')
   expect(credentials.accountId).toBe('acct_stored')
 })
+
+test('stored Codex credentials prefer explicit account id and never require auth.json lookup', async () => {
+  let syncReadCalled = false
+
+  mock.module('../../utils/codexCredentials.js', () => ({
+    isCodexRefreshFailureCoolingDown: () => false,
+    readCodexCredentials: () => {
+      syncReadCalled = true
+      throw new Error('sync secure-storage read should not run')
+    },
+  }))
+
+  // @ts-ignore cache-busting query string for Bun module mocks
+  const { resolveStoredCodexCredentials } = await importFresh('./providerConfig.js?stored-codex-direct-guard')
+
+  const credentials = resolveStoredCodexCredentials({
+    envAccountId: 'acct_env',
+    storedCredentials: {
+      apiKey: 'stored-api-key',
+      accessToken: makeJwt({
+        'https://api.openai.com/auth': {
+          chatgpt_account_id: 'acct_from_access_token',
+        },
+      }),
+      idToken: makeJwt({
+        'https://api.openai.com/auth': {
+          chatgpt_account_id: 'acct_from_id_token',
+        },
+      }),
+      accountId: 'acct_stored',
+    },
+  })
+
+  expect(syncReadCalled).toBe(false)
+  expect(credentials.source).toBe('secure-storage')
+  expect(credentials.apiKey).toBe('stored-api-key')
+  expect(credentials.accountId).toBe('acct_env')
+  expect(credentials.authPath).toBeUndefined()
+})
+
+test('stored Codex credentials resolve account id by fallback priority', async () => {
+  // @ts-ignore cache-busting query string for isolated import
+  const { resolveStoredCodexCredentials } = await importFresh('./providerConfig.js?stored-codex-account-fallbacks')
+  const accessTokenWithAccount = makeJwt({
+    'https://api.openai.com/auth': {
+      chatgpt_account_id: 'acct_from_access_token',
+    },
+  })
+  const idTokenWithAccount = makeJwt({
+    'https://api.openai.com/auth': {
+      chatgpt_account_id: 'acct_from_id_token',
+    },
+  })
+
+  expect(resolveStoredCodexCredentials({
+    storedCredentials: {
+      accessToken: accessTokenWithAccount,
+      idToken: idTokenWithAccount,
+      accountId: 'acct_stored',
+    },
+  }).accountId).toBe('acct_stored')
+
+  expect(resolveStoredCodexCredentials({
+    storedCredentials: {
+      accessToken: accessTokenWithAccount,
+      idToken: idTokenWithAccount,
+    },
+  }).accountId).toBe('acct_from_id_token')
+
+  expect(resolveStoredCodexCredentials({
+    storedCredentials: {
+      accessToken: accessTokenWithAccount,
+    },
+  }).accountId).toBe('acct_from_access_token')
+})
