@@ -114,7 +114,31 @@ const userSegment = String.raw`[^\\/"]+`
 const privateWorkspacePlaceholder = '<private' + '-workspace>'
 const privateCodexMemoryPlaceholder = '<private' + '-codex-memory-dir>'
 const privateAgentSkillPlaceholder = '<private' + '-agent-skill-dir>'
+
+function escapeRegExp(input: string): string {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function pathPattern(input: string): RegExp {
+  const parts = input.split(/[\\/]+/).filter(Boolean).map(escapeRegExp)
+  if (parts.length === 0) {
+    return /$^/
+  }
+  const first = parts[0]
+  const body = parts.slice(1).join(sep)
+  const prefix = /^[A-Za-z]:$/.test(first)
+    ? `${first}${body ? sep : ''}`
+    : input.startsWith('/') || input.startsWith('\\')
+      ? sep
+      : ''
+  return new RegExp(`${prefix}${body || (!/^[A-Za-z]:$/.test(first) ? first : '')}`, 'g')
+}
+
 const replacements: Replacement[] = [
+  {
+    pattern: pathPattern(root),
+    replacement: '<repo>',
+  },
   {
     pattern: new RegExp(
       String.raw`C:${sep}Users${sep}${userSegment}${sep}Desktop${sep}${segment}${sep}openclaude-0\.6\.0`,
