@@ -14,6 +14,10 @@ casual chat, or local/private machine details back into the repository.
      context.
    - Public copy must distinguish original Metaforge operating-system work from
      the adapted OpenClaude CLI substrate.
+   - CLI substrate risk remains an architecture lane. If the current
+     OpenClaude-derived substrate creates unacceptable provenance, license, or
+     maintenance risk, evaluate lower-risk open CLI substrates or host adapters
+     without moving the product thesis away from Meta/MFH/Orchestra.
 
 2. The public thesis is Meta + MFH + Orchestra OS.
    - OpenClaude should remain described as runtime substrate for terminal UX,
@@ -28,6 +32,10 @@ casual chat, or local/private machine details back into the repository.
      material, hardcoded personal settings, and rule sprawl.
    - Keep Korean documentation current because the early public feedback loop is
      Korean.
+   - The workflow stack should stay compact in public copy. GStack, GSD, and
+     Superpowers can remain internal operating boundaries, but public readers
+     should not have to parse a private rule pile before judging the
+     architecture.
 
 4. Marker-only audits remain weak proof.
    - File existence, string checks, forbidden-marker absence, and hardcoded
