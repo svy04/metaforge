@@ -655,12 +655,12 @@ describe('public repository readiness surfaces', () => {
     ]
 
     expect(readme).toContain('Public history boundary')
-    expect(readme).toContain('private/local workbench')
-    expect(readme).toContain('public checkout')
+    expect(readme).toContain('pre-public work outside this checkout')
+    expect(readme).toContain('current public repository')
     expect(readme).toContain('not adoption evidence, external validation, or production readiness')
     expect(koreanReadme).toContain('공개 히스토리 경계')
-    expect(koreanReadme).toContain('프라이빗/로컬 workbench')
-    expect(koreanReadme).toContain('공개 checkout')
+    expect(koreanReadme).toContain('checkout 밖의 공개 전 작업 이력')
+    expect(koreanReadme).toContain('현재 공개')
     expect(koreanReadme).toContain('채택, 외부 검증, production readiness 증거가 아닙니다')
 
     for (const pattern of forbiddenEnglishHistoryOverclaims) {
