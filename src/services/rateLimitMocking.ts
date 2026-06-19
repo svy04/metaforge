@@ -13,6 +13,12 @@ import {
   shouldProcessMockLimits,
 } from './mockRateLimits.js'
 
+function toDefinedHeaderEntries(headers: object): [string, string][] {
+  return Object.entries(headers).filter(
+    (entry): entry is [string, string] => typeof entry[1] === 'string',
+  )
+}
+
 /**
  * Process headers, applying mocks if /mock-limits command is active
  */
@@ -98,12 +104,7 @@ export function checkMockRateLimitError(
       { error: { type: 'rate_limit_error', message: 'Rate limit exceeded' } },
       'Rate limit exceeded',
       // eslint-disable-next-line eslint-plugin-n/no-unsupported-features/node-builtins
-      new globalThis.Headers(
-        Object.entries(fastModeHeaders).filter(([_, v]) => v !== undefined) as [
-          string,
-          string,
-        ][],
-      ),
+      new globalThis.Headers(toDefinedHeaderEntries(fastModeHeaders)),
     )
     return error
   }
@@ -118,12 +119,7 @@ export function checkMockRateLimitError(
       { error: { type: 'rate_limit_error', message: 'Rate limit exceeded' } },
       'Rate limit exceeded',
       // eslint-disable-next-line eslint-plugin-n/no-unsupported-features/node-builtins
-      new globalThis.Headers(
-        Object.entries(mockHeaders).filter(([_, v]) => v !== undefined) as [
-          string,
-          string,
-        ][],
-      ),
+      new globalThis.Headers(toDefinedHeaderEntries(mockHeaders)),
     )
     return error
   }

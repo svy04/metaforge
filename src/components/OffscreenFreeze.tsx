@@ -25,6 +25,7 @@ export function OffscreenFreeze({
 }: Props): React.ReactNode {
   // React Compiler: reading cached.current in the return is the entire
   // freeze mechanism — memoizing this component would defeat it. Opt out.
+  // codeql[js/unknown-directive]
   'use no memo';
 
   const inVirtualList = useContext(InVirtualListContext);
