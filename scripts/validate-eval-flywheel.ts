@@ -154,8 +154,8 @@ export function evaluateEvalFlywheelDocs(docs: Map<string, string>): EvalFlywhee
   }
 
   const reconciliation = docs.get('docs/reports/mfh-meta-source-reconciliation-2026-06-18.md') ?? ''
-  if (!/owner-side status:\s*drift_carried_forward_awaiting_user_adjudication/i.test(reconciliation)) {
-    errors.push('source reconciliation report must carry forward owner-side drift status')
+  if (!/internal status:\s*drift_carried_forward_awaiting_user_adjudication/i.test(reconciliation)) {
+    errors.push('source reconciliation report must carry forward internal drift status')
   }
   if (!/private harness workspace was not edited/i.test(reconciliation)) {
     errors.push('source reconciliation report must state that private harness workspace was not edited')
@@ -181,7 +181,7 @@ export function buildEvalFlywheelReport(docs: Map<string, string>): EvalFlywheel
     check('EVAL-008 through EVAL-010 are present', result.requiredEvalIdsPresent.length === requiredEvalIds.length, result.requiredEvalIdsPresent.join(', ')),
     check('automation candidates remain proposed-only', result.automationCandidateCount > 0 && !result.errors.includes('automation report must state that no automations were scheduled or created') && !result.errors.includes('automation report must mark candidates as proposed_only'), `${result.automationCandidateCount} candidates`),
     check('external-call candidates are blocked pending owner approval', !result.errors.includes('external-call automation candidates must be blocked until owner approval'), 'blocked_until_owner_approval enforced'),
-    check('owner-side MFH/Meta drift boundary is preserved', !result.errors.includes('source reconciliation report must carry forward owner-side drift status'), 'drift_carried_forward_awaiting_user_adjudication'),
+    check('internal MFH/Meta drift boundary is preserved', !result.errors.includes('source reconciliation report must carry forward internal drift status'), 'drift_carried_forward_awaiting_user_adjudication'),
     check('no provider/live/external/protected side effects recorded', true, 'side-effect arrays are empty'),
   ]
 

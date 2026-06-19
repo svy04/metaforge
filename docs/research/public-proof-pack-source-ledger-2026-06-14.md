@@ -16,8 +16,8 @@ How should Metaforge make a public marketing surface that is strong, discoverabl
 | `docs/profile/github-profile-refresh-evidence-2026-06-14.md` | Profile rewrite used current public repos and avoided private/inaccessible proof. | Use as current profile evidence. |
 | `docs/product-quality/public-claim-boundary-report.md` | Local no-provider scan blocks unsupported public claims on configured surfaces. | Use as claim-boundary evidence. |
 | `docs/product-quality/product-evidence-manifest.md` | Local evidence package can hash-bind reports and artifacts. | Use as proof-pack pattern without signed-attestation claims. |
-| Owner-side claim pack | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use only as private tone guidance, not a public source path. |
-| Owner-side design review note | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a private public-surface design test, then re-check public sources. |
+| Internal claim pack | Fresh local claim pack says verification is marketing, proof boundaries should stay visible, and source permission governs claims. | Use only as private tone guidance, not a public source path. |
+| Internal design review note | Fresh local expert module asks whether structure still proves the proposition after copy is removed. | Use as a private public-surface design test, then re-check public sources. |
 
 ## Primary Sources
 

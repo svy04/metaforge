@@ -19,7 +19,7 @@ Research is not a decoration pass. A researched claim can enter public proof cop
 - a validation method;
 - a decision-log assumption.
 
-Blog posts, search snippets, community comments, and marketing summaries may route discovery, but they are not final evidence. Private owner-side notes may inform planning, but they are not public proof paths.
+Blog posts, search snippets, community comments, and marketing summaries may route discovery, but they are not final evidence. Private internal notes may inform planning, but they are not public proof paths.
 
 ## Current Briefs
 

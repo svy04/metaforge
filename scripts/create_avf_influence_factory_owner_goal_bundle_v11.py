@@ -62,7 +62,7 @@ def create_owner_extensions() -> None:
         {
             "style_memory_status": "active_local_reference_only",
             "image_generation_ready": True,
-            "rights_notes": "Use only owner-provided, generated, or properly licensed references.",
+            "rights_notes": "Use only user-provided, generated, or properly licensed references.",
             "reference_slots": [
                 {
                     "slot": "primary_brand_scene",
@@ -161,7 +161,7 @@ def create_docs() -> None:
         ROOT / "docs" / "goals" / "INFLUENCE_FACTORY_OWNER_GOAL_BUNDLE_V11_COMPLETION_AUDIT.md",
         "# Influence Factory Owner Goal Bundle v11 Completion Audit\n\n"
         "RESULT: PASS\n\n"
-        "The first owner-provided product direction has been converted into a local-only artifact bundle.\n\n"
+        "The first user-provided product direction has been converted into a local-only artifact bundle.\n\n"
         "Verified artifacts:\n\n"
         "- goal_input.json\n"
         "- run_manifest.json\n"

@@ -65,7 +65,7 @@ in this repository as the public authority:
 - `docs/SECURITY_AND_GUARDRAILS.md`
 - `docs/DECISION_LOG.md`
 
-Private harness notes may inform owner-side planning, but they are not public
+Private harness notes may inform internal planning, but they are not public
 proof and should not be named as public source paths.
 
 ## Meta Raw/Wiki/Decision Flow

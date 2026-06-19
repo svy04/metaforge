@@ -214,7 +214,7 @@ The OpenClaude plan may import MFH/Meta concepts, but it must not claim the harn
 
 Evidence:
 
-- Private owner-side harness state was not re-verified as a public artifact.
+- Private internal harness state was not re-verified as a public artifact.
 - `docs/MFH_META_SYNTHESIS.md` records the import as evidence-aware rather than
   green-complete.
 
@@ -341,7 +341,7 @@ Status: accepted
 Decision:
 
 The first Autonomous Goal OS Eval Flywheel records local no-provider evidence
-only. Automation candidates are proposed-only, owner-side MFH/Meta drift is
+only. Automation candidates are proposed-only, internal MFH/Meta drift is
 carried forward until owner adjudication, and the Orchestra experiment runner
 result is recorded as mock fallback unless a real source-controlled task set is
 present.

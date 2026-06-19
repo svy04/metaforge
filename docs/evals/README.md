@@ -17,7 +17,7 @@ The Eval Flywheel turns Goal OS progress into repeatable evidence. It decides wh
 
 ## Required Imports
 
-- EVAL-008 MFH Source Reconciliation Import keeps owner-side harness drift explicit before importing MFH/Meta state.
+- EVAL-008 MFH Source Reconciliation Import keeps internal harness drift explicit before importing MFH/Meta state.
 - EVAL-009 Closure Reality Gate blocks milestone closure from status labels alone.
 - EVAL-010 Governed-Code Claim Ledger keeps public claims tagged to their evidence level.
 

@@ -70,8 +70,8 @@ This gives Metaforge a marketable but proof-bounded claim:
 
 An unpublished Mimesis v.next artifact set has the freshest Mimesis evidence:
 
-- owner-side Mimesis design thread
-- owner-side Mimesis package notes
+- internal Mimesis design thread
+- internal Mimesis package notes
 
 The source artifact set is not a published repository. It contains unpublished working state. These are current working evidence, not final public proof. The next profile and marketing surface should prefer current evidence over older placeholder pages or obsolete repository lists, while labeling non-public work as non-public.
 

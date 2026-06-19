@@ -1,9 +1,9 @@
 # MFH / Meta Source Reconciliation
 
-Status: local public reconciliation plus owner-side drift boundary
+Status: local public reconciliation plus internal drift boundary
 Date: 2026-06-18
 
-owner-side status: drift_carried_forward_awaiting_user_adjudication
+internal status: drift_carried_forward_awaiting_user_adjudication
 
 The private harness workspace was not edited. This report records the public OpenClaude/Metaforge reconciliation state only.
 
@@ -21,7 +21,7 @@ The private harness workspace was not edited. This report records the public Ope
 ## Current Classification
 
 - Public OpenClaude/Metaforge docs: `local_public_reconciliation_pass`.
-- Owner-side MFH/Meta harness: `drift_carried_forward_awaiting_user_adjudication`.
+- Internal MFH/Meta harness: `drift_carried_forward_awaiting_user_adjudication`.
 - Private harness command execution: `not_run_in_this_public_repo_slice`.
 - Private harness workspace edit: `not_performed`.
 - Production, release, hosted, benchmark, external validation, standards compliance, patent clearance, and autonomous reliability claims: `blocked`.
