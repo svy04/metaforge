@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T11:33:09.306Z",
+  "generatedAt": "2026-06-19T14:18:55.347Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -9,13 +9,13 @@
   ],
   "sourceProductScriptCount": 93,
   "helperOccurrenceCounts": {
-    "check": 64,
-    "readText": 29,
+    "check": 63,
+    "readText": 28,
     "sha256Text": 0
   },
   "helperOccurrenceBaselines": {
-    "check": 64,
-    "readText": 29,
+    "check": 63,
+    "readText": 28,
     "sha256Text": 0
   },
   "duplicateHelperClusterCount": 2,
@@ -24,7 +24,7 @@
     {
       "helperName": "check",
       "normalizedBodySha256": "e50402a81ae2a1356ec2e3f39b23b1394bcdece8f13ab348e3bb859eced3cce1",
-      "occurrenceCount": 64,
+      "occurrenceCount": 63,
       "files": [
         {
           "path": "scripts/product-benchmark-efficiency-metrics.ts",
@@ -183,10 +183,6 @@
           "line": 163
         },
         {
-          "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-          "line": 142
-        },
-        {
           "path": "scripts/product-primary-source-registry.ts",
           "line": 134
         },
@@ -288,7 +284,7 @@
     {
       "helperName": "readText",
       "normalizedBodySha256": "b7cdc780c5534993afea96bd90d8ea39433fa4acc08b462b4c7cb1aab2137e31",
-      "occurrenceCount": 29,
+      "occurrenceCount": 28,
       "files": [
         {
           "path": "scripts/product-dependency-governance-quality.ts",
@@ -371,10 +367,6 @@
           "line": 167
         },
         {
-          "path": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-          "line": 138
-        },
-        {
           "path": "scripts/product-permission-regression.ts",
           "line": 41
         },
@@ -432,19 +424,19 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.043ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 55.726ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "4ab10348aa971f8a8208f9fa11ee45308fe084ae0e333d83575cfeea288144c3",
-  "jscpdCloneCount": 19,
-  "jscpdCloneBaseline": 19,
-  "jscpdDuplicatedLines": 507,
-  "jscpdDuplicatedLinesBaseline": 507,
-  "jscpdDuplicatedTokens": 3320,
-  "jscpdDuplicatedTokensBaseline": 3320,
-  "jscpdDuplicatedPercentage": 1.2051629465877487,
-  "jscpdDuplicatedPercentageBaseline": 1.2150406211805307,
-  "jscpdDuplicatedTokenPercentage": 1.2752750291930428,
+  "jscpdReportSha256": "b187820f87ba8ec352c745673ce26e1375a0d8e7271eb90af2d246ddf166c2e8",
+  "jscpdCloneCount": 17,
+  "jscpdCloneBaseline": 17,
+  "jscpdDuplicatedLines": 439,
+  "jscpdDuplicatedLinesBaseline": 439,
+  "jscpdDuplicatedTokens": 2979,
+  "jscpdDuplicatedTokensBaseline": 2979,
+  "jscpdDuplicatedPercentage": 1.043871121150874,
+  "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
+  "jscpdDuplicatedTokenPercentage": 1.1446729862554708,
   "jscpdSourceCount": 93,
   "jscpdTopClonePairs": [
     {
@@ -552,8 +544,8 @@
       "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
       "firstStartLine": 221,
       "firstEndLine": 241,
-      "secondStartLine": 257,
-      "secondEndLine": 276,
+      "secondStartLine": 243,
+      "secondEndLine": 262,
       "lines": 21,
       "tokens": 169
     },
@@ -592,8 +584,8 @@
       "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
       "firstStartLine": 289,
       "firstEndLine": 315,
-      "secondStartLine": 327,
-      "secondEndLine": 353,
+      "secondStartLine": 313,
+      "secondEndLine": 339,
       "lines": 27,
       "tokens": 205
     },
@@ -606,26 +598,6 @@
       "secondEndLine": 40,
       "lines": 40,
       "tokens": 143
-    },
-    {
-      "firstFile": "scripts/product-oss-release-hygiene-evidence.ts",
-      "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-      "firstStartLine": 1,
-      "firstEndLine": 41,
-      "secondStartLine": 1,
-      "secondEndLine": 41,
-      "lines": 41,
-      "tokens": 148
-    },
-    {
-      "firstFile": "scripts/product-oss-release-hygiene-evidence.ts",
-      "secondFile": "scripts/product-oss-tool-loop-reliability-evidence.ts",
-      "firstStartLine": 138,
-      "firstEndLine": 166,
-      "secondStartLine": 131,
-      "secondEndLine": 159,
-      "lines": 29,
-      "tokens": 193
     },
     {
       "firstFile": "scripts/product-real-trace-evals.ts",
@@ -698,7 +670,7 @@
     {
       "label": "target helper occurrence surface is measured",
       "ok": true,
-      "detail": "{\"check\":64,\"readText\":29,\"sha256Text\":0}"
+      "detail": "{\"check\":63,\"readText\":28,\"sha256Text\":0}"
     },
     {
       "label": "duplicate helper clusters are reported as candidates",
@@ -713,7 +685,7 @@
     {
       "label": "helper occurrences do not exceed baseline",
       "ok": true,
-      "detail": "{\"current\":{\"check\":64,\"readText\":29,\"sha256Text\":0},\"baseline\":{\"check\":64,\"readText\":29,\"sha256Text\":0}}"
+      "detail": "{\"current\":{\"check\":63,\"readText\":28,\"sha256Text\":0},\"baseline\":{\"check\":63,\"readText\":28,\"sha256Text\":0}}"
     },
     {
       "label": "jscpd token clone command is configured when config is present",
@@ -723,22 +695,22 @@
     {
       "label": "jscpd token clone count does not exceed baseline",
       "ok": true,
-      "detail": "19/19"
+      "detail": "17/17"
     },
     {
       "label": "jscpd duplicated line and token counts do not exceed baseline",
       "ok": true,
-      "detail": "507/507; 3320/3320"
+      "detail": "439/439; 2979/2979"
     },
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.2051629465877487/1.2150406211805307"
+      "detail": "1.043871121150874/1.043871121150874"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
       "ok": true,
-      "detail": "19 pairs"
+      "detail": "17 pairs"
     },
     {
       "label": "primary sources include OSS, research, and patent inputs",
