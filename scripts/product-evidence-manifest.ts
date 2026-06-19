@@ -167,6 +167,15 @@ export const rawRequiredEvidencePaths = [
   'docs/product-quality/protected-action-denial-trace-report.json',
   'docs/product-quality/protected-action-denial-trace-report.md',
   'reports/orchestra-protected-action-denial-trace-local-fixture.jsonl',
+  'docs/goals/CG-001-goal-kernel-mvp.md',
+  'docs/goals/CG-002-static-analysis-ratchet.md',
+  'docs/goals/traces/CG-001-goal-kernel-mvp.trace.json',
+  'docs/goals/traces/CG-001-missing-evidence-rejected.trace.json',
+  'docs/goals/traces/CG-001-protected-action-blocked.trace.json',
+  'docs/goals/traces/CG-002-static-analysis-ratchet.trace.json',
+  'docs/product-quality/goal-validation-report.json',
+  'docs/product-quality/goal-trace-validation-report.json',
+  'docs/product-quality/goal-trace-validation-report.md',
   'docs/product-quality/product-quality-gate.md',
   'docs/product-quality/terminal-report.md',
   'docs/product-quality/verification-report-2026-05-17.md',
@@ -362,6 +371,8 @@ function buildEvidenceRecords(): EvidenceRecord[] {
     '.jscpd.json',
     '.dependency-cruiser.mjs',
     '.dependency-cruiser-known-violations.json',
+    ...listFiles('docs/goals')
+      .filter((path) => /^docs\/goals\/CG-\d+-.*\.md$/.test(path) || /^docs\/goals\/traces\/CG-\d+-.*\.trace\.json$/.test(path)),
     ...listFiles('docs/product-quality'),
     ...trackedReportPaths
       .filter(isSourceControlledReportArtifactPath)

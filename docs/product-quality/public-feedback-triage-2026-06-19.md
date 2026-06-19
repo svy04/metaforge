@@ -34,8 +34,8 @@ Observed from that read-only audit:
 - The workflow-stack wording remains a future simplification target because
   public readers can interpret multiple named stacks as rule sprawl.
 
-No product gate, hosted workflow, legal review, static-analysis tool run, or
-repo-wide leak scan is claimed by this read-only storage-path audit.
+No hosted workflow, legal review, new external validation, cleanup completion,
+or repo-wide leak scan is claimed by this read-only storage-path audit.
 
 ## Immediate Action
 
@@ -51,11 +51,25 @@ goal-trace validation artifacts to the MFH claim-evidence map:
 The matching gate now checks that the MFH row includes the trace report, trace
 fixtures, `goals:validate`, and the remaining cross-goal runtime trace gap.
 
+This slice also adds `CG-002` so the static-analysis feedback is tied to a
+second Goal OS trace:
+
+- `docs/goals/CG-002-static-analysis-ratchet.md`
+- `docs/goals/traces/CG-002-static-analysis-ratchet.trace.json`
+- `docs/product-quality/dead-export-candidates-report.md`
+- `docs/product-quality/dependency-topology-report.md`
+- `docs/product-quality/script-duplication-audit-report.md`
+
+The matching claim boundary allows Knip, dependency-cruiser, and jscpd to be
+described as local no-provider product-quality gates. It does not prove cleanup completion, safe deletion, topology cleanliness, refactor completion, public readiness, release readiness, external validation, or autonomous reliability.
+
 ## Remaining Work
 
 - Do not claim CodeQL is passing unless a current hosted run is inspected.
-- Do not claim Knip, fallow, dependency-cruiser, jscpd, or Lumin Repo Lens are
-  wired unless they are actually run or added to source-controlled gates.
+- Do not claim fallow or Lumin Repo Lens are wired unless they are actually run
+  or added to source-controlled gates.
+- Do not describe Knip, dependency-cruiser, or jscpd as cleanup completion; they
+  are bounded local static-analysis candidate/baseline/ratchet gates.
 - Do not claim Metaforge, AVF, influence-factory, Mimesis, GStack, GSD, or
   Superpowers are active runtime modules without import, runtime, test, or
   source-controlled report evidence.

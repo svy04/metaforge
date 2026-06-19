@@ -401,3 +401,41 @@ Consequence:
 - Broader MFH reliability claims remain blocked until cross-goal runtime
   traces, live-provider evidence, and broader side-effect behavior coverage
   exist.
+
+## D-018 - Bind static-analysis feedback to a second Goal OS trace
+
+Date: 2026-06-19
+Status: accepted
+
+Decision:
+
+Knip, dependency-cruiser, and jscpd evidence should be treated as local
+static-analysis ratchets, not as cleanup completion. The public feedback about
+dead exports, dependency topology, duplicate shapes, and marker-only audits is
+now bound to `CG-002` and a second source-controlled trace so MFH cross-goal
+wording has more than a single Goal Kernel example.
+
+Evidence:
+
+- `package.json` wires `product:dead-export-candidates`,
+  `product:dependency-topology`, and `product:script-duplication-audit` into
+  `product:quality`.
+- `docs/product-quality/dead-export-candidates-report.md` records Knip
+  candidate evidence without deletion or autofix claims.
+- `docs/product-quality/dependency-topology-report.md` records
+  dependency-cruiser topology and known-violation ratchet evidence without
+  topology-clean claims.
+- `docs/product-quality/script-duplication-audit-report.md` records jscpd
+  duplicate-shape evidence without refactor-completion claims.
+- `scripts/validate-goal-traces.ts` now checks that valid trace evidence covers
+  more than one goal before cross-goal MFH claims are made.
+
+Consequence:
+
+- MFH can describe representative cross-goal local trace-validation evidence
+  across Goal Kernel and static-analysis ratchet goals.
+- Static-analysis wording can say Knip, dependency-cruiser, and jscpd are wired
+  gates.
+- Cleanup completion, safe deletion, topology cleanliness, refactor completion,
+  hosted CodeQL health, release readiness, public readiness, external
+  validation, and autonomous reliability claims remain blocked.
