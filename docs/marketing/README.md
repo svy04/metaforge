@@ -6,4 +6,4 @@ Use these files when writing GitHub profile copy, repository descriptions, launc
 
 - [Metaforge Public Proof Pack, 2026-06-18](metaforge-public-proof-pack-2026-06-18.md)
 - [Metaforge Public Proof Pack, 2026-06-14](metaforge-public-proof-pack-2026-06-14.md) historical baseline
-- [GitHub profile refresh evidence, 2026-06-19](../profile/github-profile-refresh-evidence-2026-06-19.md)
+- [GitHub profile refresh evidence, 2026-06-20](../profile/github-profile-refresh-evidence-2026-06-20.md)
