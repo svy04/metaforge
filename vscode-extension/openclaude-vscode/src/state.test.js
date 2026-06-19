@@ -196,6 +196,44 @@ test('describeProviderState reports OpenAI when the parsed host is api.openai.co
   );
 });
 
+test('describeProviderState does not treat substring-matched Codex endpoints as Codex', () => {
+  assert.deepEqual(
+    describeProviderState({
+      shimEnabled: false,
+      env: {
+        CLAUDE_CODE_USE_OPENAI: '1',
+        OPENAI_BASE_URL: 'https://evil.example/path/chatgpt.com/backend-api/codex',
+        OPENAI_MODEL: 'gpt-5.4',
+      },
+      profile: null,
+    }),
+    {
+      label: 'OpenAI-compatible',
+      detail: 'gpt-5.4',
+      source: 'env',
+    },
+  );
+});
+
+test('describeProviderState reports Codex only for the parsed ChatGPT Codex endpoint', () => {
+  assert.deepEqual(
+    describeProviderState({
+      shimEnabled: false,
+      env: {
+        CLAUDE_CODE_USE_OPENAI: '1',
+        OPENAI_BASE_URL: 'https://chatgpt.com/backend-api/codex',
+        OPENAI_MODEL: 'gpt-5.4',
+      },
+      profile: null,
+    }),
+    {
+      label: 'Codex',
+      detail: 'gpt-5.4',
+      source: 'env',
+    },
+  );
+});
+
 test('describeProviderState reports environment-backed provider details', () => {
   assert.deepEqual(
     describeProviderState({
