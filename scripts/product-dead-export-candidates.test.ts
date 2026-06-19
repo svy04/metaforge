@@ -42,6 +42,13 @@ type DeadExportCandidatesReport = {
     currentCandidate: boolean
     rationale: string
     guardrail: string
+    resolvedEvidence?: {
+      state: string
+      validationCommands: string[]
+      evidencePaths: string[]
+      checkedBehaviors: string[]
+      claimBoundary: string
+    }
   }>
   removedCandidateRatchets: Array<{
     file: string
@@ -114,10 +121,29 @@ describe('product dead export candidate gate', () => {
     expect(report.triageLedgerPath).toBe('docs/product-quality/dead-export-candidate-triage.json')
     expect(report.triageRecordCount).toBeGreaterThanOrEqual(3)
     expect(report.triageCurrentCandidateCount).toBe(report.triageRecordCount)
-    expect(report.triageActionCounts['needs_runtime_guard']).toBeGreaterThanOrEqual(1)
+    expect(report.triageActionCounts['runtime_guarded']).toBeGreaterThanOrEqual(2)
+    expect(report.triageActionCounts['needs_runtime_guard'] ?? 0).toBe(0)
     expect(report.triageActionCounts['review_for_removal']).toBeGreaterThanOrEqual(1)
     expect(report.triageRecords.every((item) => item.currentCandidate)).toBe(true)
     expect(report.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20)).toBe(true)
+    const credentialRuntimeGuardCommand =
+      'bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts'
+    const runtimeGuardedCredentialRecords = report.triageRecords.filter((item) => (
+      item.symbol === 'resolveStoredCodexCredentials' ||
+      item.symbol === 'clearGeminiAccessToken'
+    ))
+    expect(runtimeGuardedCredentialRecords).toHaveLength(2)
+    expect(runtimeGuardedCredentialRecords.every((item) => item.action === 'runtime_guarded')).toBe(true)
+    expect(runtimeGuardedCredentialRecords.every((item) => item.resolvedEvidence?.state === 'resolved_with_runtime_guard')).toBe(true)
+    expect(runtimeGuardedCredentialRecords.every((item) => (
+      item.resolvedEvidence?.validationCommands.includes(credentialRuntimeGuardCommand)
+    ))).toBe(true)
+    expect(runtimeGuardedCredentialRecords.flatMap((item) => item.resolvedEvidence?.evidencePaths ?? [])).toEqual(
+      expect.arrayContaining([
+        'src/services/api/providerConfig.runtimeCodexCredentials.test.ts',
+        'src/utils/geminiCredentials.test.ts',
+      ]),
+    )
     expect(report.removedCandidateRatchets.length).toBeGreaterThanOrEqual(4)
     expect(report.removedCandidateRatchets.every((item) => item.currentCandidate)).toBe(false)
     expect(
@@ -167,6 +193,7 @@ describe('product dead export candidate gate', () => {
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.json')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidates-report.md')
     expect(evidenceManifest).toContain('docs/product-quality/dead-export-candidate-triage.json')
-    expect(readFileSync(triagePath, 'utf8')).toContain('needs_runtime_guard')
+    expect(readFileSync(triagePath, 'utf8')).toContain('runtime_guarded')
+    expect(readFileSync(triagePath, 'utf8')).toContain('resolved_with_runtime_guard')
   })
 })

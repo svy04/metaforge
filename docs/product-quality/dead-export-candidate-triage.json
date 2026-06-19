@@ -6,20 +6,52 @@
       "file": "src/services/api/providerConfig.ts",
       "symbol": "resolveStoredCodexCredentials",
       "kind": "export",
-      "action": "needs_runtime_guard",
+      "action": "runtime_guarded",
       "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
-      "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
-      "reviewedAt": "2026-06-16",
+      "guardrail": "Runtime guard evidence now covers Codex credential lookup with no-secret fixtures; any future removal still needs separate public/API boundary review.",
+      "resolvedEvidence": {
+        "state": "resolved_with_runtime_guard",
+        "validationCommands": [
+          "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+        ],
+        "evidencePaths": [
+          "src/services/api/providerConfig.runtimeCodexCredentials.test.ts"
+        ],
+        "checkedBehaviors": [
+          "explicit auth.json path wins over stored secure-storage tokens",
+          "explicit missing auth.json path remains stable instead of falling through silently",
+          "async credentials avoid sync secure-storage reads",
+          "stored Codex credentials preserve explicit account id and fallback priority"
+        ],
+        "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+      },
+      "reviewedAt": "2026-06-20",
       "reviewer": "codex-local-triage"
     },
     {
       "file": "src/utils/geminiCredentials.ts",
       "symbol": "clearGeminiAccessToken",
       "kind": "export",
-      "action": "needs_runtime_guard",
+      "action": "runtime_guarded",
       "rationale": "Credential clearing is a destructive-auth-state helper and must not be removed without proving logout and reset behavior still works.",
-      "guardrail": "Before removal, add credential lifecycle tests that prove stored-token clear, missing-token no-op, and no secret logging behavior.",
-      "reviewedAt": "2026-06-16",
+      "guardrail": "Runtime guard evidence now covers credential lifecycle behavior; any future removal still needs separate logout/reset boundary review.",
+      "resolvedEvidence": {
+        "state": "resolved_with_runtime_guard",
+        "validationCommands": [
+          "bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts"
+        ],
+        "evidencePaths": [
+          "src/utils/geminiCredentials.test.ts"
+        ],
+        "checkedBehaviors": [
+          "stored Gemini token is removed",
+          "missing token clear remains a no-op success",
+          "bare mode does not touch secure storage",
+          "clearing Gemini credentials leaves other stored keys intact"
+        ],
+        "claimBoundary": "Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims."
+      },
+      "reviewedAt": "2026-06-20",
       "reviewer": "codex-local-triage"
     },
     {

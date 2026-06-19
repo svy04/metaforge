@@ -23,8 +23,15 @@ type SourceInput = {
 type DeadExportTriageRecord = {
   file: string
   symbol: string
-  action: string
+  action: 'needs_runtime_guard' | 'runtime_guarded' | 'review_for_removal' | 'defer_public_api' | 'keep_until_entrypoint_proven'
   currentCandidate: boolean
+  resolvedEvidence?: {
+    state: 'resolved_with_runtime_guard'
+    validationCommands: string[]
+    evidencePaths: string[]
+    checkedBehaviors: string[]
+    claimBoundary: string
+  }
 }
 
 type DeadExportInput = {
@@ -96,6 +103,8 @@ export type StaticAnalysisRemediationQueueReport = {
   primarySourceInputs: SourceInput[]
   queueItems: StaticAnalysisQueueItem[]
   queueItemCount: number
+  guardedDeadExportRuntimeRecordCount: number
+  guardedDeadExportRuntimeRecords: DeadExportTriageRecord[]
   deadExport: DeadExportInput
   dependencyTopology: DependencyTopologyInput
   scriptDuplication: ScriptDuplicationInput
@@ -315,10 +324,25 @@ function buildQueueItems(input: StaticAnalysisRemediationInput): StaticAnalysisQ
   })
 }
 
+function hasLinkedRuntimeGuardEvidence(record: DeadExportTriageRecord): boolean {
+  return record.resolvedEvidence?.state === 'resolved_with_runtime_guard' &&
+    record.resolvedEvidence.validationCommands.includes(credentialRuntimeGuardValidationCommand) &&
+    record.resolvedEvidence.evidencePaths.length > 0 &&
+    record.resolvedEvidence.checkedBehaviors.length > 0 &&
+    record.resolvedEvidence.claimBoundary.includes('does not authorize deletion')
+}
+
 export function buildStaticAnalysisRemediationQueue(input: StaticAnalysisRemediationInput): StaticAnalysisRemediationQueueReport {
   const queueItems = buildQueueItems(input)
+  const guardedRuntimeRecords = input.deadExport.triageRecords
+    .filter((record) => record.currentCandidate && record.action === 'runtime_guarded')
   const sourceTypes = new Set(primarySourceInputs().map((source) => source.sourceType))
   const evidenceSources = new Set(queueItems.map((item) => item.evidenceSource))
+  const runtimeGuardQueueSamples = new Set(
+    queueItems
+      .filter((item) => item.queueId === 'static-analysis-dead-export-runtime-guards')
+      .flatMap((item) => item.sampleLocations),
+  )
   const report: StaticAnalysisRemediationQueueReport = {
     generatedAt: new Date().toISOString(),
     mode: 'local_no_provider_static_analysis_remediation_queue',
@@ -329,6 +353,8 @@ export function buildStaticAnalysisRemediationQueue(input: StaticAnalysisRemedia
     primarySourceInputs: primarySourceInputs(),
     queueItems,
     queueItemCount: queueItems.length,
+    guardedDeadExportRuntimeRecordCount: guardedRuntimeRecords.length,
+    guardedDeadExportRuntimeRecords: guardedRuntimeRecords,
     deadExport: input.deadExport,
     dependencyTopology: input.dependencyTopology,
     scriptDuplication: input.scriptDuplication,
@@ -353,6 +379,8 @@ export function buildStaticAnalysisRemediationQueue(input: StaticAnalysisRemedia
     check('queue covers existing static-analysis tools when findings exist', ['knip', 'dependency-cruiser', 'jscpd'].every((source) => evidenceSources.has(source as StaticAnalysisQueueItem['evidenceSource'])), [...evidenceSources].join(',')),
     check('new dependency violations are prioritized first when present', input.dependencyTopology.configuredRatchetNewViolationCount === 0 || report.queueItems[0]?.queueId === 'static-analysis-new-dependency-violations', report.queueItems.map((item) => `${item.priority}:${item.queueId}`).join(',')),
     check('primary sources cover OSS docs research and patent inputs', ['oss_tool', 'project_docs', 'research_survey', 'patent'].every((sourceType) => sourceTypes.has(sourceType as SourceInput['sourceType'])), [...sourceTypes].join(',')),
+    check('runtime-guarded dead-export candidates carry linked validation evidence', guardedRuntimeRecords.every(hasLinkedRuntimeGuardEvidence), `${guardedRuntimeRecords.length} guarded records`),
+    check('runtime-guarded dead-export candidates stay out of unresolved P1 queue', guardedRuntimeRecords.every((record) => !runtimeGuardQueueSamples.has(`${record.file}#${record.symbol}`)), `${runtimeGuardQueueSamples.size} unresolved samples`),
     check('queue item paths are relative and local-safe', report.queueItems.every((item) => item.sampleLocations.every((sample) => !/[A-Za-z]:\\/.test(sample) && !sample.includes(root))), `${report.queueItemCount} items`),
     check('no provider live external protected dependency install or autofix action occurred', report.providerCallsPerformed.length === 0 && report.liveModelCallsPerformed.length === 0 && report.externalCallsPerformed.length === 0 && report.protectedActionsExecuted.length === 0 && !report.dependencyInstallPerformed && !report.autofixPerformed && !report.deletionPerformed, 'all action flags empty/false'),
     check('cleanup topology refactor and public-readiness claims remain blocked', !report.cleanupCompletionClaimAllowed && !report.topologyCleanClaimAllowed && !report.refactorCompletionClaimAllowed && !report.publicReadinessClaimAllowed, 'all claim flags false'),
@@ -410,6 +438,9 @@ function writeMarkdown(report: StaticAnalysisRemediationQueueReport, jsonlSha256
   const sampleRows = report.queueItems
     .flatMap((item) => item.sampleLocations.slice(0, 8).map((sample) => `| \`${item.queueId}\` | ${sample} |`))
     .join('\n')
+  const guardedRuntimeRows = report.guardedDeadExportRuntimeRecords
+    .map((record) => `| \`${record.file}\` | \`${record.symbol}\` | ${record.resolvedEvidence?.evidencePaths.map((path) => `\`${path}\``).join('<br>') ?? 'none'} | ${record.resolvedEvidence?.validationCommands.map((command) => `\`${command}\``).join('<br>') ?? 'none'} | ${record.resolvedEvidence?.claimBoundary ?? 'none'} |`)
+    .join('\n')
   const checkRows = report.evidenceChecks
     .map((item) => `| ${item.label} | \`${item.ok}\` | ${item.detail} |`)
     .join('\n')
@@ -431,6 +462,7 @@ Generated by: \`bun run product:static-analysis-remediation-queue\`
 - generated_from: \`${report.generatedFrom.join(',')}\`
 - status: \`${report.status}\`
 - queue_item_count: \`${report.queueItemCount}\`
+- guarded_dead_export_runtime_record_count: \`${report.guardedDeadExportRuntimeRecordCount}\`
 - jsonl_sha256: \`${jsonlSha256}\`
 - dead_export_candidate_files: \`${report.deadExport.candidateFileCount}\`
 - dead_export_candidate_unused_exports: \`${report.deadExport.candidateUnusedExportCount}\`
@@ -455,6 +487,12 @@ ${queueRows || '| none | none | none | 0 | none | false | no queue items |'}
 | Queue ID | Sample |
 | --- | --- |
 ${sampleRows || '| none | none |'}
+
+## Guarded Runtime Evidence
+
+| File | Symbol | Evidence Paths | Validation Commands | Claim Boundary |
+| --- | --- | --- | --- | --- |
+${guardedRuntimeRows || '| none | none | none | none | none |'}
 
 ## Primary Sources
 
