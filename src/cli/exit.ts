@@ -13,14 +13,12 @@ import { sanitizePlainTextLogValue } from '../utils/logSanitization.js'
 // `return undefined as never` (not a post-exit throw) — tests spy on
 // process.exit and let it return. Call sites write `return cliError(...)`
 // where subsequent code would dereference narrowed-away values under mock.
-// cliError uses console.error (tests spy on console.error); cliOk uses
-// process.stdout.write (tests spy on process.stdout.write — Bun's console.log
-// doesn't route through a spied process.stdout.write).
+// cliError/cliOk use process stdio writes directly. Tests spy on the same
+// functions, and Bun's console methods do not always route through those spies.
 
 /** Write an error message to stderr (if given) and exit with code 1. */
 export function cliError(msg?: string): never {
-  // biome-ignore lint/suspicious/noConsole: centralized CLI error output
-  if (msg) console.error('%s', sanitizePlainTextLogValue(msg))
+  if (msg) process.stderr.write(`${sanitizePlainTextLogValue(msg)}\n`)
   process.exit(1)
   return undefined as never
 }
