@@ -141,7 +141,7 @@ export function getAgentModelOptions(): AgentModelOption[] {
     {
       value: 'opus',
       label: 'Opus',
-      description: 'Most capable for complex reasoning tasks',
+      description: 'Configured for complex reasoning tasks',
     },
     {
       value: 'haiku',

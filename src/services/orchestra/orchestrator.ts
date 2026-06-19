@@ -17,7 +17,7 @@ import { OAUTH_BETA_HEADER } from '../../constants/oauth.js'
 import { sideQuery } from '../../utils/sideQuery.js'
 import type { ToolUseContext } from '../../Tool.js'
 import {
-  CLAUDE_OPUS_47_ALIAS,
+  CLAUDE_OPUS_ALIAS,
   resolveOrchestraSettings,
   type OrchestraPlannerFailurePolicy,
   type OrchestraPlannerPolicy,
@@ -412,7 +412,7 @@ function formatList(title: string, items: string[]): string {
 
 export function formatOrchestraMeta(advisory: OrchestraAdvisory): string {
   return [
-    '<orchestra-advisory source="Claude Opus 4.7" visibility="hidden">',
+    '<orchestra-advisory source="Claude Opus (configured)" visibility="hidden">',
     'Use this as private planning guidance. Codex remains the only execution and write authority.',
     '',
     `Goal: ${advisory.goal}`,
@@ -489,7 +489,7 @@ function formatPlannerFailureMessage(params: {
   message: string
 }): string {
   return (
-    `${CLAUDE_OPUS_47_ALIAS} planner failed before implementation guidance was available ` +
+    `${CLAUDE_OPUS_ALIAS} planner failed before implementation guidance was available ` +
     `(${params.model}, ${params.kind}): ${params.message}`
   )
 }
@@ -701,7 +701,7 @@ export async function buildSkepticDissent({
   if (!hasCritiqueWorthyAssistantText(params.messages)) {
     return {}
   }
-  // Skeptic uses the same Opus 4.7 OAuth path as the planner — same model
+  // Skeptic uses the same configured Claude Opus path as the planner — same model
   // resolution alias keeps env / settings overrides consistent across roles.
   const skepticResolution = resolveOrchestraModelAlias('planner', {
     settings: params.settings,

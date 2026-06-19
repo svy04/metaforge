@@ -59,7 +59,7 @@ describe('public artifact hygiene scanner', () => {
     mkdirSync(planningDir, { recursive: true })
     writeFileSync(
       join(planningDir, 'PROJECT.md'),
-      'Always call GPT 5.5 + Opus 4.7; fallback must not use gpt-4o.\n',
+      'Always call GPT 5.5 + configured Claude Opus; fallback must not use gpt-4o.\n',
     )
 
     const result = runHygiene(repo)

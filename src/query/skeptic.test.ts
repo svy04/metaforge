@@ -58,7 +58,7 @@ const baseDeps = {
 describe('query orchestra skeptic integration', () => {
   test('fires the skeptic exactly once per turn after a tool_use-free assistant message', async () => {
     const skepticCalls: any[] = []
-    const skepticMessage = createSystemMessage('[Opus 4.7 야당] dissent', 'warning')
+    const skepticMessage = createSystemMessage('[Opus 야당] dissent', 'warning')
 
     const deps = {
       ...baseDeps,

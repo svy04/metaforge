@@ -355,7 +355,7 @@ async function opusShadowWorker(
       model: 'claude-opus-4-7',
       max_tokens: 4096,
       system:
-        'You are Claude Opus 4.7 acting as a shadow patch generator (야당 그림자). Output JSON only.',
+        'You are Claude Opus acting as the configured shadow patch generator (야당 그림자). Output JSON only.',
       messages: [{ role: 'user', content: workerPrompt(input, 'opus-shadow') }],
       querySource: 'orchestra_shadow_worker' as never,
       maxRetries: 0,
@@ -477,7 +477,7 @@ const opusReviewer: ReviewerFn = async ({ candidate, signal }) => {
     model: 'claude-opus-4-7',
     max_tokens: 1024,
     system:
-      'You are Claude Opus 4.7 reviewing a candidate patch as the opposition (야당). Output JSON only.',
+      'You are Claude Opus reviewing a candidate patch as the configured opposition (야당). Output JSON only.',
     messages: [{ role: 'user', content: reviewerPrompt(candidate) }],
     querySource: 'orchestra_cross_reviewer_opus' as never,
     maxRetries: 0,

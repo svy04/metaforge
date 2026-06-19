@@ -1,7 +1,7 @@
 import type { SettingsJson } from '../../utils/settings/types.js'
 
 export const CODEX_GPT_55_ALIAS = 'Codex GPT 5.5'
-export const CLAUDE_OPUS_47_ALIAS = 'Claude Opus 4.7'
+export const CLAUDE_OPUS_ALIAS = 'Claude Opus (configured)'
 
 export type OrchestraLead = 'codex'
 export type OrchestraVisibility = 'codex-final'
@@ -14,7 +14,7 @@ export type OrchestraMode =
    * v0.2 always-on opposition mode. The lock forces enabled=true,
    * plannerPolicy='always', and everyTurn=true regardless of any user
    * settings.json overrides. Used by users who have explicitly opted into
-   * the GPT 5.5-king + Opus 4.7-opposition vision and don't want a
+   * the GPT 5.5-king + Claude Opus opposition vision and don't want a
    * footgun setting (e.g. an accidental `enabled: false`) to silently
    * collapse the orchestra back into single-model behaviour.
    */
@@ -41,7 +41,7 @@ export type ResolvedOrchestraSettings = {
   /**
    * When true, the orchestra runs on EVERY user turn instead of only the
    * first. Pairs with the v0.2 "always-on opposition" vision: GPT 5.5 as
-   * the king + Opus 4.7 as the constant opposition party. Default false
+   * the king + Claude Opus as the constant opposition party. Default false
    * for backward compatibility — token-conservative users keep the legacy
    * turn-1-only behaviour.
    */
@@ -97,7 +97,7 @@ export const DEFAULT_ORCHESTRA_SETTINGS: ResolvedOrchestraSettings = {
   shadowEnabled: false,
   shadowEveryTurn: false,
   roles: {
-    planner: CLAUDE_OPUS_47_ALIAS,
+    planner: CLAUDE_OPUS_ALIAS,
     implementer: CODEX_GPT_55_ALIAS,
   },
   models: {},

@@ -178,7 +178,7 @@ export function buildSkepticPrompt(params: SkepticPromptParams): string {
       ]
     : []
   return [
-    'You are Claude Opus 4.7 acting as the opposition party (야당) in an orchestra.',
+    'You are Claude Opus acting as the configured opposition party (야당) in an orchestra.',
     'The visible lead Codex/GPT 5.5 has just produced a response. Your role is read-only critique.',
     'You have NO tool access and MUST NOT propose code edits — only highlight risks,',
     'questioned assumptions, and scope drift. Output JSON ONLY in Korean.',
@@ -318,7 +318,7 @@ export function dissentSeverityToMessageLevel(
   }
 }
 
-const SKEPTIC_HEADER = '[Opus 4.7 야당]'
+const SKEPTIC_HEADER = '[Opus 야당]'
 const EMPTY_HEADLINE_FALLBACK = '유의미한 이견 없음'
 
 function isReportEmpty(report: DissentReport): boolean {
