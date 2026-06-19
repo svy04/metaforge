@@ -1513,9 +1513,17 @@ type DeadExportCandidatesReport = {
   triageCurrentCandidateCount: number
   triageActionCounts: Record<string, number>
   triageRecords: Array<{
+    action?: string
     currentCandidate: boolean
     rationale: string
     guardrail: string
+    resolvedEvidence?: {
+      state: string
+      validationCommands: string[]
+      evidencePaths: string[]
+      checkedBehaviors: string[]
+      claimBoundary: string
+    }
   }>
   removedCandidateRatchets: Array<{
     currentCandidate: boolean
@@ -4333,7 +4341,8 @@ function main(): void {
   checks.push(check('dead export duplicate exports do not exceed baseline', deadExportCandidates.candidateDuplicateExportCount <= deadExportCandidates.candidateDuplicateExportBaseline, `${deadExportCandidates.candidateDuplicateExportCount}/${deadExportCandidates.candidateDuplicateExportBaseline}`))
   checks.push(check('dead export candidate triage path is required evidence', deadExportCandidates.triageLedgerPath === deadExportCandidateTriagePath && existsSync(resolve(root, deadExportCandidateTriagePath)), deadExportCandidates.triageLedgerPath))
   checks.push(check('dead export candidate triage entries remain current', deadExportCandidates.triageRecordCount >= 3 && deadExportCandidates.triageCurrentCandidateCount === deadExportCandidates.triageRecordCount && deadExportCandidates.triageRecords.every((item) => item.currentCandidate), `${deadExportCandidates.triageCurrentCandidateCount}/${deadExportCandidates.triageRecordCount}`))
-  checks.push(check('dead export candidate triage covers guarded and removal-review paths', (deadExportCandidates.triageActionCounts.needs_runtime_guard ?? 0) > 0 && (deadExportCandidates.triageActionCounts.review_for_removal ?? 0) > 0, JSON.stringify(deadExportCandidates.triageActionCounts)))
+  checks.push(check('dead export candidate triage covers guarded and removal-review paths', ((deadExportCandidates.triageActionCounts.needs_runtime_guard ?? 0) + (deadExportCandidates.triageActionCounts.runtime_guarded ?? 0)) > 0 && (deadExportCandidates.triageActionCounts.review_for_removal ?? 0) > 0, JSON.stringify(deadExportCandidates.triageActionCounts)))
+  checks.push(check('dead export candidate runtime-guarded records carry behavior evidence', deadExportCandidates.triageRecords.filter((item) => item.action === 'runtime_guarded').every((item) => item.resolvedEvidence?.state === 'resolved_with_runtime_guard' && item.resolvedEvidence.validationCommands.length > 0 && item.resolvedEvidence.evidencePaths.length > 0 && item.resolvedEvidence.checkedBehaviors.length > 0 && item.resolvedEvidence.claimBoundary.includes('does not authorize deletion')), JSON.stringify(deadExportCandidates.triageActionCounts)))
   checks.push(check('dead export candidate triage records rationale and guardrails', deadExportCandidates.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20), `${deadExportCandidates.triageRecordCount} records`))
   checks.push(check('dead export candidate removed ratchets remain absent', deadExportCandidates.removedCandidateRatchets.length >= 4 && deadExportCandidates.removedCandidateRatchets.every((item) => !item.currentCandidate && item.guardrail.length > 20), `${deadExportCandidates.removedCandidateRatchets.filter((item) => item.currentCandidate).length}/${deadExportCandidates.removedCandidateRatchets.length} regressed`))
   checks.push(check('dead export candidate gate records official primary sources', ['Knip', 'Knip JSON reporter docs', 'fallow'].every((source) => deadExportCandidates.primarySourceInputs.some((item) => item.sourceProject === source)) && deadExportCandidates.primarySourceInputs.every((item) => item.sourceUrl.startsWith('https://github.com/') || item.sourceUrl.startsWith('https://knip.dev/')), deadExportCandidates.primarySourceInputs.map((item) => item.sourceProject).join(',')))
