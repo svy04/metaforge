@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T02:48:58.433Z",
+  "generatedAt": "2026-06-19T04:03:18.005Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -108,14 +108,14 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "9999c864b7c1e2b8b787a477e79bb1e77d5f4a395a70d9fb7efdf14708d65acc",
-      "sizeBytes": 11084,
+      "sha256": "dbddd46f7a3022564f68350de44037945a89f01d2fb340938dfaff17c6b2ed61",
+      "sizeBytes": 11179,
       "lineCount": 188
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "b374ad29278fb3896640d49a70bc1ed770426366cd82543035e1da602360e779",
+      "sha256": "ab9d77c7f89069e210c1df2ed47f9426bc0c19acfad6acbeb5b775ca0d14a610",
       "sizeBytes": 23629,
       "lineCount": 464
     },
@@ -143,9 +143,9 @@
     {
       "path": "docs/MIMESIS_ENGINEERING.md",
       "exists": true,
-      "sha256": "3d60055f3bc9b6884de74dfc4f1a24a95784c847c7113a180bdac94f362c1bcf",
-      "sizeBytes": 4912,
-      "lineCount": 110
+      "sha256": "463db83197d539c68465dc3beeb2f02ef5bb332b7b545b3ebf1eeb3d18c3ba86",
+      "sizeBytes": 5043,
+      "lineCount": 111
     },
     {
       "path": "docs/PROJECT_SPEC.md",
@@ -1081,9 +1081,9 @@
     {
       "path": "docs/marketing/README.md",
       "exists": true,
-      "sha256": "c933653c1343ed757409192b9a9157ecf24573914ee5cac30e29a8b8985d309c",
-      "sizeBytes": 700,
-      "lineCount": 9
+      "sha256": "c484ef25c14bcf39a32454497c3e7939ad6d174cb69d7ee32ef9288f581da5d8",
+      "sizeBytes": 806,
+      "lineCount": 10
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-14.md",
@@ -1095,9 +1095,9 @@
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
       "exists": true,
-      "sha256": "607697becb9e11c2724b9f3dd1167bf0952227369056465ea0dcabf21437c318",
-      "sizeBytes": 13724,
-      "lineCount": 159
+      "sha256": "a29076e37093a0ea5190ff3280873858a57862bdb36b9d1ad2d35d230a7c9967",
+      "sizeBytes": 14338,
+      "lineCount": 160
     },
     {
       "path": "docs/product-quality/agent-instructions-quality-report.md",
@@ -1200,9 +1200,9 @@
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
       "exists": true,
-      "sha256": "56fe9fe176ece71853d81dfba2fc3577e9e39df54a19d157f3560b7e2aeaf386",
-      "sizeBytes": 10958,
-      "lineCount": 121
+      "sha256": "16378b14406beb31065bc8a2c7af9971b8d88f444992c9da1ae6973ec43189fd",
+      "sizeBytes": 11538,
+      "lineCount": 124
     },
     {
       "path": "docs/product-quality/eval-flywheel-validation-report.md",
@@ -1828,6 +1828,20 @@
       "lineCount": 59
     },
     {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-14.md",
+      "exists": true,
+      "sha256": "12e4c6bc67d3cf38350cd191b1bb0c41bf67bd1ea23865382278d8db0dc7a0d7",
+      "sizeBytes": 3673,
+      "lineCount": 75
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "exists": true,
+      "sha256": "48d16ea2bf6005d3b479b1a49ffc184bccb86ee7272098a9ac64dd92a181e3f4",
+      "sizeBytes": 1938,
+      "lineCount": 56
+    },
+    {
       "path": "docs/quick-start-mac-linux.md",
       "exists": true,
       "sha256": "aeda0888cfddf763b14d89ea74e5675e9b7371204d08af8cc97d8c9b6191283b",
@@ -1851,9 +1865,9 @@
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-18.md",
       "exists": true,
-      "sha256": "a85455ef44b5d2f6d12e9a810d8434a740b2f2bd90034ac882e416206ab6ac55",
-      "sizeBytes": 4695,
-      "lineCount": 57
+      "sha256": "baef735adc10d2e919b2056a0a57d68272529af6999119040752a3f9c075c84d",
+      "sizeBytes": 5031,
+      "lineCount": 58
     },
     {
       "path": "package.json",
@@ -1891,9 +1905,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 263,
-  "scannedLineCount": 23602,
-  "blockedContextClaimMentionCount": 1023,
+  "publicSurfaceCount": 265,
+  "scannedLineCount": 23740,
+  "blockedContextClaimMentionCount": 1031,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -6074,7 +6088,16 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 80,
+      "line": 43,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "| GitHub profile null-boundary refresh | [2026-06-19 profile evidence](../profile/github-profile-refresh-evidence-2026-06-19.md) | The profile now publishes Mimesis null/negative boundaries beside wins and keeps deterministic-code lift, pub",
+      "contextText": "Blocked context: ... de lift, public benchmark, production-readiness, and external-validation claims blocked. | It proves profile maintenance and workflow checks only, not adoption, external validation, benchmark superiority, or universal Mimesis lift. |"
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
+      "line": 81,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -6083,7 +6106,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 81,
+      "line": 82,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -6092,7 +6115,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 89,
+      "line": 90,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -6101,7 +6124,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 90,
+      "line": 91,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -6110,27 +6133,9 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 91,
+      "line": 92,
       "phrase": "production readiness",
       "category": "production_readiness",
-      "status": "blocked_context",
-      "text": "| Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:",
-      "contextText": "Blocked context: ... r ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |"
-    },
-    {
-      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 91,
-      "phrase": "external validation",
-      "category": "external_validation",
-      "status": "blocked_context",
-      "text": "| Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:",
-      "contextText": "Blocked context: ... r ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |"
-    },
-    {
-      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 91,
-      "phrase": "autonomous reliability",
-      "category": "autonomous_reliability",
       "status": "blocked_context",
       "text": "| Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:",
       "contextText": "Blocked context: ... r ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |"
@@ -6141,12 +6146,30 @@
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
+      "text": "| Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:",
+      "contextText": "Blocked context: ... r ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |"
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
+      "line": 92,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "| Goal Kernel closure has local trace-policy evidence. | [goal trace validation report](../product-quality/goal-trace-validation-report.md), [CG-001 trace fixture](../goals/traces/CG-001-goal-kernel-mvp.trace.json), command: `bun run goals:",
+      "contextText": "Blocked context: ... r ordered closure and no provider/live/external/protected side effects. | It is not live provider execution, production readiness, external validation, or autonomous reliability. |"
+    },
+    {
+      "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
+      "line": 93,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
       "text": "| Mimesis Engineering is an active improvement loop. | [docs/MIMESIS_ENGINEERING.md](../MIMESIS_ENGINEERING.md), [source ledger](../research/mimesis-engineering-source-ledger-2026-06-14.md), [2026-06-18 public proof-pack source ledger](../r",
       "contextText": "Blocked context: ... rent method, source-first operating rules, and absorbed source patterns. | Does not prove universal output lift or external validation. |"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 93,
+      "line": 94,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -6155,16 +6178,16 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 94,
+      "line": 95,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
-      "text": "| Public profile was refreshed from current repo evidence. | [GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-14.md), [svy04 profile](https://github.com/svy04) | The profile routes readers to current publ",
-      "contextText": "Blocked context: ... s readers to current public repos, proof packets, and claim boundaries. | It is not adoption evidence, external validation, or proof that unpublished pre-public artifacts are public. |"
+      "text": "| Public profile was refreshed from current repo evidence. | [2026-06-19 GitHub profile refresh evidence](../profile/github-profile-refresh-evidence-2026-06-19.md), [baseline evidence](../profile/github-profile-refresh-evidence-2026-06-14.m",
+      "contextText": "Blocked context: ... ackets, and claim boundaries, including current null-boundary language. | It is not adoption evidence, external validation, benchmark evidence, or proof that unpublished pre-public artifacts are public. |"
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 141,
+      "line": 142,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -6173,7 +6196,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 142,
+      "line": 143,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -6182,7 +6205,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 145,
+      "line": 146,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -6191,7 +6214,7 @@
     },
     {
       "path": "docs/marketing/metaforge-public-proof-pack-2026-06-18.md",
-      "line": 146,
+      "line": 147,
       "phrase": "benchmark or model superiority",
       "category": "superiority",
       "status": "blocked_context",
@@ -10978,6 +11001,60 @@
       "contextText": "Blocked context: - It does not terminate processes, install dependencies, mutate VS Code, publish, deploy, launch, call providers, call live models, call external services, or claim extension availability, release readines ..."
     },
     {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 3,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "Status: public profile proof-surface refresh, not adoption or external validation.",
+      "contextText": "Blocked context: Status: public profile proof-surface refresh, not adoption or external validation."
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 25,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "production readiness, external validation, and universal AI-output",
+      "contextText": "Blocked context: - Blocked claims include deterministic-code lift, public benchmark status, Claim mention: production readiness, external validation, and universal AI-output"
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 25,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "production readiness, external validation, and universal AI-output",
+      "contextText": "Blocked context: - Blocked claims include deterministic-code lift, public benchmark status, Claim mention: production readiness, external validation, and universal AI-output"
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 50,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "It does not prove production readiness, adoption, external validation,",
+      "contextText": "Blocked context: It does not prove production readiness, adoption, external validation,"
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 50,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "It does not prove production readiness, adoption, external validation,",
+      "contextText": "Blocked context: It does not prove production readiness, adoption, external validation,"
+    },
+    {
+      "path": "docs/profile/github-profile-refresh-evidence-2026-06-19.md",
+      "line": 51,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "benchmark superiority, deterministic-code lift, or autonomous reliability.",
+      "contextText": "Blocked context: It does not prove production readiness, adoption, external validation, Claim mention: benchmark superiority, deterministic-code lift, or autonomous reliability."
+    },
+    {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-14.md",
       "line": 8,
       "phrase": "production readiness",
@@ -11042,7 +11119,16 @@
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-18.md",
-      "line": 51,
+      "line": 28,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "| `docs/profile/github-profile-refresh-evidence-2026-06-19.md` | Local authority | Current profile README maintenance records PR #68, the merge commit, workflow success, null-boundary copy, and blocked claim classes. | Profile maintenance e",
+      "contextText": "Blocked context: ... nce records PR #68, the merge commit, workflow success, null-boundary copy, and blocked claim classes. | Profile maintenance evidence, not adoption, external validation, benchmark superiority, or universal Mimesis lift. |"
+    },
+    {
+      "path": "docs/research/public-proof-pack-source-ledger-2026-06-18.md",
+      "line": 52,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -11051,7 +11137,7 @@
     },
     {
       "path": "docs/research/public-proof-pack-source-ledger-2026-06-18.md",
-      "line": 52,
+      "line": 53,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -11107,8 +11193,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "d3cec30c8ee700ab345d382df5b54e67610b857b957e1dbbee752a76c2385971",
-  "scanJsonlRecordCount": 1023,
+  "scanJsonlSha256": "ef4a0b361bd8300e87b4c1e2f085465cac7c285f944477ff7f6a4dfb03bb0cc5",
+  "scanJsonlRecordCount": 1031,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11295,12 +11381,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "263 surfaces"
+      "detail": "265 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "23602 lines"
+      "detail": "23740 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11310,12 +11396,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1023 findings"
+      "detail": "1031 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1023/1023"
+      "detail": "1031/1031"
     },
     {
       "label": "claim JSONL hash is recorded",

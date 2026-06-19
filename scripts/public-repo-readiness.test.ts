@@ -591,7 +591,10 @@ describe('public repository readiness surfaces', () => {
   })
 
   test('profile refresh evidence does not expose non-public artifact repo breadcrumbs', () => {
-    const evidence = readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
+    const evidence = [
+      readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-14.md'),
+      readRepoText('docs/profile/github-profile-refresh-evidence-2026-06-19.md'),
+    ].join('\n')
     const forbiddenEvidence = [
       `mimesis-${'plugin'}`,
       `mimesis-${'source'}-${'packet'}`,
@@ -603,6 +606,7 @@ describe('public repository readiness surfaces', () => {
     ]
 
     expect(evidence).toContain('non-public artifact repos were checked locally and are not public proof')
+    expect(evidence).toContain('This packet proves a profile README and proof-surface maintenance update only')
     for (const marker of forbiddenEvidence) {
       expect(evidence, marker).not.toContain(marker)
     }
