@@ -421,7 +421,9 @@ describe('GitHub hosted trust posture analysis', () => {
 
     expect(markdown).toContain(`- generated_at: \`${report.generatedAt}\``)
     expect(markdown).toContain('- freshness_boundary: `current at generated_at only`')
+    expect(markdown).toContain('- snapshot_boundary: `observed default-branch state only; later commits can make this checked-in report stale`')
     expect(markdown).toContain(`- default_branch_head_sha: \`${report.defaultBranchHeadSha}\``)
+    expect(markdown).toContain(`- observed_default_branch_head_sha: \`${report.defaultBranchHeadSha}\``)
     expect(markdown).toContain('| Workflow | Workflow Name | Status | Conclusion | SHA | Created At | Updated At | Freshness | URL |')
     expect(markdown).toContain('run_id=4; workflow_name=OpenSSF Scorecard')
   })
