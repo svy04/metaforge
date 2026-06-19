@@ -27,6 +27,10 @@ Observed local anchors:
 
 - `README.md` defines Metaforge as Meta + MFH + Orchestra OS with OpenClaude as
   the local CLI/runtime substrate.
+- Origin/license public claims are bounded by `README.md`, `README.ko.md`,
+  `LICENSE`, and `docs/product-quality/origin-license-provenance-boundary-report.md`;
+  this spec does not add legal review, redistribution clearance, or a blanket
+  MIT claim over the derived runtime.
 - `AGENTS.md` already defines the GStack -> GSD -> Superpowers workflow hierarchy and the primary-source research rule.
 - Legacy planning artifacts and `src/services/orchestra/` define the existing
   Orchestra vision: a visible lead/evidence arbiter, private
@@ -119,7 +123,7 @@ The unified OS is the composition:
 
 Build an evidence-driven agent operating system where the human owner sets direction and approval boundaries, while agents autonomously move narrow domains from research to plan to implementation to eval to reflection to next goal proposals.
 
-Governed-code version: preserve Claude Code/OpenClaude freedom, but turn intent, scope, risk, verification, and release decisions into evidence that a non-technical product owner can judge.
+Governed-code version: preserve the local CLI freedom Metaforge currently gets from the OpenClaude substrate, while keeping Claude Code/OpenClaude origin boundaries explicit and turning intent, scope, risk, verification, and release decisions into evidence that a non-technical product owner can judge.
 
 ## Goal Hierarchy
 
