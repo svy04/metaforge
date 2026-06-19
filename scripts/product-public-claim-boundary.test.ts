@@ -152,7 +152,7 @@ describe('product public claim boundary classifier', () => {
     expect(publicSurfacePaths).toContain('docs/product-quality/github-hosted-trust-posture-report.md')
     expect(publicSurfacePaths).toContain('docs/marketing/metaforge-public-proof-pack-2026-06-18.md')
     expect(publicSurfacePaths).toContain('docs/marketing/metaforge-public-proof-pack-2026-06-14.md')
-    expect(publicSurfacePaths).toContain('docs/profile/github-profile-refresh-evidence-2026-06-19.md')
+    expect(publicSurfacePaths).toContain('docs/profile/github-profile-refresh-evidence-2026-06-20.md')
     expect(publicSurfacePaths).toContain('docs/profile/github-profile-refresh-evidence-2026-06-14.md')
     expect(publicSurfacePaths).toContain('docs/marketing/README.md')
     expect(publicSurfacePaths).not.toContain('docs/product-quality/public-claim-boundary-report.md')
