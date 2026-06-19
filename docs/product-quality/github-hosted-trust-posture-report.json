@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-18T22:50:26.962Z",
+  "generatedAt": "2026-06-19T04:49:19.017Z",
   "mode": "github_hosted_trust_posture_readonly",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "defaultBranchHeadSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+  "defaultBranchHeadSha": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
   "status": "hosted_trust_risks_detected",
   "primarySourceInputs": [
     {
@@ -83,16 +83,16 @@
   },
   "codeScanning": {
     "status": "available",
-    "openAlertCount": 416,
+    "openAlertCount": 413,
     "byRuleSeverity": {
+      "error": 8,
       "note": 200,
-      "warning": 208,
-      "error": 8
+      "warning": 205
     },
     "bySecuritySeverity": {
-      "unknown": 264,
       "medium": 114,
-      "high": 38
+      "unknown": 264,
+      "high": 35
     },
     "topRules": [
       {
@@ -125,7 +125,7 @@
       },
       {
         "ruleId": "js/file-system-race",
-        "count": 12
+        "count": 11
       },
       {
         "ruleId": "js/useless-assignment-to-local",
@@ -140,113 +140,113 @@
   "latestMainRuns": [
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094945,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+      "createdAt": "2026-06-19T04:10:27Z",
+      "databaseId": 27804838848,
+      "headSha": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
       "name": "Release Boundary",
       "status": "completed",
-      "updatedAt": "2026-06-18T22:03:12Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094945",
+      "updatedAt": "2026-06-19T04:10:45Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27804838848",
       "workflowName": "Release Boundary"
     },
     {
+      "conclusion": "",
+      "createdAt": "2026-06-19T04:10:27Z",
+      "databaseId": 27804838862,
+      "headSha": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
+      "name": "CodeQL",
+      "status": "in_progress",
+      "updatedAt": "2026-06-19T04:10:30Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27804838862",
+      "workflowName": "CodeQL"
+    },
+    {
       "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094958,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+      "createdAt": "2026-06-19T04:10:27Z",
+      "databaseId": 27804838860,
+      "headSha": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
       "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-18T22:03:22Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094958",
+      "updatedAt": "2026-06-19T04:10:58Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27804838860",
       "workflowName": "OpenSSF Scorecard"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094966,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+      "createdAt": "2026-06-19T04:10:27Z",
+      "databaseId": 27804838867,
+      "headSha": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-18T22:06:35Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094966",
+      "updatedAt": "2026-06-19T04:13:57Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27804838867",
       "workflowName": "PR Checks"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T22:02:59Z",
-      "databaseId": 27792094953,
-      "headSha": "8118a331ea6075693d4b73a79587c7c4a1f8f19f",
+      "createdAt": "2026-06-19T03:01:36Z",
+      "databaseId": 27802694802,
+      "headSha": "f853fbb795e71a121d25f88b1db7b36f74b51ead",
       "name": "CodeQL",
       "status": "completed",
-      "updatedAt": "2026-06-18T22:44:14Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27792094953",
+      "updatedAt": "2026-06-19T03:40:03Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27802694802",
       "workflowName": "CodeQL"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373264,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T03:01:36Z",
+      "databaseId": 27802694788,
+      "headSha": "f853fbb795e71a121d25f88b1db7b36f74b51ead",
       "name": "Release Boundary",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:07:29Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373264",
+      "updatedAt": "2026-06-19T03:01:48Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27802694788",
       "workflowName": "Release Boundary"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373242,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T03:01:36Z",
+      "databaseId": 27802694816,
+      "headSha": "f853fbb795e71a121d25f88b1db7b36f74b51ead",
       "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:07:47Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373242",
+      "updatedAt": "2026-06-19T03:02:05Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27802694816",
       "workflowName": "OpenSSF Scorecard"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373230,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
+      "createdAt": "2026-06-19T03:01:36Z",
+      "databaseId": 27802694808,
+      "headSha": "f853fbb795e71a121d25f88b1db7b36f74b51ead",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:10:51Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373230",
+      "updatedAt": "2026-06-19T03:05:09Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27802694808",
       "workflowName": "PR Checks"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T21:07:18Z",
-      "databaseId": 27789373290,
-      "headSha": "babcb1a324ffdd3f46f6cc0a3bc013e6894903d7",
-      "name": "CodeQL",
+      "createdAt": "2026-06-19T01:59:29Z",
+      "databaseId": 27800759270,
+      "headSha": "6873c0392c1796e01247f701ec88a5fc5abe8996",
+      "name": "Release Boundary",
       "status": "completed",
-      "updatedAt": "2026-06-18T21:47:39Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27789373290",
-      "workflowName": "CodeQL"
+      "updatedAt": "2026-06-19T01:59:40Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27800759270",
+      "workflowName": "Release Boundary"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-18T20:45:57Z",
-      "databaseId": 27788252073,
-      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
-      "name": "PR Checks",
+      "createdAt": "2026-06-19T01:59:29Z",
+      "databaseId": 27800759275,
+      "headSha": "6873c0392c1796e01247f701ec88a5fc5abe8996",
+      "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-18T20:49:35Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27788252073",
-      "workflowName": "PR Checks"
-    },
-    {
-      "conclusion": "cancelled",
-      "createdAt": "2026-06-18T20:45:57Z",
-      "databaseId": 27788252024,
-      "headSha": "15296bd8a9a66bd8084df9b04754a432c72750ec",
-      "name": "CodeQL",
-      "status": "completed",
-      "updatedAt": "2026-06-18T21:18:29Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27788252024",
-      "workflowName": "CodeQL"
+      "updatedAt": "2026-06-19T01:59:51Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27800759275",
+      "workflowName": "OpenSSF Scorecard"
     }
   ],
   "risks": [
@@ -283,10 +283,15 @@
     {
       "category": "code_scanning_alert_backlog",
       "severity": "high",
-      "detail": "416 open code scanning alerts."
+      "detail": "413 open code scanning alerts."
+    },
+    {
+      "category": "main_workflow_not_green",
+      "severity": "medium",
+      "detail": "CodeQL is in_progress/; pending_freshness=within_60_minutes_or_timestamp_unavailable; run_id=27804838862; workflow_name=CodeQL; age_minutes=38; last_update_minutes=38; https://github.com/svy04/metaforge/actions/runs/27804838862"
     }
   ],
-  "riskCount": 7,
+  "riskCount": 8,
   "discovery": {
     "repositoryDiscovery": "gh_repo_view",
     "defaultBranchHeadDiscovery": "github_branch_api",
@@ -344,12 +349,12 @@
     {
       "label": "OpenSSF Scorecard hosted workflow was included in main-run classification",
       "ok": true,
-      "detail": "https://github.com/svy04/metaforge/actions/runs/27792094958"
+      "detail": "https://github.com/svy04/metaforge/actions/runs/27804838860"
     },
     {
       "label": "required workflow runs match default branch head",
       "ok": true,
-      "detail": "8118a331ea6075693d4b73a79587c7c4a1f8f19f"
+      "detail": "fe6946f106f38eb8c9e0f9a6e7a7b874b7543aad"
     },
     {
       "label": "hosted trust risks do not unlock readiness claims",

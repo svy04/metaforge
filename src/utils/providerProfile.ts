@@ -70,6 +70,7 @@ const PROFILE_ENV_KEYS = [
   'MISTRAL_API_KEY',
   'MISTRAL_MODEL',
 ] as const
+const PROFILE_ENV_KEY_SET = new Set<string>(PROFILE_ENV_KEYS)
 
 const SECRET_ENV_KEYS = [
   'OPENAI_API_KEY',
@@ -214,38 +215,6 @@ export function buildNvidiaNimProfileEnv(options: {
       'nvidia/llama-3.1-nemotron-70b-instruct',
     OPENAI_API_KEY: key,
     NVIDIA_NIM: '1',
-  }
-}
-
-function buildMiniMaxProfileEnv(options: {
-  model?: string | null
-  baseUrl?: string | null
-  apiKey?: string | null
-  processEnv?: NodeJS.ProcessEnv
-}): ProfileEnv | null {
-  const processEnv = options.processEnv ?? process.env
-  const key = sanitizeApiKey(options.apiKey ?? processEnv.MINIMAX_API_KEY)
-  if (!key) {
-    return null
-  }
-
-  const defaultBaseUrl = 'https://api.minimax.io/v1'
-  const defaultModel = 'MiniMax-M2.5'
-  const secretSource: SecretValueSource = { OPENAI_API_KEY: key }
-
-  return {
-    OPENAI_BASE_URL:
-      sanitizeProviderConfigValue(options.baseUrl, secretSource) ||
-      sanitizeProviderConfigValue(processEnv.OPENAI_BASE_URL, secretSource) ||
-      defaultBaseUrl,
-    OPENAI_MODEL:
-      sanitizeProviderConfigValue(options.model, secretSource) ||
-      sanitizeProviderConfigValue(processEnv.OPENAI_MODEL, secretSource) ||
-      defaultModel,
-    OPENAI_API_KEY: key,
-    MINIMAX_API_KEY: key,
-    MINIMAX_BASE_URL: defaultBaseUrl,
-    MINIMAX_MODEL: defaultModel,
   }
 }
 
@@ -461,6 +430,29 @@ export function redactProfileSecretsForPersistence(
   }
 }
 
+function normalizeProfileEnvForPersistence(env: ProfileEnv): ProfileEnv {
+  const normalized: Record<string, string> = {}
+
+  for (const [key, value] of Object.entries(env as Record<string, unknown>)) {
+    if (PROFILE_ENV_KEY_SET.has(key) && typeof value === 'string') {
+      normalized[key] = value
+    }
+  }
+
+  return normalized as ProfileEnv
+}
+
+function normalizeProfileFileForPersistence(profileFile: ProfileFile): ProfileFile {
+  return {
+    profile: profileFile.profile,
+    env: normalizeProfileEnvForPersistence(profileFile.env),
+    createdAt:
+      typeof profileFile.createdAt === 'string'
+        ? profileFile.createdAt
+        : new Date().toISOString(),
+  }
+}
+
 export function isPersistedCodexOAuthProfile(
   persisted: ProfileFile | null,
 ): boolean {
@@ -511,9 +503,10 @@ export function saveProfileFile(
   options?: ProfileFileLocation,
 ): string {
   const filePath = resolveProfileFilePath(options)
+  const normalizedProfile = normalizeProfileFileForPersistence(profileFile)
   const persistableProfile = options?.redactSecrets
-    ? redactProfileSecretsForPersistence(profileFile)
-    : profileFile
+    ? redactProfileSecretsForPersistence(normalizedProfile)
+    : normalizedProfile
 
   writeFileSync(filePath, JSON.stringify(persistableProfile, null, 2), {
     encoding: 'utf8',

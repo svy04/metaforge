@@ -74,10 +74,6 @@ function check(label: string, ok: boolean, detail: string): Check {
   return { label, ok, detail }
 }
 
-function tableRowCount(markdown: string): number {
-  return parseAutomationCandidates(markdown).length
-}
-
 function parseAutomationCandidates(markdown: string): AutomationCandidate[] {
   return markdown
     .split(/\r?\n/)

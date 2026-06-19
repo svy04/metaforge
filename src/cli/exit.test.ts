@@ -26,8 +26,9 @@ test('cliError writes user-controlled errors as a single log line', () => {
 
   assert.equal(exitCode, 1)
   assert.equal(logged.length, 1)
-  assert.equal(logged[0]?.length, 1)
-  const message = String(logged[0]?.[0])
+  assert.equal(logged[0]?.length, 2)
+  assert.equal(logged[0]?.[0], '%s')
+  const message = String(logged[0]?.[1])
   assert.equal(message.includes('\r'), false)
   assert.equal(message.includes('\n'), false)
   assert.equal(message.includes('\u001b'), false)

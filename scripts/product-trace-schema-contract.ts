@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { basename, resolve } from 'node:path'
+import { resolve } from 'node:path'
 import { discoverPublishableTraceFiles } from './product-trace-discovery'
 
 type JsonObject = Record<string, unknown>
