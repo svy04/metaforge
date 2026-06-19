@@ -26,6 +26,7 @@ scope:
     - Bind the existing Knip dead-export candidate report to a Goal OS record.
     - Bind the existing dependency-cruiser topology ratchet to a Goal OS record.
     - Bind the existing jscpd duplicate-shape audit to a Goal OS record.
+    - Bind the static-analysis remediation queue to a Goal OS record.
     - Add a static-analysis trace fixture so MFH evidence spans more than one goal.
     - Update public claim wording to describe current static-analysis evidence without cleanup claims.
   out:
@@ -44,12 +45,17 @@ scope:
     - scripts/validate-goal-traces.test.ts
     - scripts/product-public-claim-boundary.ts
     - scripts/product-public-claim-boundary.test.ts
+    - scripts/product-static-analysis-remediation-queue.ts
+    - scripts/product-static-analysis-remediation-queue.test.ts
     - docs/product-quality/dead-export-candidates-report.json
     - docs/product-quality/dead-export-candidates-report.md
     - docs/product-quality/dependency-topology-report.json
     - docs/product-quality/dependency-topology-report.md
     - docs/product-quality/script-duplication-audit-report.json
     - docs/product-quality/script-duplication-audit-report.md
+    - docs/product-quality/static-analysis-remediation-queue-report.json
+    - docs/product-quality/static-analysis-remediation-queue-report.md
+    - reports/openclaude-static-analysis-remediation-queue.jsonl
     - docs/product-quality/public-feedback-snapshot-2026-06-19.md
     - docs/product-quality/public-feedback-triage-2026-06-19.md
     - README.md
@@ -68,9 +74,11 @@ context:
     - scripts/product-dead-export-candidates.ts
     - scripts/product-dependency-topology.ts
     - scripts/product-script-duplication-audit.ts
+    - scripts/product-static-analysis-remediation-queue.ts
     - docs/product-quality/dead-export-candidates-report.md
     - docs/product-quality/dependency-topology-report.md
     - docs/product-quality/script-duplication-audit-report.md
+    - docs/product-quality/static-analysis-remediation-queue-report.md
     - docs/product-quality/public-feedback-snapshot-2026-06-19.md
     - docs/product-quality/public-feedback-triage-2026-06-19.md
   externalPrimarySources:
@@ -113,8 +121,8 @@ successCriteria:
     statement: The goal trace validator requires cross-goal evidence before cross-goal MFH wording.
     validation: bun test scripts/validate-goal-traces.test.ts
   - id: SC-003
-    statement: Static-analysis reports refresh without cleanup, deletion, or public-readiness claims.
-    validation: bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit
+    statement: Static-analysis reports and remediation queue refresh without cleanup, deletion, or public-readiness claims.
+    validation: bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:static-analysis-remediation-queue
   - id: SC-004
     statement: Public claim evidence points to the new goal and keeps runtime/live-provider gaps blocked.
     validation: bun run product:public-claim-boundary:check
@@ -134,6 +142,9 @@ validationCommands:
     required: true
   - command: bun run product:script-duplication-audit
     expected: exit 0 with jscpd duplicate-shape baseline refreshed
+    required: true
+  - command: bun run product:static-analysis-remediation-queue
+    expected: exit 0 with Knip, dependency-cruiser, and jscpd findings converted into a bounded remediation queue
     required: true
   - command: bun run product:public-claim-boundary:check
     expected: exit 0 with no unauthorized public claims
@@ -192,6 +203,9 @@ evidence:
     - docs/product-quality/dependency-topology-report.md
     - docs/product-quality/script-duplication-audit-report.json
     - docs/product-quality/script-duplication-audit-report.md
+    - docs/product-quality/static-analysis-remediation-queue-report.json
+    - docs/product-quality/static-analysis-remediation-queue-report.md
+    - reports/openclaude-static-analysis-remediation-queue.jsonl
     - docs/product-quality/goal-validation-report.json
     - docs/product-quality/goal-trace-validation-report.json
     - docs/product-quality/public-claim-boundary-report.json
@@ -211,6 +225,9 @@ evidence:
     - command: bun run product:script-duplication-audit
       status: pass
       outputSummary: jscpd duplicate-shape audit refreshed with baseline ratchet and no refactor-completion claim.
+    - command: bun run product:static-analysis-remediation-queue
+      status: pass
+      outputSummary: Static-analysis findings converted into prioritized queue items while cleanup, topology-clean, refactor-completion, and public-readiness claims remain blocked.
     - command: bun run product:public-claim-boundary:check
       status: pass
       outputSummary: Public claim-boundary reports are current with 0 unauthorized positive claims.
@@ -266,6 +283,7 @@ governedCode:
       - docs/product-quality/dead-export-candidates-report.md
       - docs/product-quality/dependency-topology-report.md
       - docs/product-quality/script-duplication-audit-report.md
+      - docs/product-quality/static-analysis-remediation-queue-report.md
     wikiOrMemoryUpdates:
       - docs/PROGRESS_LOG.md#2026-06-19-checkpoint-13-static-analysis-goal-ratchet
 ```

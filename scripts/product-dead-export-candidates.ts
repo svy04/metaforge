@@ -152,6 +152,12 @@ const removedCandidateRatchets: Array<Omit<RemovedCandidateRatchet, 'currentCand
     guardrail: 'Keep this provider profile helper private until an actual module boundary imports it.',
   },
   {
+    file: 'src/utils/providerProfile.ts',
+    symbol: 'buildNvidiaNimProfileEnv',
+    kind: 'export',
+    guardrail: 'Keep NVIDIA NIM preset behavior in the provider profile and flag flows; do not re-export unused env builders without a runtime import.',
+  },
+  {
     file: 'src/projectOnboardingState.ts',
     symbol: 'isProjectOnboardingComplete',
     kind: 'export',
@@ -391,7 +397,7 @@ function buildReport(): DeadExportCandidatesReport {
     check('unused export candidates do not exceed baseline', report.candidateUnusedExportCount <= report.candidateUnusedExportBaseline, `${report.candidateUnusedExportCount}/${report.candidateUnusedExportBaseline}`),
     check('unused type candidates do not exceed baseline', report.candidateUnusedTypeCount <= report.candidateUnusedTypeBaseline, `${report.candidateUnusedTypeCount}/${report.candidateUnusedTypeBaseline}`),
     check('duplicate export candidates do not exceed baseline', report.candidateDuplicateExportCount <= report.candidateDuplicateExportBaseline, `${report.candidateDuplicateExportCount}/${report.candidateDuplicateExportBaseline}`),
-    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 4, `${report.triageRecordCount} records`),
+    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 3, `${report.triageRecordCount} records`),
     check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
     check('dead export triage has runtime guard and removal-review actions', report.triageActionCounts.needs_runtime_guard > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),

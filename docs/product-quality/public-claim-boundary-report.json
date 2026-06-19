@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T15:58:44.520Z",
+  "generatedAt": "2026-06-19T16:36:28.342Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -108,15 +108,15 @@
     {
       "path": "README.ko.md",
       "exists": true,
-      "sha256": "5620d8dae88bd6c0882ec50c2ef3962ad5826efc2eda5b24d27af52d2853d469",
-      "sizeBytes": 12401,
+      "sha256": "0b1ab7e6c266511f3047dfd3d51f68c50dabdeab40e4289325f4e94df3776e35",
+      "sizeBytes": 12574,
       "lineCount": 189
     },
     {
       "path": "README.md",
       "exists": true,
-      "sha256": "0464b7c04fd6e71fb84efffedd4e3b1bb61fa72f4073308e93753da70cdf8c2c",
-      "sizeBytes": 24876,
+      "sha256": "1bc2217dc50dad0f1b2971a0076b453033032b021727354909a9149de1ee10df",
+      "sizeBytes": 25033,
       "lineCount": 465
     },
     {
@@ -206,9 +206,9 @@
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
       "exists": true,
-      "sha256": "5ec78737cdeee15c549c979c87a8d6fba28183c577cf5adbdbd0db146266079d",
-      "sizeBytes": 12173,
-      "lineCount": 272
+      "sha256": "46b884fbde2b02ce4ce87c4fdbcf7b7037dd83ce54971c4c758cafbd138e1530",
+      "sizeBytes": 13523,
+      "lineCount": 290
     },
     {
       "path": "docs/goals/FIRST_CONTENT_BATCH_VALIDATION_REPORT.md",
@@ -1186,8 +1186,8 @@
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
       "exists": true,
-      "sha256": "f2f264c44670942b321f265ac1dea65c43c884541673c9796135fc14fab260e4",
-      "sizeBytes": 9078,
+      "sha256": "f1a336d8300eb0dad6191f94fb4863ac0417a115538b573eec2add089c793781",
+      "sizeBytes": 9052,
       "lineCount": 112
     },
     {
@@ -1200,7 +1200,7 @@
     {
       "path": "docs/product-quality/dependency-topology-report.md",
       "exists": true,
-      "sha256": "b0a1593560300fb20fa0905958ce7e5e84eb4524ac629742f2b64299858e6861",
+      "sha256": "9414b4796686a1d79fa63fae80f947e3bc0b043f799d758c3b04baced0de427f",
       "sizeBytes": 6142,
       "lineCount": 117
     },
@@ -1718,8 +1718,8 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "bc975e7d7a46ad84349f4695abe70864c412dc298fe61024f708f3655b765872",
-      "sizeBytes": 8469,
+      "sha256": "ce93811f4372897ea121e164118b07c04197e43ba44685b4cedd2934940feb16",
+      "sizeBytes": 8471,
       "lineCount": 95
     },
     {
@@ -1735,6 +1735,13 @@
       "sha256": "e271bdd028ae0317bc2bf53d4dff6f7294c383a3b96e5c2326e1124a16422c10",
       "sizeBytes": 9508,
       "lineCount": 184
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "exists": true,
+      "sha256": "1289822ac6b9d36468072ad9a9f9c4e205f2f853ab2357ec5a622dae788cb916",
+      "sizeBytes": 7442,
+      "lineCount": 86
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
@@ -1879,9 +1886,9 @@
     {
       "path": "package.json",
       "exists": true,
-      "sha256": "9bad31056eaea58f772fad7c0e8ccbbbd0201ad4b3be8cc1392b95378fed7c40",
-      "sizeBytes": 20963,
-      "lineCount": 289
+      "sha256": "998394dd06309d8f33f78307f147228e4f9698af97cb4363729b5c766d4f6c33",
+      "sizeBytes": 21129,
+      "lineCount": 290
     },
     {
       "path": "packages/openclaude-vscode/README.md",
@@ -1912,9 +1919,9 @@
       "lineCount": 181
     }
   ],
-  "publicSurfaceCount": 266,
-  "scannedLineCount": 24068,
-  "blockedContextClaimMentionCount": 1048,
+  "publicSurfaceCount": 267,
+  "scannedLineCount": 24173,
+  "blockedContextClaimMentionCount": 1053,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -2585,7 +2592,7 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "line": 242,
+      "line": 259,
       "phrase": "production readiness",
       "category": "production_readiness",
       "status": "blocked_context",
@@ -2594,7 +2601,7 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "line": 243,
+      "line": 260,
       "phrase": "release readiness",
       "category": "release_readiness",
       "status": "blocked_context",
@@ -2603,7 +2610,7 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "line": 244,
+      "line": 261,
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
@@ -2612,7 +2619,7 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "line": 245,
+      "line": 262,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -2621,7 +2628,7 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "line": 246,
+      "line": 263,
       "phrase": "autonomous reliability",
       "category": "autonomous_reliability",
       "status": "blocked_context",
@@ -10045,6 +10052,51 @@
       "contextText": "Blocked context: - It does not run the REUSE tool, create a REUSE.toml, generate an SPDX document, perform legal review, or claim REUSE compliance, source license compliance, release readiness, production readiness, public ..."
     },
     {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 9,
+      "phrase": "release readiness",
+      "category": "release_readiness",
+      "status": "blocked_context",
+      "text": "- It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 9,
+      "phrase": "production readiness",
+      "category": "production_readiness",
+      "status": "blocked_context",
+      "text": "- It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 9,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "- It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 9,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "- It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 9,
+      "phrase": "autonomous reliability",
+      "category": "autonomous_reliability",
+      "status": "blocked_context",
+      "text": "- It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability.",
+      "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
+    },
+    {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
       "line": 10,
       "phrase": "release readiness",
@@ -11353,8 +11405,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "b9fb04ee4408642941eb6ff822b9b509c2fc5350f18e65465ec785805e439dd5",
-  "scanJsonlRecordCount": 1048,
+  "scanJsonlSha256": "94dec0005405d966b6f749d7104e0cb775fa8e75f071c1f1143930ad7d25ee7e",
+  "scanJsonlRecordCount": 1053,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11397,10 +11449,11 @@
         "docs/goals/traces/CG-002-static-analysis-ratchet.trace.json",
         "docs/product-quality/dead-export-candidates-report.md",
         "docs/product-quality/dependency-topology-report.md",
-        "docs/product-quality/script-duplication-audit-report.md"
+        "docs/product-quality/script-duplication-audit-report.md",
+        "docs/product-quality/static-analysis-remediation-queue-report.md"
       ],
-      "verificationCommand": "bun run goals:validate && bun run product:real-trace-evals && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:public-claim-boundary",
-      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, local runtime behavior triad evidence, and static-analysis ratchets.",
+      "verificationCommand": "bun run goals:validate && bun run product:real-trace-evals && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:static-analysis-remediation-queue && bun run product:public-claim-boundary",
+      "allowedClaim": "MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, local runtime behavior triad evidence, static-analysis ratchets, and a static-analysis remediation queue.",
       "nonClaims": [
         "MFH is not a formal certification system.",
         "MFH is not external validation.",
@@ -11530,7 +11583,7 @@
     {
       "label": "MFH behavior evidence is bound to trace validation",
       "ok": true,
-      "detail": "MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, goals validation, and remaining live-provider/non-fixture gaps"
+      "detail": "MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, remediation queue evidence, goals validation, and remaining live-provider/non-fixture gaps"
     },
     {
       "label": "OpenClaude remains substrate rather than thesis",
@@ -11550,12 +11603,12 @@
     {
       "label": "public surfaces are hash-bound",
       "ok": true,
-      "detail": "266 surfaces"
+      "detail": "267 surfaces"
     },
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "24068 lines"
+      "detail": "24173 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11565,12 +11618,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1048 findings"
+      "detail": "1053 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1048/1048"
+      "detail": "1053/1053"
     },
     {
       "label": "claim JSONL hash is recorded",

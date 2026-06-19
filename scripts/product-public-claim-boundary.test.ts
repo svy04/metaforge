@@ -95,15 +95,18 @@ describe('product public claim boundary classifier', () => {
       'docs/product-quality/dead-export-candidates-report.md',
       'docs/product-quality/dependency-topology-report.md',
       'docs/product-quality/script-duplication-audit-report.md',
+      'docs/product-quality/static-analysis-remediation-queue-report.md',
     ]))
     expect(mfh?.verificationCommand).toContain('goals:validate')
     expect(mfh?.verificationCommand).toContain('product:real-trace-evals')
     expect(mfh?.verificationCommand).toContain('product:dead-export-candidates')
     expect(mfh?.verificationCommand).toContain('product:dependency-topology')
     expect(mfh?.verificationCommand).toContain('product:script-duplication-audit')
+    expect(mfh?.verificationCommand).toContain('product:static-analysis-remediation-queue')
     expect(mfh?.allowedClaim).toContain('representative cross-goal trace-validation evidence')
     expect(mfh?.allowedClaim).toContain('local runtime behavior triad evidence')
     expect(mfh?.allowedClaim).toContain('static-analysis ratchets')
+    expect(mfh?.allowedClaim).toContain('static-analysis remediation queue')
     expect(mfh?.unresolvedGap).toContain('broader non-fixture behavior coverage')
     expect(mfh?.unresolvedGap).toContain('live-provider evidence')
     expect(mfh?.unresolvedGap).not.toContain('Runtime traces beyond docs-governance and static-analysis goals')

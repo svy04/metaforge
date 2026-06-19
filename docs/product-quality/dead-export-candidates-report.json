@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T11:32:33.986Z",
+  "generatedAt": "2026-06-19T16:34:12.264Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -30,7 +30,7 @@
     }
   ],
   "candidateFileCount": 637,
-  "candidateUnusedExportCount": 1396,
+  "candidateUnusedExportCount": 1395,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -58,12 +58,11 @@
     },
     {
       "file": "src/utils/providerProfile.ts",
-      "unusedExports": 3,
+      "unusedExports": 2,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
         "isProviderProfile",
-        "buildNvidiaNimProfileEnv",
         "hasExplicitProviderSelection"
       ],
       "sampleTypes": []
@@ -224,23 +223,6 @@
       ]
     },
     {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/ink/frame.ts",
       "unusedExports": 1,
       "unusedTypes": 1,
@@ -283,6 +265,23 @@
       "duplicateExports": 0,
       "sampleExports": [
         "renderSync"
+      ],
+      "sampleTypes": []
+    },
+    {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
       ],
       "sampleTypes": []
     },
@@ -339,11 +338,11 @@
     }
   ],
   "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
-  "triageRecordCount": 4,
-  "triageCurrentCandidateCount": 4,
+  "triageRecordCount": 3,
+  "triageCurrentCandidateCount": 3,
   "triageActionCounts": {
     "needs_runtime_guard": 2,
-    "review_for_removal": 2,
+    "review_for_removal": 1,
     "defer_public_api": 0,
     "keep_until_entrypoint_proven": 0
   },
@@ -355,17 +354,6 @@
       "action": "needs_runtime_guard",
       "rationale": "Codex OAuth and credential lookup paths are side-effect sensitive and can fail silently if static cleanup removes externally expected helpers.",
       "guardrail": "Before removal, cover Codex credential lookup with no-secret fixtures and verify redacted error output on missing credentials.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage",
-      "currentCandidate": true
-    },
-    {
-      "file": "src/utils/providerProfile.ts",
-      "symbol": "buildNvidiaNimProfileEnv",
-      "kind": "export",
-      "action": "review_for_removal",
-      "rationale": "Provider-profile env builders are likely ordinary module exports, but each provider preset may still be referenced by docs or profile bootstrap flows.",
-      "guardrail": "Before removal, run provider profile tests and search docs/bootstrap scripts for provider preset references.",
       "reviewedAt": "2026-06-16",
       "reviewer": "codex-local-triage",
       "currentCandidate": true
@@ -413,6 +401,13 @@
       "symbol": "buildMiniMaxProfileEnv",
       "kind": "export",
       "guardrail": "Keep this provider profile helper private until an actual module boundary imports it.",
+      "currentCandidate": false
+    },
+    {
+      "file": "src/utils/providerProfile.ts",
+      "symbol": "buildNvidiaNimProfileEnv",
+      "kind": "export",
+      "guardrail": "Keep NVIDIA NIM preset behavior in the provider profile and flag flows; do not re-export unused env builders without a runtime import.",
       "currentCandidate": false
     },
     {
@@ -489,7 +484,7 @@
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1396 exports"
+      "detail": "1395 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
@@ -499,7 +494,7 @@
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1396/1461"
+      "detail": "1395/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",
@@ -514,27 +509,27 @@
     {
       "label": "dead export triage ledger records reviewed candidates",
       "ok": true,
-      "detail": "4 records"
+      "detail": "3 records"
     },
     {
       "label": "dead export triage entries remain current",
       "ok": true,
-      "detail": "4/4"
+      "detail": "3/3"
     },
     {
       "label": "dead export triage has runtime guard and removal-review actions",
       "ok": true,
-      "detail": "{\"needs_runtime_guard\":2,\"review_for_removal\":2,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+      "detail": "{\"needs_runtime_guard\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
     },
     {
       "label": "dead export triage records guardrails and rationales",
       "ok": true,
-      "detail": "4 records"
+      "detail": "3 records"
     },
     {
       "label": "removed dead export ratchets remain absent",
       "ok": true,
-      "detail": "0/6 regressed"
+      "detail": "0/7 regressed"
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",

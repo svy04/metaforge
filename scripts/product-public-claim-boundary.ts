@@ -146,9 +146,10 @@ export const publicClaimEvidenceMap: PublicClaimEvidenceMapRow[] = [
       'docs/product-quality/dead-export-candidates-report.md',
       'docs/product-quality/dependency-topology-report.md',
       'docs/product-quality/script-duplication-audit-report.md',
+      'docs/product-quality/static-analysis-remediation-queue-report.md',
     ],
-    verificationCommand: 'bun run goals:validate && bun run product:real-trace-evals && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:public-claim-boundary',
-    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, local runtime behavior triad evidence, and static-analysis ratchets.',
+    verificationCommand: 'bun run goals:validate && bun run product:real-trace-evals && bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:static-analysis-remediation-queue && bun run product:public-claim-boundary',
+    allowedClaim: 'MFH is the repo-local evidence gate that constrains completion claims through docs, schemas, product-quality reports, representative cross-goal trace-validation evidence, local runtime behavior triad evidence, static-analysis ratchets, and a static-analysis remediation queue.',
     nonClaims: [
       'MFH is not a formal certification system.',
       'MFH is not external validation.',
@@ -942,18 +943,21 @@ function main(): void {
       row.evidencePaths.includes('docs/product-quality/dead-export-candidates-report.md') &&
       row.evidencePaths.includes('docs/product-quality/dependency-topology-report.md') &&
       row.evidencePaths.includes('docs/product-quality/script-duplication-audit-report.md') &&
+      row.evidencePaths.includes('docs/product-quality/static-analysis-remediation-queue-report.md') &&
       row.verificationCommand.includes('goals:validate') &&
       row.verificationCommand.includes('product:real-trace-evals') &&
       row.verificationCommand.includes('product:dead-export-candidates') &&
       row.verificationCommand.includes('product:dependency-topology') &&
       row.verificationCommand.includes('product:script-duplication-audit') &&
+      row.verificationCommand.includes('product:static-analysis-remediation-queue') &&
       row.allowedClaim.includes('representative cross-goal trace-validation evidence') &&
       row.allowedClaim.includes('local runtime behavior triad evidence') &&
       row.allowedClaim.includes('static-analysis ratchets') &&
+      row.allowedClaim.includes('static-analysis remediation queue') &&
       row.unresolvedGap.includes('broader non-fixture behavior coverage') &&
       row.unresolvedGap.includes('live-provider evidence') &&
       !row.unresolvedGap.includes('Runtime traces beyond docs-governance and static-analysis goals')
-    )), 'MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, goals validation, and remaining live-provider/non-fixture gaps'),
+    )), 'MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, remediation queue evidence, goals validation, and remaining live-provider/non-fixture gaps'),
     check('OpenClaude remains substrate rather than thesis', publicClaimEvidenceMap.some((row) => row.symbol === 'OpenClaude runtime' && row.publicRole.includes('substrate') && row.allowedClaim.includes('local CLI substrate') && row.nonClaims.some((item) => item.includes('not the product thesis'))), 'substrate boundary present'),
     check('AVF remains manual artifact lane not default runtime', publicClaimEvidenceMap.some((row) => row.symbol === 'AVF Influence Factory' && row.evidenceClass.includes('manual artifact') && row.nonClaims.some((item) => item.includes('not a default CLI runtime import'))), 'AVF manual lane boundary present'),
     check('all configured public surfaces exist', scannedPublicSurfaces.every((surface) => surface.exists), scannedPublicSurfaces.filter((surface) => !surface.exists).map((surface) => surface.path).join(',') || 'all present'),

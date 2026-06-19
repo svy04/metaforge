@@ -36,21 +36,22 @@
       "status": "succeeded",
       "actor": "implementer",
       "checkpointId": "CP-003",
-      "summary": "Bound Knip, dependency-cruiser, and jscpd report lanes into the static-analysis Goal OS record."
+      "summary": "Bound Knip, dependency-cruiser, jscpd, and the remediation queue into the static-analysis Goal OS record."
     },
     {
       "timestamp": "2026-06-19T08:24:00.000Z",
       "eventName": "validation.ran",
       "status": "succeeded",
       "actor": "eval",
-      "command": "bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit",
+      "command": "bun run product:dead-export-candidates && bun run product:dependency-topology && bun run product:script-duplication-audit && bun run product:static-analysis-remediation-queue",
       "exitCode": 0,
       "evidenceArtifacts": [
         "docs/product-quality/dead-export-candidates-report.json",
         "docs/product-quality/dependency-topology-report.json",
-        "docs/product-quality/script-duplication-audit-report.json"
+        "docs/product-quality/script-duplication-audit-report.json",
+        "docs/product-quality/static-analysis-remediation-queue-report.json"
       ],
-      "summary": "Static-analysis reports refreshed locally without deletion, autofix, provider, live model, external, or protected calls."
+      "summary": "Static-analysis reports and remediation queue refreshed locally without deletion, autofix, provider, live model, external, or protected calls."
     },
     {
       "timestamp": "2026-06-19T08:26:00.000Z",
