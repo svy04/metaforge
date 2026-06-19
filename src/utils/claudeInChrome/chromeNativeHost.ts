@@ -20,6 +20,7 @@ import { homedir, platform } from 'os'
 import { join } from 'path'
 import { z } from 'zod'
 import { lazySchema } from '../lazySchema.js'
+import { sanitizePlainTextLogValue } from '../logSanitization.js'
 import { jsonParse, jsonStringify } from '../slowOperations.js'
 import { getSecureSocketPath, getSocketDir } from './common.js'
 
@@ -31,18 +32,28 @@ const LOG_FILE =
     ? join(homedir(), '.claude', 'debug', 'chrome-native-host.txt')
     : undefined
 
+export function formatChromeNativeHostLogLine(
+  message: string,
+  args: unknown[] = [],
+): string {
+  const safeMessage = sanitizePlainTextLogValue(message)
+  const formattedArgs =
+    args.length > 0 ? ` ${sanitizePlainTextLogValue(args)}` : ''
+  return `[Claude Chrome Native Host] ${safeMessage}${formattedArgs}`
+}
+
 function log(message: string, ...args: unknown[]): void {
+  const formattedMessage = formatChromeNativeHostLogLine(message, args)
   if (LOG_FILE) {
     const timestamp = new Date().toISOString()
-    const formattedArgs = args.length > 0 ? ' ' + jsonStringify(args) : ''
-    const logLine = `[${timestamp}] [Claude Chrome Native Host] ${message}${formattedArgs}\n`
+    const logLine = `[${timestamp}] ${formattedMessage}\n`
     // Fire-and-forget: logging is best-effort and callers (including event
     // handlers) don't await
     void appendFile(LOG_FILE, logLine).catch(() => {
       // Ignore file write errors
     })
   }
-  console.error(`[Claude Chrome Native Host] ${message}`, ...args)
+  console.error(formattedMessage)
 }
 /**
  * Send a message to stdout (Chrome native messaging protocol)
