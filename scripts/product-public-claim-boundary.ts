@@ -945,15 +945,14 @@ function main(): void {
     { path: reportJsonPath, content: renderReportJson(report) },
     { path: reportMdPath, content: renderMarkdown(report) },
   ]
-  const outputChecks = checkOnly
-    ? [...report.evidenceChecks, ...generatedArtifactChecks(generatedArtifacts)]
-    : report.evidenceChecks
 
   if (!checkOnly) {
     for (const artifact of generatedArtifacts) {
       writeFileSync(resolve(root, artifact.path), artifact.content)
     }
   }
+
+  const outputChecks = [...report.evidenceChecks, ...generatedArtifactChecks(generatedArtifacts)]
 
   for (const item of outputChecks) {
     console.log(`${item.ok ? 'PASS' : 'FAIL'}: ${item.label} (${item.detail})`)

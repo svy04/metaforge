@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T02:31:13.887Z",
+  "generatedAt": "2026-06-19T02:48:58.114Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,20 +20,20 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "4e575367c3abef57fea73d02f5aec22a90aaaa3f663087bda7db2872acb4e439",
-  "evidenceRecordCount": 220,
-  "evidenceTotalSizeBytes": 11965885,
+  "manifestJsonlSha256": "e2f0b4062355521bc2dca6214b5f6131580b491c93c3269a5fed546f9c3c058b",
+  "evidenceRecordCount": 221,
+  "evidenceTotalSizeBytes": 12493622,
   "evidenceRoles": {
     "source": 2,
     "evidence_report": 202,
-    "evidence_artifact": 7,
+    "evidence_artifact": 8,
     "quality_gate": 1,
     "workflow": 8
   },
   "evidenceProofClasses": {
     "behavioral_runtime": 54,
     "static_analysis": 11,
-    "governance_boundary": 41,
+    "governance_boundary": 42,
     "source_control": 11,
     "structural_inventory": 103
   },
@@ -126,6 +126,7 @@
     "docs/product-quality/quality-blocker-taxonomy-report.json",
     "docs/product-quality/public-claim-boundary-report.json",
     "docs/product-quality/public-claim-boundary-report.md",
+    "reports/metaforge-public-claim-boundary.jsonl",
     "docs/product-quality/github-remote-surface-audit-report.json",
     "docs/product-quality/github-remote-surface-audit-report.md",
     "reports/openclaude-github-remote-surface-audit.jsonl",
@@ -1117,14 +1118,14 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "38adac6c36a96499eaa3aec6bb2eecccfce62622b15311b98259a57c17bf1ad9",
-      "sizeBytes": 671405,
+      "sha256": "76d80a3e5ac2ac63ab6955fb0b505723c5d26f2de1fb98ac518d0c8273681d73",
+      "sizeBytes": 672201,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "b6186afd28c305b7936e0c97fb512aa67043ebb3436bcd688bfa7c4cfd994c71",
-      "sizeBytes": 349521,
+      "sha256": "04072be9b2b68ef6c86da765bfb4e219f5db709030298a3daa6238594a9f432a",
+      "sizeBytes": 349907,
       "role": "evidence_report"
     },
     {
@@ -1470,6 +1471,12 @@
       "role": "source"
     },
     {
+      "path": "reports/metaforge-public-claim-boundary.jsonl",
+      "sha256": "d3cec30c8ee700ab345d382df5b54e67610b857b957e1dbbee752a76c2385971",
+      "sizeBytes": 526555,
+      "role": "evidence_artifact"
+    },
+    {
       "path": "reports/openclaude-code-scanning-remediation-queue.jsonl",
       "sha256": "6f29b27e7eb9f4321cd4e915dea386baaf9a82294ec12612528255ad4fbf7ff2",
       "sizeBytes": 5293,
@@ -1497,17 +1504,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "220 records"
+      "detail": "221 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "11965885 total bytes"
+      "detail": "12493622 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "220 lines"
+      "detail": "221 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1522,12 +1529,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":7,\"quality_gate\":1,\"workflow\":8}"
+      "detail": "{\"source\":2,\"evidence_report\":202,\"evidence_artifact\":8,\"quality_gate\":1,\"workflow\":8}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":41,\"source_control\":11,\"structural_inventory\":103}"
+      "detail": "{\"behavioral_runtime\":54,\"static_analysis\":11,\"governance_boundary\":42,\"source_control\":11,\"structural_inventory\":103}"
     },
     {
       "label": "manifest contains no credential patterns",
