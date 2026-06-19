@@ -377,7 +377,7 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/product-quality/script-duplication-audit-report.md` | `true` | `ce93811f4372897ea121e164118b07c04197e43ba44685b4cedd2934940feb16` | 95 |
 | `docs/product-quality/source-controlled-checks-report.md` | `true` | `7084a4cc99bef3c3db10e92eac758049f7fbc969c78ed4d2ee7a8652b8d1c5d5` | 51 |
 | `docs/product-quality/source-license-metadata-quality-report.md` | `true` | `e271bdd028ae0317bc2bf53d4dff6f7294c383a3b96e5c2326e1124a16422c10` | 184 |
-| `docs/product-quality/static-analysis-remediation-queue-report.md` | `true` | `1289822ac6b9d36468072ad9a9f9c4e205f2f853ab2357ec5a622dae788cb916` | 86 |
+| `docs/product-quality/static-analysis-remediation-queue-report.md` | `true` | `5008919d7cd360aa3b27a36b92dfdb1b07fed45d2b741e20994e7ca3573fea64` | 86 |
 | `docs/product-quality/terminal-bench-readiness-report.md` | `true` | `c76ebab4c267c229af18a7c6708eb0a56768823ec6d5c0edc9f7b2368466e7bc` | 69 |
 | `docs/product-quality/terminal-failure-recovery-transcripts-report.md` | `true` | `894b82d47b63f45e628625667cc86abed63466314e282040dceacebd63b138c1` | 52 |
 | `docs/product-quality/terminal-report.md` | `true` | `6360585029cd18fb710b326d06ef9cefbc5b2f673a20c2bc3f038803166f5ea2` | 221 |
