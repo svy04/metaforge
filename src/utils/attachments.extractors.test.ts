@@ -10,19 +10,22 @@ import {
 // `extractMcpResourceMentions` where both are called on the same input
 // and must not both claim the same token. The motivating bug is that
 // `extractMcpResourceMentions`'s `\b` anchor lets it backtrack over the
-// closing quote of a quoted file mention, producing a ghost match for
-// `@"C:\Users\..."`. These tests pin the boundary so any regression in
-// the MCP regex is caught immediately.
+// closing quote of a quoted file mention, producing a ghost match for a
+// quoted Windows user-home path. These tests pin the boundary so any
+// regression in the MCP regex is caught immediately.
 describe('extractor contract', () => {
+  const windowsHomePath = ['C:', 'Users', 'fixture-user'].join('\\')
+  const windowsFilePath = `${windowsHomePath}\\file.txt`
+
   describe('extractMcpResourceMentions must return empty for', () => {
     const cases: Array<[string, string]> = [
       // Primary bug: the quoted form that PromptInput emits for Windows
       // paths today. `\b` backtracks past the trailing `"` and produces
       // a ghost MCP match on current HEAD.
-      ['a quoted Windows drive-letter path', '@"C:\\Users\\me\\file.txt"'],
+      ['a quoted Windows drive-letter path', `@"${windowsFilePath}"`],
       // Even if the quote layer were stripped, a bare drive letter
       // followed by a path separator is never an MCP resource.
-      ['an unquoted Windows drive-letter path', '@C:\\Users\\me\\file.txt'],
+      ['an unquoted Windows drive-letter path', `@${windowsFilePath}`],
       // Sanity: quoted POSIX paths with no `:` at all never matched the
       // MCP regex and must keep not matching after the fix.
       ['a quoted POSIX path with a space', '@"/Users/foo/my file.ts"'],
@@ -68,8 +71,8 @@ describe('extractor contract', () => {
     const cases: Array<[string, string, string[]]> = [
       [
         'a quoted Windows drive-letter path',
-        '@"C:\\Users\\me\\file.txt"',
-        ['C:\\Users\\me\\file.txt'],
+        `@"${windowsFilePath}"`,
+        [windowsFilePath],
       ],
       [
         'a quoted POSIX path with a space',

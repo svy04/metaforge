@@ -10,13 +10,14 @@ describe('GitHub public surface analysis', () => {
 
     const windowsHome = ['C:', 'Users', 'private-owner'].join('\\')
     const windowsHomeWithSpaces = ['C:', 'Users', 'private owner'].join('\\')
+    const windowsRuntimeAuthPath = [windowsHome, 'AppData', 'Local', 'agent-runtime', 'auth.json'].join('\\')
     const posixHomeWithSpaces = ['', 'Users', 'private owner'].join('/')
     const relativeHomeWithSpaces = ['Users', 'private owner'].join('/')
     const forbiddenSamples = [
       ['cd', `${windowsHome}\\Desktop\\private-run\\AGENTS.md`].join(' '),
       ['cd', `${windowsHomeWithSpaces}\\Desktop\\private run\\AGENTS.md`].join(' '),
       ['type', `${windowsHome}\\Documents\\private run\\session.log`].join(' '),
-      ['cat', `${windowsHome}\\AppData\\Local\\hermes\\auth.json`].join(' '),
+      ['cat', windowsRuntimeAuthPath].join(' '),
       ['type', `${windowsHome}\\Documents\\private-run\\session.log`].join(' '),
       `Example leak: ${windowsHome}\\Desktop\\private-run\\trace.md`,
       ['cat', `${posixHomeWithSpaces}/Desktop/private run/trace.json`].join(' '),

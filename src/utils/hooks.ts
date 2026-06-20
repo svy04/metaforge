@@ -794,11 +794,12 @@ async function execCommandHook(
   // Windows bash path: hooks run via Git Bash (Cygwin), NOT cmd.exe.
   //
   // This means every path we put into env vars or substitute into the command
-  // string MUST be a POSIX path (/c/Users/foo), not a Windows path
-  // (C:\Users\foo or C:/Users/foo). Git Bash cannot resolve Windows paths.
+  // string MUST be a POSIX path, not a Windows drive-letter path.
+  // Git Bash cannot resolve Windows paths.
   //
   // windowsPathToPosixPath() is pure-JS regex conversion (no cygpath shell-out):
-  // C:\Users\foo -> /c/Users/foo, UNC preserved, slashes flipped. Memoized
+  // Drive-letter paths become POSIX-style paths, UNC is preserved, and slashes
+  // are flipped. Memoized
   // (LRU-500) so repeated calls are cheap.
   //
   // PowerShell path: use native paths — skip the conversion entirely.

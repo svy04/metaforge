@@ -275,7 +275,8 @@ describe('public repository readiness surfaces', () => {
       expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README.ko.md missing Meta/MFH/Orchestra framing')
       expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README.ko.md missing Korean verification wording')
 
-      writeFileSync(join(fixtureRoot, 'README.md'), '[한국어](C:/Users/example/README.ko.md)\n')
+      const absoluteKoreanReadmeLink = ['C:', 'Users', 'example', 'README.ko.md'].join('/')
+      writeFileSync(join(fixtureRoot, 'README.md'), `[한국어](${absoluteKoreanReadmeLink})\n`)
       expect(validateKoreanReadmeRoute(fixtureRoot)).toContain('README Korean link must be repo-relative README.ko.md')
     } finally {
       rmSync(fixtureRoot, { recursive: true, force: true })

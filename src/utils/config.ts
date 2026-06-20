@@ -1635,7 +1635,7 @@ export const getProjectPathForConfig = memoize((): string => {
 
   if (gitRoot) {
     // Normalize for consistent JSON keys (forward slashes on all platforms)
-    // This ensures paths like C:\Users\... and C:/Users/... map to the same key
+    // This ensures slash variants of the same Windows path map to the same key
     return normalizePathForConfigKey(gitRoot)
   }
 
