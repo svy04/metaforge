@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:13:04.109Z",
+  "generatedAt": "2026-06-20T06:57:07.942Z",
   "mode": "local_no_provider_permission_regression",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -61,7 +61,7 @@
         "src\\tools\\BashTool\\bashPermissions.test.ts:",
         "(pass) sandbox auto-allow still enforces Bash path constraints [31.00ms]",
         "src\\tools\\BashTool\\shouldUseSandbox.test.ts:",
-        "(pass) model-facing Bash schema rejects dangerouslyDisableSandbox",
+        "(pass) model-facing Bash schema rejects dangerouslyDisableSandbox [15.00ms]",
         "(pass) model-facing PowerShell schema rejects dangerouslyDisableSandbox",
         "(pass) model-controlled dangerouslyDisableSandbox does not bypass sandbox",
         "(pass) trusted internal approval can disable sandbox when policy allows it",
@@ -76,7 +76,7 @@
         " 23 pass",
         " 0 fail",
         " 44 expect() calls",
-        "Ran 23 tests across 5 files. [884.00ms]"
+        "Ran 23 tests across 5 files. [942.00ms]"
       ]
     }
   ],

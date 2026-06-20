@@ -120,6 +120,7 @@ describe('product evidence manifest behavior', () => {
     expect(proofClassFor('.dependency-cruiser.mjs')).toBe('static_analysis')
     expect(proofClassFor('knip.jsonc')).toBe('static_analysis')
     expect(proofClassFor('docs/product-quality/public-claim-boundary-report.json')).toBe('governance_boundary')
+    expect(proofClassFor('docs/product-quality/secret-scanner-evidence-report.json')).toBe('governance_boundary')
     expect(report.evidenceProofClasses.behavioral_runtime).toBe(2)
     expect(report.evidenceProofClasses.static_analysis).toBe(2)
     expect(report.evidenceProofClasses.governance_boundary).toBe(1)
@@ -167,6 +168,8 @@ describe('product evidence manifest behavior', () => {
 
   test('includes Metaforge-owned source-controlled report artifacts', () => {
     expect(rawRequiredEvidencePaths).toContain('reports/metaforge-public-claim-boundary.jsonl')
+    expect(rawRequiredEvidencePaths).toContain('docs/product-quality/secret-scanner-evidence-report.json')
+    expect(rawRequiredEvidencePaths).toContain('reports/openclaude-secret-scanner-evidence.jsonl')
     expect(isSourceControlledReportArtifactPath('reports/openclaude-product-evidence-manifest.jsonl')).toBe(true)
     expect(isSourceControlledReportArtifactPath('reports/orchestra-protected-action-denial-trace-local-fixture.jsonl')).toBe(true)
     expect(isSourceControlledReportArtifactPath('reports/metaforge-public-claim-boundary.jsonl')).toBe(true)

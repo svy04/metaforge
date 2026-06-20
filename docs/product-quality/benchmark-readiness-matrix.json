@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T14:07:12.177Z",
+  "generatedAt": "2026-06-20T06:58:02.488Z",
   "mode": "local_no_provider_benchmark_readiness_matrix",
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
@@ -8,8 +8,8 @@
   "externalBenchmarkRunPerformed": false,
   "externalBenchmarkResultClaimed": false,
   "benchmarkManifestPath": "reports/openclaude-benchmark-task-manifest.jsonl",
-  "benchmarkManifestSha256": "232226e7c6f34450433bffbe29a68d023502b24e227a1aa3cf2c7c0245a61ca6",
-  "benchmarkTaskCount": 13,
+  "benchmarkManifestSha256": "5529fa29c470bc1918752d79ff4f2c17feacace16ce6fa304da3aedf77607d90",
+  "benchmarkTaskCount": 10,
   "primarySourceInputs": [
     {
       "sourceProject": "SWE-bench/SWE-bench",
@@ -30,31 +30,31 @@
   "sourceEvidence": [
     {
       "path": "docs/product-quality/real-session-trace-evals-report.json",
-      "sha256": "285728e685b889d857d1cf766ffdaf356997454c1a0e624a75b352b3bb84c7ed"
+      "sha256": "367dfb27558c6c04e07a34c46bd8b07bfb86329043e9396bedd362de4cfedca1"
     },
     {
       "path": "docs/product-quality/agent-replay-evals-report.json",
-      "sha256": "4e991dd84c7c551680fb7f46355ea319e5a4557fb4096449742ca92c3db1178a"
+      "sha256": "6947774dcad047f5560a27a37145c62c31b12088d81135fb72ca68392985a63d"
     },
     {
       "path": "docs/product-quality/trace-capture-redaction-policy-report.json",
-      "sha256": "4164f9516cdc27e2619443e332e3ba9a3b9443f8d5622533621f852da9c6b121"
+      "sha256": "c546b36b30eb9698d7dcfa1e97a33b414cb409175b7fc04d6337f3598a0d6116"
     },
     {
       "path": "docs/product-quality/release-artifact-reproducibility-report.json",
-      "sha256": "793d95beefbff3c333c05027c499628c8ebbbe82d8556728c84c4186576d60de"
+      "sha256": "ce559cbb44e6ba2e72efa2ecac023087409b3ffa3c631923739918ddf8f606e0"
     },
     {
       "path": "docs/product-quality/source-controlled-checks-report.json",
-      "sha256": "344a8a04ee7245050d6d64bf96f3c4559393c6643a35168d100382c1b4b5c3e9"
+      "sha256": "b077a7fec59fcd283fab6a6ffc7418fdc8bdf8f37913e69d1cc24ed5848ab0b0"
     },
     {
       "path": "docs/product-quality/prompted-tool-loop-capture-report.json",
-      "sha256": "4a5d8e2fa01b0a29fdcb690518d46c8644b8ad984853bd6e6c53baf36a299e90"
+      "sha256": "06bd04fe96137b57037d0c18f23467be4388f3573f908ca90805af5755cbdfe5"
     },
     {
       "path": "docs/product-quality/terminal-failure-recovery-transcripts-report.json",
-      "sha256": "0562d7b38abe96eb5098ea91c762e679e94ddfbb6da874e66e8210e9feb6dddd"
+      "sha256": "1145b3681cfb76cc68b3d75a90bcf03610662dda743bc5dfca7107d153ce72bc"
     }
   ],
   "readinessDimensions": [
@@ -204,7 +204,7 @@
     {
       "label": "benchmark manifest was written",
       "ok": true,
-      "detail": "13 tasks"
+      "detail": "10 tasks"
     },
     {
       "label": "benchmark tasks do not claim external benchmark results",

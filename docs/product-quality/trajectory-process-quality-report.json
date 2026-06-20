@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-18T09:14:17.102Z",
+  "generatedAt": "2026-06-20T06:58:04.368Z",
   "mode": "local_no_provider_trajectory_process_quality",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
   "sourceRealTraceEvalMode": "local_no_provider_real_session_jsonl_trace_grading",
-  "sourceTraceCount": 10,
+  "sourceTraceCount": 7,
   "sourceLocalBenchmarkHarnessPath": "docs/product-quality/local-benchmark-harness-report.json",
   "sourceLocalBenchmarkResultsPath": "reports/openclaude-local-benchmark-results.jsonl",
-  "sourceLocalBenchmarkResultsSha256": "623f2945ba82ba7e1eb91989809c884eb1a1041f9ddaff6f56adeb0a9cf14aa9",
+  "sourceLocalBenchmarkResultsSha256": "f225f0ceaa00a802cc5469770c5ea9302764e47b3dffcb8513a5b712cd6e50ee",
   "primarySourceInputs": [
     {
       "sourceProject": "SWE-agent/SWE-agent",
@@ -79,27 +79,6 @@
       ]
     },
     {
-      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
-      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
-      "traceKind": "fixture_user_executor_session",
-      "eventCount": 3,
-      "terminalOutcome": "succeeded",
-      "phaseLabelsPresent": [
-        "exploration",
-        "orchestration",
-        "verification"
-      ],
-      "missingPhaseLabels": [
-        "implementation"
-      ],
-      "repeatedCommandNames": [],
-      "wasteSignals": [],
-      "processQualityStatus": "process_quality_evidence_ok",
-      "sourceBenchmarkTaskIds": [
-        "openclaude.trace.reports_orchestra-fixture-user-executor-no-provider.jsonl"
-      ]
-    },
-    {
       "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
       "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
       "traceKind": "implementation_bearing_multi_file_code_editing_fixture",
@@ -121,7 +100,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "traceKind": "prompted_tool_loop_cli",
       "eventCount": 8,
       "terminalOutcome": "succeeded",
@@ -164,7 +143,7 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "2240322b9b6ffb569910245b66a605203bdb70cd589cee7a2190fa2820ad956b",
+      "sha256": "814aca7c3335dfe88045246264cd7f9904f3c050314d0fbb47022ddf4e7c6111",
       "traceKind": "real_session_capture_cli",
       "eventCount": 12,
       "terminalOutcome": "succeeded",
@@ -224,56 +203,14 @@
       "sourceBenchmarkTaskIds": [
         "openclaude.trace.reports_orchestra-tool-interruption-recovery-trace-local-fixture.jsonl"
       ]
-    },
-    {
-      "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "21c1b2e7fc2e7a7a26a3c60698f8f6f186e19a5cd749f7a051633ecd0b0b40f5",
-      "traceKind": "usage_cli_probe",
-      "eventCount": 2,
-      "terminalOutcome": "failed",
-      "phaseLabelsPresent": [
-        "exploration",
-        "orchestration",
-        "verification"
-      ],
-      "missingPhaseLabels": [
-        "implementation"
-      ],
-      "repeatedCommandNames": [],
-      "wasteSignals": [],
-      "processQualityStatus": "process_quality_evidence_ok",
-      "sourceBenchmarkTaskIds": [
-        "openclaude.trace.reports_orchestra-usage-cli-probe.jsonl"
-      ]
-    },
-    {
-      "path": "reports/orchestra-usage-probe.jsonl",
-      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
-      "traceKind": "usage_repl_probe",
-      "eventCount": 2,
-      "terminalOutcome": "failed",
-      "phaseLabelsPresent": [
-        "exploration",
-        "orchestration",
-        "verification"
-      ],
-      "missingPhaseLabels": [
-        "implementation"
-      ],
-      "repeatedCommandNames": [],
-      "wasteSignals": [],
-      "processQualityStatus": "process_quality_evidence_ok",
-      "sourceBenchmarkTaskIds": [
-        "openclaude.trace.reports_orchestra-usage-probe.jsonl"
-      ]
     }
   ],
   "summary": {
-    "assessedTraceCount": 10,
-    "processQualityOkTraceCount": 9,
+    "assessedTraceCount": 7,
+    "processQualityOkTraceCount": 6,
     "classifiedProcessGapTraceCount": 1,
     "failedProcessEvidenceTraceCount": 0,
-    "tracesWithVerificationEvidence": 10,
+    "tracesWithVerificationEvidence": 7,
     "tracesWithImplementationEvidence": 5,
     "tracesWithClassifiedWasteSignals": 1
   },
@@ -296,27 +233,27 @@
     {
       "label": "local benchmark result hash matches harness report",
       "ok": true,
-      "detail": "623f2945ba82ba7e1eb91989809c884eb1a1041f9ddaff6f56adeb0a9cf14aa9/623f2945ba82ba7e1eb91989809c884eb1a1041f9ddaff6f56adeb0a9cf14aa9"
+      "detail": "f225f0ceaa00a802cc5469770c5ea9302764e47b3dffcb8513a5b712cd6e50ee/f225f0ceaa00a802cc5469770c5ea9302764e47b3dffcb8513a5b712cd6e50ee"
     },
     {
       "label": "trace discovery count matches real trace eval report",
       "ok": true,
-      "detail": "10/10"
+      "detail": "7/7"
     },
     {
       "label": "trace assessments retain source hashes from real trace eval report",
       "ok": true,
-      "detail": "10 assessed"
+      "detail": "7 assessed"
     },
     {
       "label": "all trace assessments include orchestration label",
       "ok": true,
-      "detail": "reports/orchestra-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-fixture-user-executor-no-provider.jsonl:exploration,orchestration,verification; reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-prompted-tool-loop-local-cli.jsonl:exploration,orchestration,verification; reports/orchestra-protected-action-denial-trace-local-fixture.jsonl:implementation,orchestration,verification; reports/orchestra-real-session-capture-local-cli.jsonl:exploration,orchestration,verification; reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-usage-cli-probe.jsonl:exploration,orchestration,verification; reports/orchestra-usage-probe.jsonl:exploration,orchestration,verification"
+      "detail": "reports/orchestra-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-prompted-tool-loop-local-cli.jsonl:exploration,orchestration,verification; reports/orchestra-protected-action-denial-trace-local-fixture.jsonl:implementation,orchestration,verification; reports/orchestra-real-session-capture-local-cli.jsonl:exploration,orchestration,verification; reports/orchestra-regression-cycle-code-editing-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification; reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl:exploration,implementation,orchestration,verification"
     },
     {
       "label": "verification evidence is present in local traces",
       "ok": true,
-      "detail": "10/10"
+      "detail": "7/7"
     },
     {
       "label": "process gaps are classified instead of hidden",
@@ -341,7 +278,7 @@
     {
       "label": "process-quality result JSONL hash is recordable",
       "ok": true,
-      "detail": "3b793a52ba4a61457788e5db51da237d3a1861698c956fcd9ce470eb4a2d349b"
+      "detail": "bafac035da6cfecdcd545cd70430d6e1f74797635d77e5b9ab9e4bb805506d9e"
     }
   ],
   "claimBoundary": "This report is internal local process-quality evidence only; it is not an external benchmark, release readiness, production readiness, public readiness, or autonomous reliability claim."
