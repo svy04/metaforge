@@ -106,10 +106,10 @@ Current static-analysis counters from checked-in product-quality reports:
 Source: `docs/product-quality/dead-export-candidates-report.md`
 
 - candidate_file_count: `637`
-- candidate_unused_export_count: `1396`
+- candidate_unused_export_count: `1395`
 - candidate_unused_type_count: `364`
 - candidate_duplicate_export_count: `12`
-- triage_record_count: `4`
+- triage_record_count: `3`
 - deletion_claim_allowed: `false`
 - cleanup_completion_claim_allowed: `false`
 - public_readiness_claim_allowed: `false`
@@ -118,8 +118,8 @@ Source: `docs/product-quality/dead-export-candidates-report.md`
 
 Source: `docs/product-quality/dependency-topology-report.md`
 
-- module_count: `2630`
-- dependency_edge_count: `11984`
+- module_count: `2632`
+- dependency_edge_count: `11987`
 - circular_dependency_baseline: `1737`
 - unresolved_dependency_baseline: `863`
 - configured_dependency_cruiser_new_violation_count: `0`
@@ -128,10 +128,10 @@ Source: `docs/product-quality/dependency-topology-report.md`
 
 Source: `docs/product-quality/script-duplication-audit-report.md`
 
-- jscpd_clone_count: `17`
-- jscpd_duplicated_lines: `439`
-- jscpd_duplicated_tokens: `2979`
-- jscpd_duplicated_percentage: `1.043871121150874`
+- jscpd_clone_count: `16`
+- jscpd_duplicated_lines: `416`
+- jscpd_duplicated_tokens: `2857`
+- jscpd_duplicated_percentage: `0.9732360097323601`
 - public_readiness_claim_allowed: `false`
 - refactor_completion_claim_allowed: `false`
 
@@ -146,4 +146,4 @@ Those counters are ratchet evidence. They are not clean-architecture proof and t
 
 ## Reading Rule
 
-Treat this page as a navigation map. The evidence lives in the linked reports, tests, scripts, and docs. If this map conflicts with a current generated report, the generated report wins until this map is updated.
+Treat this page as a navigation map. The evidence lives in the linked reports, tests, scripts, and docs. If this map conflicts with a current generated report, the generated report wins until this map is updated. `scripts/public-repo-readiness.test.ts` checks the static-analysis counters above against the generated JSON reports so this public map cannot silently drift from the evidence pack.
