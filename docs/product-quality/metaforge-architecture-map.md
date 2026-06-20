@@ -118,8 +118,8 @@ Source: `docs/product-quality/dead-export-candidates-report.md`
 
 Source: `docs/product-quality/dependency-topology-report.md`
 
-- module_count: `2632`
-- dependency_edge_count: `11987`
+- module_count: `2633`
+- dependency_edge_count: `11988`
 - circular_dependency_baseline: `1737`
 - unresolved_dependency_baseline: `863`
 - configured_dependency_cruiser_new_violation_count: `0`
@@ -131,7 +131,7 @@ Source: `docs/product-quality/script-duplication-audit-report.md`
 - jscpd_clone_count: `16`
 - jscpd_duplicated_lines: `416`
 - jscpd_duplicated_tokens: `2857`
-- jscpd_duplicated_percentage: `0.9730083734855219`
+- jscpd_duplicated_percentage: `0.9603398125490558`
 - public_readiness_claim_allowed: `false`
 - refactor_completion_claim_allowed: `false`
 

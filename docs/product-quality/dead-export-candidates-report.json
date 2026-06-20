@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T05:18:40.328Z",
+  "generatedAt": "2026-06-20T06:57:04.211Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -318,22 +318,23 @@
       "sampleTypes": []
     },
     {
+      "file": "src/upstreamproxy/upstreamproxy.ts",
+      "unusedExports": 2,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "SESSION_TOKEN_PATH",
+        "resetUpstreamProxyForTests"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/tools/BashTool/BashTool.tsx",
       "unusedExports": 2,
       "unusedTypes": 0,
       "duplicateExports": 0,
       "sampleExports": [
         "isSearchOrReadBashCommand",
-        "detectBlockedSleepPattern"
-      ],
-      "sampleTypes": []
-    },
-    {
-      "file": "src/tools/PowerShellTool/PowerShellTool.tsx",
-      "unusedExports": 1,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
         "detectBlockedSleepPattern"
       ],
       "sampleTypes": []

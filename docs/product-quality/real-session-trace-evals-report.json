@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T15:57:27.877Z",
+  "generatedAt": "2026-06-20T06:58:01.631Z",
   "mode": "local_no_provider_real_session_jsonl_trace_grading",
   "traceDirectory": "reports",
-  "traceFileCount": 10,
+  "traceFileCount": 7,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -44,50 +44,6 @@
       ],
       "querySources": [
         "operator_authorized_local_no_provider_code_editing_trace"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "succeeded",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "protectedActionRequested": false,
-      "protectedActionDenied": false,
-      "protectedActionExecuted": false,
-      "safeAlternativeSelected": false,
-      "interruptedToolStep": false,
-      "recoveryStep": false,
-      "passed": true
-    },
-    {
-      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
-      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
-      "traceKind": "fixture_user_executor_session",
-      "lineCount": 3,
-      "eventCount": 3,
-      "parseErrorCount": 0,
-      "statuses": {
-        "started": 2,
-        "succeeded": 1
-      },
-      "statusSequence": [
-        "started",
-        "started",
-        "succeeded"
-      ],
-      "roles": [
-        "executor",
-        "planner",
-        "user"
-      ],
-      "models": [
-        "historical-local-fixture-model",
-        "local-human-fixture",
-        "openclaude-local-no-provider-fixture"
-      ],
-      "querySources": [
-        "fixture_user_session"
       ],
       "hasStarted": true,
       "firstStatus": "started",
@@ -159,7 +115,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "traceKind": "prompted_tool_loop_cli",
       "lineCount": 8,
       "eventCount": 8,
@@ -260,7 +216,7 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "2240322b9b6ffb569910245b66a605203bdb70cd589cee7a2190fa2820ad956b",
+      "sha256": "814aca7c3335dfe88045246264cd7f9904f3c050314d0fbb47022ddf4e7c6111",
       "traceKind": "real_session_capture_cli",
       "lineCount": 12,
       "eventCount": 12,
@@ -414,144 +370,53 @@
       "interruptedToolStep": true,
       "recoveryStep": true,
       "passed": true
-    },
-    {
-      "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "e955e5df0c1e5934c0695ef4d2ae582f406d5abd3b4ee7c30a68a305df8655a9",
-      "traceKind": "usage_cli_probe",
-      "lineCount": 2,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "statuses": {
-        "failed": 1,
-        "started": 1
-      },
-      "statusSequence": [
-        "started",
-        "failed"
-      ],
-      "roles": [
-        "planner"
-      ],
-      "models": [
-        "historical-redacted-provider-probe"
-      ],
-      "querySources": [
-        "sdk"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "failed",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "protectedActionRequested": false,
-      "protectedActionDenied": false,
-      "protectedActionExecuted": false,
-      "safeAlternativeSelected": false,
-      "interruptedToolStep": false,
-      "recoveryStep": false,
-      "passed": true
-    },
-    {
-      "path": "reports/orchestra-usage-probe.jsonl",
-      "sha256": "de009a9975248b135afdb57bac56ef871069d77caf751054aabd48e8808e2f06",
-      "traceKind": "usage_repl_probe",
-      "lineCount": 2,
-      "eventCount": 2,
-      "parseErrorCount": 0,
-      "statuses": {
-        "failed": 1,
-        "started": 1
-      },
-      "statusSequence": [
-        "started",
-        "failed"
-      ],
-      "roles": [
-        "planner"
-      ],
-      "models": [
-        "historical-redacted-local-probe"
-      ],
-      "querySources": [
-        "repl_main_thread"
-      ],
-      "hasStarted": true,
-      "firstStatus": "started",
-      "hasTerminalStatus": true,
-      "hasStartedToTerminalTransition": true,
-      "lastStatus": "failed",
-      "requiredFieldsComplete": true,
-      "credentialPatternFound": false,
-      "protectedActionRequested": false,
-      "protectedActionDenied": false,
-      "protectedActionExecuted": false,
-      "safeAlternativeSelected": false,
-      "interruptedToolStep": false,
-      "recoveryStep": false,
-      "passed": true
     }
   ],
   "coverageSummary": {
     "traceKinds": [
-      "fixture_user_executor_session",
       "implementation_bearing_code_editing_fixture",
       "implementation_bearing_multi_file_code_editing_fixture",
       "implementation_bearing_regression_cycle_code_editing_fixture",
       "prompted_tool_loop_cli",
       "protected_action_denial_fixture",
       "real_session_capture_cli",
-      "tool_interruption_recovery_fixture",
-      "usage_cli_probe",
-      "usage_repl_probe"
+      "tool_interruption_recovery_fixture"
     ],
     "terminalOutcomes": [
-      "failed",
       "succeeded"
     ],
     "roles": [
       "executor",
-      "planner",
       "tool",
       "user"
     ],
     "models": [
-      "historical-local-fixture-model",
-      "historical-redacted-local-probe",
-      "historical-redacted-provider-probe",
       "local-fixture-editor",
       "local-fixture-reader",
       "local-fixture-test-runner",
       "local-fixture-writer",
-      "local-human-fixture",
       "local-operator",
       "node-dist-cli",
       "node-dist-cli-tool",
       "openclaude-local-code-editing-harness",
       "openclaude-local-multi-file-code-editing-harness",
-      "openclaude-local-no-provider-fixture",
       "openclaude-local-protected-action-denial-harness",
       "openclaude-local-regression-cycle-code-editing-harness",
       "openclaude-local-tool-interruption-recovery-harness",
       "openclaude-local-tool-loop-harness"
     ],
     "querySources": [
-      "fixture_user_session",
       "operator_authorized_local_no_provider_cli_capture",
       "operator_authorized_local_no_provider_code_editing_trace",
       "operator_authorized_local_no_provider_multi_file_code_editing_trace",
       "operator_authorized_local_no_provider_prompted_tool_loop",
       "operator_authorized_local_no_provider_protected_action_denial_trace",
       "operator_authorized_local_no_provider_regression_cycle_code_editing_trace",
-      "operator_authorized_local_no_provider_tool_interruption_recovery_trace",
-      "repl_main_thread",
-      "sdk"
+      "operator_authorized_local_no_provider_tool_interruption_recovery_trace"
     ],
-    "passedTraceCount": 10,
-    "failedTraceCount": 2,
-    "succeededTraceCount": 8,
+    "passedTraceCount": 7,
+    "failedTraceCount": 0,
+    "succeededTraceCount": 7,
     "runtimeBehaviorTriad": {
       "covered": true,
       "happyPathTracePaths": [
@@ -572,13 +437,13 @@
       {
         "id": "single_role_trace_coverage",
         "status": "not_present",
-        "detail": "4 roles represented.",
+        "detail": "3 roles represented.",
         "protectedActionRequired": false
       },
       {
         "id": "single_model_trace_coverage",
         "status": "not_present",
-        "detail": "18 models represented.",
+        "detail": "13 models represented.",
         "protectedActionRequired": false
       },
       {
@@ -589,14 +454,14 @@
       },
       {
         "id": "usage_trace_kind_coverage",
-        "status": "not_present",
-        "detail": "Usage trace kinds represented.",
+        "status": "classified_unresolved",
+        "detail": "Fresh local no-provider trace generation did not include usage trace kinds. Usage trace evidence remains a separate fixture target before stronger usage claims.",
         "protectedActionRequired": false
       },
       {
         "id": "failed_terminal_outcome_coverage",
-        "status": "not_present",
-        "detail": "Failed terminal outcomes represented.",
+        "status": "classified_unresolved",
+        "detail": "Fresh local no-provider trace generation did not include failed terminal outcomes. Failure evidence remains covered by in-trace failed statuses until an explicitly generated failed terminal trace is added.",
         "protectedActionRequired": false
       }
     ]
@@ -605,7 +470,7 @@
     {
       "label": "real JSONL trace files discovered",
       "ok": true,
-      "detail": "10 traces"
+      "detail": "7 traces"
     },
     {
       "label": "all trace lines parsed as JSON",
@@ -645,12 +510,12 @@
     {
       "label": "live and usage trace kind gaps are represented or classified",
       "ok": true,
-      "detail": "fixture_user_executor_session,implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture,usage_cli_probe,usage_repl_probe"
+      "detail": "implementation_bearing_code_editing_fixture,implementation_bearing_multi_file_code_editing_fixture,implementation_bearing_regression_cycle_code_editing_fixture,prompted_tool_loop_cli,protected_action_denial_fixture,real_session_capture_cli,tool_interruption_recovery_fixture"
     },
     {
       "label": "query source diversity represented",
       "ok": true,
-      "detail": "fixture_user_session,operator_authorized_local_no_provider_cli_capture,operator_authorized_local_no_provider_code_editing_trace,operator_authorized_local_no_provider_multi_file_code_editing_trace,operator_authorized_local_no_provider_prompted_tool_loop,operator_authorized_local_no_provider_protected_action_denial_trace,operator_authorized_local_no_provider_regression_cycle_code_editing_trace,operator_authorized_local_no_provider_tool_interruption_recovery_trace,repl_main_thread,sdk"
+      "detail": "operator_authorized_local_no_provider_cli_capture,operator_authorized_local_no_provider_code_editing_trace,operator_authorized_local_no_provider_multi_file_code_editing_trace,operator_authorized_local_no_provider_prompted_tool_loop,operator_authorized_local_no_provider_protected_action_denial_trace,operator_authorized_local_no_provider_regression_cycle_code_editing_trace,operator_authorized_local_no_provider_tool_interruption_recovery_trace"
     },
     {
       "label": "coverage gaps are explicitly classified",
@@ -675,7 +540,7 @@
     {
       "label": "all trace summaries pass",
       "ok": true,
-      "detail": "10/10"
+      "detail": "7/7"
     }
   ],
   "claimBoundary": "Real session trace evals grade existing local JSONL trace artifacts only. They do not perform provider, live model, or external calls and do not claim release readiness, production readiness, external validation, public readiness, or autonomous reliability."

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T13:18:39.136Z",
+  "generatedAt": "2026-06-20T06:58:09.201Z",
   "mode": "github_public_remote_surface_audit",
   "primarySourceInputs": [
     {
@@ -36,6 +36,10 @@
   "defaultBranch": "main",
   "remoteHeads": [
     {
+      "oid": "a5c649fcf94d16637ce9350d7ea0459b70eaef7c",
+      "name": "codex/secret-scanner-evidence-gate"
+    },
+    {
       "oid": "261ec60310e6fccf59498e1c66be89a5305a8ce5",
       "name": "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433"
     },
@@ -44,14 +48,21 @@
       "name": "dependabot/pip/python/pytest-9.1.0"
     },
     {
-      "oid": "01330ae69052ac340d9ffbee1f58c6240d896f6d",
+      "oid": "2a27f8a247536f05513fc2926993f135e5897bd8",
       "name": "main"
     }
   ],
-  "remoteHeadCount": 3,
+  "remoteHeadCount": 4,
   "remoteTags": [],
   "remoteTagCount": 0,
   "openPullRequests": [
+    {
+      "number": 154,
+      "title": "[codex] Add claim-bounded secret scanner evidence gate",
+      "url": "https://github.com/svy04/metaforge/pull/154",
+      "headRefName": "codex/secret-scanner-evidence-gate",
+      "isSameRepository": true
+    },
     {
       "number": 61,
       "title": "Bump the npm-runtime-and-dev group with 50 updates",
@@ -67,12 +78,18 @@
       "isSameRepository": true
     }
   ],
-  "openPullRequestCount": 2,
+  "openPullRequestCount": 3,
   "allowedOpenPrHeadBranches": [
+    "codex/secret-scanner-evidence-gate",
     "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433",
     "dependabot/pip/python/pytest-9.1.0"
   ],
   "refScans": [
+    {
+      "refName": "codex/secret-scanner-evidence-gate",
+      "patternFindings": [],
+      "treeFindings": []
+    },
     {
       "refName": "dependabot/npm_and_yarn/npm-runtime-and-dev-4255889433",
       "patternFindings": [],
@@ -116,7 +133,7 @@
     {
       "label": "remote heads were inventoried",
       "ok": true,
-      "detail": "3 heads"
+      "detail": "4 heads"
     },
     {
       "label": "remote tags were inventoried",
