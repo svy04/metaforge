@@ -143,10 +143,10 @@ const helperOccurrenceBaselines: Record<string, number> = {
   sha256Text: 0,
 }
 const duplicateHelperClusterBaseline = 2
-const jscpdCloneBaseline = 17
-const jscpdDuplicatedLinesBaseline = 439
-const jscpdDuplicatedTokensBaseline = 2979
-const jscpdDuplicatedPercentageBaseline = 1.043871121150874
+const jscpdCloneBaseline = 16
+const jscpdDuplicatedLinesBaseline = 416
+const jscpdDuplicatedTokensBaseline = 2857
+const jscpdDuplicatedPercentageBaseline = 0.9734637525155614
 
 function sha256(input: string | Buffer): string {
   return createHash('sha256').update(input).digest('hex')

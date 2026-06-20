@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-19T23:45:00.088Z",
+  "generatedAt": "2026-06-20T00:52:04.291Z",
   "mode": "local_no_provider_static_analysis_remediation_queue",
   "repository": "svy04/metaforge",
-  "sourceCommit": "8c565d01e5960b88aeadc967537b75658a771b44",
+  "sourceCommit": "5c2064b4e7d9f6b3a664dd15608538ef51c01f41",
   "generatedFrom": [
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dependency-topology-report.json",
@@ -88,13 +88,13 @@
       "priority": "P2",
       "remediationClass": "clone_hotspot_review",
       "evidenceSource": "jscpd",
-      "evidenceCount": 17,
+      "evidenceCount": 16,
       "sampleLocations": [
-        "scripts/product-dead-export-candidates.ts:233-256 <-> scripts/product-dependency-topology.ts:160-183",
         "scripts/product-ide-extension-rendered-workbench-screenshot.ts:142-178 <-> scripts/product-ide-extension-webview-render-smoke.ts:102-138",
         "scripts/product-ide-extension-runtime-smoke.ts:118-142 <-> scripts/product-ide-extension-webview-interaction-smoke.ts:168-194",
         "scripts/product-oss-baseline-drift-closure.ts:85-106 <-> scripts/product-oss-safe-backlog-closure.ts:134-155",
-        "scripts/product-oss-eval-quality-gate-checklist.ts:11-53 <-> scripts/product-oss-terminal-workflow-evidence.ts:5-47"
+        "scripts/product-oss-eval-quality-gate-checklist.ts:11-53 <-> scripts/product-oss-terminal-workflow-evidence.ts:5-47",
+        "scripts/product-oss-ide-or-editor-surface-evidence.ts:167-195 <-> scripts/product-oss-privacy-no-phone-home-evidence.ts:136-164"
       ],
       "safeFirstStep": "Review the top jscpd clone pair, classify whether it is shared infrastructure or intentional parallel evidence, then patch one test-backed extraction at a time.",
       "ownerDecisionRequired": true,
@@ -215,7 +215,7 @@
     }
   ],
   "deadExport": {
-    "generatedAt": "2026-06-19T23:44:59.889Z",
+    "generatedAt": "2026-06-20T00:52:03.915Z",
     "mode": "local_no_provider_dead_export_candidate_gate",
     "scannerTarget": "knip --config knip.jsonc --exports",
     "knipVersion": "6.16.1",
@@ -809,7 +809,7 @@
     "claimBoundary": "Knip findings are candidate unused export/type/duplicate-export evidence only. They do not prove a symbol is safe to delete, that cleanup is complete, or that the repo is public-ready."
   },
   "dependencyTopology": {
-    "generatedAt": "2026-06-19T23:44:55.967Z",
+    "generatedAt": "2026-06-20T00:52:00.215Z",
     "mode": "local_no_provider_dependency_topology_gate",
     "scannerTargetRoots": [
       "src",
@@ -907,14 +907,14 @@
         ],
         "missingSubstrings": [],
         "stdoutPreview": [
-          "✔ no dependency violations found (2631 modules, 11985 dependencies cruised)",
+          "✔ no dependency violations found (2632 modules, 11987 dependencies cruised)",
           "‼ 2105 known violations ignored. Run with --no-ignore-known to see them."
         ],
         "stderrPreview": []
       }
     ],
-    "moduleCount": 2631,
-    "dependencyEdgeCount": 11985,
+    "moduleCount": 2632,
+    "dependencyEdgeCount": 11987,
     "circularDependencyCount": 1737,
     "circularDependencyBaseline": 1737,
     "unresolvedDependencyCount": 863,
@@ -1136,12 +1136,12 @@
       {
         "label": "modules are discovered",
         "ok": true,
-        "detail": "2631 modules"
+        "detail": "2632 modules"
       },
       {
         "label": "dependency edges are discovered",
         "ok": true,
-        "detail": "11985 edges"
+        "detail": "11987 edges"
       },
       {
         "label": "circular dependencies do not exceed baseline",
@@ -1187,7 +1187,7 @@
     "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
   },
   "scriptDuplication": {
-    "generatedAt": "2026-06-19T23:44:19.330Z",
+    "generatedAt": "2026-06-20T00:51:21.862Z",
     "mode": "local_no_provider_product_script_duplication_audit",
     "scannerTargetGlob": "scripts/product-*.ts",
     "auditTargetHelperNames": [
@@ -1612,31 +1612,21 @@
         "JSON report saved"
       ],
       "missingSubstrings": [],
-      "stdoutPreview": "JSON report saved to <local-path>\ntime: 71.269ms\n",
+      "stdoutPreview": "JSON report saved to <local-path>\ntime: 46.202ms\n",
       "stderrPreview": "Using config from .jscpd.json\n"
     },
-    "jscpdReportSha256": "4074a8401898db7b2add6c8997eca994ef651798adf02d713125c2c9f7172936",
-    "jscpdCloneCount": 17,
-    "jscpdCloneBaseline": 17,
-    "jscpdDuplicatedLines": 439,
-    "jscpdDuplicatedLinesBaseline": 439,
-    "jscpdDuplicatedTokens": 2979,
-    "jscpdDuplicatedTokensBaseline": 2979,
-    "jscpdDuplicatedPercentage": 1.0257488667694752,
-    "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-    "jscpdDuplicatedTokenPercentage": 1.1253399818676337,
+    "jscpdReportSha256": "54a456114f0d9c7de9da9bf0ac6a81b2894b04e555362ac8ece58e7b1ddb2e77",
+    "jscpdCloneCount": 16,
+    "jscpdCloneBaseline": 16,
+    "jscpdDuplicatedLines": 416,
+    "jscpdDuplicatedLinesBaseline": 416,
+    "jscpdDuplicatedTokens": 2857,
+    "jscpdDuplicatedTokensBaseline": 2857,
+    "jscpdDuplicatedPercentage": 0.9734637525155614,
+    "jscpdDuplicatedPercentageBaseline": 0.9734637525155614,
+    "jscpdDuplicatedTokenPercentage": 1.0807804922336635,
     "jscpdSourceCount": 94,
     "jscpdTopClonePairs": [
-      {
-        "firstFile": "scripts/product-dead-export-candidates.ts",
-        "secondFile": "scripts/product-dependency-topology.ts",
-        "firstStartLine": 233,
-        "firstEndLine": 256,
-        "secondStartLine": 160,
-        "secondEndLine": 183,
-        "lines": 24,
-        "tokens": 122
-      },
       {
         "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
         "secondFile": "scripts/product-ide-extension-webview-render-smoke.ts",
@@ -1883,22 +1873,22 @@
       {
         "label": "jscpd token clone count does not exceed baseline",
         "ok": true,
-        "detail": "17/17"
+        "detail": "16/16"
       },
       {
         "label": "jscpd duplicated line and token counts do not exceed baseline",
         "ok": true,
-        "detail": "439/439; 2979/2979"
+        "detail": "416/416; 2857/2857"
       },
       {
         "label": "jscpd duplicated percentage does not exceed baseline",
         "ok": true,
-        "detail": "1.0257488667694752/1.043871121150874"
+        "detail": "0.9734637525155614/0.9734637525155614"
       },
       {
         "label": "jscpd clone pair paths are relative and normalized",
         "ok": true,
-        "detail": "17 pairs"
+        "detail": "16 pairs"
       },
       {
         "label": "primary sources include OSS, research, and patent inputs",

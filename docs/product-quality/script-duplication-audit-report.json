@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T16:22:57.633Z",
+  "generatedAt": "2026-06-20T00:51:21.862Z",
   "mode": "local_no_provider_product_script_duplication_audit",
   "scannerTargetGlob": "scripts/product-*.ts",
   "auditTargetHelperNames": [
@@ -212,7 +212,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3199
+          "line": 3207
         },
         {
           "path": "scripts/product-real-session-capture.ts",
@@ -388,7 +388,7 @@
         },
         {
           "path": "scripts/product-quality-gate.ts",
-          "line": 3195
+          "line": 3203
         },
         {
           "path": "scripts/product-runtime-doctor-regression.ts",
@@ -424,31 +424,21 @@
       "JSON report saved"
     ],
     "missingSubstrings": [],
-    "stdoutPreview": "JSON report saved to <local-path>\ntime: 52.344ms\n",
+    "stdoutPreview": "JSON report saved to <local-path>\ntime: 46.202ms\n",
     "stderrPreview": "Using config from .jscpd.json\n"
   },
-  "jscpdReportSha256": "310e0f15430652a2c418c6af2f52f4c75e8eda3f4fec460d3159672de7a641f6",
-  "jscpdCloneCount": 17,
-  "jscpdCloneBaseline": 17,
-  "jscpdDuplicatedLines": 439,
-  "jscpdDuplicatedLinesBaseline": 439,
-  "jscpdDuplicatedTokens": 2979,
-  "jscpdDuplicatedTokensBaseline": 2979,
-  "jscpdDuplicatedPercentage": 1.0281993629379802,
-  "jscpdDuplicatedPercentageBaseline": 1.043871121150874,
-  "jscpdDuplicatedTokenPercentage": 1.1289992496077494,
+  "jscpdReportSha256": "54a456114f0d9c7de9da9bf0ac6a81b2894b04e555362ac8ece58e7b1ddb2e77",
+  "jscpdCloneCount": 16,
+  "jscpdCloneBaseline": 16,
+  "jscpdDuplicatedLines": 416,
+  "jscpdDuplicatedLinesBaseline": 416,
+  "jscpdDuplicatedTokens": 2857,
+  "jscpdDuplicatedTokensBaseline": 2857,
+  "jscpdDuplicatedPercentage": 0.9734637525155614,
+  "jscpdDuplicatedPercentageBaseline": 0.9734637525155614,
+  "jscpdDuplicatedTokenPercentage": 1.0807804922336635,
   "jscpdSourceCount": 94,
   "jscpdTopClonePairs": [
-    {
-      "firstFile": "scripts/product-dead-export-candidates.ts",
-      "secondFile": "scripts/product-dependency-topology.ts",
-      "firstStartLine": 223,
-      "firstEndLine": 246,
-      "secondStartLine": 160,
-      "secondEndLine": 183,
-      "lines": 24,
-      "tokens": 122
-    },
     {
       "firstFile": "scripts/product-ide-extension-rendered-workbench-screenshot.ts",
       "secondFile": "scripts/product-ide-extension-webview-render-smoke.ts",
@@ -695,22 +685,22 @@
     {
       "label": "jscpd token clone count does not exceed baseline",
       "ok": true,
-      "detail": "17/17"
+      "detail": "16/16"
     },
     {
       "label": "jscpd duplicated line and token counts do not exceed baseline",
       "ok": true,
-      "detail": "439/439; 2979/2979"
+      "detail": "416/416; 2857/2857"
     },
     {
       "label": "jscpd duplicated percentage does not exceed baseline",
       "ok": true,
-      "detail": "1.0281993629379802/1.043871121150874"
+      "detail": "0.9734637525155614/0.9734637525155614"
     },
     {
       "label": "jscpd clone pair paths are relative and normalized",
       "ok": true,
-      "detail": "17 pairs"
+      "detail": "16 pairs"
     },
     {
       "label": "primary sources include OSS, research, and patent inputs",
