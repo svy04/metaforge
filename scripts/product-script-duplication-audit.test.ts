@@ -151,7 +151,7 @@ export function renderFixtureReport(input: string): string {
 }
 `
     const uniqueSource = Array.from(
-      { length: 2000 },
+      { length: 4000 },
       (_, index) => `export const uniqueFixtureValue${index} = ${index} * ${index + 17}`,
     ).join('\n')
     writeFileSync(join(repo, '.jscpd.json'), JSON.stringify({
@@ -325,10 +325,10 @@ export function renderFixtureReport(input: string): string {
     expect(report.jscpdCommand.passed).toBe(true)
     expect(report.jscpdCommand.missingSubstrings).toEqual([])
     expect(report.jscpdCloneCount).toBeGreaterThan(0)
-    expect(report.jscpdCloneBaseline).toBe(17)
-    expect(report.jscpdDuplicatedLinesBaseline).toBe(439)
-    expect(report.jscpdDuplicatedTokensBaseline).toBe(2979)
-    expect(report.jscpdDuplicatedPercentageBaseline).toBe(1.043871121150874)
+    expect(report.jscpdCloneBaseline).toBe(16)
+    expect(report.jscpdDuplicatedLinesBaseline).toBe(416)
+    expect(report.jscpdDuplicatedTokensBaseline).toBe(2857)
+    expect(report.jscpdDuplicatedPercentageBaseline).toBe(0.9734637525155614)
     expect(report.jscpdCloneCount).toBeLessThanOrEqual(report.jscpdCloneBaseline)
     expect(report.jscpdDuplicatedLines).toBeLessThanOrEqual(report.jscpdDuplicatedLinesBaseline)
     expect(report.jscpdDuplicatedTokens).toBeLessThanOrEqual(report.jscpdDuplicatedTokensBaseline)
@@ -336,6 +336,13 @@ export function renderFixtureReport(input: string): string {
     expect(report.jscpdReportSha256).toHaveLength(64)
     expect(report.jscpdTopClonePairs.length).toBeGreaterThan(0)
     expect(report.jscpdTopClonePairs.every((pair) => !pair.firstFile.includes('\\') && !pair.secondFile.includes('\\'))).toBe(true)
+    expect(
+      report.jscpdTopClonePairs.some(
+        (pair) =>
+          [pair.firstFile, pair.secondFile].includes('scripts/product-dead-export-candidates.ts') &&
+          [pair.firstFile, pair.secondFile].includes('scripts/product-dependency-topology.ts'),
+      ),
+    ).toBe(false)
     expect(report.publicReadinessClaimAllowed).toBe(false)
     expect(report.refactorCompletionClaimAllowed).toBe(false)
     expect(
@@ -353,6 +360,19 @@ export function renderFixtureReport(input: string): string {
       expect(source).not.toContain('function sha256(')
       expect(source).not.toContain('function readText(')
       expect(source).not.toContain('function check(')
+    }
+  })
+
+  test('dead export and dependency topology gates use shared no-provider package command helper', () => {
+    const deadExportCandidates = readFileSync(join(root, 'scripts', 'product-dead-export-candidates.ts'), 'utf8')
+    const dependencyTopology = readFileSync(join(root, 'scripts', 'product-dependency-topology.ts'), 'utf8')
+    const targetSources = [deadExportCandidates, dependencyTopology]
+
+    for (const source of targetSources) {
+      expect(source).toContain("from './quality-command-helpers'")
+      expect(source).toContain('runNoProviderPackageCommand')
+      expect(source).not.toContain("from 'node:child_process'")
+      expect(source).not.toContain('spawnSync(process.execPath')
     }
   })
 

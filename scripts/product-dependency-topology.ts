@@ -1,6 +1,6 @@
-import { spawnSync } from 'node:child_process'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { runNoProviderPackageCommand, type PackageCommandRun } from './quality-command-helpers'
 import { check, type Check } from './quality-report-helpers'
 
 type DependencyCruiserDependency = {
@@ -40,9 +40,7 @@ type TopologyCommand = {
   stderrPreview: string[]
 }
 
-type CommandRun = TopologyCommand & {
-  stdoutText: string
-}
+type CommandRun = PackageCommandRun
 
 type DependencyTopologyReport = {
   generatedAt: string
@@ -139,45 +137,15 @@ function preview(text: string): string[] {
 }
 
 function runCommand(name: string, command: string[], requiredSubstrings: string[]): CommandRun {
-  const [executable, ...args] = command
-  const result = spawnSync(process.execPath, ['x', executable, ...args], {
-    cwd: root,
-    encoding: 'utf8',
-    env: {
-      ...process.env,
-      CLAUDE_CODE_USE_OPENAI: '0',
-      CLAUDE_CODE_USE_GEMINI: '0',
-      CLAUDE_CODE_USE_GITHUB: '0',
-      CLAUDE_CODE_USE_MISTRAL: '0',
-      OPENAI_API_KEY: '',
-      CODEX_API_KEY: '',
-      GEMINI_API_KEY: '',
-      GOOGLE_API_KEY: '',
-      MISTRAL_API_KEY: '',
-      GITHUB_TOKEN: '',
-      GH_TOKEN: '',
-      ANTHROPIC_API_KEY: '',
-      OPENCLAUDE_PRODUCT_DEPENDENCY_TOPOLOGY_NO_PROVIDER: '1',
-    },
-    maxBuffer: 128 * 1024 * 1024,
-    shell: false,
-  })
-  const stdout = normalize(result.stdout)
-  const stderr = normalize(result.stderr)
-  const combined = `${stdout}\n${stderr}`
-  const missingSubstrings = requiredSubstrings.filter((substring) => !combined.includes(substring))
-
-  return {
+  return runNoProviderPackageCommand({
+    root,
     name,
     command,
-    exitCode: result.status,
-    passed: result.status === 0 && missingSubstrings.length === 0,
     requiredSubstrings,
-    missingSubstrings,
-    stdoutPreview: preview(stdout),
-    stderrPreview: preview(stderr),
-    stdoutText: stdout,
-  }
+    noProviderEnvName: 'OPENCLAUDE_PRODUCT_DEPENDENCY_TOPOLOGY_NO_PROVIDER',
+    normalize,
+    preview,
+  })
 }
 
 function stripCommand(command: CommandRun): TopologyCommand {
