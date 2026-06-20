@@ -67,13 +67,14 @@ describe('VS Code startup diagnostics public output', () => {
       externalCallsPerformed: [],
     })
 
+    const fixtureLocalAppData = ['C:', 'FixtureHome', 'fixture-owner', 'AppData', 'Local'].join('\\')
     const result = spawnSync(process.execPath, ['run', scriptPath], {
       cwd: repo,
       encoding: 'utf8',
       shell: false,
       env: {
         ...process.env,
-        LOCALAPPDATA: 'C:\\Users\\fixture-owner\\AppData\\Local',
+        LOCALAPPDATA: fixtureLocalAppData,
       },
     })
 
@@ -85,7 +86,7 @@ describe('VS Code startup diagnostics public output', () => {
     const reportJson = readFileSync(join(repo, 'docs/product-quality/vscode-startup-diagnostics-report.json'), 'utf8')
     const reportMd = readFileSync(join(repo, 'docs/product-quality/vscode-startup-diagnostics-report.md'), 'utf8')
     expect(`${reportJson}\n${reportMd}`).toContain('<vscode-updating-sentinel>')
-    expect(`${reportJson}\n${reportMd}`).not.toContain('C:\\Users\\fixture-owner')
+    expect(`${reportJson}\n${reportMd}`).not.toContain(fixtureLocalAppData)
     expect(`${reportJson}\n${reportMd}`).not.toContain('<user-home>\\AppData\\Local\\Programs\\Microsoft VS Code')
   })
 })

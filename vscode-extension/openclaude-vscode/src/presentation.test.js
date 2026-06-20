@@ -1,6 +1,8 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
+const windowsProfilePath = ['C:', 'workspace', 'openclaude', 'workspace', '.openclaude-profile.json'].join('\\');
+
 function loadPresentation() {
   return require('./presentation');
 }
@@ -18,7 +20,7 @@ test('truncateMiddle keeps the filename visible for Windows-style paths', () => 
   const { truncateMiddle } = loadPresentation();
 
   assert.equal(
-    truncateMiddle('C:\\Users\\example\\openclaude\\workspace\\.openclaude-profile.json', 30),
+    truncateMiddle(windowsProfilePath, 30),
     '...\\.openclaude-profile.json',
   );
 });
@@ -63,7 +65,7 @@ test('buildActionModel includes workspace-profile action when a profile exists',
 
   const model = buildActionModel({
     canLaunchInWorkspaceRoot: true,
-    workspaceProfilePath: 'C:\\Users\\example\\openclaude\\workspace\\.openclaude-profile.json',
+    workspaceProfilePath: windowsProfilePath,
   });
 
   assert.deepEqual(model.openProfile, {

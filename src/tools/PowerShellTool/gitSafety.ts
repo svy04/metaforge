@@ -112,7 +112,7 @@ function resolveEscapingPathToCwdRelative(n: string): string | null {
   const cwdWithSep = cwd.endsWith(sep) ? cwd : cwd + sep
   // Case-insensitive comparison: normalizeGitPathArg lowercased `n`, so
   // resolve() output has lowercase components from `n` but cwd may be
-  // mixed-case (e.g. C:\Users\...). Windows paths are case-insensitive.
+  // mixed-case. Windows paths are case-insensitive.
   const absLower = abs.toLowerCase()
   const cwdLower = cwd.toLowerCase()
   const cwdWithSepLower = cwdWithSep.toLowerCase()

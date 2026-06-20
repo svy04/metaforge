@@ -9,7 +9,7 @@ import { posixPathToWindowsPath } from './windowsPaths.js'
  * Expands a path that may contain tilde notation (~) to an absolute path.
  *
  * On Windows, POSIX-style paths (e.g., `/c/Users/...`) are automatically converted
- * to Windows format (e.g., `C:\Users\...`). The function always returns paths in
+ * to Windows drive-letter format. The function always returns paths in
  * the native format for the current platform.
  *
  * @param path - The path to expand, may contain:

@@ -326,7 +326,7 @@ const WINDOWS_DRIVE_CHILD_REGEX = /^[A-Za-z]:\/[^/]+$/
  * - Root directory (/)
  * - Home directory (~)
  * - Direct children of root (/usr, /tmp, /etc, etc.)
- * - Windows drive root (C:\, D:\) and direct children (C:\Windows, C:\Users)
+ * - Windows drive root and direct children
  */
 export function isDangerousRemovalPath(resolvedPath: string): boolean {
   // Callers pass both slash forms; collapse runs so C:\\Windows (valid in
