@@ -1,4 +1,4 @@
-import { open, stat } from 'fs/promises'
+import { open } from 'fs/promises'
 import { CLAUDE_CODE_GUIDE_AGENT_TYPE } from 'src/tools/AgentTool/built-in/claudeCodeGuideAgent.js'
 import { getSettingsFilePathForSource } from 'src/utils/settings/settings.js'
 import { enableDebugLogging, getDebugLogPath } from '../../utils/debug.js'
@@ -32,11 +32,11 @@ export function registerDebugSkill(): void {
       try {
         // Tail the log without reading the whole thing - debug logs grow
         // unbounded in long sessions and reading them in full spikes RSS.
-        const stats = await stat(debugLogPath)
-        const readSize = Math.min(stats.size, TAIL_READ_BYTES)
-        const startOffset = stats.size - readSize
         const fd = await open(debugLogPath, 'r')
         try {
+          const stats = await fd.stat()
+          const readSize = Math.min(stats.size, TAIL_READ_BYTES)
+          const startOffset = stats.size - readSize
           const { buffer, bytesRead } = await fd.read({
             buffer: Buffer.alloc(readSize),
             position: startOffset,
