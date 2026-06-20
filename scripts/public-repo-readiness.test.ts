@@ -113,6 +113,12 @@ function listFilesUnder(relativePath: string): string[] {
   return trackedRepoPaths(root).filter((path) => path.startsWith(`${relativePath}/`))
 }
 
+function architectureMapCounter(markdown: string, key: string): string {
+  const match = markdown.match(new RegExp(`- ${key}: \`([^\`]+)\``))
+  expect(match, `missing architecture map counter: ${key}`).not.toBeNull()
+  return match?.[1] ?? ''
+}
+
 describe('public repository readiness surfaces', () => {
   test('private-path sentinels stay generic instead of embedding local folder names', () => {
     const sentinelBodies = [
@@ -437,15 +443,15 @@ describe('public repository readiness surfaces', () => {
     expect(architectureMap).toContain('runtime-wired import path')
     expect(architectureMap).toContain('CandidateBoundary["Candidate/baseline/ratchet only')
     expect(architectureMap).toContain('candidate_file_count: `637`')
-    expect(architectureMap).toContain('candidate_unused_export_count: `1396`')
-    expect(architectureMap).toContain('triage_record_count: `4`')
-    expect(architectureMap).toContain('module_count: `2630`')
-    expect(architectureMap).toContain('dependency_edge_count: `11984`')
+    expect(architectureMap).toContain('candidate_unused_export_count: `1395`')
+    expect(architectureMap).toContain('triage_record_count: `3`')
+    expect(architectureMap).toContain('module_count: `2632`')
+    expect(architectureMap).toContain('dependency_edge_count: `11987`')
     expect(architectureMap).toContain('circular_dependency_baseline: `1737`')
     expect(architectureMap).toContain('unresolved_dependency_baseline: `863`')
-    expect(architectureMap).toContain('jscpd_clone_count: `17`')
-    expect(architectureMap).toContain('jscpd_duplicated_lines: `439`')
-    expect(architectureMap).toContain('jscpd_duplicated_tokens: `2979`')
+    expect(architectureMap).toContain('jscpd_clone_count: `16`')
+    expect(architectureMap).toContain('jscpd_duplicated_lines: `416`')
+    expect(architectureMap).toContain('jscpd_duplicated_tokens: `2857`')
     expect(architectureMap).toContain('not clean-architecture proof')
     expect(architectureMap).toContain('not production readiness')
     expect(architectureMap).toContain('docs/product-quality/public-claim-boundary-report.md')
@@ -463,6 +469,87 @@ describe('public repository readiness surfaces', () => {
     expect(gitignore).toContain('avf/influence_factory/operator_package_v*/')
     expect(gitignore).toContain('avf/influence_factory/owner_goal_runs/')
     expect(gitignore).toContain('avf/influence_factory/active/')
+  })
+
+  test('Architecture Map counters stay synchronized with generated static-analysis reports', () => {
+    const architectureMap = readRepoText('docs/product-quality/metaforge-architecture-map.md')
+    const deadExportReport = JSON.parse(readRepoText('docs/product-quality/dead-export-candidates-report.json')) as {
+      candidateFileCount: number
+      candidateUnusedExportCount: number
+      candidateUnusedTypeCount: number
+      candidateDuplicateExportCount: number
+      triageRecordCount: number
+      deletionClaimAllowed: boolean
+      cleanupCompletionClaimAllowed: boolean
+      publicReadinessClaimAllowed: boolean
+    }
+    const dependencyTopologyReport = JSON.parse(readRepoText('docs/product-quality/dependency-topology-report.json')) as {
+      moduleCount: number
+      dependencyEdgeCount: number
+      circularDependencyBaseline: number
+      unresolvedDependencyBaseline: number
+      configuredRatchetNewViolationCount: number
+    }
+    const scriptDuplicationReport = JSON.parse(
+      readRepoText('docs/product-quality/script-duplication-audit-report.json'),
+    ) as {
+      jscpdCloneCount: number
+      jscpdDuplicatedLines: number
+      jscpdDuplicatedTokens: number
+      jscpdDuplicatedPercentage: number
+      publicReadinessClaimAllowed: boolean
+      refactorCompletionClaimAllowed: boolean
+    }
+
+    expect(architectureMapCounter(architectureMap, 'candidate_file_count')).toBe(String(deadExportReport.candidateFileCount))
+    expect(architectureMapCounter(architectureMap, 'candidate_unused_export_count')).toBe(
+      String(deadExportReport.candidateUnusedExportCount),
+    )
+    expect(architectureMapCounter(architectureMap, 'candidate_unused_type_count')).toBe(
+      String(deadExportReport.candidateUnusedTypeCount),
+    )
+    expect(architectureMapCounter(architectureMap, 'candidate_duplicate_export_count')).toBe(
+      String(deadExportReport.candidateDuplicateExportCount),
+    )
+    expect(architectureMapCounter(architectureMap, 'triage_record_count')).toBe(String(deadExportReport.triageRecordCount))
+    expect(architectureMapCounter(architectureMap, 'deletion_claim_allowed')).toBe(
+      String(deadExportReport.deletionClaimAllowed),
+    )
+    expect(architectureMapCounter(architectureMap, 'cleanup_completion_claim_allowed')).toBe(
+      String(deadExportReport.cleanupCompletionClaimAllowed),
+    )
+    expect(architectureMapCounter(architectureMap, 'public_readiness_claim_allowed')).toBe(
+      String(deadExportReport.publicReadinessClaimAllowed),
+    )
+    expect(architectureMapCounter(architectureMap, 'module_count')).toBe(String(dependencyTopologyReport.moduleCount))
+    expect(architectureMapCounter(architectureMap, 'dependency_edge_count')).toBe(
+      String(dependencyTopologyReport.dependencyEdgeCount),
+    )
+    expect(architectureMapCounter(architectureMap, 'circular_dependency_baseline')).toBe(
+      String(dependencyTopologyReport.circularDependencyBaseline),
+    )
+    expect(architectureMapCounter(architectureMap, 'unresolved_dependency_baseline')).toBe(
+      String(dependencyTopologyReport.unresolvedDependencyBaseline),
+    )
+    expect(architectureMapCounter(architectureMap, 'configured_dependency_cruiser_new_violation_count')).toBe(
+      String(dependencyTopologyReport.configuredRatchetNewViolationCount),
+    )
+    expect(architectureMapCounter(architectureMap, 'jscpd_clone_count')).toBe(String(scriptDuplicationReport.jscpdCloneCount))
+    expect(architectureMapCounter(architectureMap, 'jscpd_duplicated_lines')).toBe(
+      String(scriptDuplicationReport.jscpdDuplicatedLines),
+    )
+    expect(architectureMapCounter(architectureMap, 'jscpd_duplicated_tokens')).toBe(
+      String(scriptDuplicationReport.jscpdDuplicatedTokens),
+    )
+    expect(architectureMapCounter(architectureMap, 'jscpd_duplicated_percentage')).toBe(
+      String(scriptDuplicationReport.jscpdDuplicatedPercentage),
+    )
+    expect(architectureMapCounter(architectureMap, 'public_readiness_claim_allowed')).toBe(
+      String(scriptDuplicationReport.publicReadinessClaimAllowed),
+    )
+    expect(architectureMapCounter(architectureMap, 'refactor_completion_claim_allowed')).toBe(
+      String(scriptDuplicationReport.refactorCompletionClaimAllowed),
+    )
   })
 
   test('generated AVF operator runs are not tracked in the public checkout', () => {

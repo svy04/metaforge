@@ -163,6 +163,7 @@ export const publicClaimEvidenceMap: PublicClaimEvidenceMapRow[] = [
     evidenceClass: 'runtime-wired local no-provider evidence',
     evidencePaths: [
       'src/services/orchestra',
+      'src/query/deps.ts',
       'src/query/orchestra.test.ts',
       'docs/AGENT_REGISTRY.md',
       'docs/product-quality/real-session-trace-evals-report.md',
@@ -958,6 +959,15 @@ function main(): void {
       row.unresolvedGap.includes('live-provider evidence') &&
       !row.unresolvedGap.includes('Runtime traces beyond docs-governance and static-analysis goals')
     )), 'MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, remediation queue evidence, goals validation, and remaining live-provider/non-fixture gaps'),
+    check('Orchestra production query deps wire real runtime services', publicClaimEvidenceMap.some((row) => (
+      row.symbol === 'Orchestra' &&
+      row.evidenceClass.includes('runtime-wired') &&
+      row.evidencePaths.includes('src/services/orchestra') &&
+      row.evidencePaths.includes('src/query/deps.ts') &&
+      row.evidencePaths.includes('src/query/orchestra.test.ts') &&
+      row.verificationCommand.includes('bun test src/services/orchestra src/query/orchestra.test.ts') &&
+      row.allowedClaim.includes('runtime-wired source and test surfaces')
+    )), 'Orchestra row binds src/query/deps.ts production wiring, src/query/orchestra.test.ts, and src/services/orchestra runtime modules'),
     check('OpenClaude remains substrate rather than thesis', publicClaimEvidenceMap.some((row) => row.symbol === 'OpenClaude runtime' && row.publicRole.includes('substrate') && row.allowedClaim.includes('local CLI substrate') && row.nonClaims.some((item) => item.includes('not the product thesis'))), 'substrate boundary present'),
     check('AVF remains manual artifact lane not default runtime', publicClaimEvidenceMap.some((row) => row.symbol === 'AVF Influence Factory' && row.evidenceClass.includes('manual artifact') && row.nonClaims.some((item) => item.includes('not a default CLI runtime import'))), 'AVF manual lane boundary present'),
     check('all configured public surfaces exist', scannedPublicSurfaces.every((surface) => surface.exists), scannedPublicSurfaces.filter((surface) => !surface.exists).map((surface) => surface.path).join(',') || 'all present'),

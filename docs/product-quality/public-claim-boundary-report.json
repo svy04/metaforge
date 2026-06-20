@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T20:07:03.344Z",
+  "generatedAt": "2026-06-20T02:15:17.844Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -1186,9 +1186,9 @@
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
       "exists": true,
-      "sha256": "f1a336d8300eb0dad6191f94fb4863ac0417a115538b573eec2add089c793781",
-      "sizeBytes": 9052,
-      "lineCount": 112
+      "sha256": "32c9ee0e82e8426790fb7d30cd99c0292708f2f1b44eb4785d30d3cae5cf6266",
+      "sizeBytes": 9590,
+      "lineCount": 113
     },
     {
       "path": "docs/product-quality/dependency-governance-quality-report.md",
@@ -1200,7 +1200,7 @@
     {
       "path": "docs/product-quality/dependency-topology-report.md",
       "exists": true,
-      "sha256": "9414b4796686a1d79fa63fae80f947e3bc0b043f799d758c3b04baced0de427f",
+      "sha256": "d5332678cc51fcd74a513f5ea5aee68653e676a862c9763ba080c59dda417175",
       "sizeBytes": 6142,
       "lineCount": 117
     },
@@ -1368,8 +1368,8 @@
     {
       "path": "docs/product-quality/metaforge-architecture-map.md",
       "exists": true,
-      "sha256": "45fb9e0e38d9d8ef96a826627f68060c667ae85d5da4e985e44c81a1ff4f89a7",
-      "sizeBytes": 6089,
+      "sha256": "f764f2220a1f527fc1dc8bfdff791780c4817608a58ff6308263cef7a9d29f12",
+      "sizeBytes": 6272,
       "lineCount": 150
     },
     {
@@ -1732,9 +1732,9 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "ce93811f4372897ea121e164118b07c04197e43ba44685b4cedd2934940feb16",
-      "sizeBytes": 8471,
-      "lineCount": 95
+      "sha256": "4ac0c6099e2c7141589f72c14bb7e97ede98e8a9ab1d6e0835f36d44f3661ae9",
+      "sizeBytes": 8359,
+      "lineCount": 94
     },
     {
       "path": "docs/product-quality/source-controlled-checks-report.md",
@@ -1753,9 +1753,9 @@
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
       "exists": true,
-      "sha256": "5008919d7cd360aa3b27a36b92dfdb1b07fed45d2b741e20994e7ca3573fea64",
-      "sizeBytes": 7442,
-      "lineCount": 86
+      "sha256": "938cbbd7d7a28c3534701be10d92c8be172fa42649b2dc26d6d5a2db7379bc9c",
+      "sizeBytes": 8127,
+      "lineCount": 93
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
@@ -1934,8 +1934,8 @@
     }
   ],
   "publicSurfaceCount": 269,
-  "scannedLineCount": 24400,
-  "blockedContextClaimMentionCount": 1064,
+  "scannedLineCount": 24407,
+  "blockedContextClaimMentionCount": 1068,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
     {
@@ -10210,6 +10210,42 @@
       "contextText": "Blocked context: - It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, release readiness, production readiness, external validation, or autonomous reliability."
     },
     {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 64,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "| `src/services/api/providerConfig.ts` | `resolveStoredCodexCredentials` | `src/services/api/providerConfig.runtimeCodexCredentials.test.ts` | `bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredent",
+      "contextText": "Blocked context: ... edentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims. |"
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 64,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "| `src/services/api/providerConfig.ts` | `resolveStoredCodexCredentials` | `src/services/api/providerConfig.runtimeCodexCredentials.test.ts` | `bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredent",
+      "contextText": "Blocked context: ... edentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims. |"
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 65,
+      "phrase": "public readiness",
+      "category": "public_readiness",
+      "status": "blocked_context",
+      "text": "| `src/utils/geminiCredentials.ts` | `clearGeminiAccessToken` | `src/utils/geminiCredentials.test.ts` | `bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence ",
+      "contextText": "Blocked context: ... edentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims. |"
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "line": 65,
+      "phrase": "external validation",
+      "category": "external_validation",
+      "status": "blocked_context",
+      "text": "| `src/utils/geminiCredentials.ts` | `clearGeminiAccessToken` | `src/utils/geminiCredentials.test.ts` | `bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence ",
+      "contextText": "Blocked context: ... edentials.test.ts src/utils/geminiCredentials.test.ts` | Runtime guard evidence does not authorize deletion, export narrowing, cleanup completion, public readiness, or external validation claims. |"
+    },
+    {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
       "line": 10,
       "phrase": "release readiness",
@@ -11518,8 +11554,8 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "0fc09716822dfb1b9de8d1566dd5d5f1c20559a2c0554137f077698ed8532f8b",
-  "scanJsonlRecordCount": 1064,
+  "scanJsonlSha256": "21b94b6f5ea9b93d37338373c6791b0ecf07191f4234dbe6b24fdd4eb662ed78",
+  "scanJsonlRecordCount": 1068,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
     {
@@ -11580,6 +11616,7 @@
       "evidenceClass": "runtime-wired local no-provider evidence",
       "evidencePaths": [
         "src/services/orchestra",
+        "src/query/deps.ts",
         "src/query/orchestra.test.ts",
         "docs/AGENT_REGISTRY.md",
         "docs/product-quality/real-session-trace-evals-report.md",
@@ -11699,6 +11736,11 @@
       "detail": "MFH row includes representative trace fixtures, runtime behavior triad evidence, CG-002 static-analysis ratchet evidence, remediation queue evidence, goals validation, and remaining live-provider/non-fixture gaps"
     },
     {
+      "label": "Orchestra production query deps wire real runtime services",
+      "ok": true,
+      "detail": "Orchestra row binds src/query/deps.ts production wiring, src/query/orchestra.test.ts, and src/services/orchestra runtime modules"
+    },
+    {
       "label": "OpenClaude remains substrate rather than thesis",
       "ok": true,
       "detail": "substrate boundary present"
@@ -11721,7 +11763,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "24400 lines"
+      "detail": "24407 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
@@ -11731,12 +11773,12 @@
     {
       "label": "blocked context mentions are classified separately",
       "ok": true,
-      "detail": "1064 findings"
+      "detail": "1068 findings"
     },
     {
       "label": "claim JSONL record count matches findings",
       "ok": true,
-      "detail": "1064/1064"
+      "detail": "1068/1068"
     },
     {
       "label": "claim JSONL hash is recorded",
