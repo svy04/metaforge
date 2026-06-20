@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T15:58:51.200Z",
+  "generatedAt": "2026-06-20T03:26:10.792Z",
   "mode": "local_no_provider_product_evidence_manifest",
   "manifestFormat": "openclaude_product_evidence_manifest_v1",
   "primarySourceInputs": [
@@ -20,20 +20,20 @@
     }
   ],
   "manifestJsonlPath": "reports/openclaude-product-evidence-manifest.jsonl",
-  "manifestJsonlSha256": "372ed3d2d15550251bbc93be47a8299a74440ad5ae299dd544f1235376c8088a",
-  "evidenceRecordCount": 228,
-  "evidenceTotalSizeBytes": 12578897,
+  "manifestJsonlSha256": "260b90e0f606563c7384c742ab12c474f5d30f43e7a37d5a29a214b08bd78381",
+  "evidenceRecordCount": 233,
+  "evidenceTotalSizeBytes": 12701217,
   "evidenceRoles": {
     "source": 2,
-    "evidence_report": 203,
-    "evidence_artifact": 14,
+    "evidence_report": 207,
+    "evidence_artifact": 15,
     "quality_gate": 1,
     "workflow": 8
   },
   "evidenceProofClasses": {
     "behavioral_runtime": 58,
-    "static_analysis": 11,
-    "governance_boundary": 42,
+    "static_analysis": 14,
+    "governance_boundary": 44,
     "source_control": 11,
     "structural_inventory": 106
   },
@@ -125,6 +125,9 @@
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dead-export-candidates-report.md",
     "docs/product-quality/dead-export-candidate-triage.json",
+    "docs/product-quality/static-analysis-remediation-queue-report.json",
+    "docs/product-quality/static-analysis-remediation-queue-report.md",
+    "reports/openclaude-static-analysis-remediation-queue.jsonl",
     "docs/product-quality/maintainer-ownership-quality-report.json",
     "docs/product-quality/dependency-governance-quality-report.json",
     "docs/product-quality/lockfile-sbom-quality-report.json",
@@ -257,8 +260,8 @@
     },
     {
       "path": "docs/goals/CG-002-static-analysis-ratchet.md",
-      "sha256": "5ec78737cdeee15c549c979c87a8d6fba28183c577cf5adbdbd0db146266079d",
-      "sizeBytes": 12173,
+      "sha256": "46b884fbde2b02ce4ce87c4fdbcf7b7037dd83ce54971c4c758cafbd138e1530",
+      "sizeBytes": 13523,
       "role": "evidence_artifact"
     },
     {
@@ -281,8 +284,8 @@
     },
     {
       "path": "docs/goals/traces/CG-002-static-analysis-ratchet.trace.json",
-      "sha256": "2eb7f8bf9d4ee51138cba99b692223e3a05680583e439b04d9fdb54de1069f14",
-      "sizeBytes": 2567,
+      "sha256": "10a8f99bab1c5649239aaa6d11cb41bacdca6c971297724375ccdbc81190c92a",
+      "sizeBytes": 2730,
       "role": "evidence_artifact"
     },
     {
@@ -425,20 +428,20 @@
     },
     {
       "path": "docs/product-quality/dead-export-candidate-triage.json",
-      "sha256": "86836950baa30cbc72c9610a6e4e1746db0f168df083f7e1d04c04133f49ec4a",
-      "sizeBytes": 2440,
+      "sha256": "4caf117bcaec3f3a40ba090e09f084501ba9c9cc1d7b3c86b0560c32f360e777",
+      "sizeBytes": 3055,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.json",
-      "sha256": "433dd28ad50b0edb2e9d85a3b43e75da4ebee0b2a7be0b0d8b9108924ba6cdee",
-      "sizeBytes": 17379,
+      "sha256": "69c3868876294e82d62ed0c89adf0c53fec7269e8a20bc66157099dab199e057",
+      "sizeBytes": 18774,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
-      "sha256": "f2f264c44670942b321f265ac1dea65c43c884541673c9796135fc14fab260e4",
-      "sizeBytes": 9078,
+      "sha256": "115b3eecf8e8fa9cc17054423a6460ec57de1c02b602b4f5e8b75b470f5309ab",
+      "sizeBytes": 9612,
       "role": "evidence_report"
     },
     {
@@ -455,26 +458,26 @@
     },
     {
       "path": "docs/product-quality/dependency-topology-report.json",
-      "sha256": "b6b8fc4443f7ec6d95419723a89095d23c7834bea42cc9ea9ca0b49c50f322b0",
+      "sha256": "7dbe8442673aed761f0d9a343bd1df127fc427006c7fbdc482aebef436db7209",
       "sizeBytes": 11232,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/dependency-topology-report.md",
-      "sha256": "b0a1593560300fb20fa0905958ce7e5e84eb4524ac629742f2b64299858e6861",
+      "sha256": "d5332678cc51fcd74a513f5ea5aee68653e676a862c9763ba080c59dda417175",
       "sizeBytes": 6142,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.json",
-      "sha256": "910a6270cfc8fe57868eb0fc2fb006eb6190ffa1b2ae553dde3a259c3c8ece2b",
-      "sizeBytes": 26948,
+      "sha256": "aef7519c5912103f4e4693a9f535ad89065ad489c040a79ffc55c9ba1b9557cb",
+      "sizeBytes": 27245,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/doc-link-integrity-report.md",
-      "sha256": "4e5a2508ab285c8dc3fb8c81fdf13e02898103552cecd03c6c0de7c415b52395",
-      "sizeBytes": 12875,
+      "sha256": "5f9869205b87cd777a0558048b114ccba0c28bf037b0f98a454ae204b6f1f79d",
+      "sizeBytes": 13001,
       "role": "evidence_report"
     },
     {
@@ -737,8 +740,8 @@
     },
     {
       "path": "docs/product-quality/metaforge-architecture-map.md",
-      "sha256": "45fb9e0e38d9d8ef96a826627f68060c667ae85d5da4e985e44c81a1ff4f89a7",
-      "sizeBytes": 6089,
+      "sha256": "4fcfbccbc5d105cf3bc1fdf258837c89b0ccb506243a326e9168e8123d39a538",
+      "sizeBytes": 6272,
       "role": "evidence_report"
     },
     {
@@ -1169,14 +1172,14 @@
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.json",
-      "sha256": "ad366272414b79471435d985731cbe2d06e88450809d5bbea4e145886f32e684",
-      "sizeBytes": 686881,
+      "sha256": "152e881112fc3fd8e44f6c428fae5d02c909a820bd1344b03e27a6158f869d79",
+      "sizeBytes": 699613,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/public-claim-boundary-report.md",
-      "sha256": "4a36152a71159ffc1eb3a7e4c5c553ea9abe9fcb826d47ae3f235a5e97487a92",
-      "sizeBytes": 357587,
+      "sha256": "ce98121fe383b016edbb2fe24b9c2542cf83fb08f5100f7ecf969ac8ddf11439",
+      "sizeBytes": 364355,
       "role": "evidence_report"
     },
     {
@@ -1189,6 +1192,12 @@
       "path": "docs/product-quality/public-feedback-snapshot-2026-06-19.md",
       "sha256": "dcffb70cc0b4e332294bba8fb53d8ca5dd74269974cddc5a372788acc37d0de1",
       "sizeBytes": 3382,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-snapshot-2026-06-20.md",
+      "sha256": "9a20ac0b51e7729cef08e3d583deb9ae242ad1946b771301f9ed0dd3c9f0a5c5",
+      "sizeBytes": 4274,
       "role": "evidence_report"
     },
     {
@@ -1207,6 +1216,12 @@
       "path": "docs/product-quality/public-feedback-triage-2026-06-19.md",
       "sha256": "7043b2b90c09548df85a993f7830069a7aa8fcf14e0560a3ee617596a3eb5fb1",
       "sizeBytes": 3798,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/public-feedback-triage-2026-06-20.md",
+      "sha256": "d2b11c51200f389100db43ba8a32001a6f948f000d7794099730989986ef826a",
+      "sizeBytes": 4981,
       "role": "evidence_report"
     },
     {
@@ -1319,14 +1334,14 @@
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.json",
-      "sha256": "0105bf2a586f2ad5ad48857640eb52574bd95769e132293f3299a34066abc2c8",
-      "sizeBytes": 23117,
+      "sha256": "bb9a975f14370be19a4d5e42eb37b1c3c547c0f76d0826982762ba084f5ccdc3",
+      "sizeBytes": 22829,
       "role": "evidence_report"
     },
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
-      "sha256": "bc975e7d7a46ad84349f4695abe70864c412dc298fe61024f708f3655b765872",
-      "sizeBytes": 8469,
+      "sha256": "851ccc1a329729deb39a44d23b3771ea18141924c98582afd25c9173df399593",
+      "sizeBytes": 8359,
       "role": "evidence_report"
     },
     {
@@ -1351,6 +1366,18 @@
       "path": "docs/product-quality/source-license-metadata-quality-report.md",
       "sha256": "e271bdd028ae0317bc2bf53d4dff6f7294c383a3b96e5c2326e1124a16422c10",
       "sizeBytes": 9508,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.json",
+      "sha256": "3394e3f72e8d47fefd9b26135e5129bafc2b2a3d6a9ca055654ee2ff22116f41",
+      "sizeBytes": 69211,
+      "role": "evidence_report"
+    },
+    {
+      "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
+      "sha256": "c1b11a6db437454340dd715a21b933c1ea389bce76124c2dce94da9053fcced2",
+      "sizeBytes": 7691,
       "role": "evidence_report"
     },
     {
@@ -1517,14 +1544,14 @@
     },
     {
       "path": "package.json",
-      "sha256": "9bad31056eaea58f772fad7c0e8ccbbbd0201ad4b3be8cc1392b95378fed7c40",
-      "sizeBytes": 20963,
+      "sha256": "998394dd06309d8f33f78307f147228e4f9698af97cb4363729b5c766d4f6c33",
+      "sizeBytes": 21129,
       "role": "source"
     },
     {
       "path": "reports/metaforge-public-claim-boundary.jsonl",
-      "sha256": "b9fb04ee4408642941eb6ff822b9b509c2fc5350f18e65465ec785805e439dd5",
-      "sizeBytes": 537905,
+      "sha256": "44cda6b3055f545c5c70554de1218725644721eb35a6b0cd704d90d18339e5ce",
+      "sizeBytes": 548106,
       "role": "evidence_artifact"
     },
     {
@@ -1544,6 +1571,12 @@
       "sha256": "c1ac8d79d81a1321ccfa84627a62612e77c59616110d0a9bd9b05bea93df5a53",
       "sizeBytes": 205,
       "role": "evidence_artifact"
+    },
+    {
+      "path": "reports/openclaude-static-analysis-remediation-queue.jsonl",
+      "sha256": "f00d5000afab62967f494b91e7aa33192580b80f46a963887ca5e1c7cecd983a",
+      "sizeBytes": 2031,
+      "role": "evidence_artifact"
     }
   ],
   "evidenceChecks": [
@@ -1555,17 +1588,17 @@
     {
       "label": "evidence records have SHA-256 digests",
       "ok": true,
-      "detail": "228 records"
+      "detail": "233 records"
     },
     {
       "label": "evidence records have nonzero sizes",
       "ok": true,
-      "detail": "12578897 total bytes"
+      "detail": "12701217 total bytes"
     },
     {
       "label": "manifest JSONL has one line per evidence record",
       "ok": true,
-      "detail": "228 lines"
+      "detail": "233 lines"
     },
     {
       "label": "manifest JSONL hash is recorded",
@@ -1580,12 +1613,12 @@
     {
       "label": "evidence roles cover reports, artifacts, workflows, source, and gate",
       "ok": true,
-      "detail": "{\"source\":2,\"evidence_report\":203,\"evidence_artifact\":14,\"quality_gate\":1,\"workflow\":8}"
+      "detail": "{\"source\":2,\"evidence_report\":207,\"evidence_artifact\":15,\"quality_gate\":1,\"workflow\":8}"
     },
     {
       "label": "behavioral evidence is separated from structural audit evidence",
       "ok": true,
-      "detail": "{\"behavioral_runtime\":58,\"static_analysis\":11,\"governance_boundary\":42,\"source_control\":11,\"structural_inventory\":106}"
+      "detail": "{\"behavioral_runtime\":58,\"static_analysis\":14,\"governance_boundary\":44,\"source_control\":11,\"structural_inventory\":106}"
     },
     {
       "label": "manifest contains no credential patterns",

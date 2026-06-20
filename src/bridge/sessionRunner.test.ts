@@ -83,3 +83,9 @@ test('buildChildEnv sets CCR v2 vars when useCcrV2 is true', () => {
   expect(env.CLAUDE_CODE_USE_CCR_V2).toBe('1')
   expect(env.CLAUDE_CODE_WORKER_EPOCH).toBe('42')
 })
+
+test('session runner does not expose internal activity parser as a public export', async () => {
+  const sessionRunner = await import('./sessionRunner.js')
+
+  expect('_extractActivitiesForTesting' in sessionRunner).toBe(false)
+})

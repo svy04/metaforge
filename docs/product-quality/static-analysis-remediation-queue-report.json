@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-20T00:52:04.291Z",
+  "generatedAt": "2026-06-20T03:24:29.047Z",
   "mode": "local_no_provider_static_analysis_remediation_queue",
   "repository": "svy04/metaforge",
-  "sourceCommit": "5c2064b4e7d9f6b3a664dd15608538ef51c01f41",
+  "sourceCommit": "11b4f5eca2370aeb84448f914053da76fe5ac456",
   "generatedFrom": [
     "docs/product-quality/dead-export-candidates-report.json",
     "docs/product-quality/dependency-topology-report.json",
@@ -133,30 +133,9 @@
         "bun run product:typecheck-health"
       ],
       "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
-    },
-    {
-      "queueId": "static-analysis-dead-export-removal-review",
-      "priority": "P3",
-      "remediationClass": "dead_export_cleanup_review",
-      "evidenceSource": "knip",
-      "evidenceCount": 1,
-      "sampleLocations": [
-        "src/bridge/sessionRunner.ts#_extractActivitiesForTesting"
-      ],
-      "safeFirstStep": "Review ordinary Knip removal candidates after runtime-guard candidates, and delete only when tests and docs prove the symbol is not part of a public or fixture boundary.",
-      "ownerDecisionRequired": false,
-      "validationCommands": [
-        "bun run product:dead-export-candidates",
-        "bun run product:dead-export-candidates",
-        "bun run product:dependency-topology",
-        "bun run product:script-duplication-audit",
-        "bun run product:static-analysis-remediation-queue",
-        "bun run product:typecheck-health"
-      ],
-      "claimBoundary": "This queue item is a remediation candidate only. It does not prove cleanup completion, topology cleanliness, refactor completion, public readiness, or external validation."
     }
   ],
-  "queueItemCount": 4,
+  "queueItemCount": 3,
   "guardedDeadExportRuntimeRecordCount": 2,
   "guardedDeadExportRuntimeRecords": [
     {
@@ -215,7 +194,7 @@
     }
   ],
   "deadExport": {
-    "generatedAt": "2026-06-20T00:52:03.915Z",
+    "generatedAt": "2026-06-20T03:24:20.719Z",
     "mode": "local_no_provider_dead_export_candidate_gate",
     "scannerTarget": "knip --config knip.jsonc --exports",
     "knipVersion": "6.16.1",
@@ -245,8 +224,8 @@
         "stderrPreview": []
       }
     ],
-    "candidateFileCount": 637,
-    "candidateUnusedExportCount": 1395,
+    "candidateFileCount": 636,
+    "candidateUnusedExportCount": 1394,
     "candidateUnusedTypeCount": 364,
     "candidateDuplicateExportCount": 12,
     "candidateFileBaseline": 657,
@@ -334,12 +313,15 @@
         ]
       },
       {
-        "file": "src/bridge/sessionRunner.ts",
-        "unusedExports": 1,
+        "file": "src/constants/prompts.ts",
+        "unusedExports": 4,
         "unusedTypes": 0,
         "duplicateExports": 0,
         "sampleExports": [
-          "_extractActivitiesForTesting"
+          "CLAUDE_CODE_DOCS_MAP_URL",
+          "computeEnvInfo",
+          "getUnameSR",
+          "getScratchpadInstructions"
         ],
         "sampleTypes": []
       },
@@ -400,19 +382,6 @@
         "sampleTypes": []
       },
       {
-        "file": "src/constants/prompts.ts",
-        "unusedExports": 4,
-        "unusedTypes": 0,
-        "duplicateExports": 0,
-        "sampleExports": [
-          "CLAUDE_CODE_DOCS_MAP_URL",
-          "computeEnvInfo",
-          "getUnameSR",
-          "getScratchpadInstructions"
-        ],
-        "sampleTypes": []
-      },
-      {
         "file": "src/services/mcp/types.ts",
         "unusedExports": 8,
         "unusedTypes": 8,
@@ -437,6 +406,23 @@
           "SerializedClient",
           "MCPCliState"
         ]
+      },
+      {
+        "file": "src/services/api/claude.ts",
+        "unusedExports": 11,
+        "unusedTypes": 0,
+        "duplicateExports": 0,
+        "sampleExports": [
+          "actualClaudeModule.getPromptCachingEnabled",
+          "actualClaudeModule.configureTaskBudgetParams",
+          "actualClaudeModule.userMessageToMessageParam",
+          "actualClaudeModule.assistantMessageToMessageParam",
+          "actualClaudeModule.executeNonStreamingRequest",
+          "actualClaudeModule.stripExcessMediaItems",
+          "actualClaudeModule.cleanupStream",
+          "actualClaudeModule.addCacheBreakpoints"
+        ],
+        "sampleTypes": []
       },
       {
         "file": "src/ink/frame.ts",
@@ -485,21 +471,16 @@
         "sampleTypes": []
       },
       {
-        "file": "src/services/api/claude.ts",
-        "unusedExports": 11,
-        "unusedTypes": 0,
+        "file": "src/services/orchestra/orchestrator.ts",
+        "unusedExports": 1,
+        "unusedTypes": 1,
         "duplicateExports": 0,
         "sampleExports": [
-          "actualClaudeModule.getPromptCachingEnabled",
-          "actualClaudeModule.configureTaskBudgetParams",
-          "actualClaudeModule.userMessageToMessageParam",
-          "actualClaudeModule.assistantMessageToMessageParam",
-          "actualClaudeModule.executeNonStreamingRequest",
-          "actualClaudeModule.stripExcessMediaItems",
-          "actualClaudeModule.cleanupStream",
-          "actualClaudeModule.addCacheBreakpoints"
+          "formatOrchestraMeta"
         ],
-        "sampleTypes": []
+        "sampleTypes": [
+          "OrchestraPlanner"
+        ]
       },
       {
         "file": "src/utils/messages.ts",
@@ -554,12 +535,12 @@
       }
     ],
     "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
-    "triageRecordCount": 3,
-    "triageCurrentCandidateCount": 3,
+    "triageRecordCount": 2,
+    "triageCurrentCandidateCount": 2,
     "triageActionCounts": {
       "needs_runtime_guard": 0,
       "runtime_guarded": 2,
-      "review_for_removal": 1,
+      "review_for_removal": 0,
       "defer_public_api": 0,
       "keep_until_entrypoint_proven": 0
     },
@@ -617,17 +598,6 @@
         "reviewedAt": "2026-06-20",
         "reviewer": "codex-local-triage",
         "currentCandidate": true
-      },
-      {
-        "file": "src/bridge/sessionRunner.ts",
-        "symbol": "_extractActivitiesForTesting",
-        "kind": "export",
-        "action": "review_for_removal",
-        "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
-        "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
-        "reviewedAt": "2026-06-16",
-        "reviewer": "codex-local-triage",
-        "currentCandidate": true
       }
     ],
     "removedCandidateRatchets": [
@@ -679,6 +649,13 @@
         "kind": "export",
         "guardrail": "Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.",
         "currentCandidate": false
+      },
+      {
+        "file": "src/bridge/sessionRunner.ts",
+        "symbol": "_extractActivitiesForTesting",
+        "kind": "export",
+        "guardrail": "Keep the activity parser private to the session runner; re-export only if a public fixture boundary or runtime import is introduced with tests.",
+        "currentCandidate": false
       }
     ],
     "primarySourceInputs": [
@@ -728,22 +705,22 @@
       {
         "label": "candidate files are discovered",
         "ok": true,
-        "detail": "637 files"
+        "detail": "636 files"
       },
       {
         "label": "unused export candidates are discovered",
         "ok": true,
-        "detail": "1395 exports"
+        "detail": "1394 exports"
       },
       {
         "label": "candidate files do not exceed baseline",
         "ok": true,
-        "detail": "637/657"
+        "detail": "636/657"
       },
       {
         "label": "unused export candidates do not exceed baseline",
         "ok": true,
-        "detail": "1395/1461"
+        "detail": "1394/1461"
       },
       {
         "label": "unused type candidates do not exceed baseline",
@@ -758,17 +735,17 @@
       {
         "label": "dead export triage ledger records reviewed candidates",
         "ok": true,
-        "detail": "3 records"
+        "detail": "2 records"
       },
       {
         "label": "dead export triage entries remain current",
         "ok": true,
-        "detail": "3/3"
+        "detail": "2/2"
       },
       {
-        "label": "dead export triage covers runtime guards and removal-review actions",
+        "label": "dead export triage covers runtime guards and removed-candidate ratchets",
         "ok": true,
-        "detail": "{\"needs_runtime_guard\":0,\"runtime_guarded\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+        "detail": "{\"needs_runtime_guard\":0,\"runtime_guarded\":2,\"review_for_removal\":0,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
       },
       {
         "label": "runtime-guarded dead export triage links behavior evidence",
@@ -778,12 +755,12 @@
       {
         "label": "dead export triage records guardrails and rationales",
         "ok": true,
-        "detail": "3 records"
+        "detail": "2 records"
       },
       {
         "label": "removed dead export ratchets remain absent",
         "ok": true,
-        "detail": "0/7 regressed"
+        "detail": "0/8 regressed"
       },
       {
         "label": "primary sources include Knip docs and fallow comparator",
@@ -1187,7 +1164,7 @@
     "claimBoundary": "Dependency topology evidence is a local no-provider dependency-cruiser graph baseline plus known-violation ratchet only. It does not prove clean architecture, public readiness, or refactor completion."
   },
   "scriptDuplication": {
-    "generatedAt": "2026-06-20T00:51:21.862Z",
+    "generatedAt": "2026-06-20T03:24:17.641Z",
     "mode": "local_no_provider_product_script_duplication_audit",
     "scannerTargetGlob": "scripts/product-*.ts",
     "auditTargetHelperNames": [
@@ -1612,19 +1589,19 @@
         "JSON report saved"
       ],
       "missingSubstrings": [],
-      "stdoutPreview": "JSON report saved to <local-path>\ntime: 46.202ms\n",
+      "stdoutPreview": "JSON report saved to <local-path>\ntime: 59.896ms\n",
       "stderrPreview": "Using config from .jscpd.json\n"
     },
-    "jscpdReportSha256": "54a456114f0d9c7de9da9bf0ac6a81b2894b04e555362ac8ece58e7b1ddb2e77",
+    "jscpdReportSha256": "272d728fbc8c4783a8b3240b836c5c7e42d9aef8c55b28993799a25c6f71a045",
     "jscpdCloneCount": 16,
     "jscpdCloneBaseline": 16,
     "jscpdDuplicatedLines": 416,
     "jscpdDuplicatedLinesBaseline": 416,
     "jscpdDuplicatedTokens": 2857,
     "jscpdDuplicatedTokensBaseline": 2857,
-    "jscpdDuplicatedPercentage": 0.9734637525155614,
+    "jscpdDuplicatedPercentage": 0.9730083734855219,
     "jscpdDuplicatedPercentageBaseline": 0.9734637525155614,
-    "jscpdDuplicatedTokenPercentage": 1.0807804922336635,
+    "jscpdDuplicatedTokenPercentage": 1.0802941788138316,
     "jscpdSourceCount": 94,
     "jscpdTopClonePairs": [
       {
@@ -1883,7 +1860,7 @@
       {
         "label": "jscpd duplicated percentage does not exceed baseline",
         "ok": true,
-        "detail": "0.9734637525155614/0.9734637525155614"
+        "detail": "0.9730083734855219/0.9734637525155614"
       },
       {
         "label": "jscpd clone pair paths are relative and normalized",
@@ -1942,17 +1919,17 @@
     {
       "label": "queue items are generated from current static-analysis findings",
       "ok": true,
-      "detail": "4 items"
+      "detail": "3 items"
     },
     {
-      "label": "queue covers existing static-analysis tools when findings exist",
+      "label": "queue or guarded evidence covers existing static-analysis tools",
       "ok": true,
       "detail": "jscpd,dependency-cruiser,knip"
     },
     {
       "label": "new dependency violations are prioritized first when present",
       "ok": true,
-      "detail": "P2:static-analysis-duplicate-helper-clusters,P2:static-analysis-jscpd-clone-hotspots,P3:static-analysis-known-topology-knots,P3:static-analysis-dead-export-removal-review"
+      "detail": "P2:static-analysis-duplicate-helper-clusters,P2:static-analysis-jscpd-clone-hotspots,P3:static-analysis-known-topology-knots"
     },
     {
       "label": "primary sources cover OSS docs research and patent inputs",
@@ -1972,7 +1949,7 @@
     {
       "label": "queue item paths are relative and local-safe",
       "ok": true,
-      "detail": "4 items"
+      "detail": "3 items"
     },
     {
       "label": "no provider live external protected dependency install or autofix action occurred",
