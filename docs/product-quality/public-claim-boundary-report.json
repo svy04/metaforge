@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T02:15:17.844Z",
+  "generatedAt": "2026-06-20T03:26:10.764Z",
   "mode": "local_no_provider_public_claim_boundary",
   "primarySourceInputs": [
     {
@@ -1186,8 +1186,8 @@
     {
       "path": "docs/product-quality/dead-export-candidates-report.md",
       "exists": true,
-      "sha256": "32c9ee0e82e8426790fb7d30cd99c0292708f2f1b44eb4785d30d3cae5cf6266",
-      "sizeBytes": 9590,
+      "sha256": "115b3eecf8e8fa9cc17054423a6460ec57de1c02b602b4f5e8b75b470f5309ab",
+      "sizeBytes": 9612,
       "lineCount": 113
     },
     {
@@ -1368,7 +1368,7 @@
     {
       "path": "docs/product-quality/metaforge-architecture-map.md",
       "exists": true,
-      "sha256": "f764f2220a1f527fc1dc8bfdff791780c4817608a58ff6308263cef7a9d29f12",
+      "sha256": "4fcfbccbc5d105cf3bc1fdf258837c89b0ccb506243a326e9168e8123d39a538",
       "sizeBytes": 6272,
       "lineCount": 150
     },
@@ -1732,7 +1732,7 @@
     {
       "path": "docs/product-quality/script-duplication-audit-report.md",
       "exists": true,
-      "sha256": "4ac0c6099e2c7141589f72c14bb7e97ede98e8a9ab1d6e0835f36d44f3661ae9",
+      "sha256": "851ccc1a329729deb39a44d23b3771ea18141924c98582afd25c9173df399593",
       "sizeBytes": 8359,
       "lineCount": 94
     },
@@ -1753,9 +1753,9 @@
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
       "exists": true,
-      "sha256": "938cbbd7d7a28c3534701be10d92c8be172fa42649b2dc26d6d5a2db7379bc9c",
-      "sizeBytes": 8127,
-      "lineCount": 93
+      "sha256": "c1b11a6db437454340dd715a21b933c1ea389bce76124c2dce94da9053fcced2",
+      "sizeBytes": 7691,
+      "lineCount": 91
     },
     {
       "path": "docs/product-quality/terminal-bench-readiness-report.md",
@@ -1934,7 +1934,7 @@
     }
   ],
   "publicSurfaceCount": 269,
-  "scannedLineCount": 24407,
+  "scannedLineCount": 24405,
   "blockedContextClaimMentionCount": 1068,
   "unauthorizedPositiveClaimCount": 0,
   "blockedContextClaimMentions": [
@@ -10211,7 +10211,7 @@
     },
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
-      "line": 64,
+      "line": 62,
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
@@ -10220,7 +10220,7 @@
     },
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
-      "line": 64,
+      "line": 62,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -10229,7 +10229,7 @@
     },
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
-      "line": 65,
+      "line": 63,
       "phrase": "public readiness",
       "category": "public_readiness",
       "status": "blocked_context",
@@ -10238,7 +10238,7 @@
     },
     {
       "path": "docs/product-quality/static-analysis-remediation-queue-report.md",
-      "line": 65,
+      "line": 63,
       "phrase": "external validation",
       "category": "external_validation",
       "status": "blocked_context",
@@ -11554,7 +11554,7 @@
   "unauthorizedPositiveClaims": [],
   "claimBoundaryStatus": "no_unauthorized_public_claims_detected",
   "scanJsonlPath": "reports/metaforge-public-claim-boundary.jsonl",
-  "scanJsonlSha256": "21b94b6f5ea9b93d37338373c6791b0ecf07191f4234dbe6b24fdd4eb662ed78",
+  "scanJsonlSha256": "44cda6b3055f545c5c70554de1218725644721eb35a6b0cd704d90d18339e5ce",
   "scanJsonlRecordCount": 1068,
   "publicClaimEvidenceSymbolCount": 6,
   "publicClaimEvidenceMap": [
@@ -11763,7 +11763,7 @@
     {
       "label": "public surfaces contain scanned lines",
       "ok": true,
-      "detail": "24407 lines"
+      "detail": "24405 lines"
     },
     {
       "label": "unauthorized positive claims are absent",
