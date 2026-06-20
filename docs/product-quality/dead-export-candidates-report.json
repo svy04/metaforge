@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T03:25:08.327Z",
+  "generatedAt": "2026-06-20T05:18:40.328Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -118,6 +118,19 @@
       ]
     },
     {
+      "file": "src/constants/prompts.ts",
+      "unusedExports": 4,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "CLAUDE_CODE_DOCS_MAP_URL",
+        "computeEnvInfo",
+        "getUnameSR",
+        "getScratchpadInstructions"
+      ],
+      "sampleTypes": []
+    },
+    {
       "file": "src/state/AppState.tsx",
       "unusedExports": 2,
       "unusedTypes": 3,
@@ -174,19 +187,6 @@
       "sampleTypes": []
     },
     {
-      "file": "src/constants/prompts.ts",
-      "unusedExports": 4,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "CLAUDE_CODE_DOCS_MAP_URL",
-        "computeEnvInfo",
-        "getUnameSR",
-        "getScratchpadInstructions"
-      ],
-      "sampleTypes": []
-    },
-    {
       "file": "src/services/mcp/types.ts",
       "unusedExports": 8,
       "unusedTypes": 8,
@@ -211,6 +211,23 @@
         "SerializedClient",
         "MCPCliState"
       ]
+    },
+    {
+      "file": "src/services/api/claude.ts",
+      "unusedExports": 11,
+      "unusedTypes": 0,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "actualClaudeModule.getPromptCachingEnabled",
+        "actualClaudeModule.configureTaskBudgetParams",
+        "actualClaudeModule.userMessageToMessageParam",
+        "actualClaudeModule.assistantMessageToMessageParam",
+        "actualClaudeModule.executeNonStreamingRequest",
+        "actualClaudeModule.stripExcessMediaItems",
+        "actualClaudeModule.cleanupStream",
+        "actualClaudeModule.addCacheBreakpoints"
+      ],
+      "sampleTypes": []
     },
     {
       "file": "src/ink/frame.ts",
@@ -255,23 +272,6 @@
       "duplicateExports": 0,
       "sampleExports": [
         "renderSync"
-      ],
-      "sampleTypes": []
-    },
-    {
-      "file": "src/services/api/claude.ts",
-      "unusedExports": 11,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "actualClaudeModule.getPromptCachingEnabled",
-        "actualClaudeModule.configureTaskBudgetParams",
-        "actualClaudeModule.userMessageToMessageParam",
-        "actualClaudeModule.assistantMessageToMessageParam",
-        "actualClaudeModule.executeNonStreamingRequest",
-        "actualClaudeModule.stripExcessMediaItems",
-        "actualClaudeModule.cleanupStream",
-        "actualClaudeModule.addCacheBreakpoints"
       ],
       "sampleTypes": []
     },

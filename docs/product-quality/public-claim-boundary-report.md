@@ -297,7 +297,7 @@ This map binds public Metaforge symbols to local evidence, allowed claims, expli
 | `docs/product-quality/community-intake-quality-report.md` | `true` | `0c85e4056a67aeddbdd39eb3de3b71f8353fc06a79b675aa56630495cf77cf42` | 61 |
 | `docs/product-quality/community-profile-quality-report.md` | `true` | `08b95453f468cd80749bb3d6195c71a5630f39278ae4a76d49a0c1e2373d5ef0` | 64 |
 | `docs/product-quality/competitive-scorecard.md` | `true` | `db68e5bcc24f30ad3e0adb9c98e7ea3afcec47aa50392e3a0658a4a504330d60` | 67 |
-| `docs/product-quality/dead-export-candidates-report.md` | `true` | `115b3eecf8e8fa9cc17054423a6460ec57de1c02b602b4f5e8b75b470f5309ab` | 113 |
+| `docs/product-quality/dead-export-candidates-report.md` | `true` | `e288fe4c01355b455445dd5dea477a2b5242f2aa178eb409c818044f4ac1369e` | 113 |
 | `docs/product-quality/dependency-governance-quality-report.md` | `true` | `4edaa9099276c14919ae5390999a4a356727137f106b62ee84a0db4e8b4aa12a` | 179 |
 | `docs/product-quality/dependency-topology-report.md` | `true` | `d5332678cc51fcd74a513f5ea5aee68653e676a862c9763ba080c59dda417175` | 117 |
 | `docs/product-quality/doc-link-integrity-report.md` | `true` | `5f9869205b87cd777a0558048b114ccba0c28bf037b0f98a454ae204b6f1f79d` | 136 |
