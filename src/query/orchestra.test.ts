@@ -1,6 +1,13 @@
 import { describe, expect, test } from 'bun:test'
 
+import { productionDeps } from './deps.js'
 import { query } from '../query.js'
+import { resolveCodexImplementerRoute } from '../services/orchestra/implementer.js'
+import {
+  createOrchestraGuidance,
+  createOrchestraSkepticDissent,
+} from '../services/orchestra/orchestrator.js'
+import { createOrchestraShadowReview } from '../services/orchestra/shadowReview.js'
 import { getDefaultAppState } from '../state/AppStateStore.js'
 import { asSystemPrompt } from '../utils/systemPromptType.js'
 import { createAssistantMessage, createUserMessage } from '../utils/messages.js'
@@ -42,6 +49,15 @@ async function collect(iterator: AsyncGenerator<any>) {
 }
 
 describe('query orchestra integration', () => {
+  test('production deps wire query to real Orchestra runtime services', () => {
+    const deps = productionDeps()
+
+    expect(deps.orchestraGuidance).toBe(createOrchestraGuidance)
+    expect(deps.orchestraImplementerRoute).toBe(resolveCodexImplementerRoute)
+    expect(deps.skepticDissent).toBe(createOrchestraSkepticDissent)
+    expect(deps.shadowReview).toBe(createOrchestraShadowReview)
+  })
+
   test('calls Opus advisory once for top-level turns and hides it from output', async () => {
     const modelCalls: any[] = []
     const orchestraCalls: any[] = []

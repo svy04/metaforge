@@ -123,6 +123,16 @@ describe('product public claim boundary classifier', () => {
     expect(result.stdout).toContain('MFH behavior evidence is bound to trace validation')
   })
 
+  test('check mode reports the Orchestra production query-deps wiring check', () => {
+    const result = spawnSync('bun', [scriptPath, '--check'], {
+      cwd: root,
+      encoding: 'utf8',
+      shell: false,
+    })
+
+    expect(result.stdout).toContain('Orchestra production query deps wire real runtime services')
+  })
+
   test('points English and Korean READMEs to the generated public claim evidence map', () => {
     const readme = readFileSync(join(root, 'README.md'), 'utf8')
     const koreanReadme = readFileSync(join(root, 'README.ko.md'), 'utf8')
