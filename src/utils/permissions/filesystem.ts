@@ -328,7 +328,7 @@ export function getClaudeTempDirName(): string {
  * Returns the Claude temp directory path with symlinks resolved.
  * Uses TMPDIR env var if set, otherwise:
  * - On Unix: /tmp/claude-{uid}/ (resolved to /private/tmp/claude-{uid}/ on macOS)
- * - On Windows: {tmpdir}/claude/ (e.g., C:\Users\{user}\AppData\Local\Temp\claude\)
+ * - On Windows: {tmpdir}/claude/
  * This is a per-user temporary directory used by Claude Code for all temp files.
  *
  * NOTE: We resolve symlinks to ensure this path matches the resolved paths used
@@ -568,7 +568,7 @@ function hasSuspiciousWindowsPathPattern(path: string): boolean {
   }
 
   // Check for long path prefixes (both backslash and forward slash variants)
-  // Examples: \\?\C:\Users\..., \\.\C:\..., //?/C:/..., //./C:/...
+  // Examples include long-path prefixes and device namespace prefixes.
   if (
     path.startsWith('\\\\?\\') ||
     path.startsWith('\\\\.\\') ||
@@ -879,7 +879,7 @@ function patternWithRoot(
       patternWithoutDoubleSlash.match(/^\/[a-z]\//i)
     ) {
       // Convert POSIX path to Windows format
-      // The pattern is like /c/Users/... so we convert it to C:\Users\...
+      // Convert POSIX drive-letter form to Windows drive-letter form.
       const driveLetter = patternWithoutDoubleSlash[1]?.toUpperCase() ?? 'C'
       // Keep the pattern in POSIX format since relativePath returns POSIX paths
       const pathAfterDrive = patternWithoutDoubleSlash.slice(2)

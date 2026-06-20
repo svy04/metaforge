@@ -131,7 +131,7 @@ export const windowsPathToPosixPath = memoizeWithLRU(
     if (windowsPath.startsWith('\\\\')) {
       return windowsPath.replace(/\\/g, '/')
     }
-    // Handle drive letter paths: C:\Users\foo -> /c/Users/foo
+    // Handle drive-letter paths by converting them to POSIX-style paths.
     const match = windowsPath.match(/^([A-Za-z]):[/\\]/)
     if (match) {
       const driveLetter = match[1]!.toLowerCase()

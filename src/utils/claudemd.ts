@@ -639,7 +639,7 @@ export async function processMemoryFile(
 ): Promise<MemoryFileInfo[]> {
   // Skip if already processed or max depth exceeded.
   // Normalize paths for comparison to handle Windows drive letter casing
-  // differences (e.g., C:\Users vs c:\Users).
+  // differences between equivalent Windows drive-letter paths.
   const normalizedPath = normalizePathForComparison(filePath)
   if (processedPaths.has(normalizedPath) || depth >= MAX_INCLUDE_DEPTH) {
     return []

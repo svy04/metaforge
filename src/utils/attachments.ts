@@ -2800,7 +2800,7 @@ export function extractMcpResourceMentions(content: string): string[] {
   // 1. `(?!")` right after `@` drops quoted tokens entirely. The earlier
   //    form (without the lookahead and with `[^\s]` character classes)
   //    backtracked past the closing `"` at the `\b` anchor and produced
-  //    ghost matches like `"C:\Users\...\file.txt` for any quoted file
+  //    ghost matches for quoted Windows drive-letter file mentions
   //    mention containing a colon.
   // 2. The `"` added to the character classes is belt-and-braces: even
   //    if the lookahead were later removed or bypassed, the engine can
@@ -2813,7 +2813,7 @@ export function extractMcpResourceMentions(content: string): string[] {
       .map(match => match.slice(match.indexOf('@') + 1))
       // Post-match filter: a single-letter "server" followed by `:\` or
       // `:/` is always a Windows drive-letter prefix, never a real MCP
-      // resource. This covers the unquoted `@C:\Users\...` case that
+      // resource. This covers unquoted Windows drive-letter mentions that
       // the regex alone cannot disambiguate from `@server:resource`.
       .filter(m => !/^[A-Za-z]:[\\/]/.test(m)),
   )

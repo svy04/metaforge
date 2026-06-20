@@ -131,7 +131,7 @@ export function usePasteHandler({
             // 2. Space-separated paths (common when dragging from Finder)
             // For space-separated paths, we split on spaces that precede absolute paths:
             // - Unix: space followed by `/` (e.g., `/Users/...`)
-            // - Windows: space followed by drive letter and `:\` (e.g., `C:\Users\...`)
+            // - Windows: space followed by drive letter and `:\`
             // This works because spaces within paths are escaped (e.g., `file\ name.png`)
             const lines = pastedText
               .split(/ (?=\/|[A-Za-z]:\\)/)

@@ -4393,8 +4393,8 @@ async function getStatOnlyLogsForWorktrees(
   }
 
   // On Windows, drive letter case can differ between git worktree list
-  // output (e.g. C:/Users/...) and how paths were stored in project
-  // directories (e.g. c:/Users/...). Use case-insensitive comparison.
+  // output and how paths were stored in project directories. Use
+  // case-insensitive comparison.
   const caseInsensitive = process.platform === 'win32'
 
   // Sort worktree paths by sanitized prefix length (longest first) so

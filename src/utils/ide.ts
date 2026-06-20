@@ -478,7 +478,7 @@ export async function getIdeLockfilesPaths(): Promise<string[]> {
   }
 
   // Construct the path based on the standard Windows WSL locations
-  // This can fail if the current user does not have "List folder contents" permission on C:\Users
+  // This can fail if the current user does not have permission to list user profiles.
   try {
     const usersDir = '/mnt/c/Users'
     const userDirs = await getFsImplementation().readdir(usersDir)
