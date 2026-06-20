@@ -183,6 +183,12 @@ const removedCandidateRatchets: Array<Omit<RemovedCandidateRatchet, 'currentCand
     kind: 'export',
     guardrail: 'Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.',
   },
+  {
+    file: 'src/bridge/sessionRunner.ts',
+    symbol: '_extractActivitiesForTesting',
+    kind: 'export',
+    guardrail: 'Keep the activity parser private to the session runner; re-export only if a public fixture boundary or runtime import is introduced with tests.',
+  },
 ]
 const knipArgs = [
   'knip',
@@ -376,9 +382,9 @@ function buildReport(): DeadExportCandidatesReport {
     check('unused export candidates do not exceed baseline', report.candidateUnusedExportCount <= report.candidateUnusedExportBaseline, `${report.candidateUnusedExportCount}/${report.candidateUnusedExportBaseline}`),
     check('unused type candidates do not exceed baseline', report.candidateUnusedTypeCount <= report.candidateUnusedTypeBaseline, `${report.candidateUnusedTypeCount}/${report.candidateUnusedTypeBaseline}`),
     check('duplicate export candidates do not exceed baseline', report.candidateDuplicateExportCount <= report.candidateDuplicateExportBaseline, `${report.candidateDuplicateExportCount}/${report.candidateDuplicateExportBaseline}`),
-    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 3, `${report.triageRecordCount} records`),
+    check('dead export triage ledger records reviewed candidates', report.triageRecordCount >= 2, `${report.triageRecordCount} records`),
     check('dead export triage entries remain current', report.triageRecordCount > 0 && report.triageCurrentCandidateCount === report.triageRecordCount, `${report.triageCurrentCandidateCount}/${report.triageRecordCount}`),
-    check('dead export triage covers runtime guards and removal-review actions', (report.triageActionCounts.needs_runtime_guard + report.triageActionCounts.runtime_guarded) > 0 && report.triageActionCounts.review_for_removal > 0, JSON.stringify(report.triageActionCounts)),
+    check('dead export triage covers runtime guards and removed-candidate ratchets', (report.triageActionCounts.needs_runtime_guard + report.triageActionCounts.runtime_guarded) > 0 && report.removedCandidateRatchets.length >= 8, JSON.stringify(report.triageActionCounts)),
     check('runtime-guarded dead export triage links behavior evidence', report.triageRecords.filter((record) => record.action === 'runtime_guarded').every((record) => record.resolvedEvidence?.state === 'resolved_with_runtime_guard' && record.resolvedEvidence.validationCommands.length > 0 && record.resolvedEvidence.evidencePaths.length > 0 && record.resolvedEvidence.checkedBehaviors.length > 0 && record.resolvedEvidence.claimBoundary.includes('does not authorize deletion')), `${report.triageActionCounts.runtime_guarded} guarded records`),
     check('dead export triage records guardrails and rationales', report.triageRecords.every((record) => record.rationale.length > 20 && record.guardrail.length > 20), `${report.triageRecordCount} records`),
     check('removed dead export ratchets remain absent', report.removedCandidateRatchets.every((ratchet) => !ratchet.currentCandidate), `${report.removedCandidateRatchets.filter((ratchet) => ratchet.currentCandidate).length}/${report.removedCandidateRatchets.length} regressed`),

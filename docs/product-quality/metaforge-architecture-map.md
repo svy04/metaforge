@@ -105,11 +105,11 @@ Current static-analysis counters from checked-in product-quality reports:
 
 Source: `docs/product-quality/dead-export-candidates-report.md`
 
-- candidate_file_count: `637`
-- candidate_unused_export_count: `1395`
+- candidate_file_count: `636`
+- candidate_unused_export_count: `1394`
 - candidate_unused_type_count: `364`
 - candidate_duplicate_export_count: `12`
-- triage_record_count: `3`
+- triage_record_count: `2`
 - deletion_claim_allowed: `false`
 - cleanup_completion_claim_allowed: `false`
 - public_readiness_claim_allowed: `false`
@@ -131,7 +131,7 @@ Source: `docs/product-quality/script-duplication-audit-report.md`
 - jscpd_clone_count: `16`
 - jscpd_duplicated_lines: `416`
 - jscpd_duplicated_tokens: `2857`
-- jscpd_duplicated_percentage: `0.9732360097323601`
+- jscpd_duplicated_percentage: `0.9730083734855219`
 - public_readiness_claim_allowed: `false`
 - refactor_completion_claim_allowed: `false`
 

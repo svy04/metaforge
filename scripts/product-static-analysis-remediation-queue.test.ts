@@ -204,4 +204,74 @@ describe('static analysis remediation queue', () => {
     expect(report.evidenceChecks.find((item) => item.label === 'runtime-guarded dead-export candidates carry linked validation evidence')?.ok).toBe(true)
     expect(report.evidenceChecks.find((item) => item.label === 'runtime-guarded dead-export candidates stay out of unresolved P1 queue')?.ok).toBe(true)
   })
+
+  test('keeps knip evidence covered when removal-review candidates are resolved', () => {
+    const credentialRuntimeGuardCommand =
+      'bun test src/services/api/providerConfig.runtimeCodexCredentials.test.ts src/utils/geminiCredentials.test.ts'
+    const report = buildStaticAnalysisRemediationQueue({
+      repository: 'svy04/metaforge',
+      sourceCommit: 'd'.repeat(40),
+      generatedFrom: [
+        'docs/product-quality/dead-export-candidates-report.json',
+        'docs/product-quality/dependency-topology-report.json',
+        'docs/product-quality/script-duplication-audit-report.json',
+      ],
+      deadExport: {
+        candidateFileCount: 2,
+        candidateUnusedExportCount: 2,
+        candidateUnusedTypeCount: 0,
+        candidateDuplicateExportCount: 0,
+        triageRecords: [
+          {
+            file: 'src/services/api/providerConfig.ts',
+            symbol: 'resolveStoredCodexCredentials',
+            action: 'runtime_guarded',
+            currentCandidate: true,
+            resolvedEvidence: {
+              state: 'resolved_with_runtime_guard',
+              validationCommands: [credentialRuntimeGuardCommand],
+              evidencePaths: ['src/services/api/providerConfig.runtimeCodexCredentials.test.ts'],
+              checkedBehaviors: ['stored Codex credentials preserve explicit auth path and avoid sync secure-storage reads'],
+              claimBoundary: 'Runtime guard evidence does not authorize deletion.',
+            },
+          },
+          {
+            file: 'src/utils/geminiCredentials.ts',
+            symbol: 'clearGeminiAccessToken',
+            action: 'runtime_guarded',
+            currentCandidate: true,
+            resolvedEvidence: {
+              state: 'resolved_with_runtime_guard',
+              validationCommands: [credentialRuntimeGuardCommand],
+              evidencePaths: ['src/utils/geminiCredentials.test.ts'],
+              checkedBehaviors: ['Gemini credential clearing removes only Gemini token state'],
+              claimBoundary: 'Runtime guard evidence does not authorize deletion.',
+            },
+          },
+        ],
+      },
+      dependencyTopology: {
+        circularDependencyCount: 1,
+        unresolvedDependencyCount: 0,
+        configuredRatchetNewViolationCount: 0,
+        sampleCircularEdges: [{ source: 'src/a.ts', resolved: 'src/b.ts' }],
+        sampleUnresolvedEdges: [],
+      },
+      scriptDuplication: {
+        duplicateHelperClusterCount: 1,
+        helperOccurrenceCounts: { check: 2, readText: 0, sha256Text: 0 },
+        jscpdCloneCount: 0,
+        jscpdDuplicatedLines: 0,
+        jscpdDuplicatedTokens: 0,
+        jscpdDuplicatedPercentage: 0,
+        jscpdTopClonePairs: [],
+      },
+    })
+
+    expect(report.queueItems.map((item) => item.queueId)).not.toContain('static-analysis-dead-export-removal-review')
+    expect(
+      report.evidenceChecks.find((item) => item.label === 'queue or guarded evidence covers existing static-analysis tools')?.ok,
+    ).toBe(true)
+    expect(report.guardedDeadExportRuntimeRecordCount).toBe(2)
+  })
 })

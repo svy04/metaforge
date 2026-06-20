@@ -53,16 +53,6 @@
       },
       "reviewedAt": "2026-06-20",
       "reviewer": "codex-local-triage"
-    },
-    {
-      "file": "src/bridge/sessionRunner.ts",
-      "symbol": "_extractActivitiesForTesting",
-      "kind": "export",
-      "action": "review_for_removal",
-      "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
-      "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage"
     }
   ]
 }

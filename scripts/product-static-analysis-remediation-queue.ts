@@ -338,6 +338,10 @@ export function buildStaticAnalysisRemediationQueue(input: StaticAnalysisRemedia
     .filter((record) => record.currentCandidate && record.action === 'runtime_guarded')
   const sourceTypes = new Set(primarySourceInputs().map((source) => source.sourceType))
   const evidenceSources = new Set(queueItems.map((item) => item.evidenceSource))
+  const coveredStaticAnalysisSources = new Set(evidenceSources)
+  if (guardedRuntimeRecords.length > 0) {
+    coveredStaticAnalysisSources.add('knip')
+  }
   const runtimeGuardQueueSamples = new Set(
     queueItems
       .filter((item) => item.queueId === 'static-analysis-dead-export-runtime-guards')
@@ -376,7 +380,7 @@ export function buildStaticAnalysisRemediationQueue(input: StaticAnalysisRemedia
   report.evidenceChecks = [
     check('static-analysis source reports are declared', report.generatedFrom.length >= 3, report.generatedFrom.join(',')),
     check('queue items are generated from current static-analysis findings', report.queueItemCount > 0, `${report.queueItemCount} items`),
-    check('queue covers existing static-analysis tools when findings exist', ['knip', 'dependency-cruiser', 'jscpd'].every((source) => evidenceSources.has(source as StaticAnalysisQueueItem['evidenceSource'])), [...evidenceSources].join(',')),
+    check('queue or guarded evidence covers existing static-analysis tools', ['knip', 'dependency-cruiser', 'jscpd'].every((source) => coveredStaticAnalysisSources.has(source as StaticAnalysisQueueItem['evidenceSource'])), [...coveredStaticAnalysisSources].join(',')),
     check('new dependency violations are prioritized first when present', input.dependencyTopology.configuredRatchetNewViolationCount === 0 || report.queueItems[0]?.queueId === 'static-analysis-new-dependency-violations', report.queueItems.map((item) => `${item.priority}:${item.queueId}`).join(',')),
     check('primary sources cover OSS docs research and patent inputs', ['oss_tool', 'project_docs', 'research_survey', 'patent'].every((sourceType) => sourceTypes.has(sourceType as SourceInput['sourceType'])), [...sourceTypes].join(',')),
     check('runtime-guarded dead-export candidates carry linked validation evidence', guardedRuntimeRecords.every(hasLinkedRuntimeGuardEvidence), `${guardedRuntimeRecords.length} guarded records`),

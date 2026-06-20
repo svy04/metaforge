@@ -112,6 +112,9 @@ describe('product dead export candidate gate', () => {
       report.sampleCandidateFiles.find((item) => item.file === 'src/bridge/sessionRunner.ts')?.sampleTypes ?? [],
     ).not.toContain('PermissionRequest')
     expect(
+      report.sampleCandidateFiles.find((item) => item.file === 'src/bridge/sessionRunner.ts')?.sampleExports ?? [],
+    ).not.toContain('_extractActivitiesForTesting')
+    expect(
       report.sampleCandidateFiles.find((item) => item.file === 'src/utils/providerProfile.ts')?.sampleExports ?? [],
     ).not.toContain('buildMiniMaxProfileEnv')
     expect(report.candidateFileBaseline).toBeGreaterThanOrEqual(report.candidateFileCount)
@@ -119,11 +122,12 @@ describe('product dead export candidate gate', () => {
     expect(report.candidateUnusedTypeBaseline).toBeGreaterThanOrEqual(report.candidateUnusedTypeCount)
     expect(report.candidateDuplicateExportBaseline).toBeGreaterThanOrEqual(report.candidateDuplicateExportCount)
     expect(report.triageLedgerPath).toBe('docs/product-quality/dead-export-candidate-triage.json')
-    expect(report.triageRecordCount).toBeGreaterThanOrEqual(3)
+    expect(report.triageRecordCount).toBeGreaterThanOrEqual(2)
     expect(report.triageCurrentCandidateCount).toBe(report.triageRecordCount)
     expect(report.triageActionCounts['runtime_guarded']).toBeGreaterThanOrEqual(2)
     expect(report.triageActionCounts['needs_runtime_guard'] ?? 0).toBe(0)
-    expect(report.triageActionCounts['review_for_removal']).toBeGreaterThanOrEqual(1)
+    expect(report.triageActionCounts['review_for_removal'] ?? 0).toBe(0)
+    expect(report.triageRecords.map((item) => item.symbol)).not.toContain('_extractActivitiesForTesting')
     expect(report.triageRecords.every((item) => item.currentCandidate)).toBe(true)
     expect(report.triageRecords.every((item) => item.rationale.length > 20 && item.guardrail.length > 20)).toBe(true)
     const credentialRuntimeGuardCommand =
@@ -146,6 +150,13 @@ describe('product dead export candidate gate', () => {
     )
     expect(report.removedCandidateRatchets.length).toBeGreaterThanOrEqual(4)
     expect(report.removedCandidateRatchets.every((item) => item.currentCandidate)).toBe(false)
+    expect(
+      report.removedCandidateRatchets.find((item) => (
+        item.file === 'src/bridge/sessionRunner.ts' &&
+        item.kind === 'export' &&
+        item.symbol === '_extractActivitiesForTesting'
+      ))?.currentCandidate,
+    ).toBe(false)
     expect(
       report.removedCandidateRatchets.find((item) => (
         item.file === 'src/projectOnboardingState.ts' &&

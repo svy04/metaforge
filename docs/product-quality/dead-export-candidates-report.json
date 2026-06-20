@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T00:52:03.915Z",
+  "generatedAt": "2026-06-20T03:25:08.327Z",
   "mode": "local_no_provider_dead_export_candidate_gate",
   "scannerTarget": "knip --config knip.jsonc --exports",
   "knipVersion": "6.16.1",
@@ -29,8 +29,8 @@
       "stderrPreview": []
     }
   ],
-  "candidateFileCount": 637,
-  "candidateUnusedExportCount": 1395,
+  "candidateFileCount": 636,
+  "candidateUnusedExportCount": 1394,
   "candidateUnusedTypeCount": 364,
   "candidateDuplicateExportCount": 12,
   "candidateFileBaseline": 657,
@@ -116,16 +116,6 @@
       "sampleTypes": [
         "GithubModelsCredentialBlob"
       ]
-    },
-    {
-      "file": "src/bridge/sessionRunner.ts",
-      "unusedExports": 1,
-      "unusedTypes": 0,
-      "duplicateExports": 0,
-      "sampleExports": [
-        "_extractActivitiesForTesting"
-      ],
-      "sampleTypes": []
     },
     {
       "file": "src/state/AppState.tsx",
@@ -286,6 +276,18 @@
       "sampleTypes": []
     },
     {
+      "file": "src/services/orchestra/orchestrator.ts",
+      "unusedExports": 1,
+      "unusedTypes": 1,
+      "duplicateExports": 0,
+      "sampleExports": [
+        "formatOrchestraMeta"
+      ],
+      "sampleTypes": [
+        "OrchestraPlanner"
+      ]
+    },
+    {
       "file": "src/utils/messages.ts",
       "unusedExports": 16,
       "unusedTypes": 0,
@@ -338,12 +340,12 @@
     }
   ],
   "triageLedgerPath": "docs/product-quality/dead-export-candidate-triage.json",
-  "triageRecordCount": 3,
-  "triageCurrentCandidateCount": 3,
+  "triageRecordCount": 2,
+  "triageCurrentCandidateCount": 2,
   "triageActionCounts": {
     "needs_runtime_guard": 0,
     "runtime_guarded": 2,
-    "review_for_removal": 1,
+    "review_for_removal": 0,
     "defer_public_api": 0,
     "keep_until_entrypoint_proven": 0
   },
@@ -401,17 +403,6 @@
       "reviewedAt": "2026-06-20",
       "reviewer": "codex-local-triage",
       "currentCandidate": true
-    },
-    {
-      "file": "src/bridge/sessionRunner.ts",
-      "symbol": "_extractActivitiesForTesting",
-      "kind": "export",
-      "action": "review_for_removal",
-      "rationale": "The underscore and testing suffix suggest this is a test-only seam that may be moved into a test helper if no runtime import exists.",
-      "guardrail": "Before removal, run bridge session tests and replace any direct test imports with a local fixture helper.",
-      "reviewedAt": "2026-06-16",
-      "reviewer": "codex-local-triage",
-      "currentCandidate": true
     }
   ],
   "removedCandidateRatchets": [
@@ -463,6 +454,13 @@
       "kind": "export",
       "guardrail": "Keep the bridge allowlist covered by src/commands.policy.test.ts safe-prompt, unsafe-local, unsafe-local-jsx, and allowlisted-local checks.",
       "currentCandidate": false
+    },
+    {
+      "file": "src/bridge/sessionRunner.ts",
+      "symbol": "_extractActivitiesForTesting",
+      "kind": "export",
+      "guardrail": "Keep the activity parser private to the session runner; re-export only if a public fixture boundary or runtime import is introduced with tests.",
+      "currentCandidate": false
     }
   ],
   "primarySourceInputs": [
@@ -512,22 +510,22 @@
     {
       "label": "candidate files are discovered",
       "ok": true,
-      "detail": "637 files"
+      "detail": "636 files"
     },
     {
       "label": "unused export candidates are discovered",
       "ok": true,
-      "detail": "1395 exports"
+      "detail": "1394 exports"
     },
     {
       "label": "candidate files do not exceed baseline",
       "ok": true,
-      "detail": "637/657"
+      "detail": "636/657"
     },
     {
       "label": "unused export candidates do not exceed baseline",
       "ok": true,
-      "detail": "1395/1461"
+      "detail": "1394/1461"
     },
     {
       "label": "unused type candidates do not exceed baseline",
@@ -542,17 +540,17 @@
     {
       "label": "dead export triage ledger records reviewed candidates",
       "ok": true,
-      "detail": "3 records"
+      "detail": "2 records"
     },
     {
       "label": "dead export triage entries remain current",
       "ok": true,
-      "detail": "3/3"
+      "detail": "2/2"
     },
     {
-      "label": "dead export triage covers runtime guards and removal-review actions",
+      "label": "dead export triage covers runtime guards and removed-candidate ratchets",
       "ok": true,
-      "detail": "{\"needs_runtime_guard\":0,\"runtime_guarded\":2,\"review_for_removal\":1,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
+      "detail": "{\"needs_runtime_guard\":0,\"runtime_guarded\":2,\"review_for_removal\":0,\"defer_public_api\":0,\"keep_until_entrypoint_proven\":0}"
     },
     {
       "label": "runtime-guarded dead export triage links behavior evidence",
@@ -562,12 +560,12 @@
     {
       "label": "dead export triage records guardrails and rationales",
       "ok": true,
-      "detail": "3 records"
+      "detail": "2 records"
     },
     {
       "label": "removed dead export ratchets remain absent",
       "ok": true,
-      "detail": "0/7 regressed"
+      "detail": "0/8 regressed"
     },
     {
       "label": "primary sources include Knip docs and fallow comparator",
