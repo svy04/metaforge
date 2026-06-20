@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-06-18T09:14:14.935Z",
+  "generatedAt": "2026-06-20T06:58:01.952Z",
   "mode": "local_no_provider_trace_portability_export",
   "sourceRealTraceEvalReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceRealTraceEvalReportSha256": "285728e685b889d857d1cf766ffdaf356997454c1a0e624a75b352b3bb84c7ed",
+  "sourceRealTraceEvalReportSha256": "367dfb27558c6c04e07a34c46bd8b07bfb86329043e9396bedd362de4cfedca1",
   "sourceTraceSchemaContractReportPath": "docs/product-quality/trace-schema-contract-report.json",
-  "sourceTraceSchemaContractReportSha256": "fc99e0cad6408752366947ffe4ad01f0c7201b41afb1dcb39cdced831975e285",
+  "sourceTraceSchemaContractReportSha256": "74fe02dcbd37b43c7323d0af5d78b68150b19784eee0c49cc2af3933112ac19f",
   "portableTraceExportPath": "reports/openclaude-portable-trace-events.jsonl",
-  "portableTraceExportSha256": "f23919cee85fd30c2c415d1393ec3d737ab066ae84293e8cf6cc7dbeba719e9b",
-  "sourceTraceCount": 10,
-  "sourceEventCount": 73,
-  "portableEventCount": 73,
-  "sourceHistoricalMissingEventNameCount": 7,
-  "sourceHistoricalMissingTraceContextCount": 7,
+  "portableTraceExportSha256": "f31f9d2ecd305779caace1667c9d12125af0e3e135363a75b5149d2cbb870f38",
+  "sourceTraceCount": 7,
+  "sourceEventCount": 66,
+  "portableEventCount": 66,
+  "sourceHistoricalMissingEventNameCount": 0,
+  "sourceHistoricalMissingTraceContextCount": 0,
   "sourceHistoricalMissingActionObservationCount": 0,
   "portableMissingEventNameCount": 0,
   "portableMissingTraceContextCount": 0,
   "portableMissingActionObservationCount": 0,
   "sourceEventsAlreadyEnrichedCount": 66,
-  "portableEventsSynthesizedFromHistoricalGapsCount": 7,
+  "portableEventsSynthesizedFromHistoricalGapsCount": 0,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -29,18 +29,13 @@
       "eventCount": 10
     },
     {
-      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
-      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
-      "eventCount": 3
-    },
-    {
       "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
       "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
       "eventCount": 10
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "eventCount": 8
     },
     {
@@ -50,7 +45,7 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "2240322b9b6ffb569910245b66a605203bdb70cd589cee7a2190fa2820ad956b",
+      "sha256": "814aca7c3335dfe88045246264cd7f9904f3c050314d0fbb47022ddf4e7c6111",
       "eventCount": 12
     },
     {
@@ -62,16 +57,6 @@
       "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
       "sha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
       "eventCount": 9
-    },
-    {
-      "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "21c1b2e7fc2e7a7a26a3c60698f8f6f186e19a5cd749f7a051633ecd0b0b40f5",
-      "eventCount": 2
-    },
-    {
-      "path": "reports/orchestra-usage-probe.jsonl",
-      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
-      "eventCount": 2
     }
   ],
   "portabilityChecks": [
@@ -108,17 +93,17 @@
     {
       "label": "trace count matches schema contract",
       "ok": true,
-      "detail": "10/10"
+      "detail": "7/7"
     },
     {
       "label": "portable export has one event per source event",
       "ok": true,
-      "detail": "73/73"
+      "detail": "66/66"
     },
     {
       "label": "portable export preserves source trace hashes",
       "ok": true,
-      "detail": "10 traces"
+      "detail": "7 traces"
     },
     {
       "label": "portable export has event names for every event",
@@ -138,7 +123,7 @@
     {
       "label": "portable export normalizes historical gaps without raw mutation",
       "ok": true,
-      "detail": "7 synthesized for 7 source gap events"
+      "detail": "0 synthesized for 0 source gap events"
     },
     {
       "label": "portable export contains no credential patterns",

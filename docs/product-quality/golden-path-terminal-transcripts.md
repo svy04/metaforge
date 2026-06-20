@@ -101,9 +101,5 @@ Commands:
   plugin|plugins                                    Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
   update|upgrade                                    Check for updates and install if available
---- stderr ---
-Warning: ignoring saved provider profile. OPENAI_API_KEY is required when CLAUDE_CODE_USE_OPENAI=1 and OPENAI_BASE_URL is not local.
-To recover, run /provider and switch provider, or set CLAUDE_CODE_USE_OPENAI=0 in your shell environment.
-Saved startup settings can come from <user-home>\.claude.json or <repo>\.openclaude-profile.json.
 ```
 

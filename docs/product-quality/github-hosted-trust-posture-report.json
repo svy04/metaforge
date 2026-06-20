@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-19T15:41:59.463Z",
+  "generatedAt": "2026-06-20T06:58:15.325Z",
   "mode": "github_hosted_trust_posture_readonly",
   "repository": "svy04/metaforge",
   "defaultBranch": "main",
-  "defaultBranchHeadSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
+  "defaultBranchHeadSha": "2a27f8a247536f05513fc2926993f135e5897bd8",
   "status": "hosted_trust_risks_detected",
   "primarySourceInputs": [
     {
@@ -73,8 +73,8 @@
     "detail": "0 repository rulesets returned"
   },
   "securityAndAnalysis": {
-    "secretScanning": "disabled",
-    "pushProtection": "disabled",
+    "secretScanning": "enabled",
+    "pushProtection": "enabled",
     "dependabotSecurityUpdates": "disabled"
   },
   "vulnerabilityAlerts": {
@@ -83,16 +83,16 @@
   },
   "codeScanning": {
     "status": "available",
-    "openAlertCount": 368,
+    "openAlertCount": 367,
     "byRuleSeverity": {
       "note": 193,
-      "warning": 174,
+      "warning": 173,
       "error": 1
     },
     "bySecuritySeverity": {
       "unknown": 223,
       "medium": 110,
-      "high": 35
+      "high": 34
     },
     "topRules": [
       {
@@ -121,7 +121,7 @@
       },
       {
         "ruleId": "js/file-system-race",
-        "count": 11
+        "count": 10
       },
       {
         "ruleId": "js/indirect-command-line-injection",
@@ -139,114 +139,114 @@
   },
   "latestMainRuns": [
     {
+      "conclusion": "success",
+      "createdAt": "2026-06-20T06:32:19Z",
+      "databaseId": 27862987474,
+      "headSha": "2a27f8a247536f05513fc2926993f135e5897bd8",
+      "name": "Release Boundary",
+      "status": "completed",
+      "updatedAt": "2026-06-20T06:32:31Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862987474",
+      "workflowName": "Release Boundary"
+    },
+    {
       "conclusion": "",
-      "createdAt": "2026-06-19T15:14:04Z",
-      "databaseId": 27833856848,
-      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
+      "createdAt": "2026-06-20T06:32:19Z",
+      "databaseId": 27862987469,
+      "headSha": "2a27f8a247536f05513fc2926993f135e5897bd8",
       "name": "CodeQL",
       "status": "in_progress",
-      "updatedAt": "2026-06-19T15:14:12Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27833856848",
+      "updatedAt": "2026-06-20T06:32:23Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862987469",
       "workflowName": "CodeQL"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-19T15:14:04Z",
-      "databaseId": 27833856837,
-      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
-      "name": "Release Boundary",
-      "status": "completed",
-      "updatedAt": "2026-06-19T15:14:17Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27833856837",
-      "workflowName": "Release Boundary"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-19T15:14:04Z",
-      "databaseId": 27833856854,
-      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
+      "createdAt": "2026-06-20T06:32:19Z",
+      "databaseId": 27862987473,
+      "headSha": "2a27f8a247536f05513fc2926993f135e5897bd8",
       "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-19T15:14:27Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27833856854",
+      "updatedAt": "2026-06-20T06:32:49Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862987473",
       "workflowName": "OpenSSF Scorecard"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-19T15:14:04Z",
-      "databaseId": 27833856829,
-      "headSha": "abbaf8bbb369faabce1178bd79579242fb14b1b8",
+      "createdAt": "2026-06-20T06:32:19Z",
+      "databaseId": 27862987483,
+      "headSha": "2a27f8a247536f05513fc2926993f135e5897bd8",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-19T15:17:42Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27833856829",
+      "updatedAt": "2026-06-20T06:36:00Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862987483",
       "workflowName": "PR Checks"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-19T14:27:21Z",
-      "databaseId": 27831529958,
-      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
-      "name": "PR Checks",
-      "status": "completed",
-      "updatedAt": "2026-06-19T14:31:16Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27831529958",
-      "workflowName": "PR Checks"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-19T14:27:21Z",
-      "databaseId": 27831529891,
-      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
-      "name": "Release Boundary",
-      "status": "completed",
-      "updatedAt": "2026-06-19T14:27:34Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27831529891",
-      "workflowName": "Release Boundary"
-    },
-    {
-      "conclusion": "success",
-      "createdAt": "2026-06-19T14:27:21Z",
-      "databaseId": 27831530046,
-      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
+      "createdAt": "2026-06-20T06:24:53Z",
+      "databaseId": 27862819467,
+      "headSha": "9fd5629beaf7d40429e412a6cd34a3f475876567",
       "name": "OpenSSF Scorecard",
       "status": "completed",
-      "updatedAt": "2026-06-19T14:27:43Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27831530046",
+      "updatedAt": "2026-06-20T06:25:22Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862819467",
       "workflowName": "OpenSSF Scorecard"
     },
     {
-      "conclusion": "success",
-      "createdAt": "2026-06-19T14:27:21Z",
-      "databaseId": 27831530010,
-      "headSha": "c1339cc06e9ac85010e2a843351cdc4b2a79ee15",
+      "conclusion": "",
+      "createdAt": "2026-06-20T06:24:53Z",
+      "databaseId": 27862819453,
+      "headSha": "9fd5629beaf7d40429e412a6cd34a3f475876567",
       "name": "CodeQL",
-      "status": "completed",
-      "updatedAt": "2026-06-19T15:07:32Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27831530010",
+      "status": "in_progress",
+      "updatedAt": "2026-06-20T06:24:56Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862819453",
       "workflowName": "CodeQL"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-19T13:59:02Z",
-      "databaseId": 27830107651,
-      "headSha": "dc2c373d7b4b18c0a5e229a170ea0940000d1d01",
+      "createdAt": "2026-06-20T06:24:53Z",
+      "databaseId": 27862819444,
+      "headSha": "9fd5629beaf7d40429e412a6cd34a3f475876567",
+      "name": "Release Boundary",
+      "status": "completed",
+      "updatedAt": "2026-06-20T06:25:07Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862819444",
+      "workflowName": "Release Boundary"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-06-20T06:24:53Z",
+      "databaseId": 27862819455,
+      "headSha": "9fd5629beaf7d40429e412a6cd34a3f475876567",
       "name": "PR Checks",
       "status": "completed",
-      "updatedAt": "2026-06-19T14:02:46Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27830107651",
+      "updatedAt": "2026-06-20T06:28:31Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27862819455",
       "workflowName": "PR Checks"
     },
     {
       "conclusion": "success",
-      "createdAt": "2026-06-19T13:59:02Z",
-      "databaseId": 27830107649,
-      "headSha": "dc2c373d7b4b18c0a5e229a170ea0940000d1d01",
+      "createdAt": "2026-06-20T05:30:01Z",
+      "databaseId": 27861560943,
+      "headSha": "b602d2c999d89b81698aa981930c371c7f5fef13",
       "name": "CodeQL",
       "status": "completed",
-      "updatedAt": "2026-06-19T14:37:54Z",
-      "url": "https://github.com/svy04/metaforge/actions/runs/27830107649",
+      "updatedAt": "2026-06-20T06:12:02Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27861560943",
       "workflowName": "CodeQL"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-06-20T05:30:01Z",
+      "databaseId": 27861560960,
+      "headSha": "b602d2c999d89b81698aa981930c371c7f5fef13",
+      "name": "Release Boundary",
+      "status": "completed",
+      "updatedAt": "2026-06-20T05:30:17Z",
+      "url": "https://github.com/svy04/metaforge/actions/runs/27861560960",
+      "workflowName": "Release Boundary"
     }
   ],
   "risks": [
@@ -261,16 +261,6 @@
       "detail": "0 repository rulesets returned"
     },
     {
-      "category": "secret_scanning_disabled",
-      "severity": "high",
-      "detail": "GitHub secret scanning is disabled."
-    },
-    {
-      "category": "push_protection_disabled",
-      "severity": "high",
-      "detail": "GitHub secret scanning push protection is disabled."
-    },
-    {
       "category": "dependabot_security_updates_disabled",
       "severity": "medium",
       "detail": "Dependabot security updates are disabled."
@@ -283,15 +273,15 @@
     {
       "category": "code_scanning_alert_backlog",
       "severity": "high",
-      "detail": "368 open code scanning alerts."
+      "detail": "367 open code scanning alerts."
     },
     {
       "category": "main_workflow_not_green",
       "severity": "medium",
-      "detail": "CodeQL is in_progress/; pending_freshness=within_60_minutes_or_timestamp_unavailable; run_id=27833856848; workflow_name=CodeQL; age_minutes=27; last_update_minutes=27; https://github.com/svy04/metaforge/actions/runs/27833856848"
+      "detail": "CodeQL is in_progress/; pending_freshness=within_60_minutes_or_timestamp_unavailable; run_id=27862987469; workflow_name=CodeQL; age_minutes=25; last_update_minutes=25; https://github.com/svy04/metaforge/actions/runs/27862987469"
     }
   ],
-  "riskCount": 8,
+  "riskCount": 6,
   "discovery": {
     "repositoryDiscovery": "gh_repo_view",
     "defaultBranchHeadDiscovery": "github_branch_api",
@@ -344,17 +334,17 @@
     {
       "label": "secret scanning status was classified",
       "ok": true,
-      "detail": "disabled"
+      "detail": "enabled"
     },
     {
       "label": "OpenSSF Scorecard hosted workflow was included in main-run classification",
       "ok": true,
-      "detail": "https://github.com/svy04/metaforge/actions/runs/27833856854"
+      "detail": "https://github.com/svy04/metaforge/actions/runs/27862987473"
     },
     {
       "label": "required workflow runs match default branch head",
       "ok": true,
-      "detail": "abbaf8bbb369faabce1178bd79579242fb14b1b8"
+      "detail": "2a27f8a247536f05513fc2926993f135e5897bd8"
     },
     {
       "label": "hosted trust risks do not unlock readiness claims",

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-18T09:14:15.074Z",
+  "generatedAt": "2026-06-20T06:58:02.120Z",
   "mode": "local_no_provider_trace_capture_redaction_policy",
   "sourceTraceReportPath": "docs/product-quality/real-session-trace-evals-report.json",
-  "sourceTraceReportSha256": "285728e685b889d857d1cf766ffdaf356997454c1a0e624a75b352b3bb84c7ed",
+  "sourceTraceReportSha256": "367dfb27558c6c04e07a34c46bd8b07bfb86329043e9396bedd362de4cfedca1",
   "rawTraceDirectory": "reports",
-  "rawTraceFileCount": 10,
+  "rawTraceFileCount": 7,
   "providerCallsPerformed": [],
   "liveModelCallsPerformed": [],
   "externalCallsPerformed": [],
@@ -90,13 +90,6 @@
       "providerRequestIdPatternFound": false
     },
     {
-      "path": "reports/orchestra-fixture-user-executor-no-provider.jsonl",
-      "sha256": "2c200bc2a98f975935e0612bd34ac55d876a148751db1c686f66a46d783657a6",
-      "lineCount": 3,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
       "path": "reports/orchestra-multi-file-code-editing-trace-local-fixture.jsonl",
       "sha256": "b68b2d1f229ca51af5eeb937e7e8055d1f71e68ff56c568a370313db85d72911",
       "lineCount": 10,
@@ -105,7 +98,7 @@
     },
     {
       "path": "reports/orchestra-prompted-tool-loop-local-cli.jsonl",
-      "sha256": "12e0ba0acdf0598759b50326926c012d12d3ba26e2daf2da31cd04e34d01a359",
+      "sha256": "0d6e86e984146ff4b3308c5f1867c300d27dc9b10a9a66158dd8e6b9e7dfa652",
       "lineCount": 8,
       "credentialPatternFound": false,
       "providerRequestIdPatternFound": false
@@ -119,7 +112,7 @@
     },
     {
       "path": "reports/orchestra-real-session-capture-local-cli.jsonl",
-      "sha256": "2240322b9b6ffb569910245b66a605203bdb70cd589cee7a2190fa2820ad956b",
+      "sha256": "814aca7c3335dfe88045246264cd7f9904f3c050314d0fbb47022ddf4e7c6111",
       "lineCount": 12,
       "credentialPatternFound": false,
       "providerRequestIdPatternFound": false
@@ -135,20 +128,6 @@
       "path": "reports/orchestra-tool-interruption-recovery-trace-local-fixture.jsonl",
       "sha256": "e3532d5745b5c3eaa71eff715092b98913cf7cd80f2eddc3acc1061e640f9366",
       "lineCount": 9,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
-      "path": "reports/orchestra-usage-cli-probe.jsonl",
-      "sha256": "21c1b2e7fc2e7a7a26a3c60698f8f6f186e19a5cd749f7a051633ecd0b0b40f5",
-      "lineCount": 2,
-      "credentialPatternFound": false,
-      "providerRequestIdPatternFound": false
-    },
-    {
-      "path": "reports/orchestra-usage-probe.jsonl",
-      "sha256": "1b49f7ef6568d496cb4cd6e5e163f4ce3352411908d151e755109d121f5b970c",
-      "lineCount": 2,
       "credentialPatternFound": false,
       "providerRequestIdPatternFound": false
     }
@@ -177,12 +156,12 @@
     {
       "label": "raw trace files match source report count",
       "ok": true,
-      "detail": "10/10"
+      "detail": "7/7"
     },
     {
       "label": "raw trace hashes match source report",
       "ok": true,
-      "detail": "10 summarized traces"
+      "detail": "7 summarized traces"
     },
     {
       "label": "raw trace credential patterns absent",
@@ -222,7 +201,7 @@
     {
       "label": "coverage summary keeps role and model evidence",
       "ok": true,
-      "detail": "4 roles, 17 models"
+      "detail": "3 roles, 13 models"
     }
   ],
   "claimBoundary": "Trace capture redaction policy evidence is local, no-provider, and summary-only. It does not capture a new non-synthetic session, call providers, publish raw traces, or claim release readiness, production readiness, public readiness, external validation, or autonomous reliability."

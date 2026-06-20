@@ -216,6 +216,9 @@ export const rawRequiredEvidencePaths = [
   'docs/product-quality/github-hosted-trust-posture-report.json',
   'docs/product-quality/github-hosted-trust-posture-report.md',
   'reports/openclaude-github-hosted-trust-posture.jsonl',
+  'docs/product-quality/secret-scanner-evidence-report.json',
+  'docs/product-quality/secret-scanner-evidence-report.md',
+  'reports/openclaude-secret-scanner-evidence.jsonl',
   'docs/product-quality/code-scanning-remediation-queue-report.json',
   'docs/product-quality/code-scanning-remediation-queue-report.md',
   'reports/openclaude-code-scanning-remediation-queue.jsonl',
@@ -344,6 +347,7 @@ export function proofClassFor(path: string): EvidenceProofClass {
     normalized.includes('claim') ||
     normalized.includes('license') ||
     normalized.includes('authorization') ||
+    normalized.includes('secret-scanner') ||
     normalized.includes('openssf') ||
     normalized.includes('governance') ||
     normalized.includes('policy') ||
