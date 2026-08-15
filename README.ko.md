@@ -1,189 +1,86 @@
-![Metaforge banner](docs/assets/metaforge-banner.gif)
-
 # Metaforge
 
 [English](README.md) | [한국어](README.ko.md)
 
-Metaforge는 Meta/MFH/Orchestra 기반의 governed-code 운영체제입니다.
+[![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 
-OpenClaude는 현재 Metaforge가 올라타는 로컬 CLI 런타임입니다. 터미널 UX,
-도구 호출, MCP, slash command, provider profile, streaming output, Claude/Codex
-route를 제공합니다. 하지만 공개적으로 중심에 둘 가치는 OpenClaude 자체가
-아니라 **Meta + MFH + Orchestra**입니다.
+이 저장소에는 서로 연결된 세 가지가 들어 있습니다.
 
-Orchestra는 현재 이 package에서 runtime-wired layer입니다. Meta와 MFH는
-governance, schema, evidence-gate surface입니다. 이 영역들을 모두 별도 runtime
-module로 말하지 않습니다.
+- **OpenClaude** — Anthropic의 Claude Code CLI에서 파생되어 여러 모델 프로바이더에서 돌도록 수정한 터미널 코딩 에이전트입니다. 실행되는 부분이 여기입니다: 터미널 UI, 에이전트 도구 루프(파일 편집·셸·서브에이전트, `src/tools/`), MCP 클라이언트(`src/services/mcp/`), 슬래시 명령, 스트리밍 출력. [PR 체크 워크플로](.github/workflows/pr-checks.yml)가 풀 리퀘스트마다 이 부분을 빌드하고 단위 테스트를 돌립니다.
+- **Orchestra** — [`src/services/orchestra/`](src/services/orchestra)의 TypeScript 모듈입니다. 에이전트 작업을 역할로 나눕니다: 오케스트레이터, 스켑틱, 구현자, 교차 리뷰, 증거 중재자(evidence arbiter), 섀도 실행·리뷰, 휴먼 게이트, 승격. 모듈마다 단위 테스트가 붙어 있고 같은 CLI로 컴파일됩니다.
+- **Meta와 MFH** — 이 체크아웃에서는 문서입니다. [`docs/`](docs) 아래의 목표 기록·스키마·결정 로그·생성 리포트, 그리고 스크립트 두 개가 있습니다. [`scripts/validate-goals.ts`](scripts/validate-goals.ts)는 필수 검증 명령의 통과 기록이 없는 목표 파일이 `validated`/`closed` 상태로 표기되어 있으면 거부합니다. [`scripts/validate-goal-traces.ts`](scripts/validate-goal-traces.ts)는 [`docs/goals/traces/`](docs/goals/traces)에 기록된 목표 트레이스의 필수 필드·이벤트 순서·기대 결과를 검사합니다.
 
-출처와 라이선스 경계: 이 repository에는 Anthropic Claude Code CLI에서 파생된
-runtime code가 포함되어 있습니다. OpenClaude 기여자의 수정분은 법적으로 가능한 범위에서 MIT
-라이선스로 제공되지만, 전체 파생 런타임에 대한 단순 MIT 라이선스가 아닙니다.
-재사용이나 재배포 전에는 반드시 [LICENSE](LICENSE)를 확인하세요.
+## 출처와 라이선스
 
-공개 히스토리 경계: Metaforge는 이 checkout 밖의 공개 전 작업 이력에서 현재 공개
-repository로 옮겨온 surface라서 public commit/star 숫자가 낮은 것은 예상 가능한 맥락입니다.
-이 이력은 채택, 외부 검증, production readiness 증거가 아닙니다. 공개 주장은
-source-controlled test, report, claim-boundary record에서만 나와야 합니다.
+런타임 코드는 Anthropic의 Claude Code CLI에서 파생되었습니다. 원본 소스는 Anthropic PBC의 독점 소프트웨어입니다. OpenClaude 기여자의 수정분은 법적으로 허용되는 범위에서 MIT 라이선스로 제공되며, 파생 런타임 전체에 대한 포괄 MIT 라이선스가 아닙니다. 이 프로젝트는 Anthropic과 제휴·보증·후원 관계가 없고, Anthropic의 독점 소스를 배포할 권한도 없습니다. "Claude"와 "Claude Code"는 Anthropic PBC의 상표입니다. 이 저장소의 코드를 재사용하거나 재배포하기 전에 [LICENSE](LICENSE)를 읽으세요.
 
-## 한 줄 요약
-
-Metaforge는 사용자의 의도를 장기 목표로 고정하고, Meta에 운영 기억을 남기며,
-Orchestra로 작업을 분배하고, MFH evidence gate를 통과한 것만 완료 주장으로
-승격하는 로컬 우선 agent OS입니다.
-
-## 현재 증명 가능한 것
-
-| 질문 | 현재 답 |
-| --- | --- |
-| 무엇인가요? | OpenClaude CLI runtime 위에서 동작하는 Meta/MFH/Orchestra OS입니다. |
-| 바로 확인할 명령 | `bun run goals:validate`, `bun run product:public-artifact-hygiene`, `bun run verify:privacy` |
-| 가장 강한 공개 증거 | [goal trace validation report](docs/product-quality/goal-trace-validation-report.md), [origin/license provenance boundary](docs/product-quality/origin-license-provenance-boundary-report.md), [Architecture Map](docs/product-quality/metaforge-architecture-map.md), [public proof pack](docs/marketing/metaforge-public-proof-pack-2026-06-18.md), [GitHub profile refresh evidence](docs/profile/github-profile-refresh-evidence-2026-06-20.md), [research validation report](docs/product-quality/research-brief-validation-report.md), [eval flywheel validation report](docs/product-quality/eval-flywheel-validation-report.md), [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map) |
-| 증거 분류 | `docs/product-quality/product-evidence-manifest.md`의 evidence manifest는 behavioral runtime evidence와 static analysis, governance-boundary, source-control, structural-inventory evidence를 분리합니다. |
-| 증명하지 않는 것 | production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability |
-
-## 공개 피드백 응답
-
-최근 한국 커뮤니티 피드백은 칭찬이나 외부 검증이 아니라 제품 입력으로 추적합니다.
-[2026-06-20 snapshot](docs/product-quality/public-feedback-snapshot-2026-06-20.md)과
-[triage](docs/product-quality/public-feedback-triage-2026-06-20.md)에 보존되어 있습니다.
-
-그 피드백 때문에 공개 기준을 이렇게 고정합니다.
-
-- 출처, fork/adaptation, 낮은 public commit/star 맥락을 먼저 분명히 말한다.
-- AGENTS와 README는 public-safe하고 짧아야 하며 local machine context를 노출하지 않는다.
-- OpenClaude는 runtime substrate이고, 공개 thesis는 Metaforge = Meta + MFH + Orchestra OS다.
-- CLI substrate risk는 backlog lane으로 둔다. OpenClaude-derived substrate가 과도한 출처, license, maintenance risk를 만들면 더 낮은 위험의 open substrate나 host adapter를 검토하되, 제품 thesis는 Meta/MFH/Orchestra에서 옮기지 않는다.
-- marker-only audit는 behavioral happy path, edge case, side-effect guard로 계속 옮겨가야 한다.
-- Knip, dependency-cruiser, jscpd는 현재 local no-provider product-quality gate로 연결되어 dead-export 후보, dependency topology baseline/ratchet, product-script clone baseline을 기록한다. Fallow와 Lumin Repo Lens는 여전히 선택적/manual backlog input이며, 이 gate들은 cleanup 완료나 topology clean을 증명하지 않는다.
-- 정적 분석 증거: [Knip dead-export 후보](docs/product-quality/dead-export-candidates-report.md), [dependency-cruiser topology ratchet](docs/product-quality/dependency-topology-report.md), [jscpd product-script clone ratchet](docs/product-quality/script-duplication-audit-report.md), [static-analysis remediation queue](docs/product-quality/static-analysis-remediation-queue-report.md), [architecture map](docs/product-quality/metaforge-architecture-map.md#static-analysis-trust-stack), [CG-002 static-analysis goal](docs/goals/CG-002-static-analysis-ratchet.md), [evidence manifest](docs/product-quality/product-evidence-manifest.md). 이것은 candidate/baseline/ratchet/queue 증거이며 리포트를 운영 가능한 remediation work로 바꾸지만, cleanup 완료, topology clean, refactor 완료, public readiness, external validation을 증명하지 않습니다.
-- 첫 피드백 루프가 한국어였으므로 한국어 문서도 최신으로 유지한다.
-
-## Metaforge Proof Tour
-
-공개 설명이 진짜인지 확인할 때는 이 순서로 보면 됩니다.
-
-1. **Goal Kernel**: `docs/goals/CG-001-goal-kernel-mvp.md`와 `docs/goals/CG-002-static-analysis-ratchet.md`가 owner intent를 scope, non-goals, success criteria, validation commands, evidence artifacts, rollback rules, MFH/Meta field가 있는 machine-checkable goal로 만듭니다.
-2. **Meta**: goal은 local authority source, decision ledger, raw source, memory/wiki update boundary를 연결해서 운영 상태를 채팅 기억이 아니라 증거로 남깁니다.
-3. **MFH**: `scripts/validate-goals.ts`는 required validation command의 passing evidence가 없으면 `validated`나 `closed` 상태를 막고, `scripts/validate-goal-traces.ts`는 validated, rejected, blocked outcome을 담은 representative cross-goal trace pack의 순서와 side-effect boundary를 검사합니다.
-4. **Orchestra**: `src/services/orchestra/`는 planner, skeptic, reviewer, arbiter, promotion role이 runtime-wired 된 layer입니다. 단, 이 주장은 local test와 product-quality report 범위로만 말합니다.
-5. **Mimesis Engineering**: trace gate는 OpenTelemetry식 trace, OPA식 policy decision, OpenAI agent eval trace grading, NIST AI RMF risk-management record 구조를 흡수한 작은 증거층입니다.
-6. **OpenClaude runtime**: OpenClaude는 terminal tool, provider route, MCP, slash command, credential surface를 제공합니다. 제품 중심은 OpenClaude가 아니라 Meta/MFH/Orchestra입니다.
-
-증명하지 않는 것: 이 Proof Tour는 local no-provider evidence이며 production readiness, hosted deployment, external validation, benchmark superiority, autonomous reliability claim을 만들지 않습니다.
-
-## 운영 레이어
-
-AVF Influence Factory는 repo-local manual artifact lane입니다.
-
-| 레이어 | 역할 |
-| --- | --- |
-| Meta | 운영 기억, 결정, source ledger, 승인 경계 |
-| Goal Kernel | 목표 계층, 성공 기준, non-goals, 검증 명령, rollback rule |
-| Orchestra | Claude/Codex route, planning, critique, review, evidence arbitration |
-| MFH | drift, state, evidence, closure, release claim을 막는 governed-code gate |
-| OpenClaude runtime | tools, MCP, slash command, provider profile, streaming, credential route. Generated profile은 non-sensitive 설정만 저장하고 API key와 obsolete or blocked model-lock metadata는 저장하지 않습니다. |
-
-### 배선 증거 맵
-
-생성된 [public claim evidence map](docs/product-quality/public-claim-boundary-report.md#public-claim-evidence-map)이 이 표의 근거 원본입니다. 각 symbol을 allowed claim, explicit non-claim, local evidence path, unresolved gap에 묶어 둡니다.
-
-| 심볼 | 공개 역할 | 증거 등급 | 런타임 경계 |
-| --- | --- | --- | --- |
-| Orchestra | Claude/Codex route 위에서 planner, skeptic, implementer, reviewer, evidence arbiter, promotion 역할을 분배합니다. | runtime-wired import path; unit/product-quality evidence | Runtime code는 `src/services/orchestra/`에 있고 CLI query surface에서 호출됩니다. |
-| Meta/MFH | 운영 기억, goal contract, evidence gate, closure rule을 정직하게 유지합니다. | governance/docs/gates | `docs/`, schema, report, product-quality gate로 표현됩니다. 이 checkout의 별도 runtime module이 아닙니다. |
-| Mimesis Engineering | OSS, 논문, 특허, 표준, 제품 패턴에서 load-bearing structure를 흡수하는 source-first loop입니다. | source-ledger loop이며 기본 runtime module이 아닙니다 | 공개 증거는 docs/source ledger와 local verification입니다. 공개되지 않은 pre-public artifact는 public proof 밖에 둡니다. |
-| AVF Influence Factory | venture/factory packet을 만드는 operator artifact flow입니다. | manual artifact lane이며 기본 CLI runtime import가 아닙니다 | `avf/`와 validator script에 있으며 generated operator output은 ignored local artifact로 남깁니다. |
-
-## 빠른 시작
+## 빌드와 실행
 
 ```bash
 bun install
-bun run build
+bun run build        # CLI를 dist/cli.mjs로 번들
 node dist/cli.mjs
 ```
 
-`npm install -g @gitlawb/openclaude` 명령은 external OpenClaude npm package를
-설치하는 경로입니다. 즉 이 checkout에서 만든 배포물이 아니라는 의미에서
-`not a Metaforge release artifact`입니다.
+CLI 안에서 `/provider`로 프로바이더를 설정하고 `/onboard-github`로 GitHub Models를 연결합니다. 두 명령 모두 [`src/commands/`](src/commands)에 소스로 존재합니다.
 
-검증은:
+npm 레지스트리에 `@gitlawb/openclaude`라는 패키지가 있지만, 게시된 버전은 이 체크아웃과 일치하지 않습니다. 이 저장소의 내용을 쓰려면 소스에서 빌드하세요.
 
-```bash
-bun run verify:privacy
-```
+설치 가이드: [Windows](docs/quick-start-windows.md) · [macOS/Linux](docs/quick-start-mac-linux.md) · [비개발자용](docs/non-technical-setup.md) · [고급 설정](docs/advanced-setup.md) · [Android](ANDROID_INSTALL.md) · [LiteLLM](docs/litellm-setup.md)
 
-## Claude / Codex route
+## 프로바이더
 
-Metaforge는 Claude와 Codex를 Orchestra 안의 실행 엔진으로 사용할 수 있습니다.
-Claude route는 planner, skeptic, reviewer 역할에 쓸 수 있고, Codex route는
-visible executor와 implementation role에 쓸 수 있습니다.
+이 저장소에 실제로 존재하는 라우팅 코드:
 
-중요한 경계:
+| 프로바이더 | 소스 |
+| --- | --- |
+| Anthropic Claude (OAuth) | `src/services/api/claude.ts` |
+| Codex (ChatGPT OAuth) | `src/services/api/codexOAuth.ts` |
+| OpenAI 호환 `/v1` 엔드포인트 | `src/services/api/openaiShim.ts` |
+| Gemini | `src/utils/geminiAuth.ts` |
+| GitHub Models | `src/utils/githubModelsCredentials.ts` |
+| Ollama (로컬) | `src/utils/model/ollamaModels.ts` |
+| AWS Bedrock | `src/utils/model/bedrock.ts` |
 
-- Claude와 Codex는 engine입니다.
-- 제품 중심은 Meta/MFH/Orchestra입니다.
-- provider badge나 workflow badge는 외부 검증이 아니라 configured automation
-  health와 local evidence link입니다.
+Vertex·Foundry SDK는 [`package.json`](package.json)에 선언되어 있습니다. 동작은 프로바이더와 모델에 따라 다르며, 작은 로컬 모델은 긴 다단계 도구 호출에서 어려움을 겪을 수 있습니다.
 
-## Mimesis Engineering
+## 테스트와 점검
 
-Mimesis Engineering은 이미 세상에 존재하는 강한 원본, 논문, 특허, 표준,
-오픈소스 구현을 읽고 load-bearing structure를 추출한 뒤 로컬 시스템에
-적용하고 검증하는 개선 엔진입니다.
-
-이 방식은 “전문가인 척하는 프롬프트”가 아니라 “전문가의 산출물과 검증 구조를
-가져와서 흡수하는 방식”입니다.
-
-시작 문서:
-
-- [docs/MIMESIS_ENGINEERING.md](docs/MIMESIS_ENGINEERING.md)
-- [docs/research/mimesis-engineering-source-ledger-2026-06-14.md](docs/research/mimesis-engineering-source-ledger-2026-06-14.md)
-
-## 검증
-
-완료 주장은 파일 존재만으로 하지 않습니다. 관련 명령, test, loader check,
-version probe, live inspection 중 하나 이상을 실제로 실행해야 합니다.
-
-자주 쓰는 명령:
+아래 명령은 모두 [`package.json`](package.json)에 정의되어 있습니다:
 
 ```bash
-bun run build
-bun run typecheck --pretty false
-bun test
-bun run verify:privacy
-bun run product:quality
+bun test                 # 단위 테스트 (Bun 테스트 러너)
+bun run test:coverage    # 커버리지 리포트를 coverage/에 생성
+bun run typecheck        # tsc --noEmit
+bun run smoke            # 빌드 + 버전 확인
+bun run doctor:runtime   # 로컬 환경 점검
+bun run verify:privacy   # 외부 전송 없음·시크릿 스캔·공개 저장소 점검
+bun run goals:validate   # 목표 스키마·트레이스 검증
+bun run product:quality  # docs/product-quality/ 리포트를 재생성하는 긴 체인
 ```
 
-`product:quality`가 보호된 환경 경계에서 멈추면, 그것을 성공 주장으로 바꾸지
-말고 생성된 report와 blocker를 그대로 읽어야 합니다.
+[`docs/product-quality/`](docs/product-quality)의 리포트는 이 로컬 스크립트들이 생성합니다. 로컬 머신에서 무엇을 점검했는지 기록한 문서이고, 외부 감사가 아닙니다.
 
-## 공개 주장 경계
+## 헤드리스 gRPC 서버
 
-현재 이 repo가 말할 수 있는 것:
+`npm run dev:grpc`가 엔진을 gRPC 서비스로 띄웁니다. 기본 주소는 `localhost:50051`이고 `GRPC_PORT`/`GRPC_HOST`로 바꿉니다. `npm run dev:grpc:cli`는 그 서버에 붙는 터미널 클라이언트입니다. 정의는 [`src/proto/openclaude.proto`](src/proto/openclaude.proto)에 있습니다. 로컬 개발용 경로이며, 이 저장소에 호스팅된 배포는 없습니다.
 
-- Meta/MFH/Orchestra 구조의 공개 작업면이 있다.
-- OpenClaude runtime 위에서 로컬 검증과 evidence gate를 구축하고 있다.
-- public proof pack과 product-quality report가 claim boundary를 기록한다.
+## 저장소에 더 있는 것
 
-아직 말하지 않는 것:
+- [`packages/openclaude-vscode/`](packages/openclaude-vscode) — OpenClaude 실행용 VS Code 확장 소스. 마켓플레이스 게시를 주장하지 않습니다.
+- [`python/`](python) — 독립 Python 헬퍼(Ollama 프로바이더, Atomic Chat 프로바이더, 스마트 라우터)와 자체 테스트.
+- [`docs/goals/`](docs/goals) — [CG-001](docs/goals/CG-001-goal-kernel-mvp.md), [CG-002](docs/goals/CG-002-static-analysis-ratchet.md) 같은 목표 파일. [docs/GOAL_SCHEMA.md](docs/GOAL_SCHEMA.md) 스키마를 따릅니다.
+- [`docs/MIMESIS_ENGINEERING.md`](docs/MIMESIS_ENGINEERING.md) — 문서로 적어 둔 작업 방법: 잘 만들어진 기존 구현·논문·표준을 읽고 그 구조를 로컬에 맞게 옮긴 뒤 검증합니다. 출처 목록은 [`docs/research/`](docs/research)에 있습니다.
+- [`avf/`](avf) — 콘텐츠 제작 워크플로용 스키마·템플릿·런북과 샘플 콘텐츠 배치. CLI가 기본으로 임포트하지 않으며, 운영자가 파일을 손으로 사용합니다.
 
-- not production-ready
-- not hosted deployment complete
-- not externally validated
-- not benchmark superior
-- not autonomous reliability proven
+## 경계
 
-## 라이선스와 출처
+호스팅된 서비스는 없고 프로덕션 준비를 주장하지 않습니다. 외부 검증, 벤치마크 우위, 자율 실행의 신뢰성도 주장하지 않습니다. Meta와 MFH는 여기서 문서와 검증 스크립트로 존재합니다. 구성 요소가 서로 어떻게 연결되는지는 [아키텍처 맵](docs/product-quality/metaforge-architecture-map.md)과 [증거 목록](docs/product-quality/product-evidence-manifest.md)에 적혀 있습니다.
 
-OpenClaude runtime에는 Anthropic Claude Code CLI에서 파생된 코드가 포함되어
-있습니다. OpenClaude 기여자의 수정 및 추가분은 법적으로 허용되는 범위에서만
-MIT License로 제공되며, 이는 파생 runtime 전체에 대한 blanket MIT license가
-아닙니다. 이 repository는 Anthropic proprietary source 배포 승인을 받은 것이
-아닙니다. 코드 재사용, 재배포, 설치 판단 전 [LICENSE](LICENSE)를 확인하세요.
-"Claude"와 "Claude Code"는 Anthropic PBC의 상표입니다.
+## 보안·지원·기여
 
-## 커뮤니티
+보안 제보는 [SECURITY.md](SECURITY.md), 지원 경로는 [SUPPORT.md](SUPPORT.md), 기여는 [CONTRIBUTING.md](CONTRIBUTING.md)를 보세요. PR 전에 `bun run build`, `bun run smoke`, 그리고 바꾼 부분에 대한 `bun test`를 돌립니다. 프로젝트 공간에서는 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)를 따릅니다.
 
-- 버그와 기능 요청: [GitHub Issues](https://github.com/svy04/metaforge/issues)
-- 보안 이슈: [SECURITY.md](SECURITY.md)
-- 기여 가이드: [CONTRIBUTING.md](CONTRIBUTING.md)
+## 라이선스
+
+[LICENSE](LICENSE)를 보세요.
