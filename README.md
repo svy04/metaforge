@@ -1,6 +1,6 @@
 # Metaforge
 
-[English](README.md) | [한국어](README.ko.md)
+**[English](README.md) | [한국어](README.ko.md)**
 
 **One terminal coding agent, many model providers — a CLI derived from Anthropic's Claude Code, with role-split agent modules and goal validation that rejects a `validated` mark lacking a recorded passing result.**
 
@@ -10,7 +10,13 @@
 - **Goal validation** — [`scripts/validate-goals.ts`](scripts/validate-goals.ts) rejects any goal marked `validated` or `closed` whose required commands have no recorded passing result
 - **CI on every PR** — build plus unit suites, badge below
 
-[![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
+<p align="center">
+  <a href="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml"><img src="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main" alt="PR Checks"></a>
+</p>
+
+<p align="center">
+  <a href="#build-it">Build</a> · <a href="#origin-and-license">License</a> · <a href="#pick-a-provider">Providers</a> · <a href="#how-the-roles-connect">Roles</a> · <a href="#run-the-checks">Checks</a> · <a href="#serve-it-headless">Headless</a> · <a href="#browse-the-rest">More</a> · <a href="#report-and-contribute">Contribute</a>
+</p>
 
 ## Build it
 
@@ -30,7 +36,9 @@ An npm package named `@gitlawb/openclaude` exists on the registry, but its publi
 
 The runtime code is derived from Anthropic's Claude Code CLI; the original source is proprietary to Anthropic PBC. Contributor modifications are offered under MIT where legally permissible — this is not a blanket MIT license over the whole runtime.
 
-The project is not affiliated with, endorsed by, or sponsored by Anthropic, and has no authorization to distribute Anthropic's proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC. Read [LICENSE](LICENSE) before reusing or redistributing anything here.
+The project is not affiliated with, endorsed by, or sponsored by Anthropic, and has no authorization to distribute Anthropic's proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC.
+
+Read [LICENSE](LICENSE) before reusing or redistributing anything here.
 
 ## Pick a provider
 
@@ -45,6 +53,24 @@ The project is not affiliated with, endorsed by, or sponsored by Anthropic, and 
 | AWS Bedrock | `src/utils/model/bedrock.ts` |
 
 Vertex and Foundry SDKs are declared in [`package.json`](package.json). Behavior differs by provider and model — small local models can struggle with long multi-step tool chains.
+
+## How the roles connect
+
+The eight roles are separate modules under [`src/services/orchestra/`](src/services/orchestra); [`shadowReview.ts`](src/services/orchestra/shadowReview.ts) wires most of them into one review pipeline. The orchestrator and skeptic sit on the main query path — the skeptic files its dissent after implementation.
+
+```mermaid
+flowchart TD
+    T["task scope"] --> WM["worktreeManager<br/>isolated shadow worktrees"]
+    WM --> SE["shadowExecutor<br/>runs the candidates"]
+    SE --> CR["crossReview<br/>GPT + Opus review matrix"]
+    CR --> EA["evidenceArbiter<br/>evidence matrix"]
+    EA --> HG["humanGate<br/>summary for a human decision"]
+    EA --> PS[("promotionStore<br/>latest review on disk")]
+    PS --> PR["promote<br/>evaluates the promotion request"]
+    OR["orchestrator"] -. "after implementation" .-> SK["skeptic<br/>dissent report"]
+```
+
+Every module box maps to a source file of the same name, each with its own unit tests. The implementer route (Codex) is wired in [`src/query/deps.ts`](src/query/deps.ts).
 
 ## Run the checks
 
