@@ -2,19 +2,17 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
+**One terminal coding agent, many model providers — a CLI derived from Anthropic's Claude Code, with role-split agent modules and goal validation that rejects a `validated` mark lacking a recorded passing result.**
+
+- **7 provider routes** — Anthropic OAuth, Codex OAuth, OpenAI-compatible `/v1`, Gemini, GitHub Models, Ollama, AWS Bedrock — [table below](#pick-a-provider)
+- **8 agent roles** — orchestrator, skeptic, implementer, cross-review, evidence arbiter, shadow execution and review, human gate, promotion — [`src/services/orchestra/`](src/services/orchestra), unit tests per module
+- **8 check commands** — from `bun test` to `verify:privacy` and `goals:validate`, all defined in [`package.json`](package.json)
+- **Goal validation** — [`scripts/validate-goals.ts`](scripts/validate-goals.ts) rejects any goal marked `validated` or `closed` whose required commands have no recorded passing result
+- **CI on every PR** — build plus unit suites, badge below
+
 [![PR Checks](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main)](https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml)
 
-This repository holds three related things.
-
-- **OpenClaude** — a terminal coding agent derived from Anthropic's Claude Code CLI and modified to run against multiple model providers. This is the runnable part: an interactive terminal UI, the agent tool loop (file edits, shell, subagents under `src/tools/`), an MCP client (`src/services/mcp/`), slash commands, and streaming output. The [PR checks workflow](.github/workflows/pr-checks.yml) builds it and runs the unit suites on every pull request.
-- **Orchestra** — TypeScript modules under [`src/services/orchestra/`](src/services/orchestra) that split agent work into roles: orchestrator, skeptic, implementer, cross-review, evidence arbiter, shadow execution and review, human gate, promotion. Each module has unit tests alongside it and compiles into the same CLI.
-- **Meta and MFH** — in this checkout, documents: goal records, schemas, decision logs, and generated reports under [`docs/`](docs), plus two scripts. [`scripts/validate-goals.ts`](scripts/validate-goals.ts) rejects any goal file marked `validated` or `closed` whose required validation commands have no recorded passing result. [`scripts/validate-goal-traces.ts`](scripts/validate-goal-traces.ts) checks the recorded goal traces under [`docs/goals/traces/`](docs/goals/traces) for required fields, event order, and expected outcomes.
-
-## Origin and license
-
-The runtime code is derived from Anthropic's Claude Code CLI. The original source is proprietary to Anthropic PBC. Modifications by OpenClaude contributors are offered under MIT where legally permissible; this is not a blanket MIT license over the whole runtime. The project is not affiliated with, endorsed by, or sponsored by Anthropic and has no authorization from Anthropic to distribute their proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC. Read [LICENSE](LICENSE) before reusing or redistributing code from this repository.
-
-## Build and run
+## Build it
 
 ```bash
 bun install
@@ -22,17 +20,21 @@ bun run build        # bundles the CLI to dist/cli.mjs
 node dist/cli.mjs
 ```
 
-Inside the CLI, `/provider` opens provider setup and `/onboard-github` sets up GitHub Models. Both exist as source under [`src/commands/`](src/commands).
-
-An npm package named `@gitlawb/openclaude` exists on the registry, but its published version does not match this checkout. To get what this repository contains, build from source.
+Inside the CLI, `/provider` opens provider setup and `/onboard-github` connects GitHub Models — both live under [`src/commands/`](src/commands).
 
 Setup guides: [Windows](docs/quick-start-windows.md) · [macOS/Linux](docs/quick-start-mac-linux.md) · [non-technical](docs/non-technical-setup.md) · [advanced](docs/advanced-setup.md) · [Android](ANDROID_INSTALL.md) · [LiteLLM](docs/litellm-setup.md)
 
-## Providers
+An npm package named `@gitlawb/openclaude` exists on the registry, but its published version does not match this checkout — build from source to get what is here.
 
-Routing code that exists in this repository:
+## Origin and license
 
-| Provider | Source |
+The runtime code is derived from Anthropic's Claude Code CLI; the original source is proprietary to Anthropic PBC. Contributor modifications are offered under MIT where legally permissible — this is not a blanket MIT license over the whole runtime.
+
+The project is not affiliated with, endorsed by, or sponsored by Anthropic, and has no authorization to distribute Anthropic's proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC. Read [LICENSE](LICENSE) before reusing or redistributing anything here.
+
+## Pick a provider
+
+| Provider | Route |
 | --- | --- |
 | Anthropic Claude (OAuth) | `src/services/api/claude.ts` |
 | Codex (ChatGPT OAuth) | `src/services/api/codexOAuth.ts` |
@@ -42,11 +44,9 @@ Routing code that exists in this repository:
 | Ollama (local) | `src/utils/model/ollamaModels.ts` |
 | AWS Bedrock | `src/utils/model/bedrock.ts` |
 
-Vertex and Foundry SDKs are declared in [`package.json`](package.json). Behavior differs by provider and model; small local models can struggle with long multi-step tool chains.
+Vertex and Foundry SDKs are declared in [`package.json`](package.json). Behavior differs by provider and model — small local models can struggle with long multi-step tool chains.
 
-## Tests and checks
-
-All commands below are defined in [`package.json`](package.json):
+## Run the checks
 
 ```bash
 bun test                 # unit tests (Bun test runner)
@@ -54,33 +54,27 @@ bun run test:coverage    # coverage report into coverage/
 bun run typecheck        # tsc --noEmit
 bun run smoke            # build + version probe
 bun run doctor:runtime   # local environment check
-bun run verify:privacy   # no-phone-home, secret-scan, and public-repo checks
+bun run verify:privacy   # no-phone-home, secret-scan, public-repo checks
 bun run goals:validate   # goal schema and trace validation
-bun run product:quality  # long chain that regenerates the docs/product-quality/ reports
+bun run product:quality  # regenerates the docs/product-quality/ reports
 ```
 
-The reports under [`docs/product-quality/`](docs/product-quality) are generated by these local scripts. They record what was checked on a local machine; they are not external audits.
+The reports under [`docs/product-quality/`](docs/product-quality) are generated by these scripts on a local machine — the repository's own bookkeeping, not an external audit. How the pieces map together is drawn in the [architecture map](docs/product-quality/metaforge-architecture-map.md) and the [evidence manifest](docs/product-quality/product-evidence-manifest.md).
 
-## Headless gRPC server
+## Serve it headless
 
-`npm run dev:grpc` starts the engine as a gRPC service, on `localhost:50051` by default (`GRPC_PORT` and `GRPC_HOST` change this). `npm run dev:grpc:cli` runs a terminal client against it. Definitions are in [`src/proto/openclaude.proto`](src/proto/openclaude.proto). This is a local development path; the repository contains no hosted deployment.
+`npm run dev:grpc` starts the engine as a gRPC service on `localhost:50051` (`GRPC_PORT`/`GRPC_HOST` change it); `npm run dev:grpc:cli` runs a terminal client against it. Definitions live in [`src/proto/openclaude.proto`](src/proto/openclaude.proto) — a local development path, with no hosted deployment.
 
-## Also in the repository
+## Browse the rest
 
-- [`packages/openclaude-vscode/`](packages/openclaude-vscode) — VS Code extension source for launching OpenClaude. No marketplace availability is claimed.
-- [`python/`](python) — standalone Python helpers (Ollama provider, Atomic Chat provider, smart router) with their own tests.
-- [`docs/goals/`](docs/goals) — goal files such as [CG-001](docs/goals/CG-001-goal-kernel-mvp.md) and [CG-002](docs/goals/CG-002-static-analysis-ratchet.md), written against [docs/GOAL_SCHEMA.md](docs/GOAL_SCHEMA.md).
-- [`docs/MIMESIS_ENGINEERING.md`](docs/MIMESIS_ENGINEERING.md) — a written working method: study strong existing implementations, papers, and standards, adapt their structure locally, and verify the result. Source lists live in [`docs/research/`](docs/research).
-- [`avf/`](avf) — schemas, templates, runbooks, and a sample content batch for a content-production workflow. The CLI does not import these by default; an operator uses the files by hand.
+- [`packages/openclaude-vscode/`](packages/openclaude-vscode) — VS Code extension source for launching OpenClaude; no marketplace listing
+- [`python/`](python) — standalone Python helpers (Ollama provider, Atomic Chat provider, smart router) with their own tests
+- [`docs/goals/`](docs/goals) — goal files like [CG-001](docs/goals/CG-001-goal-kernel-mvp.md) and [CG-002](docs/goals/CG-002-static-analysis-ratchet.md), written against [docs/GOAL_SCHEMA.md](docs/GOAL_SCHEMA.md); [`scripts/validate-goal-traces.ts`](scripts/validate-goal-traces.ts) checks the traces under [`docs/goals/traces/`](docs/goals/traces)
+- [`docs/MIMESIS_ENGINEERING.md`](docs/MIMESIS_ENGINEERING.md) — a written working method: study strong implementations, adapt their structure locally, verify the result; source lists in [`docs/research/`](docs/research)
+- [`avf/`](avf) — schemas, templates, runbooks, and a sample batch for a content-production workflow; the CLI does not import these by default
 
-## Boundaries
+## Report and contribute
 
-There is no hosted service and no production-readiness claim. The repository does not claim external validation, benchmark superiority, or reliable autonomous operation. Meta and MFH exist here as documents and validation scripts. How the pieces map to each other is written down in the [architecture map](docs/product-quality/metaforge-architecture-map.md) and the [evidence manifest](docs/product-quality/product-evidence-manifest.md).
+Security reports go to [SECURITY.md](SECURITY.md), support routing to [SUPPORT.md](SUPPORT.md), contributions to [CONTRIBUTING.md](CONTRIBUTING.md) — before a PR, run `bun run build`, `bun run smoke`, and focused `bun test` on what you changed. [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) applies in project spaces.
 
-## Security, support, contributing
-
-Security reports go through [SECURITY.md](SECURITY.md), support routing through [SUPPORT.md](SUPPORT.md), contributions through [CONTRIBUTING.md](CONTRIBUTING.md). Before a PR, run `bun run build`, `bun run smoke`, and focused `bun test` on what you changed. [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) applies in project spaces.
-
-## License
-
-See [LICENSE](LICENSE).
+License: see [LICENSE](LICENSE).
