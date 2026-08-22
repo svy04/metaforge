@@ -1,4 +1,6 @@
-# Metaforge
+<p align="center">
+  <img src="docs/banner.png" alt="Metaforge" width="820">
+</p>
 
 **[English](README.md) | [한국어](README.ko.md)**
 
