@@ -14,6 +14,9 @@
 
 <p align="center">
   <a href="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml"><img src="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main" alt="PR Checks"></a>
+  <a href="https://github.com/svy04/metaforge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-996a07" alt="License MIT"></a>
+  <a href="https://github.com/svy04/metaforge/stargazers"><img src="https://img.shields.io/github/stars/svy04/metaforge?color=996a07&label=%E2%98%85" alt="Stars"></a>
+  <a href="#pick-a-provider"><img src="https://img.shields.io/badge/providers-7-996a07" alt="7 provider routes"></a>
 </p>
 
 <p align="center">
@@ -40,7 +43,7 @@ The runtime code is derived from Anthropic's Claude Code CLI; the original sourc
 
 The project is not affiliated with, endorsed by, or sponsored by Anthropic, and has no authorization to distribute Anthropic's proprietary source. "Claude" and "Claude Code" are trademarks of Anthropic PBC.
 
-Read [LICENSE](LICENSE) before reusing or redistributing anything here.
+Read [NOTICE](NOTICE) before reusing or redistributing anything here. LICENSE carries the MIT text covering the modifications; NOTICE states what it does not cover.
 
 ## Pick a provider
 

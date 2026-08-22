@@ -14,6 +14,9 @@
 
 <p align="center">
   <a href="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml"><img src="https://github.com/svy04/metaforge/actions/workflows/pr-checks.yml/badge.svg?branch=main" alt="PR Checks"></a>
+  <a href="https://github.com/svy04/metaforge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-996a07" alt="라이선스 MIT"></a>
+  <a href="https://github.com/svy04/metaforge/stargazers"><img src="https://img.shields.io/github/stars/svy04/metaforge?color=996a07&label=%E2%98%85" alt="스타"></a>
+  <a href="#%ED%94%84%EB%A1%9C%EB%B0%94%EC%9D%B4%EB%8D%94-%EC%84%A0%ED%83%9D"><img src="https://img.shields.io/badge/providers-7-996a07" alt="제공자 경로 7"></a>
 </p>
 
 <p align="center">
@@ -40,7 +43,7 @@ npm 레지스트리에 `@gitlawb/openclaude` 패키지가 있지만 게시본이
 
 이 프로젝트는 Anthropic과 제휴·보증·후원 관계가 없고, Anthropic의 독점 소스를 배포할 권한도 없다. "Claude"와 "Claude Code"는 Anthropic PBC의 상표다.
 
-코드를 재사용하거나 재배포하기 전에 [LICENSE](LICENSE)부터 읽어야 한다.
+코드를 재사용하거나 재배포하기 전에 [NOTICE](NOTICE)부터 읽어야 한다. LICENSE 에는 수정분에 걸리는 MIT 전문이 있고, NOTICE 에 그 MIT 가 덮지 못하는 것이 적혀 있다.
 
 ## 프로바이더 선택
 
